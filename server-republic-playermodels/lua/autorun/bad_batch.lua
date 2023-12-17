@@ -1,0 +1,10 @@
+player_manager.AddValidModel( "Clone Hunter", "models/player/bad_batch/hunter.mdl" );
+list.Set( "PlayerOptionsModel",  "Clone Hunter", "models/player/bad_batch/hunter.mdl" );
+player_manager.AddValidModel( "Clone Tech", "models/player/bad_batch/tech.mdl" );
+list.Set( "PlayerOptionsModel",  "Clone Tech", "models/player/bad_batch/tech.mdl" );
+player_manager.AddValidModel( "Clone Wrecker", "models/player/bad_batch/wrecker.mdl" );
+list.Set( "PlayerOptionsModel",  "Clone Wrecker", "models/player/bad_batch/wrecker.mdl" );
+player_manager.AddValidModel( "Clone Echo", "models/player/bad_batch/echo.mdl" );
+list.Set( "PlayerOptionsModel",  "Clone Echo", "models/player/bad_batch/echo.mdl" );
+player_manager.AddValidModel( "Clone Crosshair", "models/player/bad_batch/crosshair.mdl" );
+list.Set( "PlayerOptionsModel",  "Clone Crosshair", "models/player/bad_batch/crosshair.mdl" );

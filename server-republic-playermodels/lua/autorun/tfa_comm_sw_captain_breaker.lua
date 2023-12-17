@@ -1,0 +1,2 @@
+player_manager.AddValidModel("TFA-SW-Captain-Breaker-V1","models/tfa/comm/gg/pm_sw_captain_breaker_v1.mdl")
+player_manager.AddValidModel("TFA-SW-Captain-Breaker-V2","models/tfa/comm/gg/pm_sw_captain_breaker_v2.mdl")

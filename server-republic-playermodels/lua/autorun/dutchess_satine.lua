@@ -1,0 +1,1 @@
+player_manager.AddValidModel( "Dutchess Satine", "models/player/mandalorian/dutchess_satine.mdl" );
