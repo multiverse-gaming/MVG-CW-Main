@@ -1,0 +1,1 @@
+player_manager.AddValidModel( "savage", "models/savage.mdl" )
