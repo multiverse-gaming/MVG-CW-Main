@@ -1,4 +1,3 @@
-if RDV.COMMUNICATIONS and RDV.COMMUNICATIONS.LOADED then return end
 
 function RDV.COMMUNICATIONS.GetPassiveChannels(P)
     if IsValid(P) then
@@ -72,10 +71,32 @@ function RDV.COMMUNICATIONS.GetMemberCount(CHANNEL)
     end
 end
 
-function RDV.COMMUNICATIONS.GetCommsEnabled()
-    if RDV.COMMUNICATIONS.RelayEnabled then
-        return true 
+function RDV.COMMUNICATIONS.GetCommsEnabled(P)
+    if !IsValid(P) then return false end
+
+    if CLIENT then 
+        if ( RDV.COMMUNICATIONS.RELAY == false ) then 
+            return false 
+        else
+            return true
+        end
     else
+        local COUNT = 0
+
+        for k, v in pairs(RDV.COMMUNICATIONS.RELAYS) do
+            if v.TEAMS and v.TEAMS[team.GetName(P:Team())] then
+                COUNT = COUNT + 1
+
+                if ( v.ENABLED == true ) then
+                    return true
+                end
+            end
+        end
+
+        if COUNT <= 0 then
+            return true
+        end
+
         return false
     end
 end

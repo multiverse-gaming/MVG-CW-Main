@@ -1,14 +1,12 @@
-if RDV.COMMUNICATIONS and RDV.COMMUNICATIONS.LOADED then return end
-
 --[[---------------------------------]]--
 --  Loadout
 --[[---------------------------------]]--
 
 local function SendNotification(ply, msg)
-    local COL = RDV.LIBRARY.GetConfigOption("COMMS_prefixColor")
-    local PRE = RDV.LIBRARY.GetConfigOption("COMMS_prefix")
-	
-    RDV.LIBRARY.AddText(ply, COL, "["..PRE.."] ", Color(255,255,255), msg)
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+    local COL = Color(CFG.chatColor.r, CFG.chatColor.g, CFG.chatColor.b)
+
+    RDV.LIBRARY.AddText(ply, COL, "["..CFG.chatPrefix.."] ", color_white, msg)
 end
 
 local function CanAccess(P)
@@ -45,24 +43,27 @@ hook.Add("PlayerChangedTeam", "RDV_COMMUNICATIONS_CheckAvailable", function(P)
     end)
 end)
 
-hook.Add("PlayerButtonDown", "RDV_COMMUNICATIONS_PlayerButtonDown", function(ply, button)
-    if !RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") then return end
+hook.Add("PlayerButtonDown", "RDV_COMMUNICATIONS_VoiceTalk", function(ply, button)
+    local CFG = RDV.COMMUNICATIONS.S_CFG
 
-    if button == RDV.LIBRARY.GetConfigOption("COMMS_speakBind") then
+    if !CFG.speakBindEnabled then return end
+
+    if button == CFG.speakBindValue then            
         ply.isCommsTalking = true
-
-        net.Start("RDV.COMMUNICATIONS.Talk")
+        net.Start("RDV_COMMUNICATIONS_Talking")
         net.Send(ply)
     end
 end)
 
-hook.Add("PlayerButtonUp", "RDV_COMMUNICATIONS_PlayerButtonUp", function(ply, button)
-    if !RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") then return end
+hook.Add("PlayerButtonUp", "RDV_COMMUNICATIONS_VoiceTalk", function(ply, button)
+    local CFG = RDV.COMMUNICATIONS.S_CFG
 
-    if button == RDV.LIBRARY.GetConfigOption("COMMS_speakBind") then            
+    if !CFG.speakBindEnabled then return end
+
+    if button == CFG.speakBindValue then            
         ply.isCommsTalking = false
 
-        net.Start("RDV.COMMUNICATIONS.Talk")
+        net.Start("RDV_COMMUNICATIONS_Talking")
         net.Send(ply)
     end
 end)
@@ -70,16 +71,29 @@ end)
 --[[---------------------------------]]--
 --  Communications Command
 --[[---------------------------------]]--
+hook.Add("PlayerSay", "RDV_COMMS_Blacklist", function(P, T, TCHAT)
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled(P)
+
+    if ( TCHAT and CFG.disableTeamChat ) and !ENABLED then
+        SendNotification(P, RDV.LIBRARY.GetLang(nil, "COMMS_relayDownError"))
+
+        return ""
+    end
+end )
 
 hook.Add("PlayerSay", "RDV_COMMUNICATIONS_PlayerSay", function(ply, text)
-    local COMMAND = RDV.LIBRARY.GetConfigOption("COMMS_chatCommand")
-    local CONFIG = RDV.LIBRARY.GetConfigOption("COMMS_menuCommand")
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    local COMMAND = CFG.chatCommand
+    local CONFIG = CFG.menuCommand
 
     local CLEN = #COMMAND
     local CLEN2 = #CONFIG
 
     if string.lower(string.sub(text, 1, CLEN)) == COMMAND then
-        if !RDV.COMMUNICATIONS.GetCommsEnabled() then
+        if !RDV.COMMUNICATIONS.GetCommsEnabled(ply) then
             SendNotification(ply, RDV.LIBRARY.GetLang(nil, "COMMS_relayDownError"))
             return ""
         end
@@ -136,16 +150,18 @@ end)
 --[[---------------------------------]]--
 
 local function canHear( l, t )
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
     local T_CHANNEL = RDV.COMMUNICATIONS.GetActiveChannel(t)
     local L_CHANNEL = RDV.COMMUNICATIONS.GetActiveChannel(l)
     local P_CHANNELS = RDV.COMMUNICATIONS.GetPassiveChannels(l)
 
     if ( ( ( T_CHANNEL and L_CHANNEL ) and (T_CHANNEL == L_CHANNEL) ) or P_CHANNELS[T_CHANNEL] ) then
-        if !RDV.COMMUNICATIONS.GetCommsEnabled() then
+        if !RDV.COMMUNICATIONS.GetCommsEnabled(t) then
             return
         end
 
-        if RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") and !t.isCommsTalking then
+        if CFG.speakBindEnabled and !t.isCommsTalking then
             return
         end
 
@@ -154,12 +170,14 @@ local function canHear( l, t )
         end
 
         return true
-    elseif RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") and t.isCommsTalking then
+    elseif CFG.speakBindEnabled and t.isCommsTalking then
         return false
     end
 end
 
 local function voiceBoxCanHear( l, t )
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
     VoiceBox.FX.IsRadioComm( l:EntIndex(), t:EntIndex(), false )
 
     local T_CHANNEL = RDV.COMMUNICATIONS.GetActiveChannel(t)
@@ -167,11 +185,11 @@ local function voiceBoxCanHear( l, t )
     local P_CHANNELS = RDV.COMMUNICATIONS.GetPassiveChannels(l)
 
     if ( ( ( T_CHANNEL and L_CHANNEL ) and (T_CHANNEL == L_CHANNEL) ) or P_CHANNELS[T_CHANNEL] ) then
-        if !RDV.COMMUNICATIONS.GetCommsEnabled() then
+        if !RDV.COMMUNICATIONS.GetCommsEnabled(t) then
             return
         end
 
-        if RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") and !t.isCommsTalking then
+        if CFG.speakBindEnabled and !t.isCommsTalking then
             return
         end
         
@@ -182,7 +200,7 @@ local function voiceBoxCanHear( l, t )
         VoiceBox.FX.IsRadioComm( l:EntIndex(), t:EntIndex(), not VoiceBox.FX.__PlayerCanHearPlayersVoice(l, t) )
         
         return true
-    elseif RDV.LIBRARY.GetConfigOption("COMMS_speakBindEnabled") and t.isCommsTalking then
+    elseif CFG.speakBindEnabled and t.isCommsTalking then
         return false
     end
 end
@@ -241,26 +259,6 @@ hook.Add("PlayerReadyForNetworking", "RDV_COMMUNICATIONS_NETWORK", function(ply)
     
     local ACTIVE = RDV.COMMUNICATIONS.GetActiveChannel(ply)
 
-    -- SEND TEMPORARY CHANNELS
-    for k, v in ipairs(RDV.COMMUNICATIONS.TemporaryChannels) do
-        local TCOUNT = #v.Factions
-        local PCOUNT = table.Count(v.Players)
-
-        net.Start("RDV.COMMUNICATIONS.CreateChannel")
-            net.WriteUInt(TCOUNT, 8)
-            net.WriteUInt(PCOUNT, 8)
-            net.WriteString(v.Name)
-            
-            for k, v in ipairs(v.Factions) do
-                net.WriteUInt(v, 16)
-            end
-
-            for k, v in pairs(v.Players) do
-                net.WriteUInt(k, 31)
-            end
-        net.Send(ply)
-    end
-
     -- SEND PLAYERS INSIDE CHANNELS CURRENTLY
     if RDV.COMMUNICATIONS.Players then
         local SEND = {}
@@ -317,72 +315,20 @@ hook.Add("PlayerReadyForNetworking", "RDV_COMMUNICATIONS_NETWORK", function(ply)
         net.Send(ply)
     end
 
-    if !RDV.COMMUNICATIONS.RelayEnabled then
-        net.Start("RDV.COMMUNICATIONS.RelayToggled")
-            net.WriteUInt(0, 1)
-        net.Send(ply)
-    end
-
-    if RDV.LIBRARY.GetConfigOption("COMMS_defaultChannelEn") then
-        local DEFAULT = RDV.LIBRARY.GetConfigOption("COMMS_defaultChannel")
-
-        if DEFAULT and RDV.COMMUNICATIONS.LIST[DEFAULT] then
-            RDV.COMMUNICATIONS.SetChannel(ply, DEFAULT)
-        end
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+    
+    if CFG.defaultChannel then
+        RDV.COMMUNICATIONS.SetChannel(ply, CFG.defaultChannel)
     end
 
     hook.Run("RDV_COMMS_NetworkingComplete", ply)
 end)
 
 
-
-hook.Add("RDV_COMMS_Loaded", "RDV_COMMUNICATIONS_LoadConfig", function()
-    if file.Exists("rdv_communications.txt", "DATA") then
-        local TAB = file.Read("rdv_communications.txt", "DATA")
-        TAB = util.JSONToTable(TAB)
-
-        local COMMS = RDV.COMMUNICATIONS
-
-        for k, v in ipairs(TAB) do
-            local ID = tonumber(k)
-            local TEAMS = {}
-
-            for k, v in ipairs(v.Factions) do
-                table.insert(TEAMS, team.GetName(v))
-            end
-
-            RDV.COMMUNICATIONS.TemporaryChannels[ID] = {
-                Name = v.Name,
-                Players = v.Players,
-                Factions = v.Factions
-            }
-
-            COMMS:RegisterChannel(v.Name, {
-                Factions = TEAMS,
-                Color = Color(255,255,255),
-                CustomCheck = function(ply)
-                    if !table.IsEmpty(v.Players) and !v.Players[ply:AccountID()] then
-                        return false
-                    end
-                end,
-            })
-            
-            local LAN = RDV.LIBRARY.GetLang(nil, "COMMS_commsChannelRegistered", {
-                v.Name,
-            })
-
-            local CFG = {
-                Color = RDV.LIBRARY.GetConfigOption("COMMS_prefixColor"),
-                Appension = RDV.LIBRARY.GetConfigOption("COMMS_prefix"),
-            }
-
-            MsgC(CFG.Color, "["..CFG.Appension.."] ", Color(255,255,255), LAN.."\n" )
-        end
-    end
-end)
-
 hook.Add("RDV_COMMS_PostChannelConnect", "RDV_COMMUNICATIONS_StartMuted", function(ply)
-    if RDV.LIBRARY.GetConfigOption("COMMS_startMuted") then
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    if CFG.startMuted then
          RDV.COMMUNICATIONS.MUTED[ply] = true
     end
 end )

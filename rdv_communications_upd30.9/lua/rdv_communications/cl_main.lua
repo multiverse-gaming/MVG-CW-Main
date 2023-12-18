@@ -1,14 +1,46 @@
-if RDV.COMMUNICATIONS and RDV.COMMUNICATIONS.LOADED then return end
+surface.CreateFont( "RDV_COMMUNICATIONS_FontSmall", {
+	font = "Montserrat",
+    size = ScrW() * 0.009,
+    antialias = true,
+    extended = true,
+} )
+
+surface.CreateFont("RDV_COMMUNICATIONS_LABEL", {
+	font = "Bebas Neue",
+	extended = false,
+	size = ScrW() * 0.0135,
+})
+
+--[[
+--  Local Vars
+--]]
 
 local MUTED = false
 local COMPLETE = false
 local WAITING = false
 
+local COL_1 = Color(0, 0, 0, 100)
+local COL_3 = Color(41, 128, 185)
+local COL_RED = Color(255,0,0)
+local COL_OUTLINE = Color(122,132,137, 180)
+
+--[[
+--  Local Materials
+--]]
+
+local MIC_ICON = Material("rdv/communications/rdv_microphone.png", 'smooth')
+local SPEAKER_ICON = Material("rdv/communications/speaker.png", 'smooth')
+local ICON = Material("rdv/communications/rdv_person.png", 'smooth')
+
+--[[
+--  Local Functions
+--]]
+
 local function SendNotification(ply, msg)
-    local COL = RDV.LIBRARY.GetConfigOption("COMMS_prefixColor")
-    local PRE = RDV.LIBRARY.GetConfigOption("COMMS_prefix")
-	
-    RDV.LIBRARY.AddText(ply, COL, "["..PRE.."] ", Color(255,255,255), msg)
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+    local COL = Color(CFG.chatColor.r, CFG.chatColor.g, CFG.chatColor.b)
+
+    RDV.LIBRARY.AddText(ply, COL, "["..CFG.chatPrefix.."] ", color_white, msg)
 end
 
 local blur = Material("pp/blurscreen")
@@ -16,7 +48,7 @@ local blur = Material("pp/blurscreen")
 local function DrawBlur(panel, amount)
     local x, y = panel:LocalToScreen(0, 0)
     local scrW, scrH = ScrW(), ScrH()
-    surface.SetDrawColor(255, 255, 255)
+    surface.SetDrawColor(color_white)
     surface.SetMaterial(blur)
 
     for i = 1, 3 do
@@ -26,15 +58,6 @@ local function DrawBlur(panel, amount)
         surface.DrawTexturedRect(x * -1, y * -1, scrW, scrH)
     end
 end
-
-local ICON = Material("rdv/communications/rdv_person.png", 'smooth')
-
-local COL_1 = Color(0, 0, 0, 100)
-local COL_3 = Color(41, 128, 185)
-local COL_WHITE = Color(255,255,255, 200)
-local COL_RED = Color(255,0,0)
-local COL_OUTLINE = Color(122,132,137, 180)
-
 
 function RDV.COMMUNICATIONS.Open(context)
     RDV.COMMUNICATIONS = RDV.COMMUNICATIONS or {}
@@ -72,7 +95,7 @@ function RDV.COMMUNICATIONS.Open(context)
 
         draw.RoundedBox(0, 0, 0, w, h, COL_1)
 
-        draw.SimpleText(commsLabel, "RD_FONTS_CORE_LABEL_LOWER", w * 0.5, h * 0.035, COL_WHITE, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(commsLabel, "RDV_LIB_FRAME_TITLE", w * 0.5, h * 0.035, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 
     RDV.COMMUNICATIONS.PANEL = PANEL
@@ -82,7 +105,7 @@ function RDV.COMMUNICATIONS.Open(context)
     local noChannels = RDV.LIBRARY.GetLang(nil, "COMMS_noChannels")
     local arrayOffline = RDV.LIBRARY.GetLang(nil, "COMMS_arrayOffline")
 
-    local SCROLL = vgui.Create("DScrollPanel", PANEL)
+    local SCROLL = vgui.Create("RDV_LIBRARY_SCROLL", PANEL)
     SCROLL:DockMargin(w * 0.02, h * 0.02, w * 0.0225, h * 0.025)
 
     SCROLL:Dock(FILL)
@@ -90,10 +113,10 @@ function RDV.COMMUNICATIONS.Open(context)
         surface.SetDrawColor( COL_OUTLINE )
         surface.DrawOutlinedRect( 0, 0, w, h )
 
-        if !RDV.COMMUNICATIONS.GetCommsEnabled() then
-            draw.SimpleText(arrayOffline, "RD_FONTS_CORE_LABEL_LOWER", w * 0.5, h * 0.4, COL_RED, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        if !RDV.COMMUNICATIONS.GetCommsEnabled(LocalPlayer()) then
+            draw.SimpleText(arrayOffline, "RDV_LIB_FRAME_TITLE", w * 0.5, h * 0.4, COL_RED, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         elseif COUNT <= 0 then
-            draw.SimpleText(noChannels, "RD_FONTS_CORE_LABEL_LOWER", w * 0.5, h * 0.4, COL_WHITE, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            draw.SimpleText(noChannels, "RDV_LIB_FRAME_TITLE", w * 0.5, h * 0.4, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         end
     end
 
@@ -105,8 +128,8 @@ function RDV.COMMUNICATIONS.Open(context)
     MUTE:SetText(TEXT)
 
     MUTE:DockMargin(0, 0, 0, h * 0.025)
-    MUTE:SetFont("RD_FONTS_CORE_LABEL_LOWER")
-    MUTE:SetTextColor(COL_WHITE)
+    MUTE:SetFont("RDV_LIB_FRAME_TITLE")
+    MUTE:SetTextColor(color_white)
     MUTE.DoClick = function()
         net.Start("RDV_COMMS_MUTE")
         net.SendToServer()
@@ -133,7 +156,7 @@ function RDV.COMMUNICATIONS.Open(context)
         self:SetTextColor(COL_3)
     end
     MUTE.OnCursorExited = function(self)
-        self:SetTextColor(COL_WHITE)
+        self:SetTextColor(color_white)
     end
 
     local ROTATE = {
@@ -147,14 +170,14 @@ function RDV.COMMUNICATIONS.Open(context)
         return PANEL
     end
 
-    if !RDV.COMMUNICATIONS.GetCommsEnabled() then
+    if !RDV.COMMUNICATIONS.GetCommsEnabled(LocalPlayer()) then
         return PANEL
     end
 
     local LActive = "("..RDV.LIBRARY.GetLang(nil, "COMMS_activeLabel")..")"
     local L_PASSIVE = "("..RDV.LIBRARY.GetLang(nil, "COMMS_passiveLabel")..")"
 
-    for k, v in pairs(RDV.COMMUNICATIONS.LIST) do
+    for k, v in SortedPairs(RDV.COMMUNICATIONS.LIST) do
         local NAME = k
 
         if !RDV.COMMUNICATIONS.CanAccessChannel(LocalPlayer(), NAME) then
@@ -179,7 +202,7 @@ function RDV.COMMUNICATIONS.Open(context)
         label:SetHeight(h * 0.1)
         label:Dock(TOP)
         label:SetMouseInputEnabled(true)
-        label:SetFont("RD_FONTS_CORE_LABEL_LOWER")
+        label:SetFont("RDV_LIB_FRAME_TITLE")
         label:SetText("")
 
         label.Paint = function(self, w, h)
@@ -187,18 +210,18 @@ function RDV.COMMUNICATIONS.Open(context)
 
             draw.RoundedBox(0, 0, 0, w, h, LabelColor)
 
-            surface.SetDrawColor(COL_WHITE)
+            surface.SetDrawColor(color_white)
                 surface.SetMaterial(ICON)
             surface.DrawTexturedRect(w * 0.9, h * 0.25, w * 0.08, h * 0.55)
 
-            draw.SimpleText(OCCUPANTS, "RD_FONTS_CORE_LABEL_LOWER", w * 0.875, h * 0.5, COL_WHITE, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER)
+            draw.SimpleText(OCCUPANTS, "RDV_LIB_FRAME_TITLE", w * 0.875, h * 0.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_CENTER)
 
             if PASSIVE[NAME] then
-                draw.SimpleText(NAME.." "..L_PASSIVE, "RD_FONTS_CORE_LABEL_LOWER", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(NAME.." "..L_PASSIVE, "RDV_LIB_FRAME_TITLE", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             elseif RDV.COMMUNICATIONS.GetActiveChannel(LocalPlayer()) == NAME then
-                draw.SimpleText(NAME.." "..LActive, "RD_FONTS_CORE_LABEL_LOWER", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(NAME.." "..LActive, "RDV_LIB_FRAME_TITLE", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             else
-                draw.SimpleText(NAME, "RD_FONTS_CORE_LABEL_LOWER", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(NAME, "RDV_LIB_FRAME_TITLE", w * 0.05, h * 0.5, LColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             end
         end
 
@@ -209,7 +232,9 @@ function RDV.COMMUNICATIONS.Open(context)
             local PASSIVE = RDV.COMMUNICATIONS.GetPassiveChannels(LocalPlayer()) or {}
             
             if !PASSIVE[NAME] and ( ACTIVE ~= NAME ) then
-                if ( table.Count(PASSIVE) ) < RDV.LIBRARY.GetConfigOption("COMMS_passiveChannelCount") then
+                local CFG = RDV.COMMUNICATIONS.S_CFG
+
+                if ( table.Count(PASSIVE) ) < CFG.passiveChannelCount then
                     MenuButtonOptions:AddOption(RDV.LIBRARY.GetLang(nil, "COMMS_setPassive"), function()
                         surface.PlaySound("buttons/blip1.wav")
 
@@ -262,7 +287,7 @@ function RDV.COMMUNICATIONS.Open(context)
                         NAME,
                     })
 
-                    local FRAME = vgui.Create("DFrame")
+                    local FRAME = vgui.Create("RDV_LIBRARY_FRAME")
                     FRAME:SetSize(ScrW() * 0.3, ScrH() * 0.4)
                     FRAME:Center()
                     FRAME:SetTitle(LOccupants)
@@ -308,20 +333,12 @@ function RDV.COMMUNICATIONS.Open(context)
     return PANEL
 end
 
-hook.Add("InitPostEntity", "RDV.COMMUNICATIONS.CreateTables", function()
-    LocalPlayer().RDV = LocalPlayer().RDV or {}
-
-    LocalPlayer().RDV.COMMUNICATIONS = LocalPlayer().RDV.COMMUNICATIONS or {
-        LIST = {}
-    }
-
-    if ( RDV.COMMUNICATIONS.RelayEnabled ~= false ) then
-        RDV.COMMUNICATIONS.RelayEnabled = true
-    end
-end)
-
 hook.Add("RDV_COMMS_PostChannelConnect", "RDV.StartMuted.Implement", function(ply)
-    if RDV.LIBRARY.GetConfigOption("COMMS_startMuted") then
+    if !IsValid(ply) then return end
+    
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    if CFG.startMuted and ( ply == LocalPlayer() ) then
         MUTED = true
     end
 end )
@@ -345,7 +362,7 @@ net.Receive("RDV.COMMUNICATIONS.SendCommsMessage", function()
     
     local COL = RDV.COMMUNICATIONS.LIST[CHANNEL].Color
 
-    RDV.LIBRARY.AddText(LocalPlayer(), COL, "["..CHANNEL.."] ", team.GetColor(CLI:Team()), CLI:Name(), Color(255,255,255), ": "..MSG)
+    RDV.LIBRARY.AddText(LocalPlayer(), COL, "["..CHANNEL.."] ", team.GetColor(CLI:Team()), CLI:Name(), color_white, ": "..MSG)
 end)
 
 hook.Add("OnContextMenuClose", "RDV.COMMUNICATIONS.ContextMenuClose", function()
@@ -362,22 +379,6 @@ hook.Add("OnContextMenuOpen", "RDV.COMMUNICATIONS.ContextMenuOpen", function(pan
     end
 
     PANEL:ShowCloseButton(false)
-end)
-
-net.Receive("RDV.COMMUNICATIONS.RelayToggled", function()
-    local ENABLED = net.ReadUInt(1)
-
-    ENABLED = tobool(ENABLED)
-
-    RDV.COMMUNICATIONS.RelayEnabled = ENABLED
-
-    local VAL = ENABLED and RDV.LIBRARY.GetLang(nil, "COMMS_enabledText") or RDV.LIBRARY.GetLang(nil, "COMMS_disabledText")
-
-    local LChange = RDV.LIBRARY.GetLang(nil, "COMMS_arrayChange", {
-        VAL,
-    })
-
-    SendNotification(LocalPlayer(), LChange)
 end)
 
 net.Receive("RDV_COMMS_Sync", function()
@@ -438,202 +439,6 @@ net.Receive("RDV_COMMS_Connect", function()
     hook.Run("RDV_COMMS_PostChannelConnect", Entity(PLAYER), CHANNEL)
 end )
 
-
---[[---------------------------------]]--
---  In-game Channel Creation
---[[---------------------------------]]--
-
-local COL_4 = Color(23, 23, 23, 255)
-
-local COL_HOV = Color(41, 128, 185)
-
-local function CreateLabel(OFRAME, callback)
-    OFRAME:SetVisible(false)
-
-    local FRAMED = vgui.Create("PIXEL.Frame")
-    FRAMED:SetSize(ScrW() * 0.2, ScrH() * 0.4)
-    FRAMED:Center()
-    FRAMED:MakePopup(true)
-    FRAMED:SetMouseInputEnabled(true)
-    FRAMED:SetTitle(RDV.LIBRARY.GetLang(nil, "COMMS_commsConfig"))
-    FRAMED.OnRemove = function(self)
-        OFRAME:SetVisible(true)
-    end
-
-    local w, h = FRAMED:GetSize()
-
-    local SCROLL = vgui.Create("PIXEL.ScrollPanel", FRAMED)
-    SCROLL:Dock(FILL)
-
-    --
-    -- Channel Name
-    --
-
-    local TLABEL = vgui.Create("DLabel", SCROLL)
-    TLABEL:Dock(TOP)
-    TLABEL:SetText(RDV.LIBRARY.GetLang(nil, "COMMS_titleLabel"))
-    TLABEL:SetContentAlignment(5)
-    TLABEL:SetFont("RD_FONTS_CORE_LABEL_LOWER")
-    TLABEL:SetTextColor(COL_WHITE)
-    TLABEL:DockMargin(0, h * 0.025, 0, 0)
-    TLABEL.Paint = function(s)
-    end
-
-    local TITLE = vgui.Create("PIXEL.TextEntry", SCROLL)
-    TITLE:Dock(TOP)
-    TITLE:SetMultiline(false)
-    TITLE:DockMargin(w * 0.025, h * 0.025, w * 0.025, h * 0.025)
-    TITLE:SetHeight(ScrW() * 0.02)
-    TITLE:SetPlaceholderText(RDV.LIBRARY.GetLang(nil, "COMMS_titleLabel"))
-
-
-    --
-    -- Jobs
-    --
-
-    local T_VALS = {}
-
-    local LTeams = RDV.LIBRARY.GetLang(nil, "COMMS_teamsLabel")
-
-    local TLABEL = vgui.Create("DLabel", SCROLL)
-    TLABEL:Dock(TOP)
-    TLABEL:SetText(LTeams)
-    TLABEL:SetContentAlignment(5)
-    TLABEL:SetFont("RD_FONTS_CORE_LABEL_LOWER")
-    TLABEL:SetTextColor(COL_WHITE)
-    TLABEL.Paint = function(s)
-    end
-
-    local TLIST = vgui.Create( "DListView", SCROLL )
-    TLIST:Dock( TOP )
-    TLIST:SetMultiSelect( true )
-    TLIST:AddColumn( LTeams )
-    TLIST:SetHeight(h * 0.3)
-    TLIST:DockMargin(w * 0.025, h * 0.025, w * 0.025, h * 0.025)
-    TLIST.OnRowRightClick = function(s, id, line)
-        line:SetSelected(false)
-    end
-
-    for k, v in ipairs(team.GetAllTeams()) do
-        local LINE = TLIST:AddLine(v.Name) -- Add lines
-
-		T_VALS[LINE:GetID()] = k
-    end
-
-    --
-    -- Players
-    --
-
-    local LPlayers = RDV.LIBRARY.GetLang(nil, "COMMS_playersLabel")
-    local LPlayer = RDV.LIBRARY.GetLang(nil, "COMMS_playerLabel")
-    local LAccid = RDV.LIBRARY.GetLang(nil, "COMMS_accountID")
-
-    local P_VALS = {}
-    local PLAY_C = 0
-
-    local TLABEL = vgui.Create("DLabel", SCROLL)
-    TLABEL:Dock(TOP)
-    TLABEL:SetText(LPlayers)
-    TLABEL:SetContentAlignment(5)
-    TLABEL:SetFont("RD_FONTS_CORE_LABEL_LOWER")
-    TLABEL:SetTextColor(COL_WHITE)
-    TLABEL.Paint = function(s) end
-
-    local PLIST = vgui.Create( "DListView", SCROLL )
-    PLIST:Dock( TOP )
-    PLIST:SetMultiSelect( true )
-    PLIST:AddColumn( LPlayer )
-    PLIST:AddColumn( LAccid )
-    PLIST:SetHeight(h * 0.3)
-    PLIST:DockMargin(w * 0.025, h * 0.025, w * 0.025, h * 0.025)
-    PLIST.OnRowRightClick = function(s, id, line)
-        line:SetSelected(false)
-    end
-
-    for k, v in ipairs(player.GetHumans()) do
-        local LINE = PLIST:AddLine(v:Name(), v:AccountID()) -- Add lines
-
-		P_VALS[LINE:GetID()] = v:AccountID()
-    end
-
-    --
-    --
-    --
-    local LConfirm = RDV.LIBRARY.GetLang(nil, "COMMS_confirmLabel")
-
-    local CONFIRM = vgui.Create("PIXEL.TextButton", FRAMED)
-    CONFIRM:SetText(LConfirm)
-    CONFIRM:SetSize(w, h * 0.1)
-    CONFIRM:Dock(BOTTOM)
-    CONFIRM:DockMargin(w * 0.025, h * 0.025, w * 0.025, h * 0.025)
-
-    CONFIRM.DoClick = function()
-        local TEXT = TITLE:GetValue()
-
-        if !TEXT or TEXT == "" then
-            surface.PlaySound("reality_development/ui/ui_denied.ogg")
-            return
-        end
-
-        if RDV.COMMUNICATIONS.LIST[TEXT] then
-            surface.PlaySound("reality_development/ui/ui_denied.ogg")
-
-            SendNotification(LocalPlayer(), RDV.LIBRARY.GetLang(nil, "COMMS_channelNameExists"))
-            return
-        end
-
-        --
-        -- Teams
-        --
-
-        local S_TEAMS = {}
-        local TCONT = 0
-
-        for k, v in ipairs(TLIST:GetSelected()) do
-            local T = T_VALS[v:GetID()]
-            
-            table.insert(S_TEAMS, T)
-
-            TCONT = TCONT + 1
-        end
-
-        --
-        -- Players
-        --
-
-        local S_PLAYERS = {}
-        local PCONT = 0
-
-        for k, v in ipairs(PLIST:GetSelected()) do
-            local T = P_VALS[v:GetID()]
-            
-            table.insert(S_PLAYERS, T)
-
-            PCONT = PCONT + 1
-        end
-
-        net.Start("RDV.COMMUNICATIONS.CreateChannel")
-            net.WriteUInt(TCONT, 8)
-            net.WriteUInt(PCONT, 8)
-            net.WriteString(TEXT)
-
-            for k, v in ipairs(S_TEAMS) do
-                net.WriteUInt(v, 16)
-            end
-
-            for k, v in ipairs(S_PLAYERS) do
-                net.WriteUInt(v, 31)
-            end
-
-        net.SendToServer()
-
-        FRAMED:Remove()
-
-        callback(TEXT)
-    end
-end
-
-
 RDV.COMMUNICATIONS.TemporaryChannels = {}
 
 net.Receive("RDV.COMMUNICATIONS.CreateChannel", function()
@@ -664,7 +469,7 @@ net.Receive("RDV.COMMUNICATIONS.CreateChannel", function()
 
     COMMS:RegisterChannel(NAME, {
         Factions = TEAMS,
-        Color = Color(255,255,255),
+        Color = color_white,
         CustomCheck = function(ply)
             if !table.IsEmpty(PLAYS) and !PLAYS[ply:AccountID()] then
                 return false
@@ -677,106 +482,6 @@ net.Receive("RDV.COMMUNICATIONS.CreateChannel", function()
     })
 
     hook.Run("RDV_COMMS_ChannelCreated", KEY)
-end)
-
-net.Receive("RDV.COMMUNICATIONS.OpenConfig", function()
-    if !LocalPlayer():IsAdmin() then return end
-
-    local COUNT = 0
-
-    local noChannels = RDV.LIBRARY.GetLang(nil, "COMMS_noChannels")
-
-    local FRAMED = vgui.Create("PIXEL.Frame")
-    FRAMED:SetSize(ScrW() * 0.2, ScrH() * 0.4)
-    FRAMED:Center()
-    FRAMED:MakePopup(true)
-    FRAMED:SetMouseInputEnabled(true)
-    FRAMED:SetTitle(RDV.LIBRARY.GetLang(nil, "COMMS_commsConfig"))
-    FRAMED.PaintOver = function(self, w, h)
-        if COUNT <= 0 then
-            draw.SimpleText(noChannels, "RD_FONTS_CORE_LABEL_LOWER", w * 0.5, h * 0.4, COL_WHITE, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-        end
-    end
-
-    local w, h = FRAMED:GetSize()
-    local SideScroll
-
-    local createLabel = RDV.LIBRARY.GetLang(nil, "COMMS_createLabel")
-
-    local label = vgui.Create("PIXEL.TextButton", FRAMED)
-    label:SetSize(0, h * 0.1)
-    label:Dock(BOTTOM)
-    label:SetText(createLabel)
-
-    label.DoClick = function(self)
-        CreateLabel(FRAMED, function(text)
-            local createdSuccessfully = RDV.LIBRARY.GetLang(nil, "COMMS_createdChannel", {
-                text,
-            })
-
-            FRAMED:Remove()
-
-            surface.PlaySound("reality_development/ui/ui_accept.ogg")
-
-            SendNotification(LocalPlayer(), createdSuccessfully)
-        end)
-    end
-
-    local w2, h2 = FRAMED:GetSize()
-
-    SideScroll = vgui.Create("DScrollPanel", FRAMED)
-    SideScroll:Dock(FILL)
-    SideScroll.Paint = function(self, w, h)
-    end
-
-    for k, v in ipairs(RDV.COMMUNICATIONS.TemporaryChannels) do
-        COUNT = COUNT + 1
-
-        local label = SideScroll:Add("DButton")
-        label:SetFont("RD_FONTS_CORE_LABEL_LOWER")
-        label:SetSize(0, h * 0.1)
-        label:DockMargin(w * 0.01, h * 0.01, w * 0.01, 0)
-        label:Dock(TOP)
-        label:SetText(v.Name)
-        label:SetTextColor(COL_WHITE)
-        label.Paint = function(self, w, h)
-            surface.SetDrawColor(PIXEL.CopyColor(PIXEL.Colors.Header))
-            surface.DrawRect(0, 0, w, h)
-        end
-        label.OnCursorEntered = function(self)
-            surface.PlaySound("reality_development/ui/ui_hover.ogg")
-
-            self:SetTextColor(COL_HOV)
-        end
-        label.OnCursorExited = function(self)
-            self:SetTextColor(COL_WHITE)
-        end
-        label.DoClick = function(self)
-            local deleteChannel = RDV.LIBRARY.GetLang(nil, "COMMS_deleteChannelLabel")
-
-            local MenuButtonOptions = DermaMenu()
-            
-            MenuButtonOptions:AddOption(deleteChannel, function() 
-                local deletedSuccessfully = RDV.LIBRARY.GetLang(nil, "COMMS_deletedChannel", {
-                    v.Name,
-                })
-
-                self:Remove()
-
-                net.Start("RDV_COMMS_RemoveChannel")
-                    net.WriteUInt(k, 8)
-                net.SendToServer()
-
-                COUNT = COUNT - 1
-
-                surface.PlaySound("reality_development/ui/ui_accept.ogg")
-
-                SendNotification(LocalPlayer(), deletedSuccessfully)
-            end)
-
-            MenuButtonOptions:Open()
-        end
-    end
 end)
 
 net.Receive("RDV_COMMS_RemoveChannel", function()
@@ -792,19 +497,6 @@ net.Receive("RDV_COMMS_RemoveChannel", function()
         RDV.COMMUNICATIONS.LIST[NAME] = nil
     end
 end)
-
-surface.CreateFont( "RDV.COMMUNICATIONS.FONTS.SMALL", {
-    font = "Montserrat",
-    size = ScrW() * 0.009,
-    weight = 0,
-    blursize = 0,
-    scanlines = 0,
-    antialias = true,
-    extended = true,
-} )
-
-local MIC_ICON = Material("rdv/communications/rdv_microphone.png", 'smooth')
-local SPEAKER_ICON = Material("rdv/communications/speaker.png", 'smooth')
 
 hook.Add("RDV_COMMS_PostChannelDisconnect", "RDV.COMMUNICATIONS.ChannelLabel", function(ply, ACTIVE)
     if ply ~= LocalPlayer() then
@@ -850,7 +542,9 @@ hook.Add("RDV_COMMS_PostChannelConnect", "RDV.COMMUNICATIONS.ChannelLabel", func
         local PANEL = vgui.Create("DPanel")
         PANEL:SetSize(w * 0.175, h * 0.05)
 
-        local LOCATION = RDV.LIBRARY.GetConfigOption("COMMS_hudLocation")
+        local CFG = RDV.COMMUNICATIONS.S_CFG
+
+        local LOCATION = CFG.HUDLocation
 
         if LOCATION then
             PANEL:SetPos(w * 0.82, h * 0.01)
@@ -863,14 +557,14 @@ hook.Add("RDV_COMMS_PostChannelConnect", "RDV.COMMUNICATIONS.ChannelLabel", func
             if !NAME then return end
 
             local COUNT = RDV.COMMUNICATIONS.GetMemberCount(NAME)
-            local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled()
+            local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled(LocalPlayer())
 
             DrawBlur(self, 6)
         
             surface.SetDrawColor( COL_OUTLINE )
             surface.DrawOutlinedRect( 0, 0, w, h )
 
-            surface.SetDrawColor(COL_WHITE)
+            surface.SetDrawColor(color_white)
                 surface.SetMaterial(MIC_ICON)
             surface.DrawTexturedRect(w * 0.025, h * 0.175, w * 0.13, h * 0.675)
 
@@ -886,19 +580,19 @@ hook.Add("RDV_COMMS_PostChannelConnect", "RDV.COMMUNICATIONS.ChannelLabel", func
                 local LMuted = RDV.LIBRARY.GetLang(nil, "COMMS_mutedLabel")
 
                 if MUTED then
-                    draw.SimpleText(NAME.." "..LMuted, "RD_FONTS_CORE_LABEL_LOWER", w * 0.18, h * 0.35, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                    draw.SimpleText(NAME.." "..LMuted, "RDV_LIB_FRAME_TITLE", w * 0.18, h * 0.35, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
                 else
-                    draw.SimpleText(NAME, "RD_FONTS_CORE_LABEL_LOWER", w * 0.18, h * 0.35, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                    draw.SimpleText(NAME, "RDV_LIB_FRAME_TITLE", w * 0.18, h * 0.35, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
                 end
-                    draw.SimpleText(LOccupants, "RDV.COMMUNICATIONS.FONTS.SMALL", w * 0.18, h * 0.65, COL_WHITE, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                    draw.SimpleText(LOccupants, "RDV_COMMUNICATIONS_FontSmall", w * 0.18, h * 0.65, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
                 else
 
                 LOccupants = RDV.LIBRARY.GetLang(nil, "COMMS_occupantsLabel", {
                     "(N/A)",
                 })
 
-                draw.SimpleText(LDisconnected, "RD_FONTS_CORE_LABEL_LOWER", w * 0.18, h * 0.35, COL_RED, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
-                draw.SimpleText(LOccupants, "RDV.COMMUNICATIONS.FONTS.SMALL", w * 0.18, h * 0.65, COL_WHITE, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(LDisconnected, "RDV_LIB_FRAME_TITLE", w * 0.18, h * 0.35, COL_RED, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(LOccupants, "RDV_COMMUNICATIONS_FontSmall", w * 0.18, h * 0.65, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             end
         end
 
@@ -912,10 +606,14 @@ hook.Add("RDV_COMMS_PostChannelConnect", "RDV.COMMUNICATIONS.ChannelLabel", func
     end
 end)
 
-hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
+hook.Add("PlayerStartVoice", "RDV_COMMUNICATIONS_VoiceIndicator2", function(ply)
     if ply == LocalPlayer() and MUTED then return end
-    if !RDV.COMMUNICATIONS.GetCommsEnabled() then return end
-    
+
+    if !RDV.COMMUNICATIONS.GetCommsEnabled(LocalPlayer()) then return end
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    if CFG.speakBindEnabled and !LocalPlayer():KeyDown(CFG.speakBindValue) then return end
+
     local PACTIVE = RDV.COMMUNICATIONS.GetActiveChannel(ply)
     local LACTIVE = RDV.COMMUNICATIONS.GetActiveChannel(LocalPlayer())
 
@@ -936,7 +634,9 @@ hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
             local PANEL = vgui.Create("DPanel")
             PANEL:SetSize(w * 0.16, h * 0.5)
 
-            local LOCATION = RDV.LIBRARY.GetConfigOption("COMMS_hudLocation")
+            local CFG = RDV.COMMUNICATIONS.S_CFG
+
+            local LOCATION = CFG.HUDLocation
 
             if LOCATION then
                 PANEL:SetPos(w * 0.835, h * 0.065)
@@ -963,7 +663,7 @@ hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
 
         local label = vgui.Create("DLabel", SCROLL)
         label:SetHeight(h * 0.045)
-        label:SetFont("RD_FONTS_CORE_LABEL_LOWER")
+        label:SetFont("RDV_LIB_FRAME_TITLE")
         label:SetText("")
         label:Dock(TOP)
 
@@ -973,7 +673,7 @@ hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
                 return
             end
 
-            local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled()
+            local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled(LocalPlayer())
 
             DrawBlur(self, 6)
 
@@ -983,13 +683,11 @@ hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
             draw.RoundedBox(0, 0, 0, w, h, COL_1)
 
             if ENABLED then
-                draw.SimpleText(ply:Name(), "RD_FONTS_CORE_LABEL_LOWER", w * 0.2, h * 0.325, TCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
-                draw.SimpleText(PACTIVE, "RD_FONTS_CORE_LABEL_LOWER", w * 0.2, h * 0.675, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(ply:Name(), "RDV_LIB_FRAME_TITLE", w * 0.2, h * 0.325, TCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(PACTIVE, "RDV_LIB_FRAME_TITLE", w * 0.2, h * 0.675, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
 
 
-                --draw.SimpleText(LACTIVE, "RD_FONTS_CORE_LABEL_LOWER", w * 0.135, h * 0.685, VCOLOR, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
-
-                surface.SetDrawColor(COL_WHITE)
+                surface.SetDrawColor(color_white)
                     surface.SetMaterial(SPEAKER_ICON)
                 surface.DrawTexturedRect(w * 0.05, h * 0.253125, w * 0.0975, h * 0.50625)
             else
@@ -1003,7 +701,7 @@ hook.Add("PlayerStartVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
                     LAST = CurTime() + 1
                 end
 
-                draw.SimpleText(TEXT, "RD_FONTS_CORE_LABEL_LOWER", w * 0.25, h * 0.5, COL_WHITE, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+                draw.SimpleText(TEXT, "RDV_LIB_FRAME_TITLE", w * 0.25, h * 0.5, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             end
         end
 
@@ -1030,7 +728,7 @@ hook.Add("PlayerEndVoice", "RDV.COMMUNICATIONS.VoiceIndicator", function(ply)
 end)
 
 local talking = false
-net.Receive("RDV.COMMUNICATIONS.Talk", function(len, ply)
+net.Receive("RDV_COMMUNICATIONS_Talking", function(len, ply)
     if permissions.EnableVoiceChat and !permissions.IsGranted("voicerecord") then
         permissions.EnableVoiceChat(true)
 
@@ -1061,7 +759,9 @@ end)
 --[[---------------------------------]]--
 
 hook.Add( "PreDrawHalos", "RDV.HALOS", function()
-    if !RDV.LIBRARY.GetConfigOption("COMMS_haloEnabled") then return end
+    local CFG = RDV.COMMUNICATIONS.S_CFG
+
+    if !CFG.haloEnabled then return end
 
     local ID = RDV.COMMUNICATIONS.GetActiveChannel(LocalPlayer())
 
