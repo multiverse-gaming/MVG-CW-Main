@@ -4,7 +4,7 @@ ENT.Heal = 500
 ENT.Radius = 200
 
 
-ENT.PrintName = "Impulse Grenade RC" 
+ENT.PrintName = "Impulse Grenade RC"
 ENT.Author = "randomscripter"
 ENT.Contact = "..."
 ENT.Purpose = "..."

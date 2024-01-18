@@ -17,7 +17,7 @@ SWEP.AdminOnly = true
 SWEP.Base = "weapon_extinguisher"
 
 
-SWEP.Slot = 2
+SWEP.Slot = 4
 
 SWEP.SlotPos = 36
 

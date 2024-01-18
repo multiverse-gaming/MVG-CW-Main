@@ -11,7 +11,7 @@ SWEP.Base = "weapon_base"
 SWEP.Spawnable = true
 SWEP.AdminOnly = false 
 SWEP.HoldType = "normal"
-SWEP.Slot = 4
+SWEP.Slot = 2
 SWEP.SlotPos = 101
 
 SWEP.ViewModelFOV = 74

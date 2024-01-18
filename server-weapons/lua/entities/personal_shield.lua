@@ -119,18 +119,20 @@ if SERVER then
 
 	
 	function ENT:ShotBullet()
-		if( CLIENT ) then return end
+		return
+	end
+		--[[if( CLIENT ) then return end
 
 		if !self:GetActive() then return end
 
 
 		if IsValid(self) then
 
-			self:ToggleShield(false)
-			self:SetActiveOffset(CurTime()+ self.TimeReenableForShooting)
+			//self:ToggleShield(false) --turn off shoot though
+			//self:SetActiveOffset(CurTime()+ self.TimeReenableForShooting)
 			self:SetAutoEnable(true)
 		end
-	end
+	end --]]
 
 	
 	

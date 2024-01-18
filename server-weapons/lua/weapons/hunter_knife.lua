@@ -16,6 +16,8 @@ if ( CLIENT ) then
     
     SWEP.Slot                = 2
     SWEP.SlotPos            = 2
+    SWEP.force              = 1
+    SWEP.SetDamageForce     = 1
     --SWEP.IconLetter            = "j"
 
     --killicon.AddFont("weapon_knife", "CSKillIcons", SWEP.IconLetter, Color( 255, 80, 0, 255 ))

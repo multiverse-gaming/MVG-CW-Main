@@ -17,7 +17,7 @@ function ENT:Initialize()
 		self:SetMoveType(MOVETYPE_VPHYSICS)
 		self:SetSolid(SOLID_VPHYSICS)
 
-		self:SetPos( self:GetPos() + self:GetUp() * 10 )
+		self:SetPos( self:GetPos() + self:GetUp() * 10 ) --10
 
 	
 		self:SetUseType( SIMPLE_USE )
