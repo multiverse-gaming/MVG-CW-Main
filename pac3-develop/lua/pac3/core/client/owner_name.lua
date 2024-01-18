@@ -1,5 +1,4 @@
-pac.OwnerNames =
-{
+pac.OwnerNames = {
 	"self",
 	"viewmodel",
 	"hands",
@@ -24,7 +23,7 @@ local function check_owner(a, b)
 	return a:GetOwner() == b or (not b.CPPIGetOwner or b:CPPIGetOwner() == a or b:CPPIGetOwner() == true)
 end
 
-function pac.CalcEntityCRC(ent)
+local function calc_entity_crc(ent)
 	local pos = ent:GetPos()
 	local ang = ent:GetAngles()
 	local mdl = ent:GetModel():lower():gsub("\\", "/")
@@ -33,12 +32,29 @@ function pac.CalcEntityCRC(ent)
 
 	local crc = x .. y .. z .. p .. _y .. r .. mdl
 
-	return util.CRC(crc)
+	return pac.Hash(crc)
 end
 
 SafeRemoveEntity(pac.WorldEntity)
 
 pac.WorldEntity = NULL
+
+function pac.GetWorldEntity()
+	if not pac.WorldEntity:IsValid() then
+		local ent = pac.CreateEntity("models/error.mdl")
+
+		ent:SetPos(Vector(0,0,0))
+
+		-- go away ugh
+		ent:SetModelScale(0,0)
+
+		ent.IsPACWorldEntity = true
+
+		pac.WorldEntity = ent
+	end
+
+	return pac.WorldEntity
+end
 
 function pac.HandleOwnerName(owner, name, ent, part, check_func)
 	local idx = tonumber(name)
@@ -63,29 +79,17 @@ function pac.HandleOwnerName(owner, name, ent, part, check_func)
 			end
 
 			if ent.GetPersistent and ent:GetPersistent() then
-				part:SetOwnerName("persist " .. pac.CalcEntityCRC(ent))
+				part:SetOwnerName("persist " .. calc_entity_crc(ent))
 			end
 
 			return ent
 		end
-		return NULL
+
+		return pac.GetWorldEntity()
 	end
 
-	if name == "world" or (pac.WorldEntity:IsValid() and ent == pac.WorldEntity) then
-		if not pac.WorldEntity:IsValid() then
-			ent = pac.CreateEntity("models/error.mdl")
-
-			ent:SetPos(Vector(0,0,0))
-
-			-- go away ugh
-			ent:SetModelScale(0,0)
-
-			ent.IsPACWorldEntity = true
-
-			pac.WorldEntity = ent
-		end
-
-		return pac.WorldEntity
+	if name == "world" or name == "worldspawn" then
+		return pac.GetWorldEntity()
 	end
 
 	if name == "self" then
@@ -112,24 +116,24 @@ function pac.HandleOwnerName(owner, name, ent, part, check_func)
 		if name == "viewmodel" and owner.GetViewModel then
 			return owner:GetViewModel()
 		end
-	end
 
-	if name:find("persist ", nil, true) then
-		local crc = name:match("persist (.+)")
+		if IsValid(ent) and (not check_func or check_func(ent)) and check_owner(ent, owner) and find_ent(ent, name) then
+			return ent
+		end
+
 		for _, val in pairs(ents.GetAll()) do
-			if val.GetPersistent and val:GetModel() and val:GetPersistent() and crc == pac.CalcEntityCRC(val) then
+			if val:IsValid() and (not check_func or check_func(val)) and check_owner(val, owner) and find_ent(val, name) then
 				return val
 			end
 		end
 	end
 
-	if IsValid(ent) and (not check_func or check_func(ent)) and check_owner(ent, owner) and find_ent(ent, name) then
-		return ent
-	end
-
-	for _, val in pairs(ents.GetAll()) do
-		if val:IsValid() and (not check_func or check_func(val)) and check_owner(val, owner) and find_ent(val, name) then
-			return val
+	if name:find("persist ", nil, true) then
+		local crc = name:match("persist (.+)")
+		for _, val in pairs(ents.GetAll()) do
+			if val.GetPersistent and val:GetModel() and val:GetPersistent() and crc == calc_entity_crc(val) then
+				return val
+			end
 		end
 	end
 

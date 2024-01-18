@@ -1,29 +1,89 @@
 local FrameTime = FrameTime
 
+local BUILDER, PART = pac.PartTemplate("base")
 
-local PART = {}
+local AnimStack
+AnimStack = {
+	__index = {
+		push = function(self, part)
+			local stack = self.stack
+
+			if #stack == 0 then
+				-- Empty stack
+				table.insert(stack, part)
+			else
+				-- Stop the current animation if it's not self
+				local top = self:getTop()
+				if top ~= part then
+					if top then top:OnStackStop() end
+
+					-- Remove self from stack to move to end and also prevent things from breaking because table.RemoveByValue() only removes the first instance
+					table.RemoveByValue(stack, part)
+					table.insert(stack, part)
+				end
+			end
+
+			part:OnStackStart()
+		end,
+		pop = function(self, part)
+			part:OnStackStop()
+			local stack = self.stack
+
+			-- Remove self from animation stack
+			if table.RemoveByValue(stack, part) == #stack + 1 then
+				-- This was the current animation so play the next in the stack
+				local top = self:getTop()
+				if top then top:OnStackStart() end
+			end
+		end,
+		getTop = function(self)
+			local stack = self.stack
+			local top = stack[#stack]
+			-- Remove invalid parts
+			while top and not top:IsValid() do
+				table.remove(stack)
+				top = stack[#stack]
+			end
+			return top
+		end
+	},
+	__call = function(meta)
+		return setmetatable({
+			stack = {}
+		}, meta)
+	end,
+	get = function(ent)
+		local animStack = ent.pac_animation_stack
+		if not animStack then
+			animStack = AnimStack()
+			ent.pac_animation_stack = animStack
+		end
+		return animStack
+	end
+}
+setmetatable(AnimStack, AnimStack)
 
 PART.ClassName = "animation"
-PART.NonPhysical = true
 PART.ThinkTime = 0
 PART.Groups = {'entity', 'model', 'modifiers'}
 PART.Icon = 'icon16/eye.png'
 
 PART.frame = 0
 
-pac.StartStorableVars()
-	pac.GetSet(PART, "Loop", true)
-	pac.GetSet(PART, "PingPongLoop", false)
-	pac.GetSet(PART, "SequenceName", "", {enums = function(part) local tbl = {} for k,v in pairs(part:GetSequenceList()) do tbl[v] = v end return tbl end})
-	pac.GetSet(PART, "Rate", 1, {editor_sensitivity = 0.1})
-	pac.GetSet(PART, "Offset", 0)
-	pac.GetSet(PART, "Min", 0)
-	pac.GetSet(PART, "Max", 1)
-	pac.GetSet(PART, "WeaponHoldType", "none", {enums = function(part) return part.ValidHoldTypes end})
-	pac.GetSet(PART, "OwnerCycle", false)
-	pac.GetSet(PART, "InvertFrames", false)
-	pac.GetSet(PART, "ResetOnHide", true)
-pac.EndStorableVars()
+BUILDER
+:StartStorableVars()
+	:GetSet("Loop", true)
+	:GetSet("PingPongLoop", false)
+	:GetSet("SequenceName", "", {enums = function(part) local tbl = {} for k,v in pairs(part:GetSequenceList()) do tbl[v] = v end return tbl end})
+	:GetSet("Rate", 1, {editor_sensitivity = 0.1})
+	:GetSet("Offset", 0)
+	:GetSet("Min", 0)
+	:GetSet("Max", 1)
+	:GetSet("WeaponHoldType", "none", {enums = function(part) return part.ValidHoldTypes end})
+	:GetSet("OwnerCycle", false)
+	:GetSet("InvertFrames", false)
+	:GetSet("ResetOnHide", true)
+:EndStorableVars()
 
 local tonumber = tonumber
 
@@ -66,16 +126,6 @@ function PART:GetNiceName()
 	return pac.PrettifyName(str)
 end
 
-function PART:GetOwner()
-	local parent = self:GetParent()
-
-	if parent:IsValid() and parent.is_model_part and parent.Entity:IsValid() then
-		return parent.Entity
-	end
-
-	return self.BaseClass.GetOwner(self)
-end
-
 function PART:GetSequenceList()
 	local ent = self:GetOwner()
 
@@ -88,7 +138,8 @@ end
 
 PART.GetSequenceNameList = PART.GetSequenceList
 
-function PART:OnHide()
+function PART:OnStackStop()
+	-- Move code from PART:OnHide() to here
 	local ent = self:GetOwner()
 
 	if ent:IsValid() then
@@ -115,6 +166,13 @@ function PART:OnHide()
 	end
 end
 
+-- Stop animation and remove from animation stack
+function PART:OnHide()
+	local ent = self:GetOwner()
+	if not ent:IsValid() then return end
+	AnimStack.get(ent):pop(self)
+end
+
 PART.random_seqname = ""
 
 function PART:SetSequenceName(name)
@@ -126,7 +184,8 @@ function PART:SetSequenceName(name)
 	end
 end
 
-function PART:OnShow()
+function PART:OnStackStart()
+	-- Moved code from PART:OnShow() to here
 	self.PlayingSequenceFrom = RealTime()
 	local ent = self:GetOwner()
 
@@ -229,76 +288,88 @@ function PART:OnShow()
 	end
 end
 
+-- Play animation and move to top of animation stack
+function PART:OnShow()
+	local ent = self:GetOwner()
+	if not ent:IsValid() then return end
+	AnimStack.get(ent):push(self)
+end
+
+
 function PART:OnThink()
 	local ent = self:GetOwner()
+	if not ent:IsPlayer() then
+		self:OnUpdateAnimation(nil)
+	end
+end
 
-	if ent:IsValid() then
-		if not self.random_seqname then return end
+function PART:OnUpdateAnimation(ply)
+	if self:IsHiddenCached() then return end
 
-		local seq = ent:LookupSequence(self.random_seqname) or 0
+	local ent = self:GetOwner()
+	if not ent:IsValid() or not ent.pac_animation_stack or ent.pac_animation_stack.stack[#ent.pac_animation_stack.stack] ~= self then return end
 
-		local duration = 0
-		local count = ent:GetSequenceCount() or 0
-		if seq >= 0 and seq < count and count > 0 then
-			duration = ent:SequenceDuration(seq)
-		else
-			-- It's an invalid sequence. Don't bother
-			return
+	-- from UpdateAnimation hook
+	if ply and ent ~= ply then return end
+
+	if not self.random_seqname then return end
+
+	local seq, duration = ent:LookupSequence(self.random_seqname)
+
+	local count = ent:GetSequenceCount() or 0
+	if seq < 0 or seq >= count then
+		-- It's an invalid sequence. Don't bother
+		return
+	end
+
+	if self.OwnerCycle then
+		local owner = self:GetRootPart():GetOwner()
+
+		if IsValid(owner) then
+			ent:SetCycle(owner:GetCycle())
 		end
 
-		if self.OwnerCycle then
-			local owner = self.BaseClass.GetOwner(self, true)
+		return
+	end
 
-			if IsValid(owner) then
-				ent:SetCycle(owner:GetCycle())
-			end
+	local min = self.Min
+	local max = self.Max
+	local maxmin = max - min
 
-			return
+	if min == max then
+		local cycle = min
+
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
 		end
+		return
+	end
 
-		local rate = math.min(self.Rate * duration, 1)
+	local rate = (duration == 0) and 0 or (self.Rate / duration / math.abs(maxmin) * FrameTime())
 
-		if seq ~= -1 then
-
-			if rate == 0 then
-				ent:SetCycle(self.Offset % 1)
-				return
-			end
+	if self.PingPongLoop then
+		if self.Loop then
+			self.frame = (self.frame + rate) % 2
 		else
-			seq = tonumber(self.random_seqname) or -1
-
-			if seq ~= -1 then
-				if rate == 0 then
-					ent:SetCycle(self.Offset % 1)
-					return
-				end
-			else
-				return
-			end
+			self.frame = math.max(math.min(self.frame + rate, 2), 0)
 		end
+		local cycle = min + math.abs(1 - (self.frame + 1 + self.Offset) % 2) * maxmin
 
-		rate = rate / math.abs(self.Min - self.Max)
-		rate = rate * FrameTime()
-
-		local min = self.Min
-		local max = self.Max
-
-		if self.PingPongLoop then
-			self.frame = self.frame + rate / 2
-			local cycle = min + math.abs(math.Round((self.frame + self.Offset) * 0.5) - (self.frame + self.Offset) * 0.5) * 2 * (max - min)
-
-			if pac.IsNumberValid(cycle) then
-				ent:SetCycle(not self.InvertFrames and cycle or (1 - cycle))
-			end
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
+		end
+	else
+		if self.Loop then
+			self.frame = (self.frame + rate) % 2
 		else
-			self.frame = self.frame + rate
-			local cycle = min + ((self.frame + self.Offset) * 0.5) % 1 * (max - min)
+			self.frame = math.max(math.min(self.frame + rate, 1), 0)
+		end
+		local cycle = min + (self.frame + self.Offset) % 1 * maxmin
 
-			if pac.IsNumberValid(cycle) then
-				ent:SetCycle(not self.InvertFrames and cycle or (1 - cycle))
-			end
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
 		end
 	end
 end
 
-pac.RegisterPart(PART)
+BUILDER:Register()

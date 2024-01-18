@@ -1,0 +1,496 @@
+if SERVER then AddCSLuaFile() end
+teams = {
+
+    -- ==== Fleet ====
+    Fleet = {
+        "Grand Admiral",
+        "Fleet Admiral",
+        "Fleet High Ranking",
+        "Fleet Member",
+        "Fleet Recruit",
+        "Fleet Director of Research and Development",
+        "Fleet Research and Development Officer",
+        "Fleet Chief of Intelligence",
+        "Fleet StarFighter Officer",
+        "Fleet Intelligence Officer",
+        "Fleet Maverick",
+    },
+
+    -- ==== Generals ====
+    Generals = {
+        "Supreme General",
+        "Battalion General",
+        "Assistant General",
+        "RC General",
+        "Shadow General",
+        "Medical General",
+    },
+
+-- ==== Marshals ====
+    Marshal = {
+        "501st Marshal Commander",
+        "212th Marshal Commander",
+        "Green Company Marshal Commander",
+        "Coruscant Guard Marshal Commander",
+        "Galactic Marines Marshal Commander",
+        "Wolfpack Marshal Commander",
+        "327th Marshal Commander",
+        "ARC Marshal Commander",
+        "RC Marshal Commander",
+        "Medical Marshal Commander"
+
+    },
+
+    -- ==== Clone Troopers ====
+    TeamCT = {
+        "Clone Trooper JDSGT",
+        "Clone Trooper DSGT",
+        "Clone Trooper MDSGT",
+        "Clone Trooper SDSGT",
+    },
+
+    TeamCTtrp = {
+        "Clone Trooper",
+    },
+
+
+
+    -- ==== 501st ====
+    Team501 = {
+        "501st General",
+        "501st Commander",
+        "501st Executive Officer",
+        "501st Major",
+        "501st Lieutenant",
+        "501st Heavy Trooper",
+        "501st Alpha ARC",
+        "501st ARC",
+        "501st Medic Officer",
+        "501st Sergeant",
+        "501st Medic Trooper",
+    },
+
+    Team501trp = {
+        "501st Trooper",
+    },
+
+    -- ==== 212th ====
+    Team212 = {
+        "212th General",
+        "212th Commander",
+        "212th Executive Officer",
+        "212th Major",
+        "212th Lieutenant",
+        "212th Ghost Company",
+        "212th Alpha ARC",
+        "212th ARC",
+        "212th Medic Officer",
+        "212th Sergeant",
+        "212th Medic Trooper",
+    },
+
+    Team212Trp = {
+        "212th Trooper",
+    },
+
+    -- ==== Green Company ====
+    TeamGreen = {
+        "Green Company General",
+        "Green Company Commander",
+        "Green Company Executive Officer",
+        "Green Company Major",
+        "Green Company Lieutenant",
+        "Green Company Marksman",
+        "Green Company Alpha ARC",
+        "Green Company ARC",
+        "Green Company Medic Officer",
+        "Green Company Sergeant",
+        "Green Company Medic Trooper",
+    },
+
+    TeamGreenTrp = {
+        "Green Company Trooper",
+    },
+
+    -- ==== Coruscant Guards ====
+    TeamCG = {
+        "Shock General",
+        "Coruscant Guard General",
+        "Coruscant Guard Commander",
+        "Coruscant Guard Executive Officer",
+        "Coruscant Guard Major",
+        "Coruscant Guard Lieutenant",
+        "Coruscant Guard Security Officer",
+        "Coruscant Guard Alpha ARC",
+        "Coruscant Guard ARC",
+        "Coruscant Guard Medic Officer",
+        "Coruscant Guard Sergeant",
+        "Coruscant Guard Medic Trooper",
+    },
+
+    TeamCGTrp = {
+        "Coruscant Guard Massif Hound",
+        "Coruscant Guard Trooper",
+    },
+
+    -- ==== Galactic Marines ====
+    TeamGM = {
+        "Galactic Marines General",
+        "Galactic Marines Commander",
+        "Galactic Marines Executive Officer",
+        "Galactic Marines Major",
+        "Galactic Marines Lieutenant",
+        "Galactic Marines Flame Trooper",
+        "Galactic Marines Kellers Unit",
+        "Galactic Marines Alpha ARC",
+        "Galactic Marines ARC",
+        "Galactic Marines Medic Officer",
+        "Galactic Marines Sergeant",
+        "Galactic Marines Medic Trooper",
+    },
+
+    TeamGMTrp = {
+        "Galactic Marines Trooper",
+    },
+
+    -- ==== WolfPack ====
+    TeamWP = {
+        "104th General",
+        "Wolfpack General",
+        "Wolfpack Commander",
+        "Wolfpack Executive Officer",
+        "Wolfpack Major",
+        "Wolfpack Lieutenant",
+        "Wolfpack Pathfinder",
+        "Wolfpack Alpha ARC",
+        "Wolfpack ARC",
+        "Wolfpack Medic Officer",
+        "Wolfpack Sergeant",
+        "Wolfpack Medic Trooper",
+    },
+
+    TeamWPTrp = {
+        "Wolfpack Trooper",
+    },
+
+    -- ==== Engineers ====
+    TeamCE = {
+        "327th General",
+        "327th Commander",
+        "327th Executive Officer",
+        "327th Major",
+        "327th Lieutenant",
+        "327th Talon Squadron",
+        "327th K Company",
+        "327th Alpha ARC",
+        "327th ARC",
+        "327th Medic Officer",
+        "327th Sergeant",
+        "327th Medic Trooper",
+    },
+
+    TeamCETrp = {
+        "327th Trooper",
+    },
+
+    -- ==== ARC ====
+    TeamARC = {
+        "ARC General",
+        "ARC Command",
+    },
+
+    TeamARCTrp = {
+        "501st Alpha ARC",
+        "501st ARC",
+        "212th Alpha ARC",
+        "212th ARC",
+        "Green Company Alpha ARC",
+        "Green Company ARC",
+        "Coruscant Guard Alpha ARC",
+        "Coruscant Guard ARC",
+        "Galactic Marines Alpha ARC",
+        "Galactic Marines ARC",
+        "Wolfpack Alpha ARC",
+        "Wolfpack ARC",
+        "327th Alpha ARC",
+        "327th ARC",
+        "Trainee ARC",
+    },
+
+    -- ==== Republic Commandos ====
+    TeamRC = {
+        "RC Boss",
+        "RC Fixer",
+        "RC Sev",
+        "RC Scorch",
+        "CF99 Hunter",
+        "CF99 Crosshair",
+        "CF99 Wrecker",
+        "CF99 Tech",
+        "CF99 Echo",
+        "RC Niner",
+        "RC Fi",
+        "RC Darman",
+        "RC Atin",
+        "RC Corr",
+        "RC Vale",
+        "RC Plank",
+        "RC Riggs",
+        "RC Witt",
+        "RC HOPE Squad",
+        "RC Aiwha Squad",
+        "RC Aquila Squad",
+        "RC Ion Squad",
+        "RC Yayax Squad",
+        "RC Sergeant",
+
+    },
+
+    TeamRCTrp = {
+        "Republic Commando",
+    },
+
+    -- ==== Cuy'val Dar ====
+    TeamCD = {
+        "Cuy'val Dar General",
+        "Marshal Commander Walon Vau",
+        "Walon Vau",
+        "Kal Skirata",
+        "Fen Rau",
+        "Mand'alor",
+    },
+
+    TeamCDTrp = {
+        "Cuy'val Dar Officer",
+        "Cuy'val Dar Member",
+    },
+
+    TeamValour = {
+        "Cuy'val Dar Valour Lead",
+        "Cuy'val Dar Valour Trooper",
+    },
+
+    TeamSDW = {
+        "Shadow Lead",
+        "Shadow Member",
+    },
+
+    TeamMarauder = {
+        "Marauder Lead",
+        "Marauder Trooper",
+    },
+
+    TeamShadow = {
+        "SDW General",
+        "SDW Marshal Commander",
+        "SDW CO",
+        "SDW XO",
+        "SDW MJR",
+        "SDW Officer",
+        "SDW Sergeant",
+        "SDW Trooper",
+        "Covert Lead",
+        "Covert Specialists",
+        "Covert Trooper",
+    },
+
+
+
+    -- ==== Medical Directive ====
+    TeamMed = {
+        "Medical Director",
+        "Assistant Medical Director",
+    },
+
+    TeamMedTrp = {
+        "501st Medic Officer",
+        "501st Medic Trooper",
+        "212th Medic Officer",
+        "212th Medic Trooper",
+        "Green Company Medic Officer",
+        "Green Company Medic Trooper",
+        "Coruscant Guard Medic Officer",
+        "Coruscant Guard Medic Trooper",
+        "Galactic Marines Medic Officer",
+        "Galactic Marines Medic Trooper",
+        "Wolfpack Medic Officer",
+        "Wolfpack Medic Trooper",
+        "327th Medic Officer",
+        "327th Medic Trooper",
+    },
+
+    -- ==== NSO Command ====
+    TeamNSO = {
+        "NSO Captain",
+        "NSO CQC Expert",
+        "NSO Medic",
+        "NSO Agent",
+    },
+
+    -- ==== JEDI ====
+    JediCouncil = {
+        "Jedi Grand Master",
+        "Jedi Master Mace Windu",
+        "Jedi General Anakin Skywalker",
+        "Jedi General Obi-Wan Kenobi",
+        "Jedi Commander Ahsoka Tano",
+        "Jedi General Plo Koon",
+        "Jedi General Kit Fisto",
+        "Jedi General Aayla Secura",
+        "Jedi General Shaak Ti",
+        "Jedi General Ki-Adi-Mundi",
+        "Jedi General Quinlan Vos",
+        "Jedi General Luminara Unduli",
+        "Jedi Council Member"
+    },
+
+    JediTemple = {
+        "Jedi Chief of Security Cin Drallig",
+        "Jedi Consular Temple Guard",
+        "Jedi Sentinel Temple Guard",
+        "Jedi Guardian Temple Guard",
+    },
+
+    JediSpec = {
+        "Jedi Consular",
+        "Jedi Guardian",
+        "Jedi Sentinel",
+    },
+
+    Jedi = {
+        "Jedi Knight",
+    },
+
+    JediOther = {
+        "Jedi Tournament",
+        "Jedi Padawan",
+        "Jedi Youngling",
+    },
+
+    -- ==== Legacy ====
+    TeamLegacy = {
+        "Wookiee",
+        "Jawa",
+        "Bounty Hunter",
+        "Republic Droid",
+    },
+
+    -- ==== Clone Reinforcements ====
+    TeamReinforce = {
+        "Dooms Unit Assault",
+        "442nd Siege Battalion",
+        "91st Marksman",
+        "Jaguar Hunters",
+    },
+
+    -- ==== Staff ====
+    TeamStaff = {
+        "Staff on Duty",
+        "Event Host",
+    },
+
+    -- ==== Sim ====
+    TeamSim = {
+        "Clone Assault",
+        "Clone Heavy",
+        "Clone Sniper",
+        "Clone Medic",
+        "Clone Pilot",
+        "Clone Bomber",
+        "Clone Jet Trooper",
+        "Sim Enemy Assault",
+        "Sim Enemy Heavy",
+        "Sim Enemy Medic",
+        "Sim Enemy Sniper",
+        "Sim Enemy Pilot",
+        "Sim Enemy Bomber",
+        "Sim Enemy Jet Trooper",
+    },
+
+    -- ==== Event ====
+    TeamEE = {
+        "CIS Trooper",
+        "CIS Heavy Trooper",
+        "CIS Pilot",
+        "CIS Sniper",
+        "CIS Specialist",
+        "CIS Droid Commander",
+        "CIS Engineer",
+        "CIS B2 Droid",
+        "Droideka",
+        "CIS Electro Staff User",
+        "CIS Elite Captain",
+        "CIS Elite Melee",
+        "CIS Elite Marksman",
+        "CIS Elite Heavy",
+        "CIS Elite Trooper",
+        "Sith",
+        "Enemy Jetpack Trooper",
+        "Enemy Trooper",
+        "Enemy Heavy",
+        "Enemy Sniper",
+        "Enemy Specialist",
+        "Enemy Melee",
+        "Enemy Medic",
+        "Enemy Engineer",
+        "Umbaran Trooper",
+        "Umbaran Heavy Trooper",
+        "Umbaran Sniper",
+        "Umbaran Engineer",
+        "Umbaran Officer",
+        "Prisoner",
+        "Undead Clone",
+        "Republic Guard",
+        "Clone",
+        "Event Character",
+        "Republic Character",
+        "Count Dooku",
+        "Asajj Ventress",
+        "Darth Maul",
+        "General Grievous",
+        "Savage Opress",
+        "Pre Viszla",
+        "Cad Bane",
+        "Hondo Ohnaka",
+        "Bossk",
+        "Durge",
+
+    },
+
+    -- RegAccss = mergeTables(
+    --     teams.Fleet,
+    --     teams.Generals,
+    --     teams.Marshal,
+    --     teams.TeamMed,
+    --     teams.TeamNSO,
+    --     teams.JediSpec,
+    --     teams.Jedi
+    -- ),
+
+
+}
+
+function mergeTables(...)
+    local result = {}
+
+    -- Iterate through all the arguments
+    for _, arg in ipairs({...}) do
+        if type(arg) == "table" then
+            -- If it's a table, merge its elements into the result table
+            table.Add(result, arg)
+        elseif type(arg) == "string" then
+            -- If it's a string, concatenate it to the result table
+            table.insert(result, arg)
+        else
+            error("mergeTables: All arguments must be tables or strings")
+        end
+    end
+
+    return result
+end
+
+-- Return a function that allows you to get specific teams
+return function(teamCategory)
+    return teams[teamCategory]
+end
+

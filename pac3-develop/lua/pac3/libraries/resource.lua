@@ -35,7 +35,7 @@ local function utility_CreateCallbackThing(cache)
 			end
 
 			if cache[path].callback then
-				if type(cache[path].callback) ~= 'table' then cache[path].callback = {cache[path].callback} end
+				if not istable(cache[path].callback) then cache[path].callback = {cache[path].callback} end
 				table.insert(cache[path].callback, callback)
 				return true
 			end
@@ -43,7 +43,7 @@ local function utility_CreateCallbackThing(cache)
 	end
 
 	function self:start(path, callback, extra)
-		if type(callback) ~= 'table' then callback = {callback} end
+		if not istable(callback) then callback = {callback} end
 		cache[path] = {callback = table.Copy(callback), extra_callbacks = table.Copy(extra or {})}
 	end
 
@@ -55,7 +55,7 @@ local function utility_CreateCallbackThing(cache)
 	function self:stop(path, out, ...)
 		if not cache[path] then return end
 
-		if type(cache[path].callback) == 'table' then
+		if istable(cache[path].callback) then
 			for i, func in ipairs(cache[path].callback) do
 				func(out, ...)
 			end
@@ -82,6 +82,19 @@ local etags_file = "pac3_cache/resource_etags.txt"
 
 file.CreateDir(DOWNLOAD_FOLDER)
 
+local maxAgeConvar = CreateConVar("pac_downloads_cache_maxage", "604800", FCVAR_ARCHIVE, "Maximum age of cache entries in seconds, default is 1 week.")
+local function clearCacheAfter( time )
+	for _, fileName in ipairs(file.Find(DOWNLOAD_FOLDER .. "*", "DATA")) do
+		local fullPath = DOWNLOAD_FOLDER .. fileName
+
+		if file.Time(fullPath, "DATA") < time then
+			file.Delete(fullPath)
+		end
+	end
+end
+
+clearCacheAfter(os.time() - maxAgeConvar:GetInt())
+
 local function rename_file(a, b)
 	local str_a = file.Read(a, "DATA")
 	file.Delete(a, "DATA")
@@ -99,7 +112,7 @@ local function download(from, to, callback, on_fail, on_header, check_etag, etag
 
 		HTTP({
 			method = "HEAD",
-			url = from,
+			url = pac.FixGMODUrl(from),
 			success = function(code, body, header)
 				local res = header.ETag or header["Last-Modified"]
 
@@ -231,7 +244,7 @@ function resource.Download(path, callback, on_fail, crc, check_etag)
 		end
 
 		url = path
-		local crc = (crc or util.CRC(path))
+		local crc = (crc or pac.Hash(path))
 
 		if not redownload and resource.url_cache_lookup[crc] then
 			path = resource.url_cache_lookup[crc]
@@ -258,9 +271,9 @@ function resource.Download(path, callback, on_fail, crc, check_etag)
 	if existing_path and not check_etag then
 		ohno = true
 
-		if type(callback) == 'function' then
+		if isfunction(callback) then
 			callback(existing_path)
-		elseif type(callback) == 'table' then
+		elseif istable(callback) then
 			for i, func in ipairs(callback) do
 				func(existing_path)
 			end
@@ -317,8 +330,8 @@ end
 function resource.BuildCacheFolderList(file_name)
 	if not resource.url_cache_lookup then
 		local tbl = {}
-		for _, file_name in ipairs((file.Find(DOWNLOAD_FOLDER, "DATA"))) do
-			local name = file_name:match("(%d)%.")
+		for _, file_name in ipairs((file.Find(DOWNLOAD_FOLDER .. "*", "DATA"))) do
+			local name = file_name:match("(%w+)%.")
 			if name then
 				tbl[name] = file_name
 			else

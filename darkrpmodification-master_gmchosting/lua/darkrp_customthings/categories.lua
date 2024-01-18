@@ -139,37 +139,19 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "Cuy'val Dar",
+	name = "Shadow",
 	categorises = "jobs",
 	startExpanded =false,
-	color = Color(137,5,253),
+	color = Color(130,16,8),
 	canSee = function(ply) return true end,
 	sortOrder = 21,
 }
 
 DarkRP.createCategory{
-	name = "Shadow Unit",
+	name = "Covert",
 	categorises = "jobs",
 	startExpanded =false,
-	color = Color(53,28,117,255),
-	canSee = function(ply) return true end,
-	sortOrder = 22,
-}
-
-DarkRP.createCategory{
-	name = "Marauder Corps",
-	categorises = "jobs",
-	startExpanded =false,
-	color = Color(88,176,0),
-	canSee = function(ply) return true end,
-	sortOrder = 22,
-}
-
-DarkRP.createCategory{
-	name = "Valour",
-	categorises = "jobs",
-	startExpanded =false,
-	color = Color(210,158,0,255),
+	color = Color(130,16,8),
 	canSee = function(ply) return true end,
 	sortOrder = 22,
 }
@@ -274,6 +256,7 @@ DarkRP.createCategory{
 	canSee = function(ply) return true end,
 	sortOrder = 27,
 }
+
 
 DarkRP.createCategory{
 	name = "Fleet Branches",

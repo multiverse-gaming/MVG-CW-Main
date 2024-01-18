@@ -2,7 +2,7 @@ SWEP.Category = "Summe"
 
 SWEP.PrintName = "Officer Boost (Normal)"
 
-SWEP.Base = "tfa_gun_base"
+SWEP.Base = "arccw_meeks_sw_base" --tfa_gun_base
 
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
@@ -15,6 +15,14 @@ SWEP.HoldType = "none"
 
 SWEP.ShowWorldModel = false
 SWEP.ShowViewModel = false
+
+SWEP.Firemodes = {
+    {
+        Mode = 1,
+        PrintName = "officerBoost",
+    },
+}
+
 
 function SWEP:PreDrawViewModel()
     render.SetBlend(0)

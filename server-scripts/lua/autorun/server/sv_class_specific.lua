@@ -1,16 +1,18 @@
 local WhitelistJobsNames = { --jobs to not take fall damage
-		"Cuy'val Dar General",
-		"Marshal Commander Walon Vau",
-        "Walon Vau",
-        "Kal Skirata",
-		"Fen Rau",
-		"Cuy'val Dar Guard Lead",
-		"Cuy'val Dar Guard Trooper",
+		"SDW General",
+		"SDW Marshal Commander",
+        "SDW CO",
+        "SDW XO",
+		"SDW MJR",
+		"SDW Officer",
+		"SDW Sergeant",
+		"SDW Trooper",
+        "Covert Lead",
+        "Covert Specialists",
+        "Covert Trooper",
 		"CIS Electro Staff User",
 		"Bossk",
 		"CIS Elite Melee",
-        "Field Marshall",
-        "Mand'alor",
 }
 
 local function JobCheck(ply)

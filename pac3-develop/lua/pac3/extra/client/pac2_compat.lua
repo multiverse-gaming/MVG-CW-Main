@@ -1,5 +1,4 @@
-local bones =
-{
+local bones = {
 	["pelvis"] = "valvebiped.bip01_pelvis",
 	["spine"] = "valvebiped.bip01_spine",
 	["spine 2"] = "valvebiped.bip01_spine1",
@@ -257,7 +256,7 @@ function pacx.ConvertPAC2Config(data, name)
 						local part2 = pac.CreatePart("bone")
 							part2:SetName("model bone " .. part:GetName() .. " " .. key)
 							part2:SetParent(part)
-							part2:SetBone(part:GetEntity():GetBoneName(key))
+							part2:SetBone(part:GetOwner():GetBoneName(key))
 
 							part2:SetScale(bone.scale*1)
 							part2:SetAngles(bone.angles*1)
@@ -326,6 +325,22 @@ end
 local glon = {}
 
 do
+	local function Read(reader, rtabs)
+		local t, pos = reader:Peek()
+		if not t then
+			error(string.format("Expected type ID at %s! (Got EOF)",
+				pos))
+		else
+			local dt = decode_types[string.byte(t)]
+			if not dt then
+				error(string.format("Unknown type ID, %s!",
+					string.byte(t)))
+			else
+				return dt(reader, rtabs or {0})
+			end
+		end
+	end
+
 	local decode_types
 	decode_types = {
 		-- \2\6omg\1\6omgavalue\1\1
@@ -462,21 +477,6 @@ do
 			return rtabs[decode_types[6](reader) - 1]
 		end,
 	}
-	function Read(reader, rtabs)
-		local t, pos = reader:Peek()
-		if not t then
-			error(string.format("Expected type ID at %s! (Got EOF)",
-				pos))
-		else
-			local dt = decode_types[string.byte(t)]
-			if not dt then
-				error(string.format("Unknown type ID, %s!",
-					string.byte(t)))
-			else
-				return dt(reader, rtabs or {0})
-			end
-		end
-	end
 	local reader_meta = {}
 	reader_meta.__index = reader_meta
 	function reader_meta:Next()
@@ -499,9 +499,9 @@ do
 		return self.p, self.i+1
 	end
 	function glon.decode(data)
-		if type(data) == "nil" then
+		if data == nil then
 			return nil
-		elseif type(data) ~= "string" then
+		elseif not isstring(data) then
 			error(string.format("Expected string to decode! (Got type %s)",
 				type(data)
 			))
@@ -536,7 +536,7 @@ concommand.Add("pac_convert_pac2_outfits", function()
 		local owner_nick = file.Read("pac2_outfits/" .. uniqueid .. "/__owner.txt", "DATA")
 
 		if not owner_nick then
-			owner_nick = LocalPlayer():Nick()
+			owner_nick = pac.LocalPlayer:Nick()
 			pac.Message("garrysmod/data/pac2_outfits/" .. uniqueid .. "/__owner.txt does not exist (it contains the player nickname) defaulting to " .. owner_nick)
 		end
 

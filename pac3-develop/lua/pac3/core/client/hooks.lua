@@ -1,3 +1,6 @@
+local pairs = pairs
+local IsEntity = IsEntity
+local next = next
 
 pac.AddHook("RenderScene", "eyeangles_eyepos", function(pos, ang)
 	pac.EyePos = pos
@@ -12,8 +15,15 @@ pac.AddHook("DrawPhysgunBeam", "physgun_event", function(ply, wep, enabled, targ
 		ply.pac_drawphysgun_event = nil
 	end
 
-	if ply.pac_drawphysgun_event_part and ply.pac_drawphysgun_event_part:IsValid() then
-		ply.pac_drawphysgun_event_part:OnThink()
+	local pac_drawphysgun_event_part = ply.pac_drawphysgun_event_part
+	if pac_drawphysgun_event_part then
+		for event in pairs(pac_drawphysgun_event_part) do
+			if event:IsValid() then
+				event:OnThink()
+			else
+				pac_drawphysgun_event_part[event] = nil
+			end
+		end
 	end
 
 
@@ -27,23 +37,17 @@ do
 		if not IsEntity(ply) or not ply:IsValid() then return end
 
 		if ply.pac_death_physics_parts and ply:Alive() and ply.pac_physics_died then
-			pac.CallPartEvent("become_physics")
+			pac.CallRecursiveOnOwnedParts(ply, "OnBecomePhysics")
 			ply.pac_physics_died = false
 		end
 
-		local tbl = ply.pac_pose_params
+		do
+			local tbl = ply.pac_pose_params
 
-		if tbl then
-			for _, data in pairs(tbl) do
-				ply:SetPoseParameter(data.key, data.val)
-			end
-		end
-		
-		tbl = ply.pac_flex_params
-
-		if tbl then
-			for flex, weight in pairs(tbl) do
-				ply:SetFlexWeight(flex, weight)
+			if tbl then
+				for _, data in pairs(tbl) do
+					ply:SetPoseParameter(data.key, data.val)
+				end
 			end
 		end
 
@@ -62,11 +66,14 @@ do
 			local part, thing = next(ply.pac_animation_sequences)
 
 			if part and part:IsValid() then
-				if part.Rate == 0 then
-					animrate = 1
-					ply:SetCycle(part.Offset % 1)
-				else
-					animrate = animrate * part.Rate
+
+				if part.OwnerCycle then
+					if part.Rate == 0 then
+						animrate = 1
+						ply:SetCycle(part.Offset % 1)
+					else
+						animrate = animrate * part.Rate
+					end
 				end
 			elseif part and not part:IsValid() then
 				ply.pac_animation_sequences[part] = nil
@@ -95,7 +102,7 @@ do
 
 		if ply.pac_last_vehicle ~= vehicle then
 			if ply.pac_last_vehicle ~= nil then
-				pac.CallPartEvent("vehicle_changed", ply, vehicle)
+				pac.CallRecursiveOnAllParts("OnVehicleChanged", ply, vehicle)
 			end
 			ply.pac_last_vehicle = vehicle
 		end
@@ -103,35 +110,6 @@ do
 end
 
 local MOVETYPE_NOCLIP = MOVETYPE_NOCLIP
-local IN_SPEED = IN_SPEED
-local IN_WALK = IN_WALK
-local IN_DUCK = IN_DUCK
-
-local function mod_speed(cmd, speed)
-	if speed and speed ~= 0 then
-		local forward = cmd:GetForwardMove()
-		forward = forward > 0 and speed or forward < 0 and -speed or 0
-
-		local side = cmd:GetSideMove()
-		side = side > 0 and speed or side < 0 and -speed or 0
-
-
-		cmd:SetForwardMove(forward)
-		cmd:SetSideMove(side)
-	end
-end
-
-pac.AddHook("CreateMove", "events", function(cmd)
-	if cmd:KeyDown(IN_SPEED) then
-		mod_speed(cmd, pac.LocalPlayer.pac_sprint_speed)
-	elseif cmd:KeyDown(IN_WALK) then
-		mod_speed(cmd, pac.LocalPlayer.pac_walk_speed)
-	elseif cmd:KeyDown(IN_DUCK) then
-		mod_speed(cmd, pac.LocalPlayer.pac_crouch_speed)
-	else
-		mod_speed(cmd, pac.LocalPlayer.pac_run_speed)
-	end
-end)
 
 pac.AddHook("TranslateActivity", "events", function(ply, act)
 	if IsEntity(ply) and ply:IsValid() then

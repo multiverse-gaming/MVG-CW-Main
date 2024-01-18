@@ -15,7 +15,7 @@ end
 
 
 function pace.CallHook(str, ...)
-	hook.Call("pac_" .. str, GAMEMODE, ...)
+	return hook.Call("pac_" .. str, GAMEMODE, ...)
 end
 
 
@@ -36,7 +36,9 @@ function pace.PCallCriticalFunction(ply, func, ...)
 		return false
 	end
 
-	local ok, msg = pcall(func, ...)
+	local ok, msg = xpcall(func, function(msg)
+		debug.Trace()
+	end, ...)
 
 	if ok then
 		return ok, msg

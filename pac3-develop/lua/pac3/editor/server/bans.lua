@@ -9,7 +9,7 @@ local function get_bans()
 
 	do -- check if this needs to be rebuilt
 		local k,v = next(bans)
-		if type(v) == "string" then
+		if isstring(v) then
 			local temp = {}
 
 			for k,v in pairs(bans) do
@@ -79,6 +79,10 @@ local function GetPlayer(target)
 end
 
 concommand.Add("pac_ban", function(ply, cmd, args)
+	if not next(args) then
+		pac.Message("Please provide one of the following: SteamID, UniqueID or Nick.")
+		return
+	end
 	local target = GetPlayer(args[1])
 	if (not IsValid(ply) or ply:IsAdmin()) and target then
 		pace.Ban(target)
@@ -87,6 +91,10 @@ concommand.Add("pac_ban", function(ply, cmd, args)
 end)
 
 concommand.Add("pac_unban", function(ply, cmd, args)
+	if not next(args) then
+		pac.Message("Please provide one of the following: SteamID, UniqueID or Nick.")
+		return
+	end
 	local target = GetPlayer(args[1])
 	if (not IsValid(ply) or ply:IsAdmin()) and target then
 		pace.Unban(target)

@@ -234,12 +234,27 @@ EPS_ClaimBoard_Config.Battalions = {
         },
     },
 
+    ["Shadow"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
+        Jobs = {
+            ["SDW General"] = true,
+            ["SDW Marshal Commander"] = true,
+            ["SDW CO"] = true,
+            ["SDW XO"] = true,
+            ["SDW MJR"] = true,
+            ["SDW Officer"] = true,
+            ["SDW Sergeant"] = true,
+            ["Covert Lead"] = true,
+            ["Covert Specialists"] = true,
+            ["Covert Trooper"] = true,
+        },
+    },
+
 
     ["ARC Directive"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
         Jobs = {
             ["ARC General"] = true,
             ["ARC Marshal Commander"] = true,
-            ["ARC Command"] = true
+            ["ARC Command"] = true,
         },
     },
 
@@ -359,14 +374,14 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Coruscant Guard ARC"] = true,
             ["Shock ARC"] = true,
             ["Green Company ARC"] = true,
-            ["ARC Alpha 501st"] = true,
-            ["ARC Alpha 212th"] = true,
-            ["ARC Alpha Green Company"] = true,
-            ["ARC Alpha Galactic Marines"] = true,
-            ["ARC Alpha Wolfpack"] = true,
-            ["ARC Alpha 327th"] = true,
-            ["ARC Alpha Shock"] = true,
-            ["ARC Alpha Coruscant Guard"] = true,
+            ["501st Alpha ARC"] = true,
+            ["212th Alpha ARC "] = true,
+            ["Green Company Alpha ARC"] = true,
+            ["Coruscant Guard Alpha ARC"] = true,
+            ["Shock Alpha ARC"] = true,
+            ["Galactic Marines Alpha ARC"] = true,
+            ["Wolfpack Alpha ARC"] = true,
+            ["327th Alpha ARC"] = true,
         },
     },
 }

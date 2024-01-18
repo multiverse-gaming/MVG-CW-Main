@@ -1,7 +1,6 @@
 include("autorun/pac_core_init.lua")
 
 pace = pace or {}
-pace.net = include("pac3/libraries/netx.lua")
 pace.luadata = include("pac3/libraries/luadata.lua")
 
 include("language.lua")
@@ -17,14 +16,12 @@ include("saved_parts.lua")
 include("logic.lua")
 include("undo.lua")
 include("fonts.lua")
-include("basic_mode.lua")
 include("settings.lua")
 include("shortcuts.lua")
 include("asset_browser.lua")
 include("menu_bar.lua")
 
 include("mctrl.lua")
-include("screenvec.lua")
 
 include("panels.lua")
 include("tools.lua")
@@ -34,7 +31,10 @@ include("examples.lua")
 include("about.lua")
 include("animation_timeline.lua")
 include("render_scores.lua")
+include("wires.lua")
 
+include("wear_filter.lua")
+include("show_outfit_on_use.lua")
 
 do
 	local hue =
@@ -87,11 +87,14 @@ pace.Editor = NULL
 
 local remember = CreateConVar("pac_editor_remember_position", "1", {FCVAR_ARCHIVE}, "Remember PAC3 editor position on screen")
 local positionMode = CreateConVar("pac_editor_position_mode", "0", {FCVAR_ARCHIVE}, "Editor position mode. 0 - Left, 1 - middle, 2 - Right. Has no effect if pac_editor_remember_position is true")
+local showCameras = CreateConVar("pac_show_cameras", "1", {FCVAR_ARCHIVE}, "Show the PAC cameras of players using the editor")
+local showInEditor = CreateConVar("pac_show_in_editor", "1", {FCVAR_ARCHIVE}, "Show the 'In PAC3 Editor' text above players using the editor")
+pace.pac_show_uniqueid = CreateConVar("pac_show_uniqueid", "0", {FCVAR_ARCHIVE}, "Show uniqueids of parts inside editor")
 
 function pace.OpenEditor()
 	pace.CloseEditor()
 
-	if hook.Run("PrePACEditorOpen", LocalPlayer()) == false then return end
+	if hook.Run("PrePACEditorOpen", pac.LocalPlayer) == false then return end
 
 	pac.Enable()
 
@@ -136,7 +139,9 @@ function pace.OpenEditor()
 		ctp:Disable()
 	end
 
+	RunConsoleCommand("pac_enable", "1")
 	RunConsoleCommand("pac_in_editor", "1")
+
 	pace.SetInPAC3Editor(true)
 
 	pace.DisableExternalHooks()
@@ -157,6 +162,7 @@ function pace.CloseEditor()
 
 		pace.Editor:Remove()
 		pace.Active = false
+		pace.Focused = false
 		pace.Call("CloseEditor")
 
 		if pace.timeline.IsActive() then
@@ -166,6 +172,10 @@ function pace.CloseEditor()
 
 	RunConsoleCommand("pac_in_editor", "0")
 	pace.SetInPAC3Editor(false)
+end
+
+function pace.HasFocus()
+	return pace.Editor:IsValid() and pace.Editor:HasFocus()
 end
 
 pac.AddHook("pac_Disable", "pac_editor_disable", function()
@@ -195,10 +205,14 @@ function pace.Panic()
 		end
 	end
 
+	pace.SafeRemoveSpecialPanel()
+
 	for i, ent in ipairs(ents.GetAll()) do
-		ent.pac_onuse_only = nil
-		ent.pac_onuse_only_check = nil
-		hook.Remove('pace_OnUseOnlyUpdates', ent)
+		if ent:IsValid() then
+			ent.pac_onuse_only = nil
+			ent.pac_onuse_only_check = nil
+			hook.Remove('pace_OnUseOnlyUpdates', ent)
+		end
 	end
 end
 
@@ -221,7 +235,7 @@ do -- forcing hooks
 				pace.OldHooks[event] = table.Copy(hooks)
 
 				for name in pairs(hooks) do
-					if type(name) == "string" and name:sub(1, 4) ~= "pace_" then
+					if isstring(name) and name:sub(1, 4) ~= "pace_" then
 						hook.Remove(event, name)
 					end
 				end
@@ -235,7 +249,7 @@ do -- forcing hooks
 		if pace.OldHooks then
 			for event, hooks in pairs(pace.OldHooks) do
 				for name, func in pairs(hooks) do
-					if type(name) == "string" and name:sub(1, 4) ~= "pace_" then
+					if isstring(name) and name:sub(1, 4) ~= "pace_" then
 						hook.Add(event, name, func)
 					end
 				end
@@ -291,52 +305,61 @@ do
 
 	hook.Add("HUDPaint", "pac_in_editor", function()
 		for _, ply in ipairs(player.GetAll()) do
-			if ply ~= LocalPlayer() and ply:GetNW2Bool("pac_in_editor") then
+			if ply ~= pac.LocalPlayer and ply:GetNW2Bool("pac_in_editor") then
 
-				if ply.pac_editor_cam_pos then
-					if not IsValid(ply.pac_editor_camera) then
-						ply.pac_editor_camera = ClientsideModel("models/tools/camera/camera.mdl")
-						ply.pac_editor_camera:SetModelScale(0.25,0)
+				if showCameras:GetInt() == 1 then
+					if ply.pac_editor_cam_pos then
+						if not IsValid(ply.pac_editor_camera) then
+							ply.pac_editor_camera = ClientsideModel("models/tools/camera/camera.mdl")
+							ply.pac_editor_camera:SetModelScale(0.25,0)
+							local ent = ply.pac_editor_camera
+							ply:CallOnRemove("pac_editor_camera", function()
+								SafeRemoveEntity(ent)
+							end)
+						end
+
 						local ent = ply.pac_editor_camera
-						ply:CallOnRemove("pac_editor_camera", function()
-							SafeRemoveEntity(ent)
-						end)
-					end
 
-					local ent = ply.pac_editor_camera
+						local dt = math.Clamp(FrameTime() * 5, 0.0001, 0.5)
 
-					local dt = math.Clamp(FrameTime() * 5, 0.0001, 0.5)
+						ent:SetPos(LerpVector(dt, ent:GetPos(), ply.pac_editor_cam_pos))
+						ent:SetAngles(LerpAngle(dt, ent:GetAngles(), ply.pac_editor_cam_ang))
 
-					ent:SetPos(LerpVector(dt, ent:GetPos(), ply.pac_editor_cam_pos))
-					ent:SetAngles(LerpAngle(dt, ent:GetAngles(), ply.pac_editor_cam_ang))
+						local pos_3d = ent:GetPos()
+						local dist = pos_3d:Distance(EyePos())
 
-					local pos_3d = ent:GetPos()
-					local dist = pos_3d:Distance(EyePos())
+						if dist > 10 then
+							local pos_2d = pos_3d:ToScreen()
+							if pos_2d.visible then
+								local alpha = math.Clamp(pos_3d:Distance(EyePos()) * -1 + 500, 0, 500)/500
+								if alpha > 0 then
+									draw.DrawText(ply:Nick() .. "'s PAC3 camera", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
 
-					if dist > 10 then
-						local pos_2d = pos_3d:ToScreen()
-						if pos_2d.visible then
-							local alpha = math.Clamp(pos_3d:Distance(EyePos()) * -1 + 500, 0, 500)/500
-							if alpha > 0 then
-								draw.DrawText(ply:Nick() .. "'s PAC3 camera", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
-
-								if not ply.pac_editor_part_pos:IsZero() then
-									surface.SetDrawColor(255, 255, 255, alpha*100)
-									local endpos = ply.pac_editor_part_pos:ToScreen()
-									if endpos.visible then
-										surface.DrawLine(pos_2d.x, pos_2d.y, endpos.x, endpos.y)
+									if not ply.pac_editor_part_pos:IsZero() then
+										surface.SetDrawColor(255, 255, 255, alpha*100)
+										local endpos = ply.pac_editor_part_pos:ToScreen()
+										if endpos.visible then
+											surface.DrawLine(pos_2d.x, pos_2d.y, endpos.x, endpos.y)
+										end
 									end
 								end
 							end
 						end
 					end
+				else
+					if ply.pac_editor_camera then
+						SafeRemoveEntity(ply.pac_editor_camera)
+						ply.pac_editor_camera = nil
+					end
 				end
 
-				local pos_3d = ply:NearestPoint(ply:EyePos() + up) + Vector(0,0,5)
-				local alpha = math.Clamp(pos_3d:Distance(EyePos()) * -1 + 500, 0, 500)/500
-				if alpha > 0 then
-					local pos_2d = pos_3d:ToScreen()
-					draw.DrawText("In PAC3 Editor", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
+				if showInEditor:GetInt() == 1 then
+					local pos_3d = ply:NearestPoint(ply:EyePos() + up) + Vector(0,0,5)
+					local alpha = math.Clamp(pos_3d:Distance(EyePos()) * -1 + 500, 0, 500)/500
+					if alpha > 0 then
+						local pos_2d = pos_3d:ToScreen()
+						draw.DrawText("In PAC3 Editor", "ChatFont", pos_2d.x, pos_2d.y, Color(255,255,255,alpha*255), 1)
+					end
 				end
 			else
 				if ply.pac_editor_camera then
@@ -351,9 +374,12 @@ do
 		local lastViewPos, lastViewAngle, lastTargetPos
 
 		timer.Create("pac_in_editor", 0.25, 0, function()
+			if not pace.Active then return end
 			if not pace.current_part:IsValid() then return end
 			local pos, ang = pace.GetViewPos(), pace.GetViewAngles()
-			local target_pos = (pace.mctrl.GetTargetPos()) or pace.current_part:GetDrawPosition() or vector_origin
+			local target_pos = pace.mctrl.GetWorldPosition()
+
+			if not target_pos then return end
 
 			if lastViewPos == pos and lastViewAngle == ang and lastTargetPos == target_pos then return end
 			lastViewPos, lastViewAngle, lastTargetPos = pos, ang, target_pos
@@ -368,7 +394,7 @@ do
 
 	net.Receive("pac_in_editor_posang", function()
 		local ply = net.ReadEntity()
-		if not ply:IsValid() then return end
+		if not IsValid( ply ) then return end
 
 		local pos = net.ReadVector()
 		local ang = net.ReadAngle()

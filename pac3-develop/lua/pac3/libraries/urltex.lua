@@ -60,9 +60,9 @@ function urltex.GetMaterialFromURL(url, callback, skip_cache, shader, size, size
 		noclamp or
 		noclampT
 
-	if type(callback) == "function" and not skip_cache and urltex.Cache[urlIndex] then
+	if isfunction(callback) and not skip_cache and urltex.Cache[urlIndex] then
 		local tex = urltex.Cache[urlIndex]
-		local mat = CreateMaterial("pac3_urltex_" .. util.CRC(url .. SysTime()), shader, additionalData)
+		local mat = CreateMaterial("pac3_urltex_" .. pac.Hash(), shader, additionalData)
 		mat:SetTexture("$basetexture", tex)
 		callback(mat, tex)
 		return
@@ -114,7 +114,7 @@ function urltex.StartDownload(url, data)
 	end
 
 	url = pac.FixUrl(url)
-	local size = data.size or urltex.TextureSize
+	local size = tonumber(data.size or urltex.TextureSize)
 	local id = "urltex_download_" .. url
 	local pnl
 	local frames_passed = 0
@@ -175,7 +175,7 @@ function urltex.StartDownload(url, data)
 			createDownloadPanel()
 		else
 			pac.dprint("material download %q timed out for good", url, timeoutNum)
-			hook.Remove("Think", id)
+			pac.RemoveHook("Think", id)
 			timer.Remove(id)
 			urltex.Queue[data.urlIndex] = nil
 		end
@@ -199,7 +199,7 @@ function urltex.StartDownload(url, data)
 			local html_mat = pnl:GetHTMLMaterial()
 
 			if html_mat then
-				local crc = util.CRC(data.urlIndex .. SysTime())
+				local crc = pac.Hash()
 				local vertex_mat = CreateMaterial("pac3_urltex_" .. crc, data.shader, data.additionalData)
 				local tex = html_mat:GetTexture("$basetexture")
 				tex:Download()

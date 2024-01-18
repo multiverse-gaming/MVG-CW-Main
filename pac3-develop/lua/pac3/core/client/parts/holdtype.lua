@@ -1,7 +1,7 @@
-local PART = {}
+local BUILDER, PART = pac.PartTemplate("base")
 
 PART.ClassName = "holdtype"
-PART.NonPhysical = true
+
 PART.ThinkTime = 0
 PART.Group = 'entity'
 PART.Icon = 'icon16/user_edit.png'
@@ -65,18 +65,18 @@ local udata = {
 	end
 }
 
-pac.StartStorableVars()
+BUILDER:StartStorableVars()
 	for name in pairs(act_mods) do
-		pac.GetSet(PART, name, "", udata)
+		BUILDER:GetSet(name, "", udata)
 	end
 
-	pac.GetSet(PART, "Fallback", "", udata)
-	pac.GetSet(PART, "Noclip", "", udata)
-	pac.GetSet(PART, "Air", "", udata)
-	pac.GetSet(PART, "Sitting", "", udata)
-	pac.GetSet(PART, "AlternativeRate", false)
-	pac.GetSet(PART, "Override", false)
-pac.EndStorableVars()
+	BUILDER:GetSet("Fallback", "", udata)
+	BUILDER:GetSet("Noclip", "", udata)
+	BUILDER:GetSet("Air", "", udata)
+	BUILDER:GetSet("Sitting", "", udata)
+	BUILDER:GetSet("AlternativeRate", false)
+	BUILDER:GetSet("Override", false)
+BUILDER:EndStorableVars()
 
 for name in pairs(act_mods) do
 	PART["Set" .. name] = function(self, str)
@@ -96,42 +96,42 @@ function PART:SetFallback(str)
 end
 
 function PART:UpdateActTable()
-	local ent = self:GetOwner(true)
+	local ent = self:GetRootPart():GetOwner()
+	if not ent:IsValid() then return end
 
-	if ent:IsValid() then
+	ent.pac_holdtype_alternative_animation_rate = self.AlternativeRate
 
-		ent.pac_holdtype_alternative_animation_rate = self.AlternativeRate
+	ent.pac_holdtypes = ent.pac_holdtypes or {}
 
-		ent.pac_holdtypes = ent.pac_holdtypes or {}
-
-		if self.Override then
-			table.Empty(ent.pac_holdtypes)
-		end
-
-		ent.pac_holdtypes[self] = ent.pac_holdtypes[self] or {}
-
-		local acts = ent.pac_holdtypes[self]
-
-		for name, act in pairs(act_mods) do
-			acts[act] = ent:GetSequenceActivity(ent:LookupSequence(self[name]))
-		end
-
-		-- custom acts
-		acts.fallback = ent:GetSequenceActivity(ent:LookupSequence(self.Fallback))
-		acts.noclip = ent:GetSequenceActivity(ent:LookupSequence(self.Noclip))
-		acts.air = ent:GetSequenceActivity(ent:LookupSequence(self.Air))
-		acts.sitting = ent:GetSequenceActivity(ent:LookupSequence(self.Sitting))
-
-		acts.part = self
+	if self.Override then
+		table.Empty(ent.pac_holdtypes)
 	end
+
+	ent.pac_holdtypes[self] = ent.pac_holdtypes[self] or {}
+
+	local acts = ent.pac_holdtypes[self]
+
+	for name, act in pairs(act_mods) do
+		acts[act] = ent:GetSequenceActivity(ent:LookupSequence(self[name]))
+	end
+
+	-- custom acts
+	acts.fallback = ent:GetSequenceActivity(ent:LookupSequence(self.Fallback))
+	acts.noclip = ent:GetSequenceActivity(ent:LookupSequence(self.Noclip))
+	acts.air = ent:GetSequenceActivity(ent:LookupSequence(self.Air))
+	acts.sitting = ent:GetSequenceActivity(ent:LookupSequence(self.Sitting))
+
+	acts.part = self
 end
 
 function PART:OnThink()
-	local ent = self:GetOwner(true)
+	local ent = self:GetRootPart():GetOwner()
+	if not ent:IsValid() then return end
 
-	if ent:IsValid() and ent:GetModel() ~= self.last_model then
+	if (ent:GetModel() ~= self.last_model or ent.pac_holdtypes ~= self.last_pac_holdtypes)  then
 		self:UpdateActTable()
 		self.last_model = ent:GetModel()
+		self.last_pac_holdtypes = ent.pac_holdtypes
 	end
 end
 
@@ -146,7 +146,7 @@ function PART:GetSequenceList()
 end
 
 function PART:OnHide()
-	local ent = self:GetOwner(true)
+	local ent = self:GetRootPart():GetOwner()
 
 	if ent:IsValid() then
 		if ent.pac_holdtypes then
@@ -162,4 +162,4 @@ function PART:OnShow()
 end
 
 
-pac.RegisterPart(PART)
+BUILDER:Register()

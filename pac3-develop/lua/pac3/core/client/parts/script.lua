@@ -1,14 +1,14 @@
-local PART = {}
+local BUILDER, PART = pac.PartTemplate("base")
 
 PART.ClassName = "script"
-PART.NonPhysical = true
+
 PART.ThinkTime = 0
 PART.Group = 'advanced'
 PART.Icon = 'icon16/page_white_gear.png'
 
-pac.StartStorableVars()
-	pac.GetSet(PART, "Code", "")
-pac.EndStorableVars()
+BUILDER:StartStorableVars()
+	BUILDER:GetSet("Code", "")
+BUILDER:EndStorableVars()
 
 local blacklist = {
 	"do",
@@ -108,7 +108,7 @@ local function CreateDummies(parts)
 		EventHide = function(_, b)
 			for _, v in pairs(parts) do
 				if v:IsValid() then
-					v:SetEventHide(not not b, self)
+					v:SetEventTrigger(self, not not b)
 				end
 			end
 		end,
@@ -116,7 +116,7 @@ local function CreateDummies(parts)
 		EventShow = function(_, b)
 			for _, v in pairs(parts) do
 				if v:IsValid() then
-					v:SetEventHide(not b, self)
+					v:SetEventTrigger(self, not b)
 				end
 			end
 		end
@@ -157,11 +157,11 @@ local function CreateDummy(part, store, self)
 		end,
 
 		EventHide = function(_, b)
-			part:SetEventHide(not not b, self)
+			part:SetEventTrigger(self, not not b)
 		end,
 
 		EventShow = function(_, b)
-			part:SetEventHide(not b, self)
+			part:SetEventTrigger(self, not b)
 		end,
 
 		GetChildren = function()
@@ -197,7 +197,7 @@ local function CreateDummy(part, store, self)
 end
 
 local function get_entity(part)
-	local ent = part:GetOwner(true)
+	local ent = part:GetRootPart():GetOwner()
 	return ent == pac.LocalPlayer:GetViewModel() and pac.LocalPlayer or ent
 end
 
@@ -212,7 +212,7 @@ function PART:CompileCode()
 
 	local func = CompileString(code, "SCRIPT_ENV", false)
 
-	if type(func) == "string" then
+	if isstring(func) then
 		return false, func
 	end
 
@@ -221,7 +221,7 @@ function PART:CompileCode()
 	local extra_lib =
 	{
 		print = function(...)
-			if self:GetPlayerOwner() == LocalPlayer() then
+			if self:GetPlayerOwner() == pac.LocalPlayer then
 				print(...)
 
 				local str = ""
@@ -362,7 +362,7 @@ function PART:CompileCode()
 		for key, val in pairs(tbl) do
 			self.valid_functions[key] = val
 
-			if type(val) == "table" then
+			if istable(val) then
 				scan(val)
 			end
 		end
@@ -386,9 +386,9 @@ function PART:SetCode(code)
 
 	if ok then
 		self.func = func
-		self.Error = nil
+		self:SetError()
 	else
-		self.Error = func
+		self:SetError(func)
 		self.func = nil
 	end
 end
@@ -397,14 +397,14 @@ function PART:OnThink()
 	if self.func then
 		local ok, err = pcall(self.func)
 		if not ok then
-			self.Error = err
+			self:SetError(err)
 			self.func = nil
 		else
-			self.Error = nil
+			self:SetError()
 		end
 	end
 end
 
 concommand.Add("pac_register_script_part", function()
-	pac.RegisterPart(PART)
+	BUILDER:Register()
 end)

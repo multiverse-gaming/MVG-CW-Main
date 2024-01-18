@@ -5,20 +5,12 @@ local render_SetBlend = render.SetBlend
 local render_ModelMaterialOverride = render.ModelMaterialOverride
 local render_MaterialOverride = render.MaterialOverride
 local SysTime = SysTime
-local util_TimerCycle = util.TimerCycle
-local FrameTime = FrameTime
 local NULL = NULL
 local pairs = pairs
 local force_rendering = false
 local forced_rendering = false
-
-local cvar_projected_texture = CreateClientConVar("pac_render_projected_texture", "0")
-
-local render_time = math.huge
-CreateClientConVar("pac_max_render_time", 0)
-local max_render_time = 0
-
-local TIME = math.huge
+local IsEntity = IsEntity
+local next = next
 
 local entMeta = FindMetaTable('Entity')
 local plyMeta = FindMetaTable('Player')
@@ -41,14 +33,6 @@ local function IsActuallyRemoved(ent, cb)
 	end)
 end
 
---[[
-	This state can happen when the Player is joined but not yet fully connected.
-	At this point the SteamID is not yet set and the UniqueID call fails with a lua error.
-]]
-local function IsActuallyPlayer(ent)
-	return IsEntity(ent) and pcall(ent.UniqueID, ent)
-end
-
 function pac.ForceRendering(b)
 	force_rendering = b
 	if b then
@@ -56,153 +40,77 @@ function pac.ForceRendering(b)
 	end
 end
 
-local ent_parts = {}
-local all_parts = {}
-local uid_parts = {}
+local ent_parts = _G.pac_local_parts or {}
+local all_parts = _G.pac_all_parts or {}
+local uid_parts = _G.pac_uid_parts or {}
+
+if game.SinglePlayer() or (player.GetCount() == 1 and LocalPlayer():IsSuperAdmin()) then
+	_G.pac_local_parts = ent_parts
+	_G.pac_all_parts = all_parts
+	_G.pac_uid_parts = uid_parts
+end
 
 local function parts_from_uid(owner_id)
 	return uid_parts[owner_id] or {}
 end
 
 local function parts_from_ent(ent)
-	local owner_id = IsValid(ent) and ent:IsPlayer() and ent:UniqueID() or ent:EntIndex()
+	local owner_id = IsValid(ent) and pac.Hash(ent)
 	return uid_parts[owner_id] or {}
 end
 
 do
-	local function think(part)
-		if part.ThinkTime == 0 then
-			if part.last_think ~= pac.FrameNumber then
-				part:Think()
-				part.last_think = pac.FrameNumber
-			end
-		elseif not part.last_think or part.last_think < pac.RealTime then
-			part:Think()
-			part.last_think = pac.RealTime + (part.ThinkTime or 0.1)
-		end
-	end
-
-	local function render_override(ent, type, draw_only)
-		if pac.profile then
-			TIME = util_TimerCycle()
-		end
-
-		if max_render_time > 0 and ent ~= pac.LocalPlayer then
-			if ent.pac_render_time_exceeded then
-				return
-			end
-			render_time = SysTime()
-		end
-
+	local function render_override(ent, type)
 		local parts = ent_parts[ent]
+
 		if parts == nil or next(parts) == nil then
 			pac.UnhookEntityRender(ent)
+			goto CEASE_FUNCTION
+		end
+
+		if type == "update_legacy_bones" then
+			pac.ResetBones(ent)
+
+			for key, part in next, parts do
+				if part:IsValid() then
+					if not part:HasParent() then
+						part:CallRecursive("BuildBonePositions")
+					end
+				else
+					parts[key] = nil
+				end
+			end
+		elseif type == "update" then
+			for key, part in next, parts do
+				if part:IsValid() then
+					if not part:HasParent() then
+						part:CallRecursive("Think")
+					end
+				else
+					parts[key] = nil
+				end
+			end
 		else
-			if not draw_only then
-				if type == 'opaque' or type == 'viewmodel' then pac.ResetBones(ent) end
-
-				-- bones MUST be setup before drawing or else unexpected/random results might happen
-
-				if pac.profile then
-					for key, part in pairs(parts) do
-						if part:IsValid() then
-							if not part:HasParent() then
-								part:CallRecursiveProfiled("BuildBonePositions")
+			for key, part in next, parts do
+				if part:IsValid() then
+					if not part:HasParent() then
+						if
+							part.OwnerName == "viewmodel" and type == "viewmodel" or
+							part.OwnerName == "hands" and type == "hands" or
+							part.OwnerName ~= "viewmodel" and part.OwnerName ~= "hands" and type ~= "viewmodel" and type ~= "hands"
+						then
+							if not part:IsDrawHidden() then
+								part:CallRecursive("Draw", type)
 							end
-						else
-							parts[key] = nil
 						end
 					end
 				else
-					for key, part in pairs(parts) do
-						if part:IsValid() then
-							if not part:HasParent() then
-								part:CallRecursive("BuildBonePositions")
-							end
-						else
-							parts[key] = nil
-						end
-					end
-				end
-			end
-
-			if pac.profile then
-				for key, part in pairs(parts) do
-					if part:IsValid() then
-						if not part:HasParent() then
-							if not draw_only then
-								part:CallRecursiveProfiled('CThink')
-							end
-
-							--[[print(part, part.OwnerName, type, part.OwnerName == "viewmodel" and type == "viewmodel" or
-							part.OwnerName == "hands" and type == "hands" or
-							part.OwnerName ~= "viewmodel" and part.OwnerName ~= "hands" and type ~= "viewmodel" and type ~= "hands")]]
-
-							if part.OwnerName == "viewmodel" and type == "viewmodel" or
-								part.OwnerName == "hands" and type == "hands" or
-								part.OwnerName ~= "viewmodel" and part.OwnerName ~= "hands" and type ~= "viewmodel" and type ~= "hands" then
-
-								part:Draw(nil, nil, type)
-							end
-						end
-					else
-						parts[key] = nil
-					end
-				end
-			else
-				for key, part in pairs(parts) do
-					if part:IsValid() then
-						if not part:HasParent() then
-							if not draw_only then
-								think(part)
-
-								for _, child in ipairs(part:GetChildrenList()) do
-									think(child)
-								end
-							end
-
-							if part.OwnerName == "viewmodel" and type == "viewmodel" or
-								part.OwnerName == "hands" and type == "hands" or
-								part.OwnerName ~= "viewmodel" and part.OwnerName ~= "hands" and type ~= "viewmodel" and type ~= "hands" then
-
-								part:Draw(nil, nil, type)
-							end
-						end
-					else
-						parts[key] = nil
-					end
+					parts[key] = nil
 				end
 			end
 		end
 
-		if pac.profile then
-			TIME = util_TimerCycle()
-
-			pac.profile_info[ent] = pac.profile_info[ent] or {types = {}, times_ran = 0}
-			pac.profile_info[ent].times_ran = pac.profile_info[ent].times_ran + 1
-
-			pac.profile_info[ent].types[type] = pac.profile_info[ent].types[type] or {}
-
-			local data = pac.profile_info[ent].types[type]
-
-			data.total_render_time = (data.total_render_time or 0) + TIME
-		end
-
-		if max_render_time > 0 and ent ~= pac.LocalPlayer then
-			ent.pac_render_times = ent.pac_render_times or {}
-
-			local last = ent.pac_render_times[type] or 0
-
-			render_time = (SysTime() - render_time) * 1000
-			last = last + ((render_time - last) * FrameTime())
-			ent.pac_render_times[type] = last
-
-			if last > max_render_time then
-				pac.Message(Color(255, 50, 50), tostring(ent) .. ": Render time limit exceeded!")
-				ent.pac_render_time_exceeded = true
-				pac.HideEntityParts(ent)
-			end
-		end
+		::CEASE_FUNCTION::
 
 		render_SetColorModulation(1, 1, 1)
 		render_SetBlend(1)
@@ -211,11 +119,26 @@ do
 		render_ModelMaterialOverride()
 	end
 
-	function pac.RenderOverride(ent, type, draw_only)
-		local ok, err = pcall(render_override, ent, type, draw_only)
+	local function on_error(msg)
+		ErrorNoHalt(debug.traceback(msg))
+	end
+
+	function pac.RenderOverride(ent, type)
+		if ent.pac_error then return end
+
+		if pac.IsRenderTimeExceeded(ent) then
+			if type == "opaque" then
+				pac.DrawRenderTimeExceeded(ent)
+			end
+			return
+		end
+
+		local start = SysTime()
+		local ok, err = xpcall(render_override, on_error, ent, type)
+		pac.RecordRenderTime(ent, type, start)
+
 		if not ok then
 			pac.Message("failed to render ", tostring(ent), ":")
-			print(err)
 
 			if ent == pac.LocalPlayer then
 				chat.AddText("your pac3 outfit failed to render!")
@@ -230,15 +153,16 @@ do
 			ent.pac_error = nil
 		end
 	end
+
+	function pac.GetRenderTimeInfo(ent)
+		return ent.pac_rendertime or {}
+	end
 end
 
 function pac.HideEntityParts(ent)
 	if ent_parts[ent] and ent.pac_drawing then
 		for _, part in pairs(ent_parts[ent]) do
-			part:CallRecursive("OnHide")
-			part:SetKeyValueRecursive("last_hidden", nil)
-			part:SetKeyValueRecursive("shown_from_rendering", false)
-			part:SetKeyValueRecursive("draw_hidden", true)
+			part:HideFromRendering()
 		end
 
 		pac.ResetBones(ent)
@@ -247,68 +171,64 @@ function pac.HideEntityParts(ent)
 end
 
 function pac.ShowEntityParts(ent)
-	if ent_parts[ent] and (not ent.pac_drawing) and (not ent.pac_shouldnotdraw) and (not ent.pac_ignored) then
+	if not ent_parts[ent] or ent.pac_shouldnotdraw or ent.pac_ignored then return end
+
+	if not ent.pac_drawing then
 		for _, part in pairs(ent_parts[ent]) do
-			part:SetKeyValueRecursive("last_hidden", nil)
-			part:SetKeyValueRecursive("shown_from_rendering", FrameNumber())
-			part:SetKeyValueRecursive("draw_hidden", false)
+			part:ShowFromRendering()
 		end
 
 		pac.ResetBones(ent)
 		ent.pac_drawing = true
+		ent.pac_error = nil
+	elseif ent.pac_fix_show_from_render and ent.pac_fix_show_from_render < SysTime() then
+		for _, part in pairs(ent_parts[ent]) do
+			part:ShowFromRendering()
+		end
+
+		ent.pac_fix_show_from_render = nil
 	end
 end
 
--- Prevent radius AND pixvis based flickering at the cost of rendering a bit longer than necessary
-local viscache=setmetatable({},{__mode='k'})
-local function nodrawdelay(draw,ent)
-	if draw and viscache[ent]~=false then
-		viscache[ent] = false
-		if pac.debug then print("PAC dodraw catch",ent) end
-	elseif not draw then
-		local c = viscache[ent]
-		local fn = pac.FrameNumber
-		if c~=nil then
-			if c==false then
-				viscache[ent] = fn
-				if pac.debug then print("PAC dodraw override START",ent) end
-				return true
-			elseif c then
-				if fn-c<3 then
-					if pac.debug then print("PAC dodraw override",ent) end
-					return true
-				else
-					viscache[ent] = nil
-				end
+function pac.EnableDrawnEntities(bool)
+	for ent in next, pac.drawn_entities do
+		if ent:IsValid() then
+			if bool then
+				pac.ShowEntityParts(ent)
+			else
+				pac.HideEntityParts(ent)
 			end
+		else
+			pac.drawn_entities[ent] = nil
 		end
 	end
-	return draw
 end
 
 function pac.HookEntityRender(ent, part)
 	local parts = ent_parts[ent]
+
 	if not parts then
 		parts = {}
 		ent_parts[ent] = parts
 	end
 
 	if parts[part] then
-		return
+		return false
 	end
 
 	pac.dprint("hooking render on %s to draw part %s", tostring(ent), tostring(part))
 
 	pac.drawn_entities[ent] = true
-	pac.profile_info[ent] = nil
 
 	parts[part] = part
 
 	ent.pac_has_parts = true
+
+	part:ShowFromRendering()
+	return true
 end
 
 function pac.UnhookEntityRender(ent, part)
-
 	if part and ent_parts[ent] then
 		ent_parts[ent][part] = nil
 	end
@@ -317,94 +237,123 @@ function pac.UnhookEntityRender(ent, part)
 		ent_parts[ent] = nil
 		ent.pac_has_parts = nil
 		pac.drawn_entities[ent] = nil
+
+		if ent.pac_bones_once then
+			pac.ResetBones(ent)
+			ent.pac_bones_once = nil
+		end
 	end
 
-	pac.profile_info[ent] = nil
+	if part then
+		part:HideFromRendering()
+	end
 end
 
 pac.AddHook("Think", "events", function()
 	for _, ply in ipairs(player.GetAll()) do
-		if
-			(
-				ply.pac_death_physics_parts or
-				ply.pac_death_ragdollize or
-				ply.pac_death_hide_ragdoll
-			) and
-			ent_parts[ply] and
-			not Alive(ply)
-		then
-			local rag = ply:GetRagdollEntity()
-			rag = hook.Run("PACChooseDeathRagdoll", ply, rag) or rag
+		if not ent_parts[ply] then continue end
+		if pac.IsEntityIgnored(ply) then continue end
 
-			if IsValid(rag) then
-				if ply.pac_ragdoll ~= rag then
-					ply.pac_ragdoll = rag
-					rag.pac_ragdoll_player_owner = ply
+		if Alive(ply) then
+			if ply.pac_revert_ragdoll then
+				ply.pac_revert_ragdoll()
+				ply.pac_revert_ragdoll = nil
+			end
+			continue
+		end
 
-					if ply.pac_death_physics_parts then
-						if ply.pac_physics_died then return end
+		local rag = ply:GetRagdollEntity()
+		if not IsValid(rag) then
+			pac.HideEntityParts(ply)
+			continue
+		end
 
-						pac.CallPartEvent("physics_ragdoll_death", rag, ply)
+		-- so it only runs once
+		if ply.pac_ragdoll == rag then continue end
+		ply.pac_ragdoll = rag
+		rag.pac_ragdoll_owner = ply
 
-						for _, part in pairs(parts_from_uid(ply:UniqueID())) do
-							if part.is_model_part then
-								local ent = part:GetEntity()
-								if ent:IsValid() then
-									rag:SetNoDraw(true)
+		rag = hook.Run("PACChooseDeathRagdoll", ply, rag) or rag
 
-									part.skip_orient = true
+		if ply.pac_death_physics_parts then
+			if ply.pac_physics_died then return end
 
-									ent:SetParent(NULL)
-									ent:SetNoDraw(true)
-									ent:PhysicsInitBox(Vector(1,1,1) * -5, Vector(1,1,1) * 5)
-									ent:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
+			for _, part in pairs(parts_from_uid(pac.Hash(ply))) do
+				if part.is_model_part then
+					local ent = part:GetOwner()
+					if ent:IsValid() then
+						rag:SetNoDraw(true)
 
-									local phys = ent:GetPhysicsObject()
-									phys:AddAngleVelocity(VectorRand() * 1000)
-									phys:AddVelocity(ply:GetVelocity()  + VectorRand() * 30)
-									phys:Wake()
+						part.skip_orient = true
 
-									function ent.RenderOverride()
-										if part:IsValid() then
-											if not part.HideEntity then
-												part:PreEntityDraw(ent, ent, ent:GetPos(), ent:GetAngles())
-												ent:DrawModel()
-												part:PostEntityDraw(ent, ent, ent:GetPos(), ent:GetAngles())
-											end
-										else
-											ent.RenderOverride = nil
-										end
-									end
+						ent:SetParent(NULL)
+						ent:SetNoDraw(true)
+						ent:PhysicsInitBox(Vector(1,1,1) * -5, Vector(1,1,1) * 5)
+						ent:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
+
+						local phys = ent:GetPhysicsObject()
+						phys:AddAngleVelocity(VectorRand() * 1000)
+						phys:AddVelocity(ply:GetVelocity()  + VectorRand() * 30)
+						phys:Wake()
+
+						function ent.RenderOverride()
+							if part:IsValid() then
+								if not part.HideEntity then
+									part:PreEntityDraw(ent, ent, ent:GetPos(), ent:GetAngles())
+									ent:DrawModel()
+									part:PostEntityDraw(ent, ent, ent:GetPos(), ent:GetAngles())
 								end
-							end
-						end
-						ply.pac_physics_died = true
-					elseif ply.pac_death_ragdollize then
-
-						-- make props draw on the ragdoll
-						ply.pac_owner_override = rag
-						for _, part in pairs(ent_parts[ply]) do
-							if part.last_owner ~= rag then
-								part:SetOwner(rag)
-								part.last_owner = rag
+							else
+								ent.RenderOverride = nil
 							end
 						end
 					end
 				end
 			end
+			ply.pac_physics_died = true
+		elseif ply.pac_death_ragdollize or ply.pac_death_ragdollize == nil then
+
+			pac.HideEntityParts(ply)
+
+			for _, part in pairs(ent_parts[ply]) do
+				part:SetOwner(rag)
+			end
+			rag:SetOwner(ply)
+			pac.ShowEntityParts(rag)
+
+			ply.pac_revert_ragdoll = function()
+				ply.pac_ragdoll = nil
+
+				if not ent_parts[ply] then return end
+
+				pac.HideEntityParts(rag)
+
+				for _, part in pairs(ent_parts[ply]) do
+					part:SetOwner(ply)
+				end
+
+				pac.ShowEntityParts(ply)
+			end
 		end
 	end
 
-	do
-		local mode = cvar_projected_texture:GetInt()
+	if pac.last_flashlight_on ~= pac.LocalPlayer:FlashlightIsOn() then
+		local lamp = ProjectedTexture()
 
-		if mode <= 0 then
-			pac.projected_texture_enabled = false
-		elseif mode == 1 then
-			pac.projected_texture_enabled = true
-		elseif mode >= 2 then
-			pac.projected_texture_enabled = pac.LocalPlayer:FlashlightIsOn()
-		end
+		lamp:SetTexture( "effects/flashlight001" )
+		lamp:SetFarZ( 5000 )
+		lamp:SetColor(Color(0,0,0,255))
+
+		lamp:SetPos( pac.LocalPlayer:EyePos() - pac.LocalPlayer:GetAimVector()*400 )
+		lamp:SetAngles( pac.LocalPlayer:EyeAngles() )
+		lamp:Update()
+
+		hook.Add("PostRender", "pac_flashlight_stuck_fix", function()
+			hook.Remove("PostRender", "pac_flashlight_stuck_fix")
+			lamp:Remove()
+		end)
+
+		pac.last_flashlight_on = pac.LocalPlayer:FlashlightIsOn()
 	end
 
 	for ent in next, pac.drawn_entities do
@@ -443,19 +392,6 @@ pac.AddHook("Think", "events", function()
 	end
 end)
 
-
-function pac.DisableEntity(ent)
-	if ent_parts[ent] then
-		for _, part in pairs(ent_parts[ent]) do
-			part:CallRecursive("OnHide")
-		end
-
-		pac.ResetBones(ent)
-	end
-
-	ent.pac_drawing = false
-end
-
 pac.AddHook("EntityRemoved", "change_owner", function(ent)
 	if IsActuallyValid(ent) then
 		if IsActuallyPlayer(ent) then
@@ -476,8 +412,11 @@ pac.AddHook("EntityRemoved", "change_owner", function(ent)
 				if next(parts) ~= nil then
 					IsActuallyRemoved(ent, function()
 						for _, part in pairs(parts) do
-							if not part:HasParent() then
-								part:CheckOwner(ent, true)
+							if part.ClassName == "group" then
+								if part:GetOwnerName() == "hands" then
+									part:UpdateOwnerName()
+								end
+								part:HideInvalidOwners()
 							end
 						end
 					end)
@@ -494,38 +433,12 @@ pac.AddHook("OnEntityCreated", "change_owner", function(ent)
 
 	if IsActuallyValid(owner) and (not owner:IsPlayer() or IsActuallyPlayer(owner)) then
 		for _, part in pairs(parts_from_ent(owner)) do
-			if not part:HasParent() then
-				part:CheckOwner(ent, false)
+			if part.ClassName == "group" then
+				part:UpdateOwnerName(ent, false)
 			end
 		end
 	end
 end)
-
-local function pac_gc()
-	for ent, parts in pairs(ent_parts) do
-		if not ent:IsValid() then
-			ent_parts[ent] = nil
-		end
-	end
-
-	for key, part in pairs(all_parts) do
-		if not part:GetPlayerOwner():IsValid() then
-			part:Remove()
-		end
-	end
-end
-
-timer.Create("pac_gc", 2, 0, function()
-	ProtectedCall(pac_gc)
-end)
-
-cvars.AddChangeCallback("pac_hide_disturbing", function()
-	for key, part in pairs(all_parts) do
-		if part:GetPlayerOwner():IsValid() then
-			part:SetIsDisturbing(part:GetIsDisturbing())
-		end
-	end
-end, "PAC3")
 
 function pac.RemovePartsFromUniqueID(uid)
 	for _, part in pairs(parts_from_uid(uid)) do
@@ -535,13 +448,13 @@ function pac.RemovePartsFromUniqueID(uid)
 	end
 end
 
-function pac.UpdatePartsWithMetatable(META, name)
-	-- update part functions only
-	-- updating variables might mess things up
+function pac.UpdatePartsWithMetatable(META)
 	for _, part in pairs(all_parts) do
-		if part.ClassName == name then
+		if META.ClassName == part.ClassName then
 			for k, v in pairs(META) do
-				if type(v) == "function" then
+				-- update part functions only
+				-- updating variables might mess things up
+				if isfunction(v) then
 					part[k] = v
 				end
 			end
@@ -565,6 +478,8 @@ end
 function pac.SetUniqueIDPart(owner_uid, uid, part)
 	uid_parts[owner_uid] = uid_parts[owner_uid] or {}
 	uid_parts[owner_uid][uid] = part
+
+	pac.NotifyPartCreated(part)
 end
 
 function pac.AddPart(part)
@@ -576,16 +491,47 @@ function pac.RemovePart(part)
 end
 
 function pac.GetLocalParts()
-	return uid_parts[pac.LocalPlayer:UniqueID()] or {}
+	return uid_parts[pac.Hash(pac.LocalPlayer)] or {}
 end
 
 function pac.GetPartFromUniqueID(owner_id, id)
-	return uid_parts[owner_id] and uid_parts[owner_id][id] or pac.NULL
+	return uid_parts[owner_id] and uid_parts[owner_id][id] or NULL
+end
+
+function pac.FindPartByName(owner_id, str, exclude)
+	if uid_parts[owner_id] then
+		if uid_parts[owner_id][str] then
+			return uid_parts[owner_id][str]
+		end
+
+		for _, part in pairs(uid_parts[owner_id]) do
+			if part == exclude then continue end
+			if part:GetName() == str then
+				return part
+			end
+		end
+
+		for _, part in pairs(uid_parts[owner_id]) do
+			if part == exclude then continue end
+			if pac.StringFind(part:GetName(), str) then
+				return part
+			end
+		end
+
+		for _, part in pairs(uid_parts[owner_id]) do
+			if part == exclude then continue end
+			if pac.StringFind(part:GetName(), str, true) then
+				return part
+			end
+		end
+	end
+
+	return NULL
 end
 
 function pac.GetLocalPart(id)
-	local owner_id = pac.LocalPlayer:UniqueID()
-	return uid_parts[owner_id] and uid_parts[owner_id][id] or pac.NULL
+	local owner_id = pac.Hash(pac.LocalPlayer)
+	return uid_parts[owner_id] and uid_parts[owner_id][id] or NULL
 end
 
 function pac.RemoveAllParts(owned_only, server)
@@ -627,105 +573,123 @@ function pac.UpdateMaterialParts(how, uid, self, val)
 	end)
 end
 
-function pac.CallPartEvent(event, ...)
-	for _, part in pairs(all_parts) do
-		local ret = part:OnEvent(event, ...)
-		if ret ~= nil then
-			return ret
+function pac.NotifyPartCreated(part)
+	local owner_id = part:GetPlayerOwnerId()
+	if not uid_parts[owner_id] then return end
+
+	for _, p in pairs(uid_parts[owner_id]) do
+		p:OnOtherPartCreated(part)
+
+		if part:GetPlayerOwner() == pac.LocalPlayer then
+			pac.CallHook("OnPartCreated", part)
 		end
 	end
 end
 
+function pac.CallRecursiveOnAllParts(func_name, ...)
+	for _, part in pairs(all_parts) do
+		if part[func_name] then
+			local ret = part[func_name](part, ...)
+			if ret ~= nil then
+				return ret
+			end
+		end
+	end
+end
+
+function pac.CallRecursiveOnOwnedParts(ent, func_name, ...)
+	local owned_parts = parts_from_ent(ent)
+	for _, part in pairs(owned_parts) do
+		if part[func_name] then
+			local ret = part[func_name](part, ...)
+			if ret ~= nil then
+				return ret
+			end
+		end
+	end
+end
+
+function pac.EnablePartsByClass(classname, enable)
+	for _, part in pairs(all_parts) do
+		if part.ClassName == classname then
+			part:SetEnabled(enable)
+		end
+	end
+end
+
+cvars.AddChangeCallback("pac_hide_disturbing", function()
+	for _, part in pairs(all_parts) do
+		if part:IsValid() then
+			part:UpdateIsDisturbing()
+		end
+	end
+end, "PAC3")
 
 do -- drawing
 	local pac = pac
 
-	local render_SetColorModulation = render.SetColorModulation
-	local render_SetBlend = render.SetBlend
-	local render_ModelMaterialOverride = render.ModelMaterialOverride
-	local render_CullMode = render.CullMode
-	local render_SuppressEngineLighting = render.SuppressEngineLighting
 	local FrameNumber = FrameNumber
 	local RealTime = RealTime
 	local GetConVar = GetConVar
-	local NULL = NULL
 	local EF_BONEMERGE = EF_BONEMERGE
 	local RENDERMODE_TRANSALPHA = RENDERMODE_TRANSALPHA
-	local pairs = pairs
-	local util_PixelVisible = util.PixelVisible
 
 	local cvar_distance = CreateClientConVar("pac_draw_distance", "500")
-	local cvar_fovoverride = CreateClientConVar("pac_override_fov", "0")
-
-	local max_render_time_cvar = CreateClientConVar("pac_max_render_time", 0)
-
-	local entMeta = FindMetaTable('Entity')
-	local plyMeta = FindMetaTable('Player')
-	local IsValid = entMeta.IsValid
-	local Alive = plyMeta.Alive
 
 	pac.Errors = {}
 	pac.firstperson_parts = pac.firstperson_parts or {}
 	pac.EyePos = vector_origin
 	pac.drawn_entities = pac.drawn_entities or {}
-	pac.LocalPlayer = LocalPlayer()
 	pac.RealTime = 0
 	pac.FrameNumber = 0
-	pac.profile_info = {}
-	pac.profile = true
+
+	local skip_frames = CreateConVar('pac_optimization_render_once_per_frame', '0', {FCVAR_ARCHIVE}, 'render only once per frame (will break water reflections and vr)')
+
+	local function setup_suppress()
+		local last_framenumber = 0
+		local current_frame = 0
+		local current_frame_count = 0
+
+		return function(force)
+			if not force then
+				if force_rendering then return end
+				if not skip_frames:GetBool() then return end
+			end
+
+			local frame_number = FrameNumber()
+
+			if frame_number == last_framenumber then
+				current_frame = current_frame + 1
+			else
+				last_framenumber = frame_number
+
+				if current_frame_count ~= current_frame then
+					current_frame_count = current_frame
+				end
+
+				current_frame = 1
+			end
+
+			return current_frame < current_frame_count
+		end
+	end
 
 	do
 		local draw_dist = 0
 		local sv_draw_dist = 0
 		local radius = 0
 		local dst = 0
-		local dummyv = Vector(0.577350,0.577350,0.577350)
-		local fovoverride
-
-		local pac_sv_hide_outfit_on_death = GetConVar("pac_sv_hide_outfit_on_death")
-		local skip_frames = CreateConVar('pac_suppress_frames', '1', {FCVA_ARCHIVE}, 'Skip frames (reflections)')
-
-		local function setup_suppress()
-			local last_framenumber = 0
-			local current_frame = 0
-			local current_frame_count = 0
-
-			return function()
-				if force_rendering then return end
-
-				if skip_frames:GetBool() then
-					local frame_number = FrameNumber()
-
-					if frame_number == last_framenumber then
-						current_frame = current_frame + 1
-					else
-						last_framenumber = frame_number
-
-						if current_frame_count ~= current_frame then
-							current_frame_count = current_frame
-						end
-
-						current_frame = 1
-					end
-
-					return current_frame < current_frame_count
-				end
-			end
-		end
-
-		local should_suppress = setup_suppress()
 		local pac_sv_draw_distance
 
-		pac.AddHook("PostDrawOpaqueRenderables", "draw_opaque", function(bDrawingDepth, bDrawingSkybox)
-			if should_suppress() then return end
-
+		pac.AddHook("Think", "update_parts", function()
 			-- commonly used variables
-			max_render_time = max_render_time_cvar:GetFloat()
+			pac.LocalPlayer = LocalPlayer()
+			pac.LocalViewModel = pac.LocalPlayer:GetViewModel()
+			pac.LocalHands = pac.LocalPlayer:GetHands()
 			pac.RealTime = RealTime()
-			pac.FrameNumber = FrameNumber()
+			pac.FrameNumber = pac.FrameNumber + 1
 
 			draw_dist = cvar_distance:GetInt()
-			fovoverride = cvar_fovoverride:GetBool()
 			pac_sv_draw_distance = pac_sv_draw_distance or GetConVar("pac_sv_draw_distance")
 			sv_draw_dist = pac_sv_draw_distance:GetFloat()
 			radius = 0
@@ -746,61 +710,31 @@ do -- drawing
 					goto CONTINUE
 				end
 
-				local isply = ent:IsPlayer()
-				ent.pac_pixvis = ent.pac_pixvis or util.GetPixelVisibleHandle()
+				if ent:IsDormant() then goto CONTINUE end
+
+				pac.ResetRenderTime(ent)
+
 				dst = ent:EyePos():Distance(pac.EyePos)
 				radius = ent:BoundingRadius() * 3 * (ent:GetModelScale() or 1)
 
-				if isply and not Alive(ent) and pac_sv_hide_outfit_on_death:GetBool() or
-					IsValid(ent.pac_ragdoll_player_owner) and not Alive(ent.pac_ragdoll_player_owner) and pac_sv_hide_outfit_on_death:GetBool()
-				then
-					pac.HideEntityParts(ent)
-					goto CONTINUE
-				end
+				if ent:IsPlayer() or IsValid(ent.pac_ragdoll_owner) then
+					local ply = ent.pac_ragdoll_owner or ent
+					local rag = ply.pac_ragdoll
 
-				if isply then
-					local rag = ent.pac_ragdoll or NULL
+					if IsValid(rag) and (ply.pac_death_hide_ragdoll or ply.pac_draw_player_on_death) then
+						rag:SetRenderMode(RENDERMODE_TRANSALPHA)
 
-					if IsValid(rag) then
-						if ent.pac_death_hide_ragdoll then
-							rag:SetRenderMode(RENDERMODE_TRANSALPHA)
+						local c = rag:GetColor()
+						c.a = 0
+						rag:SetColor(c)
+						rag:SetNoDraw(true)
+						if rag:GetParent() ~= ply then
+							rag:SetParent(ent)
+							rag:AddEffects(EF_BONEMERGE)
+						end
 
-							local c = rag:GetColor()
-							c.a = 0
-							rag:SetColor(c)
-							rag:SetNoDraw(true)
-							if rag:GetParent() ~= ent then
-								rag:SetParent(ent)
-								rag:AddEffects(EF_BONEMERGE)
-							end
-
-							if ent.pac_draw_player_on_death then
-								ent:DrawModel()
-							end
-						elseif ent.pac_death_ragdollize then
-							rag:SetNoDraw(true)
-
-							if not ent.pac_hide_entity then
-								local col = ent.pac_color or dummyv
-								local bri = ent.pac_brightness or 1
-
-								render_ModelMaterialOverride(ent.pac_materialm)
-								render_SetColorModulation(col.x * bri, col.y * bri, col.z * bri)
-								render_SetBlend(ent.pac_alpha or 1)
-
-								if ent.pac_invert then render_CullMode(1) end
-								if ent.pac_fullbright then render_SuppressEngineLighting(true) end
-
-								rag:DrawModel()
-								rag:CreateShadow()
-
-								render_ModelMaterialOverride()
-								render_SetColorModulation(1,1,1)
-								render_SetBlend(1)
-
-								render_CullMode(0)
-								render_SuppressEngineLighting(false)
-							end
+						if ply.pac_draw_player_on_death then
+							ply:DrawModel()
 						end
 					end
 
@@ -811,33 +745,41 @@ do -- drawing
 					radius = radius * 4
 				end
 
-				local cond = ent.IsPACWorldEntity -- or draw_dist == -1 or -- i assume this is a leftover from debugging?
-				-- because we definitely don't want to draw ANY outfit present, right?
+				-- if it's a world entity always draw
+				local cond = ent.IsPACWorldEntity
 
-				if not cond then
-					cond = ent == pac.LocalPlayer and ent:ShouldDrawLocalPlayer() or
-						ent.pac_camera and ent.pac_camera:IsValid()
+				-- if the entity is the hands, check if we should not draw the localplayer
+				if (ent == pac.LocalHands or ent == pac.LocalViewModel) and not pac.LocalPlayer:ShouldDrawLocalPlayer() then
+					cond = true
 				end
 
+				-- if it's a player, draw if we can see them
+				if not cond and ent == pac.LocalPlayer then
+					cond = ent:ShouldDrawLocalPlayer()
+				end
+
+				-- if the entity has a camera part, draw if it's valid
+				if not cond and ent.pac_camera then
+					cond = ent.pac_camera:IsValid()
+				end
+
+				-- if the condition is not satisified, check draw distance
 				if not cond and ent ~= pac.LocalPlayer then
-					cond = (
-						ent.pac_draw_distance and (ent.pac_draw_distance <= 0 or ent.pac_draw_distance <= dst) or
-						dst <= draw_dist
-					) and (
-						fovoverride or
-						nodrawdelay(dst < radius * 1.25  or
-						util_PixelVisible(ent:EyePos(), radius, ent.pac_pixvis) ~= 0,ent)
-					)
+					if ent.pac_draw_distance then
+						-- custom draw distance
+						cond = ent.pac_draw_distance <= 0 or dst <= ent.pac_draw_distance
+					else
+						-- otherwise check the cvar
+						cond = dst <= draw_dist
+					end
 				end
 
-				ent.pac_draw_cond = cond
+
+				ent.pac_is_drawing = cond
 
 				if cond then
-					ent.pac_model = ent:GetModel() -- used for cached functions
-
 					pac.ShowEntityParts(ent)
-
-					pac.RenderOverride(ent, "opaque")
+					pac.RenderOverride(ent, "update")
 				else
 					if forced_rendering then
 						forced_rendering = false
@@ -849,67 +791,112 @@ do -- drawing
 
 				::CONTINUE::
 			end
+
+			-- we increment the framenumber here because we want to invalidate any FrameNumber caches when we draw
+			-- this prevents functions like movable:GetWorldMatrix() from caching the matrix in the update hook
+			pac.FrameNumber = pac.FrameNumber + 1
+		end)
+	end
+
+	local setupBonesGuard = false
+	function pac.SetupBones(ent)
+		-- Reentrant protection
+		if setupBonesGuard then return end
+		setupBonesGuard = true
+		local ok, err = pcall(ent.SetupBones, ent)
+		setupBonesGuard = false
+		if not ok then error(err) end
+	end
+
+	do
+		local should_suppress = setup_suppress()
+
+		pac.AddHook("PreDrawOpaqueRenderables", "draw_opaque", function(bDrawingDepth, bDrawingSkybox)
+			if should_suppress(true) then return end
+
+			for ent in next, pac.drawn_entities do
+				if ent.pac_is_drawing and ent_parts[ent] and not ent:IsDormant() then
+					pac.RenderOverride(ent, "update_legacy_bones")
+				end
+			end
 		end)
 
 		local should_suppress = setup_suppress()
 
-		pac.AddHook("PostDrawTranslucentRenderables", "draw_translucent", function(bDrawingDepth, bDrawingSkybox)
+		pac.AddHook("PostDrawOpaqueRenderables", "draw_opaque", function(bDrawingDepth, bDrawingSkybox, isDraw3DSkybox)
 			if should_suppress() then return end
 
 			for ent in next, pac.drawn_entities do
-				if ent.pac_draw_cond and ent_parts[ent] then -- accessing table of NULL doesn't do anything
-					pac.RenderOverride(ent, "translucent", true)
+				if ent.pac_is_drawing and ent_parts[ent] and not ent:IsDormant() then
+
+					if isDraw3DSkybox and not ent:GetNW2Bool("pac_in_skybox") then
+						continue
+					end
+
+					pac.RenderOverride(ent, "opaque")
 				end
 			end
 		end)
 	end
 
-	local alreadyDrawing = 0
+	do
+		local should_suppress = setup_suppress()
 
-	pac.AddHook("PostDrawViewModel", "draw_firstperson", function(viewmodelIn, playerIn, weaponIn)
-		if alreadyDrawing == FrameNumber() then return end
+		pac.AddHook("PostDrawTranslucentRenderables", "draw_translucent", function(bDrawingDepth, bDrawingSkybox, isDraw3DSkybox)
+			if should_suppress() then return end
 
-		alreadyDrawing = FrameNumber()
+			for ent in next, pac.drawn_entities do
+				if ent.pac_is_drawing and ent_parts[ent] and not ent:IsDormant() then -- accessing table of NULL doesn't do anything
 
-		for ent in next, pac.drawn_entities do
-			if IsValid(ent) then
-				if ent.pac_drawing and ent_parts[ent] then
-					pac.RenderOverride(ent, "viewmodel", true)
+					if isDraw3DSkybox and not ent:GetNW2Bool("pac_in_skybox") then
+						continue
+					end
+
+					pac.RenderOverride(ent, "translucent")
 				end
-			else
-				pac.drawn_entities[ent] = nil
+			end
+		end)
+	end
+
+	pac.AddHook("UpdateAnimation", "update_animation_parts", function(ply)
+		if ply.pac_is_drawing and ent_parts[ply] then -- accessing table of NULL doesn't do anything
+			local parts = ent_parts[ply]
+			for _, part in pairs(parts) do
+				part:CallRecursive("OnUpdateAnimation", ply)
 			end
 		end
-
-		alreadyDrawing = 0
 	end)
 
-	local alreadyDrawing = 0
-	local redrawCount = 0
+	local drawing_viewmodel = false
 
-	pac.LocalHands = NULL
-
-	pac.AddHook("PostDrawPlayerHands", "draw_firstperson_hands", function(handsIn, viewmodelIn, playerIn, weaponIn)
-		if alreadyDrawing == FrameNumber() then
-			redrawCount = redrawCount + 1
-			if redrawCount >= 5 then return end
-		end
-
-		pac.LocalHands = handsIn
-
-		alreadyDrawing = FrameNumber()
-
+	pac.AddHook("PostDrawViewModel", "draw_firstperson", function(viewmodelIn, playerIn, weaponIn)
+		if drawing_viewmodel then return end
 		for ent in next, pac.drawn_entities do
 			if IsValid(ent) then
 				if ent.pac_drawing and ent_parts[ent] then
-					pac.RenderOverride(ent, "hands", true)
+					drawing_viewmodel=true
+					pac.RenderOverride(ent, "viewmodel")
+					drawing_viewmodel=false
 				end
 			else
 				pac.drawn_entities[ent] = nil
 			end
 		end
+	end)
 
-		alreadyDrawing = 0
-		redrawCount = 0
+	local drawing_hands = false
+	pac.AddHook("PostDrawPlayerHands", "draw_firstperson_hands", function(handsIn, viewmodelIn, playerIn, weaponIn)
+		if drawing_hands then return end
+		for ent in next, pac.drawn_entities do
+			if IsValid(ent) then
+				if ent.pac_drawing and ent_parts[ent] then
+					drawing_hands = true
+					pac.RenderOverride(ent, "hands")
+					drawing_hands = false
+				end
+			else
+				pac.drawn_entities[ent] = nil
+			end
+		end
 	end)
 end

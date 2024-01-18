@@ -25,6 +25,8 @@ ENT.MaxShield = 0
 ENT.SpawnNormalOffset = 15
 ENT.HitGroundLength = 10
 
+ENT.lvsDisableZoom = true
+
 function ENT:AddDT( type, name, data )
 	if not self.DTlist then self.DTlist = {} end
 
@@ -153,6 +155,34 @@ function ENT:IsInitialized()
 	if not self.GetlvsReady then return false end -- in case this is called BEFORE setupdatatables
 
 	return self:GetlvsReady()
+end
+
+function ENT:GetWeaponHandler( num )
+	if num == 1 then return self end
+
+	local pod = self:GetPassengerSeat( num )
+
+	if not IsValid( pod ) then return NULL end
+
+	return pod:lvsGetWeapon()
+end
+
+function ENT:GetPassengerSeat( num )
+	if num == 1 then
+		return self:GetDriverSeat()
+	else
+		for _, Pod in pairs( self:GetPassengerSeats() ) do
+			local id = Pod:GetNWInt( "pPodIndex", -1 )
+
+			if id == -1 then continue end
+
+			if id == num then
+				return Pod
+			end
+		end
+
+		return NULL
+	end
 end
 
 function ENT:GetPassengerSeats()

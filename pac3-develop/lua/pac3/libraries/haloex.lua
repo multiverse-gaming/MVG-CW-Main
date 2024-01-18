@@ -87,13 +87,11 @@ function haloex.Render( entry )
 
 			if (  not IsValid( v ) ) then goto CONTINUE end
 
-			render.PushFlashlightMode( true )
 				if v.pacDrawModel then
 					v:pacDrawModel()
 				else
 					v:DrawModel()
 				end
-			render.PopFlashlightMode()
 
 			::CONTINUE::
 		end
@@ -141,7 +139,7 @@ function haloex.Render( entry )
 		render.CopyRenderTargetToTexture( rt_Stencil )
 		render.OverrideDepthEnable( false, false )
 		render.SetStencilEnable( false );
-		render.BlurRenderTarget( rt_Stencil, entry.BlurX, entry.BlurY, entry.Amount )
+		render.BlurRenderTarget( rt_Stencil, entry.BlurX, entry.BlurY, math.Clamp(entry.Amount,0,32) )
 
 	-- Put our scene back
 		render.SetRenderTarget( OldRT )
@@ -173,7 +171,7 @@ function haloex.Render( entry )
 			render.SetMaterial( mat_Sub )
 		end
 
-		for i=0, entry.DrawPasses do
+		for i=0, math.Clamp(entry.DrawPasses,0,32) do
 			local s = entry.SphericalSize
 			local n = (i / entry.DrawPasses)
 			local x = math.sin(n * math.pi * 2) * s
@@ -212,5 +210,9 @@ pac.AddHook( "PostDrawEffects", "RenderHaloexs", function()
 	List = {}
 
 end )
+
+if pac.haloex then
+	pac.haloex = haloex
+end
 
 return haloex

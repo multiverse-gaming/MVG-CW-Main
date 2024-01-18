@@ -2,10 +2,18 @@ TOOL.Category = "[RDV] Datapad"
 TOOL.Name = "Hackable Door"
 
 if CLIENT then
+
+	TOOL.Information = {
+		{ name = "info", stage = 1 },
+		{ name = "left" },
+		{ name = "right" },
+
+	}
     language.Add("tool.dev_doors_tool.name", "Hackable Door Tool")
     language.Add("tool.dev_doors_tool.desc", "Hackable Door Tool made by Nicolas.")
-    language.Add("tool.dev_doors_tool.left", "Create Doors")
-    language.Add("tool.dev_doors_tool.right", "Create Console")
+    language.Add("tool.dev_doors_tool.left", "Link to Door Entities")
+    language.Add("tool.dev_doors_tool.right", "Place a hackable console")
+
 
     language.Add("hackableDoorTool", "Hackable Door Tool")
 end

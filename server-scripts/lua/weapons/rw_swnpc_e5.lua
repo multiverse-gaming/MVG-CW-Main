@@ -35,7 +35,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_e5"
 
 SWEP.ClientModel				= {
-	model						= "models/kuro/sw_battlefront/weapons/e5_blaster.mdl",
+	model						= "models/arccw/kuro/sw_battlefront/weapons/e5_blaster.mdl",
 	pos							= Vector(5, 0.75, 2),
 	angle						= Angle(192, 180, 0),
 	size						= Vector(1, 1, 1),

@@ -28,7 +28,7 @@ if SERVER then
 	end
 
 	function ENT:Initialize()	
-		self:SetModel( "models/balloons/hot_airballoon.mdl" )
+		self:SetModel( "models/salty/consularclassradiance.mdl" )
 		self:PhysicsInit( SOLID_VPHYSICS )
 		self:DrawShadow( false )
 		self:SetTrigger( true )
@@ -126,9 +126,9 @@ if CLIENT then
 	function ENT:DrawTranslucent()
 		local ply = LocalPlayer()
 		local Small = false
+			self:DrawModel()
 
 		if IsValid( ply ) and not IsValid( ply:lvsGetVehicle() ) then
-			self:DrawModel()
 
 			Small = true
 

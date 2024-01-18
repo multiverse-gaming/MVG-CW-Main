@@ -1,14 +1,23 @@
-pac.urlobj = pac.urlobj or {}
-local urlobj = pac.urlobj
+local urlobj = {}
 
-urlobj.DataCache  = pac.CreateCache("objcache")
+_G.pac_urlobj = urlobj
+
+local CreateCache = include("pac3/libraries/urlobj/cache.lua")
+local CreateQueueItem = include("pac3/libraries/urlobj/queueitem.lua")
+
+_G.pac_urlobj = nil
+
+urlobj.DataCache  = CreateCache("objcache")
+
+local maxAgeConvar = CreateConVar("pac_obj_cache_maxage", "604800", FCVAR_ARCHIVE, "Maximum age of cache entries in seconds, default is 1 week.")
+urlobj.DataCache:ClearBefore(os.time() - maxAgeConvar:GetFloat())
 
 concommand.Add("pac_urlobj_clear_disk", function()
 	urlobj.DataCache:Clear()
-	pac.Message('Disk cache cleared')
-end, nil, 'Clears obj file cache on disk')
+	pac.Message("Disk cache cleared")
+end, nil, "Clears obj file cache on disk")
 
-local SIMULATENOUS_DOWNLOADS = CreateConVar('pac_objdl_streams', '4', {FCVAR_ARCHIVE}, 'OBJ files download streams')
+local SIMULATENOUS_DOWNLOADS = CreateConVar("pac_objdl_streams", "4", {FCVAR_ARCHIVE}, "OBJ files download streams")
 local CURRENTLY_DOWNLOADING = 0
 
 urlobj.Cache              = {}
@@ -50,7 +59,7 @@ end
 function urlobj.GetObjFromURL(url, forceReload, generateNormals, callback, statusCallback)
 	if not pac_enable_urlobj:GetBool() then return end
 
-	-- if it's already downloaded just return it
+	-- if it"s already downloaded just return it
 	if callback and not forceReload and urlobj.Cache[url] then
 		callback(urlobj.Cache[url])
 		return
@@ -58,7 +67,7 @@ function urlobj.GetObjFromURL(url, forceReload, generateNormals, callback, statu
 
 	-- Add item to queue
 	if not urlobj.Queue[url] then
-		local queueItem = urlobj.CreateQueueItem(url)
+		local queueItem = CreateQueueItem(url)
 
 		urlobj.Queue[url] = queueItem
 		urlobj.QueueCount = urlobj.QueueCount + 1
@@ -85,13 +94,13 @@ function urlobj.GetObjFromURL(url, forceReload, generateNormals, callback, statu
 	if callback       then urlobj.Queue[url]:AddCallback      (callback      ) end
 	if statusCallback then
 		urlobj.Queue[url]:AddStatusCallback(function(isFinished, mStatus)
-			statusCallback(isFinished, mStatus ~= '' and mStatus or 'Queued for processing')
+			statusCallback(isFinished, mStatus ~= "" and mStatus or "Queued for processing")
 		end)
 	end
 end
 
 local thinkThreads = {}
-local PARSING_THERSOLD = CreateConVar('pac_obj_runtime', '0.002', {FCVAR_ARCHIVE}, 'Maximal parse runtime in seconds')
+local PARSING_THERSOLD = CreateConVar("pac_obj_runtime", "0.002", {FCVAR_ARCHIVE}, "Maximal parse runtime in seconds")
 local PARSE_CHECK_LINES = 30
 
 local function Think()
@@ -129,7 +138,7 @@ local function Think()
 	end
 end
 
-pac.AddHook('Think', 'parse_obj', Think)
+pac.AddHook("Think", "parse_obj", Think)
 
 local nextParsingHookId = 0
 function urlobj.CreateModelFromObjData(objData, generateNormals, statusCallback)
@@ -152,7 +161,7 @@ function urlobj.CreateModelFromObjData(objData, generateNormals, statusCallback)
 		mesh = mesh
 	})
 
-	statusCallback(false, 'Queued')
+	statusCallback(false, "Queued")
 
 	return { mesh }
 end
@@ -180,18 +189,14 @@ local table_insert  = table.insert
 
 local Vector        = Vector
 
-local facesMapper = '([0-9]+)/?([0-9]*)/?([0-9]*)'
-local numberMatch = '(-?[0-9.+-e0-9]+)'
-local vMatch = '^ *v *' .. numberMatch .. ' +' .. numberMatch .. ' +' .. numberMatch
-local vtMatch = '^ *vt *' .. numberMatch .. ' +' .. numberMatch
-local vnMatch = '^ *vn *' .. numberMatch .. ' +' .. numberMatch .. ' +' .. numberMatch
-local ASYNC_PROCESSING = CreateConVar('pac_obj_async', '1', {FCVAR_ARCHIVE}, 'Process OBJ files in background')
+local facesMapper = "([0-9]+)/?([0-9]*)/?([0-9]*)"
+local numberMatch = "(-?[0-9.+-e0-9]+)"
+local vMatch = "^ *v *" .. numberMatch .. " +" .. numberMatch .. " +" .. numberMatch
+local vtMatch = "^ *vt *" .. numberMatch .. " +" .. numberMatch
+local vnMatch = "^ *vn *" .. numberMatch .. " +" .. numberMatch .. " +" .. numberMatch
 
 function urlobj.ParseObj(data, generateNormals)
 	local coroutine_yield = coroutine.running () and coroutine.yield or function () end
-	if not ASYNC_PROCESSING:GetBool() then
-		coroutine_yield = function () end
-	end
 
 	local positions  = {}
 	local texCoordsU = {}
@@ -216,8 +221,8 @@ function urlobj.ParseObj(data, generateNormals)
 	for line in string_gmatch (data, "(.-)\r?\n") do
 		if #line > 3 then
 			local first = string_sub(line, 1, 1)
-			if first ~= '#' and first ~= 'l' and first ~= 'g' and first ~= 'u' then
-				if string_sub(line, #line) == '\\' then
+			if first ~= "#" and first ~= "l" and first ~= "g" and first ~= "u" then
+				if string_sub(line, #line) == "\\" then
 					line = string_sub (line, 1, #line - 1)
 					if inContinuation then
 						continuationLines[#continuationLines + 1] = line
@@ -240,13 +245,13 @@ function urlobj.ParseObj(data, generateNormals)
 
 					local second = string_sub(currLine, 1, 2)
 
-					if second == 'vt' then
+					if second == "vt" then
 						vtLines[#vtLines + 1] = currLine
-					elseif second == 'vn' then
+					elseif second == "vn" then
 						vnLines[#vnLines + 1] = currLine
-					elseif first == 'v' then
+					elseif first == "v" then
 						vLines[#vLines + 1] = currLine
-					elseif first == 'f' then
+					elseif first == "f" then
 						facesPreprocess[#facesPreprocess + 1] = currLine
 					else
 						lines[#lines + 1] = currLine
@@ -684,3 +689,5 @@ function urlobj.DownloadQueueThink()
 end
 
 timer.Create("urlobj_download_queue", 0.1, 0, urlobj.DownloadQueueThink)
+
+return urlobj
