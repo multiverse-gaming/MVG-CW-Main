@@ -1,29 +1,30 @@
-local PART = {}
+local BUILDER, PART = pac.PartTemplate("base")
 
 PART.ClassName = "command"
-PART.NonPhysical = true
-PART.Group = 'advanced'
-PART.Icon = 'icon16/application_xp_terminal.png'
 
-pac.StartStorableVars()
-	pac.GetSet(PART, "String", "", {editor_panel = "string"})
-	pac.GetSet(PART, "UseLua", false)
-	pac.GetSet(PART, "ExectueOnWear", false)
-	pac.GetSet(PART, "ExectueOnShow", true)
-pac.EndStorableVars()
+PART.Group = "advanced"
+PART.Icon = "icon16/application_xp_terminal.png"
 
-function PART:Initialize()
-	if self:GetExectueOnWear() then
-		self:Execute()
-	end
+BUILDER:StartStorableVars()
+	BUILDER:GetSet("String", "", {editor_panel = "string"})
+	BUILDER:GetSet("UseLua", false)
+	BUILDER:GetSet("ExecuteOnWear", false)
+	BUILDER:GetSet("ExecuteOnShow", true)
+BUILDER:EndStorableVars()
 
-	self.m_nextworn = RealTime() + 0.4
+local sv_allowcslua = GetConVar("sv_allowcslua")
+local function canRunLua()
+	return sv_allowcslua:GetBool() or pac.AllowClientsideLUA
 end
 
-function PART:OnShow()
-	if self.m_nextworn > RealTime() then return end
+function PART:OnWorn()
+	if self:GetExecuteOnWear() then
+		self:Execute()
+	end
+end
 
-	if self:GetExectueOnShow() then
+function PART:OnShow(from_rendering)
+	if not from_rendering and self:GetExecuteOnShow() then
 		self:Execute()
 	end
 end
@@ -34,7 +35,7 @@ function PART:SetUseLua(b)
 end
 
 function PART:SetString(str)
-	if self.UseLua and self:GetPlayerOwner() == pac.LocalPlayer then
+	if self.UseLua and canRunLua() and self:GetPlayerOwner() == pac.LocalPlayer then
 		self.func = CompileString(str, "pac_event")
 	end
 
@@ -53,26 +54,39 @@ function PART:ShouldHighlight(str)
 	return _G[str] ~= nil
 end
 
-local sv_allowcslua = GetConVar("sv_allowcslua")
+function PART:GetNiceName()
+	if self.UseLua then
+		return ("lua: " .. self.String)
+	end
+	return "command: " .. self.String
+end
 
 function PART:Execute()
 	local ent = self:GetPlayerOwner()
 
 	if ent == pac.LocalPlayer then
 		if self.UseLua and self.func then
-			if sv_allowcslua:GetBool() or pac.AllowClientsideLUA then
+			if canRunLua() then
 				local status, err = pcall(self.func)
 
 				if not status then
+					self:SetError(err)
 					ErrorNoHalt(err .. "\n")
 				end
 			else
-				pac.Message(tostring(self) .. ' - sv_allowcslua is 0')
+				local msg = "clientside lua is disabled (sv_allowcslua 0)"
+				self:SetError(msg)
+				pac.Message(tostring(self) .. " - ".. msg)
 			end
 		else
+			if hook.Run("PACCanRunConsoleCommand", self.String) == false then return end
+			if IsConCommandBlocked(self.String) then
+				self:SetError("Concommand is blocked")
+				return
+			end
 			ent:ConCommand(self.String)
 		end
 	end
 end
 
-pac.RegisterPart(PART)
+BUILDER:Register()

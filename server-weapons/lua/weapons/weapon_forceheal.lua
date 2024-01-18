@@ -56,7 +56,7 @@ SWEP.Secondary.Automatic	= false
 SWEP.Secondary.Ammo			= "none"
 
 
-SWEP.HealAmount				= 100	-- Maximum heal amount per use
+SWEP.HealAmount				= 200	-- Maximum heal amount per use
 
 
 local HealSound = Sound( "starwars/items/bacta.wav" )

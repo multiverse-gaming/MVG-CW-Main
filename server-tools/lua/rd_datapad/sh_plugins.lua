@@ -55,6 +55,20 @@ end
 
 function NCS_DATAPAD.IsAdmin(P, CB)
     if NCS_DATAPAD.CONFIG.CAMI then
+        CAMI.PlayerHasAccess(P, "[NCS] Datapad Admin", function(ACCESS)
+            CB(ACCESS)
+        end )
+    else
+        if NCS_DATAPAD.CONFIG.USERGROUPS[P:GetUserGroup()] then
+            CB(true)
+        else
+            CB(false)
+        end
+    end
+end
+
+function NCS_DATAPAD.IsStaff(P, CB)
+    if NCS_DATAPAD.CONFIG.CAMI then
         CAMI.PlayerHasAccess(P, "[NCS] Datapad", function(ACCESS)
             CB(ACCESS)
         end )

@@ -1,4 +1,5 @@
 local animations = pac.animations
+local eases = animations.eases
 local L = pace.LanguageString
 
 pace.timeline = pace.timeline or {}
@@ -7,30 +8,41 @@ local timeline = pace.timeline
 local secondDistance = 200 --100px per second on timeline
 
 do
-	local PART = {}
+	local BUILDER, PART = pac.PartTemplate("base_movable")
 
 	PART.ClassName = "timeline_dummy_bone"
 	PART.show_in_editor = false
 	PART.PropertyWhitelist = {
-		"Position",
-		"Angles",
-		"Bone",
+		Position = true,
+		Angles = true,
+		Bone = true,
 	}
 
-	function PART:GetBonePosition()
-		local owner = self:GetOwner()
-		local pos, ang
-
-		pos, ang = pac.GetBonePosAng(owner, self.Bone, true)
-		if owner:IsValid() then owner:InvalidateBoneCache() end
-
-		self.cached_pos = pos
-		self.cached_ang = ang
-
-		return pos, ang
+	function PART:GetParentOwner()
+		return self:GetOwner()
 	end
 
-	pac.RegisterPart(PART)
+	function PART:GetBonePosition()
+		local ent = self:GetOwner()
+
+		local index = self:GetModelBoneIndex(self.Bone)
+		if not index then return ent:GetPos(), ent:GetAngles() end
+
+		pac.SetupBones(ent)
+		local m = ent:GetBoneMatrix(index)
+
+		local lm = Matrix()
+		lm:SetTranslation(self.Position)
+		lm:SetAngles(self.Angles)
+
+		m = m * lm:GetInverse()
+
+		if not m then return ent:GetPos(), ent:GetAngles() end
+
+		return m:GetTranslation(), m:GetAngles()
+	end
+
+	BUILDER:Register()
 end
 
 function timeline.IsActive()
@@ -246,6 +258,7 @@ function timeline.Open(part)
 
 	if timeline.dummy_bone and timeline.dummy_bone:IsValid() then timeline.dummy_bone:Remove() end
 	timeline.dummy_bone = pac.CreatePart("timeline_dummy_bone", timeline.entity)
+	timeline.dummy_bone:SetOwner(timeline.entity)
 
 	pac.AddHook("pace_OnVariableChanged", "pac3_timeline", function(part, key, val)
 		if part == timeline.dummy_bone then
@@ -346,6 +359,8 @@ do
 			time.Paint = function(s, w,h)
 				self:GetSkin().tex.Tab_Control( 0, 0, w, h )
 				self:GetSkin().tex.CategoryList.Header( 0, 0, w, h )
+
+				if not timeline.animation_part then return end
 
 				local w,h = draw.TextShadow({
 					text = L"frame" .. ": " .. (animations.GetEntityAnimationFrame(timeline.entity, timeline.animation_part:GetAnimID()) or 0),
@@ -474,11 +489,11 @@ do
 						end)
 					end
 
-					-- LOL
-					--timer.Simple(0, function()
-						local x, y = bottom:LocalToScreen(0,0)
-						menu:SetPos(x - menu:GetWide(), y - menu:GetTall())
-					--end)
+					menu:PerformLayout()
+
+					local x, y = bottom:LocalToScreen(0,0)
+					x = x + bottom:GetWide()
+					menu:SetPos(x - menu:GetWide(), y - menu:GetTall())
 				end
 			end
 
@@ -493,6 +508,8 @@ do
 			end
 
 			pnl.PaintOver = function()
+				if not timeline.animation_part then return end
+
 				local offset = -self.keyframe_scroll:GetCanvas():GetPos()
 
 				local x = timeline.GetCycle() * self.keyframe_scroll:GetCanvas():GetWide()
@@ -553,8 +570,10 @@ do
 			local scrub = Material("icon16/bullet_arrow_down.png")
 			local start = Material("icon16/control_play_blue.png")
 			local restart = Material("icon16/control_repeat_blue.png")
+			local estyle = Material("icon16/arrow_branch.png")
 			pnl.Paint = function(s,w,h)
 				local offset = -self.keyframe_scroll:GetCanvas():GetPos()
+				local esoffset = self.keyframe_scroll:GetCanvas():GetPos()
 
 				self:GetSkin().tex.Tab_Control( 0, 0, w, h )
 				self:GetSkin().tex.CategoryList.Header( 0, 0, w, h )
@@ -601,18 +620,32 @@ do
 
 				for i, v in ipairs(self.keyframe_scroll:GetCanvas():GetChildren()) do
 					local mat = v.restart and restart or v.start and start or false
+					local esmat = v.estyle and estyle or false
 
 					if mat then
-						local x = v:GetPos() - offset
+						local x = v:GetPos()
 						surface.SetDrawColor(255,255,255,200)
 						surface.DrawLine(x, -mat:Height()/2 - 5, x, h)
 
 						surface.SetDrawColor(255,255,255,255)
 						surface.SetMaterial(mat)
-						surface.DrawTexturedRect(1+x - mat:Width()/2,-mat:Height() - 5,mat:Width(), mat:Height())
+						surface.DrawTexturedRect(1+x,mat:Height() - 5,mat:Width(), mat:Height())
 
 					end
+
+					if esmat then
+						local ps = v:GetSize()
+						local x = v:GetPos() + (ps * 0.5)
+						surface.SetDrawColor(255,255,255,255)
+						surface.SetMaterial(esmat)
+						surface.DrawTexturedRect(1+x - (esmat:Width() * 0.5), esmat:Height(),esmat:Width(), esmat:Height())
+						if ps >= 65 then
+							draw.SimpleText( v.estyle, "Default", x, esmat:Height() * 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP )
+						end
+					end
 				end
+
+				if not timeline.animation_part then return end
 
 				local x = timeline.GetCycle() * self.keyframe_scroll:GetCanvas():GetWide()
 				x = x - offset
@@ -641,7 +674,7 @@ do
 			self:SetSize(ScrW()-(ScrW()-pace.Editor.x),93)
 			self:SetPos(0,ScrH()-self:GetTall())
 		end
-		
+
 		if input.IsKeyDown(KEY_SPACE) then
 			if not self.toggled then
 				self:Toggle()
@@ -801,6 +834,9 @@ do
 		self.DataTable = tbl
 		self.AnimationKeyIndex = index
 		self:GetParent():GetParent():InvalidateLayout() --rebuild the timeline
+		if tbl.EaseStyle then
+			self.estyle = tbl.EaseStyle
+		end
 		if timeline.data.RestartFrame == index then
 			self:SetRestart(true)
 		end
@@ -846,7 +882,7 @@ do
 				self.size_x = nil
 				self.size_w = nil
 				self:MouseCapture(false)
-				self:SetCursor("none")
+				self:SetCursor("sizewe")
 				timeline.Save()
 			elseif self.move then
 				local panels = {}
@@ -874,7 +910,7 @@ do
 				end
 
 				self:MouseCapture(false)
-				self:SetCursor("none")
+				self:SetCursor("hand")
 				self.move = nil
 				self.move_x = nil
 				timeline.frame.moving = false
@@ -1012,9 +1048,59 @@ do
 				timeline.frame.keyframe_scroll:InvalidateLayout()
 
 				self:Remove()
-
-				timeline.SelectKeyframe(timeline.frame.keyframe_scroll:GetCanvas():GetChildren()[#timeline.frame.keyframe_scroll:GetCanvas():GetChildren()])
+				-- * even if it was removed from the table it still exists for some reason
+				local count = #timeline.frame.keyframe_scroll:GetCanvas():GetChildren()
+				local offset = frameNum == count and count - 1 or count
+				timeline.SelectKeyframe(timeline.frame.keyframe_scroll:GetCanvas():GetChildren()[offset])
 			end):SetImage("icon16/application_delete.png")
+
+			menu:AddOption(L"set easing style", function()
+				if timeline.data.Interpolation != "linear" then
+					local frame = vgui.Create("DFrame")
+					frame:SetSize(300, 100)
+					frame:Center()
+					frame:SetTitle("Easing styles work only with the linear interpolation type!")
+					frame:ShowCloseButton(false)
+
+					local button = vgui.Create("DButton", frame)
+					button:SetText("Okay")
+					button:Dock(FILL)
+					button.DoClick = function()
+						frame:Close()
+					end
+					frame:MakePopup()
+					return
+				end
+
+				local frameNum = self:GetAnimationIndex()
+
+				local frame = vgui.Create( "DFrame" )
+				frame:SetSize( 200, 100 )
+				frame:Center()
+				frame:SetTitle("Select easing type")
+				frame:MakePopup()
+
+				local combo = vgui.Create( "DComboBox", frame )
+
+				combo:SetPos( 5, 30 )
+				combo:Dock(FILL)
+				combo:SetValue("None")
+
+				for easeName, _ in pairs(eases) do
+					combo:AddChoice(easeName)
+				end
+
+				combo.OnSelect = function(sf, index, val)
+					self:SetEaseStyle(val)
+					frame:Close()
+				end
+			end):SetImage("icon16/arrow_turn_right.png")
+
+			if self:GetEaseStyle() then
+				menu:AddOption(L"unset easing style", function()
+					self:RemoveEaseStyle()
+				end):SetImage("icon16/arrow_up.png")
+			end
 
 			menu:Open()
 
@@ -1025,6 +1111,21 @@ do
 		if not int then return end
 		self:GetParent():GetParent():InvalidateLayout() --rebuild the timeline
 		self:GetData().FrameRate = 1/math.max(int, 0.001) --set animation frame rate
+	end
+
+	function KEYFRAME:GetEaseStyle()
+		return self.estyle
+	end
+
+	function KEYFRAME:SetEaseStyle(style)
+		if not style then return end
+		self:GetData().EaseStyle = style
+		self.estyle = style
+	end
+
+	function KEYFRAME:RemoveEaseStyle()
+		self:GetData().EaseStyle = nil
+		self.estyle = nil
 	end
 
 	vgui.Register("pac3_timeline_keyframe",KEYFRAME,"DPanel")

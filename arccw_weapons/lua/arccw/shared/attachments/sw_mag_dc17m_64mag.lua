@@ -1,0 +1,33 @@
+att.PrintName = "SW-Extended Magazine"
+att.AbbrevName = "64-Round Mag"
+att.SortOrder = 100
+att.Icon = nil
+att.Description = "Extended magazine, ideal for additional fire support. Slight Bulky construction and additional ammo capacity increases weight, making the weapon difficult to handle"
+att.Desc_Pros = {}
+att.Desc_Cons = {}
+
+att.Desc_Neutrals = {}
+--att.Slot = "dc17m_64"
+att.Slot = "PLACEHOLDERSLOT"
+
+att.Model = "models/arccw/cs574/dc17m/dc17m_magext.mdl"
+att.DroppedModel = "models/Items/BoxSRounds.mdl"
+att.OffsetAng = Angle(0, 0, 90)
+att.ModelOffset = Vector(-0.5, -6.5, -3)
+att.ModelScale = Vector(1, 1, 1)
+
+att.AutoStats = true
+
+att.HideIfBlocked = false
+
+att.Override_ClipSize = 64
+
+att.Mult_SpeedMult = 0.95
+--att.Mult_ShootSpeedMult = 0.95
+
+--[[]
+att.Override_Jamming = true
+att.Override_HeatCapacity = 200
+att.Override_HeatDissipation = 4
+att.Override_HeatDelayTime = 3
+]]

@@ -47,6 +47,10 @@ timer.Simple(0, function()
 
     if CAMI then
         CAMI.RegisterPrivilege({
+            Name = "[NCS] Datapad Admin",
+            MinAccess = "superadmin"
+        })
+        CAMI.RegisterPrivilege({
             Name = "[NCS] Datapad",
             MinAccess = "superadmin"
         })

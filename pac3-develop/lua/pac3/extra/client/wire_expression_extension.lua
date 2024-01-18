@@ -1,24 +1,22 @@
-pac.AddHook("Think", "pac_e2_extension", function()
-	local ply = LocalPlayer()
-	if ply:IsValid() then
+local IsValid = IsValid
 
-		-- uuumm
-		if E2Helper then
-			E2Helper.Descriptions["pacSetKeyValue"] = "Sets a property value on given part. Part unique id is recommended but you can also input name."
-		end
-
-		pac.RemoveHook("Think", "pac_e2_extension")
+hook.Add("pac_Initialized", "pac_e2_extension", function()
+	if E2Helper then
+		E2Helper.Descriptions["pacSetKeyValue"] = "Sets a property value on given part. Part unique id is recommended but you can also input name."
 	end
 end)
 
 local function SetKeyValue(ply, ent, unique_id, key, val)
 	local set = "Set" .. key
+	
+	if ent == game.GetWorld() then ent = pac.WorldEntity end
 
-	local part = pac.GetPartFromUniqueID(ply:UniqueID(), unique_id)
+	local part = pac.GetPartFromUniqueID(pac.Hash(ply), unique_id)
+	if not IsValid( part ) then return end
 
-	if part:GetOwner(true) == ent then
+	if part:GetRootPart():GetOwner() == ent then
 		if key == "EventHide" then
-			part:SetEventHide(val > 0, ent)
+			part:SetEventTrigger(ent, val > 0)
 		else
 			local t1 = type(part[key])
 			local t2 = type(val)

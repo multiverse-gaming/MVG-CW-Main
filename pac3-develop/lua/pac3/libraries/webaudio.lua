@@ -37,7 +37,13 @@ webaudio.volume = 1
 
 local script_queue
 
-local function run_javascript(code)
+local function run_javascript(code, stream)
+	if stream and not stream:IsReady() then
+		stream.js_queue = stream.js_queue or {}
+		table.insert(stream.js_queue, code)
+		return
+	end
+
 	if script_queue then
 		table.insert(script_queue, code)
 	else
@@ -137,7 +143,11 @@ function webaudio.Initialize()
 
 	webaudio.browser_panel:AddFunction("lua", "print", dprint)
 	webaudio.browser_panel:AddFunction("lua", "message", function(typ, ...)
-		local args = {...}
+		local args = {}
+
+		for i = 1, select("#", ...) do
+			args[i] = tostring(select(i, ...))
+		end
 
 		dprint(typ .. " " .. table.concat(args, ", "))
 
@@ -402,8 +412,8 @@ function download_buffer(url, callback, skip_cache, id)
 
             function(err)
             {
-                dprint("decoding error " + url + " " + err);
-				lua.message("stream", "call", id, "OnError", "decoding failed", err);
+                dprint("decoding error " + url + " " + err.message);
+				lua.message("stream", "call", id, "OnError", "decoding failed", err.message);
             }
         );
     };
@@ -551,6 +561,9 @@ open();
 	file.Write("pac_webaudio2_blankhtml.txt", "<html></html>")
 	webaudio.browser_panel:OpenURL("asset://garrysmod/data/pac_webaudio2_blankhtml.txt")
 
+	webaudio.eye_pos = Vector()
+	webaudio.eye_ang = Angle()
+
 	hook.Add("RenderScene", "pac_webaudio2", function(pos, ang)
 		webaudio.eye_pos = pos
 		webaudio.eye_ang = ang
@@ -639,7 +652,6 @@ do
 
 	function META:GetLength()
 		if not self.Loaded then return 0 end
-
 		return self.SampleCount / tonumber(webaudio.sample_rate)
 	end
 
@@ -656,11 +668,9 @@ do
 
 	-- Browser
 	function META:Call(fmt, ...)
-		if not self.Loaded then return end
-
 		local code = string.format("var id = %d; try { if (streams[id]) { streams[id]%s } } catch(e) { dprint('streams[' + id + '] ' + e.toString()) }", self:GetId(), string.format(fmt, ...))
 
-		run_javascript(code)
+		run_javascript(code, self)
 	end
 
 	function META:HandleBrowserMessage(t, ...)
@@ -699,11 +709,6 @@ do
 	end
 
 	function META:Play()
-		if not self:IsReady() then
-			self.wants_to_play = true
-			return
-		end
-
 		self.Paused = false
 
 		queue_javascript()
@@ -846,7 +851,6 @@ do
 	end
 
 	function META:UpdateVolume()
-		if not self.Loaded then return end
 		queue_javascript()
 		if self:Get3D() then
 			self:UpdateVolume3d()
@@ -885,7 +889,7 @@ do
 	end
 
 	function META:UpdateVolume3d()
-		if self.SourceEntity == LocalPlayer() and not self.SourceEntity:ShouldDrawLocalPlayer() then
+		if self.SourceEntity == pac.LocalPlayer and not pac.LocalPlayer:ShouldDrawLocalPlayer() then
 			self:UpdateVolumeFlat()
 			return
 		end
@@ -916,7 +920,7 @@ do
 			self:SetRightVolume((math.Clamp(1 + pan, 0, 1) * volumeFraction) + self.AdditiveVolumeFraction)
 			self:SetLeftVolume((math.Clamp(1 - pan, 0, 1) * volumeFraction) + self.AdditiveVolumeFraction)
 
-			if self:GetDoppler() then
+			if self:GetDoppler() and webaudio.eye_velocity then
 				local relativeSourceVelocity = self.SourceVelocity - webaudio.eye_velocity
 				local relativeSourceSpeed    = relativeSourcePosition:GetNormalized():Dot(-relativeSourceVelocity) * 0.0254
 
@@ -958,7 +962,7 @@ do
 
 	function META:__newindex(key, val)
 		if key == "OnFFT" then
-			if type(val) == "function" then
+			if isfunction(val) then
 				self:Call(".usefft(true)")
 			else
 				self:Call(".usefft(false)")
@@ -1001,10 +1005,11 @@ do
 			self:OnLoad()
 		end
 
-
-		if self.wants_to_play then
-			timer.Simple(0.1, function() self:Play() end)
-			self.wants_to_play = nil
+		if self.js_queue then
+			for _, code in ipairs(self.js_queue) do
+				run_javascript(code)
+			end
+			self.js_queue = nil
 		end
 	end
 

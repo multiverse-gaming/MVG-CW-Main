@@ -51,7 +51,7 @@ function pace.SaveParts(name, prompt_name, override_part, overrideAsUsual)
 
 	if #data == 0 then
 		for key, part in pairs(pac.GetLocalParts()) do
-			if not part:HasParent() and part.show_in_editor ~= false then
+			if not part:HasParent() and part:GetShowInEditor() then
 				table.insert(data, part:ToSaveTable())
 			end
 		end
@@ -102,7 +102,7 @@ function pace.Backup(data, name)
 	if not data then
 		data = {}
 		for key, part in pairs(pac.GetLocalParts()) do
-			if not part:HasParent() then
+			if not part:HasParent() and part:GetShowInEditor()  then
 				table.insert(data, part:ToSaveTable())
 			end
 		end
@@ -175,13 +175,23 @@ function pace.LoadParts(name, clear, override_part)
 		end
 
 	else
-		pac.dprint("loading Parts %s",  name)
+		if hook.Run("PrePACLoadOutfit", name) == false then
+			return
+		end
+
+		pac.dprint("loading Parts %s", name)
 
 		if name:find("https?://") then
 			local function callback(str)
-				local data,err = pace.luadata.Decode(str)
+				if string.find( str, "<!DOCTYPE html>" ) then
+					pace.MessagePrompt("Invalid URL, the website returned a HTML file. If you're using Github then use the RAW option.", "URL Failed", "OK")
+					return
+				end
+
+				local data, err = pace.luadata.Decode(str)
 				if not data then
-					ErrorNoHalt(("URL fail: %s : %s\n"):format(name,err))
+					local message = string.format("URL fail: %s : %s\n", name, err)
+					pace.MessagePrompt(message, "URL Failed", "OK")
 					return
 				end
 
@@ -189,7 +199,7 @@ function pace.LoadParts(name, clear, override_part)
 			end
 
 			pac.HTTPGet(name, callback, function(err)
-				Derma_Message("HTTP Request Failed for " .. name, err, "OK")
+				pace.MessagePrompt(err, "HTTP Request Failed for " .. name, "OK")
 			end)
 		else
 			name = name:gsub("%.txt", "")
@@ -231,32 +241,46 @@ function pace.LoadPartsFromTable(data, clear, override_part)
 
 	if clear then
 		pace.ClearParts()
+		pace.ClearUndo()
+	else
+		--pace.RecordUndoHistory()
 	end
 
 	local partsLoaded = {}
 
+	local copy_id = tostring(data)
+
 	if data.self then
-		local part = override_part or pac.CreatePart(data.self.ClassName)
-		part:SetTable(data)
+		local part
+
+		if override_part then
+			part = override_part
+			part:SetTable(data)
+		else
+			part = override_part or pac.CreatePart(data.self.ClassName, nil, data, pac.GetPartFromUniqueID(pac.Hash(pac.LocalPlayer), data.self.UniqueID):IsValid() and copy_id)
+		end
+
 		table.insert(partsLoaded, part)
 	else
 		data = pace.FixBadGrouping(data)
 		data = pace.FixUniqueIDs(data)
 
 		for key, tbl in pairs(data) do
-			local part = pac.CreatePart(tbl.self.ClassName)
-			part:SetTable(tbl)
+			local part = pac.CreatePart(tbl.self.ClassName, nil, tbl, pac.GetPartFromUniqueID(pac.Hash(pac.LocalPlayer), tbl.self.UniqueID):IsValid() and copy_id)
 			table.insert(partsLoaded, part)
 		end
 	end
 
 	pace.RefreshTree(true)
-	pace.ClearUndo()
 
 	for i, part in ipairs(partsLoaded) do
 		part:CallRecursive('OnOutfitLoaded')
 		part:CallRecursive('PostApplyFixes')
 	end
+
+	pac.LocalPlayer.pac_fix_show_from_render = SysTime() + 1
+
+	pace.RecordUndoHistory()
 end
 
 local function add_files(tbl, dir)
@@ -333,7 +357,9 @@ local function populate_part(menu, part, override_part, clear)
 	end
 
 	if #part.children > 0 then
-		local menu, pnl = menu:AddSubMenu(name, function() pace.LoadPartsFromTable(part, nil, override_part) end)
+		local menu, pnl = menu:AddSubMenu(name, function()
+			pace.LoadPartsFromTable(part, nil, override_part)
+		end)
 		pnl:SetImage(part.self.Icon)
 		menu.GetDeleteSelf = function() return false end
 		local old = menu.Open
@@ -405,7 +431,7 @@ function pace.AddSavedPartsToMenu(menu, clear, override_part)
 	menu:AddOption(L"load from url", function()
 		Derma_StringRequest(
 			L"load parts",
-			L"pastebin urls also work!",
+			L"Some indirect urls from on pastebin, dropbox, github, etc are handled automatically. Pasting the outfit's file contents into the input field will also work.",
 			"",
 
 			function(name)
@@ -413,6 +439,21 @@ function pace.AddSavedPartsToMenu(menu, clear, override_part)
 			end
 		)
 	end):SetImage(pace.MiscIcons.url)
+
+	menu:AddOption(L"load from clipboard", function()
+		pace.MultilineStringRequest(
+			L"load parts from clipboard",
+			L"Paste the outfits content here.",
+			"",
+
+			function(name)
+				local data,err = pace.luadata.Decode(name)
+				if data then
+					pace.LoadPartsFromTable(data, clear, override_part)
+				end
+			end
+		)
+	end):SetImage(pace.MiscIcons.paste)
 
 	if not override_part and pace.example_outfits then
 		local examples, pnl = menu:AddSubMenu(L"examples")
@@ -514,6 +555,17 @@ local function populate_parts(menu, tbl, dir, override_part)
 		)
 	end)
 	:SetImage("icon16/folder_add.png")
+
+	menu:AddOption(L"to clipboard", function()
+		local data = {}
+		for key, part in pairs(pac.GetLocalParts()) do
+			if not part:HasParent() and part:GetShowInEditor() then
+				table.insert(data, part:ToSaveTable())
+			end
+		end
+		SetClipboardText(pace.luadata.Encode(data):sub(1, -1))
+	end)
+	:SetImage(pace.MiscIcons.copy)
 
 	menu:AddSpacer()
 	for key, data in pairs(tbl) do
@@ -619,7 +671,7 @@ function pace.FixUniqueIDs(data)
 		if #val > 1 then
 			for key, part in pairs(val) do
 				pac.dprint("Part (%s using model %s) named %q has %i other parts with the same unique id. Fixing!", part.self.ClassName, part.self.Name, part.self.Model or "", #val)
-				part.self.UniqueID = util.CRC(key .. tostring(part) .. SysTime())
+				part.self.UniqueID = pac.Hash()
 			end
 		end
 	end
@@ -647,7 +699,7 @@ function pace.FixBadGrouping(data)
 				["self"] = {
 					["EditorExpand"] = true,
 					["ClassName"] = "group",
-					["UniqueID"] = util.CRC(tostring(data)),
+					["UniqueID"] = pac.Hash(),
 					["Name"] = "automatic group",
 				},
 

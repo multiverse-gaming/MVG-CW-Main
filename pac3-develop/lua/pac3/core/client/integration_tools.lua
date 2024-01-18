@@ -1,25 +1,42 @@
 local Angle = Angle
-local LocalPlayer = LocalPlayer
 local RealTime = RealTime
 local NULL = NULL
 
+function pac.GenerateNewUniqueID(part_data, base)
+	local part_data = table.Copy(part_data)
+	base = base or tostring(part_data)
+
+	local function fixpart(part)
+		for key, val in pairs(part.self) do
+			if val ~= "" and (key == "UniqueID" or key:sub(-3) == "UID") then
+				part.self[key] = pac.Hash(base .. val)
+			end
+		end
+
+		for _, part in pairs(part.children) do
+			fixpart(part)
+		end
+	end
+
+	return part_data
+end
+
+
 do
-	local draw_localplayer = nil
+	local force_draw_localplayer = false
+
+	hook.Add("ShouldDrawLocalPlayer", "pac_draw_2d_entity", function()
+		if force_draw_localplayer == true then
+			return true
+		end
+	end)
 
 	function pac.DrawEntity2D(ent, x, y, w, h, cam_pos, cam_ang, cam_fov, cam_nearz, cam_farz)
 
 		pac.ShowEntityParts(ent)
 		pac.ForceRendering(true)
 
-		if draw_localplayer == nil then
-			hook.Add("ShouldDrawLocalPlayer", "pac_draw_2d_entity", function()
-				if draw_localplayer == true then
-					return true
-				end
-			end)
-		end
-
-		ent = ent or LocalPlayer()
+		ent = ent or pac.LocalPlayer
 		x = x or 0
 		y = y or 0
 		w = w or 64
@@ -28,19 +45,19 @@ do
 		cam_pos = cam_pos or ent:LocalToWorld(ent:OBBCenter()) - cam_ang:Forward() * ent:BoundingRadius() * 2
 		cam_fov = cam_fov or 90
 
+		pac.SetupBones(ent)
+
 		cam.Start2D()
 			cam.Start3D(cam_pos, cam_ang, cam_fov, x, y, w, h, cam_nearz or 5, cam_farz or 4096)
-				cam.IgnoreZ(true)
-					pac.FlashlightDisable(true)
-						draw_localplayer = true
+				pac.FlashlightDisable(true)
 
-							pac.RenderOverride(ent, "opaque")
-							pac.RenderOverride(ent, "translucent", true)
-							ent:DrawModel()
+				force_draw_localplayer = true
+				ent:DrawModel()
+				pac.RenderOverride(ent, "opaque")
+				pac.RenderOverride(ent, "translucent")
+				force_draw_localplayer = false
 
-						draw_localplayer = false
-					pac.FlashlightDisable(false)
-				cam.IgnoreZ(false)
+				pac.FlashlightDisable(false)
 			cam.End3D()
 		cam.End2D()
 
@@ -75,15 +92,15 @@ function pac.SetupENT(ENT, owner)
 				end
 			end
 
-			return pac.NULL
+			return NULL
 		end
 
 		self.pac_part_find_cache = self.pac_part_find_cache or {}
 
-		local part = self.pac_outfits[outfit.self.UniqueID] or pac.NULL
+		local part = self.pac_outfits[outfit.self.UniqueID] or NULL
 
 		if part:IsValid() then
-			local cached = self.pac_part_find_cache[name] or pac.NULL
+			local cached = self.pac_part_find_cache[name] or NULL
 
 			if cached:IsValid() then return cached end
 
@@ -97,7 +114,7 @@ function pac.SetupENT(ENT, owner)
 			end
 		end
 
-		return pac.NULL
+		return NULL
 	end
 
 	function ENT:AttachPACPart(outfit, owner, keep_uniqueid)
@@ -106,7 +123,13 @@ function pac.SetupENT(ENT, owner)
 			return self:AttachPACSession(outfit, owner)
 		end
 
-		if (outfit.self.OwnerName == "viewmodel" or outfit.self.OwnerName == "hands") and self:IsWeapon() and self.Owner:IsValid() and self.Owner:IsPlayer() and self.Owner ~= LocalPlayer() then
+		if
+			(outfit.self.OwnerName == "viewmodel" or outfit.self.OwnerName == "hands") and
+			self:IsWeapon() and
+			self.Owner:IsValid() and
+			self.Owner:IsPlayer() and
+			self.Owner ~= pac.LocalPlayer
+		then
 			return
 		end
 
@@ -124,14 +147,13 @@ function pac.SetupENT(ENT, owner)
 
 		self.pac_outfits = self.pac_outfits or {}
 
-		local part = self.pac_outfits[outfit.self.UniqueID] or pac.NULL
+		local part = self.pac_outfits[outfit.self.UniqueID] or NULL
 
 		if part:IsValid() then
 			part:Remove()
 		end
 
-		part = pac.CreatePart(outfit.self.ClassName, owner)
-		part:SetTable(outfit)
+		part = pac.CreatePart(outfit.self.ClassName, owner, outfit)
 
 		self.pac_outfits[outfit.self.UniqueID] = part
 
@@ -141,6 +163,8 @@ function pac.SetupENT(ENT, owner)
 			self:SetShowPACPartsInEditor(false)
 			self.pac_show_in_editor = nil
 		end
+
+		return part
 	end
 
 	function ENT:RemovePACPart(outfit, keep_uniqueid)
@@ -154,7 +178,7 @@ function pac.SetupENT(ENT, owner)
 
 		self.pac_outfits = self.pac_outfits or {}
 
-		local part = self.pac_outfits[outfit.self.UniqueID] or pac.NULL
+		local part = self.pac_outfits[outfit.self.UniqueID] or NULL
 
 		if part:IsValid() then
 			part:Remove()
@@ -166,8 +190,8 @@ function pac.SetupENT(ENT, owner)
 	function ENT:GetPACPartPosAng(outfit, name)
 		local part = self:FindPACPart(outfit, name)
 
-		if part:IsValid() then
-			return part.cached_pos, part.cached_ang
+		if part:IsValid() and part.GetWorldPosition then
+			return part:GetWorldPosition(), part:GetWorldAngles()
 		end
 	end
 
@@ -195,7 +219,7 @@ function pac.SetupENT(ENT, owner)
 		self.pac_outfits = self.pac_outfits or {}
 
 		for _, part in pairs(self.pac_outfits) do
-			part.show_in_editor = b
+			part:SetShowInEditor(b)
 		end
 
 		self.pac_show_in_editor = b

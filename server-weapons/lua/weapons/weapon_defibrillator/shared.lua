@@ -21,7 +21,7 @@ SWEP.reviveCashTimeout = 120				-- The amount of seconds a medic will not receiv
 local disableRespawnTime = 0				-- How long to disallow a player from respawning for, leave at 0 to disable
 SWEP.respawnPlayerOnJobChange = false		-- Should the player respawn when they change job?
 -- IMPORTANT: If the above setting is true, you MUST set GM.Config.norespawn to false inside of darkrpmodification/settings.lua
--- These are the settings for the text users will see if disableRespawnTime is not 0. 
+-- These are the settings for the text users will see if disableRespawnTime is not 0.
 SWEP.enableRespawnText = true
 SWEP.respawnWaitText = "You must wait %d seconds or until a medic comes to revive you." -- This MUST have %d in it. %d is the time left for respawn.
 SWEP.respawnFont = "Trebuchet24"				-- This is the font for the respawn text.
@@ -41,7 +41,7 @@ SWEP.Primary.Damage = 0
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = 1
 SWEP.Primary.Automatic = false
-SWEP.Primary.Ammo = "none"
+SWEP.Primary.Ammo = "ar2"
 SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = 1
 SWEP.Secondary.Automatic = false

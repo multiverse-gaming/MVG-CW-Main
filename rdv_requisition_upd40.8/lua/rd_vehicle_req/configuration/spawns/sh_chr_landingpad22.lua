@@ -1,0 +1,100 @@
+local OBJ = RDV.VEHICLE_REQ.AddSpawn("Landing Pad 22")
+--[[---------------------------------]]
+--
+--  Map
+--[[---------------------------------]]
+--
+OBJ:SetMap("rp_anaxmas_defcon_v2") -- Optional, falls back to the map you're playing on.
+--[[---------------------------------]]
+--
+--  Position and Angle
+--[[---------------------------------]]
+--
+-- 'getpos' in console, add commas between the numbers.
+OBJ:SetPosition(Vector(-3106.423340, 7387.761230, 152.031250))
+OBJ:SetAngles(Angle(1.847946, -0.335969, 0.000000))
+
+--[[---------------------------------]]
+--
+--  Requesting Permissions (Optional)
+--[[---------------------------------]]
+--
+-- Optional, falls back to customcheck
+OBJ:AddRequestTeams({"327th General", "501st General", "212th General", "Green Company General", "Shock General", "Galactic Marines General", "104th General", "ARC General", "RC General", "Shadow General", "Medical General", "Supreme General", "Battalion General", "Assistant General", "327th Marshal Commander", "327th Commander", "327th Executive Officer", "327th Major", "327th Lieutenant", "327th Storm Squadron", "327th K Company", "327th ARC", "327th Medic Officer", "327th Sergeant", "327th Medic Trooper", "327th Trooper", "Jedi Grand Master", "Jedi General Aayla Secura", "Jedi Sentinel", "Jedi Council Member", "RC Fixer", "RC Impact", "CF99 Tech", "Engineering Officer", "Fleet Pilot", "Fleet Admiral", "Grand Admiral", "Jedi Consular", "Jedi Grand Master", "Jedi General Quinlan Vos", "Jedi General Aayla Secura", "Jedi Commander Ahsoka Tano", "Jedi General Obi-Wan Kenobi", "Jedi General Plo Koon", "Jedi General Kit Fisto", "Jedi General Shaak Ti", "Jedi General Ki-Adi-Mundi", "Jedi General Luminara Unduli", "Jedi Council Member", "Jedi Master Mace Windu", "Jedi Sentinel", "Jedi General Anakin Skywalker", "Jedi Guardian"})
+
+-- Nicolas's Rank System Support
+-- OBJ:AddRequestRanks({
+--     "PVT",
+--     "PFC",
+-- })
+--[[---------------------------------]]
+--
+--  Granting Permissions (Optional)
+--[[---------------------------------]]
+--
+-- Optional, falls back to customcheck
+OBJ:AddGrantTeams({    
+    "Grand Admiral",
+    "Republic Intelligence",
+    "RC Clone Advisor",
+    "Clone Trooper Instructor",
+    "501st Heavy Ordnance Officer",
+    "212th Heavy Ordnance Officer",
+    "Green Company Reconnaissance Officer",
+    "Galactic Marines Breaching Officer",
+    "104th Reconnaissance Officer",
+    "Engineering Officer",
+    "Medical Officer",
+    "NSO Advisor",
+    "Fleet Probation Officer",
+    "Fleet Ensign",
+    "Fleet Recruit",
+    "Fleet Member",
+    "Fleet High Ranking",
+    "Fleet Pilot",
+    "Fleet Chief of Intelligence",
+    "Fleet Intelligence Officer",
+    "Fleet Lieutenant",
+    "Fleet Lieutenant Commander",
+    "Fleet Commander",
+    "Fleet Captain",
+    "Fleet Commodore",
+    "Fleet Admiral",
+    "Grand Admiral",
+    "Supreme General",
+    "Battalion General",
+    "Assistant General",
+    "327th General",
+    "501st General",
+    "212th General",
+    "Green Company General",
+    "Coruscant Guard General",
+    "Galactic Marines General",
+    "104th General",
+    "ARC General",
+    "RC General",
+    "Shadow General",
+    "Jedi Grand Master",
+    "Medical General",
+    "Fleet Maverick",
+    "Fleet StarFighter Officer",
+    "Fleet Director of Research and Development",
+    "Fleet Research and Development Officer"})
+
+-- Nicolas's Rank System Support
+-- OBJ:AddGrantRanks({
+--     "PVT",
+--     "PFC",
+-- })
+--[[---------------------------------]]
+--
+--  CustomChecks (Optional)
+--[[---------------------------------]]
+--
+-- Optional, falls back to teams
+function OBJ:CanGrant(ply)
+end
+
+-- Optional, falls back to teams
+function OBJ:CanRequest(ply)
+end

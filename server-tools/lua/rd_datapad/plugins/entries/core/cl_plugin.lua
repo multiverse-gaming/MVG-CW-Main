@@ -115,7 +115,7 @@ net.Receive("RDV_DATAPAD_OpenConsoleMenu", function()
     --
     -- Admin Panel
     -- https://icons8.com/icon/102929/admin-settings-male
-    NCS_DATAPAD.IsAdmin(LocalPlayer(), function(ACCESS)
+    NCS_DATAPAD.IsStaff(LocalPlayer(), function(ACCESS)
         if !ACCESS then return end
         
         SIDE:AddPage(NCS_DATAPAD.GetLang(nil, "DAP_adminLabel"), "OjN8ei7", function()

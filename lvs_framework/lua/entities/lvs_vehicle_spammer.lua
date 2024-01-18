@@ -9,7 +9,7 @@ ENT.Information = "AI Vehicle Spawner. Spammer in the hands of a Minge."
 ENT.Category = "[LVS]"
 
 ENT.Spawnable		= true
-ENT.AdminOnly		= true
+ENT.AdminOnly		= false
 ENT.Editable = true
 
 function ENT:SetupDataTables()

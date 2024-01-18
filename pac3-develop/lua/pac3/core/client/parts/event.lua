@@ -1,34 +1,111 @@
-local LocalPlayer = LocalPlayer
 local FrameTime = FrameTime
+local CurTime = CurTime
+local NULL = NULL
+local Vector = Vector
+local util = util
+local SysTime = SysTime
 
-local PART = {}
+local BUILDER, PART = pac.PartTemplate("base")
 
 PART.ClassName = "event"
-PART.NonPhysical = true
+
 PART.ThinkTime = 0
 PART.AlwaysThink = true
 PART.Icon = 'icon16/clock.png'
 
-pac.StartStorableVars()
-	pac.GetSet(PART, "Event", "", {enums = function(part)
+BUILDER:StartStorableVars()
+	BUILDER:GetSet("Event", "", {enums = function(part)
 		local output = {}
 
 		for i, event in pairs(part.Events) do
-			if not event.IsAvaliable or event:IsAvaliable(part) then
+			if not event.IsAvailable or event:IsAvailable(part) then
 				output[i] = event
 			end
 		end
 
 		return output
 	end})
-	pac.GetSet(PART, "Operator", "find simple", {enums = function(part) local tbl = {} for i,v in ipairs(part.Operators) do tbl[v] = v end return tbl end})
-	pac.GetSet(PART, "Arguments", "", {editor_panel = "event_arguments"})
-	pac.GetSet(PART, "Invert", false)
-	pac.GetSet(PART, "RootOwner", true)
-	pac.GetSet(PART, "AffectChildrenOnly", false)
-	pac.GetSet(PART, "ZeroEyePitch", false)
-	pac.SetupPartName(PART, "TargetPart")
-pac.EndStorableVars()
+	BUILDER:GetSet("Operator", "find simple", {enums = function(part) local tbl = {} for i,v in ipairs(part.Operators) do tbl[v] = v end return tbl end})
+	BUILDER:GetSet("Arguments", "", {hidden = true})
+	BUILDER:GetSet("Invert", true)
+	BUILDER:GetSet("RootOwner", true)
+	BUILDER:GetSet("AffectChildrenOnly", false)
+	BUILDER:GetSet("ZeroEyePitch", false)
+	BUILDER:GetSetPart("TargetPart")
+BUILDER:EndStorableVars()
+
+function PART:SetEvent(event)
+	local reset = (self.Arguments == "") or
+	(self.Arguments ~= "" and self.Event ~= "" and self.Event ~= event)
+
+	self.Event = event
+	self:SetWarning()
+	self:GetDynamicProperties(reset)
+end
+
+local function get_default(typ)
+	if typ == "string" then
+		return ""
+	elseif typ == "number" then
+		return 0
+	elseif typ == "boolean" then
+		return false
+	end
+end
+
+local function string_to_type(typ, val)
+	if typ == "number" then
+		return tonumber(val) or 0
+	elseif typ == "boolean" then
+		return tobool(val) or false
+	end
+	return val
+end
+
+local function cast(typ, val)
+	if val == nil then
+		val = get_default(typ)
+	end
+
+	return string_to_type(typ, val)
+end
+
+function PART:GetDynamicProperties(reset_to_default)
+	local data = self.Events[self.Event]
+	if not data then return end
+
+	local tbl = {}
+	for pos, arg in ipairs(data:GetArguments()) do
+		local key, typ, udata = unpack(arg)
+		udata = udata or {}
+		udata.group = udata.group or "arguments"
+
+		tbl[key] = {
+			key = key,
+			get = function()
+				local args = {self:GetParsedArguments(data)}
+				return cast(typ, args[pos])
+			end,
+			set = function(val)
+				local args = {self:GetParsedArguments(data)}
+				args[pos] = val
+				self:ParseArguments(unpack(args))
+			end,
+			udata = udata,
+		}
+
+		local arg = tbl[key]
+		if arg.get() == nil or reset_to_default then
+			if udata.default then
+				arg.set(udata.default)
+			else
+				arg.set(nil)
+			end
+		end
+	end
+
+	return tbl
+end
 
 local function convert_angles(self, ang)
 	if self.ZeroEyePitch then
@@ -39,23 +116,35 @@ local function convert_angles(self, ang)
 end
 
 local function calc_velocity(part)
-	local diff = part.cached_pos - (part.last_pos or Vector(0, 0, 0))
-	part.last_pos = part.cached_pos
+	if not part.GetWorldPosition then
+		return vector_origin
+	end
+
+	local diff = part:GetWorldPosition() - (part.last_pos or Vector(0, 0, 0))
+	part.last_pos = part:GetWorldPosition()
 
 	part.last_vel_smooth = part.last_vel_smooth or Vector(0, 0, 0)
-	part.last_vel_smooth = part.last_vel_smooth + (diff - part.last_vel_smooth) * FrameTime() * 4
+	part.last_vel_smooth = part.last_vel_smooth + (part:GetWorldPosition() - part.last_vel_smooth) * FrameTime() * 4
 
 	return part.last_vel_smooth
 end
 
 local function try_viewmodel(ent)
-	return ent == pac.LocalPlayer:GetViewModel() and pac.LocalPlayer or ent
+	return ent == pac.LocalViewModel and pac.LocalPlayer or ent
+end
+
+local function get_owner(self)
+	if self.RootOwner then
+		return try_viewmodel(self:GetRootPart():GetOwner())
+	else
+		return try_viewmodel(self:GetOwner())
+	end
 end
 
 local movetypes = {}
 
 for k,v in pairs(_G) do
-	if type(k) == "string" and type(v) == "number" and k:sub(0,9) == "MOVETYPE_" then
+	if isstring(k) and isnumber(v) and k:sub(0,9) == "MOVETYPE_" then
 		movetypes[v] = k:sub(10):lower()
 	end
 end
@@ -115,24 +204,21 @@ PART.OldEvents = {
 
 	timerx = {
 		arguments = {{seconds = "number"}, {reset_on_hide = "boolean"}, {synced_time = "boolean"}},
-
+		nice = function(self, ent, seconds)
+			return "timerx: " .. ("%.2f"):format(self.number or 0, 2) .. " " .. self:GetOperator() .. " " .. seconds .. " seconds?"
+		end,
 		callback = function(self, ent, seconds, reset_on_hide, synced_time)
 			local time = synced_time and CurTime() or RealTime()
 
 			self.time = self.time or time
 			self.timerx_reset = reset_on_hide
 
-			-- limitation - we can not "not to think" the timer
-			-- when our thinking depends on whenever we control our parent!
-			if self.AffectChildrenOnly then
-				local hidden, event_hidden = self:IsHidden()
-
-				if hidden and (not event_hidden or not self:IsEventHidden(self, true)) then
-					return false
-				end
+			if self.AffectChildrenOnly and self:IsHiddenBySomethingElse() then
+				return false
 			end
+			self.number = time - self.time
 
-			return self:NumberOperator(time - self.time, seconds)
+			return self:NumberOperator(self.number, seconds)
 		end,
 	},
 
@@ -145,16 +231,9 @@ PART.OldEvents = {
 			self.time = self.time or time
 			self.timerx_reset = reset_on_hide
 
-			-- limitation - we can not "not to think" the timer
-			-- when our thinking depends on whenever we control our parent!
-			if self.AffectChildrenOnly then
-				local hidden, event_hidden = self:IsHidden()
-
-				if hidden and (not event_hidden or not self:IsEventHidden(self, true)) then
-					return false
-				end
+			if self.AffectChildrenOnly and self:IsHiddenBySomethingElse() then
+				return false
 			end
-
 			return self:NumberOperator(time - self.time, seconds)
 		end,
 	},
@@ -171,7 +250,7 @@ PART.OldEvents = {
 		callback = function(self, ent, fov)
 			ent = try_viewmodel(ent)
 
-			if ent:IsValid() and ent.GetFOV then
+			if ent.GetFOV then
 				return self:NumberOperator(ent:GetFOV(), fov)
 			end
 
@@ -184,7 +263,7 @@ PART.OldEvents = {
 
 			ent = try_viewmodel(ent)
 
-			if ent:IsValid() and ent.Health then
+			if ent.Health then
 
 				local dmg = self.pac_lastdamage or 0
 
@@ -247,7 +326,12 @@ PART.OldEvents = {
 	using_physgun = {
 		callback = function(self, ent)
 			ent = self:GetPlayerOwner()
-			ent.pac_drawphysgun_event_part = self
+			local pac_drawphysgun_event_part = ent.pac_drawphysgun_event_part
+			if not pac_drawphysgun_event_part then
+				pac_drawphysgun_event_part = {}
+				ent.pac_drawphysgun_event_part = pac_drawphysgun_event_part
+			end
+			pac_drawphysgun_event_part[self] = true
 			return ent.pac_drawphysgun_event ~= nil
 		end,
 	},
@@ -257,7 +341,7 @@ PART.OldEvents = {
 		callback = function(self, ent, find)
 			if ent.GetEyeTrace then
 				ent = ent:GetEyeTrace().Entity
-				if ent:IsValid() and self:StringOperator(ent:GetClass(), find) then
+				if self:StringOperator(ent:GetClass(), find) then
 					return true
 				end
 			end
@@ -268,7 +352,7 @@ PART.OldEvents = {
 		arguments = {{health = "number"}},
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
-			if ent:IsValid() and ent.Health then
+			if ent.Health then
 				return self:NumberOperator(ent:Health(), num)
 			end
 
@@ -279,7 +363,7 @@ PART.OldEvents = {
 		arguments = {{health = "number"}},
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
-			if ent:IsValid() and ent.GetMaxHealth then
+			if ent.GetMaxHealth then
 				return self:NumberOperator(ent:GetMaxHealth(), num)
 			end
 
@@ -289,7 +373,7 @@ PART.OldEvents = {
 	owner_alive = {
 		callback = function(self, ent)
 			ent = try_viewmodel(ent)
-			if ent:IsValid() and ent.Alive then
+			if ent.Alive then
 				return ent:Alive()
 			end
 			return 0
@@ -299,7 +383,7 @@ PART.OldEvents = {
 		arguments = {{armor = "number"}},
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
-			if ent:IsValid() and ent.Armor then
+			if ent.Armor then
 				return self:NumberOperator(ent:Armor(), num)
 			end
 
@@ -312,11 +396,7 @@ PART.OldEvents = {
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
 
-			if ent:IsValid() then
 				return self:NumberOperator(ent.pac_model_scale and ent.pac_model_scale.x or (ent.GetModelScale and ent:GetModelScale()) or 1, num)
-			end
-
-			return 1
 		end,
 	},
 	owner_scale_y = {
@@ -324,11 +404,7 @@ PART.OldEvents = {
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
 
-			if ent:IsValid() then
 				return self:NumberOperator(ent.pac_model_scale and ent.pac_model_scale.y or (ent.GetModelScale and ent:GetModelScale()) or 1, num)
-			end
-
-			return 1
 		end,
 	},
 	owner_scale_z = {
@@ -336,11 +412,7 @@ PART.OldEvents = {
 		callback = function(self, ent, num)
 			ent = try_viewmodel(ent)
 
-			if ent:IsValid() then
 				return self:NumberOperator(ent.pac_model_scale and ent.pac_model_scale.z or (ent.GetModelScale and ent:GetModelScale()) or 1, num)
-			end
-
-			return 1
 		end,
 	},
 
@@ -400,22 +472,48 @@ PART.OldEvents = {
 		end,
 	},
 
+	collide = {
+		callback = function(self, ent)
+			ent.pac_event_collide_callback = ent.pac_event_collide_callback or ent:AddCallback("PhysicsCollide", function(ent, data)
+				ent.pac_event_collision_data = data
+			end)
+
+			if ent.pac_event_collision_data then
+				local data = ent.pac_event_collision_data
+				ent.pac_event_collision_data = nil
+				return true
+			end
+
+			return false
+		end,
+	},
+
 	ranger = {
-		arguments = {{compare = "number"}, {distance = "number"}},
-		callback = function(self, ent, compare, distance)
+		arguments = {{distance = "number"}, {compare = "number"}, {npcs_and_players_only = "boolean"}},
+		userdata = {{editor_panel = "ranger", ranger_property = "distance"}, {editor_panel = "ranger", ranger_property = "compare"}},
+		callback = function(self, ent, distance, compare, npcs_and_players_only)
 			local parent = self:GetParentEx()
 
-			if parent:IsValid() then
+			if parent:IsValid() and parent.GetWorldPosition then
+				self:SetWarning()
 				distance = distance or 1
 				compare = compare or 0
 
 				local res = util.TraceLine({
-					start = parent.cached_pos,
-					endpos = parent.cached_pos + parent.cached_ang:Forward() * distance,
+					start = parent:GetWorldPosition(),
+					endpos = parent:GetWorldPosition() + parent:GetWorldAngles():Forward() * distance,
 					filter = ent,
 				})
 
+				if npcs_and_players_only and (not res.Entity:IsPlayer() and not res.Entity:IsNPC()) then
+					return false
+				end
+
 				return self:NumberOperator(res.Fraction * distance, compare)
+			else
+				local classname = parent:GetNiceName()
+				local name = parent:GetName()
+				self:SetWarning(("ranger doesn't work on [%s] %s"):format(classname, classname ~= name and "(" .. name .. ")" or ""))
 			end
 		end,
 	},
@@ -449,6 +547,37 @@ PART.OldEvents = {
 		end,
 	},
 
+	is_touching = {
+		arguments = {{extra_radius = "number"}},
+		userdata = {{editor_panel = "is_touching", is_touching_property = "extra_radius"}},
+		callback = function(self, ent, extra_radius)
+			extra_radius = extra_radius or 0
+
+			local radius =  ent:BoundingRadius()
+
+			if radius == 0 and IsValid(ent.pac_projectile) then
+				radius = ent.pac_projectile:GetRadius()
+			end
+
+			radius = math.max(radius + extra_radius + 1, 1)
+
+			local mins = Vector(-1,-1,-1)
+			local maxs = Vector(1,1,1)
+			local startpos = ent:WorldSpaceCenter()
+			mins = mins * radius
+			maxs = maxs * radius
+
+			local tr = util.TraceHull( {
+				start = startpos,
+				endpos = startpos,
+				maxs = maxs,
+				mins = mins,
+				filter = ent
+			} )
+			return tr.Hit
+		end,
+	},
+
 	is_in_noclip = {
 		callback = function(self, ent)
 			ent = try_viewmodel(ent)
@@ -478,11 +607,8 @@ PART.OldEvents = {
 	total_ammo = {
 		arguments = {{ammo_id = "string"}, {amount = "number"}},
 		callback = function(self, ent, ammo_id, amount)
-			ent = try_viewmodel(ent)
-
-			ammo_id = tonumber(ammo_id) or ammo_id:lower()
-
-			if ent:IsValid() and ent.GetAmmoCount then
+			if ent.GetAmmoCount then
+				ammo_id = tonumber(ammo_id) or ammo_id:lower()
 				if ammo_id == "primary" then
 					local wep = ent.GetActiveWeapon and ent:GetActiveWeapon() or NULL
 					return self:NumberOperator(wep:IsValid() and ent:GetAmmoCount(wep:GetPrimaryAmmoType()) or 0, amount)
@@ -599,8 +725,15 @@ PART.OldEvents = {
 
 	sequence_name = {
 		arguments = {{find = "string"}},
+		nice = function(self, ent)
+			return self.sequence_name or "invalid sequence"
+		end,
 		callback = function(self, ent, find)
-			return self:StringOperator(ent:GetSequenceName(ent:GetSequence()), find)
+			ent = get_owner(self)
+
+			self.sequence_name = ent:GetSequenceName(ent:GetSequence())
+
+			return self:StringOperator(self.sequence_name, find)
 		end,
 	},
 
@@ -621,10 +754,13 @@ PART.OldEvents = {
 
 	animation_event = {
 		arguments = {{find = "string"}, {time = "number"}},
+		nice = function(self)
+			return self.anim_name or ""
+		end,
 		callback = function(self, ent, find, time)
 			time = time or 0.1
 
-			ent = try_viewmodel(ent)
+			ent = get_owner(self)
 
 			local data = ent.pac_anim_event
 			local b = false
@@ -632,6 +768,12 @@ PART.OldEvents = {
 			if data and (self:StringOperator(data.name, find) and (time == 0 or data.time + time > pac.RealTime)) then
 				data.reset = false
 				b = true
+			end
+
+			if b then
+				self.anim_name = data.name
+			else
+				self.anim_name = nil
 			end
 
 			return b
@@ -680,7 +822,17 @@ PART.OldEvents = {
 	},
 
 	command = {
-		arguments = {{find = "string"}, {time = "number"}},
+		arguments = {{find = "string"}, {time = "number"}, {hide_in_eventwheel = "boolean"}},
+		userdata = {
+			{default = "change_me", editor_friendly = "CommandName"},
+			{default = 0.1, editor_friendly = "EventDuration"},
+			{default = false, group = "event wheel", editor_friendly = "HideInEventWheel"}
+		},
+		nice = function(self, ent, find, time)
+			find = find or "?"
+			time = time or "?"
+			return "command: " .. find .. " | " .. "duration: " .. time
+		end,
 		callback = function(self, ent, find, time)
 			time = time or 0.1
 
@@ -689,17 +841,17 @@ PART.OldEvents = {
 			local events = ply.pac_command_events
 
 			if events then
+				local found = nil
 				for _, data in pairs(events) do
 					if self:StringOperator(data.name, find) then
 						if data.on > 0 then
-							return data.on == 1
-						end
-
-						if data.time + time > pac.RealTime then
-							return true
+							found = data.on == 1
+						elseif data.time + time > pac.RealTime then
+							found = true
 						end
 					end
 				end
+				return found
 			end
 		end,
 	},
@@ -720,7 +872,7 @@ PART.OldEvents = {
 					end
 				end
 			else
-				local owner = self:GetOwner(true)
+				local owner = self:GetRootPart():GetOwner()
 				if owner:IsValid() then
 					local data = owner.pac_say_event
 
@@ -736,13 +888,11 @@ PART.OldEvents = {
 	owner_velocity_length = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
 			local parent = self:GetParentEx()
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if parent:IsValid() and owner:IsValid() then
-				return self:NumberOperator(parent:GetOwner(self.RootOwner):GetVelocity():Length(), speed)
+			if parent:IsValid() and ent:IsValid() then
+				return self:NumberOperator(get_owner(parent):GetVelocity():Length(), speed)
 			end
 
 			return 0
@@ -751,12 +901,10 @@ PART.OldEvents = {
 	owner_velocity_forward = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if owner:IsValid() then
-				return self:NumberOperator(convert_angles(self, owner:EyeAngles()):Forward():Dot(owner:GetVelocity()), speed)
+			if ent:IsValid() then
+				return self:NumberOperator(convert_angles(self, ent:EyeAngles()):Forward():Dot(ent:GetVelocity()), speed)
 			end
 
 			return 0
@@ -765,12 +913,10 @@ PART.OldEvents = {
 	owner_velocity_right = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if owner:IsValid() then
-				return self:NumberOperator(convert_angles(self, owner:EyeAngles()):Right():Dot(owner:GetVelocity()), speed)
+			if ent:IsValid() then
+				return self:NumberOperator(convert_angles(self, ent:EyeAngles()):Right():Dot(ent:GetVelocity()), speed)
 			end
 
 			return 0
@@ -779,12 +925,10 @@ PART.OldEvents = {
 	owner_velocity_up = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if owner:IsValid() then
-				return self:NumberOperator(convert_angles(self, owner:EyeAngles()):Up():Dot(owner:GetVelocity()), speed)
+			if ent:IsValid() then
+				return self:NumberOperator(convert_angles(self, ent:EyeAngles()):Up():Dot(ent:GetVelocity()), speed)
 			end
 
 			return 0
@@ -793,12 +937,10 @@ PART.OldEvents = {
 	owner_velocity_world_forward = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
-
-			owner = try_viewmodel(owner)
+			ent = try_viewmodel(ent)
 
 			if owner:IsValid() then
-				return self:NumberOperator(owner:GetVelocity()[1], speed)
+				return self:NumberOperator(ent:GetVelocity()[1], speed)
 			end
 
 			return 0
@@ -807,12 +949,10 @@ PART.OldEvents = {
 	owner_velocity_world_right = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if owner:IsValid() then
-				return self:NumberOperator(owner:GetVelocity()[2], speed)
+			if ent:IsValid() then
+				return self:NumberOperator(ent:GetVelocity()[2], speed)
 			end
 
 			return 0
@@ -821,12 +961,10 @@ PART.OldEvents = {
 	owner_velocity_world_up = {
 		arguments = {{speed = "number"}},
 		callback = function(self, ent, speed)
-			local owner = self:GetOwner(self.RootOwner)
+			ent = try_viewmodel(ent)
 
-			owner = try_viewmodel(owner)
-
-			if owner:IsValid() then
-				return self:NumberOperator(owner:GetVelocity()[3], speed)
+			if ent:IsValid() then
+				return self:NumberOperator(ent:GetVelocity()[3], speed)
 			end
 
 			return 0
@@ -859,8 +997,8 @@ PART.OldEvents = {
 				parent = parent:GetParent()
 			end
 
-			if parent:IsValid() then
-				return self:NumberOperator(parent.cached_ang:Forward():Dot(calc_velocity(parent)), speed)
+			if parent:IsValid() and parent.GetWorldAngles then
+				return self:NumberOperator(parent:GetWorldAngles():Forward():Dot(calc_velocity(parent)), speed)
 			end
 
 			return 0
@@ -875,8 +1013,8 @@ PART.OldEvents = {
 				parent = parent:GetParent()
 			end
 
-			if parent:IsValid() then
-				return self:NumberOperator(parent.cached_ang:Right():Dot(calc_velocity(parent)), speed)
+			if parent:IsValid() and parent.GetWorldAngles then
+				return self:NumberOperator(parent:GetWorldAngles():Right():Dot(calc_velocity(parent)), speed)
 			end
 
 			return 0
@@ -891,8 +1029,8 @@ PART.OldEvents = {
 				parent = parent:GetParent()
 			end
 
-			if parent:IsValid() then
-				return self:NumberOperator(parent.cached_ang:Up():Dot(calc_velocity(parent)), speed)
+			if parent:IsValid() and parent.GetWorldAngles then
+				return self:NumberOperator(parent:GetWorldAngles():Up():Dot(calc_velocity(parent)), speed)
 			end
 
 			return 0
@@ -977,7 +1115,7 @@ PART.OldEvents = {
 		arguments = {{normal = "number"}},
 		callback = function(self, ent, normal)
 
-			local owner = self:GetOwner(true)
+			local owner = self:GetRootPart():GetOwner()
 
 			if owner:IsValid() then
 				local ang = owner:EyeAngles()
@@ -993,7 +1131,7 @@ PART.OldEvents = {
 		arguments = {{normal = "number"}},
 		callback = function(self, ent, normal)
 
-			local owner = self:GetOwner(true)
+			local owner = self:GetRootPart():GetOwner()
 
 			if owner:IsValid() then
 				local ang = owner:EyeAngles()
@@ -1004,13 +1142,51 @@ PART.OldEvents = {
 			return 0
 		end,
 	},
+
+	flat_dot_forward = {
+		arguments = {{normal = "number"}},
+		callback = function(self, ent, normal)
+			local owner = self:GetRootPart():GetOwner()
+
+			if owner:IsValid() then
+				local ang = owner:EyeAngles()
+				ang.p = 0
+				ang.r = 0
+				local dir = pac.EyePos - owner:EyePos()
+				dir[3] = 0
+				dir:Normalize()
+				return self:NumberOperator(dir:Dot(ang:Forward()), normal)
+			end
+
+			return 0
+		end
+	},
+
+	flat_dot_right = {
+		arguments = {{normal = "number"}},
+		callback = function(self, ent, normal)
+			local owner = self:GetRootPart():GetOwner()
+
+			if owner:IsValid() then
+				local ang = owner:EyeAngles()
+				ang.p = 0
+				ang.r = 0
+				local dir = pac.EyePos - owner:EyePos()
+				dir[3] = 0
+				dir:Normalize()
+				return self:NumberOperator(dir:Dot(ang:Right()), normal)
+			end
+
+			return 0
+		end
+	}
 }
 
 do
 	local enums = {}
 	local enums2 = {}
 	for key, val in pairs(_G) do
-		if type(key) == "string" and type(val) == "number" then
+		if isstring(key) and isnumber(val) then
 			if key:sub(0,4) == "KEY_" and not key:find("_LAST$") and not key:find("_FIRST$")  and not key:find("_COUNT$")  then
 				enums[val] = key:sub(5):lower()
 				enums2[enums[val]] = val
@@ -1027,15 +1203,17 @@ do
 	net.Receive("pac.BroadcastPlayerButton", function()
 		local ply = net.ReadEntity()
 
-		if ply:IsValid() then
-			local key = net.ReadUInt(8)
-			local down = net.ReadBool()
+		if not ply:IsValid() then return end
 
-			key = pac.key_enums[key] or key
+		if ply == pac.LocalPlayer and (pace and pace.IsFocused() or gui.IsConsoleVisible()) then return end
 
-			ply.pac_buttons = ply.pac_buttons or {}
-			ply.pac_buttons[key] = down
-		end
+		local key = net.ReadUInt(8)
+		local down = net.ReadBool()
+
+		key = pac.key_enums[key] or key
+
+		ply.pac_buttons = ply.pac_buttons or {}
+		ply.pac_buttons[key] = down
 	end)
 
 	PART.OldEvents.button = {
@@ -1043,6 +1221,25 @@ do
 		userdata = {{enums = function()
 			return enums
 		end}},
+		nice = function(self, ent, button)
+			local ply = self:GetPlayerOwner()
+
+			local active = {}
+			if ply.pac_buttons then
+				for k,v in pairs(ply.pac_buttons) do
+					if v then
+						table.insert(active, "\"" .. tostring(k) .. "\"")
+					end
+				end
+			end
+			active = table.concat(active, " or ")
+
+			if active == "" then
+				active = "-"
+			end
+
+			return self:GetOperator() .. " \"" .. button .. "\"" .. " in (" .. active .. ")"
+		end,
 		callback = function(self, ent, button)
 			local ply = self:GetPlayerOwner()
 
@@ -1080,7 +1277,7 @@ do
 		return true
 	end
 
-	function eventMeta:IsAvaliable(eventPart)
+	function eventMeta:IsAvailable(eventPart)
 		return true
 	end
 
@@ -1130,6 +1327,25 @@ do
 		return false
 	end
 
+	function eventMeta:GetNiceName(part, ent)
+		if self.extra_nice_name then
+			return self.extra_nice_name(part, ent, part:GetParsedArgumentsForObject(self))
+		end
+
+		local str = part:GetEvent()
+
+		if part:GetArguments() ~= "" then
+			local args = part:GetArguments():gsub(";", " or ")
+
+			if not tonumber(args) then
+				args = [["]] .. args .. [["]]
+			end
+			str = str .. " " .. part:GetOperator() .. " " .. args
+		end
+
+		return pac.PrettifyName(str)
+	end
+
 	local eventMetaTable = {
 		__index = function(self, key)
 			if key == '__class' or key == '__classname' then
@@ -1147,7 +1363,7 @@ do
 			local newObj = pac.CreateEvent(self:GetClass())
 
 			for k, v in pairs(self) do
-				if type(v) ~= 'table' then
+				if not istable(v) then
 					newObj[k] = v
 				else
 					newObj[k] = table.Copy(v)
@@ -1209,6 +1425,8 @@ do
 			end
 		end
 
+		eventObject.extra_nice_name = data.nice
+
 		function eventObject:Think(event, ent, ...)
 			return think(event, ent, ...)
 		end
@@ -1221,6 +1439,87 @@ do
 	end)
 end
 
+-- custom animation event
+do
+	local animations = pac.animations
+	local event = {
+		name = "custom_animation_frame",
+		nice = function(self, ent, animation)
+			if animation == "" then self:SetWarning("no animation selected") return "no animation" end
+			local part = pac.GetLocalPart(animation)
+			if not IsValid(part) then self:SetError("invalid animation selected") return "invalid animation" end
+			self:SetWarning()
+			return part:GetName()
+		end,
+		args = {
+			{"animation", "string", {
+				enums = function(part)
+					local output = {}
+					local parts = pac.GetLocalParts()
+
+					for i, part in pairs(parts) do
+						if part.ClassName == "custom_animation" then
+							output[i] = part
+						end
+					end
+
+					return output
+				end
+			}},
+			{"frame_start", "number", {
+				editor_onchange = function(self, num)
+					local anim = pace.current_part:GetProperty("animation")
+					if anim ~= "" then
+						local part = pac.GetLocalPart(anim)
+						-- GetAnimationDuration only works while editor is active for some reason
+						local data = util.JSONToTable(part:GetData())
+						return math.Clamp(math.ceil(num), 1, #data.FrameData)
+					end
+				end
+			}},
+			{"frame_end", "number", {
+				editor_onchange = function(self, num)
+					local anim = pace.current_part:GetProperty("animation")
+					local start = pace.current_part:GetProperty("frame_start")
+					if anim ~= "" then
+						local part = pac.GetLocalPart(anim)
+						-- GetAnimationDuration only works while editor is active for some reason
+						local data = util.JSONToTable(part:GetData())
+						return math.Clamp(math.ceil(num), start, #data.FrameData)
+					end
+				end
+			}},
+			--{"framedelta", "number", {editor_clamp = {0,1}, editor_sensitivity = 0.15}}
+		},
+		available = function(self, eventPart)
+			return next(animations.registered) and true or false
+		end,
+		func = function (self, eventPart, ent, animation, frame_start, frame_end)
+			local frame_start = frame_start or 1
+			local frame_end = frame_end or 1
+			if not animation or animation == "" then return end
+			if not IsValid(ent) then return end
+			if not next(animations.playing) then return end
+			for i,v in ipairs(animations.playing) do
+				if v == ent then
+					local part = pac.GetPartFromUniqueID(pac.Hash(ent), animation)
+					if not IsValid(part) then return end
+					local frame, delta = animations.GetEntityAnimationFrame(ent, part:GetAnimID())
+					if not frame or not delta then return end -- different animation part is playing
+					return frame >= frame_start and frame <= frame_end
+				end
+			end
+		end
+	}
+
+	local eventObject = pac.CreateEvent(event.name, event.args)
+	eventObject.Think = event.func
+	eventObject.IsAvailable = event.available
+	eventObject.extra_nice_name = event.nice
+
+	pac.RegisterEvent(eventObject)
+end
+
 -- DarkRP default events
 do
 	local plyMeta = FindMetaTable('Player')
@@ -1231,7 +1530,7 @@ do
 		{
 			name = 'is_arrested',
 			args = {},
-			avaliable = function() return plyMeta.isArrested ~= nil end,
+			available = function() return plyMeta.isArrested ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.isArrested and ent:isArrested() or false
@@ -1241,7 +1540,7 @@ do
 		{
 			name = 'is_wanted',
 			args = {},
-			avaliable = function() return plyMeta.isWanted ~= nil end,
+			available = function() return plyMeta.isWanted ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.isWanted and ent:isWanted() or false
@@ -1251,7 +1550,7 @@ do
 		{
 			name = 'is_police',
 			args = {},
-			avaliable = function() return plyMeta.isCP ~= nil end,
+			available = function() return plyMeta.isCP ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.isCP and ent:isCP() or false
@@ -1261,7 +1560,7 @@ do
 		{
 			name = 'wanted_reason',
 			args = {{'find', 'string'}},
-			avaliable = function() return plyMeta.getWantedReason ~= nil and plyMeta.isWanted ~= nil end,
+			available = function() return plyMeta.getWantedReason ~= nil and plyMeta.isWanted ~= nil end,
 			func = function(self, eventPart, ent, find)
 				ent = try_viewmodel(ent)
 				return eventPart:StringOperator(ent.isWanted and ent.getWantedReason and ent:isWanted() and ent:getWantedReason() or '', find)
@@ -1271,7 +1570,7 @@ do
 		{
 			name = 'is_cook',
 			args = {},
-			avaliable = function() return plyMeta.isCook ~= nil end,
+			available = function() return plyMeta.isCook ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.isCook and ent:isCook() or false
@@ -1281,7 +1580,7 @@ do
 		{
 			name = 'is_hitman',
 			args = {},
-			avaliable = function() return plyMeta.isHitman ~= nil end,
+			available = function() return plyMeta.isHitman ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.isHitman and ent:isHitman() or false
@@ -1291,7 +1590,7 @@ do
 		{
 			name = 'has_hit',
 			args = {},
-			avaliable = function() return plyMeta.hasHit ~= nil end,
+			available = function() return plyMeta.hasHit ~= nil end,
 			func = function(self, eventPart, ent)
 				ent = try_viewmodel(ent)
 				return ent.hasHit and ent:hasHit() or false
@@ -1301,7 +1600,7 @@ do
 		{
 			name = 'hit_price',
 			args = {{'amount', 'number'}},
-			avaliable = function() return plyMeta.getHitPrice ~= nil end,
+			available = function() return plyMeta.getHitPrice ~= nil end,
 			func = function(self, eventPart, ent, amount)
 				ent = try_viewmodel(ent)
 				return eventPart:NumberOperator(ent.getHitPrice and ent:getHitPrice() or 0, amount)
@@ -1310,12 +1609,12 @@ do
 	}
 
 	for k, v in ipairs(events) do
-		local avaliable = v.avaliable
+		local available = v.available
 		local eventObject = pac.CreateEvent(v.name, v.args)
 		eventObject.Think = v.func
 
-		function eventObject:IsAvaliable()
-			return isDarkRP() and avaliable()
+		function eventObject:IsAvailable()
+			return isDarkRP() and available()
 		end
 
 		pac.RegisterEvent(eventObject)
@@ -1333,54 +1632,58 @@ function PART:GetParentEx()
 end
 
 function PART:GetNiceName()
-	local str = self:GetEvent()
+	local event_name = self:GetEvent()
 
-	if self:GetArguments() ~= "" then
-		local args = self:GetArguments():gsub(";", " or ")
+	if not PART.Events[event_name] then return "unknown event" end
 
-		if not tonumber(args) then
-			args = [["]] .. args .. [["]]
-		end
-		str = str .. " " .. self:GetOperator() .. " " .. args
-	end
-
-	return pac.PrettifyName(str)
+	return PART.Events[event_name]:GetNiceName(self, get_owner(self))
 end
 
-function PART:OnRemove()
-	if self.AffectChildrenOnly then
-		for _, child in ipairs(self:GetChildren()) do
-			child:RemoveEventHide(self)
-		end
-	else
-		local parent = self:GetParent()
-
-		if parent:IsValid() then
-			parent:RemoveEventHide(self)
-		end
+local function is_hidden_by_something_else(part, ignored_part)
+	if part.active_events_ref_count > 0 and not part.active_events[ignored_part] then
+		return true
 	end
+
+	return part.Hide
 end
 
-local function should_hide(self, ent, eventObject)
-	if not eventObject:IsAvaliable(self) then
+function PART:IsHiddenBySomethingElse(only_self)
+	if is_hidden_by_something_else(self, self) then
+		return true
+	end
+
+	if only_self then return false end
+
+	for _, parent in ipairs(self:GetParentList()) do
+		if is_hidden_by_something_else(parent, self) then
+			return true
+		end
+	end
+
+	return false
+end
+
+local function should_trigger(self, ent, eventObject)
+	if not eventObject:IsAvailable(self) then
 		return true
 	end
 
 	local b = false
-
-	if self.hidden or self.event_hidden then
-		b = self.Invert
+	if eventObject.ParseArguments then
+		b = eventObject:Think(self, ent, eventObject:ParseArguments(self)) or false
 	else
-		if eventObject.ParseArguments then
-			b = eventObject:Think(self, ent, eventObject:ParseArguments(self)) or false
-		else
-			b = eventObject:Think(self, ent, self:GetParsedArgumentsForObject(eventObject)) or false
-		end
-
-		if self.Invert then
-			b = not b
-		end
+		b = eventObject:Think(self, ent, self:GetParsedArgumentsForObject(eventObject)) or false
 	end
+
+	if self.Invert then
+		b = not b
+	end
+
+	if is_hidden_by_something_else(self, self) then
+		b = self.Invert
+	end
+
+	self.is_active = b
 
 	return b
 end
@@ -1388,58 +1691,38 @@ end
 PART.last_event_triggered = false
 
 function PART:OnThink()
-	local ent = self:GetOwner(self.RootOwner)
+	local ent = get_owner(self)
+	if not ent:IsValid() then return end
 
-	if ent:IsValid() then
-		local data = self.Events[self.Event]
+	local data = PART.Events[self.Event]
+	if not data then return end
 
-		if data then
-			if self.AffectChildrenOnly then
-				local b = should_hide(self, ent, data)
+	self:TriggerEvent(should_trigger(self, ent, data))
 
-				for _, child in ipairs(self:GetChildren()) do
-					child:SetEventHide(b, self)
-				end
+	if pace and pace.IsActive() and self.Name == "" then
+		if self.pace_properties and self.pace_properties["Name"] and self.pace_properties["Name"]:IsValid() then
+			self.pace_properties["Name"]:SetText(self:GetNiceName())
+		end
+	end
 
-				-- this is just used for the editor..
-				self.event_triggered = b
+end
 
-				if self.last_event_triggered ~= self.event_triggered then
-					if not self.suppress_event_think then
-						self.suppress_event_think = true
-						self:CallRecursive("CalcShowHide")
-						self.suppress_event_think = nil
-					end
-					self.last_event_triggered = self.event_triggered
-				end
-			else
-				local parent = self:GetParent()
+function PART:TriggerEvent(b)
+	self.event_triggered = b -- event_triggered is just used for the editor
 
-				if parent:IsValid() then
-					local b = should_hide(self, ent, data)
-
-					parent:SetEventHide(b, self)
-					parent:CallRecursive("FlushFromRenderingState")
-
-					-- this is just used for the editor..
-					self.event_triggered = b
-
-					if self.last_event_triggered ~= self.event_triggered then
-						if not self.suppress_event_think then
-							self.suppress_event_think = true
-							parent:CallRecursive("CalcShowHide")
-							self.suppress_event_think = nil
-						end
-						self.last_event_triggered = self.event_triggered
-					end
-				end
-			end
+	if self.AffectChildrenOnly then
+		for _, child in ipairs(self:GetChildren()) do
+			child:SetEventTrigger(self, b)
+		end
+	else
+		local parent = self:GetParent()
+		if parent:IsValid() then
+			parent:SetEventTrigger(self, b)
 		end
 	end
 end
 
-PART.Operators =
-{
+PART.Operators = {
 	"equal",
 	"not equal",
 	"above",
@@ -1586,6 +1869,7 @@ end
 function PART:OnHide()
 	if self.timerx_reset then
 		self.time = nil
+		self.number = 0
 	end
 
 	if self.Event == "weapon_class" then
@@ -1601,46 +1885,41 @@ function PART:OnHide()
 end
 
 function PART:OnShow()
-	self:OnThink() -- Update hide status for chilren!
-	-- This fixes the very rare issue where stuff getting un-hidden in complex event tree for 1 game frame
-	-- before getting hidden again by events inside tree
-
 	if self.timerx_reset then
 		self.time = nil
+		self.number = 0
 	end
 end
 
-function PART:OnEvent(typ, ent)
-	if typ == "animation_event" then
-		if self.Event == "animation_event" then
-			self:GetParent():CallRecursive("Think")
-		end
+function PART:OnAnimationEvent(ent)
+	if self.Event == "animation_event" then
+		self:GetParent():CallRecursive("Think")
 	end
+end
 
-	if typ == "fire_bullets" then
-		if self.Event == "fire_bullets" then
-			self:GetParent():CallRecursive("Think")
-		end
+function PART:OnFireBullets()
+	if self.Event == "fire_bullets" then
+		self:GetParent():CallRecursive("Think")
 	end
+end
 
-	if typ == "emit_sound" then
-		if self.Event == "emit_sound" then
-			self:GetParent():CallRecursive("Think")
+function PART:OnEmitSound(ent)
+	if self.Event == "emit_sound" then
+		self:GetParent():CallRecursive("Think")
 
-			if ent.pac_emit_sound.mute_me then
-				return false
-			end
+		if ent.pac_emit_sound.mute_me then
+			return false
 		end
 	end
 end
 
-pac.RegisterPart(PART)
+BUILDER:Register()
 
 do
 	local enums = {}
 
 	for key, val in pairs(_G) do
-		if type(key) == "string" and key:find("PLAYERANIMEVENT_", nil, true) then
+		if isstring(key) and key:find("PLAYERANIMEVENT_", nil, true) then
 			enums[val] = key:gsub("PLAYERANIMEVENT_", ""):gsub("_", " "):lower()
 		end
 	end
@@ -1650,7 +1929,7 @@ do
 		if ply.pac_has_parts then
 			ply.pac_anim_event = {name = enums[event], time = pac.RealTime, reset = true}
 
-			pac.CallPartEvent("animation_event")
+			pac.CallRecursiveOnAllParts("OnAnimationEvent")
 		end
 	end)
 end
@@ -1664,7 +1943,7 @@ pac.AddHook("EntityEmitSound", "emit_sound", function(data)
 
 	ent.pac_emit_sound = {name = data.SoundName, time = pac.RealTime, reset = true, mute_me = ent.pac_emit_sound and ent.pac_emit_sound.mute_me or false}
 
-	if pac.CallPartEvent("emit_sound", ent) == false then
+	if pac.CallRecursiveOnAllParts("OnEmitSound", ent) == false then
 		return false
 	end
 
@@ -1677,7 +1956,7 @@ pac.AddHook("EntityFireBullets", "firebullets", function(ent, data)
 	if not ent:IsValid() or not ent.pac_has_parts then return end
 	ent.pac_fire_bullets = {name = data.AmmoType, time = pac.RealTime, reset = true}
 
-	pac.CallPartEvent("fire_bullets")
+	pac.CallRecursiveOnAllParts("OnFireBullets")
 
 	if ent.pac_hide_bullets then
 		return false
@@ -1752,3 +2031,180 @@ reload end
 reload
 custom gesture
 --]]
+
+
+-- Custom event selector wheel
+do
+	local function get_events()
+		local available = {}
+
+		for k,v in pairs(pac.GetLocalParts()) do
+			if v.ClassName == "event" then
+				local e = v:GetEvent()
+				if e == "command" then
+					local cmd, time, hide = v:GetParsedArgumentsForObject(v.Events.command)
+					if hide then continue end
+
+					available[cmd] = {type = e, time = time}
+				end
+			end
+		end
+
+		local list = {}
+		for k,v in pairs(available) do
+			v.trigger = k
+			table.insert(list, v)
+		end
+
+		table.sort(list, function(a, b) return a.trigger > b.trigger end)
+
+		return list
+	end
+
+	local selectorBg = Material("sgm/playercircle")
+	local selected
+
+	function pac.openEventSelectionWheel()
+		gui.EnableScreenClicker(true)
+
+		local scrw, scrh = ScrW(), ScrH()
+		local scrw2, scrh2 = scrw*0.5, scrh*0.5
+		local color_red = Color(255,0,0)
+		local R = 48
+
+		local events = get_events()
+		local nevents = #events
+
+		-- Theta size of each wedge
+		local thetadiff = math.pi*2 / nevents
+		-- Used to compare the dot product
+		local coslimit = math.cos(thetadiff * 0.5)
+		-- Keeps the circles R units from each others' center
+		local radius
+		if nevents < 3 then
+			radius = R
+		else
+			radius = R/math.cos((nevents - 2)*math.pi*0.5/nevents)
+		end
+
+		-- Scale down to keep from going out of the screen
+		local gScale
+		if radius+R > scrh2 then
+			gScale = scrh2 / (radius+R)
+		else
+			gScale = 1
+		end
+
+		local selections = {}
+		for k, v in ipairs(events) do
+			local theta = (k-1)*thetadiff
+			selections[k] = {
+				grow = 0,
+				name = v.trigger,
+				event = v,
+				x = math.sin(theta),
+				y = -math.cos(theta),
+			}
+		end
+
+		local function draw_circle(self, x, y)
+			local dot = self.x*x + self.y*y
+			local grow
+			if dot > coslimit then
+				selected = self
+				grow = 0.1
+			else
+				grow = 0
+			end
+			self.grow = self.grow*0.9 + grow -- Framerate will affect this effect's speed but oh well
+
+			local scale = gScale*(1 + self.grow*0.2)
+			local m = Matrix()
+			m:SetTranslation(Vector(scrw2, scrh2, 0))
+			m:Scale(Vector(scale, scale, scale))
+			cam.PushModelMatrix(m)
+
+			local x, y = self.x*radius, self.y*radius
+
+
+			local ply = pac.LocalPlayer
+			local data = ply.pac_command_events and ply.pac_command_events[self.event.trigger] and ply.pac_command_events[self.event.trigger]
+			if data then
+				local is_oneshot = self.event.time and self.event.time > 0
+
+				if is_oneshot then
+					local f = (pac.RealTime - data.time) / self.event.time
+					local s = Lerp(math.Clamp(f,0,1), 1, 0)
+					local v = Lerp(math.Clamp(f,0,1), 0.55, 0.15)
+					surface.SetDrawColor(HSVToColor(210,s,v))
+				else
+					if data.on == 1 then
+						surface.SetDrawColor(HSVToColor(210,1,0.55))
+					else
+						surface.SetDrawColor(HSVToColor(210,0,0.15))
+					end
+				end
+			else
+				surface.SetDrawColor(HSVToColor(210,0,0.15))
+			end
+
+			surface.DrawTexturedRect(x-48, y-48, 96, 96)
+			draw.SimpleText(self.name, "DermaDefault", x, y, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+
+			cam.PopModelMatrix()
+		end
+
+		pac.AddHook("HUDPaint","custom_event_selector",function()
+			-- Right clicking cancels
+			if input.IsButtonDown(MOUSE_RIGHT) then pac.closeEventSelectionWheel(true) return end
+
+			-- Normalize mouse vector from center of screen
+			local x, y = input.GetCursorPos()
+			x = x - scrw2
+			y = y - scrh2
+			if x==0 and y==0 then x = 1 y = 0 else
+				local l = math.sqrt(x^2+y^2)
+				x = x/l
+				y = y/l
+			end
+
+			DisableClipping(true)
+			render.PushFilterMag(TEXFILTER.ANISOTROPIC)
+			render.PushFilterMin(TEXFILTER.ANISOTROPIC)
+
+			surface.SetMaterial(selectorBg)
+
+			draw.SimpleText("Right click to cancel", "DermaDefault", scrw2, scrh2+radius+R, color_red, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP)
+			for _, v in ipairs(selections) do draw_circle(v, x, y) end
+
+			render.PopFilterMag()
+			render.PopFilterMin()
+			DisableClipping(false)
+		end)
+	end
+
+	function pac.closeEventSelectionWheel(cancel)
+		gui.EnableScreenClicker(false)
+		pac.RemoveHook("HUDPaint","custom_event_selector")
+
+		if selected and cancel ~= true then
+			if not selected.event.time then
+				RunConsoleCommand("pac_event", selected.event.trigger, "toggle")
+			elseif selected.event.time > 0 then
+				RunConsoleCommand("pac_event", selected.event.trigger)
+			else
+				local ply = pac.LocalPlayer
+
+				if ply.pac_command_events and ply.pac_command_events[selected.event.trigger] and ply.pac_command_events[selected.event.trigger].on == 1 then
+					RunConsoleCommand("pac_event", selected.event.trigger, "0")
+				else
+					RunConsoleCommand("pac_event", selected.event.trigger, "1")
+				end
+			end
+		end
+		selected = nil
+	end
+
+	concommand.Add("+pac_events", pac.openEventSelectionWheel)
+	concommand.Add("-pac_events", pac.closeEventSelectionWheel)
+end

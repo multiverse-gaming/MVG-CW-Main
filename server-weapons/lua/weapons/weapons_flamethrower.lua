@@ -7,7 +7,7 @@ SWEP.Instructions = [[
     R - Reload
     ]]
 
-SWEP.Category						= "TFA StarWars Reworked Republic"
+SWEP.Category						= "MVG"
 SWEP.Base = "weapon_base"
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
@@ -20,6 +20,7 @@ SWEP.ViewModelFOV = 74
 
 SWEP.ViewModel						= "models/weapons/synbf3/c_dlt19.mdl"
 SWEP.WorldModel						= "models/weapons/synbf3/w_dlt19.mdl"
+
 SWEP.UseHands = true
 
 SWEP.DrawAmmo = true

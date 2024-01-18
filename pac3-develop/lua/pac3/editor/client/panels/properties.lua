@@ -1,5 +1,7 @@
 local L = pace.LanguageString
 
+local languageID = CreateClientConVar("pac_editor_languageid", 1, true, false, "Whether we should show the language indicator inside of editable text entries.")
+
 function pace.ShowSpecial(pnl, parent, size)
 	size = size or 150
 
@@ -14,7 +16,7 @@ function pace.FixMenu(menu)
 	menu:SetPos(pace.Editor:GetPos() + pace.Editor:GetWide(), gui.MouseY() - (menu:GetTall() * 0.5))
 end
 
-local function DefineSpecialCallback(self, callFuncLeft, callFuncRight)
+local function DefineMoreOptionsLeftClick(self, callFuncLeft, callFuncRight)
 	local btn = vgui.Create("DButton", self)
 	btn:SetSize(16, 16)
 	btn:Dock(RIGHT)
@@ -27,8 +29,8 @@ local function DefineSpecialCallback(self, callFuncLeft, callFuncRight)
 		btn.DoRightClick = btn.DoClick
 	end
 
-	if self.OnSpecialCallbackButton then
-		self:OnSpecialCallbackButton(btn)
+	if self.OnMoreOptionsLeftClickButton then
+		self:OnMoreOptionsLeftClickButton(btn)
 	end
 
 	return btn
@@ -81,7 +83,7 @@ function pace.CreateSearchList(property, key, name, add_columns, get_list, get_c
 
 		for i, data in ipairs(newList) do
 			local key, val, keyFriendly, valFriendly = data[1], data[2], data[3], data[4]
-			if (not find or find == "") or tostring(select_value_search(valFriendly, keyFriendly)):lower():find(find) then
+			if (not find or find == "") or tostring(select_value_search(valFriendly, keyFriendly)):lower():find(find, nil, true) then
 
 				local pnl = add_line(list, key, val)
 				pnl.list_key = key
@@ -206,6 +208,8 @@ do -- list
 			if pattern == "" and search.searched_something then
 				search:Kill()
 				search:KillFocus()
+				pace.Editor:KillFocus()
+				pace.Editor:MakePopup()
 			else
 				search.searched_something = true
 				local group
@@ -307,7 +311,7 @@ do -- list
 	function PANEL:PerformLayout()
 		self.scr:SetSize(10, self:GetHeight())
 		self.scr:SetUp(self:GetTall(), self:GetHeight() - 10)
-		self.search:SetZPos(-1)
+		self.search:SetZPos(1)
 		self.div:SetPos(0, (self.search:IsVisible() and self.search:GetTall() or 0) + self.scr:GetOffset())
 		local w, h = self:GetSize()
 		local scroll_width = self.scr.Enabled and self.scr:GetWide() or 0
@@ -322,6 +326,7 @@ do -- list
 	pace.CollapsedProperties = pace.luadata.ReadFile("pac3_editor/collapsed.txt") or {}
 
 	function PANEL:AddCollapser(name)
+		assert(name)
 		for i,v in ipairs(self.List) do
 			if v.group == name then
 				return
@@ -387,7 +392,15 @@ do -- list
 	function PANEL:AddKeyValue(key, var, pos, obj, udata, group)
 		local btn = pace.CreatePanel("properties_label")
 			btn:SetTall(self:GetItemHeight())
-			btn:SetValue(L((udata and udata.editor_friendly or key):gsub("%u", " %1"):lower()):Trim())
+
+			do
+				local key = key
+				if key:EndsWith("UID") then
+					key = key:sub(1, -4)
+				end
+
+				btn:SetValue(L((udata and udata.editor_friendly or key):gsub("%u", " %1"):lower()):Trim())
+			end
 
 			if obj then
 				btn.key_name = key
@@ -402,7 +415,7 @@ do -- list
 		pnl.alt_line = #self.List%2 == 1
 		btn.alt_line = pnl.alt_line
 
-		if type(var) == "Panel" then
+		if ispanel(var) then
 			pnl:SetContent(var)
 		end
 
@@ -447,241 +460,180 @@ do -- list
 		self.List = {}
 	end
 
-	function PANEL:Populate(obj, dont_clear, group_override)
-		if dont_clear == nil then self:Clear() end
+	local function FlatListToGroups(list)
+		local temp = {}
 
-		local tbl = {}
+		for _, prop in ipairs(list) do
+			if prop.udata.hidden then continue end
 
-		for key, val in pairs(obj.ClassName and obj:GetVars() or obj) do
-			local callback
-			local udata
-
-			if not obj.ClassName then
-				callback = val.callback
-				udata = val.userdata
-				val = val.val
-			else
-				udata = pac.GetPropertyUserdata(obj, key)
-			end
-
-			if udata and udata.hidden then goto CONTINUE end
-			if key == "OwnerName" and obj.ClassName ~= "group" then goto CONTINUE end
-
-			if not obj.ClassName or not obj.PropertyWhitelist or table.HasValue(obj.PropertyWhitelist, key) then
-				local group = group_override or (udata and udata.group) or "generic"
-				tbl[group] = tbl[group] or {}
-				table.insert(tbl[group], {key = key, val = val, callback = callback, udata = udata})
-			end
-			::CONTINUE::
+			local group = prop.udata.group or "generic"
+			temp[group] = temp[group] or {}
+			table.insert(temp[group], prop)
 		end
 
-		for group, vars in pairs(tbl) do
-			if not obj.ClassName then
-				table.sort(tbl[group], function(a, b) return a.key > b.key end)
-			else
-				local sorted_variables = {}
-				local done = {}
+		return temp
+	end
 
-				if pac.VariableOrder[obj.ClassName] then
-					for i, name in ipairs(pac.VariableOrder[obj.ClassName]) do
-						for _, v in ipairs(vars) do
-							if name == v.key then
-								if not done[name] then
-									table.insert(sorted_variables, v)
-									done[name] = true
-									break
-								end
-							end
-						end
-					end
-				end
+	local function SortGroups(groups)
+		local out = {}
 
-				for _, variables in pairs(pac.VariableOrder) do
-					for i, name in ipairs(variables) do
-						for _, v in ipairs(vars) do
-							if name == v.key then
-								if not done[name] then
-									table.insert(sorted_variables, v)
-									done[name] = true
-									break
-								end
-							end
-						end
-					end
-				end
-				tbl[group] = sorted_variables
-			end
-		end
-
-		local sorted_groups = {}
-
-		if not obj.ClassName then
-			for k, v in pairs(tbl) do
-				table.insert(sorted_groups, {key = k, val = v})
-			end
-			table.sort(sorted_groups, function(a, b) return a.key > b.key end)
-		else
-			local done = {}
-			local temp = {}
-			table.Add(temp, pac.GroupOrder[obj.ClassName] or {})
-			table.Add(temp, pac.GroupOrder.none)
-
-			for i, name in ipairs(temp) do
-				for k, v in pairs(tbl) do
-					if name == k and not done[k] then
-						table.insert(sorted_groups, {key = k, val = v})
-						done[k] = true
-						break
+		local temp = {}
+		table.Add(temp, pac.GroupOrder[pace.current_part.ClassName] or {})
+		table.Add(temp, pac.GroupOrder.none)
+		local done = {}
+		for i, name in ipairs(temp) do
+			for group, props in pairs(groups) do
+				if group == name then
+					if not done[group] then
+						table.insert(out, {group = group, props = props})
+						done[group] = true
 					end
 				end
 			end
 		end
 
-		local current_group = nil
+		for group, props in pairs(groups) do
+			if not done[group] then
+				table.insert(out, {group = group, props = props})
+			end
+		end
 
-		for i, tbl in ipairs(sorted_groups) do
-			local group, tbl = tbl.key, tbl.val
-			for pos, data in ipairs(tbl) do
-				local key, val, udata = data.key, data.val, data.udata
-				local group_pos = 0
+		return out
+	end
 
-				if obj.ClassName and pace.IsInBasicMode() and not pace.BasicProperties[key] then goto CONTINUE end
+	function PANEL:Populate(flat_list)
+		self:Clear()
 
-				local pnl
+		for _, data in ipairs(SortGroups(FlatListToGroups(flat_list))) do
+			self:AddCollapser(data.group or "generic")
+			for pos, prop in ipairs(data.props) do
+
+				if prop.udata and prop.udata.hide_in_editor then
+					continue
+				end
+
+				local val = prop.get()
 				local T = type(val):lower()
 
-				if current_group ~= group then
-					group_pos = self:AddCollapser(group)
-					current_group = group
-				end
-
-				if udata and udata.editor_panel then
-					T = udata.editor_panel or T
-				elseif pace.PanelExists("properties_" .. key:lower()) then
-					T = key:lower()
+				if prop.udata and prop.udata.editor_panel then
+					T = prop.udata.editor_panel or T
+				elseif pace.PanelExists("properties_" .. prop.key:lower()) then
+					T = prop.key:lower()
 				elseif not pace.PanelExists("properties_" .. T) then
 					T = "string"
 				end
 
-				if pace.CollapsedProperties[group] ~= nil and pace.CollapsedProperties[group] then goto CONTINUE end
+				if pace.CollapsedProperties[prop.udata.group] ~= nil and pace.CollapsedProperties[prop.udata.group] then goto CONTINUE end
 
-				pnl = pace.CreatePanel("properties_" .. T)
+				local pnl = pace.CreatePanel("properties_" .. T)
 
-				if pnl then
-					if pnl.PostInit then
-						pnl:PostInit()
-					end
-
-					if udata and udata.description then
-						pnl:SetTooltip(L(udata.description))
-					end
-
-					if udata then
-						if udata.enums then
-							DefineSpecialCallback(pnl, function(self)
-								pace.CreateSearchList(
-									self,
-									self.CurrentKey,
-									L(key),
-
-									function(list)
-										list:AddColumn("enum")
-									end,
-
-									function()
-										local tbl
-
-										if type(udata.enums) == "function" then
-											if pace.current_part:IsValid() then
-												tbl = udata.enums(pace.current_part)
-											end
-										else
-											tbl = udata.enums
-										end
-
-										local enums = {}
-
-										if tbl then
-											for k, v in pairs(tbl) do
-												if type(v) ~= "string" then
-													v = k
-												end
-
-												if type(k) ~= "string" then
-													k = v
-												end
-
-												enums[k] = v
-											end
-										end
-
-										return enums
-									end,
-
-									function()
-										return pace.current_part[key]
-									end,
-
-									function(list, key, val)
-										return list:AddLine(key)
-									end,
-
-									function(val, key)
-										return val
-									end
-								)
-							end)
-						end
-						if udata.editor_sensitivity or udata.editor_clamp or udata.editor_round then
-							pnl.LimitValue = function(self, num)
-								if udata.editor_sensitivity then
-									self.sens = udata.editor_sensitivity
-								end
-								if udata.editor_clamp then
-									num = math.Clamp(num, unpack(udata.editor_clamp))
-								end
-								if udata.editor_round then
-									num = math.Round(num)
-								end
-								return num
-							end
-						elseif udata.editor_onchange then
-							pnl.LimitValue = udata.editor_onchange
-						end
-					end
-
-					if obj.ClassName then
-						pnl.CurrentKey = key
-
-						if pnl.ExtraPopulate then
-							table.insert(pace.extra_populates, {pnl = pnl, func = pnl.ExtraPopulate})
-							pnl:Remove()
-							goto CONTINUE
-						end
-
-						obj.editor_pnl = pnl
-
-						local val = obj["Get" .. key](obj)
-						pnl:SetValue(val)
-
-						pnl.OnValueChanged = function(val)
-							if T == "number" then
-								val = tonumber(val) or 0
-							elseif T == "string" then
-								val = tostring(val)
-							end
-
-							pace.Call("VariableChanged", obj, key, val)
-						end
-
-						self:AddKeyValue(key, pnl, pos, obj, udata)
-					else
-						pnl.CurrentKey = key
-						pnl:SetValue(val)
-						pnl.OnValueChanged = data.callback
-						self:AddKeyValue(key, pnl, pos, nil, udata, group)
-					end
+				if pnl.PostInit then
+					pnl:PostInit()
 				end
+
+				if prop.udata and prop.udata.description then
+					pnl:SetTooltip(L(prop.udata.description))
+				end
+
+				local part = pace.current_part
+				part.pace_properties = part.pace_properties or {}
+				part.pace_properties[prop.key] = pnl
+				pnl.part = part
+				pnl.udata = prop.udata
+
+				if prop.udata.enums then
+					DefineMoreOptionsLeftClick(pnl, function(self)
+						pace.CreateSearchList(
+							self,
+							self.CurrentKey,
+							L(prop.key),
+
+							function(list)
+								list:AddColumn("enum")
+							end,
+
+							function()
+								local tbl
+
+								if isfunction(prop.udata.enums) then
+									if pace.current_part:IsValid() then
+										tbl = prop.udata.enums(pace.current_part)
+									end
+								else
+									tbl = prop.udata.enums
+								end
+
+								local enums = {}
+
+								if tbl then
+									for k, v in pairs(tbl) do
+										if not isstring(v) then
+											v = k
+										end
+
+										if not isstring(k) then
+											k = v
+										end
+
+										enums[k] = v
+									end
+								end
+
+								return enums
+							end,
+
+							function()
+								return pace.current_part[prop.key]
+							end,
+
+							function(list, key, val)
+								return list:AddLine(key)
+							end,
+
+							function(val, key)
+								return val
+							end
+						)
+					end)
+				end
+				if prop.udata.editor_sensitivity or prop.udata.editor_clamp or prop.udata.editor_round then
+					pnl.LimitValue = function(self, num)
+						if prop.udata.editor_sensitivity then
+							self.sens = prop.udata.editor_sensitivity
+						end
+						if prop.udata.editor_clamp then
+							num = math.Clamp(num, unpack(prop.udata.editor_clamp))
+						end
+						if prop.udata.editor_round then
+							num = math.Round(num)
+						end
+						return num
+					end
+				elseif prop.udata.editor_onchange then
+					pnl.LimitValue = prop.udata.editor_onchange
+				end
+
+				pnl.CurrentKey = prop.key
+
+				if pnl.ExtraPopulate then
+					table.insert(pace.extra_populates, {pnl = pnl, func = pnl.ExtraPopulate})
+					pnl:Remove()
+					goto CONTINUE
+				end
+
+				pnl:SetValue(val)
+
+				pnl.OnValueChanged = function(val)
+					if T == "number" then
+						val = tonumber(val) or 0
+					elseif T == "string" then
+						val = tostring(val)
+					end
+
+					pace.Call("VariableChanged", pace.current_part, prop.key, val)
+				end
+
+				self:AddKeyValue(prop.key, pnl, pos, flat_list, prop.udata)
 
 				::CONTINUE::
 			end
@@ -799,19 +751,24 @@ do -- base editable
 	end
 
 	function PANEL:PostInit()
-		if self.SpecialCallback then
-			self:DefineSpecialCallback(self.SpecialCallback, self.SpecialCallback2)
+		if self.MoreOptionsLeftClick then
+			self:DefineMoreOptionsLeftClick(self.MoreOptionsLeftClick, self.MoreOptionsRightClick)
 		end
 	end
 
-	function PANEL:DefineSpecialCallback(callFuncLeft, callFuncRight)
-		return DefineSpecialCallback(self, callFuncLeft, callFuncRight)
+	function PANEL:DefineMoreOptionsLeftClick(callFuncLeft, callFuncRight)
+		return DefineMoreOptionsLeftClick(self, callFuncLeft, callFuncRight)
 	end
 
 	function PANEL:SetValue(var, skip_encode)
 		if self.editing then return end
 
-		local str = tostring(skip_encode and var or self:Encode(var))
+		local value = skip_encode and var or self:Encode(var)
+		if isnumber(value) then
+			-- visually round numbers so 0.6 doesn't show up as 0.600000000001231231 on wear
+			value = math.Round(value, 7)
+		end
+		local str = tostring(value)
 
 		self:SetTextColor(self.alt_line and self:GetSkin().Colours.Category.AltLine.Text or self:GetSkin().Colours.Category.Line.Text)
 		self:SetFont(pace.CurrentFont)
@@ -820,10 +777,16 @@ do -- base editable
 
 		if #str > 10 then
 			self:SetTooltip(str)
+		else
+			self:SetTooltip()
 		end
 
 		self.original_str = str
 		self.original_var = var
+
+		if self.OnValueSet then
+			self:OnValueSet(var)
+		end
 	end
 
 	-- kind of a hack
@@ -863,16 +826,57 @@ do -- base editable
 
 	function PANEL:PopulateContextMenu(menu)
 		menu:AddOption(L"copy", function()
-			pace.clipboard = pac.class.Copy(self:GetValue())
+			pace.clipboard = pac.CopyValue(self:GetValue())
 		end):SetImage(pace.MiscIcons.copy)
 		menu:AddOption(L"paste", function()
-			self:SetValue(pac.class.Copy(pace.clipboard))
+			self:SetValue(pac.CopyValue(pace.clipboard))
 			self.OnValueChanged(self:GetValue())
 		end):SetImage(pace.MiscIcons.paste)
+
+		--left right swap available on strings (and parts)
+		if type(self:GetValue()) == 'string' then
+			menu:AddSpacer()
+			menu:AddOption(L"change sides", function()
+				local var
+				local part
+				if self.udata and self.udata.editor_panel == "part" then
+					part = pac.GetPartFromUniqueID(pac.Hash(pac.LocalPlayer), self:GetValue())
+					var = part:IsValid() and part:GetName()
+				else
+					var = self:GetValue()
+				end
+
+				local var_flip
+				if string.match(var, "left") != nil then
+					var_flip = string.gsub(var,"left","right")
+				elseif string.match(var, "right") != nil then
+					var_flip = string.gsub(var,"right","left")
+				end
+
+				if self.udata and self.udata.editor_panel == "part" then
+					local target = pac.FindPartByName(pac.Hash(pac.LocalPlayer), var_flip or var, pace.current_part)
+					self:SetValue(target or part)
+					self.OnValueChanged(target or part)
+				else
+                self:SetValue(var_flip or var)
+                self.OnValueChanged(var_flip or var)
+            end
+		end):SetImage("icon16/arrow_switch.png")
+
+		--numeric sign flip available on numbers
+		elseif type(self:GetValue()) == 'number' then
+			menu:AddSpacer()
+			menu:AddOption(L"flip sign (+/-)", function()
+				local val = self:GetValue()
+				self:SetValue(-val)
+				self.OnValueChanged(self:GetValue())
+			end):SetImage("icon16/arrow_switch.png")
+		end
+
 		menu:AddSpacer()
 		menu:AddOption(L"reset", function()
 			if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
-				local val = pac.class.Copy(pace.current_part.DefaultVars[self.CurrentKey])
+				local val = pac.CopyValue(pace.current_part.DefaultVars[self.CurrentKey])
 				self:SetValue(val)
 				self.OnValueChanged(val)
 			end
@@ -904,6 +908,14 @@ do -- base editable
 		self.OnValueChanged(self:Decode(""))
 	end
 
+	function PANEL:EncodeEdit(str)
+		return str
+	end
+
+	function PANEL:DecodeEdit(str)
+		return str
+	end
+
 	function PANEL:EditText()
 		local oldText = self:GetText()
 		self:SetText("")
@@ -913,12 +925,13 @@ do -- base editable
 		pnl:SetFont(pace.CurrentFont)
 		pnl:SetDrawBackground(false)
 		pnl:SetDrawBorder(false)
-		pnl:SetValue(self.original_str or "")
+		pnl:SetText(self:EncodeEdit(self.original_str or ""))
 		pnl:SetKeyboardInputEnabled(true)
+		pnl:SetDrawLanguageID(languageID:GetBool())
 		pnl:RequestFocus()
 		pnl:SelectAllOnFocus(true)
 
-		pnl.OnTextChanged = function() oldText = pnl:GetValue() end
+		pnl.OnTextChanged = function() oldText = pnl:GetText() end
 
 		local hookID = tostring({})
 		local textEntry = pnl
@@ -941,7 +954,8 @@ do -- base editable
 		--pnl:SetPos(x+3,y-4)
 		--pnl:Dock(FILL)
 		local x, y = self:LocalToScreen()
-		pnl:SetPos(x+5, y)
+		local inset_x = self:GetTextInset()
+		pnl:SetPos(x+5 + inset_x, y)
 		pnl:SetSize(self:GetSize())
 		pnl:SetWide(ScrW())
 		pnl:MakePopup()
@@ -952,8 +966,8 @@ do -- base editable
 
 			pnl:Remove()
 
-			self:SetValue(tostring(self:Encode(pnl:GetValue() or "")), true)
-			self.OnValueChanged(self:Decode(self:GetValue()))
+			self:SetText(tostring(self:Encode(self:DecodeEdit(pnl:GetText() or ""))), true)
+			self.OnValueChanged(self:Decode(self:GetText()))
 		end
 
 		local old = pnl.Paint
@@ -961,7 +975,7 @@ do -- base editable
 			if not self:IsValid() then pnl:Remove() return end
 
 			surface.SetFont(pnl:GetFont())
-			local w = surface.GetTextSize(pnl:GetValue()) + 6
+			local w = surface.GetTextSize(pnl:GetText()) + 6
 
 			surface.DrawRect(0, 0, w, pnl:GetTall())
 			surface.SetDrawColor(self:GetSkin().Colours.Properties.Border)
@@ -1064,71 +1078,57 @@ do -- vector
 				right.sens = sens
 			end
 
-			left:SetMouseInputEnabled(true)
-			left.OnValueChanged = function(num)
-				self.vector[arg1] = num
+			local function on_change(arg1, arg2, arg3)
+				local restart = 0
 
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					middle:SetValue(num)
-					self.vector[arg2] = num
+				return function(num)
+					self.vector[arg1] = num
 
-					right:SetValue(num)
-					self.vector[arg3] = num
+					if input.IsKeyDown(KEY_R) then
+						self:Restart()
+						restart = os.clock() + 0.1
+					elseif input.IsKeyDown(KEY_LSHIFT) then
+						middle:SetValue(num)
+						self.vector[arg2] = num
+
+						right:SetValue(num)
+						self.vector[arg3] = num
+					end
+
+					if restart > os.clock() then
+						self:Restart()
+						return
+					end
+
+					self.OnValueChanged(self.vector * 1)
+					self:InvalidateLayout()
+
+					if self.OnValueSet then
+						self:OnValueSet(self.vector * 1)
+					end
 				end
-
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
 			end
+
+			left:SetMouseInputEnabled(true)
+			left.OnValueChanged = on_change(arg1, arg2, arg3)
 
 			middle:SetMouseInputEnabled(true)
-			middle.OnValueChanged = function(num)
-				self.vector[arg2] = num
-
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					left:SetValue(num)
-					self.vector[arg1] = num
-
-					right:SetValue(num)
-					self.vector[arg3] = num
-				end
-
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
-			end
+			middle.OnValueChanged = on_change(arg2, arg1, arg3)
 
 			right:SetMouseInputEnabled(true)
-			right.OnValueChanged = function(num)
-				self.vector[arg3] = num
-
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					middle:SetValue(num)
-					self.vector[arg2] = num
-
-					left:SetValue(num)
-					self.vector[arg1] = num
-				end
-
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
-			end
+			right.OnValueChanged = on_change(arg3, arg2, arg1)
 
 			self.left = left
 			self.middle = middle
 			self.right = right
 
-			if self.SpecialCallback then
+			if self.MoreOptionsLeftClick then
 				local btn = vgui.Create("DButton", self)
 				btn:SetSize(16, 16)
 				btn:Dock(RIGHT)
 				btn:SetText("...")
-				btn.DoClick = function() self:SpecialCallback(self.CurrentKey) end
-				btn.DoRightClick = self.SpecialCallback2 and function() self:SpecialCallback2(self.CurrentKey) end or btn.DoClick
+				btn.DoClick = function() self:MoreOptionsLeftClick(self.CurrentKey) end
+				btn.DoRightClick = self.MoreOptionsRightClick and function() self:MoreOptionsRightClick(self.CurrentKey) end or btn.DoClick
 
 				if type == "color" or type == "color2" then
 					btn:SetText("")
@@ -1148,40 +1148,46 @@ do -- vector
 			self.Paint = function() end
 		end
 
-		PANEL.SpecialCallback = special_callback
+		PANEL.MoreOptionsLeftClick = special_callback
 
 		function PANEL:Restart()
-			self.left:SetValue(0)
-			self.middle:SetValue(0)
-			self.right:SetValue(0)
+			if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
+				self.vector = pac.CopyValue(pace.current_part.DefaultVars[self.CurrentKey])
+			else
+				self.vector = ctor(0,0,0)
+			end
 
-			self.OnValueChanged(self.vector)
+			self.left:SetValue(self.vector[arg1])
+			self.middle:SetValue(self.vector[arg2])
+			self.right:SetValue(self.vector[arg3])
+
+			self.OnValueChanged(self.vector * 1)
 		end
 
 		function PANEL:PopulateContextMenu(menu)
 			menu:AddOption(L"copy", function()
-				pace.clipboard = pac.class.Copy(self.vector)
+				pace.clipboard = pac.CopyValue(self.vector)
 			end):SetImage(pace.MiscIcons.copy)
 			menu:AddOption(L"paste", function()
-				local val = pac.class.Copy(pace.clipboard)
-				if _G.type(val) == "number" then
+				local val = pac.CopyValue(pace.clipboard)
+				if isnumber(val) then
 					val = ctor(val, val, val)
-				elseif _G.type(val) == "Vector" and type == "angle" then
+				elseif isvector(val) and type == "angle" then
 					val = ctor(val.x, val.y, val.z)
-				elseif _G.type(val) == "Angle" and type == "vector" then
+				elseif isangle(val) and type == "vector" then
 					val = ctor(val.p, val.y, val.r)
 				end
 
 				if _G.type(val):lower() == type or type == "color" then
 					self:SetValue(val)
 
-					self.OnValueChanged(self.vector)
+					self.OnValueChanged(self.vector * 1)
 				end
 			end):SetImage(pace.MiscIcons.paste)
 			menu:AddSpacer()
 			menu:AddOption(L"reset", function()
 				if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
-					local val = pac.class.Copy(pace.current_part.DefaultVars[self.CurrentKey])
+					local val = pac.CopyValue(pace.current_part.DefaultVars[self.CurrentKey])
 					self:SetValue(val)
 					self.OnValueChanged(val)
 				end
@@ -1189,7 +1195,7 @@ do -- vector
 		end
 
 		function PANEL:SetValue(vec)
-			self.vector = vec
+			self.vector = vec * 1
 
 			self.left:SetValue(math.Round(vec[arg1], 4))
 			self.middle:SetValue(math.Round(vec[arg2], 4))
@@ -1219,8 +1225,8 @@ do -- vector
 	VECTOR(Vector, "vector", "x", "y", "z")
 	VECTOR(Angle, "angle", "p", "y", "r")
 
-	local function tohex(vec)
-		return ("#%.2X%.2X%.2X"):format(vec.x, vec.y, vec.z)
+	local function tohex(vec, color2)
+		return color2 and ("#%.2X%.2X%.2X"):format(vec.x * 255, vec.y * 255, vec.z * 255) or ("#%.2X%.2X%.2X"):format(vec.x, vec.y, vec.z)
 	end
 
 	local function fromhex(str)
@@ -1370,23 +1376,17 @@ do -- vector
 			local html_color
 
 			if not dlibbased then
-				local function tohex(vec)
-					return ("#%X%X%X"):format(vec.x * 255, vec.y * 255, vec.z * 255)
-				end
-
-				local function fromhex(str)
-					local x,y,z = str:match("#?(..)(..)(..)")
-					return Vector(tonumber("0x" .. x), tonumber("0x" .. y), tonumber("0x" .. z)) / 255
-				end
-
 				html_color = vgui.Create("DTextEntry", frm)
 				html_color:Dock(BOTTOM)
-				html_color:SetText(tohex(self.vector))
+				html_color:SetText(tohex(self.vector, true))
 				html_color.OnEnter = function()
-					local vec = fromhex(html_color:GetValue())
-					clr:SetColor(Color(vec.x * 255, vec.y * 255, vec.z * 255))
-					self.OnValueChanged(vec)
-					self:SetValue(vec)
+					local col = uncodeValue(html_color:GetValue())
+					if col then
+						local vec = col:ToVector()
+						clr:SetColor(col)
+						self.OnValueChanged(vec)
+						self:SetValue(vec)
+					end
 				end
 			end
 
@@ -1396,7 +1396,7 @@ do -- vector
 				self:SetValue(vec)
 
 				if not dlibbased then
-					html_color:SetText(tohex(vec))
+					html_color:SetText(tohex(vec, true))
 				end
 			end
 
@@ -1459,6 +1459,12 @@ do -- number
 			local delta = (self.mousey - gui.MouseY()) / 10
 			local val = (self.oldval or 0) + (delta * sens)
 
+			if input.IsKeyDown(KEY_R) then
+				if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
+					val = pace.current_part.DefaultVars[self.CurrentKey]
+				end
+			end
+
 			self:SetNumberValue(val)
 
 			if gui.MouseY()+1 >= ScrH() then
@@ -1483,14 +1489,19 @@ do -- number
 
 		num = tonumber(num) or 0
 
-		if input.IsKeyDown(KEY_LCONTROL) then
-			num = math.Round(num)
-		end
+		if self:IsMouseDown() then
+			if input.IsKeyDown(KEY_LCONTROL) then
+				num = math.Round(num)
+			elseif input.IsKeyDown(KEY_PAD_MINUS) or input.IsKeyDown(KEY_MINUS) then
+				num = -num
+			end
 
-		if input.IsKeyDown(KEY_LALT) then
-			num = math.Round(num, 5)
-		else
-			num = math.Round(num, 3)
+
+			if input.IsKeyDown(KEY_LALT) then
+				num = math.Round(num, 5)
+			else
+				num = math.Round(num, 3)
+			end
 		end
 
 		return num
@@ -1512,6 +1523,7 @@ do -- boolean
 	function PANEL:Init()
 		local chck = vgui.Create("DCheckBox", self)
 		chck.OnChange = function()
+			if self.during_change then return end
 			local b = chck:GetChecked()
 			self.OnValueChanged(b)
 			self.lbl:SetText(L(tostring(b)))
@@ -1527,10 +1539,12 @@ do -- boolean
 	function PANEL:Paint() end
 
 	function PANEL:SetValue(b)
+		self.during_change = true
 		self.chck:SetChecked(b)
 		self.chck:Toggle()
 		self.chck:Toggle()
 		self.lbl:SetText(L(tostring(b)))
+		self.during_change = false
 	end
 
 	function PANEL:OnValueChanged()

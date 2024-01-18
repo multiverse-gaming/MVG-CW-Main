@@ -26,7 +26,7 @@ if SERVER then
 	end
 
 	function ENT:Initialize()	
-		self:SetModel( "models/props_vehicles/generatortrailer01.mdl" )
+		self:SetModel( "models/props/starwars/tech/gonk_droid.mdl" )
 		self:PhysicsInit( SOLID_VPHYSICS )
 		self:DrawShadow( false )
 		self:SetTrigger( true )

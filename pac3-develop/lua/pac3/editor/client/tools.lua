@@ -34,12 +34,210 @@ function pace.AddTool(name, callback, ...)
 	table.insert(pace.Tools, {name = name, callback = callback, suboptions = {...}})
 end
 
+
+pace.AddTool(L"convert legacy parts to new parts", function(part, suboption)
+	local class_translate = {
+		model = "model2",
+		material = "material_3d",
+		entity = "entity2",
+		bone = "bone3",
+		bone2 = "bone3",
+		light = "light2",
+		trail = "trail2",
+		clip = "clip2",
+	}
+
+	local model_prop_translate = {
+		Color = function(tbl, val) tbl.Color = Vector(val.r/255, val.g/255, val.b/255) end,
+		DoubleFace = function(tbl, val) tbl.NoCulling = val end,
+		Fullbright = function(tbl, val) tbl.NoLighting = val end,
+
+		TextureFilter = function(tbl, val) tbl.NoTextureFiltering = not val end,
+		LodOverride = function(tbl, val) tbl.LevelOfDetail = val end,
+
+	}
+
+	local registered_parts = pac.GetRegisteredParts()
+	local bones = {}
+
+	local material_translate = {}
+	for old_key in pairs(registered_parts.material.ShaderParams) do
+
+		local new_key = old_key:lower()
+		local new_val = registered_parts.material_3d[new_key]
+		local old_val = registered_parts.material[old_key]
+
+		if new_val ~= nil and type(new_val) == type(old_val) then
+			material_translate[old_key] = function(tbl, val)
+				tbl[new_key] = val
+			end
+		end
+	end
+
+	local prop_translate = {
+		model = model_prop_translate,
+		entity = table.Merge(model_prop_translate, {
+			HideEntity = function(tbl, val) tbl.NoDraw = val end
+		}),
+		material = material_translate,
+		bone = {
+			Bone = function(tbl, val)
+				if bones[tbl.UniqueID] and not bones[tbl.UniqueID][val] then
+					for k,v in pairs(bones[tbl.UniqueID]) do
+						if v.bone == 0 then
+							tbl.Bone = v.friendly
+							return
+						end
+					end
+				end
+
+				tbl.Bone = val
+			end,
+
+		}
+	}
+
+	local function calc_manip_offset(ent, bone, pos, ang)
+		if not ent:GetBoneMatrix(bone) then return end
+
+		local prev_pos = ent:GetManipulateBonePosition(bone)
+		local prev_ang = ent:GetManipulateBoneAngles(bone)
+
+		ent:ManipulateBonePosition(bone, Vector())
+		ent:ManipulateBoneAngles(bone, Angle())
+		pac.SetupBones(ent)
+		local pre = ent:GetBoneMatrix(bone)
+
+		ent:ManipulateBonePosition(bone, pos)
+		ent:ManipulateBoneAngles(bone, ang)
+		pac.SetupBones(ent)
+		local post = ent:GetBoneMatrix(bone)
+
+		ent:ManipulateBonePosition(bone, prev_pos)
+		ent:ManipulateBoneAngles(bone, prev_ang)
+
+		local m = pre:GetInverseTR() * post
+
+		return m:GetTranslation(), m:GetAngles()
+	end
+
+	local saved = {}
+	for _, part in pairs(pac.GetLocalParts()) do
+		if part.ClassName == "bone" or part.ClassName == "bone2" then
+			bones[part.UniqueID] = pac.GetAllBones(part:GetOwner())
+			if part:GetModelBoneIndex() and not part:GetAlternativeBones() then
+				local pos, ang = calc_manip_offset(part:GetOwner(), part:GetModelBoneIndex(), part:GetPosition(), part:GetAngles())
+				part:SetPosition(pos)
+				part:SetAngles(ang)
+			end
+
+		end
+		if not part:HasParent() then
+			table.insert(saved, part:ToTable())
+		end
+	end
+
+	pace.ClearParts()
+
+	local done = {}
+
+	local function walk(tbl, parent)
+		local new_classname = class_translate[tbl.self.ClassName]
+
+		if new_classname then
+			local old_classname = tbl.self.ClassName
+			tbl.self.ClassName = new_classname
+
+			if old_classname == "model" then
+				if tbl.self.BlurLength and tbl.self.BlurLength > 0 then
+					table.insert(tbl.children, {
+						self = {
+							ClassName = "motion_blur",
+							UniqueID = pac.Hash(),
+							BlurLength = tbl.self.BlurLength,
+							BlurSpacing = tbl.self.BlurSpacing,
+						},
+						children = {},
+					})
+				end
+			end
+
+			if old_classname == "entity" then
+				if tbl.self.Weapon == true and tbl.self.HideEntity then
+					table.insert(parent.children, {
+						self = {
+							ClassName = "weapon",
+							UniqueID = pac.Hash(),
+							NoDraw = true
+						},
+						children = {},
+					})
+				end
+			end
+
+			for key in pairs(registered_parts[old_classname].StorableVars) do
+				local value = tbl.self[key]
+				if value == nil then
+					value = registered_parts[old_classname][key]
+				end
+
+				if prop_translate[old_classname] and prop_translate[old_classname][key] then
+					tbl.self[key] = nil
+					prop_translate[old_classname][key](tbl.self, value)
+					if value ~= tbl.self[key] then
+						pac.Message("translated property: ", key, " = ", value, " to ", tbl.self[key])
+					end
+				elseif not registered_parts[new_classname].StorableVars[key] then
+					local msg = tbl.self.ClassName .. "." .. key
+					if not done[msg] then
+						pac.Message(Color(255,100,100), "cannot translate property ", msg)
+						done[msg] = true
+					end
+				end
+			end
+
+		end
+
+		if tbl.self.ClassName == "proxy" and tbl.self.VariableName == "Color" then
+			if isstring(tbl.self.Expression) and tbl.self.Expression ~= "" then
+				local r,g,b = unpack(tbl.self.Expression:Split(","))
+				r = tonumber(r)
+				g = tonumber(g)
+				b = tonumber(b)
+
+				if r and g and b then
+					tbl.self.Expression = (r/255)..","..(g/255)..","..(b/255)
+				end
+			end
+		end
+
+		if tbl.self.Model and tbl.self.Model:find("://", nil, true) and not tbl.self.Model:find(".zip", nil, true) then
+			tbl.self.ForceObjUrl = true
+		end
+
+		if tbl.children then
+			for _, child in ipairs(tbl.children) do
+				walk(child, tbl)
+			end
+		end
+	end
+
+	for _, tbl in ipairs(saved) do
+		walk(tbl)
+	end
+
+	for _, tbl in ipairs(saved) do
+		local part = pac.CreatePart(tbl.self.ClassName, pac.LocalPlayer, tbl)
+	end
+end)
+
+
 pace.AddTool(L"fix origin", function(part, suboption)
-	if part.ClassName ~= "model" then return end
+	if not part.GetEntity then return end
 
-	local ent = part:GetEntity()
+	local ent = part:GetOwner()
 
-	part:SetPositionOffset(part:GetPositionOffset() + -ent:OBBCenter() * part.Scale * part.Size)
+	part:SetPositionOffset(-ent:OBBCenter() * part.Scale * part.Size)
 end)
 
 pace.AddTool(L"replace ogg with webaudio", function(part, suboption)
@@ -104,15 +302,28 @@ end)
 
 pace.AddTool(L"free children from part" ,function(part, suboption)
 	if part:IsValid() then
-		local grandparent = part:GetParent()
-		local parent = part
-		for _, child in ipairs(parent:GetChildren()) do
-				child:SetAngles(child.Angles + parent.Angles)
-				child:SetPosition(child.Position + parent.Position)
-				child:SetAngleOffset(child.AngleOffset + parent.AngleOffset)
-				child:SetPositionOffset(child.PositionOffset + parent.PositionOffset)
-				child:SetParent(grandparent)
+		local children = part.Children
+		if #children == 0 then
+			Derma_Message(L"this part has no children...", L"free children from part", "ok")
+			return
 		end
+
+		Derma_Query(L"this process cannot be undone, are you sure?", L"free children from part", L"yes", function()
+			local grandparent = part:GetParent()
+			if grandparent == NULL then
+				grandparent = part:GetRootPart()
+			end
+			local parent = part
+			for _, child in ipairs(children) do
+				if child.BaseName ~= "base" and parent.BaseName ~= "base" then
+					child:SetAngles(child.Angles + parent.Angles)
+					child:SetPosition(child.Position + parent.Position)
+					child:SetAngleOffset(child.AngleOffset + parent.AngleOffset)
+					child:SetPositionOffset(child.PositionOffset + parent.PositionOffset)
+				end
+				child:SetParent(grandparent)
+			end
+		end, L"no", function() end)
 	end
 end)
 
@@ -139,7 +350,7 @@ end)
 
 pace.AddTool(L"show only with active weapon", function(part, suboption)
 	local event = part:CreatePart("event")
-	local owner = part:GetOwner(true)
+	local owner = part:GetRootPart():GetOwner()
 	if not owner.GetActiveWeapon or not owner:GetActiveWeapon():IsValid() then
 		owner = pac.LocalPlayer
 	end
@@ -161,9 +372,9 @@ pace.AddTool(L"import editor tool from file...", function()
 		Derma_StringRequest(L"filename", L"relative to garrysmod/data/pac3_editor/tools/", "mytool.txt", function(toolfile)
 			if file.Exists("pac3_editor/tools/" .. toolfile,"DATA") then
 				local toolstr = file.Read("pac3_editor/tools/" .. toolfile,"DATA")
-				ctoolstr = [[pace.AddTool(L"]] .. toolfile .. [[", function(part, suboption) ]] .. toolstr .. " end)"
+				local ctoolstr = [[pace.AddTool(L"]] .. toolfile .. [[", function(part, suboption) ]] .. toolstr .. " end)"
 				RunStringEx(ctoolstr, "pac_editor_import_tool")
-				LocalPlayer():ConCommand("pac_editor") --close and reopen editor
+				pac.LocalPlayer:ConCommand("pac_editor") --close and reopen editor
 			else
 				Derma_Message("File " .. "garrysmod/data/pac3_editor/tools/" .. toolfile .. " not found.","Error: File Not Found","OK")
 			end
@@ -176,16 +387,16 @@ end)
 pace.AddTool(L"import editor tool from url...", function()
 	if GetConVar("sv_allowcslua"):GetBool() then
 		Derma_StringRequest(L"URL", L"URL to PAC Editor tool txt file", "http://www.example.com/tool.txt", function(toolurl)
-			function ToolDLSuccess(body)
+			local function ToolDLSuccess(body)
 				local toolname = pac.PrettifyName(toolurl:match(".+/(.-)%."))
 				local toolstr = body
-				ctoolstr = [[pace.AddTool(L"]] .. toolname .. [[", function(part, suboption)]] .. toolstr .. " end)"
+				local ctoolstr = [[pace.AddTool(L"]] .. toolname .. [[", function(part, suboption)]] .. toolstr .. " end)"
 				RunStringEx(ctoolstr, "pac_editor_import_tool")
-				LocalPlayer():ConCommand("pac_editor") --close and reopen editor
+				pac.LocalPlayer:ConCommand("pac_editor") --close and reopen editor
 			end
 
 			pac.HTTPGet(toolurl,ToolDLSuccess,function(err)
-				Derma_Message("HTTP Request Failed for " .. toolurl,err,"OK")
+				pace.MessagePrompt(err, "HTTP Request Failed for " .. toolurl, "OK")
 			end)
 		end)
 	else
@@ -193,7 +404,7 @@ pace.AddTool(L"import editor tool from url...", function()
 	end
 end)
 
-function round_pretty(val)
+local function round_pretty(val)
 	return math.Round(val, 2)
 end
 
@@ -202,11 +413,11 @@ pace.AddTool(L"round numbers", function(part)
 		for _, key in pairs(part:GetStorableVars()) do
 			local val = part["Get" .. key](part)
 
-			if type(val) == "number" then
+			if isnumber(val) then
 				part["Set" .. key](part, round_pretty(val))
-			elseif type(val) == "Vector" then
+			elseif isvector(val) then
 				part["Set" .. key](part, Vector(round_pretty(val.x), round_pretty(val.y), round_pretty(val.z)))
-			elseif type(val) == "Angle" then
+			elseif isangle(val) then
 				part["Set" .. key](part, Angle(round_pretty(val.p), round_pretty(val.y), round_pretty(val.r)))
 			end
 		end
@@ -301,37 +512,37 @@ if (first() | dupefinished()) {
     ToggleShading = 0 #- Toggle for shading.
     Indices = 1
 
-	   #- Data structure
-	   #- HN++, HT[HN, table] = table(Index, Local Entity (Entity:toWorld()), Parent Entity, ScaleType (Default 0), Pos, Ang, Scale, Model, Material, Color, Skin)
-	   #- CN++, CT[CN, table] = table(Index, Clip Index, Pos, Ang)
+        #- Data structure
+        #- HN++, HT[HN, table] = table(Index, Local Entity (Entity:toWorld()), Parent Entity, ScaleType (Default 0), Pos, Ang, Scale, Model, Material, Color, Skin)
+        #- CN++, CT[CN, table] = table(Index, Clip Index, Pos, Ang)
 
-	   #- Editing holograms
-	   #- Scroll down to the bottom of the code to find where to insert your holo() code. In order to reference indexes
-	   #- add a ", I_HologramName"" to the end of that holograms data line with "HologramName" being of your choosing.
-	   #- Finally add this to a @persist directive eg "@persist [I_HologramName]", now you can address this in your holo() code.
-	   #- For example, "holoBodygroup(I_HologramName, 2, 3)" which would be put in the "InitPostSpawn" section.
+        #- Editing holograms
+        #- Scroll down to the bottom of the code to find where to insert your holo() code. In order to reference indexes
+        #- add a ", I_HologramName"" to the end of that holograms data line with "HologramName" being of your choosing.
+        #- Finally add this to a @persist directive eg "@persist [I_HologramName]", now you can address this in your holo() code.
+        #- For example, "holoBodygroup(I_HologramName, 2, 3)" which would be put in the "InitPostSpawn" section.
 
-	   #- Advanced functionality
-	   #- If you wish to take this system to the next level, you can. Instead of using multiple e2s for each "set" of holograms,
-	   #- instead save each set of hologram data to a new file inside a folder of your liking. You can now use the #include "" directive
-	   #- to bring that hologram data into a single e2 with this spawn code and compile multiple files into a single e2.
-	   #- This has many benefits such as 1 interval instead of many, auto updating due to the chip pulling saved data and increased
-	   #- organisation!
+        #- Advanced functionality
+        #- If you wish to take this system to the next level, you can. Instead of using multiple e2s for each "set" of holograms,
+        #- instead save each set of hologram data to a new file inside a folder of your liking. You can now use the #include "" directive
+        #- to bring that hologram data into a single e2 with this spawn code and compile multiple files into a single e2.
+        #- This has many benefits such as 1 interval instead of many, auto updating due to the chip pulling saved data and increased
+        #- organisation!
 
-	   #- Your file hierarchy should look like this.
-	   #- /expression2/
-	   #- --> /yourfolder/
-	   #-     --> /hologram_data.txt & hologram_spawner.txt
+        #- Your file hierarchy should look like this.
+        #- /expression2/
+        #- --> /yourfolder/
+        #-     --> /hologram_data.txt & hologram_spawner.txt
 
-	   # # # # # # # # # HOLOGRAM DATA START # # # # # # # # #
+        # # # # # # # # # HOLOGRAM DATA START # # # # # # # # #
 	]]
 
 	local str_footer =
 	[[
 
-	   # # # # # # # # # HOLOGRAM DATA END # # # # # # # # #
+        # # # # # # # # # HOLOGRAM DATA END # # # # # # # # #
 
-	   #- Create a hologram from data array
+        #- Create a hologram from data array
     function table:holo() {
         local Index = This[1, number] * Indices
         if (This[2,entity]:isValid()) { Entity = This[2,entity] } else { Entity = holoEntity(This[2,number]) }
@@ -436,10 +647,16 @@ elseif (CoreStatus == "RunThisCode") {
 		local str_holo = str_ref
 
 		for CI, clip in ipairs(part:GetChildren()) do
-			if clip.ClassName == "clip" and not clip:IsHidden() then
-				local pos, ang = clip.Position, clip:CalcAngles(clip.Angles)
-				local normal = ang:Forward()
-				str_holo = str_holo .. "    CN++, CT[CN,table] = table(I, " .. CI .. ", vec(" .. tovec(pos + normal) .. "), vec(" .. tovec(normal) .. "))\n"
+			if not clip:IsHidden() then
+				if clip.ClassName == "clip" then
+					local pos, ang = clip.Position, clip:CalcAngles(clip.Angles)
+					local normal = ang:Forward()
+					str_holo = str_holo .. "    CN++, CT[CN,table] = table(I, " .. CI .. ", vec(" .. tovec(pos + normal) .. "), vec(" .. tovec(normal) .. "))\n"
+				elseif clip.ClassName == "clip2" then
+					local pos, ang = clip.Position, clip:CalcAngles(clip.Angles)
+					local normal = ang:Forward()
+					str_holo = str_holo .. "    CN++, CT[CN,table] = table(I, " .. CI .. ", vec(" .. tovec(pos) .. "), vec(" .. tovec(normal) .. "))\n"
+				end
 			end
 		end
 
@@ -448,10 +665,10 @@ elseif (CoreStatus == "RunThisCode") {
 		if not part.PositionOffset:IsZero() or not part.AngleOffset:IsZero() then
 			pos, ang = LocalToWorld(part.PositionOffset, part.AngleOffset, pos, ang)
 		end
-			
+
 		local holo = str_holo:gsub("[A-Z]+",{
 			ALPHA = math.Round(part:GetAlpha() * 255, 4),
-			COLOR = tovec(part:GetColor()),
+			COLOR = tovec((part.ProperColorRange and part:GetColor()*255) or part:GetColor()),
 			SCALE = "vec(" .. tovec(Vector(scale.x, scale.y, scale.z)) .. ")",
 			ANGLES = "ang(" .. toang(ang) .. ")",
 			POSITION = "vec(" .. tovec(pos) .. ")",
@@ -465,19 +682,26 @@ elseif (CoreStatus == "RunThisCode") {
 	end
 
 	local function convert(part)
-		local out = string.Replace(str_header, "[NAME]", part:GetName() or "savedpacholos")
+		local out = {string.Replace(str_header, "[NAME]", part:GetName() or "savedpacholos")}
 
-		for key, part in ipairs(part:GetChildren()) do
-			if part.is_model_part and not part:IsHidden() and not part.wavefront_mesh then
-				out = out .. part_to_holo(part)
+		local completed = {}
+		local function recursiveConvert(parent)
+			if completed[parent] then return end
+			completed[parent] = true
+			for key, part in ipairs(parent:GetChildren()) do
+				if part.is_model_part and not part:IsHidden() then
+					out[#out + 1] = part_to_holo(part)
+					recursiveConvert(part)
+				end
 			end
 		end
+		recursiveConvert(part)
 
-		out = out .. str_footer
+		out[#out + 1] = str_footer
 
-		LocalPlayer():ChatPrint("PAC --> Code saved in your Expression 2 folder under [expression2/pac/" .. part:GetName() .. ".txt" .. "].")
+		pac.LocalPlayer:ChatPrint("PAC --> Code saved in your Expression 2 folder under [expression2/pac/" .. part:GetName() .. ".txt" .. "].")
 
-		return out
+		return table.concat(out)
 	end
 
 	file.CreateDir("expression2/pac")
@@ -516,13 +740,12 @@ pace.AddTool(L"record surrounding props to pac", function(part)
 end)
 
 pace.AddTool(L"populate with bones", function(part,suboption)
-	local target = part.GetEntity or part.GetOwner
-	local ent = target(part)
+	local ent = part:GetOwner()
 	local bones = pac.GetModelBones(ent)
 
 	for bone,tbl in pairs(bones) do
 		if not tbl.is_special then
-			local child = pac.CreatePart("bone")
+			local child = pac.CreatePart("bone3")
 			child:SetParent(part)
 			child:SetBone(bone)
 		end
@@ -532,8 +755,7 @@ pace.AddTool(L"populate with bones", function(part,suboption)
 end)
 
 pace.AddTool(L"populate with dummy bones", function(part,suboption)
-	local target = part.GetEntity or part.GetOwner
-	local ent = target(part)
+	local ent = part:GetOwner()
 	local bones = pac.GetModelBones(ent)
 
 	for bone,tbl in pairs(bones) do
@@ -554,20 +776,20 @@ pace.AddTool(L"print part info", function(part)
 end)
 
 pace.AddTool(L"dump player submaterials", function()
-	local ply = LocalPlayer()
+	local ply = pac.LocalPlayer
 	for id,mat in pairs(ply:GetMaterials()) do
 		chat.AddText(("%d %s"):format(id,tostring(mat)))
 	end
 end)
 
 pace.AddTool(L"stop all custom animations", function()
-	pac.animations.StopAllEntityAnimations(LocalPlayer())
-	pac.animations.ResetEntityBoneMatrix(LocalPlayer())
+	pac.animations.StopAllEntityAnimations(pac.LocalPlayer)
+	pac.animations.ResetEntityBoneMatrix(pac.LocalPlayer)
 end)
 
 pace.AddTool(L"copy from faceposer tool", function(part, suboption)
 	local group = pac.CreatePart("group")
-	local ent = LocalPlayer()
+	local ent = pac.LocalPlayer
 
 	for i = 0, ent:GetFlexNum() - 1 do
 		local name = ent:GetFlexName(i)

@@ -96,8 +96,6 @@ hook.Add( "loadCustomDarkRPItems", "Defcon_LoadAfterDarkRP", function()
 
 			[TEAM_ASSISTANTBATTALIONGENERAL] = true,
 			
-			[TEAM_CDGENERAL] = true,
-
 			[TEAM_FLEET_MAVERICK] = true,
 
 			[TEAM_FLEET_SFOFC] = true,
@@ -129,8 +127,6 @@ hook.Add( "loadCustomDarkRPItems", "Defcon_LoadAfterDarkRP", function()
 			[TEAM_SOD] = true,
 
 			[TEAM_EH] = true,
-
-			[TEAM_RCADVISOR] = true,
 
 			[TEAM_RCGENERAL] = true,
 

@@ -4,7 +4,7 @@ ENT.Base = "base_gmodentity"
 
 ENT.PrintName = "Datapad"
 ENT.AuthorName = ""
-ENT.Category = "[RDV] Datapad"
+ENT.Category = "[RDV] Starwars Systems"
 ENT.Spawnable = true
 ENT.RenderGroup = RENDERGROUP_BOTH
 ENT.Editable = true

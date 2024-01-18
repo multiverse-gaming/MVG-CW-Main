@@ -293,6 +293,16 @@ function pace.SelectBone(ent, callback, only_movable)
 	local tbl = table.Copy(pac.GetModelBones(ent))
 
 	if only_movable then
+		local models = ent:GetModel() and util.GetModelMeshes(ent:GetModel())
+
+		if models then
+			for k, v in pairs(tbl) do
+				if not v.bone then
+					tbl[k] = nil
+				end
+			end
+		end
+
 		for k, v in pairs(tbl) do
 			if v.is_special or not RENDER_ATTACHMENTS:GetBool() and v.is_attachment then
 				tbl[k] = nil
@@ -329,11 +339,23 @@ function pace.SelectPart(parts, callback)
 		parts,
 
 		function(_, part)
-			return part:IsHidden()
+			return part:IsHidden() and part:GetShowInEditor()
 		end,
 
 		function(_, part)
-			return part:GetDrawPosition()
+			if part.GetDrawPosition then
+				return part:GetDrawPosition()
+			end
+
+			local owner = part:GetOwner()
+			if owner:IsValid() then
+				return owner:GetPos()
+			end
+
+			owner = part:GetPlayerOwner()
+			if owner:IsValid() then
+				return owner:GetPos()
+			end
 		end,
 
 		function(_, part)

@@ -13,7 +13,7 @@ acsfnc("Angles", Angle(0,0,0))
 acsfnc("FOV", 75)
 
 function pace.GetViewEntity()
-	return pace.ViewEntity:IsValid() and pace.ViewEntity or LocalPlayer()
+	return pace.ViewEntity:IsValid() and pace.ViewEntity or pac.LocalPlayer
 end
 
 function pace.ResetView()
@@ -51,6 +51,10 @@ function pace.SetZoom(fov, smooth)
 	else
 		pace.ViewFOV = math.Clamp(fov,1,100)
 	end
+end
+
+function pace.ResetZoom()
+	pace.zoom_reset = 75
 end
 
 local worldPanel = vgui.GetWorldPanel();
@@ -106,7 +110,7 @@ function pace.GUIMouseReleased(mc)
 	isHoldingMovement = false
 
 	if IsValid(hoveredPanelCursor) then
-		hoveredPanelCursor:SetCursor('none')
+		hoveredPanelCursor:SetCursor('arrow')
 		hoveredPanelCursor = nil
 	end
 
@@ -115,6 +119,17 @@ function pace.GUIMouseReleased(mc)
 	if pace.editing_viewmodel or pace.editing_hands then return end
 
 	mcode = nil
+	if not GetConVar("pac_enable_editor_view"):GetBool() then pace.EnableView(true)
+	else
+		pac.RemoveHook("CalcView", "camera_part")
+		pac.AddHook("GUIMousePressed", "editor", pace.GUIMousePressed)
+		pac.AddHook("GUIMouseReleased", "editor", pace.GUIMouseReleased)
+		pac.AddHook("ShouldDrawLocalPlayer", "editor", pace.ShouldDrawLocalPlayer, DLib and -4 or ULib and -1 or nil)
+		pac.AddHook("CalcView", "editor", pace.CalcView, DLib and -4 or ULib and -1 or nil)
+		pac.AddHook("HUDPaint", "editor", pace.HUDPaint)
+		pac.AddHook("HUDShouldDraw", "editor", pace.HUDShouldDraw)
+		pac.AddHook("PostRenderVGUI", "editor", pace.PostRenderVGUI)
+	end
 end
 
 local function set_mouse_pos(x, y)
@@ -127,6 +142,7 @@ end
 local WORLD_ORIGIN = Vector(0, 0, 0)
 
 local function CalcDrag()
+
 	if
 		pace.BusyWithProperties:IsValid() or
 		pace.ActiveSpecialPanel:IsValid() or
@@ -149,43 +165,37 @@ local function CalcDrag()
 		mult = 0.1
 	end
 
-	if IsValid(pace.current_part) then
-		local origin
+	local origin
+	local part = pace.current_part or NULL
 
-		local owner = pace.current_part:GetOwner(true)
+	if not part:IsValid() then return end
 
-		if owner == pac.WorldEntity and owner:IsValid() then
-			if pace.current_part:HasChildren() then
-				for key, child in ipairs(pace.current_part:GetChildren()) do
-					if not child.NonPhysical then
-						origin = child:GetDrawPosition()
-						if origin == WORLD_ORIGIN then origin = LocalPlayer():GetPos() end
-						break
-					end
+	local owner = part:GetRootPart():GetOwner()
+	if not owner:IsValid() then
+		owner = pac.LocalPlayer
+	end
+
+	origin = owner:GetPos()
+	if owner == pac.WorldEntity then
+		if part:HasChildren() then
+			for key, child in ipairs(part:GetChildren()) do
+				if child.GetDrawPosition then
+					part = child
+					break
 				end
-			else
-				origin = LocalPlayer():GetPos()
-			end
-
-			if not origin then
-				origin = LocalPlayer():GetPos()
-			end
-		else
-			if not owner:IsValid() then
-				owner = pac.LocalPlayer
-			end
-
-			if pace.current_part.NonPhysical then
-				origin = owner:GetPos()
-			else
-				origin = pace.current_part:GetDrawPosition()
 			end
 		end
-
-		mult = mult * math.min(origin:Distance(pace.ViewPos) / 200, 3)
-	else
-		mult = mult * math.min(LocalPlayer():GetPos():Distance(pace.ViewPos) / 200, 3)
 	end
+
+	if part.GetDrawPosition then
+		origin = part:GetDrawPosition()
+	end
+
+	if not origin or origin == WORLD_ORIGIN then
+		origin = pac.LocalPlayer:GetPos()
+	end
+
+	mult = mult * math.min(origin:Distance(pace.ViewPos) / 200, 3)
 
 	if input.IsKeyDown(KEY_LSHIFT) then
 		mult = mult + 5
@@ -239,6 +249,7 @@ local function CalcDrag()
 end
 
 local follow_entity = CreateClientConVar("pac_camera_follow_entity", "0", true)
+local enable_editor_view = CreateClientConVar("pac_enable_editor_view", "1", true)
 local lastEntityPos
 
 function pace.CalcView(ply, pos, ang, fov)
@@ -332,6 +343,7 @@ function pace.EnableView(b)
 		pac.AddHook("GUIMouseReleased", "editor", pace.GUIMouseReleased)
 		pac.AddHook("ShouldDrawLocalPlayer", "editor", pace.ShouldDrawLocalPlayer, DLib and -4 or ULib and -1 or nil)
 		pac.AddHook("CalcView", "editor", pace.CalcView, DLib and -4 or ULib and -1 or nil)
+		pac.RemoveHook("CalcView", "camera_part")
 		pac.AddHook("HUDPaint", "editor", pace.HUDPaint)
 		pac.AddHook("HUDShouldDraw", "editor", pace.HUDShouldDraw)
 		pac.AddHook("PostRenderVGUI", "editor", pace.PostRenderVGUI)
@@ -343,11 +355,35 @@ function pace.EnableView(b)
 		pac.RemoveHook("GUIMouseReleased", "editor")
 		pac.RemoveHook("ShouldDrawLocalPlayer", "editor")
 		pac.RemoveHook("CalcView", "editor")
+		pac.RemoveHook("CalcView", "camera_part")
 		pac.RemoveHook("HUDPaint", "editor")
 		pac.RemoveHook("HUDShouldDraw", "editor")
 		pac.RemoveHook("PostRenderVGUI", "editor")
 		pace.SetTPose(false)
-		pace.SetBreathing(false)
+	end
+
+	if not enable_editor_view:GetBool() then
+		local ply = LocalPlayer()
+		pac.RemoveHook("CalcView", "editor")
+		pac.AddHook("CalcView", "camera_part", function(ply, pos, ang, fov, nearz, farz)
+			for _, part in pairs(pac.GetLocalParts()) do
+				if part:IsValid() and part.ClassName == "camera" then
+					part:CalcShowHide()
+					local temp = {}
+					if not part:IsHidden() then
+						pos, ang, fov, nearz, farz = part:CalcView(_,_,ply:EyeAngles())
+						temp.origin = pos
+						temp.angles = ang
+						temp.fov = fov
+						temp.znear = nearz
+						temp.zfar = farz
+						temp.drawviewer = not part.DrawViewModel
+						return temp
+					end
+				end
+			end
+		end)
+		--pac.RemoveHook("ShouldDrawLocalPlayer", "editor")
 	end
 end
 
@@ -389,7 +425,7 @@ function pace.GetTPose()
 end
 
 function pace.SetViewPart(part, reset_campos)
-	pace.SetViewEntity(part:GetOwner(true))
+	pace.SetViewEntity(part:GetRootPart():GetOwner())
 
 	if reset_campos then
 		pace.ResetView()
@@ -418,5 +454,129 @@ function pace.HUDShouldDraw(typ)
 		(typ == "CHudCrosshair" and (pace.editing_viewmodel or pace.editing_hands))
 	then
 		return false
+	end
+end
+
+function pace.OnToggleFocus(show_editor)
+	if pace.Focused then
+		pace.KillFocus(show_editor)
+	else
+		pace.GainFocus(show_editor)
+	end
+end
+
+function pace.SetTPose(b)
+	local ply = pac.LocalPlayer
+
+	if b then
+		ply.pace_tpose_last_sequence = ply:GetSequence()
+		ply.pace_tpose_last_layer_sequence = {}
+		for i = 0, 16 do
+			ply.pace_tpose_last_layer_sequence[i] = ply:GetLayerSequence(i)
+		end
+
+		local function reset_angles(ply)
+			local ang = ply:EyeAngles()
+			ang.p = 0
+			ply:SetEyeAngles(ang)
+			ply:SetRenderAngles(ang)
+			ply:SetAngles(ang)
+		end
+
+		local function get_ref_anim(ply)
+			local id = ply:LookupSequence("reference")
+			local id2 = ply:LookupSequence("ragdoll")
+			return id ~= -1 and id or id2 ~= -1 and id2 or 0
+		end
+
+		pac.AddHook("PrePlayerDraw", "pace_tpose", function(ply)
+			if ply ~= pac.LocalPlayer then return end
+
+			for i = 0, 16 do
+				ply:SetLayerSequence(i, 0)
+			end
+
+			ply:SetSequence(get_ref_anim(ply))
+			reset_angles(ply)
+		end)
+
+		pac.AddHook("UpdateAnimation", "pace_tpose", function()
+			local ply = pac.LocalPlayer
+			ply:ClearPoseParameters()
+			reset_angles(ply)
+
+			for i = 0, ply:GetNumPoseParameters() - 1 do
+				local name = ply:GetPoseParameterName(i)
+				if name then
+					ply:SetPoseParameter(name, 0)
+				end
+			end
+		end)
+
+		pac.AddHook("CalcMainActivity", "pace_tpose", function(ply)
+			if ply == pac.LocalPlayer then
+				for i = 0, 16 do
+					ply:SetLayerSequence(i, 0)
+				end
+
+				local act = get_ref_anim(ply)
+
+				return act, act
+			end
+		end)
+	else
+		pac.RemoveHook("PrePlayerDraw", "pace_tpose")
+		pac.RemoveHook("UpdateAnimation", "pace_tpose")
+		pac.RemoveHook("CalcMainActivity", "pace_tpose")
+
+		if ply.pace_tpose_last_sequence then
+			ply:SetSequence(ply.pace_tpose_last_sequence)
+			ply.pace_tpose_last_sequence = nil
+		end
+
+		if ply.pace_tpose_last_layer_sequence then
+			for i, seq in ipairs(ply.pace_tpose_last_layer_sequence) do
+				ply:SetLayerSequence(i, seq)
+			end
+
+			ply.pace_tpose_last_layer_sequence = nil
+		end
+	end
+
+	pace.tposed = b
+end
+
+pace.SetTPose(pace.tposed)
+
+function pace.ToggleCameraFollow()
+	local c = GetConVar("pac_camera_follow_entity")
+	RunConsoleCommand("pac_camera_follow_entity", c:GetBool() and "0" or "1")
+end
+
+function pace.GetBreathing()
+	return pace.breathing
+end
+function pace.ResetEyeAngles()
+	local ent = pace.GetViewEntity()
+	if ent:IsValid() then
+		if ent:IsPlayer() then
+
+			RunConsoleCommand("+forward")
+			timer.Simple(0, function()
+				RunConsoleCommand("-forward")
+				timer.Simple(0.1, function()
+					RunConsoleCommand("+back")
+					timer.Simple(0.015, function()
+						RunConsoleCommand("-back")
+					end)
+				end)
+			end)
+
+			ent:SetEyeAngles(Angle(0, 0, 0))
+		else
+			ent:SetAngles(Angle(0, 0, 0))
+		end
+
+		pac.SetupBones(ent)
 	end
 end

@@ -1,6 +1,6 @@
 
 SWEP.PrintName = "Armour Gun"
-SWEP.Category						= "TFA StarWars Republic Commandos"
+SWEP.Category						= "MVG"
 SWEP.Author = "? | Modified by Fox"
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true
@@ -53,7 +53,7 @@ SWEP.Secondary.Ammo = "none"
 
 function SWEP:Precache()
 
-	util.PrecacheModel("models/fox/battlefront2/flamethrower.mdl")
+	util.PrecacheModel("mmodels/hunter/blocks/cube025x025x025.mdl")
 
 end
 
@@ -71,7 +71,7 @@ function SWEP:Initialize()
         local offsetangWeaponW = Angle(173, 180, 0 )
 
         if !IsValid(flamerWeapon) then
-            flamerWeapon = ClientsideModel("models/fox/battlefront2/flamethrower.mdl")
+            flamerWeapon = ClientsideModel("models/hunter/blocks/cube025x025x025.mdl")
             flamerWeapon:SetNoDraw( true )
         end
 

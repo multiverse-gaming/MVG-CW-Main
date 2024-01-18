@@ -4,7 +4,7 @@ if (GetConVar(SWEP.Gun.."_allowed")) != nil then
 end
 
 SWEP.Base							= "tfa_gun_base"
-SWEP.Category						= "TFA StarWars Republic Commandos"
+SWEP.Category						= "MVG"
 SWEP.Manufacturer 					= ""
 SWEP.Author							= "ChanceSphere574"
 

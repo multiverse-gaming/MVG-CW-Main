@@ -51,16 +51,16 @@ end
 
 local L = pace.LanguageString
 
-local function install_click(icon, path, pattern, on_menu)
+local function install_click(icon, path, pattern, on_menu, pathid)
 	local old = icon.OnMouseReleased
 	icon.OnMouseReleased = function(_, code)
 		if code == MOUSE_LEFT then
-			pace.model_browser_callback(path, "GAME")
+			pace.model_browser_callback(path, pathid)
 		elseif code == MOUSE_RIGHT then
 			local menu = DermaMenu()
 			menu:AddOption(L"copy path", function()
 				if pattern then
-					for _, pattern in ipairs(type(pattern) == "string" and {pattern} or pattern) do
+					for _, pattern in ipairs(isstring(pattern) and {pattern} or pattern) do
 						local test = path:match(pattern)
 						if test then
 							path = test
@@ -119,14 +119,14 @@ local function setup_paint(panel, generate_cb, draw_cb)
 	end
 end
 
-local function create_texture_icon(path)
+local function create_texture_icon(path, pathid)
 	local icon = vgui.Create("DButton")
 	icon:SetTooltip(path)
 	icon:SetSize(128,128)
 	icon:SetWrap(true)
 	icon:SetText("")
 
-	install_click(icon, path, {"^materials/(.+)%.vtf$", "^materials/(.+%.png)$"})
+	install_click(icon, path, {"^materials/(.+)%.vtf$", "^materials/(.+%.png)$"}, nil, pathid)
 
 	setup_paint(
 		icon,
@@ -350,14 +350,18 @@ local function create_material_icon(path, grid_panel)
 	return icon
 end
 
-local function create_model_icon(path)
+local function create_model_icon(path, pathid)
 	local icon = vgui.Create("SpawnIcon")
 
 	icon:SetSize(64, 64)
 	icon:SetModel(path)
 	icon:SetTooltip(path)
 
-	install_click(icon, path)
+	if path:StartWith("addons/") then
+		path = path:match("^addons/.-/(.+)") or path
+	end
+
+	install_click(icon, path, nil, nil, pathid)
 
 	return icon
 end
@@ -628,13 +632,14 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 	local last_w
 	local last_h
 	local div_x
+	local last_div_x
 
 	local old_think = frame.Think
 	frame.Think = function(...)
 		local x,y = frame:GetPos()
 		local w,h = frame:GetSize()
 
-		local div_x = divider:GetLeftWidth()
+		div_x = divider:GetLeftWidth()
 
 		if x ~= last_x then frame:SetCookie("x", x) last_x = x end
 		if y ~= last_y then frame:SetCookie("y", y) last_y = y end
@@ -782,7 +787,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 
 			play:SetImage("icon16/control_stop.png")
 
-			local snd = CreateSound(LocalPlayer(), sound)
+			local snd = CreateSound(pac.LocalPlayer, sound)
 			snd:Play()
 			pace.asset_browser_snd = snd
 
@@ -942,7 +947,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 								if object.type == "model" then
 									node.propPanel:Add(create_model_icon(object.model))
 								elseif object.type == "header" then
-									if not object.text or type(object.text) ~= "string" then return end
+									if not object.text or not isstring(object.text) then return end
 
 									local label = vgui.Create("ContentHeader", node.propPanel)
 									label:SetText(object.text)
@@ -1038,7 +1043,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 
 								if browse_types[1] == "models" then
 									if not IsUselessModel(path) then
-										viewPanel:Add(create_model_icon(path))
+										viewPanel:Add(create_model_icon(path, pathid))
 									end
 								elseif browse_types[1] == "materials" then
 									if path:find("%.vmt$") then
@@ -1046,7 +1051,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 											create_material_icon(path, viewPanel)
 										end
 									elseif texture_view then
-										viewPanel:Add(create_texture_icon(path))
+										viewPanel:Add(create_texture_icon(path, pathid))
 									end
 								elseif browse_types[1] == "sound" then
 									sound_list:AddSound(path, pathid)
@@ -1094,7 +1099,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 
 								if not path:StartWith("models/pac3_cache/") then
 									if not IsUselessModel(path) then
-										viewPanel:Add(create_model_icon(path))
+										viewPanel:Add(create_model_icon(path, pathid))
 									end
 								end
 							end
@@ -1107,7 +1112,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 										create_material_icon(path, viewPanel)
 									end
 								elseif texture_view then
-									viewPanel:Add(create_texture_icon(path))
+									viewPanel:Add(create_texture_icon(path, pathid))
 								end
 
 							end
@@ -1419,7 +1424,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 				if count >= 500 then return false, "too many results (" .. count .. ")" end
 				count = count + 1
 				if not IsUselessModel(path) then
-					self.propPanel:Add(create_model_icon(path))
+					self.propPanel:Add(create_model_icon(path, pathid))
 				end
 			end)
 		elseif dir == "sound" then
@@ -1442,7 +1447,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 						create_material_icon(path, self.propPanel)
 					end
 				elseif texture_view then
-					self.propPanel:Add(create_texture_icon(path))
+					self.propPanel:Add(create_texture_icon(path, pathid))
 					count = count + 1
 				end
 			end)
