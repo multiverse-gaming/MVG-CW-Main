@@ -1,0 +1,1 @@
+player_manager.AddValidModel( "Lux Bonteri", "models/player/TCW/human/lux_bonteri.mdl" );

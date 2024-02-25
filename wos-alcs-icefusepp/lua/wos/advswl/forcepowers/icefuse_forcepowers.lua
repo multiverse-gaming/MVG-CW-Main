@@ -1,0 +1,2 @@
+wOS = wOS or {}
+

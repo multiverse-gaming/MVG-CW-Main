@@ -1,0 +1,1 @@
+list.Add("OverrideMaterials","rayshield_generators/gold_texture")

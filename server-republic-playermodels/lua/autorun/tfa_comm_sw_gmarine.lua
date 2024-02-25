@@ -1,0 +1,1 @@
+player_manager.AddValidModel("TFA-SW-Galactic-Marine","models/tfa/comm/gg/pm_sw_galacticmarine.mdl")

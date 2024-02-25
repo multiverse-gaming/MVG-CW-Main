@@ -1,0 +1,1 @@
+player_manager.AddValidModel( "mauls7", "models/maul.mdl" )

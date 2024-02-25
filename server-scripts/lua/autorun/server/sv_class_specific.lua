@@ -1,0 +1,82 @@
+local WhitelistJobsNames = { --jobs to not take fall damage
+		"SDW General",
+		"SDW Marshal Commander",
+        "SDW CO",
+        "SDW XO",
+		"SDW MJR",
+		"SDW Officer",
+		"SDW Sergeant",
+		"SDW Trooper",
+        "Covert Lead",
+        "Covert Specialists",
+        "Covert Trooper",
+		"CIS Electro Staff User",
+		"Bossk",
+		"CIS Elite Melee",
+}
+
+local function JobCheck(ply)
+
+    if not teamCache then
+        teamCache = {}
+
+        for k, v in ipairs( WhitelistJobsNames ) do
+            teamCache[ v ] = true
+        end
+    end
+    local pms = team.GetName(ply:Team())
+
+    return teamCache[ pms ]
+end
+
+hook.Add("GetFallDamage", "PowerArmor:FallDamage", function(ply, dmgInfo)
+
+	local team = ply:Team() //local team = team.GetName(ply:Team())
+
+	if JobCheck(ply) then
+
+		return 0
+
+	end
+
+end)
+
+
+
+hook.Add( "EntityTakeDamage", "PowerArmor:EntityTakeDamage", function( ply, dmgInfo )
+
+	if !ply:IsPlayer() then return end
+
+    if ( not ply.m_bApplyingDamage ) then
+
+		ply.m_bApplyingDamage = true
+
+        if ply:HasPowerArmor() or ply:Team() == TEAM_DROIDEKA or ply:Team() == TEAM_B2DROID then
+
+            dmgInfo:ScaleDamage(0.4) --Powerarmor damage reduction
+
+            ply.m_bApplyingDamage = false
+
+        elseif ply:Team() == TEAM_RCWRECKER then
+
+            dmgInfo:ScaleDamage(0.75)
+
+            ply.m_bApplyingDamage = false
+
+
+        elseif dmgInfo:GetDamageType() == DMG_BURN then
+
+            if ply:Team() == TEAM_GMFLAMETROOPER or ply:Team() == TEAM_GMMAJOR or ply:Team() == TEAM_GMEXECUTIVEOFFICER or ply:Team() == TEAM_GMCOMMANDER or ply:Team() == TEAM_GMGENERAL then
+
+                dmgInfo:ScaleDamage(0.3) -- GM Flametrooper damage
+
+                ply.m_bApplyingDamage = false
+
+            end
+        else
+            ply.m_bApplyingDamage = false
+        end
+
+    end
+
+end )

@@ -1,0 +1,1 @@
+player_manager.AddValidModel( "Steela Gerrera", "models/player/TCW/human/steela_gerrera.mdl" );

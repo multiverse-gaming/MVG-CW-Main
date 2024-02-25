@@ -1,0 +1,1 @@
+player_manager.AddValidModel("TFA-SW-Shaak-Ti","models/tfa/comm/gg/pm_sw_shaakti.mdl")
