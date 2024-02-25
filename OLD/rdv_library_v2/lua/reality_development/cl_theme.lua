@@ -1,4 +1,0 @@
-RDV.LIBRARY.THEME = {
-    YELLOW = Color(252,180,9,255),
-    GREY = Color(122,132,137, 180),
-}

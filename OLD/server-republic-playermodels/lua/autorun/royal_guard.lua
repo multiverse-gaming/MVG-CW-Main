@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "Royal Guard", "models/player/mandalorian/royal_guard_male.mdl" );

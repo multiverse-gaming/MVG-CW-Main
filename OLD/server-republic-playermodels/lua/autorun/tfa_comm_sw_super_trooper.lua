@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Super-Trooper","models/tfa/comm/gg/pm_sw_super_trooper.mdl")

@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_nohelm", "models/dead_nohelm/dead_nohelm.mdl" )

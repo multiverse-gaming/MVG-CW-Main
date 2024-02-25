@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "Saw Gerrera", "models/player/TCW/human/saw_gerrera.mdl" );

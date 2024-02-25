@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Eeth-Koth","models/tfa/comm/gg/pm_sw_eeth_koth.mdl")

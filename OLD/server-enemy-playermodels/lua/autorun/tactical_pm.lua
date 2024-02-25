@@ -1,7 +1,0 @@
-player_manager.AddValidModel( "pm_droid_tactical_black", "models/tactical_black/pm_droid_tactical_black.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_blue", "models/tactical_blue/pm_droid_tactical_blue.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_gold", "models/tactical_gold/pm_droid_tactical_gold.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_purple", "models/tactical_purple/pm_droid_tactical_purple.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_red", "models/tactical_red/pm_droid_tactical_red.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_kalani", "models/super_tactical_kalani/pm_droid_tactical_kalani.mdl" )
-player_manager.AddValidModel( "pm_droid_tactical_stuxnet", "models/super_tactical_stuxnet/pm_droid_tactical_stuxnet.mdl" )

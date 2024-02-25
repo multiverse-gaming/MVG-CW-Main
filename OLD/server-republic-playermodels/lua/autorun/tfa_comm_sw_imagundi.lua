@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Ima-Gundi","models/tfa/comm/gg/pm_sw_imagundi.mdl")

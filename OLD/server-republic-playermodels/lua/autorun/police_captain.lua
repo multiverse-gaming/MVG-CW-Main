@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "Mandalorian Police Captain", "models/player/mandalorian/police_captain_male.mdl" );

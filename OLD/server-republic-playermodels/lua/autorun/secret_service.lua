@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "Mandalorian Secret Service", "models/player/mandalorian/secret_service_male.mdl" );

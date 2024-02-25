@@ -1,2 +1,0 @@
-list.Set( "PlayerOptionsModel", "cgi clone engineer", "models/player/clone engineer/ccgi engineer.mdl" )
-player_manager.AddValidModel( "cgi clone engineer", "models/player/clone engineer/ccgi engineer.mdl" )

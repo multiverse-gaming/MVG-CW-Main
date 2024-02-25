@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Akakin-V2","models/tfa/comm/gg/pm_sw_anakin_v2.mdl")

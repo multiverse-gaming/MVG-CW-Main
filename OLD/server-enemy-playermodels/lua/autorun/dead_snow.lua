@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_snow", "models/dead_snow/dead_snow.mdl" )
