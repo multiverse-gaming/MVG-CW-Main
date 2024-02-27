@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_red"
+SWEP.TracerEffect				= "tfa_tracer_red"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_light"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 

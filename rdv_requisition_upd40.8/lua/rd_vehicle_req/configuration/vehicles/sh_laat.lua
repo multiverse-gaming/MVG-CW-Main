@@ -46,10 +46,12 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Council Member",
   "RC Fixer",
   "CF99 Tech",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
   "Fleet Admiral",
-  "Grand Admiral"
+  "Grand Admiral",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
 })
 
 -- Nicolas's Rank System Support

@@ -7,7 +7,7 @@ hook.Add( "GetFallDamage", "rmt_nofall_trump", function( ply, speed )
 		local wep = ply:GetActiveWeapon()
 
 		if ( ply:KeyDown( IN_DUCK ) ) then
-			ply:SetNWFloat( "SWL_FeatherFall", CurTime() )
+			ply:SetNWFloat( "SWL_FeatherFall", CurTime() ) 
 			wep:SetNextAttack( 0.5 )
 			ply:ViewPunch( Angle( speed / 32, 0, math.random( -speed, speed ) / 128 ) )
 			return 0
@@ -56,7 +56,7 @@ SWEP.Primary.Delay			= 10
 SWEP.ViewModelSprintAng 	= Angle( -10, -10, 0 )
 
 SWEP.SciFiFamily			= { "vtec", "melee_simple", "useshook", "infammo", "autoregen" }
-SWEP.SciFiWorldStats		= {
+SWEP.SciFiWorldStats		= { 
 	["1"] = { text = "Damage: 				 15 - 50, +5", color = Color( 180, 180, 180 ) },
 	["2"] = { text = "Crit. mul.: 				 --", color = Color( 180, 180, 180 ) },
 	["3"] = { text = "Damage type: 	Impact, Energy", color = Color( 110, 180, 255 ) },
@@ -82,7 +82,7 @@ SWEP.HitDistance			= 75
 SWEP.SciFiRegenDelay		= 0.6
 
 
-
+	
 
 
 
@@ -127,7 +127,7 @@ SWEP.WElements = {
 	["FX+++++++++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_L_Hand", rel = "Staff", pos = Vector(32.727, 0, 0), size = { x = 5.816, y = 5.816 }, color = Color(185, 0, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
 	["FX+++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_L_Hand", rel = "Staff", pos = Vector(-28.571, 0, 0), size = { x = 5.816, y = 5.816 }, color = Color(185, 0, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
 	["FX++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_L_Hand", rel = "Staff", pos = Vector(-26.494, 0, 0), size = { x = 5.816, y = 5.816 }, color = Color(185, 0, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
-    ["Staff"] = { type = "Model", model = "models/tfa/comm/gg/prp_magna_guard_weapon_combined.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(4, 1, 0), angle = Angle(99.35, 0, 8.182), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+    ["Staff"] = { type = "Model", model = "models/tfa/comm/gg/prp_magna_guard_weapon_combined.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(4, 1, 0), angle = Angle(99.35, 0, 8.182), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },	
 	["aFX++++++++++++++++++++++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_R_Hand", rel = "Staff+", pos = Vector(-27.532, 0, 0), size = { x = 3.545, y = 3.545 }, color = Color(255, 255, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
 	["aFX+++++++++++++++++++++++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_R_Hand", rel = "Staff+", pos = Vector(-28.571, 0, 0), size = { x = 3.545, y = 3.545 }, color = Color(255, 255, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
 	["aFX++++++++++++"] = { type = "Sprite", sprite = "particle/particle_glow_04", bone = "ValveBiped.Bip01_R_Hand", rel = "Staff+", pos = Vector(26.493, 0, 0), size = { x = 3.545, y = 3.545 }, color = Color(255, 255, 255, 255), nocull = true, additive = true, vertexalpha = true, vertexcolor = true},
@@ -191,13 +191,13 @@ if ( CLIENT ) then
 
 		self.AmmoDisplay = self.AmmoDisplay or {}
 		self.AmmoDisplay.Draw = true
-
+		
 		if ( self.Primary.ClipSize > -1 ) then
 			self.AmmoDisplay.PrimaryClip = self:Clip1()
 		end
-
+		
 		return self.AmmoDisplay
-
+		
 	end
 
 end
@@ -216,9 +216,9 @@ function SWEP:Think()
 	local vm = self.Owner:GetViewModel()
 	local curtime = CurTime()
 	local idletime = self:GetNextIdle()
-
+	
 	if ( IsExistent( self ) ) and ( IsExistent( self:GetNWEntity( "blade" ) ) ) then
-
+	
 		local blade = self:GetNWEntity( "blade" )
 		local vm_blade = self.Owner:GetVelocity()
 		local velo = math.Clamp( ( math.Round( ( math.abs( vm_blade.y ) + math.abs( vm_blade.x ) + math.abs( vm_blade.z ) ) ) / 3000 ), 0.01, 0.25 )
@@ -227,15 +227,15 @@ function SWEP:Think()
 			EmitSound( "", blade:GetPos(), blade:EntIndex(), CHAN_STATIC, velo, 50, SND_CHANGE_PITCH, 60 + velo * 10 )
 
 		end
-
+		
 		if ( self:GetNWBool( "eblade_active" ) == true ) then
-		--	CreateParticleSystem( blade, "blade_glow", PATTACH_POINT_FOLLOW, 1, Vector( 0, 0, 0 ) )
+		--	CreateParticleSystem( blade, "blade_glow", PATTACH_POINT_FOLLOW, 1, Vector( 0, 0, 0 ) ) 
 		--	ParticleEffectAttach( "blade_glow", PATTACH_POINT_FOLLOW, blade, 0 ) -- wtf, garry? why you rekt this function?
 			self:SetNWBool( "eblade_active", false )
 		end
-
+	
 	end
-
+	
 	if ( idletime > 0 && CurTime() > idletime ) and ( SERVER ) then
 
 		vm:SendViewModelMatchingSequence( vm:LookupSequence( "idle_cycle" ) )
@@ -253,21 +253,21 @@ function SWEP:Think()
 		self:SetNextMeleeAttack( 0 )
 
 	end
-
+	
 	if ( SERVER ) then
-
+		
 		if( self.NextRegenTime <= CurTime() ) then
-			if ( self.Weapon:Clip1() < self.Primary.ClipSize ) then
-				self.Weapon:SetClip1( self.Weapon:Clip1() + 1 )
+			if ( self.Weapon:Clip1() < self.Primary.ClipSize ) then 
+				self.Weapon:SetClip1( self.Weapon:Clip1() + 1 ) 
 			end
 		end
-
+		
 		if ( self.Weapon:Clip1() >= 101 ) then
 			self.Weapon:SetClip1( 100 )
 		end
-
+	
 	end
-
+	
 	self:SciFiMath()
 	self:SciFiMelee()
 
@@ -278,23 +278,23 @@ function SWEP:Deploy()
 	if ( self.Owner:IsNPC() ) then self:Remove() end --Those NPC-peasants aren't mighty enough to use this weapon.
 
 	local vm = self.Owner:GetViewModel()
-
+	
 	self.Weapon:SetHoldType( "wos-test1" )
-
+	
 	self.Weapon:EmitSound("weapons/smack.wav", 50, 100)
-
+	
 	vm:SendViewModelMatchingSequence( vm:LookupSequence( "draw" ) )
-
+	
 	self:UpdateNextIdle()
-
+	
 	self:SetClip1( 60 )
 end
-
-
+	
+	
 function SWEP:PrimaryAttack()
 
 	self:SetNWBool( "eblade_active", true )
-
+	
 	--[[if !self.Owner:KeyDown(IN_RIGHT) then
 	    self.Owner:SelectWeightedSequence(ACT_MP_ATTACK_STAND_PRIMARYFIRE)
     else
@@ -302,13 +302,13 @@ function SWEP:PrimaryAttack()
     end--]]
 
 	self.Owner:SetAnimation( PLAYER_ATTACK1 )
-
+	
 	local vmanims = {ACT_VM_HITCENTER, ACT_VM_PRIMARYATTACK}
-
+	
 	self.Weapon:SendWeaponAnim( vmanims[math.random( 1, #vmanims )] )
-
+	
 	local anim = ""
-
+	
 	if ( GetRelChance( comfort ) ) then
 		self.Owner:ViewPunch( Angle( 0, 2, 0 ) )
 		anim = "midslash1"
@@ -318,37 +318,37 @@ function SWEP:PrimaryAttack()
 		anim = "midslash2"
 		comfort = comfort + 10
 	end
-
+	
 	--local vm = self.Owner:GetViewModel()
 	--vm:SendViewModelMatchingSequence( vm:LookupSequence( anim ) )
-
-
+	
+	
 
 	self:EmitSound( SwingElectric[ math.random( 1, #SwingElectric ) ] )
 
 	local weaken = 0.4 + ( self.SciFiACC / 30 )
-
+	
 	self:UpdateNextIdle()
 	self:SetNextMeleeAttack( CurTime() + 0.2 )
-
+	
 	self:SetNextPrimaryFire( CurTime() + weaken )
 	--self:SetNextSecondaryFire( CurTime() + weaken + 0.1 )
 
 	self.NextRegenTime = CurTime() + self.SciFiRegenDelay
-
+	
 	self:AddSciFiACC( 12 )
 
 end
 
 function SWEP:SecondaryAttack()
-
-self.Weapon:SetNextSecondaryFire(CurTime() + 1.4)
+    
+self.Weapon:SetNextSecondaryFire(CurTime() + 2)
 self.Owner:SetVelocity( self.Owner:GetAimVector() * 250 + Vector( 0, 0, 250 ) )
 
-
+	
 
 end
-
+	
 
 
 function SWEP:DealDamage()
@@ -359,7 +359,7 @@ function SWEP:DealDamage()
 	local velo = math.Clamp( ( math.Round( ( math.abs( playervelo.y ) + math.abs( playervelo.x ) + math.abs( playervelo.z ) ) ) / 64 ), 1, 10 )
 
 	self.Owner:LagCompensation( true )
-
+	
 	local tr = util.TraceLine( {
 		start = self.Owner:GetShootPos(),
 		endpos = self.Owner:GetShootPos() + self.Owner:GetAimVector() * self.HitDistance,
@@ -367,7 +367,7 @@ function SWEP:DealDamage()
 		mask = MASK_SHOT_HULL
 	} )
 
-	if ( !IsValid( tr.Entity ) ) then
+	if ( !IsValid( tr.Entity ) ) then 
 		tr = util.TraceHull( {
 			start = self.Owner:GetShootPos(),
 			endpos = self.Owner:GetShootPos() + self.Owner:GetAimVector() * self.HitDistance,
@@ -379,17 +379,17 @@ function SWEP:DealDamage()
 	end
 
 	if ( tr.Hit && !( game.SinglePlayer() && CLIENT ) ) then
-
+	
 		self:EmitSound( HitElectric[ math.random( 1, #HitElectric ) ] )
-
+		
 		util.Decal( "manhackcut", tr.HitPos + tr.HitNormal, tr.HitPos - tr.HitNormal )
-
+		
 		if ( anim == "stab" ) then
 			ParticleEffect( "hpw_protego_glow", tr.HitPos, self.Owner:EyeAngles(), self )
 		else
 			ParticleEffect( "hpw_protego_glow", tr.HitPos, self.Owner:EyeAngles(), self )
 		end
-
+	
 		if ( self:Clip1() > 0 ) then
 				if ( !game.SinglePlayer() && SERVER ) then
 				local fx2 = ents.Create( "light_dynamic" )
@@ -404,16 +404,16 @@ function SWEP:DealDamage()
 				end
 			self:EmitSound( HitDefault )
 		end
-
+	
 	end
 
 	local hit = false
-
+	
 	if ( SERVER && IsValid( tr.Entity ) && ( tr.Entity:IsNPC() || tr.Entity:IsPlayer() || tr.Entity:Health() > 0 ) ) then
 
 		local dmginfo = DamageInfo()
 		local dmgforce = self.Owner:GetRight() * 100 + self.Owner:GetForward() * 1000 + playervelo * 10
-
+	
 		local attacker = self.Owner
 		if ( !IsValid( attacker ) ) then attacker = self end
 		dmginfo:SetAttacker( attacker )
@@ -432,13 +432,13 @@ function SWEP:DealDamage()
 		else
 			dmginfo:SetDamage( math.random( 175, 200 ) * amp + velo )
 		end
-
+		
 		dmginfo:SetDamageForce( dmgforce )
 
 		tr.Entity:TakeDamageInfo( dmginfo )
-
+		
 		hit = true
-
+		
 	end
 
 	if ( SERVER && IsValid( tr.Entity ) ) then
@@ -447,8 +447,8 @@ function SWEP:DealDamage()
 			phys:ApplyForceOffset( self.Owner:GetAimVector() * 80 * phys:GetMass(), tr.HitPos )
 		end
 	end
-
-
+	
+	
 	self:SetNWBool( "eblade_active", false )
 
 	self.Owner:LagCompensation( false )

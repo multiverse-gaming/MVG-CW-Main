@@ -207,13 +207,13 @@ end
 
 
 function SWEP:PrimaryAttack()
-
+	/*
 	self:SetNextPrimaryFire(CurTime() + self.bashReloadTime);
 	self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK );
 	if CLIENT then return end;
 	net.Start("shieldbash") net.WriteEntity(self.Owner) net.Broadcast();
 	self:ShieldBash();
-
+	*/
 end
 
 
@@ -258,7 +258,7 @@ end
 				Network initialize && Client Receive
 ---------------------------------------------------------------------------------------------------------------------------------------------
 */
-/*
+
 if SERVER then
 	util.AddNetworkString("disable_shielddraw");
 	util.AddNetworkString("shieldbash");
@@ -281,8 +281,10 @@ net.Receive('shieldbash',function()
 	local ply = net.ReadEntity();
 	if not IsValid(ply) or not ply:IsPlayer() or not ply:Alive() then return end;
 	ply:AnimRestartGesture( GESTURE_SLOT_GRENADE,ACT_GMOD_GESTURE_MELEE_SHOVE_2HAND, true );
-end)	
-end*/
+end)
+	
+	
+end
 
 /* 
 ---------------------------------------------------------------------------------------------------------------------------------------------

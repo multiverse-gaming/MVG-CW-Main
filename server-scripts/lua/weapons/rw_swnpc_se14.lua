@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_red"
+SWEP.TracerEffect				= "tfa_tracer_red"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_light"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -35,7 +35,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_se14"
 
 SWEP.ClientModel				= {
-	model						= "models/kuro/sw_battlefront/weapons/bf1/se14c.mdl",
+	model						= "models/arccw/kuro/sw_battlefront/weapons/bf1/se14c.mdl",
 	pos							= Vector(4, 01, 2),
 	angle						= Angle(180, 180, 0),
 	size						= Vector(1.0, 1.0, 1.0),

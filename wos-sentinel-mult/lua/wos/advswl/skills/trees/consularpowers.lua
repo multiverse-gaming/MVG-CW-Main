@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Consular Path"
+TREE.Name = "Consular Path Old"
 
 --Description of the skill tree
 TREE.Description = "A Consular is a specialized kind of Jedi. They focus more on cerebral Force skills. They're our healers, our researchers, our seers."
@@ -41,7 +41,7 @@ TREE.MaxTiers = 4
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = {"TEAM_JEDICONSULAR", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE","TEAM_JEDIGURDCHIEF","TEAM_JEDICONGUARD", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
+TREE.JobRestricted = {}--{"TEAM_JEDICONSULAR", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE","TEAM_JEDIGURDCHIEF","TEAM_JEDICONGUARD", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
 
 TREE.Tier = {}
 
@@ -70,7 +70,7 @@ TREE.Tier[1][1] = {
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 50) end,
 }
 
-TREE.Tier[1][2] = {
+--[[TREE.Tier[1][2] = {
 	Name = "Battle Meditation",
 	Description = "Affect results of entire battles with just thoughts",
 	Icon = "wos/forceicons/absorb.png",
@@ -79,7 +79,7 @@ TREE.Tier[1][2] = {
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Battle Meditation" ) end,
-}
+} --]]
 
 --[[TREE.Tier[1][3] = {
 	Name = "Dual Lightsabers",

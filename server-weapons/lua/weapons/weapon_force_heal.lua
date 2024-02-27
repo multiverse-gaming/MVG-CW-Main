@@ -276,7 +276,7 @@ end
 
 
 
-function SWEP:SecondaryAttack()
+--[[function SWEP:SecondaryAttack()
 
 
 
@@ -344,7 +344,7 @@ function SWEP:SecondaryAttack()
 
 	end
 
-
+--]]
 
 
 

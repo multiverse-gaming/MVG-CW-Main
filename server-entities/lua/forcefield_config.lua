@@ -10,7 +10,7 @@ ForceField.Price = 1500
 ForceField.MaxPerPlayer = 5
 -- Force field health (can be damaged with regular weapons)
 -- Set to false to make them unbreakable
-ForceField.MaxHealth = 99999
+ForceField.MaxHealth = 2000001
 -- If set to true, the force field will drop a cell when it's broken,
 -- otherwise it will be removed
 ForceField.DropOnBreak = true
@@ -21,7 +21,7 @@ ForceField.MaxWidth = 512
 -- The minimum height of a force field
 ForceField.MinHeight = 32
 -- The maximum height of a force field
-ForceField.MaxHeight = 128
+ForceField.MaxHeight = 512
 -- If set to true, Force Fields usage is not restricted by any 
 -- of the below rules.
 ForceField.NotRestricted = false
@@ -31,6 +31,7 @@ ForceField.OnlyOwnerCanInstall = true
 -- A list of user groups that can buy and use force field cells
 ForceField.AllowedGroups = {
     superadmin = true,
+    headadmin = true,
     admin = true,
     user = true
 }

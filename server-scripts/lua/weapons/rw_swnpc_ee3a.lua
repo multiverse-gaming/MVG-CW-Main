@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_red"
+SWEP.TracerEffect				= "tfa_tracer_red"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_heavy"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -35,7 +35,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_ee3a"
 
 SWEP.ClientModel				= {
-	model						= "models/sw_battlefront/weapons/ee3_noscope.mdl",
+	model						= "models/arccw/sw_battlefront/weapons/ee3_noscope.mdl",
 	pos							= Vector(0, -0.5, -0),
 	angle						= Angle(180, 180, 0),
 	size						= Vector(1.2, 1.2, 1.2),

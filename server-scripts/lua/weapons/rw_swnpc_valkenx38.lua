@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_blue"
+SWEP.TracerEffect				= "tfa_tracer_blue"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_heavy"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -36,7 +36,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_valken"
 
 SWEP.ClientModel				= {
-	model						= "models/sw_battlefront/weapons/valken_38x.mdl",
+	model						= "models/arccw/sw_battlefront/weapons/valken_38x.mdl",
 	pos							= Vector(2.5, 01, -0.5),
 	angle						= Angle(192, 180, 0),
 	size						= Vector(1.0, 1.0, 1.0),

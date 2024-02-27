@@ -696,7 +696,7 @@ function SWEP:DrawHUDTargetSelection()
 end
 
 SWEP.Vars.ForceBar = 100
-SWEP.Vars.StaminaBar = 100
+SWEP.Vars.StaminaBar = 65
 SWEP.Vars.DevBar = 0
 
 function SWEP:DrawHUD()

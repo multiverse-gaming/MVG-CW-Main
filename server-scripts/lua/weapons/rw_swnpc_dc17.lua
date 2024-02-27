@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_blue"
+SWEP.TracerEffect				= "tfa_tracer_blue"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_light"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -35,7 +35,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_dc17"
 
 SWEP.ClientModel				= {
-	model						= "models/sw_battlefront/weapons/dc17_blaster.mdl",
+	model						= "models/arccw/sw_battlefront/weapons/dc17_blaster.mdl",
 	pos							= Vector(4, 01, -1),
 	angle						= Angle(180, 180, 0),
 	size						= Vector(1.0, 1.0, 1.0),

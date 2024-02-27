@@ -75,15 +75,16 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Sentinel",
   "Jedi General Anakin Skywalker",
   "Jedi Guardian",
-  "RC Clone Advisor","Fleet Recruit",
-  "Fleet Member",
-  "Fleet High Ranking",
+  "RC Clone Advisor",
+  "Fleet Recruit",
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
-  "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer"
+  "Fleet Intelligence Officer",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
 })
 
 -- Nicolas's Rank System Support

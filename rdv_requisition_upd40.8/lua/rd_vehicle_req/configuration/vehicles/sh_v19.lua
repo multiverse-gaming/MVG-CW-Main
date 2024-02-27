@@ -41,19 +41,15 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th Lieutenant",
   "327th Talon Squadron",
   "327th Medic Officer",
+  "RC Fixer",
+  "CF99 Tech",
+  "Fleet Recruit",
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "RC Fixer",
-  "Fleet Ensign",
-    "Fleet Recruit",
-    "Fleet Member",
-    "Fleet High Ranking",
-  "Fleet Lieutenant",
-  "Fleet Lieutenant Commander",
-  "Fleet Commander",
-  "Fleet Captain",
-  "Fleet Commodore",
-  "CF99 Tech"
+  "Fleet Intelligence Officer"
 })
 
 -- Nicolas's Rank System Support

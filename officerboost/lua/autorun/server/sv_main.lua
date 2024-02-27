@@ -311,7 +311,7 @@ hook.Add( "OfficerBoost.OnBoost", "BattleFocusBoost", function(ply, type, creato
     ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
 
     ply:SetHealth(ply:Health() + data.AdditionalHealth)
-    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
+    ply:SetArmor(math.min(ply:Armor() + data.AdditionalArmor, 150)) -- Cap Armour Gain
 
     timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
         if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end

@@ -32,7 +32,7 @@ function ENT:Use(ply)
         [TEAM_JEDIGENERALVOS] = true,
         }
     if jedi[ply:Team()] then
-	ply:AddSkillXP(400)
+	ply:AddSkillXP(800)
     print(ply:Nick() .. " (" .. ply:SteamID() .. ") picked up a xpholocron")
 	self:Remove()
     end

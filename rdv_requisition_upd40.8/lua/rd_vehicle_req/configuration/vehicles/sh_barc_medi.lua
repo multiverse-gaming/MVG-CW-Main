@@ -22,7 +22,7 @@ OBJ:SetClass("lvs_fakehover_barc_medical")
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Medical General",
   "Medical Officer",
-  "Medical Marshal Commander",
+  "Senior Medical Director",
   "Medical Director",
   "Assistant Medical Director",
   "501st Medic Officer",
@@ -30,7 +30,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Green Company Medic Officer",
   "Galactic Marines Medic Officer",
   "Coruscant Guard Medic Officer",
-  "Wolfpack Medic Officer",
+  "104th Medic Officer",
   "327th Medic Officer",
   "Fleet Director of Research and Development",
   "Fleet Research and Development Officer"

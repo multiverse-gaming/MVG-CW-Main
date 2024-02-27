@@ -69,12 +69,12 @@ SWEP.ViewModelSprintAng 	= Angle( -10, -10, 0 )
 
 SWEP.SciFiFamily			= { "vtec", "melee_simple", "useshook", "infammo", "autoregen" }
 SWEP.SciFiWorldStats		= {
-	["1"] = { text = "Damage: 				 15 - 50, +5", color = Color( 180, 180, 180 ) },
+	["1"] = { text = "Damage: 				 30 - 80, +5", color = Color( 180, 180, 180 ) },
 	["2"] = { text = "Crit. mul.: 				 --", color = Color( 180, 180, 180 ) },
 	["3"] = { text = "Damage type: 	Impact, Energy", color = Color( 110, 180, 255 ) },
-	["4"] = { text = "Attack speed: 	(max.) 2.5", color = Color( 180, 180, 180 ) },
+	["4"] = { text = "Attack speed: 	(max.) 3.5", color = Color( 180, 180, 180 ) },
 	["5"] = { text = "Range: 						 82 units", color = Color( 180, 180, 180 ) },
-	["6"] = { text = "Recharge rate: 60", color = Color( 180, 180, 180 ) },
+	["6"] = { text = "Recharge rate: 40", color = Color( 180, 180, 180 ) },
 	["7"] = { text = "Damage is positively effected by the wielder's movement speed.", color = Color( 180, 180, 180 ) },
 	["8"] = { text = "Damage decreases with lower blade charge.", color = Color( 180, 180, 180 ) },
 --	["9"] = { text = "... They ask for your allegiance, and you shall give it ...", color = Color( 255, 20, 20 ) }
@@ -86,7 +86,7 @@ SWEP.ViewModelMeleeAng		= Angle( 10, 20, -20 )
 SWEP.SciFiMeleeTime			= 0
 SWEP.SciFiMeleeASpeed		= 0.35
 SWEP.SciFiMeleeRange		= 52
-SWEP.SciFiMeleeDamage		= 3
+SWEP.SciFiMeleeDamage		= 7
 SWEP.SciFiMeleeSound		= "scifi.melee.swing.light"
 
 SWEP.HitDistance			= 82
@@ -396,7 +396,7 @@ function SWEP:DealDamage()
 	if ( SERVER && IsValid( tr.Entity ) && ( tr.Entity:IsNPC() || tr.Entity:IsPlayer() || tr.Entity:Health() > 0 ) ) then
 
 		local dmginfo = DamageInfo()
-		local dmgforce = self.Owner:GetRight() * 100 + self.Owner:GetForward() * 1000 + playervelo * 10
+		local dmgforce = self.Owner:GetRight() * 150 + self.Owner:GetForward() * 1000 + playervelo * 10
 
 		local attacker = self.Owner
 		if ( !IsValid( attacker ) ) then attacker = self end
@@ -414,7 +414,7 @@ function SWEP:DealDamage()
 			dmginfo:SetDamageType( bit.bor( DMG_ENERGYBEAM, DMG_NEVERGIB ) )
 			self:TakePrimaryAmmo( math.Clamp( 25, 0, self:Clip1() ) )
 		else
-			dmginfo:SetDamage( math.random( 50, 80 ) * amp + velo )
+			dmginfo:SetDamage( math.random( 80, 120 ) * amp + velo )
 		end
 
 		dmginfo:SetDamageForce( dmgforce )

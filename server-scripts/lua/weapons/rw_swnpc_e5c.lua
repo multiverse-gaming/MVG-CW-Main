@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_red"
+SWEP.TracerEffect				= "tfa_tracer_red"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_heavy"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -36,7 +36,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_e5c"
 
 SWEP.ClientModel				= {
-	model						= "models/kuro/sw_battlefront/weapons/e5c_blaster.mdl",
+	model						= "models/arccw/kuro/sw_battlefront/weapons/e5c_blaster.mdl",
 	pos							= Vector(5.5, 01, 2.5),
 	angle						= Angle(192, 180, 0),
 	size						= Vector(1.0, 1.0, 1.0),

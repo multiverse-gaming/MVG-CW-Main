@@ -30,13 +30,13 @@ TREE.Name = "Forms"
 TREE.Description = "Learn the Martial Arts of the Force."
 
 --Icon for the skill tree ( Appears in category menu and above the skills )
-TREE.TreeIcon = "wos/skilltrees/forms/forms_skill.png"
+TREE.TreeIcon = "wos/skilltrees/forms/versatile.png"
 
 --What is the background color in the menu for this 
 TREE.BackgroundColor = Color( 255, 0, 0, 25 )
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 4
+TREE.MaxTiers = 3
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
@@ -60,8 +60,29 @@ TREE.Tier = {}
 
 TREE.Tier[1] = {}
 
-
 TREE.Tier[1][1] = {
+	Name = "Soresu 1",
+	Description = "Gives your Form Defensive Stance 1",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 1 ) end,
+}
+
+TREE.Tier[1][2] = {
+	Name = "Niman 1",
+	Description = "Gives your Form Versatile Stance 1",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 1 ) end,
+}
+
+TREE.Tier[1][3] = {
 	Name = "Makashi 1",
 	Description = "Gives your Form Aggressive Stance 1",
 	Icon = "wos/skilltrees/forms/aggressive.png",
@@ -72,261 +93,206 @@ TREE.Tier[1][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForm( "Makashi", 1 ) end,
 }
 
+TREE.Tier[1][4] = {
+	Name = "Shii-Cho 1",
+	Description = "Gives your Form Agile Stance 1",
+	Icon = "wos/skilltrees/forms/agile.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Shii-Cho", 1 ) end,
+}
+
+TREE.Tier[1][5] = {
+	Name = "Ataru 1",
+	Description = "Gives your Form flourish Stance 1",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Ataru", 1 ) end,
+}
+
+TREE.Tier[1][6] = {
+	Name = "Shien 1",
+	Description = "Gives your Form Shien Stance 1",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Shien", 1 ) end,
+}
+
+TREE.Tier[1][7] = {
+	Name = "Djem So 1",
+	Description = "Gives your Form Arrogant Stance 1",
+	Icon = "wos/skilltrees/forms/aggressive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 1 ) end,
+}
+
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
-	Name = "Soresu 1",
-	Description = "Gives your Form Defensive Stance 1",
+	Name = "Soresu 2",
+	Description = "Gives your Form Defensive Stance 2",
 	Icon = "wos/skilltrees/forms/defensive.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 2 ) end,
 }
 
 TREE.Tier[2][2] = {
-	Name = "Niman 1",
-	Description = "Gives your Form Versatile Stance 1",
+	Name = "Niman 2",
+	Description = "Gives your Form Versatile Stance 2",
 	Icon = "wos/skilltrees/forms/versatile.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 2 ) end,
 }
 
 TREE.Tier[2][3] = {
 	Name = "Makashi 2",
 	Description = "Gives your Form Aggressive Stance 2",
 	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 3,
-	Requirements = {
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Makashi", 2 ) end,
 }
 
 TREE.Tier[2][4] = {
-	Name = "Shii-Cho 1",
-	Description = "Gives your Form Agile Stance 1",
+	Name = "Shii-Cho 2",
+	Description = "Gives your Form Agile Stance 2",
 	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Shii-Cho", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Shii-Cho", 2 ) end,
 }
 
 TREE.Tier[2][5] = {
-	Name = "Ataru 1",
-	Description = "Gives your Form flourish Stance 1",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	Name = "Ataru 2",
+	Description = "Gives your Form flourish Stance 2",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Ataru", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Ataru", 2 ) end,
 }
 
 TREE.Tier[2][6] = {
-	Name = "Shien 1",
-	Description = "Gives your Form Shien Stance 1",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	Name = "Shien 2",
+	Description = "Gives your Form Shien Stance 2",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Shien", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Shien", 2 ) end,
 }
 
 TREE.Tier[2][7] = {
-	Name = "Djem So 1",
-	Description = "Gives your Form Arrogant Stance 1",
+	Name = "Djem So 2",
+	Description = "Gives your Form Arrogant Stance 2",
 	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 0,
-	Requirements = {
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 2 ) end,
 }
 
 TREE.Tier[3] = {}
 
 TREE.Tier[3][1] = {
-	Name = "Soresu 2",
-	Description = "Gives your Form Defensive Stance 2",
+	Name = "Soresu 3",
+	Description = "Gives your Form Defensive Stance 3",
 	Icon = "wos/skilltrees/forms/defensive.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 1 },
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 2 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 3 ) end,
 }
 
 TREE.Tier[3][2] = {
-	Name = "Niman 2",
-	Description = "Gives your Form Versatile Stance 2",
+	Name = "Niman 3",
+	Description = "Gives your Form Versatile Stance 3",
 	Icon = "wos/skilltrees/forms/versatile.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 2 },
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 2 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 3 ) end,
 }
 
 TREE.Tier[3][3] = {
 	Name = "Makashi 3",
 	Description = "Gives your Form Aggressive Stance 3",
 	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 4,
-	Requirements = {
-	[2] = { 3 },
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Makashi", 3 ) end,
 }
 
 TREE.Tier[3][4] = {
-	Name = "Shii-Cho 2",
-	Description = "Gives your Form Agile Stance 2",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 4 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Shii-Cho", 2 ) end,
-}
-
-TREE.Tier[3][5] = {
-	Name = "Ataru 2",
-	Description = "Gives your Form flourish Stance 2",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 5 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Ataru", 2 ) end,
-}
-
-TREE.Tier[3][6] = {
-	Name = "Shien 2",
-	Description = "Gives your Form Shien Stance 2",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 6 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Shien", 2 ) end,
-}
-
-TREE.Tier[3][7] = {
-	Name = "Djem So 2",
-	Description = "Gives your Form Arrogant Stance 2",
-	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 7 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 2 ) end,
-}
-
-TREE.Tier[4] = {}
-TREE.Tier[4][1] = {
-	Name = "Soresu 3",
-	Description = "Gives your Form Defensive Stance 3",
-	Icon = "wos/skilltrees/forms/defensive.png",
-	PointsRequired = 4,
-	Requirements = {
-	[3] = { 1 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Soresu", 3 ) end,
-}
-
-TREE.Tier[4][2] = {
-	Name = "Niman 3",
-	Description = "Gives your Form Versatile Stance 3",
-	Icon = "wos/skilltrees/forms/versatile.png",
-	PointsRequired = 4,
-	Requirements = {
-	[3] = { 2 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Niman", 3 ) end,
-}
-
-TREE.Tier[4][4] = {
 	Name = "Shii-Cho 3",
 	Description = "Gives your Form Agile Stance 3",
 	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 4,
-	Requirements = {
-	[3] = { 4 },
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Shii-Cho", 3 ) end,
 }
 
-TREE.Tier[4][5] = {
+TREE.Tier[3][5] = {
 	Name = "Ataru 3",
 	Description = "Gives your Form flourish Stance 3",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 4,
-	Requirements = {
-	[3] = { 5 },
-	},
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Ataru", 3 ) end,
 }
 
-TREE.Tier[4][6] = {
+TREE.Tier[3][6] = {
 	Name = "Shien 3",
-	Description = "Gives your Form flourish Stance 3",
-	Icon = "wos/skilltrees/forms/agile.png",
-	PointsRequired = 4,
-	Requirements = {
-	[3] = { 6 },
-	},
+	Description = "Gives your Form Shien Stance 3",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Shien", 3 ) end,
 }
 
-TREE.Tier[4][7] = {
+TREE.Tier[3][7] = {
 	Name = "Djem So 3",
 	Description = "Gives your Form Arrogant Stance 3",
 	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 3,
-	Requirements = {
-	[3] = { 7 },
-	},
+	PointsRequired = 1,
+	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 3 ) end,
 }
+
 wOS:RegisterSkillTree( TREE )

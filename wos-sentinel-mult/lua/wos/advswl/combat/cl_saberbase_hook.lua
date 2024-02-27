@@ -227,6 +227,8 @@ hook.Add( "PreDrawHalos", "wOS.ForceHolograms", function()
 	local reflectors = {}
 	local ragers = {}
 	local channelers = {}
+	local weaknessers = {}
+	local winduers = {}
 
 	for _,ply in pairs( player.GetAll() ) do
 		if not IsValid( ply ) then continue end
@@ -236,6 +238,12 @@ hook.Add( "PreDrawHalos", "wOS.ForceHolograms", function()
 		end
 		if ply:GetNW2Float( "RageTime", 0 ) >= CurTime() then
 			table.insert( ragers, ply )
+		end
+		if ply:GetNW2Float( "WinduRageTime", 0 ) >= CurTime() then
+			table.insert( winduers, ply )
+		end
+		if ply:GetNW2Float( "WeaknessTime", 0 ) >= CurTime() then
+			table.insert( weaknessers, ply )
 		end
 		if ply:GetNW2Bool( "wOS.IsChanneling", false ) then
 			table.insert( channelers, ply )
@@ -250,8 +258,16 @@ hook.Add( "PreDrawHalos", "wOS.ForceHolograms", function()
 		halo.Add( ragers, Color( 255, 0, 0, 175 ), 5, 5, 3, true, false )
 	end
 
+	if #weaknessers > 0 then
+		halo.Add( weaknessers, Color( 255, 0, 0, 175 ), 5, 5, 3, true, false )
+	end
+
 	if #channelers > 0 then
 		halo.Add( channelers, Color( 255, 0, 0, 175 ), 10 + math.max( 0, math.sin( 1.5*CurTime() ) )*10, 10 + math.max( 0, math.sin( 1.5*CurTime() ) )*10, 3, true, false )
+	end
+
+	if #winduers > 0 then
+		halo.Add( winduers, Color( 186, 85, 211, 175 ), 5, 5, 3, true, false )
 	end
 
 end )

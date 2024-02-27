@@ -5,7 +5,7 @@ include( "base/scifi_base.lua" )
 SWEP.PrintName				= "CG Electrostaff"
 SWEP.Author					= "Darken217, Kilburn, robotboy655, MaxOfS2D, Tenrys"
 
-SWEP.Instructions			= ""
+SWEP.Instructions			= "Right click Smash, Left click Bash."
 
 SWEP.Slot					= 4
 SWEP.SlotPos				= 2
@@ -18,6 +18,9 @@ SWEP.HoldType 				= "wos-test1"
 SWEP.DeploySpeed 			= 2.5
 SWEP.ViewModelFOV			= 64
 SWEP.Weight					= 1
+
+SWEP.bashReloadTime = 2;
+SWEP.stunTime = 1;
 
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_R_Hand"] = { scale = Vector(1, 1, 1), pos = Vector(0, 0, 0), angle = Angle(44.908, 0, 0) },
@@ -34,13 +37,13 @@ SWEP.SciFiSkin				= "nil"
 SWEP.SciFiWorld 			= "nil"
 
 if ( CLIENT ) then
-SWEP.WepSelectIcon 			= surface.GetTextureID( "/vgui/circle" )
+SWEP.WepSelectIcon 			= surface.GetTextureID( "/vgui/electro.png" )
 end
 
 SWEP.Primary.ClipSize		= 100
 SWEP.Primary.DefaultClip	= 100
 SWEP.Primary.Automatic		= true
-SWEP.Primary.Ammo			= "none"
+SWEP.Primary.Ammo			= ""
 
 SWEP.ViewModelSprintAng 	= Angle( -10, -10, 0 )
 
@@ -254,7 +257,6 @@ function SWEP:Deploy()
 	self:SetClip1( 60 )
 end
 	
-	
 function SWEP:PrimaryAttack()
 
 	self:SetNWBool( "eblade_active", true )
@@ -286,7 +288,6 @@ function SWEP:PrimaryAttack()
 	--local vm = self.Owner:GetViewModel()
 	--vm:SendViewModelMatchingSequence( vm:LookupSequence( anim ) )
 	
-	
 
 	self:EmitSound( SwingElectric[ math.random( 1, #SwingElectric ) ] )
 
@@ -303,6 +304,92 @@ function SWEP:PrimaryAttack()
 	self:AddSciFiACC( 12 )
 	
 end
+
+/* 
+---------------------------------------------------------------------------------------------------------------------------------------------
+				Shield bash
+---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+function SWEP:FreezeEnemy(ply)
+	ply:Freeze(true);
+	timer.Create('unfreezemeswep'..tostring(ply:EntIndex()),self.stunTime,1,function()
+		if IsValid(ply) then ply:Freeze(false); end
+	end)
+end
+
+function SWEP:FindEnemy()
+	local mins = Vector( -10, -10, -3);
+	local maxs = Vector( 10, 10, 40);
+	local pos = self.Owner:GetPos() + self.Owner:GetForward()*35 + Vector(0,0,40);
+	local tr = {
+		start = pos, 
+		endpos = pos + Vector(0,0,5), 
+		mins = mins, 
+		maxs = maxs,
+		filter = {self.Owner,self.shieldProp,Entity(0)}
+	}
+	local hullTrace = util.TraceHull( tr );
+	if ( hullTrace.Hit ) then
+		if hullTrace.Entity:IsPlayer() then
+			return hullTrace.Entity;
+		end
+		return false;
+	end
+	return false;
+end
+
+
+function SWEP:ShieldBash()
+	local enemy = self:FindEnemy();
+	if enemy == false then return end;
+	enemy:TakeDamage(self.shieldDamage,self.Owner,self);
+	self:FreezeEnemy(enemy);
+	self.Owner:EmitSound(Sound("Flesh.ImpactHard"));
+end
+
+/* 
+---------------------------------------------------------------------------------------------------------------------------------------------
+				Secondary attack - Bash
+---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+function SWEP:SecondaryAttack()
+	self:SetNextSecondaryFire(CurTime() + self.bashReloadTime);
+	self.Weapon:SendWeaponAnim( ACT_VM_PRIMARYATTACK );
+	if CLIENT then return end;
+	net.Start("shieldbash") net.WriteEntity(self.Owner) net.Broadcast();
+	self:ShieldBash();
+
+end
+
+/* 
+---------------------------------------------------------------------------------------------------------------------------------------------
+				Network initialize && Client Receive
+---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+if SERVER then
+	util.AddNetworkString("shieldbash");
+end
+
+if CLIENT then
+	net.Receive(
+		'shieldbash',
+		function()
+			local ply = net.ReadEntity()
+			if not IsValid(ply) or not ply:IsPlayer() or not ply:Alive() then return end
+			ply:AnimRestartGesture(GESTURE_SLOT_GRENADE, ACT_GMOD_GESTURE_MELEE_SHOVE_2HAND, true)
+		end
+	)
+end
+
+
+/* 
+---------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
 
 function SWEP:DealDamage()
 

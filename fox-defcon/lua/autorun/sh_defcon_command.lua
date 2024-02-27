@@ -87,8 +87,16 @@ hook.Add( "loadCustomDarkRPItems", "Defcon_LoadAfterDarkRP", function()
 			[TEAM_FLEETMEMBERSNR] = true,
 
 			[TEAM_FLEETMEMBER] = true,
+			
+			[TEAM_FLEETLIEUTENANT] = true,
 
 			[TEAM_FLEETRECRUIT] = true,
+
+			[TEAM_FLEET_IO] = true,
+
+			[TEAM_FLEET_RDM] = true,
+
+			[TEAM_FLEET_RDE] = true,
 
 			[TEAM_SUPREMEGENERAL] = true,
 
@@ -96,18 +104,6 @@ hook.Add( "loadCustomDarkRPItems", "Defcon_LoadAfterDarkRP", function()
 
 			[TEAM_ASSISTANTBATTALIONGENERAL] = true,
 			
-			[TEAM_FLEET_MAVERICK] = true,
-
-			[TEAM_FLEET_SFOFC] = true,
-
-			[TEAM_FLEET_COI] = true, 
-
-			[TEAM_FLEET_IO] = true,
-
-			[TEAM_FLEET_DRD] = true,
-
-			[TEAM_FLEET_RD] = true,
-
 			[TEAM_501STGENERAL] = true,
 
 			[TEAM_212THGENERAL] = true,

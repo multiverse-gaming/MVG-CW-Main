@@ -11,7 +11,6 @@ COMMS:RegisterChannel("Generals", {
     Factions = teams.Generals,
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -25,7 +24,6 @@ COMMS:RegisterChannel("Fleet", {
     Factions = teams.Fleet,
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -57,7 +55,6 @@ COMMS:RegisterChannel("OD Communication", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 })
 
@@ -82,7 +79,6 @@ COMMS:RegisterChannel("501st Legion Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -106,19 +102,18 @@ COMMS:RegisterChannel("501st Legion Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
 
 
-COMMS:RegisterChannel("212th Attack Battalion Primay", {
+COMMS:RegisterChannel("212th Attack Battalion Primary", {
 
     Color = Color(255, 157, 0, 255),
 
     Factions = mergeTables(
         teams.Team212,
-        teams.Team212trp,
+        teams.Team212Trp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -130,7 +125,6 @@ COMMS:RegisterChannel("212th Attack Battalion Primay", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -142,7 +136,7 @@ COMMS:RegisterChannel("212th Attack Battalion Secondary", {
 
     Factions = mergeTables(
         teams.Team212,
-        teams.Team212trp,
+        teams.Team212Trp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -154,20 +148,19 @@ COMMS:RegisterChannel("212th Attack Battalion Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
 
 
 
-COMMS:RegisterChannel("Green Company Primay", {
+COMMS:RegisterChannel("Green Company Primary", {
 
     Color = Color(0, 255, 64, 255),
 
     Factions = mergeTables(
         teams.TeamGreen,
-        teams.TeamGreentrp,
+        teams.TeamGreenTrp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -179,7 +172,6 @@ COMMS:RegisterChannel("Green Company Primay", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -190,7 +182,7 @@ COMMS:RegisterChannel("Green Company Secondary", {
 
     Factions = mergeTables(
         teams.TeamGreen,
-        teams.TeamGreentrp,
+        teams.TeamGreenTrp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -202,7 +194,6 @@ COMMS:RegisterChannel("Green Company Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -215,7 +206,7 @@ COMMS:RegisterChannel("Coruscant Guard Primary", {
 
     Factions = mergeTables(
         teams.TeamCG,
-        teams.TeamCGtrp,
+        teams.TeamCGTrp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -227,7 +218,6 @@ COMMS:RegisterChannel("Coruscant Guard Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -239,7 +229,7 @@ COMMS:RegisterChannel("Coruscant Guard Secondary", {
 
     Factions = mergeTables(
         teams.TeamCG,
-        teams.TeamCGtrp,
+        teams.TeamCGTrp,
         teams.Fleet,
         teams.Generals,
         teams.Marshal,
@@ -251,7 +241,6 @@ COMMS:RegisterChannel("Coruscant Guard Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -276,7 +265,6 @@ COMMS:RegisterChannel("Galactic Marines Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -300,7 +288,6 @@ COMMS:RegisterChannel("Galactic Marines Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -325,7 +312,6 @@ COMMS:RegisterChannel("Wolfpack Battalion Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -348,7 +334,6 @@ COMMS:RegisterChannel("Wolfpack Battalion Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -375,7 +360,6 @@ COMMS:RegisterChannel("Engineers Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -400,7 +384,6 @@ COMMS:RegisterChannel("Engineers Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -420,7 +403,6 @@ COMMS:RegisterChannel("Shadow Troopers", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -441,7 +423,6 @@ COMMS:RegisterChannel("Republic Commandos Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -462,7 +443,6 @@ COMMS:RegisterChannel("Republic Commandos Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -478,7 +458,6 @@ COMMS:RegisterChannel("Jedi Council", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -498,7 +477,6 @@ COMMS:RegisterChannel("Jedi Order Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -516,7 +494,6 @@ COMMS:RegisterChannel("Jedi Order Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -548,7 +525,6 @@ COMMS:RegisterChannel("Medical Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -565,7 +541,6 @@ COMMS:RegisterChannel("Medical Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -654,7 +629,6 @@ COMMS:RegisterChannel("Open Comms Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -707,7 +681,6 @@ COMMS:RegisterChannel("Open Comms Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -758,7 +731,6 @@ COMMS:RegisterChannel("Training Comms 1", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -808,7 +780,6 @@ COMMS:RegisterChannel("Training Comms 2", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -858,7 +829,6 @@ COMMS:RegisterChannel("Training Comms 3", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -873,7 +843,6 @@ COMMS:RegisterChannel("Event Primary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -890,7 +859,6 @@ COMMS:RegisterChannel("Event Secondary", {
     ),
 
     CustomCheck = function(ply)
-
     end,
 
 })
@@ -902,12 +870,11 @@ COMMS:RegisterChannel("Event Secondary", {
 
 COMMS:RegisterChannel("NAME", {
 
-    Color = Color(176, 184, 182, 180),
+    Color = Color(R, G, B, A), -- Red, Green, Blue, Alpha
 
     Factions = {"JOB"},
 
     CustomCheck = function(ply)
-
     end,
 
 })

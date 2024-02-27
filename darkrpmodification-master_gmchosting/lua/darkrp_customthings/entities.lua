@@ -22,7 +22,7 @@ DarkRP.createEntity("JumpPack", {
     price = 0,
     max = 1,
     cmd = "jump1",
-    allowed = {TEAM_FLEET212THHOO, TEAM_212THARC, TEAM_ARCALPHA212th, TEAM_212THHEAVYTROOPER, TEAM_212THMEDOFFICER, TEAM_212THMEDTROOPER, TEAM_212THMCOMMANDER, TEAM_212THCOMMANDER, TEAM_212THEXECUTIVEOFFICER, TEAM_212THMAJOR, TEAM_212THGENERAL, TEAM_212THLIEUTENANT, TEAM_212THSERGEANT, TEAM_212THTROOPER, TEAM_212THOFFICER},
+    allowed = {TEAM_212THARC, TEAM_ARCALPHA212th, TEAM_212THHEAVYTROOPER, TEAM_212THMEDOFFICER, TEAM_212THMEDTROOPER, TEAM_212THMCOMMANDER, TEAM_212THCOMMANDER, TEAM_212THEXECUTIVEOFFICER, TEAM_212THMAJOR, TEAM_212THGENERAL, TEAM_212THLIEUTENANT, TEAM_212THSERGEANT, TEAM_212THTROOPER, TEAM_212THOFFICER},
     category = "Entities",
 })
 
@@ -46,15 +46,6 @@ DarkRP.createEntity("Laser Turret", {
     category = "Entities",
 })
 
-DarkRP.createEntity("Ammo Chargepack", {
-    ent = "ammo_chargepack_riggs",
-    model = "models/cs574/objects/ammo_box.mdl",
-    price = 0,
-    max = 1,
-    cmd = "charge",
-    allowed = {},
-    category = "Entities",
-})
 
 DarkRP.createEntity("Fortification Resources", {
     ent = "joefort_ressource_100",
@@ -72,7 +63,7 @@ DarkRP.createEntity("Keypad Battery", {
     price = 0,
     max = 2,
     cmd = "kpb",
-    allowed = {TEAM_CEMECHANIC, TEAM_CECHIEF, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CELIEUTENANT,TEAM_JEDICOUNCIL, TEAM_CESPECIALIST, TEAM_CEEXECUTIVEOFFICER, TEAM_CETROOPER, TEAM_CEFAB, TEAM_RCTECH,TEAM_RCATIN, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_CEGENERAL, TEAM_RCFIXER, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_JEDIGENERALAAYLA, TEAM_JEDISENGUARD, TEAM_G,TEAM_FLEET_DRD,TEAM_FLEET_RD},
+    allowed = {TEAM_FLEET_RDE,TEAM_CEMECHANIC, TEAM_CECHIEF, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CELIEUTENANT,TEAM_JEDICOUNCIL, TEAM_CESPECIALIST, TEAM_CEEXECUTIVEOFFICER, TEAM_CETROOPER, TEAM_CEFAB, TEAM_RCTECH,TEAM_RCATIN, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_CEGENERAL, TEAM_RCFIXER, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_JEDIGENERALAAYLA, TEAM_JEDISENGUARD, TEAM_G,TEAM_FLEET_DRD,TEAM_FLEET_RD},
     category = "Entities",
 })
 
@@ -82,7 +73,7 @@ DarkRP.createEntity("Keypad Shield Trooper", {
     price = 0,
     max = 1,
     cmd = "kpst",
-    allowed = {TEAM_CEMECHANIC, TEAM_CETROOPER, TEAM_RCTECH, TEAM_RCFIXER,TEAM_RCATIN},
+    allowed = {TEAM_CEMECHANIC, TEAM_CETROOPER, TEAM_RCTECH,TEAM_RCTECH, TEAM_RCFIXER,TEAM_RCATIN},
     category = "Entities",
 })
 
@@ -92,7 +83,7 @@ DarkRP.createEntity("Keypad Shield", {
     price = 0,
     max = 2,
     cmd = "kps",
-    allowed = {TEAM_CEMECHANIC, TEAM_CECHIEF, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER,TEAM_RCTECH, TEAM_JEDICOUNCIL, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEFAB, TEAM_CEEXECUTIVEOFFICER, TEAM_JEDISENTINEL, TEAM_CEGENERAL, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_JEDIGENERALAAYLA, TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD},
+    allowed = {TEAM_FLEET_RDE,TEAM_CEMECHANIC, TEAM_CECHIEF, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER,TEAM_RCTECH, TEAM_JEDICOUNCIL, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEFAB, TEAM_CEEXECUTIVEOFFICER, TEAM_JEDISENTINEL, TEAM_CEGENERAL, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_JEDIGENERALAAYLA, TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD},
     category = "Entities",
 })
 
@@ -156,25 +147,6 @@ DarkRP.createEntity("Medium Bacta Tank", {
     category = "Entities",
 })
 
---[[ DarkRP.createEntity("T-42 Fighter", {
-    ent = "lunasflightschool_t42",
-    model = "models/sfp_t42/sfp_t42.mdl",
-    price = 0,
-    max = 1,
-    cmd = "t42",
-    allowed = {TEAM_501STGENERAL, TEAM_212THGENERAL, TEAM_GREENGENERAL, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_SUPREMEGENERAL, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_CEGENERAL, TEAM_MEDICALGENERAL,TEAM_WPGENERAL},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Alligator Fighter", {
-    ent = "lunasflightschool_alligator",
-    model = "models/sweaw/ships/rep_alligator_servius.mdl",
-    price = 0,
-    max = 1,
-    cmd = "alligator",
-    allowed = {},
-    category = "Entities",
-}) ]]--
 
 DarkRP.createEntity("V Wing", {
     ent = "lvs_starfighter_vwing",
@@ -185,6 +157,7 @@ DarkRP.createEntity("V Wing", {
     allowed = {TEAM_SIMPILOT},
     category = "Entities",
 })
+
 
 
 DarkRP.createEntity("Hilt Chance", {
@@ -218,28 +191,6 @@ DarkRP.createEntity("XP Holocron 2", {
 })
 
 
-
-
-DarkRP.createEntity("Multi Visor", {
-    ent = "multi_visor",
-    model = "models/starwars/items/medpack.mdl",
-    price = 0,
-    max = 1,
-    cmd = "multivisor",
-    allowed = {},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Multi Visor Remover", {
-    ent = "multi_visor_remover",
-    model = "models/starwars/items/medpack.mdl",
-    price = 0,
-    max = 1,
-    cmd = "mvremove",
-    allowed = {},
-    category = "Entities",
-})
-
 DarkRP.createEntity("Bacta Tank", {
     ent = "100hp_bacta_vale",
     model = "models/starwars/items/bacta_large.mdl",
@@ -249,7 +200,6 @@ DarkRP.createEntity("Bacta Tank", {
     allowed = {TEAM_RCVALE, TEAM_RCSARGE},
     category = "Entities",
 })
-
 
 DarkRP.createEntity("NBT-630", {
     ent = "lvs_starfighter_nbt630",
@@ -292,14 +242,13 @@ DarkRP.createEntity("V-19 Torrent Starfighter", {
     category = "Entities",
 })
 
-
 DarkRP.createEntity("Spy Drone", {
     ent = "drone_sentity",
     model = "models/Gibs/helicopter_brokenpiece_06_body.mdl",
     price = 0,
     max = 1,
     cmd = "spydrone",
-    allowed = {TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD, TEAM_RCECHO, TEAM_501STGENERAL, TEAM_212THGENERAL, TEAM_GREENGENERAL, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_SUPREMEGENERAL, TEAM_JEDIGENERALAAYLA, TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_FLEETRECRUIT, TEAM_RCFIXER, TEAM_RCTECH, TEAM_501STOFFICER, TEAM_212THOFFICER, TEAM_GREENOFFICER, TEAM_GMOFFICER, TEAM_ARCOFFICER,TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDISENGUARD,TEAM_FLEET_COI,TEAM_FLEET_IO},
+    allowed = {TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD, TEAM_RCECHO, TEAM_501STGENERAL, TEAM_212THGENERAL, TEAM_GREENGENERAL, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_GRANDADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_SUPREMEGENERAL, TEAM_JEDIGENERALAAYLA, TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_RCFIXER, TEAM_RCTECH, TEAM_501STOFFICER, TEAM_212THOFFICER, TEAM_GREENOFFICER, TEAM_GMOFFICER, TEAM_ARCOFFICER,TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDISENGUARD,TEAM_FLEET_COI},
     category = "Entities"
 })
 
@@ -309,7 +258,7 @@ DarkRP.createEntity("Spy Drone OD", {
     price = 0,
     max = 1,
     cmd = "spydroneod",
-    allowed = {TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD,TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN,TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_FLEETRECRUIT,TEAM_FLEET_COI,TEAM_FLEET_IO},
+    allowed = {TEAM_FLEETLIEUTENANT,TEAM_FLEET_RDE,TEAM_FLEET_RDM,TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD,TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN,TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_FLEETRECRUIT,TEAM_FLEET_COI,TEAM_FLEET_IO,TEAM_FLEETMEMBER,TEAM_FLEETMEMBERSNR},
     category = "Entities"
 })
 
@@ -319,7 +268,7 @@ DarkRP.createEntity("Nano Drone", {
     price = 0,
     max = 1,
     cmd = "nano",
-    allowed = {TEAM_RCADVISOR,TEAM_CDGENERAL, TEAM_JEDISENTINEL, TEAM_501STGENERAL,TEAM_RCECHO, TEAM_212THGENERAL, TEAM_GREENGENERAL, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_GRANDADMIRAL, TEAM_FLEETENSIGN, TEAM_FLEETOFFICER, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_FLEETLT, TEAM_FLEETLTCMDR, TEAM_FLEETCMDR, TEAM_FLEETCPT, TEAM_FLEETADMIRAL, TEAM_FLEETHSO, TEAM_FLEETMO, TEAM_FLEETDR, TEAM_CETROOPER, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEFAB, TEAM_ARCALPHACE, TEAM_CEARC, TEAM_CEMECHANIC, TEAM_CEGENERAL, TEAM_FLEETCOM, TEAM_FLEETWARFARE, TEAM_ARCMC, TEAM_ARCCOLT, TEAM_ARCHAVOC, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_FLEETRECRUIT, TEAM_RCFIXER, TEAM_RCTECH, TEAM_501STOFFICER, TEAM_212THOFFICER, TEAM_GREENOFFICER, TEAM_GMOFFICER, TEAM_ARCOFFICER, TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDICOUNCIL,TEAM_JEDIGENERALAAYLA,TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD},
+    allowed = {TEAM_RCADVISOR,TEAM_CDGENERAL, TEAM_JEDISENTINEL, TEAM_501STGENERAL,TEAM_RCECHO, TEAM_212THGENERAL, TEAM_GREENGENERAL, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_GRANDADMIRAL, TEAM_FLEETENSIGN, TEAM_FLEETOFFICER, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_FLEETLT, TEAM_FLEETLTCMDR, TEAM_FLEETCMDR, TEAM_FLEETCPT, TEAM_FLEETHSO, TEAM_FLEETMO, TEAM_FLEETDR, TEAM_CETROOPER, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEFAB, TEAM_ARCALPHACE, TEAM_CEARC, TEAM_CEMECHANIC, TEAM_CEGENERAL, TEAM_FLEETCOM, TEAM_FLEETWARFARE, TEAM_ARCMC, TEAM_ARCCOLT, TEAM_ARCHAVOC, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_RCFIXER, TEAM_RCTECH, TEAM_501STOFFICER, TEAM_212THOFFICER, TEAM_GREENOFFICER, TEAM_GMOFFICER, TEAM_ARCOFFICER, TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDICOUNCIL,TEAM_JEDIGENERALAAYLA,TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD},
     category = "Entities",
 })
 
@@ -329,7 +278,7 @@ DarkRP.createEntity("Nano Drone OD", {
     price = 0,
     max = 1,
     cmd = "nanodroneod",
-    allowed = {TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD,TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN,TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_FLEETRECRUIT,TEAM_FLEET_COI,TEAM_FLEET_IO},
+    allowed = {TEAM_FLEETLIEUTENANT,TEAM_FLEET_RDE,TEAM_FLEET_RDM,TEAM_FLEETDOFFICER,TEAM_CDGENERAL,TEAM_FLEET_RD,TEAM_FLEET_DRD,TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN,TEAM_FLEETDR, TEAM_CEGENERAL, TEAM_FLEETWARFARE, TEAM_FLEETCOM, TEAM_FLEETRECRUIT,TEAM_FLEET_COI,TEAM_FLEET_IO,TEAM_FLEETMEMBER,TEAM_FLEETMEMBERSNR},
     category = "Entities"
 })
 
@@ -339,7 +288,7 @@ DarkRP.createEntity("Laser Drone", {
     price = 0,
     max = 1,
     cmd = "laserdrone",
-    allowed = {TEAM_501STGENERAL, TEAM_212THGENERAL, TEAM_GREENGENERAL,TEAM_RCECHO, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_CESPECIALIST, TEAM_CEMECHANIC, TEAM_ARCALPHACE, TEAM_CEARC, TEAM_CELIEUTENANT, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETMEMBERSNR, TEAM_FLEETMEMBER, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN, TEAM_CESPECIALIST, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_SUPREMEGENERAL, TEAM_FLEETDR, TEAM_CEENERAL, TEAM_FLEETCOM, TEAM_FLEETWARFARE, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD},
+    allowed = {TEAM_FLEET_RDE,TEAM_FLEET_RDM,TEAM_FLEETLIEUTENANT,TEAM_501STGENERAL, TEAM_212THGENERAL, TEAM_GREENGENERAL,TEAM_RCECHO, TEAM_CGGENERAL, TEAM_GMGENERAL, TEAM_ARCGENERAL, TEAM_CEGENERAL, TEAM_CRGENERAL, TEAM_RCGENERAL, TEAM_CESPECIALIST, TEAM_CEMECHANIC, TEAM_ARCALPHACE, TEAM_CEARC, TEAM_CELIEUTENANT, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_GRANDADMIRAL, TEAM_FLEETADMIRAL, TEAM_FLEETCPT, TEAM_FLEETCMDR, TEAM_FLEETLTCMDR, TEAM_FLEETLT, TEAM_FLEETOFFICER, TEAM_FLEETENSIGN, TEAM_CESPECIALIST, TEAM_BATTALIONGENERAL, TEAM_ASSISTANTBATTALIONGENERAL, TEAM_SUPREMEGENERAL, TEAM_FLEETDR, TEAM_CEENERAL, TEAM_FLEETCOM, TEAM_FLEETWARFARE, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_MEDICALGENERAL,TEAM_WPGENERAL,TEAM_JEDISENGUARD,TEAM_FLEET_DRD,TEAM_FLEET_RD,TEAM_FLEETMEMBER,TEAM_FLEETMEMBERSNR,TEAM_FLEET_IO},
     category = "Entities",
 })
 
@@ -379,9 +328,10 @@ DarkRP.createEntity("Minigun Drone", {
     price = 0,
     max = 1,
     cmd = "minigundrone",
-    allowed = {TEAM_CEMECHANIC, TEAM_CELIEUTENANT, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CEGENERAL,TEAM_FLEET_DRD,TEAM_FLEET_RD},
+    allowed = {TEAM_FLEET_RDE,TEAM_CEMECHANIC, TEAM_CELIEUTENANT, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CEGENERAL,TEAM_FLEET_DRD,TEAM_FLEET_RD},
     category = "Entities"
 })
+
 
 DarkRP.createEntity("LAAT Transport", {
     ent = "lfs_fb_laatitransport",
@@ -402,107 +352,6 @@ DarkRP.createEntity("Muunilinst LAAT", {
     allowed = {TEAM_SIMRBOMBER},
     category = "Entities",
 })
-
---[[DarkRP.createEntity("AT-SW", {
-    ent = "lunasflightschool_hosti_sentinel",
-    model = "models/hosti/wh40k/ig/veh/sentinel.mdl",
-    price = 0,
-    max = 1,
-    cmd = "327thwalker",
-    allowed = {TEAM_CEFAB,TEAM_CEEXECUTIVEOFFICER,TEAM_CECOMMANDER,TEAM_CEGENERAL,TEAM_CECHIEF},
-    category = "Entities",
-})
-
-
-DarkRP.createEntity("Vulture Droid", {
-    ent = "lunasflightschool_vulturedroid",
-    model = "models/salza/vulture_droid.mdl",
-    price = 0,
-    max = 1,
-    cmd = "vulture",
-    allowed = {TEAM_B1PILOT,TEAM_CISSIMPILOT},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Tri Fighter Droid", {
-    ent = "lunasflightschool_tridroid",
-    model = "models/salza/droidtrifighter.mdl",
-    price = 0,
-    max = 1,
-    cmd = "tridroid",
-    allowed = {TEAM_B1PILOT,TEAM_CISSIMPILOT},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Bomber Droid", {
-    ent = "lunasflightschool_advdroid",
-    model = "models/sfp_droidbomber/sfp_droidbomber.mdl",
-    price = 0,
-    max = 1,
-    cmd = "bombdroid",
-    allowed = {TEAM_B1PILOT, TEAM_CISSIMBOM},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Droid Gunship", {
-    ent = "lunasflightschool_droidgunship",
-    model = "models/megarexcis/gunship.mdl",
-    price = 0,
-    max = 1,
-    cmd = "hmpgunship",
-    allowed = {TEAM_B1PILOT,TEAM_CISSIMPILOT, TEAM_CISSIMBOM },
-    category = "Entities",
-})
-
-DarkRP.createEntity("Pirate Ship", {
-    ent = "lunasflightschool_havoc",
-    model = "models/sweaw/ships/rep_havoc.mdl",
-    price = 0,
-    max = 1,
-    cmd = "pirateship",
-    allowed = {TEAM_B1PILOT, TEAM_CISSIMBOM},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Patrol Ship", {
-    ent = "lunasflightschool_spiral",
-    model = "models/sweaw/ships/rep_sharpspiral_servius.mdl",
-    price = 0,
-    max = 1,
-    cmd = "patrolship",
-    allowed = {TEAM_B1PILOT},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Vulture Droid CIS", {
-    ent = "lunasflightschool_vulturedroid_cis",
-    model = "models/blu/vulturedroid.mdl",
-    price = 0,
-    max = 1,
-    cmd = "cisvulture",
-    allowed = {TEAM_B1PILOT},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Mandalorian Gauntlet", {
-    ent = "lfs_gauntlet",
-    model = "models/sfp_gauntlet/sfp_gauntlet.mdl",
-    price = 0,
-    max = 1,
-    cmd = "gauntlet",
-    allowed = {TEAM_B1PILOT, TEAM_CISSIMBOM},
-    category = "Entities",
-})
-
---[[ DarkRP.createEntity("LAAT/c", {
-    ent = "lunasflightschool_laatcgunship",
-    model = "models/blu/laat_c.mdl",
-    price = 0,
-    max = 1,
-    cmd = "laatc",
-    allowed = {TEAM_CECOMMANDER, TEAM_CECHIEF, TEAM_CEEXECUTIVEOFFICER, TEAM_CEMECHANIC, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_JEDIGENERALAAYLA, TEAM_CEGENERAL, TEAM_FLEETEO, TEAM_SIMPILOT, TEAM_CELIEUTENANT, TEAM_CESPECIALIST},
-    category = "Entities",
-}) --]]
 
 
 DarkRP.createEntity("Juggernaut Armour", {
@@ -527,90 +376,6 @@ DarkRP.createEntity("Juggernaut Armour Remover", {
     category = "Entities",
 })
 
-
-
-
-
-
-DarkRP.createEntity("Infrared Visor", {
-    ent = "avp_mask",
-    model = "models/props/starwars/weapons/repairkit.mdl",
-    price = 0,
-    max = 1,
-    cmd = "inf",
-    allowed = {},
-    category = "Entities",
-})
-
---[[ DarkRP.createEntity("Eta-2", {
-    ent = "obi-wan_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "eta2",
-    allowed = {},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Guardian Eta-2", {
-    ent = "aayla_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "guardeta2",
-    allowed = {TEAM_JEDIGUARDIAN},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Sentinel ETA-2", {
-    ent = "anakin_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "seneta2",
-    allowed = {TEAM_JEDISENTINEL},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Consular Eta-2", {
-    ent = "jedi_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "conseta2",
-    allowed = {TEAM_JEDICONSULAR,TEAM_SIMPILOT},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Eta-2", {
-    ent = "windu_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "cmeta2",
-    allowed = {TEAM_JEDICOUNCIL, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALADI, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALVOS},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Tano ETA-2", {
-    ent = "ahsoka_eta",
-    model = "models/deno/jedi/jedieta.mdl",
-    price = 0,
-    max = 1,
-    cmd = "tanoeta2",
-    allowed = {TEAM_JEDIGENERALTANO},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Yoda's ETA", {
-    ent = "yodaeta",
-    model = "models/starwars/syphadias/ships/yoda_starfighter/yoda_starfighter_closed.mdl",
-    price = 0,
-    max = 1,
-    cmd = "yodaeta",
-    allowed = {TEAM_JEDIGRANDMASTER},
-    category = "Entities",
-}) ]]--
 
 DarkRP.createEntity("Yoda's Chair", {
     ent = "lvs_hoverchair",
@@ -821,37 +586,6 @@ DarkRP.createEntity("AAT", {
     allowed = {TEAM_B1PILOT},
     category = "Entities",
 })
-
-
---[[ DarkRP.createEntity("Merenzane Gold", {
-    ent = "merenzanegold",
-    model = "models/props_junk/PopCan01a.mdl",
-    price = 0,
-    max = 1,
-    cmd = "merenzane",
-    allowed = {TEAM_BARTENDER},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Ardees", {
-    ent = "ardees",
-    model = "models/props_junk/PopCan01a.mdl",
-    price = 0,
-    max = 1,
-    cmd = "arde",
-    allowed = {TEAM_BARTENDER},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Jabba Juice", {
-    ent = "jabbajuice",
-    model = "models/props_junk/PopCan01a.mdl",
-    price = 0,
-    max = 1,
-    cmd = "jabbaj",
-    allowed = {TEAM_BARTENDER},
-    category = "Entities",
- --]]
 
 
 --Catogories
@@ -1120,7 +854,7 @@ sortOrder = 26,
 }
 
 DarkRP.createCategory{
-name = "Fleet Admirals",
+name = "Fleet Branches",
 categorises = "jobs",
 startExpanded =false,
 color = Color(122, 122, 122, 255),
@@ -1129,12 +863,21 @@ sortOrder = 27,
 }
 
 DarkRP.createCategory{
+name = "Fleet Admirals",
+categorises = "jobs",
+startExpanded =false,
+color = Color(122, 122, 122, 255),
+canSee = function(ply) return true end,
+sortOrder = 28,
+}
+
+DarkRP.createCategory{
 name = "Legacy Neutral Jobs",
 categorises = "jobs",
 startExpanded =false,
 color = Color(0, 255, 128, 255),
 canSee = function(ply) return true end,
-sortOrder = 28,
+sortOrder = 29,
 }
 
 DarkRP.createCategory{

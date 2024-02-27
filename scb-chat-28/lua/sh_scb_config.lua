@@ -7,7 +7,7 @@ local config = scb.config
 -- EG.
 -- config.chatbox_title = "SERVER_NAME (PLAYER_COUNT)" -- > Srlion Gaming (1)
 --
-config.chatbox_title = "SERVER_NAME"
+config.chatbox_title = "Multiverse Gaming | Clone Wars RP"
 --
 -- By default it uses 12h format, for 24h use "%H:%M:%S"
 --
@@ -114,6 +114,6 @@ scb.language = {
 	bot_joined = "{#1773c4 NAME} joined the game",
 	bot_left = "{#f44336 NAME} left the game",
 	-- STEAMID gets replaced by the player steamid
-	player_connecting = "{#1773c4 NAME} is connecting",
-	player_left = "{#f44336 NAME} left the game: REASON",
+	player_connecting = "{#1773c4 NAME} STEAMID is connecting",
+	player_left = "{#f44336 NAME} STEAMID left the game: REASON",
 }

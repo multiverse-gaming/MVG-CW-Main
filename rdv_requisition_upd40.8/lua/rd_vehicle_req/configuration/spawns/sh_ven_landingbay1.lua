@@ -34,7 +34,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "RC General",
   "Shadow General",
   "Medical General",
-  "Supreme General",
+ "Supreme General",
   "Battalion General",
   "Assistant General",
   "212th Marshal Commander",
@@ -98,12 +98,14 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi General Anakin Skywalker",
   "Jedi Guardian",
   "Fleet Recruit",
-  "Fleet Member",
-  "Fleet High Ranking",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
-  "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer"
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
+  "Fleet Admiral",
+  "Grand Admiral",
+  "Fleet Intelligence Officer",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
 })
 
 -- Nicolas's Rank System Support
@@ -118,6 +120,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 --[[---------------------------------]]--
 
 OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
+    "Grand Admiral",
     "Republic Intelligence",
     "RC Clone Advisor",
     "Clone Trooper Instructor",
@@ -129,21 +132,6 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Engineering Officer",
     "Medical Officer",
     "NSO Advisor",
-    "Fleet Probation Officer",
-    "Fleet Ensign",
-    "Fleet Recruit",
-    "Fleet Member",
-    "Fleet High Ranking",
-    "Fleet Pilot",
-    "Fleet Chief of Intelligence",
-    "Fleet Intelligence Officer",
-    "Fleet Lieutenant",
-    "Fleet Lieutenant Commander",
-    "Fleet Commander",
-    "Fleet Captain",
-    "Fleet Commodore",
-    "Fleet Admiral",
-    "Grand Admiral",
     "Supreme General",
     "Battalion General",
     "Assistant General",
@@ -159,10 +147,15 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Shadow General",
     "Jedi Grand Master",
     "Medical General",
-    "Fleet Maverick",
-    "Fleet StarFighter Officer",
-    "Fleet Director of Research and Development",
-    "Fleet Research and Development Officer"
+    "Fleet Recruit",
+    "Fleet Officer",
+    "Fleet Lieutenant",
+    "Fleet Seniority",
+    "Fleet Admiral",
+    "Grand Admiral",
+    "Fleet Intelligence Officer",
+    "Fleet Research and Development Medic",
+    "Fleet Research and Development Engineer"
 })
 
 -- Nicolas's Rank System Support

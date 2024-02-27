@@ -179,6 +179,38 @@ DarkRP.declareChatCommand{
     delay = 1.5
 }
 
+local function SpecOpsComms(ply, args)
+    if isCommsDown(ply, args) == "" then return "" end
+
+    if args == "" then return "" end
+
+    local DoSay = function(text)
+        if text == "" then
+
+            return ""
+
+        end
+
+        for _, target in pairs(player.GetAll()) do
+
+            DarkRP.talkToPerson(target, team.GetColor(ply:Team()), "[Special Operations Comms] " .. ply:Nick(), Color(255, 16, 240), text, ply)
+
+        end
+
+    end
+
+    return args, DoSay
+
+end
+
+DarkRP.defineChatCommand("so", SpecOpsComms, 1.5)
+
+DarkRP.declareChatCommand{
+    command = "so",
+    description = "special operations comms",
+    delay = 1.5
+}
+
 local function NavalComms(ply, args)
     if isCommsDown(ply, args) == "" then return "" end
 

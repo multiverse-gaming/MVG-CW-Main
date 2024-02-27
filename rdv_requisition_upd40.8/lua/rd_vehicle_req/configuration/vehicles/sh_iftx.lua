@@ -26,6 +26,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "212th Commander",
   "212th Executive Officer",
   "212th Major",
+  "212th Lieutenant",
+  "212th Medic Officer",
   "212th Ghost Company",
   "Fleet Director of Research and Development",
   "Fleet Research and Development Officer"

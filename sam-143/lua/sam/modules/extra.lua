@@ -551,3 +551,29 @@ command.new("jobunban")
         })
     end)
     :End()
+
+
+-----------------------------------------------------------------------------
+--    Strip non-default weapons	[STRONG WORK IN PROGRESS]
+---------------------------------------------------------------------------*/
+
+
+command.new("stripw")
+    :SetPermission("stripw", "admin")
+    :AddArg("player")
+    :AddArg("text", { hint = "weapon(s)" })
+    :Help("Strip specific weapons from player(s). WIP")
+
+    :OnExecute(function(ply, targets, weapon)
+        for i = 1, #targets do
+            targets[i]:StripWeapon(weapon)
+        end
+
+        -- local targetNames = table.concat(targets, ", ") -- Convert the table to a comma-separated string
+        -- local targetWeapons = table.concat(weapons, ", ") -- Convert the table to a comma-separated string
+
+        sam.player.send_message(nil, "{A} stripped {V} from {T}.", {
+            A = ply, V = weapon, T = targets -- Use the string representation of targets
+        })
+    end)
+:End()

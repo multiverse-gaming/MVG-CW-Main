@@ -1,4 +1,4 @@
-TOOL.Category = "[RDV] Datapad"
+TOOL.Category = "Event Tools"
 TOOL.Name = "Hackable Door"
 
 if CLIENT then

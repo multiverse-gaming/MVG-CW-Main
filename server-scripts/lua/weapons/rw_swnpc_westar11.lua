@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_yellow"
+SWEP.TracerEffect				= "tfa_tracer_yellow"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_light"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -36,7 +36,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_westar11"
 
 SWEP.ClientModel				= {
-	model						= "models/sw_battlefront/weapons/westar_35_rifle.mdl",
+	model						= "models/arccw/sw_battlefront/weapons/westar_35_rifle.mdl",
 	pos							= Vector(-0.9, 0.55, 1.75),
 	angle						= Angle(180, 90, 0),
 	size						= Vector(1.0, 1.0, 1.0),

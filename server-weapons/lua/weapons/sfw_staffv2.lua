@@ -314,14 +314,14 @@ function SWEP:PrimaryAttack()
 end
 
 function SWEP:SecondaryAttack(tr)
-local ply = self.Owner
-local t = {}
-t.start = ply:GetPos() + Vector( 0, 0, 52 )
-t.endpos = ply:GetPos() + ply:EyeAngles():Forward() * 700
-t.filter = ply
-local tr = util.TraceEntity( t, ply )
-ply:SetPos( tr.HitPos )
-self:SetNextSecondaryFire( CurTime() + 3)
+	local ply = self.Owner
+	local t = {}
+	t.start = ply:GetPos() + Vector( 0, 0, 52 )
+	t.endpos = ply:GetPos() + ply:EyeAngles():Forward() * 500--700
+	t.filter = ply
+	local tr = util.TraceEntity( t, ply )
+	ply:SetPos( tr.HitPos )
+	self:SetNextSecondaryFire( CurTime() + 3)
 	if self.Transparency == 0 then
 		self:ResetVis()
 	end

@@ -13,7 +13,7 @@ function ENT:Initialize()
 	end
     self:SetUseType( SIMPLE_USE )
 	self:SetHealth(self.BaseHealth)
-	timer.Create("Spawncountdown", 300, 1, function()
+	--[[timer.Create("Spawncountdown", 0, 1, function()
 		self.VirusGas = ents.Create("env_smoketrail")
 		self.VirusGas:SetPos(self:GetPos())
 		self.VirusGas:SetKeyValue("spawnradius","256")
@@ -49,6 +49,7 @@ function ENT:Initialize()
 			end
 		end)
 	end)
+	]]-
 end
 
 function ENT:Use( activator, caller )

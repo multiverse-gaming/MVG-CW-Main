@@ -59,10 +59,6 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "RC Impact",
   "Engineering Officer",
   "Medical Officer",
-  "Fleet Recruit",
-  "Fleet Member",
-  "Fleet High Ranking",
-  "Fleet Admiral",
   "Grand Admiral",
   "Jedi Consular",
   "Jedi Grand Master",
@@ -80,10 +76,15 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Sentinel",
   "Jedi General Anakin Skywalker",
   "Jedi Guardian",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
-  "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer"
+  "Fleet Recruit",
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
+  "Fleet Admiral",
+  "Grand Admiral",
+  "Fleet Intelligence Officer",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
 })
 
 -- Nicolas's Rank System Support

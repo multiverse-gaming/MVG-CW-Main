@@ -5,77 +5,6 @@
 	Contact: www.wiltostech.com
 		----------------------------------------]]--
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 wOS.ALCS.LightsaberBase:AddBind({
 	Name = "Form Menu",
 	Binds = { IN_USE, IN_RELOAD },
@@ -112,13 +41,14 @@ wOS.ALCS.LightsaberBase:AddBind({
 	end,
 })
 
+--[[
 wOS.ALCS.LightsaberBase:AddBind({
 	Name = "Force Lock-On",
 	Binds = { IN_WALK, IN_USE },
 	Func = function( wep )
 		wep:UseForceLockon()
 	end,
-})
+})]]--
 
 --E + Right Click
 --E + F

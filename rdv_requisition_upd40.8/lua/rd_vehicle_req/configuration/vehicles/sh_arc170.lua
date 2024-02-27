@@ -43,10 +43,15 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th ARC",
   "327th Alpha ARC",
   "327th Sergeant",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
+  "Fleet Recruit",
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
   "Fleet Admiral",
-  "Grand Admiral"
+  "Grand Admiral",
+  "Fleet Intelligence Officer",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
 })
 -- Nicolas's Rank System Support
 

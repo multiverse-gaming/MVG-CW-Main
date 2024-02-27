@@ -37,7 +37,7 @@ function ENT:Use(ply)
 
         }
     if jedi[ply:Team()] then
-	ply:AddSkillXP(200)
+	ply:AddSkillXP(400)
     print(ply:Nick() .. " (" .. ply:SteamID() .. ") picked up a xpholocron")
 	self:Remove()
     end

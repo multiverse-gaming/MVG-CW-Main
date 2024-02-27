@@ -9,28 +9,33 @@ hook.Add("EntityTakeDamage", "wos_mvg_block_half_damage_reflect", function(targe
     if target:IsPlayer() and target:GetNWFloat("ReflectTimeHalf", 0) >= CurTime() then
         local damage = dmginfo:GetDamage()
         dmginfo:SetDamage(damage / 2)
-
         local AttackerDamageInfo = DamageInfo()
-            local Attacker = dmginfo:GetAttacker()
-            AttackerDamageInfo:SetAttacker(Attacker)
-            AttackerDamageInfo:SetDamage(damage)
-            AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
-            Attacker:TakeDamageInfo(AttackerDamageInfo)
-
-
-
-
-
+        local Attacker = dmginfo:GetAttacker()
+        AttackerDamageInfo:SetAttacker(Attacker)
+        AttackerDamageInfo:SetDamage(damage)
+        AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
+        Attacker:TakeDamageInfo(AttackerDamageInfo)
     end
-
+    
+    if target:IsPlayer() and target:GetNWFloat("ReflectTime", 0) >= CurTime() then
+        local AttackerDamageInfo = DamageInfo()
+        local Attacker = dmginfo:GetAttacker()
+        AttackerDamageInfo:SetAttacker(Attacker)
+        AttackerDamageInfo:SetDamage(dmginfo:GetDamage())
+        AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
+        Attacker:TakeDamageInfo(AttackerDamageInfo)
+        dmginfo:SetDamage(0)
+    end
 end)
 
-local TeamsAllowed_wiltOS = {}
+//local TeamsAllowed_wiltOS = {}
+
+TeamsAllowed_wiltOS = {}
 
 
 -- CONFIG --
-local NPCKillXP = 20
-local PlayerKillXP = 100
+local NPCKillXP = 40
+local PlayerKillXP = 200
 
 ------------
 

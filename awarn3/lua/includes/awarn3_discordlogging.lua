@@ -18,7 +18,7 @@ local enable_discord_logging = true
 --Set the Webhook URL for your discord server channel here. To create a webhook:
 --Go into Server Settings > Integrations > Click 'View Webhooks' > Click New Webhook.
 --Customize the name and channel it posts to, then click copy Webhook URL and paste it below. 
-local discord_webhook_url = "https://discord.com/api/webhooks/1012835306992586903/85Z0sV8Z6t5c3aTJec7vdamRz9I74ZUkmJ8e0XPEM_YXxs7YrjlCeaW0BSMQO84yyrVK"
+local discord_webhook_url = "https://discord.com/api/webhooks/1191870514994622474/bwz9PmkENRNdbBvUaYNlZa-ZXYDhBSU_cXNFLVoXVkya5vTojWLe29QtmGoTxj89Dakc"
 
 --Feel free to keep this using the relay on my server. If you want to use your own server, you can upload the file located in the addon folder to your own server and change the path here.
 local discord_webhook_relay_url = "https://g4p.org/awarn3/discordrelay/discordrelay.php"

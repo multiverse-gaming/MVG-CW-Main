@@ -21,6 +21,8 @@ function ENT:Initialize()
 
 	
 		self:SetUseType( SIMPLE_USE )
+
+		timer.Simple(15,function() if self:IsValid() then self:Remove() end end) 
 	end
 
 end

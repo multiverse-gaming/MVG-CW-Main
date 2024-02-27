@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_red"
+SWEP.TracerEffect				= "tfa_tracer_red"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_heavy"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -36,7 +36,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_relbyv10"
 
 SWEP.ClientModel				= {
-	model						= "models/hauptmann/star wars/weapons/relby_v10.mdl",
+	model						= "models/arccw/hauptmann/star wars/weapons/relby_v10.mdl",
 	pos							= Vector(0, 04, -07),
 	angle						= Angle(0, 0, 0),
 	size						= Vector(1.4, 1.4, 1.4),

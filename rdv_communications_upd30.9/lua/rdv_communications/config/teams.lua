@@ -5,15 +5,13 @@ teams = {
     Fleet = {
         "Grand Admiral",
         "Fleet Admiral",
-        "Fleet High Ranking",
-        "Fleet Member",
+        "Fleet Seniority",
+        "Fleet Lieutenant",
+        "Fleet Officer",
         "Fleet Recruit",
-        "Fleet Director of Research and Development",
-        "Fleet Research and Development Officer",
-        "Fleet Chief of Intelligence",
-        "Fleet StarFighter Officer",
+        "Fleet Research and Development Engineer",
+        "Fleet Research and Development Medic",
         "Fleet Intelligence Officer",
-        "Fleet Maverick",
     },
 
     -- ==== Generals ====
@@ -37,7 +35,7 @@ teams = {
         "327th Marshal Commander",
         "ARC Marshal Commander",
         "RC Marshal Commander",
-        "Medical Marshal Commander"
+        "Senior Medical Director"
 
     },
 
@@ -298,6 +296,7 @@ teams = {
 
     -- ==== Medical Directive ====
     TeamMed = {
+        "Senior Medical Director",
         "Medical Director",
         "Assistant Medical Director",
     },

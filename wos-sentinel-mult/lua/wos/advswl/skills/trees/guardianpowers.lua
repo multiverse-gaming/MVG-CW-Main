@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Guardian Path"
+TREE.Name = "Guardian Path Old"
 
 --Description of the skill tree
 TREE.Description = "We Guardians are the Republic's first line of defense against the thousand enemies who seek to destroy it."
@@ -41,7 +41,7 @@ TREE.MaxTiers = 4
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = {"TEAM_JEDIGUARDIAN", "TEAM_JEDICOUNCIL","TEAM_JEDIGURDCHIEF","TEAM_JEDIGUARGUARD", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
+TREE.JobRestricted = {}--{"TEAM_JEDIGUARDIAN", "TEAM_JEDICOUNCIL","TEAM_JEDIGURDCHIEF","TEAM_JEDIGUARGUARD", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
 
 TREE.Tier = {}
 
@@ -83,7 +83,7 @@ TREE.Tier[1][2] = {
 	OnSaberDeploy = function( wep ) end,
 }
 
-TREE.Tier[1][3] = {
+--[[TREE.Tier[1][3] = {
 	Name = "Battle Meditation",
 	Description = "Affect results of entire battles with just thoughts",
 	Icon = "wos/forceicons/absorb.png",
@@ -92,7 +92,7 @@ TREE.Tier[1][3] = {
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Battle Meditation" ) end,
-}
+} --]]
 
 TREE.Tier[2] = {}
 

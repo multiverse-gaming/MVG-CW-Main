@@ -12,7 +12,9 @@ WatchFox.Modules.Net.Config.SuspiciousStringPatterns =
     "BroadcastLua",
     "table.pack",
     "table.load",
-    "RunString"
+    "RunString",
+    "lvs_doorhandler_interact",
+    "PA_Dash"
 }
 
 -- Types of checks to perform

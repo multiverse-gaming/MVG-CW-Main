@@ -13,7 +13,7 @@ function ENT:Initialize()
 	end
     self:SetUseType( SIMPLE_USE )
 	self:SetHealth(self.BaseHealth)
-	timer.Create("Spawncountdown", 300, 1, function()
+	--[[timer.Create("Spawncountdown", 300, 1, function()
 	local explode = ents.Create( "env_explosion" )
 		explode:SetPos( self:GetPos() )
 		explode:Spawn()
@@ -23,7 +23,7 @@ function ENT:Initialize()
 		explode:Fire( "Explode", "0", 0 )
 		explode:EmitSound( "weapon_AWP.Single", 400, 400 )
 		self:Remove()
-	end)
+	end)]]--
 end
 
 function ENT:Use( activator, caller )

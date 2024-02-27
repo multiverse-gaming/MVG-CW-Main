@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "The True Path to the Light"
+TREE.Name = "Council Member Tree"
 
 --Description of the skill tree
 TREE.Description = "Now you have followed the path, master your abilities and learn the true power of the force."
@@ -36,12 +36,14 @@ TREE.TreeIcon = "wos/forceicons/advanced_cloak.png"
 TREE.BackgroundColor = Color( 255, 0, 0, 25 )
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 5
+TREE.MaxTiers = 1
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
 TREE.JobRestricted = {"TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER","TEAM_JEDIGENERALVOS","TEAM_JEDIGENERALLUMINARA","TEAM_JEDIGURDCHIEF"}
+
+local ForceHpSpeedStamina = {20, 50, 10, 12}
 
 TREE.Tier = {}
 
@@ -59,180 +61,48 @@ TREE.Tier = {}
 
 TREE.Tier[1] = {}
 
---[[TREE.Tier[1][1] = {
-	Name = "The Grey Path",
-	Description = "You have reached the rank of Council Member",
-	Icon = "wos/devestators/sonic.png",
-	PointsRequired = 5,
-    Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
-}]]
-
 TREE.Tier[1][1] = {
-	Name = "Jedi Council Member",
-	Description = "You have reached the rank of Council Member",
-	Icon = "wos/forceicons/absorb.png",
-	PointsRequired = 5,
-    Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 50) end,
-}
-
---[[TREE.Tier[1][3] = {
-	Name = "Dual Lightsabers",
-	Description = "Grants you access to Dual Lightsabers",
-	Icon = "wos/forceicons/icefuse/barrier.png",
-	PointsRequired = 5,
+	Name = "Jedi Force Upgrade 1",
+	Description = "You feel stronger.",
+	Icon = "wos/forceicons/lightstream.png",
+	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply.CanUseDuals = true end,
+	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
-}]]
-
-TREE.Tier[2] = {}
-
-TREE.Tier[2][1] = {
-	Name = "Force Judgement",
-	Description = "Learn the power of force judgement to extract information from your enemies.",
-	Icon = "wos/forceicons/lightning.png",
-	PointsRequired = 5,
-	Requirements = {
-	    [2] = { 2 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Judgement" ) end,
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) end,
 }
 
-TREE.Tier[2][2] = {
-	Name = "The Grey Path",
-	Description = "You have reached the rank of Council Member",
-	Icon = "wos/devestators/sonic.png",
-	PointsRequired = 5,
-	Requirements = {
-	    [1] = { 1 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
+TREE.Tier[1][2] = {
+	Name = "Jedi Health Upgrade 1",
+	Description = "You feel heartier.",
+	Icon = "wos/forceicons/group_heal.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
 
-TREE.Tier[2][3] = {
-	Name = "Force Channel",
-	Description = "Learn to control the things around you as you master the art of combat meditiating, focusing your power against hatred",
-	Icon = "wos/forceicons/channel_hatred.png",
-	PointsRequired = 5,
-	Requirements = {
-	    [2] = { 2 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
+TREE.Tier[1][3] = {
+	Name = "Jedi Speed Upgrade 1",
+	Description = "You feel faster.",
+	Icon = "wos/forceicons/cloak.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 5 ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Channel" ) end,
+	OnSaberDeploy = function( wep ) end,
 }
 
-
-TREE.Tier[3] = {}
-
-TREE.Tier[3][1] = {
-	Name = "Advanced Cloak",
-	Description = "Vanish into the shadows, Special Ability for Quilan Vos Only.",
-	Icon = "wos/forceicons/advanced_cloak.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 2 },
-	},
-	OnPlayerSpawn = function( ply ) end,
+TREE.Tier[1][4] = {
+	Name = "Jedi Stamina Upgrade 1",
+	Description = "You feel safer.",
+	Icon = "wos/forceicons/absorb.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Advanced Cloak" ) end,
-}
-
-
-TREE.Tier[3][2] = {
-	Name = "Force Choke",
-	Description = "Learn the power of force choke to end your enemies. Special Ability for Anakin Skywalker Only.",
-	Icon = "wos/forceicons/icefuse/choke.png",
-	PointsRequired = 5,
-	Requirements = {
-	    [2] = { 2 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Choke" ) end,
-}
-
-TREE.Tier[3][3] = {
-	Name = "Vapaad 1",
-	Description = "Unique form based on Juyo, Special Ability for Mace Windu Only.",
-	Icon = "wos/forceicons/advanced_cloak.png",
-	PointsRequired = 3,
-	Requirements = {
-	[2] = { 2 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Dynamic", 1 ) end,
-}
-
-TREE.Tier[3][4] = {
-	Name = "Kyber Slam",
-	Description = "Unleash the true power of your crystal.",
-	Icon = "wos/devestators/slam.png",
-	PointsRequired = 20,
-	Requirements = {
-	    [2] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddDevestator( "Kyber Slam" ) end,
-}
-
-TREE.Tier[3][5] = {
-	Name = "Force Stasis",
-	Description = "A Small Burst - For Shaak Ti Only",
-	Icon = "wos/forceicons/icefuse/stasis.png",
-	PointsRequired = 5,
-	Requirements = {
-	    [2] = { 2 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stasis" ) end,
-}
-
-
-TREE.Tier[4] = {}
-
-TREE.Tier[4][1] = {
-	Name = "Vapaad 2",
-	Description = "Unique form based on Juyo, Special Ability for Mace Windu Only.",
-	Icon = "wos/forceicons/advanced_cloak.png",
-	PointsRequired = 3,
-	Requirements = {
-	[3] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Dynamic", 2 ) end,
-
-}
-
-TREE.Tier[5] = {}
-
-TREE.Tier[5][1] = {
-	Name = "Vapaad 3",
-	Description = "Unique form based on Juyo, Special Ability for Mace Windu Only.",
-	Icon = "wos/forceicons/advanced_cloak.png",
-	PointsRequired = 3,
-	Requirements = {
-	[4] = { 1 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Dynamic", 3 ) end,
-
+	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4]) end,
 }
 
 wOS:RegisterSkillTree( TREE )

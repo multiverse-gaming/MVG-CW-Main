@@ -41,7 +41,7 @@ TREE.MaxTiers = 3
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = {"TEAM_JEDIPADAWAN", "TEAM_JEDIKNIGHT","TEAM_JEDIGURDCHIEF","TEAM_JEDICONGUARD","TEAM_JEDISENGUARD","TEAM_JEDIGUARGUARD", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDISENTINEL", "TEAM_JEDIGUARDIAN", "TEAM_JEDICONSULAR", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS","TEAM_JEDIGENERALLUMINARA"}
+TREE.JobRestricted = {} --{"TEAM_JEDIPADAWAN", "TEAM_JEDIKNIGHT","TEAM_JEDIGURDCHIEF","TEAM_JEDICONGUARD","TEAM_JEDISENGUARD","TEAM_JEDIGUARGUARD", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDISENTINEL", "TEAM_JEDIGUARDIAN", "TEAM_JEDICONSULAR", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS","TEAM_JEDIGENERALLUMINARA"}
 
 TREE.Tier = {}
 
@@ -81,19 +81,6 @@ TREE.Tier[1][2] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Meditate" ) end,
 }
 
---[[TREE.Tier[1][3] = {
-	Name = "Force Repulse",
-	Description = "Pushes everyone around you away.",
-	Icon = "wos/forceicons/repulse.png",
-	PointsRequired = 0,
-    Requirements = {
-	    [1] = { 2 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Repulse" ) end, --]]
-	
-
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
@@ -114,7 +101,7 @@ TREE.Tier[3] = {}
 TREE.Tier[3][1] = {
 	Name = "Force Speed",
 	Description = "Give Haste Jedi",
-	Icon = "wos/forceicons/cloak.png",
+	Icon = "wos/forceicons/charge.png",
 	PointsRequired = 1,
 	Requirements = {
 	    [2] = { 1 },
@@ -136,34 +123,6 @@ TREE.Tier[3][2] = {
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Pull" ) end,
 }
-
-
---[[TREE.Tier[3][2] = {
-	Name = "Master Force Leap",
-	Description = "Leap as many times as your force allows",
-	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 1,
-	Requirements = {
-	    [2] = { 1 },
-	    [1] = { 1 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Leap" ) end,
-}--]]
-
---[[TREE.Tier[3][2] = {
-	Name = "Force Heal",
-	Description = "Heal a person in your sight.",
-	Icon = "wos/forceicons/heal.png",
-	PointsRequired = 1,
-	Requirements = {
-	[2] = { 1 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Heal" ) end,
-}--]]
 
 TREE.Tier[3][3] = {
 	Name = "Force Push",

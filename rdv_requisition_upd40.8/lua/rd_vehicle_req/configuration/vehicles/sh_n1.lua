@@ -34,10 +34,10 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Supreme General",
   "Battalion General",
   "Assistant General",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
   "Fleet Admiral",
-  "Grand Admiral"
+  "Grand Admiral",
+  "Fleet Research and Development Medic",
+  "Fleet Research and Development Engineer"
   })
 
 -- Nicolas's Rank System Support

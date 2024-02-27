@@ -117,7 +117,8 @@ wOS.ALCS.ExecSys:RegisterExecution({
 	end,
 	OnFinale = function( attacker, victim )
 		if IsValid( victim ) then
-			wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+			--wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+			victim:Kill()
 		end
 	end,
 	OnFinish = function( attacker, victim )
@@ -222,7 +223,7 @@ wOS.ALCS.ExecSys:RegisterExecution({
 	end,
 	OnFinale = function( attacker, victim )
 		if IsValid( victim ) then
-			wOS.ALCS.ExecSys:SlicePlayer( victim, attacker, 180 )
+			--wOS.ALCS.ExecSys:SlicePlayer( victim, attacker, 180 )
 		end
 	end,
 	OnFinish = function( attacker, victim )
@@ -276,7 +277,8 @@ wOS.ALCS.ExecSys:RegisterExecution({
 			ed:SetRadius( 100 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
 			victim:EmitSound( "lightsaber/force_repulse.wav" )
-			wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+			--wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+			victim:Kill()
 		end
 	end,
 	OnFinish = function( attacker, victim )

@@ -10,7 +10,7 @@ SWEP.MuzzleEffect 				= ""
 SWEP.EnableMuzzleEffect			= false
 SWEP.ShellEffect				= ""
 SWEP.EnableShellEffect			= false
-SWEP.TracerEffect				= "rw_sw_laser_yellow"
+SWEP.TracerEffect				= "tfa_tracer_yellow"
 SWEP.ReloadSounds				= {{0, "rw_swnpc_reload_heavy"}}
 SWEP.ImpactDecal 				= "FadingScorch"
 
@@ -35,7 +35,7 @@ SWEP.Primary.AimDelayMax		= NPC_WEAPONS_MAX_AIM_DELAY_MED
 SWEP.Primary.Sound				= "rw_swnpc_tusken"
 
 SWEP.ClientModel				= {
-	model						= "models/sw_battlefront/weapons/tusken_cycler_rifle.mdl",
+	model						= "models/arccw/sw_battlefront/weapons/tusken_cycler_rifle.mdl",
 	pos							= Vector(0, -1, 1),
 	angle						= Angle(0, 0, 180),
 	size						= Vector(1.2, 1.1, 1.2),

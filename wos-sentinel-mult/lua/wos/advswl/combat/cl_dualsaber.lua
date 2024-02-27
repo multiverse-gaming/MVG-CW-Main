@@ -84,6 +84,7 @@ hook.Add( "PrePlayerDraw", "wOS.CloakHook", function( ply )
 		if ply.CloakSet then
 			ply:SetMaterial( "" )		
 			ply.CloakSet = false
+			ply:RemoveEffects(EF_NOSHADOW)
 		end
 		return
 	end	
@@ -91,9 +92,11 @@ hook.Add( "PrePlayerDraw", "wOS.CloakHook", function( ply )
 		if ply.CloakSet then
 			ply:SetMaterial( "" )
 			ply.CloakSet = false
+			ply:RemoveEffects(EF_NOSHADOW)
 		end
 		return
 	end
+	ply:AddEffects(EF_NOSHADOW)
 	ply:SetMaterial("models/shadertest/shader3") 
 	ply.CloakSet = true
 	if ply:GetVelocity():Length() > 130 then return end

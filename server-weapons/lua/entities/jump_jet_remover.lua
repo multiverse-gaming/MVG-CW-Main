@@ -21,7 +21,8 @@ function ENT:Initialize()
 	self.Entity:DrawShadow(false)
 	
 	self.Entity:SetCollisionGroup(COLLISION_GROUP_WEAPON)
-	
+
+	timer.Simple(15,function() if self:IsValid() then self:Remove() end end) 	
 end
 
 function ENT:Use( _, ent )
