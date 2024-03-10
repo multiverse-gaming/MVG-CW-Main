@@ -3635,7 +3635,7 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
     candemote = false,
     hasLicense = false,
     category = "Covert",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (270) end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
         ply:SetJumpPower(300)
         ply:SetGravity(1.4)
