@@ -203,7 +203,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
-    weapons = {"arccw_dc15a_501st", "arccw_dual_dc17", "arccw_meeks_z6", "personal_shield_activator", "weapon_officerboost_501st", "arccw_dc17"},
+    weapons = {"arccw_dc15a_501st", "arccw_dual_dc17", "arccw_meeks_z6","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone"},
 
     command = "501stmco",
 
@@ -623,7 +623,7 @@ TEAM_212THMCOMMANDER = DarkRP.createJob("212th Marshal Commander", {
     color = Color(255, 157, 0, 255),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_cody.mdl", "models/aussiwozzi/cgi/base/212th_meanstreak.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl", "models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/jajoff/sps/republic/tc13j/rsb02.mdl", "models/herm/cgi_new/212th/212th_trooper1.mdl", "models/herm/cgi_new/212th/212th_trooper2.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the 212th Attack Battalion!]],
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dual_dc17", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "arccw_dc17"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dual_dc17", "arccw_sw_rocket_rps6","arccw_thermal_grenade"},
     command = "212thmco",
     max = 1,
     salary = 275,
@@ -910,7 +910,7 @@ TEAM_GREENMCOMMANDER = DarkRP.createJob("Green Company Marshal Commander", {
     color = Color(0, 255, 64, 255),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/442nd_barrage.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/41st_gree.mdl", "models/aussiwozzi/cgi/base/41st_ranger_officer.mdl", "models/aussiwozzi/cgi/base/41st_havoc_officer.mdl", "models/aussiwozzi/cgi/base/41st_arf.mdl", "models/aussiwozzi/cgi/base/41st_officer.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl", "models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/jajoff/sps/republic/tc13j/rsb02.mdl", "models/herm/cgi_new/41st/41st_trooper2.mdl", "models/herm/cgi_new/41st/41st_trooper1.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Green Company!]],
-    weapons = {"realistic_hook", "arccw_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_dual_dc17", "arccw_dc17"},
+    weapons = {"realistic_hook", "arccw_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_dual_dc17"},
     command = "gcmco",
     max = 1,
     salary = 275,
@@ -1197,7 +1197,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
     color = Color(255, 77, 77, 255),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/cg_thorn.mdl", "models/aussiwozzi/cgi/base/cg_thire.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_officer.mdl", "models/aussiwozzi/cgi/base/cg_pibs.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl", "models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
-    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope", "arccw_vanguard_shotgun", "arccw_dc17_stun"},
+    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun"},
     command = "stmco",
     max = 1,
     salary = 275,
@@ -1531,7 +1531,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/herm/cgi_new/21st/cmd_bacara.mdl", "models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/21st_breaching_officer.mdl","models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/21st_arf.mdl","models/herm/cgi_new/21st/cmd_jet.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
-    weapons = {"arccw_dc15a_gm", "arccw_dual_dc17", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "arccw_dc17"},
+    weapons = {"arccw_dc15a_gm", "arccw_dual_dc17", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
     max = 1,
     salary = 275,
@@ -1945,7 +1945,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
     color = Color(153, 144, 144, 255),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/104th_wolffe.mdl", "models/aussiwozzi/cgi/base/104th_evo_wolffe.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl", "models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/jajoff/sps/republic/tc13j/rsb02.mdl", "models/aussiwozzi/cgi/base/104th_arf.mdl", "models/aussiwozzi/cgi/base/104th_guardian.mdl", "models/aussiwozzi/cgi/base/104th_mortar.mdl", "models/aussiwozzi/cgi/base/104th_quantum.mdl", "models/aussiwozzi/cgi/base/104th_comet.mdl", "models/aussiwozzi/cgi/base/104th_sinker.mdl", "models/aussiwozzi/cgi/base/104th_raffle.mdl", "models/aussiwozzi/cgi/base/104th_jet_officer.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_dual_dc17", "arccw_valkenx38x", "weapon_jetpack", "arccw_dc17"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_dual_dc17", "arccw_valkenx38x", "weapon_jetpack"},
     command = "wpmco",
     max = 1,
     salary = 275,
@@ -2247,7 +2247,7 @@ TEAM_CEMCOMMANDER = DarkRP.createJob("327th Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 327th!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "arccw_dc17", "defuser_bomb", "defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb", "defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
 
     command = "cemco",
 
@@ -2699,7 +2699,7 @@ TEAM_ARCMC = DarkRP.createJob("ARC Marshal Commander", {
     color = Color(255, 255, 255, 255),
     model = {"models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/arc_rancor_colt.mdl","models/aussiwozzi/cgi/base/arc_rancor_blitz.mdl","models/aussiwozzi/cgi/base/arc_rancor_hammer.mdl","models/aussiwozzi/cgi/base/arc_rancor_havoc.mdl","models/aussiwozzi/cgi/base/arc_fordo.mdl","models/aussiwozzi/cgi/base/arc_gen.mdl","models/aussiwozzi/cgi/base/arc_com.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of ARC!]],
-    weapons = {"arccw_westarm5_m", "weapon_remotedrone", "arccw_dual_dc17s", "arccw_dc17", "realistic_hook", "arccw_flash_grenade"},
+    weapons = {"arccw_westarm5_m", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade"},
     command = "arcmc",
     max = 1,
     salary = 275,
