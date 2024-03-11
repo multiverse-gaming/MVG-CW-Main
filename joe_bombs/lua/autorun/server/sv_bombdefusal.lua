@@ -209,3 +209,111 @@ Joes_Bomb:AddCombination({
         cut = true
     },
 })
+
+Joes_Bomb:AddCombination({
+    [1] = {
+        col = Color(0,0,100), -- blue
+        pos = Vector(-11,-5,19),
+        ang = Angle(10,30,-40),
+        cut = 1
+    },
+    [2] = {
+        col = Color(100,0,0), -- red
+        pos = Vector(-16,0,16),
+        ang = Angle(-50,190,0),
+        cut = false
+    },
+    [3] = {
+        col = Color(100,100,0), -- yellow
+        pos = Vector(-15,0,16),
+        ang = Angle(0,-110,30),
+        cut = false
+    },
+    [4] = {
+        col = Color(0,0,100), -- blue
+        pos = Vector(-9,-7,18),
+        ang = Angle(0,-290,-40),
+        cut = 2
+    },
+})
+
+Joes_Bomb:AddCombination({
+    [1] = {
+        col = Color(100,100,0), -- yellow
+        pos = Vector(-11,-5,19),
+        ang = Angle(10,30,-40),
+        cut = 2
+    },
+    [2] = {
+        col = Color(0, 100, 0), -- green
+        pos = Vector(-16,0,16),
+        ang = Angle(-50,190,0),
+        cut = false
+    },
+    [3] = {
+        col = Color(0,0,100), -- blue
+        pos = Vector(-15,0,16),
+        ang = Angle(0,-110,30),
+        cut = false
+    },
+    [4] = {
+        col = Color(0, 100, 0), -- green
+        pos = Vector(-9,-7,18),
+        ang = Angle(0,-290,-40),
+        cut = 1
+    },
+})
+
+Joes_Bomb:AddCombination({
+    [1] = {
+        col = Color(0,0,0), -- black
+        pos = Vector(-11,-5,19),
+        ang = Angle(10,30,-40),
+        cut = 2
+    },
+    [2] = {
+        col = Color(0, 100, 0), -- green
+        pos = Vector(-16,0,16),
+        ang = Angle(-50,190,0),
+        cut = false
+    },
+    [3] = {
+        col = Color(0,0,100), -- blue
+        pos = Vector(-15,0,16),
+        ang = Angle(0,-110,30),
+        cut = 3
+    },
+    [4] = {
+        col = Color(100,0,0), -- red
+        pos = Vector(-9,-7,18),
+        ang = Angle(0,-290,-40),
+        cut = 1
+    },
+})
+
+Joes_Bomb:AddCombination({
+    [1] = {
+        col = Color(0,0,100), -- blue
+        pos = Vector(-11,-5,19),
+        ang = Angle(10,30,-40),
+        cut = 3
+    },
+    [2] = {
+        col = Color(100,50,0), -- orange
+        pos = Vector(-16,0,16),
+        ang = Angle(-50,190,0),
+        cut = 1
+    },
+    [3] = {
+        col = Color(100,100,0), -- yellow
+        pos = Vector(-15,0,16),
+        ang = Angle(0,-110,30),
+        cut = 2
+    },
+    [4] = {
+        col = Color(100,50,0), -- orange
+        pos = Vector(-9,-7,18),
+        ang = Angle(0,-290,-40),
+        cut = false
+    },
+})
