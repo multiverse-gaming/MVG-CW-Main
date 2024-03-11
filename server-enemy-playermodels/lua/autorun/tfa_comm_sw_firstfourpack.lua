@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Cyber-Darth-Maul","models/tfa/comm/gg/pm_sw_cyberdarthmaul.mdl")

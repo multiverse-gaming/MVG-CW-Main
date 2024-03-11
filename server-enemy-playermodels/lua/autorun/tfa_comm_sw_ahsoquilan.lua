@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Quilan","models/tfa/comm/gg/pm_sw_quinlanvos.mdl")

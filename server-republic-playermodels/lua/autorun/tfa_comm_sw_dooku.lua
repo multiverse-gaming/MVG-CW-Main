@@ -1,1 +1,0 @@
-player_manager.AddValidModel("TFA-SW-Dooku","models/tfa/comm/gg/pm_sw_dooku.mdl")

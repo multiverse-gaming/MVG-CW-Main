@@ -29,12 +29,8 @@ function ENT:Use(ply)
         [TEAM_JEDIGENERALSKYWALKER] = true,
         [TEAM_JEDIGRANDMASTER] = true,
         [TEAM_JEDIGENERALAAYLA] = true,
-        [TEAM_JEDIGENERALVOS] = true,
-		[TEAM_JEDIGURDCHIEF] = true,
-        [TEAM_JEDICONGUARD] = true,
-        [TEAM_JEDISENGUARD] = true,
-        [TEAM_JEDIGUARGUARD] = true,
-		    }
+        [TEAM_JEDIGENERALVOS] = true
+	}
     if jedi[ply:Team()] then
 		local type = math.random(1,100)
 		local chance = math.random(1,100)

@@ -1,0 +1,1 @@
+player_manager.AddValidModel("TFA-SW-Ki-Ada-Mundi","models/tfa/comm/gg/pm_sw_mundi.mdl")
