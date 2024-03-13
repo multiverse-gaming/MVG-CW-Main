@@ -9,3 +9,5 @@ ENT.Instructions= "Press E to start hacking"
 ENT.Category= "Hackable Rayshield"
 ENT.Spawnable = true
 ENT.AdminSpawnable = true
+
+ENT.IconOverride = "entities/st_hackable_console.png"
