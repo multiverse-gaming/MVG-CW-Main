@@ -1,0 +1,1 @@
+player_manager.AddValidModel("TFA-SW-Anakin-Skywalker","models/tfa/comm/pm_sw_anakin_skywalker.mdl")

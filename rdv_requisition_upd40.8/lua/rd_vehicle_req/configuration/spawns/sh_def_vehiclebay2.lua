@@ -67,6 +67,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Green Company Executive Officer",
   "Green Company Major",
   "Green Company Marksman",
+  "Green Company Lieutenant",
   "Green Company Ranger",
   "Medical Officer",
   "Medical Marshal Commander",
