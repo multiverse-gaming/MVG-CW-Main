@@ -49,7 +49,7 @@ function ENT:Initialize()
 			end
 		end)
 	end)
-	]]-
+	]]--
 end
 
 function ENT:Use( activator, caller )
