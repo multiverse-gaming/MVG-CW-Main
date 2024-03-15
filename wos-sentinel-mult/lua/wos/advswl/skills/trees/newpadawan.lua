@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Padawan Skill Tree (new)"
+TREE.Name = "Padawan Skill Tree"
 
 --Description of the skill tree
 TREE.Description = "The trainee has begun their journey."
