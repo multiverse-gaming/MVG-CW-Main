@@ -298,7 +298,7 @@ end
 -- 		if v.category == "Flags" and not short_name:find("flag") then
 -- 			short_name = "flag_" .. short_name
 -- 		end
--- 		if v.id_number == "430499702" then continue end
+-- 		if v.id_number == "370579116" then continue end
 -- 		local sort_order = v.sort_order
 -- 		if v.category == "People & Body" then
 -- 			sort_order = sort_order + smileys_category_n

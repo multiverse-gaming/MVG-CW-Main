@@ -288,11 +288,6 @@ function Panel:GetNumLines(wide)
 
 	wide = wide or self:GetWide() - 2
 
-	local vbar = self:GetChildren()[1]
-	if vbar then
-		wide = wide - vbar:GetWide()
-	end
-
 	local char_width
 	local x = 3
 

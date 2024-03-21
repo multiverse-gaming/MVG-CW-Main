@@ -2,7 +2,6 @@ if SCB_LOADED then return end
 
 local timer = timer
 local draw = draw
-local surface = surface
 local math = math
 local table = table
 local vgui = vgui
@@ -24,6 +23,7 @@ local sui = sui
 local SUI = scb.SUI
 local config = scb.config
 local language = scb.language
+local get_text_size = sui.get_text_size
 
 scb.chat_parsers = {}
 local add_parser_example = function(title, example, output)
@@ -95,7 +95,7 @@ function Panel:Init()
 	end
 	--
 
-	-- self.next_pos = 441984182
+	-- self.next_pos = 367416684
 
 	self:ScaleChanged()
 	table.insert(created_panels, self)
@@ -281,7 +281,7 @@ do
 	function Panel:AddLabel(text, color, url, is_hovered, font)
 		if text == "" then return end
 
-		local w, h = surface.GetTextSize(text)
+		local w, h = get_text_size(text, font)
 		self:SetLineH(h)
 
 		local label = self:Add("SCB.Label")
@@ -428,8 +428,7 @@ function Panel:NewAvatar(ply, size)
 		avatar:SetSteamID(ply, size)
 	end
 
-	surface.SetFont(self:GetFont())
-	self:AddW(size + surface.GetTextSize(" "))
+	self:AddW(size + get_text_size(" ", self:GetFont()))
 end
 
 function Panel:HideAfterTime(time)
@@ -437,7 +436,7 @@ function Panel:HideAfterTime(time)
 	timer.Simple(time, function()
 		if not IsValid(self) then return end
 		self.can_hide = nil
-		if scb.chatbox.hidden then
+		if IsValid(scb.chatbox) and scb.chatbox.hidden then
 			self:AlphaTo(0, 0.5)
 		end
 	end)

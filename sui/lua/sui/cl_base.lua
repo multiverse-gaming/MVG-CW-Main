@@ -750,6 +750,22 @@ function sui.valid_options()
 end
 
 do
+	local label = vgui.Create("Label")
+	label:SetVisible(false)
+	label:SetMouseInputEnabled(false)
+	label:SetKeyboardInputEnabled(false)
+
+	local SetFontInternal = label.SetFontInternal
+	local SetText = label.SetText
+	local GetTextSize = label.GetTextSize
+	function sui.get_text_size(text, font)
+		SetFontInternal(label, font)
+		SetText(label, text)
+		return GetTextSize(label)
+	end
+end
+
+do
 	local SURFACE = Color(31, 31, 31)
 	local PRIMARY = Color(65, 185, 255)
 

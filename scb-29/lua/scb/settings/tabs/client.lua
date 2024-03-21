@@ -66,12 +66,12 @@ local toggle_convars = {
 		title = "messages_fade",
 		convar = "scb_message_fade_out_time",
 		value = "6",
-		min = 20, max = 60,
+		min = 0, max = 60,
 		load = function(slider, convar)
 			slider:GetParent():SetWide(160)
 
 			slider:SetDecimals(0)
-			slider:SetMinMax(20, 60)
+			slider:SetMinMax(0, 60)
 
 			slider:On("OnValueChanged", function(_, v)
 				convar:SetInt(v)

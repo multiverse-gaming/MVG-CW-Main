@@ -31,7 +31,24 @@ function chat.Open(mode)
 	local dont_open = hook.Run("StartChat", mode ~= 1)
 	if dont_open == true then return end
 
-	scb.create_chatbox()
+	do
+		local succ, err = pcall(scb.create_chatbox)
+		if not succ then
+			if scb.chatbox then
+				if scb.chatbox.Remove then
+					scb.chatbox:Remove()
+				end
+				scb.chatbox = nil
+			end
+			SetClipboardText(err)
+			hook.Add("HUDPaint", "SCB.FailedToLoad", function()
+				local w, h = ScrW(), ScrH()
+				draw.SimpleText("SCB Failed to load - Error is copied to your clipboard", "Trebuchet24", w / 2, h / 2, Color(255, 255, 255))
+				draw.SimpleText(err, "Trebuchet24", w / 2, h / 2 + 20, Color(255, 255, 255))
+			end)
+			return
+		end
+	end
 
 	local chatbox = scb.chatbox
 	if chatbox.hidden == false then return end
@@ -91,7 +108,7 @@ end
 
 chat.OldGetChatBoxPos = chat.OldGetChatBoxPos or chat.GetChatBoxPos
 function chat.GetChatBoxPos()
-	if scb.chatbox then
+	if IsValid(scb.chatbox) then
 		return scb.chatbox:GetPos()
 	end
 	return chat.OldGetChatBoxPos()
@@ -99,7 +116,7 @@ end
 
 chat.OldGetChatBoxSize = chat.OldGetChatBoxSize or chat.GetChatBoxSize
 function chat.GetChatBoxSize()
-	if scb.chatbox then
+	if IsValid(scb.chatbox) then
 		return scb.chatbox:GetSize()
 	end
 	return chat.OldGetChatBoxSize()
@@ -323,6 +340,8 @@ do
 
 		return default_say(ply, text, bteam, is_dead, nil, name_color)
 	end)
+
+	scb.add_chat_say = add_say
 end
 
 local OnPlayerChat_queue = {}
@@ -357,7 +376,7 @@ end)
 
 hook.Add("PlayerButtonDown", "SCB", function()
 	local chatbox = scb.chatbox
-	if chatbox and not chatbox.hidden then
+	if chatbox and not chatbox.hidden and IsValid(chatbox) then
 		chatbox.text_entry:RequestFocus()
 	end
 end)
