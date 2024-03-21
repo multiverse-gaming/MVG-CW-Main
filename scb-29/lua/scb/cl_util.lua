@@ -68,7 +68,8 @@ end
 
 do
 	-- i feel disgusted
-
+	local insert = table.insert
+	local SortByMember = table.SortByMember
 	if not file.Exists("scb/emojis_used.txt", "DATA") then
 		file.Write("scb/emojis_used.txt", "{}")
 	end
@@ -97,10 +98,10 @@ do
 				else
 					used_times = start
 				end
-				table.insert(emojis, {name = name, pos = -used_times})
+				insert(emojis, {name = name, pos = -used_times})
 			end
 		end
-		table.SortByMember(emojis, "pos", true)
+		SortByMember(emojis, "pos", true)
 
 		return emojis
 	end

@@ -2,7 +2,6 @@ local math = math
 local table = table
 
 local pairs = pairs
-local RealFrameTime = RealFrameTime
 
 local TDLib = sui.TDLib
 local SUI, NAME = CURRENT_SUI, CURRENT_SUI.name
@@ -21,7 +20,7 @@ Panel.NoOverrideClear = true
 local starting_scroll_speed = 3
 
 local vbar_OnMouseWheeled = function(s, delta)
-	s.scroll_speed = s.scroll_speed + (14 * RealFrameTime() --[[ slowly increase scroll speed ]])
+	s.scroll_speed = s.scroll_speed + 20 * 0.012 --[[ slowly increase scroll speed ]]
 	s:AddScroll(delta * -s.scroll_speed)
 end
 
@@ -43,7 +42,7 @@ local vbar_OnCursorMoved = function(s, _, y)
 end
 
 local vbar_Think = function(s)
-	local frame_time = RealFrameTime() * 14
+	local frame_time = RealFrameTime() * 17
 	local scroll_target = s.scroll_target
 
 	s.Scroll = Lerp(frame_time, s.Scroll, scroll_target)
@@ -53,7 +52,7 @@ local vbar_Think = function(s)
 	end
 
 	-- now start slowing it down!!!
-	s.scroll_speed = Lerp(frame_time / 14, s.scroll_speed, starting_scroll_speed)
+	s.scroll_speed = Lerp(frame_time / 10, s.scroll_speed, starting_scroll_speed)
 end
 
 local vbar_Paint = function(s, w, h)
@@ -187,9 +186,9 @@ function Panel:Think()
 		canvas.y = -vbar.Scroll
 	else
 		if self:GetFromBottom() then
-			canvas._y = Lerp(14 * RealFrameTime(), canvas._y or canvas.y, self:GetTall() - canvas:GetTall())
+			canvas._y = Lerp(10 * RealFrameTime(), canvas._y or canvas.y, self:GetTall() - canvas:GetTall())
 		else
-			canvas._y = Lerp(14 * RealFrameTime(), canvas._y or canvas.y, -vbar.Scroll)
+			canvas._y = Lerp(10 * RealFrameTime(), canvas._y or canvas.y, -vbar.Scroll)
 		end
 		canvas.y = canvas._y
 	end

@@ -7,7 +7,7 @@ local config = scb.config
 -- EG.
 -- config.chatbox_title = "SERVER_NAME (PLAYER_COUNT)" -- > Srlion Gaming (1)
 --
-config.chatbox_title = "Multiverse Gaming | Clone Wars RP"
+config.chatbox_title = "SERVER_NAME"
 --
 -- By default it uses 12h format, for 24h use "%H:%M:%S"
 --

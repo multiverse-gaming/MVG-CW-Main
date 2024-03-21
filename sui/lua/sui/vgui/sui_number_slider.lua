@@ -1,5 +1,3 @@
-local surface = surface
-
 local SUI, NAME = CURRENT_SUI, CURRENT_SUI.name
 
 local NUMBER_SLIDER_FONT = SUI.CreateFont("NumberSlider", "Roboto Regular", 14)

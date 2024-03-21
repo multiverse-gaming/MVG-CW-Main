@@ -17,6 +17,7 @@ local sui = sui
 local SUI = scb.SUI
 local utf8 = sui.utf8
 local language = scb.language
+local UnPredictedCurTime = UnPredictedCurTime
 
 for k, v in ipairs({18, 16, 14}) do
 	_G["SCB_" .. v] = SUI.CreateFont(tostring(v), "Roboto", v)
@@ -98,11 +99,12 @@ local function invalidate_children(self, recursive)
 			children[i]:InvalidateLayout(true)
 		end
 	end
+
 	self:InvalidateLayout(true)
 end
 
 function scb.create_chatbox()
-	if scb.chatbox then return end
+	if IsValid(scb.chatbox) then return end
 
 	sui.TDLib.Start()
 
@@ -137,7 +139,6 @@ function scb.create_chatbox()
 		frame:On("Think", function(s)
 			if UnPredictedCurTime() < next_run then return end
 			next_run = UnPredictedCurTime() + delay
-
 			s:SetTitle(chatbox_title:gsub("SERVER_NAME", GetHostName()):gsub("PLAYER_COUNT", player.GetCount()))
 		end)
 	end
@@ -278,7 +279,7 @@ function scb.create_chatbox()
 	text_entry:SetPlaceholder(language.type_something)
 	text_entry:SetFont(SCB_18)
 	text_entry:SetMultiline(true)
-	text_entry:SetVerticalScrollbarEnabled(true)
+	text_entry:SetVerticalScrollbarEnabled(false)
 	text_entry:InvalidateParent(true)
 	text_entry:SetMaxChars(126)
 	text_entry:SetNoBar(true)
@@ -395,12 +396,6 @@ function scb.create_chatbox()
 			local size = SUI.ScaleEven(18)
 			emojis_button:SetSize(size, size)
 			emojis_button:SetPos(w - (size + padding), h / 2 - size / 2)
-
-			local vbar = s:GetChildren()[1]
-			if vbar then
-				vbar:Hide()
-				vbar:SetWide(math.Round(size + padding))
-			end
 		end)
 
 		frame.emojis_button = emojis_button
@@ -481,10 +476,7 @@ function scb.create_chatbox()
 	local old = text_entry.OnKeyCodeTyped
 	function text_entry:OnKeyCodeTyped(code)
 		if frame.hidden then return end
-
-		if code == KEY_BACKQUOTE then
-			gui.HideGameUI()
-		elseif emoji_list and emoji_list[code] then
+		if emoji_list and emoji_list[code] then
 			return emoji_list[code](emoji_list)
 		elseif code == KEY_ESCAPE then
 			gui.HideGameUI()
