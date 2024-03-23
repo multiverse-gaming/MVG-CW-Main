@@ -61,6 +61,6 @@ OBJ:SetEnemyNPCs({ -- TARGET SPECIFIC NPC's
 	"npc_drg_headcrab",
 })
 
-OBJ:SetAttackDamage(10)
+OBJ:SetAttackDamage(20)
 
 OBJ:Register()
