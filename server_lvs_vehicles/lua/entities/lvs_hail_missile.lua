@@ -302,7 +302,7 @@ else
 
 		self.IsEnabled = true
 
-		self.snd = CreateSound(self, "KingPommes/starwars/hailfire/flying.wav")
+		self.snd = CreateSound(self, "hailfire/flying.wav")
 		self.snd:SetSoundLevel( 80 )
 		self.snd:Play()
 

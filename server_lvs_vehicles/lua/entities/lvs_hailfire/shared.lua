@@ -150,7 +150,7 @@ function ENT:InitWeapons()
 				projectile:SetDamage( 800 )
 				projectile:SetRadius( 450 )
 				projectile:Enable()
-				projectile:EmitSound( "KingPommes/starwars/hailfire/rocket.wav" )
+				projectile:EmitSound( "hailfire/rocket.wav" )
 
 				self.Rocket[self.rocketnum]:Remove()
 				self.rocketnum = self.rocketnum + 1
@@ -290,5 +290,5 @@ sound.Add{ {
 	volume = 6.0,
 	level = 3000,
 	pitch = 105,
-	sound = "KingPommes/starwars/hailfire/rocket.wav"
+	sound = "hailfire/rocket.wav"
  } }
