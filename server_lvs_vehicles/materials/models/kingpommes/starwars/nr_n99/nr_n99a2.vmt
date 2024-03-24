@@ -1,0 +1,24 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/nr_n99/nr_n99a"
+	"$bumpmap" "models/KingPommes/starwars/nr_n99/nr_n99a_normal"
+	
+	"$selfillum" "1"
+	
+	"$normalmapalphaenvmapmask" "1"
+	
+	"$phong" "1"
+	"$phongexponent" "80"
+	"$phongboost" "4"
+	"$phongfresnelranges" "[0 0.5 1]"
+	
+	"$rimlight" 1
+	"$rimlightexponent" "2"
+	"$rimlightboost" ".5"
+		
+	"$detail" "detail\metal_detail_01"
+	"$detailscale" "9.283"
+	"$detailblendfactor" "0.6"
+	"$detailblendmode" "0"
+}
