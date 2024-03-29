@@ -1,9 +1,9 @@
 local ITEM = {} 
 ITEM.Rarity = 100
 
-ITEM.Name = "Proficiency Amplifier"
+ITEM.Name = "Meditate+"
 
-ITEM.Description = "Increases proficiency XP by 20%"
+ITEM.Description = "Empower your meditate skill. Will be destroyed on removal."
 
 ITEM.Type = WOSTYPE.MISC2
 
@@ -16,7 +16,11 @@ ITEM.BurnOnUse = true
 ITEM.Model = "models/chip/chip.mdl"
 
 ITEM.OnEquip = function( wep )
-	wep.SaberXPMul = wep.SaberXPMul + 0.05
+	if wep.Meditate ~= nil then
+		wep.Meditate = wep.Meditate + 1
+	else
+		wep.Meditate = 1
+	end
 end
 
 wOS:RegisterItem( ITEM )

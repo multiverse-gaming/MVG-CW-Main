@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Consular Path Old"
+TREE.Name = "Consular Path -- removed"
 
 --Description of the skill tree
 TREE.Description = "A Consular is a specialized kind of Jedi. They focus more on cerebral Force skills. They're our healers, our researchers, our seers."

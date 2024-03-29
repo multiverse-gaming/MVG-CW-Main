@@ -38,7 +38,7 @@ SWEP.AutoSwitchTo = false
 SWEP.AutoSwitchFrom = false
 SWEP.DrawWeaponInfoBox = false
 SWEP.ViewModel = "models/weapons/v_crowbar.mdl"
-SWEP.WorldModel = "models/sgg/starwars/weapons/w_anakin_ep2_saber_hilt.mdl"
+SWEP.WorldModel = "models/weapons/starwars/w_maul_saber_staff_hilt.mdl"
 SWEP.ViewModelFOV = 55
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
@@ -50,24 +50,39 @@ SWEP.Secondary.Automatic = true
 SWEP.Secondary.Ammo = "none"
 
 ------------------------------------------------------------THINGS YOU WILL EDIT ARE BELOW HERE-------------------------------------------------------------------------
-SWEP.PrintName = "Sith Dual Lightsaber" --Name of the lightsaber
-SWEP.Class = "weapon_lightsaber_sith_dual" --The file name of this swep
-SWEP.DualWielded = true --Should this be a dual wielded saber?
+SWEP.PrintName = "Sentinel Lightsaber" --Name of the lightsaber
+SWEP.Class = "weapon_lightsaber_preset_sentinel" --The file name of this swep
+SWEP.DualWielded = false --Should this be a dual wielded saber?
 SWEP.CanMoveWhileAttacking = true -- Can the user move while attacking
 SWEP.SaberDamage = 200 --How much damage the saber does when it's being swung
 SWEP.SaberBurnDamage = 0 -- How much damage the saber does when it's colliding with someone ( coming in contact with laser )
-SWEP.MaxForce = 250 --The maximum amount of force in the meter
+SWEP.MaxForce = 200 --The maximum amount of force in the meter
 SWEP.RegenSpeed = 1 --The MULTIPLIER for the regen speed. Half speed = 0.5, Double speed = 2, etc.
-SWEP.CanKnockback = true --Should this saber be able to push people back when they get hit?
-SWEP.ForcePowerList = { "Force Leap", "Saber Throw", "Lightning Strike", "Advanced Force Heal", "Storm", "Sith Speed", "Rage" } 
+SWEP.CanKnockback = true --Should this saber be able to push people back when they get hit? !!!
+SWEP.ForcePowerList = { "Force Leap", "Saber Throw", "Sentinel Speed", "Fold Space", "Force Breach", "Cloak", "Force EMP", "Force Blind", "Force Slow" } 
 --Force powers you want the saber to have ( REMEMBER TO PUT A COMMA AFTER EACH ONE, AND COPY THE TITLE EXACTLY AS IT'S LISTED )
 --For a list of options, just look at the keys in autorun/client/wos_forcematerialbuilding.lua
 
+SWEP.UseSkills = false
+SWEP.PersonalLightsaber = false
+
+SWEP.CustomSettings = {}
+
+SWEP.UseForms = {
+	["Shien"] = {1, 2, 3},
+	["Djem So"] = {1, 2, 3},
+	["Shii-Cho"] = {1, 2, 3}, 
+	["Makashi"] = {1, 2, 3}, 
+	["Soresu"] = {1, 2, 3}, 
+	["Ataru"] = {1, 2, 3}, 
+	["Niman"] = {1, 2, 3},
+}
+
 --Use these options to overwrite the player's commands
-SWEP.UseHilt = "models/swtor/arsenic/lightsabers/executioner'slightsaber.mdl" -- Model path of the hilt
+SWEP.UseHilt = "models/starwars/cwa/lightsabers/aaylasecura.mdl" -- Model path of the hilt
 SWEP.UseLength = 46 -- Length of the saber 
-SWEP.UseWidth = false -- Width of the saber
-SWEP.UseColor = Color( 255, 0, 0 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
+SWEP.UseWidth = 2 -- Width of the saber
+SWEP.UseColor = Color( 227, 125, 2 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
 SWEP.UseDarkInner = false -- Does it have a dark inner? 1 = true
 SWEP.UseLoopSound = false -- The loop sound path
 SWEP.UseSwingSound = false -- The swing sound path
@@ -75,34 +90,11 @@ SWEP.UseOnSound = false -- The on sound path
 SWEP.UseOffSound = false -- The off sound path
 
 --These are the ones for the second saber for dual wielding. If you are using a single saber, this doesn't do shit
-SWEP.UseSecHilt = "models/swtor/arsenic/lightsabers/executioner'slightsaber.mdl"
-SWEP.UseSecLength = false
+SWEP.UseSecHilt = false
+SWEP.UseSecLength = 41
 SWEP.UseSecWidth = false
-SWEP.UseSecColor = Color( 203, 212, 32 )
+SWEP.UseSecColor = false
 SWEP.UseSecDarkInner = false
-
-SWEP.CustomSettings = 
-{
-	Blade = "Mastered",
-	RainbowInner = false,
-}
-
-SWEP.UseForms = {
-	["Shien"] = {1, 2, 3},
-	["Djem So"] = {1, 2, 3},
-	["Shii-Cho"] = {1, 2, 3}, 
-	["Ataru"] = {1, 2, 3}, 
-}
-
-SWEP.SelectedGrip = "Reverse Blade ( Right )"
-
---[[ Use this to overwrite the ULX Forms/Stances for this particular swep ( [ "FORMNAME" ] = { STANCENUM1, STANCENUM2, STANCENUM3 } )
-	Example:
-	SWEP.UseForms = {
-	["Aggressive"] = { 1, 3 }, 
-	["Defensive"] = { 2 }, 
-}
-]]--
 
 -----------------------------------------------------------END OF EDIT----------------------------------------------------------------
 

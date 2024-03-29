@@ -11,13 +11,13 @@ ITEM.Type = WOSTYPE.MISC1
 ITEM.UserGroups = false
 
 --Does this item disappear from the inventory after it's been applied?
-ITEM.BurnOnUse = false
+ITEM.BurnOnUse = true
 
 ITEM.Model = "models/maxofs2d/hover_rings.mdl"
 
 ITEM.OnEquip = function( wep )
-	wep.UseLength = wep.UseLength + wep.UseLength*0.25
-	wep.UseWidth = wep.UseWidth + wep.UseWidth*0.25
+	wep.UseLength = wep.UseLength*0.75
+	wep.UseWidth = wep.UseWidth*0.75
 end
 
 wOS:RegisterItem( ITEM )

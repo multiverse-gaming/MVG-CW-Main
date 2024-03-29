@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Knight Skill Tree (new)"
+TREE.Name = "Knight Skill Tree"
 
 --Description of the skill tree
 TREE.Description = "The Jedi has become a Knight."
@@ -93,9 +93,12 @@ TREE.Tier[2][2] = {
     Requirements = {
 	    [1] = { 1 },
 	    },
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Speed" ) end,
+		OnPlayerSpawn = function( ply ) end,
+		OnPlayerDeath = function( ply ) end,
+		OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Speed" )
+		if (wep:GetOwner():GetRunSpeed() > 450) then
+			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
+		end	end,
 }
 
 

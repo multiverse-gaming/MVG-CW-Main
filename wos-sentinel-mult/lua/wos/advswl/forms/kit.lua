@@ -24,21 +24,21 @@ FORM.UserGroups = {
 FORM.Stances = {}
 
 FORM.Stances[1] = {
-	[ "run" ] = "judge_h_run",
-	[ "idle" ] = "judge_h_idle",
+	[ "run" ] = "vanguard_h_run",
+	[ "idle" ] = "vanguard_h_idle",
 	[ "light_left" ] = {
-		Sequence = "ryoku_r_left_t1",
-		Time = 0.7,
+		Sequence = "vanguard_h_right_t2",
+		Time = nil,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "h_c2_t2",
-		Time = 0.9,
+		Sequence = "vanguard_b_right_t1",
+		Time = 1.4,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "judge_r_s1_t2",
-		Time = 0.6,
+		Sequence = "judge_r_s3_t2",
+		Time = 1.4,
 		Rate = nil,
 	},
 	[ "air_left" ] = {
@@ -57,9 +57,9 @@ FORM.Stances[1] = {
 		Rate = 1.2,
 	},
 	[ "heavy" ] = {
-		Sequence = "h_right_t2",
+		Sequence = "phalanx_h_right_t2",
 		Time = nil,
-		Rate = 0.8,
+		Rate = 1.5,
 	},
 	[ "heavy_charge" ] = "judge_r_s3_charge",
 }

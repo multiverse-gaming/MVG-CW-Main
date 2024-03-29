@@ -1,9 +1,9 @@
 local ITEM = {} 
 ITEM.Rarity = 100
 
-ITEM.Name = "Proficiency Amplifier"
+ITEM.Name = "Jump"
 
-ITEM.Description = "Increases proficiency XP by 20%"
+ITEM.Description = "Imbue your lightsaber with the ability to boost your natural jump"
 
 ITEM.Type = WOSTYPE.MISC2
 
@@ -16,7 +16,7 @@ ITEM.BurnOnUse = true
 ITEM.Model = "models/chip/chip.mdl"
 
 ITEM.OnEquip = function( wep )
-	wep.SaberXPMul = wep.SaberXPMul + 0.05
+	wep:AddForcePower( "Jump" )
 end
 
 wOS:RegisterItem( ITEM )

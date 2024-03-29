@@ -99,7 +99,7 @@ TREE.Tier[1][3] = {
 }
 
 TREE.Tier[1][4] = {
-	Name = "Consular Tradeoff",
+	Name = "Consular Tradeoff 1",
 	Description = "Focus your hardiness into your force.",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 0,
@@ -112,17 +112,16 @@ TREE.Tier[1][4] = {
 }
 
 TREE.Tier[1][5] = {
-	Name = "Consular Tradeoff",
+	Name = "Consular Tradeoff 2",
 	Description = "Focus your hardiness into your force.",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 4 },
 	},
-	-- For whatever reason, the two HP changes dont stack, so double the changes.
-	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 50 ) ply:SetHealth( ply:Health() - 50 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 25 ) ply:SetHealth( ply:Health() - 25 ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 40) end, 
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end, 
 }
 
 TREE.Tier[2] = {}
@@ -142,15 +141,15 @@ TREE.Tier[2][1] = {
 
 TREE.Tier[2][2] = {
 	Name = "Group Heal",
-	Description = "Heal those gathered around you.",
+	Description = "Hold CTRL with Force Heal to use this skill.",
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+	[2] = { 1 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Group Heal" ) end,
+	OnSaberDeploy = function( wep ) wep.GroupHeal = true end,
 }
 
 TREE.Tier[2][3] = {
@@ -205,7 +204,10 @@ TREE.Tier[3][2] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Speed" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Speed" )
+	if (wep:GetOwner():GetRunSpeed() > 450) then
+		RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
+	end	end,
 }
 
 TREE.Tier[3][3] = {
@@ -277,7 +279,7 @@ TREE.Tier[4][2] = {
 			shield:SetColor(Color(0, 161, 255, 140))
 			shield:SetPos(ply:GetPos() + ply:EyeAngles():Up() * 45)
 			shield:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
-			shield:SetSolid(SOLID_BSP)
+			shield:SetSolid(SOLID_VPHYSICS)
 			shield:AddEffects(EF_NOSHADOW)
 			shield:Spawn()
 			shield:Activate()

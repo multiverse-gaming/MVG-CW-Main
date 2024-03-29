@@ -27,6 +27,24 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
+    name = "Funny Crush",
+    icon = "FC",
+    distance = 300,
+    image = "wos/forceicons/push.png",
+    target = 1,
+    cooldown = 0,
+    manualaim = true,
+    description = "Funny Crush Dev Power",
+    action = function( self )
+		local ent = self:SelectTargets( 1, 600 )[ 1 ]
+		if !IsValid( ent ) or !ent:IsPlayer() then self:SetNextAttack( 0.2 ) return end
+		wOS.ALCS.ExecSys:PerformExecution( self.Owner, ent, "Funny Execution Crush" )
+		self:SetNextAttack( 1 )
+		return true
+    end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 			name = "Fighting Chance Test",
 			icon = "FC",
 			distance = 600,
@@ -34,7 +52,7 @@ wOS.ForcePowers:RegisterNewPower({
 			target = 1,
 			cooldown = 0,
 			manualaim = true,
-			description = "LCRUSH",
+			description = "Fighting Chance Dev Power",
 			action = function( self )
 				local ent = self:SelectTargets( 1, 600 )[ 1 ]
 				if !IsValid( ent ) or !ent:IsPlayer() then self:SetNextAttack( 0.2 ) return end

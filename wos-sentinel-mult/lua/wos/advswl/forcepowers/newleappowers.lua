@@ -25,6 +25,32 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
+		name = "Master Force Leap",
+		icon = "ML",
+		image = "wos/forceicons/leap.png",
+		cooldown = 1,
+		description = "Mastering the power of leap you are able to do it twice in once try",
+		action = function( self )
+			if ( CLIENT ) then return end
+			if (self:GetOwner():IsOnGround() && self:GetForce() > 15) then
+				-- On ground - normal leap
+				self:SetForce( self:GetForce() - 15 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				self:CallOnClient( "ForceJumpAnim", "" )
+				return true
+			elseif (!self:GetOwner():IsOnGround() && self:GetForce() > 30) then
+				-- In air - trash leap.
+				self:SetForce( self:GetForce() - 30 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 128 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				self:CallOnClient( "ForceJumpAnim", "" )
+				return true
+			end
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 		name = "Guardian Leap",
 		icon = "L",
 		image = "wos/forceicons/leap.png",
