@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "The Jedi Path"
+TREE.Name = "The Jedi Path -- Removed"
 
 --Description of the skill tree
 TREE.Description = "Learn the way of the Force."
@@ -87,13 +87,13 @@ TREE.Tier[2][1] = {
 	Name = "Jedi Knight",
 	Description = "You have reached the rank of Knight",
 	Icon = "wos/forceicons/absorb.png",
-	PointsRequired = 3,
+	PointsRequired = 2,
     Requirements = {
 	    [1] = { 1 },
 	    },
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 50) end,
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end,
 }
 
 TREE.Tier[3] = {}

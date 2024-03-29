@@ -123,7 +123,7 @@ wOS.ForcePowers:RegisterNewPower({
 			shield:SetColor(Color(0, 161, 255, 140))
 			shield:SetPos(self:GetOwner():GetPos() + self:GetOwner():EyeAngles():Up() * 45)
 			shield:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
-			shield:SetSolid(SOLID_BSP)
+			shield:SetSolid(SOLID_VPHYSICS)
 			shield:AddEffects(EF_NOSHADOW)
 			shield:Spawn()
 			shield:Activate()
@@ -153,7 +153,7 @@ wOS.ForcePowers:RegisterNewPower({
 				if not ply:IsPlayer() then continue end
 				if not ply:Alive() then continue end
 				if players >= 8 then break end
-				ply:SetHealth( math.Clamp( ply:Health() + 100, 0, ply:GetMaxHealth() ) )
+				ply:SetHealth( math.Clamp( ply:Health() + 200, 0, ply:GetMaxHealth() ) )
 				local ed = EffectData()
 				ed:SetOrigin( self:GetSaberPosAng() )
 				ed:SetEntity( ply )
@@ -179,22 +179,50 @@ wOS.ForcePowers:RegisterNewPower({
 		name = "Consular Force Heal",
 		icon = "H",
 		image = "wos/forceicons/heal.png",
-		cooldown = 0,
+		cooldown = 60,
 		target = 1,
-		manualaim = false,
+		manualaim = true,
 		description = "Heal yourself.",
 		action = function( self )
-			if ( self:GetForce() < 6 or self:GetOwner():Health() >= self:GetOwner():GetMaxHealth() or CLIENT ) then return end
-			self:SetForce( self:GetForce() - 6 )
-
+			if ( self:GetForce() < 6 or CLIENT ) then return end
+			local ent = self:SelectTargets( 1 )[ 1 ]
 			self:SetNextAttack( 0.2 )
 
-			local ed = EffectData()
-			ed:SetOrigin( self:GetOwner():GetPos() )
-			util.Effect( "rb655_force_heal", ed, true, true )
-
-			self:GetOwner():SetHealth( self:GetOwner():Health() + 10 )
-			self:GetOwner():Extinguish()
+			if (self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
+				if (ent:Health() >= ent:GetMaxHealth()) then return end
+				local ed = EffectData()
+				ed:SetOrigin( ent:GetPos() )
+				ent:SetHealth( math.min(ent:Health() + 10, ent:GetMaxHealth()))
+				ent:Extinguish()
+				self:SetForce( self:GetForce() - 6 )
+				util.Effect( "rb655_force_heal", ed, true, true )
+			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
+				if ( self:GetForce() < 80 ) then return end
+				local players = 0
+				for _, ply in pairs( ents.FindInSphere( self:GetOwner():GetPos(), 200 ) ) do
+					if not IsValid( ply ) then continue end
+					if not ply:IsPlayer() then continue end
+					if not ply:Alive() then continue end
+					if players >= 8 then break end
+					ply:SetHealth( math.Clamp( ply:Health() + 200, 0, ply:GetMaxHealth() ) )
+					players = players + 1
+				end
+				local ed = EffectData()
+				ed:SetOrigin( self:GetSaberPosAng() )
+				ed:SetEntity( ply )
+				util.Effect( "rb655_force_heal", ed, true, true )
+				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.6 )
+				self:SetForce( self:GetForce() - 80 )
+				return true
+			elseif (!self:GetOwner():KeyDown( IN_WALK )) then
+				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
+				local ed = EffectData()
+				ed:SetOrigin( self:GetOwner():GetPos() )
+				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 10, self:GetOwner():GetMaxHealth()) )
+				self:GetOwner():Extinguish()
+				--self:SetForce( self:GetForce() - 6 )
+				util.Effect( "rb655_force_heal", ed, true, true )
+			end
 		end
 })
 

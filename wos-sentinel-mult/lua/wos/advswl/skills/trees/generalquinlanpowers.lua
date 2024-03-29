@@ -67,7 +67,7 @@ TREE.Tier[1][1] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) ply:Give("weapon_cloak") end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower("Advanced Cloak")  end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower("Advanced Cloak") wep:AddForcePower("Disabling Strike") end,
 }
 
 TREE.Tier[1][2] = {

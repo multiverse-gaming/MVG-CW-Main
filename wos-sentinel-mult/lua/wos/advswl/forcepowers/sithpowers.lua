@@ -66,7 +66,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if self:GetAttackDelay() >= CurTime() then return end
 			self:SetForce( self:GetForce() - 100 )
 			self:GetOwner():EmitSound( Sound( "npc/strider/charging.wav" ) )
-			self:SetAttackDelay( CurTime() + 2 )
+			self:SetAttackDelay( CurTime() + 1 )
 			local tr = util.TraceLine( util.GetPlayerTrace( self:GetOwner() ) )
 			local pos = tr.HitPos + Vector( 0, 0, 600 )
 			local pi = math.pi
@@ -210,11 +210,34 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
+		name = "Advanced Force Heal",
+		icon = "H",
+		image = "wos/forceicons/heal.png",
+		cooldown = 0,
+		target = 1,
+		manualaim = false,
+		description = "Heal yourself.",
+		action = function( self )
+			if ( self:GetForce() < 4 or self:GetOwner():Health() >= self:GetOwner():GetMaxHealth() or CLIENT ) then return end
+			self:SetForce( self:GetForce() - 4 )
+
+			self:SetNextAttack( 0.2 )
+
+			local ed = EffectData()
+			ed:SetOrigin( self:GetOwner():GetPos() )
+			util.Effect( "rb655_force_heal", ed, true, true )
+
+			self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 20, self:GetOwner():GetMaxHealth()) )
+			self:GetOwner():Extinguish()
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 		name = "Lightning Strike",
 		icon = "LS",
 		distance = 600,
 		image = "wos/forceicons/lightning_strike.png",
-		cooldown = 0,
+		cooldown = 20,
 		target = 1,
 		manualaim = false,
 		description = "A focused charge of lightning",
@@ -232,8 +255,21 @@ wOS.ForcePowers:RegisterNewPower({
 			local dmg = DamageInfo()
 			dmg:SetAttacker( self:GetOwner() || self )
 			dmg:SetInflictor( self:GetOwner() || self )
-			dmg:SetDamage( 200 )
-			ent:TakeDamageInfo( dmg )
+			
+			local wep = ent:GetActiveWeapon()
+			if IsValid( wep ) and wep.IsLightsaber and wep:GetBlocking() then
+				ent:EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
+				if wOS.ALCS.Config.EnableStamina then
+					wep:AddStamina( -100 )
+				else
+					wep:SetForce( wep:GetForce() - 1 )
+				end
+				ent:SetSequenceOverride( "h_block", 0.5 )
+			else
+				dmg:SetDamage( 200 )	
+				ent:TakeDamageInfo( dmg )
+			end
+
 			self:GetOwner():EmitSound( Sound( "npc/strider/fire.wav" ) )
 			self:GetOwner():EmitSound( Sound( "ambient/atmosphere/thunder1.wav" ) )
 			if ( !self.SoundLightning ) then
@@ -253,7 +289,6 @@ wOS.ForcePowers:RegisterNewPower({
 			bullet.AmmoType = "Pistol"
 			bullet.Entity = self:GetOwner()
 			bullet.TracerName = "thor_thunder"
-			self:SetNextAttack( 10 )
 			self:GetOwner():FireBullets( bullet )
 			timer.Create( "test" .. self:EntIndex(), 0.2, 1, function() if ( self.SoundLightning ) then self.SoundLightning:Stop() self.SoundLightning = nil end end )
 			return true
@@ -264,13 +299,12 @@ wOS.ForcePowers:RegisterNewPower({
 		name = "Rage",
 		icon = "RA",
 		image = "wos/forceicons/rage.png",
-		cooldown = 0,
+		cooldown = 30,
 		description = "Unleash your anger",
 		action = function( self )
 		if ( self:GetForce() < 50 || !self:GetOwner():IsOnGround() ) then return end
 			if self:GetOwner():GetNW2Float( "RageTime", 0 ) >= CurTime() then return end
 			self:SetForce( self:GetForce() - 50 )
-			self:SetNextAttack( 0.7 )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 10 )
 			return true
