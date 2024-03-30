@@ -194,7 +194,7 @@ wOS.ForcePowers:RegisterNewPower({
 				ed:SetOrigin( ent:GetPos() )
 				ent:SetHealth( math.min(ent:Health() + 10, ent:GetMaxHealth()))
 				ent:Extinguish()
-				self:SetForce( self:GetForce() - 6 )
+				--self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
 				if ( self:GetForce() < 80 ) then return end
@@ -220,7 +220,7 @@ wOS.ForcePowers:RegisterNewPower({
 				ed:SetOrigin( self:GetOwner():GetPos() )
 				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 10, self:GetOwner():GetMaxHealth()) )
 				self:GetOwner():Extinguish()
-				--self:SetForce( self:GetForce() - 6 )
+				self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
 			end
 		end
