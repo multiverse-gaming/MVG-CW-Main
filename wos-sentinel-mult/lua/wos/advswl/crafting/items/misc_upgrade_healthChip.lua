@@ -1,9 +1,9 @@
 local ITEM = {} 
 ITEM.Rarity = 100
 
-ITEM.Name = "Proficiency Amplifier"
+ITEM.Name = "Health Amplifier"
 
-ITEM.Description = "Increases proficiency XP by 20%"
+ITEM.Description = "Increases health by 5"
 
 ITEM.Type = WOSTYPE.MISC2
 
@@ -11,12 +11,13 @@ ITEM.Type = WOSTYPE.MISC2
 ITEM.UserGroups = false
 
 --Does this item disappear from the inventory after it's been applied?
-ITEM.BurnOnUse = true
+ITEM.BurnOnUse = false
 
 ITEM.Model = "models/chip/chip.mdl"
 
 ITEM.OnEquip = function( wep )
-	wep.SaberXPMul = wep.SaberXPMul + 0.05
+	wep:GetOwner():SetMaxHealth( wep:GetOwner():GetMaxHealth() + 5 ) 
+	wep:GetOwner():SetHealth( wep:GetOwner():Health() + 5 ) 
 end
 
 wOS:RegisterItem( ITEM )

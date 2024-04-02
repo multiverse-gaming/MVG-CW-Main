@@ -154,6 +154,7 @@ hook.Add( "loadCustomDarkRPItems", "Defcon_LoadAfterDarkRP", function()
 			[TEAM_JEDIGENERALPLO] = true,
 			[TEAM_JEDIGENERALKIT] = true,
 			[TEAM_JEDIGENERALAAYLA] = true,
+			[TEAM_JEDIGENERALLUMINARA] = true,
 			[TEAM_JEDIGENERALSHAAK] = true,
 			[TEAM_JEDIGENERALADI] = true,
 			[TEAM_JEDIGENERALVOS] = true,

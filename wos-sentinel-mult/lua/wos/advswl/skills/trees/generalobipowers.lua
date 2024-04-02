@@ -60,7 +60,7 @@ TREE.Tier = {}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Mind Trick",
+	Name = "Deflection Mastery",
 	Description = "Deflect anything for around 10 seconds.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 3,

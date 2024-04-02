@@ -10,15 +10,22 @@ wOS.ForcePowers:RegisterNewPower({
     cooldown = 15,
     manualaim = false,
     action = function( self )
-        if ( self:GetForce() < 40 || CLIENT ) then return end
+        if ( self:GetForce() < 40 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
         self:SetForce( self:GetForce() - 40 )
 
-        self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() + 320 )
+        if (self.Owner:GetRunSpeed() > 500) then
+            self.Owner:SetRunSpeed(240)
+            self:SetForce(-200)
+            return true
+        end
+
+        self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() + 280 )
         local ed = EffectData()
         ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
         ed:SetRadius( 30 )
         util.Effect( "rb655_force_repulse_out", ed, true, true )
-        timer.Simple( 5, function() self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() - 320 ) end )
+        local jedi = self.Owner
+        timer.Simple( 5, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 280 ) end )
         return true
     end
 })
@@ -32,15 +39,22 @@ wOS.ForcePowers:RegisterNewPower({
     cooldown = 15,
     manualaim = false,
     action = function( self )
-        if ( self:GetForce() < 40 || CLIENT ) then return end
+        if ( self:GetForce() < 40 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
         self:SetForce( self:GetForce() - 40 )
+
+        if (self.Owner:GetRunSpeed() > 500) then -- 370 (10 over max speed) + 100 (sentinel spawn boost) + speed
+            self.Owner:SetRunSpeed(240)
+            self:SetForce(-200)
+            return true
+        end
 
         self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() + 220 )
         local ed = EffectData()
         ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
         ed:SetRadius( 30 )
         util.Effect( "rb655_force_repulse_out", ed, true, true )
-        timer.Simple( 10, function() self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() - 220 ) end )
+        local jedi = self.Owner
+        timer.Simple( 10, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 220 ) end )
         return true
     end
 })
@@ -54,7 +68,7 @@ wOS.ForcePowers:RegisterNewPower({
     cooldown = 15,
     manualaim = false,
     action = function( self )
-        if ( self:GetForce() < 30 || CLIENT ) then return end
+        if ( self:GetForce() < 30 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
         self:SetForce( self:GetForce() - 30 )
 
         self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() + 200 )
@@ -62,7 +76,8 @@ wOS.ForcePowers:RegisterNewPower({
         ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
         ed:SetRadius( 30 )
         util.Effect( "rb655_force_repulse_out", ed, true, true )
-        timer.Simple( 8, function() self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() - 200 ) end )
+        local jedi = self.Owner
+        timer.Simple( 8, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 200 ) end )
         return true
     end
 })
@@ -76,15 +91,22 @@ wOS.ForcePowers:RegisterNewPower({
 		cooldown = 15,
 		manualaim = false,
 		action = function( self )
-			if ( self:GetForce() < 30 || CLIENT ) then return end
+			if ( self:GetForce() < 30 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
 			self:SetForce( self:GetForce() - 30 )
+
+            if (self.Owner:GetRunSpeed() > 500) then -- 370 (silly max speed) + speed
+                self.Owner:SetRunSpeed(240)
+                self:SetForce(-200)
+                return true
+            end
 
 			self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() + 175 )
 			local ed = EffectData()
 			ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
 			ed:SetRadius( 30 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
-			timer.Simple( 5, function() self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() - 175 ) end )
+            local jedi = self.Owner
+			timer.Simple( 5, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 175 ) end )
 			return true
 		end
 })
@@ -95,20 +117,20 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Master Speed Burst",
 		target = 1,
 		image = "wos/forceicons/charge.png",
-		cooldown = 10,
+		cooldown = 20,
 		manualaim = false,
 		action = function( self )
 			if ( self:GetForce() < 40 || CLIENT ) then return end
 			self:SetForce( self:GetForce() - 40 )
-			self:SetNextAttack( 1.1 )
 
 		    local sped = self.Owner:GetRunSpeed()
-			self.Owner:SetRunSpeed( sped + 500 )
+			self.Owner:SetRunSpeed( sped + 280 )
 			local ed = EffectData()
 			ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
 			ed:SetRadius( 30 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
-			timer.Simple( 5, function() self.Owner:SetRunSpeed( self.Owner:GetRunSpeed() - 500 ) end )
+            local jedi = self.Owner
+			timer.Simple( 10, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 280 ) end )
 			return true
 		end
 })

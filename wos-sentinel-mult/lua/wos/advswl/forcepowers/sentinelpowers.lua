@@ -9,7 +9,7 @@ wOS.ForcePowers:RegisterNewPower({
 	description = "Slow your opponents movement",
 	image = "wos/forceicons/push.png",
 	cooldown = 30,
-	manualaim = false,
+	manualaim = true,
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
 		local ent = self:SelectTargets( 1 )[ 1 ]
@@ -121,10 +121,11 @@ wOS.ForcePowers:RegisterNewPower({
 			return true
 		end
 })
+
 wOS.ForcePowers:RegisterNewPower({
 		name = "Fold Space",
 		icon = "TP",
-		description = "Phase to a new location.",
+		description = "Phase to a new location",
 		image = "wos/forceicons/icefuse/teleport.png",
 		cooldown = 25,
 		manualaim = false,
@@ -198,11 +199,14 @@ wOS.ForcePowers:RegisterNewPower({
 	action = function( self )
 		if ( self:GetForce() < 30 ) then return end
 			self:SetForce(self:GetForce() - 30)
+
 			local light = ents.Create("light_dynamic")
-            light:SetPos( self:GetOwner():GetPos() )
+            light:SetPos( self:GetOwner():GetPos() + Vector( 0, 0, 20 ) )
 			light:SetParent(self:GetOwner())
             light:Spawn()
-            light:SetKeyValue("_light", "255 160 66")
+            --light:SetKeyValue("_light", "255 160 66")
+			local clr = self:GetCrystalColor()
+			light:SetKeyValue("_light",  clr.x .. " " .. clr.y ..  " " .. clr.z)
             light:SetKeyValue("distance","3000")
             light:Fire("Kill","",15)
     		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
@@ -220,19 +224,42 @@ wOS.ForcePowers:RegisterNewPower({
 	manualaim = false,
 	action = function( self )
 		if self:GetForce() < 30 then return end
-			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
-			if not IsValid( tr.Entity ) then return end
+		local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
+		if not IsValid( tr.Entity ) then return end
 			local entityClass = tr.Entity:GetClass()
-
-			-- Just opens or closes doors.
+            
+			-- Open doors. Not all doors are interactable with e, but the ones that are could be locked.
             if (entityClass == "func_door" || entityClass == "prop_door_rotating" || entityClass == "func_door_rotating") then
                 tr.Entity:Fire("unlock", "", 0)
                 tr.Entity:Fire("toggle","", 0)
                 self:SetForce( self:GetForce() - 30 )
-                self:SetNextAttack( 1 )
-    			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
                 return true
 			end
+
+			-- Move linears are specfic, can't toggle. Open is probably best.
+            if (entityClass == "func_movelinear") then
+                tr.Entity:Fire("open","", 0)
+                self:SetForce( self:GetForce() - 30 )
+                return true
+			end
+
+			-- This one doesn't work great, because a lot of buttons are invisible.
+			if (entityClass == "func_button") then
+                tr.Entity:Fire("press", "", 0)
+                self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+                self:SetForce( self:GetForce() - 30 )
+                return true
+			end
+
+			-- Turned off because you're a COWARD ):<
+			-- Turn off rayshields, other stuff that can toggle. 
+            --[[if (entityClass == "func_brush") then
+                tr.Entity:Fire("toggle", "", 0)
+                self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+                self:SetForce( self:GetForce() - 25 )
+                self:SetNextAttack( 1 )
+                return true
+			end]]--
 		end,
 })
 
@@ -252,7 +279,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if not ply:IsPlayer() then return end
 			if not ply:Alive() then return end
 			if ply == self.Owner then return end
-			ply:SetNW2Float( "wOS.BlindTime", CurTime() + 7 )
+			ply:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
 			self:SetForce( self:GetForce() - 75 )
@@ -272,18 +299,26 @@ wOS.ForcePowers:RegisterNewPower({
 				-- If cloaking, go on CD and turn cloak off so you can attack.
 				self.CloakTime = CurTime()
 				self:GetOwner():SetNoTarget(false)
+				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
 				return true
 			end
-			if ( self:GetForce() < 75) then return end
+			if ( self:GetForce() < 25) then return end
 
-			self:SetForce( self:GetForce() - 75 )
+			self:SetForce( self:GetForce() - 25 )
 			self:SetNextAttack( 0.7 )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 
-			self.CloakTime = CurTime() + 15
+			self.CloakTime = CurTime() + 45
 			-- Look up timer.Create and see delay and repitions in the arguments. You will see why it's like this.
-			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 40 + 1, function() 
+			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 0, function() 
 				if self:GetCloaking() then 
+					if (self:GetForce() <= 3) then
+						-- If out of force, turn cloak off.
+						self.CloakTime = CurTime()
+						self:GetOwner():SetNoTarget(false)
+						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+					end
+					self:SetForce( self:GetForce() - 3 )
 					if self.Owner:GetVelocity():Length() > 130 then
 						self:GetOwner():SetNoTarget(false)
 					else
@@ -294,7 +329,8 @@ wOS.ForcePowers:RegisterNewPower({
 				end	
 			end)
 
-			timer.Simple(15, function()
+			timer.Simple(45, function()
+				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
 				if self:GetCloaking() then
 					self:SetCloaking(false)
 				end

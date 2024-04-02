@@ -33,7 +33,7 @@ TREE.Description = "These Jedi ferret out deceit and injustice, bringing it to l
 TREE.TreeIcon = "wos/forceicons/absorb.png"
 
 --What is the background color in the menu for this 
-TREE.BackgroundColor = Color( 177, 201, 0, 76)
+TREE.BackgroundColor = Color( 255, 165, 0, 76 )
 
 --How many tiers of skills are there?
 TREE.MaxTiers = 5
@@ -108,28 +108,27 @@ TREE.Tier[1][3] = {
 }
 
 TREE.Tier[1][4] = {
-	Name = "Sentinel Tradeoff",
+	Name = "Sentinel Tradeoff 1",
 	Description = "Focus your hardiness into your speed.",
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 3 },
 	},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 50 ) ply:SetHealth( ply:Health() - 50 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 100 ) ply:SetHealth( ply:Health() - 100 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
 
 TREE.Tier[1][5] = {
-	Name = "Sentinel Tradeoff",
+	Name = "Sentinel Tradeoff 2",
 	Description = "Focus your hardiness into your speed.",
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 4 },
 	},
-	-- For whatever reason, the two HP changes dont stack, so double the changes.
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 20 ) ply:SetMaxHealth( ply:GetMaxHealth() - 100 ) ply:SetHealth( ply:Health() - 100 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 100 ) ply:SetHealth( ply:Health() - 100 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -226,7 +225,10 @@ TREE.Tier[3][2] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Sentinel Speed" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Sentinel Speed" )
+	if (wep:GetOwner():GetRunSpeed() > 450) then
+		RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
+	end	end,
 }
 
 TREE.Tier[3][3] = {

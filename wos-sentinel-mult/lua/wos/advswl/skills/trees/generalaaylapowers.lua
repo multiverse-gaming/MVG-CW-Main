@@ -61,7 +61,7 @@ TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
 	Name = "The Engineer's Dream",
-	Description = "Engineering equipment, along with deep knowledge of manipulating electronics with the force.",
+	Description = "Engineering equipment, along with the speed to use it.",
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 3,
 	Requirements = {},
@@ -76,7 +76,7 @@ TREE.Tier[1][1] = {
 		ply:Give("weapon_remotedrone")
 	end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Breach" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Speed" ) end,
 }
 
 TREE.Tier[1][2] = {
@@ -96,7 +96,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 20) end,
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }

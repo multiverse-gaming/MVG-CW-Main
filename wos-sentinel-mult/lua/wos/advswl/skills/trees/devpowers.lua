@@ -361,14 +361,14 @@ TREE.Tier[4][5] = {
 TREE.Tier[5] = {}
 
 TREE.Tier[5][1] = {
-	Name = "STRONG - Force Swap",
+	Name = "STRONG - Devestator - Sonic Discharge",
 	Description = "Gives FS.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Swap" ) end,
+	OnSaberDeploy = function( wep ) wep:AddDevestator( "Sonic Discharge" ) end,
 }
 
 TREE.Tier[5][2] = {
@@ -394,7 +394,7 @@ TREE.Tier[5][3] = {
 }
 
 TREE.Tier[5][4] = {
-	Name = "STRONG - Shadow Strike",
+	Name = "Shadow Strike",
 	Description = "Gives SS. Use with Cloak.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
@@ -405,14 +405,14 @@ TREE.Tier[5][4] = {
 }
 
 TREE.Tier[5][5] = {
-	Name = "STRONG - Windus Crush",
-	Description = "Gives CH. Not gory.",
+	Name = "STRONG - Funny Crush",
+	Description = "Gives FC. Very gory.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Windus Crush" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Funny Crush" ) end,
 }
 
 TREE.Tier[5][6] = {
@@ -424,6 +424,17 @@ TREE.Tier[5][6] = {
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Fighting Chance Test" ) end,
+}
+
+TREE.Tier[5][7] = {
+	Name = "Disabling Strike",
+	Description = "Gives DS. Use with Cloak.",
+	Icon = "wos/forceicons/absorb.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Disabling Strike" ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

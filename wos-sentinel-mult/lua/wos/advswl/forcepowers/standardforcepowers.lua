@@ -72,9 +72,16 @@ wOS.ForcePowers:RegisterNewPower({
 				self:SetMeditateMode( 1 )
 				if not self._NextMeditateHeal then self._NextMeditateHeal = 0 end
 				if self._NextMeditateHeal < CurTime() then
-					self:GetOwner():SetHealth( math.min( self:GetOwner():Health() + ( self:GetOwner():GetMaxHealth()*0.01 ), self:GetOwner():GetMaxHealth() ) )
+					local meditatePercentage
+					if (self.Meditate ~= nil && self.Meditate >= 1) then
+						meditatePercentage = 0.1
+					else
+						meditatePercentage = 0.05
+					end
+
+					self:GetOwner():SetHealth( math.min( self:GetOwner():Health() + ( self:GetOwner():GetMaxHealth()*meditatePercentage ), self:GetOwner():GetMaxHealth() ) )
 					if #self.DevestatorList > 0 then
-						self:SetDevEnergy( self:GetDevEnergy() + self.DevCharge )
+						self:SetDevEnergy( self:GetDevEnergy() + 15 )
 					end
 					self._NextMeditateHeal = CurTime() + 3
 				end

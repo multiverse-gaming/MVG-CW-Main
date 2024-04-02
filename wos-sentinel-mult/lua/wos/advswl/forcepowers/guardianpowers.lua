@@ -44,7 +44,7 @@ wOS.ForcePowers:RegisterNewPower({
 		image = "wos/forceicons/charge.png",
 		target = 1,
 		cooldown = 1,
-		manualaim = true,
+		manualaim = false,
 		description = "Lunge at your enemy",
 		action = function( self )
 			local ent = self:SelectTargets( 1, 1000 )[ 1 ]
@@ -227,7 +227,7 @@ wOS.ForcePowers:RegisterNewPower({
 		if ( self:GetForce() < 60 || !self:GetOwner():IsOnGround() ) then return end
 			if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
 			self:SetForce( self:GetForce() - 60 )
-			
+
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 20 )
 			return true

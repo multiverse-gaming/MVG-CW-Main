@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Guardian Path Old"
+TREE.Name = "Guardian Path -- removed"
 
 --Description of the skill tree
 TREE.Description = "We Guardians are the Republic's first line of defense against the thousand enemies who seek to destroy it."
