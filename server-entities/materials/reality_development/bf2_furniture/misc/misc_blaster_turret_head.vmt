@@ -1,0 +1,15 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "reality_development/bf2_furniture/misc/misc_blaster_turret_head"
+	"$bumpmap" "reality_development/bf2_furniture/misc/misc_blaster_turret_head_n"
+
+
+
+   	$color2 "[0.7 0.7 0.7]"
+
+	$phong			1
+
+	$phongexponent		5		
+	$phongboost		1.0
+	$phongfresnelranges	"[0 0.5 1]"
+}

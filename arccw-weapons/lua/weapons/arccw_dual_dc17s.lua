@@ -14,6 +14,7 @@ SWEP.Trivia_Country = "GAR"
 SWEP.Trivia_Year = 2020
 
 SWEP.Slot = 1
+SWEP.SlotPos = 8
 
 SWEP.UseHands = true
 

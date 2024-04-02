@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\medpac\medpac"
+	"$bumpmap" "starwars\items\medpac\medpac_n"
+}

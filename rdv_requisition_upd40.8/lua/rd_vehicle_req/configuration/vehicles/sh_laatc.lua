@@ -26,6 +26,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th Executive Officer",
   "327th Major",
   "327th Talon Squadron",
+  "327th Lieutenant",
   "327th Sergeant",
   "Jedi Grand Master",
   "Jedi General Aayla Secura",

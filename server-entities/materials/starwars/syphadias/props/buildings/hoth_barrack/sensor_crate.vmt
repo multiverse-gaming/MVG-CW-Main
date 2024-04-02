@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "starwars/syphadias/props/buildings/hoth_barrack/sensor_crate"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"1.6"
+	"$phongexponent"		"24.8"
+	"$PhongFresnelRanges"		"[.05 .5 1]"
+
+	"$nocull" 1
+}

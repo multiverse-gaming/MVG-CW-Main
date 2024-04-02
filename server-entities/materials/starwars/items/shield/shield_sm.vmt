@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\shield\shield_sm"
+	"$bumpmap" "starwars\items\shield\shield_sm_n"
+}
