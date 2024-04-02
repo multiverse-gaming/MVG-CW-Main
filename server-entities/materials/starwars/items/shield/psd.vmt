@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\shield\psd"
+	"$bumpmap" "starwars\items\shield\psd_n"
+}

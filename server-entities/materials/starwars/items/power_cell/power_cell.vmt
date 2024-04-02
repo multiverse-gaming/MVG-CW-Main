@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\power_cell\power_cell"
+	"$bumpmap" "starwars\items\power_cell\power_cell_n"
+}

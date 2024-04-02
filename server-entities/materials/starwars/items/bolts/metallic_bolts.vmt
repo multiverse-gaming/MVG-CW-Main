@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\bolts\metallic_bolts"
+	"$bumpmap" "starwars\items\bolts\metallic_bolts_n"
+}
