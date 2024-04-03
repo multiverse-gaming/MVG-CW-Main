@@ -446,7 +446,7 @@ TEAM_501STJUGGERNAUT = DarkRP.createJob("501st Heavy Trooper", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_raffle.mdl","models/aussiwozzi/cgi/base/501st_atoa.mdl","models/aussiwozzi/cgi/base/501st_brighton.mdl","models/aussiwozzi/cgi/base/501st_pork.mdl","models/aussiwozzi/cgi/base/501st_scar.mdl","models/aussiwozzi/cgi/base/501st_boomer.mdl","models/aussiwozzi/cgi/base/501st_atoa2.mdl","models/aussiwozzi/cgi/base/501st_jet_trooper.mdl","models/aussiwozzi/cgi/base/501st_dogma.mdl","models/aussiwozzi/cgi/base/501st_arf.mdl","models/aussiwozzi/cgi/base/501st_barc.mdl","models/aussiwozzi/cgi/base/501st_tup.mdl","models/aussiwozzi/cgi/base/501st_hardcase.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl", "models/aussiwozzi/cgi/base/501st_knotts.mdl","models/aussiwozzi/cgi/base/501st_torrent_officer.mdl", "models/aussiwozzi/cgi/base/501st_torrent.mdl","models/herm/cgi_new/501st/501st_trooper2.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_raffle.mdl","models/aussiwozzi/cgi/base/501st_atoa.mdl","models/aussiwozzi/cgi/base/501st_brighton.mdl","models/aussiwozzi/cgi/base/501st_pork.mdl","models/aussiwozzi/cgi/base/501st_scar.mdl","models/aussiwozzi/cgi/base/501st_boomer.mdl","models/aussiwozzi/cgi/base/501st_atoa2.mdl","models/aussiwozzi/cgi/base/501st_jet_trooper.mdl","models/aussiwozzi/cgi/base/501st_dogma.mdl","models/aussiwozzi/cgi/base/501st_arf.mdl","models/aussiwozzi/cgi/base/501st_barc.mdl","models/aussiwozzi/cgi/base/501st_tup.mdl","models/aussiwozzi/cgi/base/501st_hardcase.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl", "models/aussiwozzi/cgi/base/501st_knotts.mdl","models/aussiwozzi/cgi/base/501st_torrent_officer.mdl", "models/aussiwozzi/cgi/base/501st_torrent.mdl","models/herm/cgi_new/501st/501st_trooper2.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl"},
 
     description = [[Congratulations, you are a Heavy Trooper of the 501st Legion!]],
 
@@ -3724,7 +3724,7 @@ TEAM_RCSCORCH = DarkRP.createJob("RC Scorch", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:GiveAmmo(10,"grenade") ply:SetRunSpeed (240) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:GiveAmmo(10,"rpg_round") ply:SetRunSpeed (240) ply:SetGravity(1) end,
 
     SortOrder = 5
 
@@ -4068,6 +4068,8 @@ TEAM_RCDARMAN = DarkRP.createJob("RC Darman", {
         ply:SetMaxHealth(400)
 
         ply:SetRunSpeed (240)
+
+        ply:GiveAmmo(10,"rpg_round")
 
         ply:SetGravity(1)
 
