@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/emperors_tower/deathstar_segment4"
+	//"$bumpmap" "models/KingPommes/starwars/emperors_tower/deathstar_segment4_normal"
+	
+	//"$Phong"			"1"
+	//"$PhongBoost"			"5"
+	//"$phongexponent"		"10"
+	//"$PhongFresnelRanges"		"[.05 .5 1]"
+}

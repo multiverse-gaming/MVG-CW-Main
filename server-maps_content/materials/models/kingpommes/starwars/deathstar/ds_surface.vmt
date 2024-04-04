@@ -1,0 +1,21 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/DeathStar/ds_surface"
+	"$bumpmap" "models/KingPommes/starwars/DeathStar/ds_surface_normal"
+	
+	"$detail" "KingPommes/starwars/DeathStar/equator_hull"
+	"$detailscale" "80"
+	"$detailblendfactor" "0.95"
+	"$detailblendmode" "0"
+	
+	"$Phong" "1"
+	"$PhongBoost" "0.5"
+	"$phongexponent" "500"
+	"$PhongFresnelRanges" "[.05 .5 1]"
+
+
+	"$rimlight" "1"
+	"$rimlightexponent" "70"
+	"$rimlightboost" "0.4"
+}

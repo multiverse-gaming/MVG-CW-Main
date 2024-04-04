@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/DeathStar/hangar_fake"
+	"$selfillum" "1"
+}

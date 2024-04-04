@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "KingPommes/starwars/DeathStar/equator_hull"
+	"$bumpmap" "KingPommes/starwars/DeathStar/equator_hull_normal"
+
+	"$surfaceprop" "metal"
+	
+	"$detail" "detail\metal_detail_01"
+	"$detailscale" "2.532"
+	"$detailblendfactor" "0.40"
+	"$detailblendmode" "0"
+	
+	"$color2" "[ 0.46 0.46 0.52 ]"
+}

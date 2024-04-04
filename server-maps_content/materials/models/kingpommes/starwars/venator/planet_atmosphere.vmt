@@ -1,0 +1,25 @@
+"VertexLitGeneric" {
+	$basetexture dev/water_moving_beneath
+	//$basetexture dev/water_moving
+	
+	$bumpmap dev/dev_normal
+	$translucent 1
+
+	
+	//Proxies {
+	//	TextureScroll {
+	//		textureScrollVar $basetexturetransform
+	//		textureScrollRate 0.025
+	//		textureScrollAngle 12
+	//	}
+	//}
+	
+	$phong 1
+	$phongexponent 0
+	$phongboost 0
+	$phongfresnelranges "[0 0 0]"
+	
+	$rimlight 1
+	$rimlightexponent 1
+	$rimlightboost .4
+}

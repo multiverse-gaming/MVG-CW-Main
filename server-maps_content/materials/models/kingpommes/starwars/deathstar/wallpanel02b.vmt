@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "KingPommes/starwars/DeathStar/wallpanel02"
+	"$bumpmap" "KingPommes/starwars/DeathStar/base_normal"
+}

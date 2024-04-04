@@ -1,0 +1,5 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "kingpommes/starwars/venator/venator_exterior_nowin"
+	"$surfaceprop" "metal"
+}

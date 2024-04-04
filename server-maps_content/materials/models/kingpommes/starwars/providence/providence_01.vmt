@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/providence/providence_01"
+	"$selfillum" "1"
+}

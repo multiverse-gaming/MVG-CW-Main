@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "KingPommes/starwars/Venator/hypertunnel_scroll"
+	"$seamless_scale" "1"
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$BaseTextureTransform"
+			"texturescrollrate" "1"
+			"texturescrollangle" "270"
+		}
+	}
+}

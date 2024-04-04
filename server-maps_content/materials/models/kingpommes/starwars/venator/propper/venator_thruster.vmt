@@ -1,0 +1,6 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "kingpommes/starwars/venator/venator_thruster"
+	"$surfacprop" "glass"
+	"$selfillum" "1"
+}
