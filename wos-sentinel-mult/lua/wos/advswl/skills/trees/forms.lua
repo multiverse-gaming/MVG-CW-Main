@@ -36,7 +36,7 @@ TREE.TreeIcon = "wos/skilltrees/forms/versatile.png"
 TREE.BackgroundColor = Color( 255, 0, 0, 25 )
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 3
+TREE.MaxTiers = 5
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
@@ -293,6 +293,142 @@ TREE.Tier[3][7] = {
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Djem So", 3 ) end,
+}
+
+TREE.Tier[4] = {}
+
+TREE.Tier[4][1] = {
+	Name = "Juyo 2",
+	Description = "Gives your Form Juyo Stance 2",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Juyo", 2 ) end,
+}
+
+TREE.Tier[4][2] = {
+	Name = "Juyo 1",
+	Description = "Gives your Form Juyo Stance 1",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Juyo", 1 ) end,
+}
+
+TREE.Tier[4][3] = {
+	Name = "Adept 1",
+	Description = "Gives your Form Adept Stance 1",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 1 ) end,
+}
+
+TREE.Tier[4][4] = {
+	Name = "Relentless 1",
+	Description = "Gives your Form Relentless Stance 1",
+	Icon = "wos/skilltrees/forms/aggressive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Relentless", 1 ) end,
+}
+
+TREE.Tier[4][5] = {
+	Name = "Jar'Kai 1",
+	Description = "Gives your Dual Form Jar'Kai Stance 1",
+	Icon = "wos/skilltrees/forms/agile.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Jar'Kai", 1 ) end,
+}
+
+TREE.Tier[4][6] = {
+	Name = "Jar'Kai 2",
+	Description = "Gives your Dual Form Jar'Kai Stance 2",
+	Icon = "wos/skilltrees/forms/agile.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Jar'Kai", 2 ) end,
+}
+
+TREE.Tier[5] = {}
+
+TREE.Tier[5][1] = {
+	Name = "Juyo 3",
+	Description = "Gives your Form Juyo Stance 3",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Juyo", 3 ) end,
+}
+
+TREE.Tier[5][2] = {
+	Name = "Adept 3",
+	Description = "Gives your Form Adept Stance 3",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 3 ) end,
+}
+
+TREE.Tier[5][3] = {
+	Name = "Adept 2",
+	Description = "Gives your Form Adept Stance 2",
+	Icon = "wos/skilltrees/forms/versatile.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 2 ) end,
+}
+
+TREE.Tier[5][4] = {
+	Name = "Relentless 2",
+	Description = "Gives your Form Relentless Stance 2",
+	Icon = "wos/skilltrees/forms/aggressive.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Relentless", 2 ) end,
+}
+
+TREE.Tier[5][5] = {
+	Name = "Relentless 3",
+	Description = "Gives your Form Relentless Stance 3",
+	Icon = "wos/skilltrees/forms/aggressive.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Relentless", 3 ) end,
+}
+
+TREE.Tier[5][6] = {
+	Name = "Jar'Kai 3",
+	Description = "Gives your Dual Form Jar'Kai Stance 3",
+	Icon = "wos/skilltrees/forms/agile.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Jar'Kai", 3 ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

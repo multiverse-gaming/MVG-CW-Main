@@ -78,8 +78,7 @@ TREE.Tier[1][1] = {
 	OnPlayerSpawn = function( ply ) timer.Create("yodaJumpAttackTimer", 0.25, 0, function() 
 		local localWep = ply:GetActiveWeapon()
 		if (IsValid(localWep)) then localWep.AerialLand = false end end)
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(280)
 	end,
 	OnPlayerDeath = function( ply ) timer.Remove("yodaJumpAttackTimer") end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Yoda", 1 ) end,

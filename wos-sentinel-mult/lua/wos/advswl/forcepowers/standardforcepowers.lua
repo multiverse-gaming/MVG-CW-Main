@@ -17,14 +17,14 @@ wOS.ForcePowers:RegisterNewPower({
 		cooldown = 8,
 		manualaim = false,
 		action = function( self )
-			if ( self:GetForce() < 20 ) then return end
+			if ( self:GetForce() < 30 ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
 			if not IsValid( ent ) then return end
 			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
 			local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
 			newpos = newpos / newpos:Length()
 			ent:SetVelocity( newpos*700 + Vector( 0, 0, 300 ) )
-			self:SetForce( self:GetForce() - 50 )
+			self:SetForce( self:GetForce() - 30 )
 			self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
 			self:SetNextAttack( 1.5 )
 			return true
@@ -41,7 +41,7 @@ wOS.ForcePowers:RegisterNewPower({
 		cooldown = 8,
 		manualaim = false,
 		action = function( self )
-			if ( self:GetForce() < 20 ) then return end
+			if ( self:GetForce() < 30 ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
 			if not IsValid( ent ) then return end
 			self:GetOwner():SetSequenceOverride("idle_magic", 1)
@@ -49,7 +49,7 @@ wOS.ForcePowers:RegisterNewPower({
 			local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
 			newpos = newpos / newpos:Length()
 			ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
-			self:SetForce( self:GetForce() - 50 )
+			self:SetForce( self:GetForce() - 30 )
 			self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
 			self:SetNextAttack( 1.5 )
 			return true

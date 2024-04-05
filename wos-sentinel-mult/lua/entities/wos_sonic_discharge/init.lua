@@ -75,10 +75,11 @@ function ENT:Touch( ent )
 		local dmg = DamageInfo()
 		dmg:SetAttacker( self:GetOwner() || self )
 		dmg:SetInflictor( self:GetOwner() || self )
-		dmg:SetDamage( 50 )	
+		dmg:SetDamage( 600 )	
 		ent:TakeDamageInfo( dmg )
 	end
 	
+	ent:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 	ent:SetNW2Float( "wOS.SonicTime", CurTime() + 4 )
 	
 end 

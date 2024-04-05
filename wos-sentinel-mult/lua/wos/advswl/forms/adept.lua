@@ -1,7 +1,7 @@
 local FORM = {}
 
 --The name of this form. Do not repeat names of forms!
-FORM.Name = "Powerful"
+FORM.Name = "Adept"
 
 --Who does this form belong to? Options: FORM_SINGLE, FORM_DUAL, FORM_BOTH
 FORM.Type = FORM_SINGLE
@@ -24,68 +24,68 @@ FORM.UserGroups = {
 FORM.Stances = {}
 
 FORM.Stances[1] = {
-	[ "run" ] = "ryoku_b_run",
-	[ "idle" ] = "vanguard_f_idle",
+	[ "run" ] = "vanguard_h_run",
+	[ "idle" ] = "idle_all_angry",
 	[ "light_left" ] = {
-		Sequence = "vanguard_b_s4_t3",
+		Sequence = "judge_b_left_t3",
 		Time = nil,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "phalanx_h_right_t2",
-		Time = 1.1,
+		Sequence = "vanguard_r_right_t2",
+		Time = 0.5,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "h_c2_t2",
-		Time = 0.9,
-		Rate = nil,
+		Sequence = "judge_r_s3_t2",
+		Time = 0.85,
+		Rate = 1.5,
 	},
 	[ "air_left" ] = {
-		Sequence =  "phalanx_a_left_t1",
-		Time = 0.6,
-		Rate = 1.6,
+		Sequence =  "judge_a_left_t1",
+		Time = 0.4,
+		Rate = 2,
 	},
 	[ "air_right" ] = {
 		Sequence = "phalanx_a_right_t1",
-		Time = 0.6,
+		Time = 0.4,
 		Rate = 1.7,
 	},
 	[ "air_forward" ] = {
-		Sequence = "phalanx_a_s1_t1",
-		Time = 0.6,
-		Rate = 1.2,
+		Sequence = "ryoku_a_s1_t1",
+		Time = 0.4,
+		Rate = 1,
 	},
 	[ "heavy" ] = {
-		Sequence = "r_c4_t3",
+		Sequence = "flourish_heavy",
 		Time = nil,
-		Rate = nil,
+		Rate = 0.8,
 	},
-	[ "heavy_charge" ] = "r_c4_charge",
+	[ "heavy_charge" ] = "wos_bs_shared_taunt_heavy",
 }
 
 FORM.Stances[2] = {
-	[ "run" ] = "ryoku_b_run",
-	[ "idle" ] = "vanguard_f_idle",
+	[ "run" ] = "vanguard_h_run",
+	[ "idle" ] = "idle_all_angry",
 	[ "light_left" ] = {
-		Sequence = "vanguard_b_s4_t3",
-		Time = nil,
+		Sequence = "r_left_t2",
+		Time = 0.5,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "phalanx_h_right_t2",
-		Time = nil,
+		Sequence = "vanguard_b_right_t2",
+		Time = 1.4,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "h_c2_t2",
-		Time = nil,
+		Sequence = "ryoku_h_left_t3",
+		Time = 0.8,
 		Rate = nil,
 	},
 	[ "air_left" ] = {
-		Sequence =  "phalanx_a_left_t1",
+		Sequence =  "judge_a_left_t1",
 		Time = 0.6,
-		Rate = 1.6,
+		Rate = 2,
 	},
 	[ "air_right" ] = {
 		Sequence = "phalanx_a_right_t1",
@@ -93,40 +93,40 @@ FORM.Stances[2] = {
 		Rate = 1.7,
 	},
 	[ "air_forward" ] = {
-		Sequence = "phalanx_a_s1_t1",
+		Sequence = "ryoku_a_s1_t1",
 		Time = 0.6,
-		Rate = 1.2,
+		Rate = 1,
 	},
 	[ "heavy" ] = {
-		Sequence = "r_c4_t3",
+		Sequence = "judge_r_s1_t1",
 		Time = nil,
-		Rate = nil,
+		Rate = 0.8,
 	},
-	[ "heavy_charge" ] = "r_c4_charge",
+	[ "heavy_charge" ] = "pure_taunt_reverse",
 }
 
 FORM.Stances[3] = {
-	[ "run" ] = "ryoku_b_run",
-	[ "idle" ] = "vanguard_f_idle",
+	[ "run" ] = "vanguard_h_run",
+	[ "idle" ] = "idle_all_angry",
 	[ "light_left" ] = {
-		Sequence = "vanguard_b_s4_t3",
+		Sequence = "judge_b_left_t3",
 		Time = nil,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "phalanx_h_right_t2",
+		Sequence = "judge_h_s1_t2",
 		Time = nil,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "h_c2_t2",
-		Time = nil,
-		Rate = nil,
+		Sequence = "judge_r_s3_t2",
+		Time = 0.85,
+		Rate = 1.5,
 	},
 	[ "air_left" ] = {
-		Sequence =  "phalanx_a_left_t1",
+		Sequence =  "judge_a_left_t1",
 		Time = 0.6,
-		Rate = 1.6,
+		Rate = 2,
 	},
 	[ "air_right" ] = {
 		Sequence = "phalanx_a_right_t1",
@@ -134,15 +134,16 @@ FORM.Stances[3] = {
 		Rate = 1.7,
 	},
 	[ "air_forward" ] = {
-		Sequence = "phalanx_a_s1_t1",
+		Sequence = "ryoku_a_s1_t1",
 		Time = 0.6,
-		Rate = 1.2,
+		Rate = 1,
 	},
 	[ "heavy" ] = {
-		Sequence = "r_c4_t3",
+		Sequence = "vanguard_r_right_t1",
 		Time = nil,
-		Rate = nil,
+		Rate = 0.8,
 	},
-	[ "heavy_charge" ] = "r_c4_charge",
+	[ "heavy_charge" ] = "taunt_balanced",
 }
+
 wOS:RegisterNewForm( FORM )

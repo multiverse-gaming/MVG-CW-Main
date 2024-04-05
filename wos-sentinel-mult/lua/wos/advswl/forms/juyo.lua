@@ -1,14 +1,14 @@
 local FORM = {}
 
 --The name of this form. Do not repeat names of forms!
-FORM.Name = "Dynamic"
+FORM.Name = "Juyo"
 
 --Who does this form belong to? Options: FORM_SINGLE, FORM_DUAL, FORM_BOTH
 FORM.Type = FORM_SINGLE
 
 --What user groups are able to use this form? And which stances?
 FORM.UserGroups = { 
-	["superadmin"] = { 1, 2, 3 },
+    ["superadmin"] = { 1, 2, 3 },
     ["headadmin"] = { 1, 2, 3 },
     ["admin"] = { 1, 2, 3 },
     ["mod"] = { 1, 2, 3 },
@@ -18,6 +18,7 @@ FORM.UserGroups = {
     ["pacvip"] = { 1, 2, 3 },
 	["user"] = { 1, 2, 3 },
     ["noaccess"] = { 1, 2, 3 },
+    ["pac3"] = { 1, 2, 3 },
 }
 
 FORM.Stances = {}

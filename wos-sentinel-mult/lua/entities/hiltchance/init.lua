@@ -51,7 +51,7 @@ function ENT:Use(ply)
 			elseif chance <= 95 then
 				items = {"Katooni Hilt", "Sparkling Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Dauntless Hilt", "Outlander Hilt", "Rishi's Mk1 Hilt", "Tythonian Force Master's Hilt", "Vengeance's Sunsealed Hilt", "Hiridu Hilt"}
 			else
-				items = {"Executioner's Hilt", "Dragonpearl Hilt", "Seny Atirall's Hilt", "Eternal Commander's Mk 4 Hilt", "Rishi's Mk2 Hilt"}
+				items = {"Executioner's Hilt", "Dragonpearl Hilt", "Seny Atirall's Hilt", "Eternal Commander's Mk 4 Hilt", "Rishi's Mk2 Hilt", "Crossguard Hilt" }
 			end
 		elseif type <= 85 then
 			if chance <= 50 then
@@ -65,7 +65,7 @@ function ENT:Use(ply)
 				items = {"Trident Hilt", "Elegant Dual Hilt", "Serenity's Sunsealed Hilt", "Warmaster's Double Hilt", "Grantek Hilt", "Artusian Twin Hilt",
 						"Inscrutable Twin Hilt", "Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Pike 4 Hilt"}
 			elseif chance <= 95 then
-				items = {"Occultists' Hilt", "Iokath Mk4 Hilt", "Hermit's Hilt", "Lone Wolf's Hilt", "Corusca Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Peacemaker's Twin Hilt", "Herald's Twin Hilt"}
+				items = {"Occultists' Hilt", "Iokath Mk4 Hilt", "Hermit's Hilt", "Lone Wolf's Hilt", "Corusca Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Peacemaker's Twin Hilt", "Herald's Twin Hilt", "Blade Pommel Hilt"}
 			else
 				items = {"Rishi's Mk1 Hilt", "Outlander Dual Hilt", "Indomitable Vanquisher's Hilt", "Descendant's Sheirloom Hilt", "Borth Twin Hilt", "Eternal Twin Hilt"}
 			end

@@ -79,7 +79,6 @@ wOS.ForcePowers:RegisterNewPower({
         end
 
         self:SetForce( self:GetForce() - 100 )
-        self:SetNextAttack( 1 )
         return true
     end
 })
@@ -302,7 +301,7 @@ wOS.ForcePowers:RegisterNewPower({
 				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
 				return true
 			end
-			if ( self:GetForce() < 25) then return end
+			if ( self:GetForce() < 50) then return end
 
 			self:SetForce( self:GetForce() - 25 )
 			self:SetNextAttack( 0.7 )
@@ -318,11 +317,15 @@ wOS.ForcePowers:RegisterNewPower({
 						self:GetOwner():SetNoTarget(false)
 						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
 					end
-					self:SetForce( self:GetForce() - 3 )
 					if self.Owner:GetVelocity():Length() > 130 then
 						self:GetOwner():SetNoTarget(false)
+						self:SetForce( self:GetForce() - 3 )
+					elseif self.Owner:GetVelocity():Length() > 40 then
+						self:GetOwner():SetNoTarget(true)
+						self:SetForce( self:GetForce() - 2 )
 					else
 						self:GetOwner():SetNoTarget(true)
+						self:SetForce( self:GetForce() - 1 )
 					end
 				else
 					self:GetOwner():SetNoTarget(false)

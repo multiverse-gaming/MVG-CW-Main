@@ -1,7 +1,7 @@
 local FORM = {}
 
 --The name of this form. Do not repeat names of forms!
-FORM.Name = "Adept"
+FORM.Name = "Jar'Kai"
 
 --Who does this form belong to? Options: FORM_SINGLE, FORM_DUAL, FORM_BOTH
 FORM.Type = FORM_DUAL

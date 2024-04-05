@@ -4,7 +4,7 @@ local FORM = {}
 FORM.Name = "Aayla"
 
 --Who does this form belong to? Options: FORM_SINGLE, FORM_DUAL, FORM_BOTH
-FORM.Type = FORM_SINGLE
+FORM.Type = FORM_BOTH
 
 --What user groups are able to use this form? And which stances?
 FORM.UserGroups = { 

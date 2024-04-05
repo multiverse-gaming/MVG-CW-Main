@@ -218,7 +218,7 @@ wOS.ForcePowers:RegisterNewPower({ -- This really isn't clear, but I think it's 
 			self:SetForce( self:GetForce() - 0.1 )
 			self:GetOwner():SetNW2Float( "wOS.GrievousAnim", CurTime() + 0.6 )
 			self:SetNextAttack( 0.3 )
-			--self:GetOwner():SetNW2Float( "BlockTime", CurTime() + 0.6 )
+			self:GetOwner():SetNW2Float( "BlockTime", CurTime() + 0.6 )
 			return true
 		end
 })

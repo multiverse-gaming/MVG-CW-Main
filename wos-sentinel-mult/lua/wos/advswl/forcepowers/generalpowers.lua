@@ -11,7 +11,6 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Let the force judge your opponent.",
 		action = function( self )
 			if ( self:GetForce() < 2 ) then return end
-            --self:GetOwner():SetNW2Float( "wOS.LightningAnim", CurTime() + 0.6 ) -- !!! 
 			local foundents = 0
 			for id, ent in pairs( self:SelectTargets( 1 ) ) do
 				if ( !IsValid( ent ) ) then continue end
@@ -39,6 +38,7 @@ wOS.ForcePowers:RegisterNewPower({
 			end
 
 			if ( foundents > 0 ) then
+				self:GetOwner():SetNW2Float( "wos_cast_lightning_armed", CurTime() + 0.4 )
 				self:SetForce( self:GetForce() - (foundents*2) )
 				if ( !self.SoundLightning ) then
 					self.SoundLightning = CreateSound( self:GetOwner(), "lightsaber/force_lightning" .. math.random( 1, 2 ) .. ".wav" )
@@ -146,9 +146,6 @@ wOS.ForcePowers:RegisterNewPower({
 			shield:SetPos(self:GetOwner():GetPos() + self:GetOwner():EyeAngles():Up() * 50 + self:GetOwner():EyeAngles():Forward() * 40)
 			shield:SetAngles(self:GetOwner():EyeAngles() + Angle(90, 0, 0))
 			shield:AddEffects(EF_NOSHADOW)
-			--shield:SetCollisionGroup(COLLISION_GROUP_NONE) -- !!! 
-			--shield:SetSolid(SOLID_OBB)
-			--shield:SetMoveType( MOVETYPE_VPHYSICS )
 			shield:PhysicsInit( SOLID_VPHYSICS )
 			shield:Spawn()
 			shield:Activate()
@@ -175,7 +172,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if IsValid( self.ChokeTarget ) then return end
 			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
 			if not tr.Entity then return end
-			if not tr.Entity:IsPlayer() and not tr.Entity:IsNPC() then return end
+			if not tr.Entity:IsPlayer()then return end
 			if self.Owner:GetPos():Distance( tr.Entity:GetPos() ) >= 300 then return end
 			self.ChokeTarget = tr.Entity
 			self.ChokeTarget:EmitSound( "wos/icefuse/choke_start.wav" )
@@ -186,6 +183,7 @@ wOS.ForcePowers:RegisterNewPower({
 		end,
 		think = function( self )
 			if not IsValid( self.ChokeTarget ) then return end
+			if self.ChokeTarget == nil || self.ChokeTarget:IsNPC() then return end
 			--[[if self.ChokeCooldown && CurTime() > self.ChokeCooldown then 
 				self.ChokeCooldown = nil
 			end
@@ -198,7 +196,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if ( !self.Owner:KeyReleased( IN_ATTACK2 ) ) then
 				local dmg = DamageInfo()
 				dmg:SetDamage( 2 )
-				dmg:SetDamageType( DMG_CRUSH )
+				dmg:SetDamageType( DMG_SLASH )
 				dmg:SetAttacker( self.Owner )
 				dmg:SetInflictor( self )
 				self.ChokeTarget:TakeDamageInfo( dmg )
@@ -209,7 +207,7 @@ wOS.ForcePowers:RegisterNewPower({
 				self.Owner:SetSequenceOverride( "wos_cast_choke_armed", 0.5)
 				self.ChokeTarget:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 0.5 )
 				self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.1 )
-				self:SetForce( self:GetForce() - 4 )
+				self:SetForce( self:GetForce() - 2 )
 				if ( !self.SoundChoking ) then
 					self.SoundChoking = CreateSound( self.Owner, "wos/icefuse/choke_active.wav" )
 					self.SoundChoking:PlayEx( 0.25, 100 )
@@ -366,7 +364,7 @@ wOS.ForcePowers:RegisterNewPower({
 		icon = "AC",
 		image = "wos/forceicons/advanced_cloak.png",
 		cooldown = 45,
-		description = "Shrowd yourself with the force for a maximum of 75 seconds",
+		description = "Shrowd yourself with the force.",
 		action = function( self )
 			if (self:GetCloaking()) then
 				-- If cloaking, go on CD and turn cloak off so you can attack.
@@ -375,13 +373,13 @@ wOS.ForcePowers:RegisterNewPower({
 				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
 				return true
 			end
-			if ( self:GetForce() < 25) then return end
+			if ( self:GetForce() < 50) then return end
 
 			self:SetForce( self:GetForce() - 25 )
 			self:SetNextAttack( 0.7 )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 
-			self.CloakTime = CurTime() + 75
+			self.CloakTime = CurTime() + 3600
 			-- Look up timer.Create and see delay and repitions in the arguments. You will see why it's like this.
 			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 0, function() 
 				if self:GetCloaking() then 
@@ -390,20 +388,19 @@ wOS.ForcePowers:RegisterNewPower({
 						self.CloakTime = CurTime()
 						self:GetOwner():SetNoTarget(false)
 						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+						do return end
 					end
-					self:SetForce( self:GetForce() - 1 )
+
+					if self.Owner:GetVelocity():Length() > 130 then
+						self:SetForce( self:GetForce() - 2 )
+					elseif self.Owner:GetVelocity():Length() > 40 then
+						self:SetForce( self:GetForce() - 1 )
+					end
+
 					self:GetOwner():SetNoTarget(true)
 				else
 					self:GetOwner():SetNoTarget(false)
 				end	
-			end)
-
-			timer.Simple(75, function()
-				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
-				if self:GetCloaking() then
-					self:SetCloaking(false)
-				end
-				self:GetOwner():SetNoTarget(false)
 			end)
 		end
 })
@@ -427,12 +424,12 @@ wOS.ForcePowers:RegisterNewPower({
         self:GetOwner():EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
         self:GetOwner():AnimResetGestureSlot( GESTURE_SLOT_CUSTOM )
         self:GetOwner():SetAnimation( PLAYER_ATTACK1 )
-        --ent:TakeDamage( self.saberDamage, self:GetOwner(), self )
+        ent:TakeDamage( self.saberDamage, self:GetOwner(), self )
 		
 		ent:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 		ent:SetNW2Float( "wOS.DisorientTime", CurTime() + 1 )
 		ent:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 1 )
-		ent.WOS_CripplingSlow = CurTime() + 3
+		ent.WOS_CripplingSlow = CurTime() + 4
 		
         self.CloakTime = CurTime()
         return true

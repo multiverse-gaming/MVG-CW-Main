@@ -13,7 +13,7 @@ end
 
 function ENT:Use( ply )
     local item1 = wOS:GetItemData( "Ahsoka Tano's Reversal Hilt" )
-    local item2 = wOS:GetItemData( "Ahsoka Tano's Reversal Hilt" )
+    local item2 = wOS:GetItemData( "Ahsoka Tano's Shoto Hilt" )
     local item3 = wOS:GetItemData( "Corrupted Crystal ( Green )" )
     local item4 = wOS:GetItemData( "Corrupted Crystal ( Light Green )" )
     wOS:HandleItemPickup( ply, item1.Name )
