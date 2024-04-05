@@ -435,7 +435,7 @@ add("PostGamemodeLoaded", "SAM.DarkRP", function()
 			end
 			for i, v in ipairs( player.GetAll() ) do
 				if v:HasPermission("see_admin_chat") then
-					v:sam_send_message("[STAFF] {S Red} updated all spawn position.", {S = ply:GetName()} )
+					v:sam_send_message("[STAFF] {S Red} updated Republic spawn position.", {S = ply:GetName()} )
 				end
 			end
 		end)

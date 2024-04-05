@@ -210,7 +210,6 @@ wOS.ForcePowers:RegisterNewPower({
         end
 
         self:SetForce( self:GetForce() - 100 )
-        self:SetNextAttack( 1 )
         return true
     end
 })
