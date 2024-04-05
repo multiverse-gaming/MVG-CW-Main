@@ -1,0 +1,7 @@
+"vertexlitgeneric"
+//created by kingpommes
+{
+	"$basetexture" "kingpommes/starwars/venator/hull_panels"
+	"$bumpmap" "kingpommes/starwars/venator/hull_normal"
+	"$surfaceprop" "metal"
+}

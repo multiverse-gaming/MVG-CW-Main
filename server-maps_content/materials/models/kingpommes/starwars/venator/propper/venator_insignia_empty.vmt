@@ -1,0 +1,6 @@
+VertexLitGeneric {
+	$basetexture kingpommes/starwars/venator/invis
+	
+	$translucent 1
+	$alpha 0
+}

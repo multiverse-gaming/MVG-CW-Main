@@ -1,0 +1,12 @@
+"vertexlitgeneric"
+//created by kingpommes
+{
+	"$basetexture" "kingpommes/starwars/deathstar/wallpillar"
+	"$bumpmap" "kingpommes/starwars/deathstar/wallpillar_normal"
+	"$surfaceprop" "metal"
+	
+	"$detail" "detail\metal_detail_01"
+	"$detailscale" "2.532"
+	"$detailblendfactor" "0.40"
+	"$detailblendmode" "0"
+}

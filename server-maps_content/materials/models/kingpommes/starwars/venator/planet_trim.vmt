@@ -1,0 +1,6 @@
+"UnLitGeneric"
+{
+	"$basetexture" "models/KingPommes/starwars/Venator/planet_trim"
+	"$translucent" "1"
+	"$surfaceprop" "glass"
+}

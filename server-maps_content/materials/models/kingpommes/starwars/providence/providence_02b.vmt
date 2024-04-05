@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/providence/providence_02"
+	
+	"$selfillum" "1"
+	
+	"$detail" "models/KingPommes/starwars/providence/providence_detail"	
+	"$detailscale" "8"
+	"$detailblendfactor" "0.4"
+	"$detailblendmode" "0"
+}

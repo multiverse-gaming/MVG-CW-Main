@@ -1,0 +1,5 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "kingpommes/starwars/venator/corridor_blastdoor"
+	"$surfaceprop" "metal"
+}
