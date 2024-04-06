@@ -4702,6 +4702,8 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 -- Shadow / SDW --
 
+-- Shadow / SDW --
+
 TEAM_SDWGENERAL = DarkRP.createJob("SDW General", {
 	color = Color(130,16,8),
     model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
@@ -4749,7 +4751,7 @@ TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
     description = [[Congratulations You are now SDW CO!]],
-    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2"},
+    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwco",
     max = 1,
     salary = 275,
@@ -4770,7 +4772,7 @@ TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
     description = [[Congratulations You are now SDW XO!]],
-    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2"},
+    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwxo",
     max = 1,
     salary = 250,
@@ -4791,7 +4793,7 @@ TEAM_SDWMJR = DarkRP.createJob("Shadow Major", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
     description = [[Congratulations You are now SDW Major!]],
-    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2"},
+    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwmjr",
     max = 1,
     salary = 250,
