@@ -2930,7 +2930,7 @@ TEAM_CEGENERAL = DarkRP.createJob("327th General", {
 
     description = [[Congratulations, you are the Deployed General of the 327th!]],
 
-    weapons = {"datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
+    weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
 
     command = "cegen",
 
