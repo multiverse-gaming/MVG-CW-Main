@@ -2930,7 +2930,7 @@ TEAM_CEGENERAL = DarkRP.createJob("327th General", {
 
     description = [[Congratulations, you are the Deployed General of the 327th!]],
 
-    weapons = {"datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
+    weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
 
     command = "cegen",
 
@@ -3539,7 +3539,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     description = [[You are the general of the Republic Commandos!]],
 
-    weapons = {"arccw_dc17m_delta", "arccw_dual_dc17ext_delta","realistic_hook","weapon_remotedrone"},
+    weapons = {"arccw_dc17m_delta", "arccw_dual_dc17ext_delta","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal"},
 
     command = "rcgen",
 
@@ -4704,11 +4704,11 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 -- Shadow / SDW --
 
-TEAM_SDWGENERAL = DarkRP.createJob("SDW General", {
+TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
 	color = Color(130,16,8),
     model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
     description = [[Congratulations You are now Shadow General]],
-    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2"},
+    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert","realistic_hook"},
     command = "sdwgen",
     max = 2,
     salary = 300,
