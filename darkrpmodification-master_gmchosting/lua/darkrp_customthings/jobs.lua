@@ -4704,7 +4704,7 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 -- Shadow / SDW --
 
-TEAM_SDWGENERAL = DarkRP.createJob("SDW General", {
+TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
 	color = Color(130,16,8),
     model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
     description = [[Congratulations You are now Shadow General]],
