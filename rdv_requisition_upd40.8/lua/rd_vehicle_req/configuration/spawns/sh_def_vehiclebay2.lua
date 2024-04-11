@@ -41,6 +41,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "212th Major",
   "212th Heavy Ordnance Officer",
   "212th Ghost Company",
+  "212th Lieutenant",
   "RC Sev",
   "RC Fi",
   "ARC Marshal Commander",

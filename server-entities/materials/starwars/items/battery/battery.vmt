@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "starwars\items\battery\battery"
+	"$bumpmap" "starwars\items\battery\battery_n"
+}

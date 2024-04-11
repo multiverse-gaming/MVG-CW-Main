@@ -36,7 +36,7 @@ TREE.TreeIcon = "wos/forceicons/advanced_cloak.png"
 TREE.BackgroundColor = Color( 177, 201, 0, 76)
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 1
+TREE.MaxTiers = 2
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
@@ -57,31 +57,34 @@ TREE.Tier = {}
 --OnPlayerDeath is a function called when the player has just died
 --OnSaberDeploy is a function called when the player has just pulled out their lightsaber ( assuming you have SWEP.UsePlayerSkills = true )
 
+--[[
+local function giveChosenDevestator(wep)
+	-- If DevestatorChoice variable is 1/2, give devestator 1/2. This is to ensure only one can be taken.
+	if wep:GetOwner().DevestatorChoice == 1 then
+		wep:AddDevestator( "Kyber Slam" )
+	elseif wep:GetOwner().DevestatorChoice == 2 then
+		wep:AddDevestator( "Sonic Discharge" )
+	end
+end]]--
+
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Force Blast",
-	Description = "Sometimes the force must be used to finish a foe.",
-	Icon = "wos/forceicons/pull.png",
-	PointsRequired = 3,
-	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Blast" ) end,
-}
-
-TREE.Tier[1][2] = {
 	Name = "Yoda's Stance",
 	Description = "Your signature stance.",
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 0,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
+	OnPlayerSpawn = function( ply ) timer.Create("yodaJumpAttackTimer", 0.25, 0, function() 
+		local localWep = ply:GetActiveWeapon()
+		if (IsValid(localWep)) then localWep.AerialLand = false end end)
+        ply:SetJumpPower(280)
+	end,
+	OnPlayerDeath = function( ply ) timer.Remove("yodaJumpAttackTimer") end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Yoda", 1 ) end,
 }
 
-TREE.Tier[1][3] = {
+TREE.Tier[1][2] = {
 	Name = "Regenerate Force Quicker",
 	Description = "Yoda is an extremely powerful force user, and can use his powers the most often.",
 	Icon = "wos/forceicons/lightstream.png",
@@ -91,5 +94,30 @@ TREE.Tier[1][3] = {
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce( wep:GetMaxForce() + 30 ) end,
 }
+
+TREE.Tier[2] = {}
+
+TREE.Tier[2][1] = {
+	Name = "Kyber Slam",
+	Description = "Slam enemies for 1200.",
+	Icon = "wos/forceicons/pull.png",
+	PointsRequired = 3,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, --ply.DevestatorChoice = 1 end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddDevestator( "Kyber Slam" ) wep:AddForcePower( "Force Channel" ) end,
+}
+
+TREE.Tier[2][2] = {
+	Name = "Sonic Discharge",
+	Description = "Blind the stronger enemies around you, but destory the weaker ones.",
+	Icon = "wos/forceicons/pull.png",
+	PointsRequired = 3,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, --ply.DevestatorChoice = 2 end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddDevestator( "Sonic Discharge" ) wep:AddForcePower( "Force Channel" ) end,
+}
+
 
 wOS:RegisterSkillTree( TREE )

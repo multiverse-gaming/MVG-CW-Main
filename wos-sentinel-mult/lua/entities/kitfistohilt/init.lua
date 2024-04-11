@@ -13,13 +13,9 @@ end
 
 function ENT:Use( ply )
     local item1 = wOS:GetItemData( "Kit Fisto's Hilt" )
-    local item2 = wOS:GetItemData( "Kit Fisto's Hilt" )
-    local item3 = wOS:GetItemData( "Corrupted Crystal ( Green )" )
-    local item4 = wOS:GetItemData( "Corrupted Crystal ( Blue )" )
+    local item2 = wOS:GetItemData( "Corrupted Crystal ( Green )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
-    wOS:HandleItemPickup( ply, item3.Name )
-    wOS:HandleItemPickup( ply, item4.Name )
     self:Remove()
 end
 

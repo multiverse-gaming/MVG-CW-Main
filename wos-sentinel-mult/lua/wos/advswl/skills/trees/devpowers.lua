@@ -358,17 +358,63 @@ TREE.Tier[4][5] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Hardened Force Push" ) end,
 }
 
+TREE.Tier[4][6] = {
+	Name = "Every Stance",
+	Description = "Gives every single stance.",
+	Icon = "wos/forceicons/absorb.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) 
+		wep:AddForm( "Niman", 1 ) wep:AddForm( "Niman", 2 ) wep:AddForm( "Niman", 3 ) 
+		wep:AddForm( "Soresu", 1 ) wep:AddForm( "Soresu", 2 ) wep:AddForm( "Soresu", 3 ) 
+		wep:AddForm( "Makashi", 1 ) wep:AddForm( "Makashi", 2 ) wep:AddForm( "Makashi", 3 ) 
+		wep:AddForm( "Shii-Cho", 1 ) wep:AddForm( "Shii-Cho", 2 ) wep:AddForm( "Shii-Cho", 3 )
+		wep:AddForm( "Ataru", 1 ) wep:AddForm( "Ataru", 2 ) wep:AddForm( "Ataru", 3 ) 
+		wep:AddForm( "Shien", 1 ) wep:AddForm( "Shien", 2 ) wep:AddForm( "Shien", 3 ) 
+		wep:AddForm( "Djem So", 1 ) wep:AddForm( "Djem So", 2 ) wep:AddForm( "Djem So", 3 ) 
+		wep:AddForm( "Yoda", 1 ) wep:AddForm( "Ahsoka", 1 ) wep:AddForm( "Shaak", 1 )  wep:AddForm( "Fisto", 1 )
+		wep:AddForm( "Vos", 1 ) wep:AddForm( "Plo", 1 ) wep:AddForm( "Obi", 1 )  wep:AddForm( "Skywalker", 1 ) 
+		wep:AddForm( "Aayla", 1 ) wep:AddForm( "Luminara", 1 ) wep:AddForm( "Mundi", 1 )
+		wep:AddForm( "Vapaad", 1 ) wep:AddForm( "Vapaad", 2 ) wep:AddForm( "Vapaad", 3 ) 
+		wep:AddForm( "General Grievous", 1 ) wep:AddForm( "General Grievous", 2 ) wep:AddForm( "General Grievous", 3 ) 
+		wep:AddForm( "Juyo", 1 ) wep:AddForm( "Juyo", 2 ) wep:AddForm( "Juyo", 3 ) 
+		wep:AddForm( "Adept", 1 ) wep:AddForm( "Adept", 2 ) wep:AddForm( "Adept", 3 ) 
+		wep:AddForm( "Jar'Kai", 1 ) wep:AddForm( "Jar'Kai", 2 ) wep:AddForm( "Jar'Kai", 3 ) 
+		wep:AddForm( "Relentless", 1 ) wep:AddForm( "Relentless", 2 ) wep:AddForm( "Relentless", 3 ) 
+	end,
+}
+
+TREE.Tier[4][7] = {
+	Name = "Every New Stance",
+	Description = "Gives every single new stance.",
+	Icon = "wos/forceicons/absorb.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) 
+		wep:AddForm( "General Grievous", 1 ) wep:AddForm( "General Grievous", 2 ) wep:AddForm( "General Grievous", 3 ) 
+		wep:AddForm( "Vapaad", 1 ) wep:AddForm( "Vapaad", 2 ) wep:AddForm( "Vapaad", 3 ) 
+		wep:AddForm( "Juyo", 1 ) wep:AddForm( "Juyo", 2 ) wep:AddForm( "Juyo", 3 ) 
+		wep:AddForm( "Adept", 1 ) wep:AddForm( "Adept", 2 ) wep:AddForm( "Adept", 3 ) 
+		wep:AddForm( "Jar'Kai", 1 ) wep:AddForm( "Jar'Kai", 2 ) wep:AddForm( "Jar'Kai", 3 ) 
+		wep:AddForm( "Relentless", 1 ) wep:AddForm( "Relentless", 2 ) wep:AddForm( "Relentless", 3 ) 
+	end,
+}
+
 TREE.Tier[5] = {}
 
 TREE.Tier[5][1] = {
-	Name = "STRONG - Force Swap",
+	Name = "STRONG - Devestator - Sonic Discharge",
 	Description = "Gives FS.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Swap" ) end,
+	OnSaberDeploy = function( wep ) wep:AddDevestator( "Sonic Discharge" ) end,
 }
 
 TREE.Tier[5][2] = {
@@ -394,7 +440,7 @@ TREE.Tier[5][3] = {
 }
 
 TREE.Tier[5][4] = {
-	Name = "STRONG - Shadow Strike",
+	Name = "Shadow Strike",
 	Description = "Gives SS. Use with Cloak.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
@@ -405,14 +451,14 @@ TREE.Tier[5][4] = {
 }
 
 TREE.Tier[5][5] = {
-	Name = "STRONG - Windus Crush",
-	Description = "Gives CH. Not gory.",
+	Name = "STRONG - Funny Crush",
+	Description = "Gives FC. Very gory.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Windus Crush" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Funny Crush" ) end,
 }
 
 TREE.Tier[5][6] = {
@@ -424,6 +470,17 @@ TREE.Tier[5][6] = {
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Fighting Chance Test" ) end,
+}
+
+TREE.Tier[5][7] = {
+	Name = "Disabling Strike",
+	Description = "Gives DS. Use with Cloak.",
+	Icon = "wos/forceicons/absorb.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Disabling Strike" ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

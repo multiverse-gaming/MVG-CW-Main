@@ -29,6 +29,7 @@ function ENT:Use(ply)
         [TEAM_JEDIGENERALSKYWALKER] = true,
         [TEAM_JEDIGRANDMASTER] = true,
         [TEAM_JEDIGENERALAAYLA] = true,
+        [TEAM_JEDIGENERALLUMINARA] = true,
         [TEAM_JEDIGENERALVOS] = true,
         [TEAM_JEDIGURDCHIEF] = true,
         [TEAM_JEDICONGUARD] = true,

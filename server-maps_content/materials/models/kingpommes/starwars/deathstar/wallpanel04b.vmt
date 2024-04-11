@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "KingPommes/starwars/DeathStar/wallpanel04b"
+	"$bumpmap" "KingPommes/starwars/DeathStar/base_normal"
+	"$surfaceprop" "metal"
+	"$selfillum" "1"
+	
+	"$detail" "detail\metal_detail_01"
+	"$detailscale" "2.532"
+	"$detailblendfactor" "0.40"
+	"$detailblendmode" "0"
+}

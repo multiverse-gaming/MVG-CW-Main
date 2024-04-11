@@ -477,6 +477,16 @@ DarkRP.createEntity("Shaak Ti Prep", {
     category = "Entities",
 })
 
+DarkRP.createEntity("Vos Prep", {
+    ent = "vosHilt",
+    model = "models/lt_c/sci_fi/light_spotlight.mdl",
+    price = 0,
+    max = 1,
+    cmd = "vosprep",
+    allowed = {TEAM_JEDIGRANDMASTER},
+    category = "Entities",
+})
+
 DarkRP.createEntity("Skywalker Prep", {
     ent = "skywalkerhilt",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",

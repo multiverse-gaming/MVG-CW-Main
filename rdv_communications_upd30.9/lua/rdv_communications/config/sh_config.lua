@@ -8,7 +8,7 @@ COMMS:RegisterChannel("Generals", {
 
     Color = Color(176, 184, 182, 180),
 
-    Factions = teams.Generals,
+    Factions = mergeTables(teams.Generals, teams.TeamNSO),
 
     CustomCheck = function(ply)
     end,

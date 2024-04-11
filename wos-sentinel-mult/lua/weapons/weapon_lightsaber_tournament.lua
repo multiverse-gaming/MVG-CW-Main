@@ -97,6 +97,9 @@ SWEP.UseForms = {
 	["Niman"] = {1, 2, 3}, 
 	["Shien"] = {1, 2, 3},
 	["Djem So"] = {1, 2, 3},
+	["Juyo"] = {1, 2, 3}, 
+	["Adept"] = {1, 2, 3}, 
+	["Relentless"] = {1, 2, 3},
 }
 
 --Use these options to overwrite the player's commands

@@ -4,7 +4,7 @@ local FORM = {}
 FORM.Name = "Plo"
 
 --Who does this form belong to? Options: FORM_SINGLE, FORM_DUAL, FORM_BOTH
-FORM.Type = FORM_SINGLE
+FORM.Type = FORM_BOTH
 
 --What user groups are able to use this form? And which stances?
 FORM.UserGroups = { 
@@ -27,18 +27,18 @@ FORM.Stances[1] = {
 	[ "run" ] = "vanguard_h_run",
 	[ "idle" ] = "vanguard_h_idle",
 	[ "light_left" ] = {
-		Sequence = "vanguard_h_right_t2",
-		Time = nil,
+		Sequence = "ryoku_r_left_t1",
+		Time = 0.7,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "vanguard_b_right_t1",
-		Time = 1.4,
+		Sequence = "h_c2_t2",
+		Time = 0.9,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "judge_r_s3_t2",
-		Time = 1.4,
+		Sequence = "judge_r_s1_t2",
+		Time = 0.6,
 		Rate = nil,
 	},
 	[ "air_left" ] = {
@@ -57,9 +57,9 @@ FORM.Stances[1] = {
 		Rate = 1.2,
 	},
 	[ "heavy" ] = {
-		Sequence = "phalanx_h_right_t2",
+		Sequence = "h_right_t2",
 		Time = nil,
-		Rate = 1.5,
+		Rate = 0.8,
 	},
 	[ "heavy_charge" ] = "judge_r_s3_charge",
 }

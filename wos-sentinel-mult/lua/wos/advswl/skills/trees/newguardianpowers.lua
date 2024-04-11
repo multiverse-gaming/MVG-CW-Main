@@ -71,7 +71,10 @@ TREE.Tier[1][1] = {
 	    },
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Speed" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Speed" )
+	if (wep:GetOwner():GetRunSpeed() > 450) then
+		RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
+	end	end,
 }
 TREE.Tier[1][2] = {
 	Name = "Guardian Leap",
@@ -98,7 +101,7 @@ TREE.Tier[1][3] = {
 }
 
 TREE.Tier[1][4] = {
-	Name = "Guardian Tradeoff",
+	Name = "Guardian Tradeoff 1",
 	Description = "Focus your speed into your hardiness.",
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 0,
@@ -111,15 +114,14 @@ TREE.Tier[1][4] = {
 }
 
 TREE.Tier[1][5] = {
-	Name = "Guardian Tradeoff",
+	Name = "Guardian Tradeoff 2",
 	Description = "Focus your speed into your hardiness.",
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 4 },
 	},
-	-- For whatever reason, the two HP changes dont stack, so double the changes.
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() - 10) ply:SetMaxHealth( ply:GetMaxHealth() + 100 ) ply:SetHealth( ply:Health() + 100 ) end, 
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() - 10) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end, 
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }

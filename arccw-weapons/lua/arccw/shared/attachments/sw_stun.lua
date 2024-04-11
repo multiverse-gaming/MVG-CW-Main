@@ -23,6 +23,11 @@ att.Override_Tracer = "effect_sw_laser_blue_stun"
 att.Mult_Damage = 0
 att.Mult_DamageMin = 0
 
+att.Mult_AccuracyMOA = 0 -- 18
+att.Mult_HipDispersion = 0
+
+att.Mult_MoveSpeed = 1.1
+
 att.Override_ClipSize = 10
 
 att.Mult_RPM = 0.16666666666666666666666666666667

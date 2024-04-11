@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "models/KingPommes/starwars/providence/quadturret"
+	"$bumpmap" "models/KingPommes/starwars/providence/quadturret_normal"
+	
+	"$normalmapalphaenvmapmask" "1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"3"
+	"$phongexponent"		"800"
+	"$PhongFresnelRanges"		"[.05 0.5 1]"
+}

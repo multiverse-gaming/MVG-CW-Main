@@ -70,7 +70,16 @@ function ENT:Touch( ent )
 	elseif ( ent:IsPlayer() && !ent:IsOnGround() ) then
 		ent:SetVelocity( v * -384 + Vector( 0, 0, 64 ) )
 	end
+
+	if (ent:IsNPC()) then
+		local dmg = DamageInfo()
+		dmg:SetAttacker( self:GetOwner() || self )
+		dmg:SetInflictor( self:GetOwner() || self )
+		dmg:SetDamage( 600 )	
+		ent:TakeDamageInfo( dmg )
+	end
 	
+	ent:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 	ent:SetNW2Float( "wOS.SonicTime", CurTime() + 4 )
 	
 end 

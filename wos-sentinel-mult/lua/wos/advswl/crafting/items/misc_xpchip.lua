@@ -11,12 +11,12 @@ ITEM.Type = WOSTYPE.MISC2
 ITEM.UserGroups = false
 
 --Does this item disappear from the inventory after it's been applied?
-ITEM.BurnOnUse = false
+ITEM.BurnOnUse = true
 
 ITEM.Model = "models/chip/chip.mdl"
 
 ITEM.OnEquip = function( wep )
-	wep.SaberXPMul = wep.SaberXPMul + 0.2
+	wep.SaberXPMul = wep.SaberXPMul + 0.05
 end
 
 wOS:RegisterItem( ITEM )

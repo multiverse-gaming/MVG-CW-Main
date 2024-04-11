@@ -76,55 +76,104 @@
 
 
 
-wOS.ALCS.ExecSys:RegisterExecution({
-	Name = "Force Crush",
-	Description = "Shatter their very soul",
-	Milestone = {
-		Wins = 50,
-		Losses = 0,
-		Total = 50,
-	},
-	RarityName = "Legendary",
-	RarityColor = Color( 255, 125, 0 ),
-	TotalTime = 5,
-	PreviewSequence = "wos_cast_choke",
-	PreviewFrame = 0.5,
-	CamTable = {
-		[1] = {
-			target = WOS_ALCS.EXECUTE.ATTACKER,
-			time = 2,
-			OffsetPos = Vector( -80, -30, 30 ),
-			OffsetAng = Angle( -10, -30, 0 ),
-		},
-		[2] = {
-			target = WOS_ALCS.EXECUTE.ATTACKER,
-			time = 3,
-			OffsetPos = Vector( -80, 160, 120 ),
-			OffsetAng = Angle( 10, -135, 0 ),
-		},
-	},
-	OnStart = function( attacker, victim )
-		victim:SetExecuted( true )
-		attacker:SetExecuted( true )
-		local angles = attacker:GetAngles()
-		angles.p = 0
-		angles.r = 0
-		victim:SetPos( attacker:GetPos() + angles:Forward()*100 + vector_up*40 )
-		attacker:SetSequenceOverride( "wos_cast_choke", 0 )
-		victim:SetSequenceOverride( "wos_force_crush" )
-		attacker:SetEyeAngles( ( victim:GetPos() - attacker:GetPos() ):Angle() )
-		victim:SetEyeAngles( ( attacker:GetPos() - victim:GetPos() ):Angle() )
-	end,
-	OnFinale = function( attacker, victim )
-		if IsValid( victim ) then
-			--wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
-			victim:Kill()
-		end
-	end,
-	OnFinish = function( attacker, victim )
+		wOS.ALCS.ExecSys:RegisterExecution({
+			Name = "Force Crush",
+			Description = "Shatter their very soul",
+			Milestone = {
+				Wins = 50,
+				Losses = 0,
+				Total = 50,
+			},
+			RarityName = "Legendary",
+			RarityColor = Color( 255, 125, 0 ),
+			TotalTime = 5,
+			PreviewSequence = "wos_cast_choke",
+			PreviewFrame = 0.5,
+			CamTable = {
+				[1] = {
+					target = WOS_ALCS.EXECUTE.ATTACKER,
+					time = 2,
+					OffsetPos = Vector( -80, -30, 30 ),
+					OffsetAng = Angle( -10, -30, 0 ),
+				},
+				[2] = {
+					target = WOS_ALCS.EXECUTE.ATTACKER,
+					time = 3,
+					OffsetPos = Vector( -80, 160, 120 ),
+					OffsetAng = Angle( 10, -135, 0 ),
+				},
+			},
+			OnStart = function( attacker, victim )
+				victim:SetExecuted( true )
+				attacker:SetExecuted( true )
+				local angles = attacker:GetAngles()
+				angles.p = 0
+				angles.r = 0
+				victim:SetPos( attacker:GetPos() + angles:Forward()*100 + vector_up*40 )
+				attacker:SetSequenceOverride( "wos_cast_choke", 0 )
+				victim:SetSequenceOverride( "wos_force_crush" )
+				attacker:SetEyeAngles( ( victim:GetPos() - attacker:GetPos() ):Angle() )
+				victim:SetEyeAngles( ( attacker:GetPos() - victim:GetPos() ):Angle() )
+			end,
+			OnFinale = function( attacker, victim )
+				if IsValid( victim ) then
+					--wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+					victim:Kill()
+				end
+			end,
+			OnFinish = function( attacker, victim )
+		
+			end,
+		})
 
-	end,
-})
+		wOS.ALCS.ExecSys:RegisterExecution({
+			Name = "Funny Execution Crush",
+			Description = "Shatter their very soul",
+			Milestone = {
+				Wins = 50,
+				Losses = 0,
+				Total = 50,
+			},
+			RarityName = "Legendary",
+			RarityColor = Color( 255, 125, 0 ),
+			TotalTime = 5,
+			PreviewSequence = "wos_cast_choke",
+			PreviewFrame = 0.5,
+			CamTable = {
+				[1] = {
+					target = WOS_ALCS.EXECUTE.ATTACKER,
+					time = 2,
+					OffsetPos = Vector( -80, -30, 30 ),
+					OffsetAng = Angle( -10, -30, 0 ),
+				},
+				[2] = {
+					target = WOS_ALCS.EXECUTE.ATTACKER,
+					time = 3,
+					OffsetPos = Vector( -80, 160, 120 ),
+					OffsetAng = Angle( 10, -135, 0 ),
+				},
+			},
+			OnStart = function( attacker, victim )
+				victim:SetExecuted( true )
+				attacker:SetExecuted( true )
+				local angles = attacker:GetAngles()
+				angles.p = 0
+				angles.r = 0
+				victim:SetPos( attacker:GetPos() + angles:Forward()*100 + vector_up*40 )
+				attacker:SetSequenceOverride( "wos_cast_choke", 0 )
+				victim:SetSequenceOverride( "wos_force_crush" )
+				attacker:SetEyeAngles( ( victim:GetPos() - attacker:GetPos() ):Angle() )
+				victim:SetEyeAngles( ( attacker:GetPos() - victim:GetPos() ):Angle() )
+			end,
+			OnFinale = function( attacker, victim )
+				if IsValid( victim ) then
+					wOS.ALCS.ExecSys:GibPlayer( victim, attacker )
+				end
+			end,
+			OnFinish = function( attacker, victim )
+		
+			end,
+		})
 
 wOS.ALCS.ExecSys:RegisterExecution({
 	Name = "Fighting Chance",

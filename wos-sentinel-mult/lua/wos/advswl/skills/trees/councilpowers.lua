@@ -69,7 +69,9 @@ TREE.Tier[1][1] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) end,
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) 
+	wep:SetForce(wep:GetForce() + (ForceHpSpeedStamina[1] / 2))
+	end,
 }
 
 TREE.Tier[1][2] = {

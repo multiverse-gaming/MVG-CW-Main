@@ -1,0 +1,5 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "kingpommes/starwars/venator/hangar_trim001"
+	"$surfaceprop" "metal"
+}

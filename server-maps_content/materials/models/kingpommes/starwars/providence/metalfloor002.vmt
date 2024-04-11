@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "KingPommes/starwars/Venator/metalfloor002"
+	"$bumpmap" "KingPommes/starwars/Venator/metalfloor002_normal"
+	"$surfaceprop" "metal"
+}

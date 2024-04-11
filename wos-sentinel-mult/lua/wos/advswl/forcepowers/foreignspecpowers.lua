@@ -124,7 +124,7 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "CFP",
 	target = 1,
 	distance = 150,
-	description = "Hurt your opponent for 100, yourself for 50",
+	description = "Hurt your opponent for 75, yourself for 25",
 	image = "wos/forceicons/pull.png",
 	cooldown = 15,
 	manualaim = false,
@@ -142,10 +142,10 @@ wOS.ForcePowers:RegisterNewPower({
 		if (ent:Health() < 100) then
 			dmg:SetDamage( ent:Health()-1 )
 		else
-			dmg:SetDamage( 100 )
+			dmg:SetDamage( 75 )
 		end
 		ent:TakeDamageInfo( dmg )
-		dmg:SetDamage( 50 )
+		dmg:SetDamage( 25 )
 		self:GetOwner():TakeDamageInfo( dmg )
 		local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
 		newpos = newpos / newpos:Length()
@@ -210,7 +210,6 @@ wOS.ForcePowers:RegisterNewPower({
         end
 
         self:SetForce( self:GetForce() - 100 )
-        self:SetNextAttack( 1 )
         return true
     end
 })

@@ -1,6 +1,100 @@
 wOS = wOS or {}
 wOS.ForcePowers = wOS.ForcePowers or {}
 
+wOS.ForcePowers:RegisterNewPower({
+	-- This is now the regular Force Breach, but a bit cheaper.
+	name = "Master Force Breach",
+	icon = "MBR",
+	description = "Make the path",
+	image = "wos/forceicons/icefuse/breach.png",
+	cooldown = 1,
+	manualaim = false,
+	action = function( self )
+		if self:GetForce() < 20 then return end
+		local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
+		if not IsValid( tr.Entity ) then return end
+			local entityClass = tr.Entity:GetClass()
+            
+			-- Open doors. Not all doors are interactable with e, but the ones that are could be locked.
+            if (entityClass == "func_door" || entityClass == "prop_door_rotating" || entityClass == "func_door_rotating") then
+                tr.Entity:Fire("unlock", "", 0)
+                tr.Entity:Fire("toggle","", 0)
+                self:SetForce( self:GetForce() - 20 )
+                self:SetNextAttack( 1 )
+                return true
+			end
+
+			-- Move linears are specfic, can't toggle. Open is probably best.
+            if (entityClass == "func_movelinear") then
+                tr.Entity:Fire("open","", 0)
+                self:SetForce( self:GetForce() - 20 )
+                self:SetNextAttack( 1 )
+                return true
+			end
+
+			-- This one doesn't work great, because a lot of buttons are invisible.
+			if (entityClass == "func_button") then
+                tr.Entity:Fire("press", "", 0)
+                self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+                self:SetForce( self:GetForce() - 20 )
+                self:SetNextAttack( 1 )
+                return true
+			end
+
+			-- Turned off because you're a COWARD ):<
+			-- Turn off rayshields, other stuff that can toggle. 
+            --[[if (entityClass == "func_brush") then
+                tr.Entity:Fire("toggle", "", 0)
+                self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+                self:SetForce( self:GetForce() - 25 )
+                self:SetNextAttack( 1 )
+                return true
+			end]]--
+		end,
+})
+
+wOS.ForcePowers:RegisterNewPower({
+    name = "Force Blast",
+    icon = "FB",
+    distance = 300,
+    image = "wos/forceicons/pull.png",
+    target = 1,
+    cooldown = 120,
+    manualaim = true,
+    description = "Finish your opponent with raw force",
+    action = function( self )
+		if self:GetForce() < 100 then return end
+        local ent = self:SelectTargets( 1, 300 )[ 1 ]
+        if !IsValid( ent ) or !ent:IsPlayer() or ent:Health() > 300 then self:SetNextAttack( 0.2 ) return end
+		self:SetForce( self:GetForce() - 100 )
+
+        wOS.ALCS.ExecSys:PerformExecution( self:GetOwner(), ent, "Force Blast" )
+        self:SetNextAttack( 1 )
+        return true
+    end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+    name = "Windus Crush",
+    icon = "FC",
+    distance = 300,
+    image = "wos/forceicons/push.png",
+    target = 1,
+    cooldown = 120,
+    manualaim = true,
+    description = "Crush and end your opponent",
+    action = function( self )
+		if self:GetForce() < 100 then return end
+        local ent = self:SelectTargets( 1, 300 )[ 1 ]
+        if !IsValid( ent ) or !ent:IsPlayer() or ent:Health() > 300 then self:SetNextAttack( 0.2 ) return end
+		self:SetForce( self:GetForce() - 100 )
+
+        wOS.ALCS.ExecSys:PerformExecution( self:GetOwner(), ent, "Force Crush" )
+        self:SetNextAttack( 1 )
+        return true
+    end
+})
+
 wOS.ForcePowers:RegisterNewPower({ -- This is like a backstab, and only works in close proximity, when cloaked.
     name = "Shadow Strike",
     icon = "SS",
@@ -25,29 +119,6 @@ wOS.ForcePowers:RegisterNewPower({ -- This is like a backstab, and only works in
         self:SetNextAttack( 0.7 )
         return true
     end
-})
-
-wOS.ForcePowers:RegisterNewPower({
-		name = "Advanced Force Heal",
-		icon = "H",
-		image = "wos/forceicons/heal.png",
-		cooldown = 0,
-		target = 1,
-		manualaim = false,
-		description = "Heal yourself.",
-		action = function( self )
-			if ( self:GetForce() < 4 or self:GetOwner():Health() >= self.GetOwner():GetMaxHealth() or CLIENT ) then return end
-			self:SetForce( self:GetForce() - 4 )
-
-			self:SetNextAttack( 0.2 )
-
-			local ed = EffectData()
-			ed:SetOrigin( self:GetOwner():GetPos() )
-			util.Effect( "rb655_force_heal", ed, true, true )
-
-			self:GetOwner():SetHealth( self:GetOwner():Health() + 20 )
-			self:GetOwner():Extinguish()
-		end
 })
 
 wOS.ForcePowers:RegisterNewPower({
@@ -147,7 +218,7 @@ wOS.ForcePowers:RegisterNewPower({ -- This really isn't clear, but I think it's 
 			self:SetForce( self:GetForce() - 0.1 )
 			self:GetOwner():SetNW2Float( "wOS.GrievousAnim", CurTime() + 0.6 )
 			self:SetNextAttack( 0.3 )
-			--self:GetOwner():SetNW2Float( "BlockTime", CurTime() + 0.6 )
+			self:GetOwner():SetNW2Float( "BlockTime", CurTime() + 0.6 )
 			return true
 		end
 })
