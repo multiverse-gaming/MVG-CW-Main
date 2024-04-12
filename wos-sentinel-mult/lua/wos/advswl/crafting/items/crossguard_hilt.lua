@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Crossguard Hilt"
 
-ITEM.Description = "(LEGENDARY)"
+ITEM.Description = "(Lengendary)"
 
 ITEM.Type = WOSTYPE.HILT
 

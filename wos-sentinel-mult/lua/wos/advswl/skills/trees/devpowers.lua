@@ -380,7 +380,7 @@ TREE.Tier[4][6] = {
 		wep:AddForm( "Vapaad", 1 ) wep:AddForm( "Vapaad", 2 ) wep:AddForm( "Vapaad", 3 ) 
 		wep:AddForm( "General Grievous", 1 ) wep:AddForm( "General Grievous", 2 ) wep:AddForm( "General Grievous", 3 ) 
 		wep:AddForm( "Juyo", 1 ) wep:AddForm( "Juyo", 2 ) wep:AddForm( "Juyo", 3 ) 
-		wep:AddForm( "Adept", 1 ) wep:AddForm( "Adept", 2 ) wep:AddForm( "Adept", 3 ) 
+		wep:AddForm( "Zenith", 1 ) wep:AddForm( "Zenith", 2 ) wep:AddForm( "Zenith", 3 ) 
 		wep:AddForm( "Jar'Kai", 1 ) wep:AddForm( "Jar'Kai", 2 ) wep:AddForm( "Jar'Kai", 3 ) 
 		wep:AddForm( "Relentless", 1 ) wep:AddForm( "Relentless", 2 ) wep:AddForm( "Relentless", 3 ) 
 	end,
@@ -398,7 +398,7 @@ TREE.Tier[4][7] = {
 		wep:AddForm( "General Grievous", 1 ) wep:AddForm( "General Grievous", 2 ) wep:AddForm( "General Grievous", 3 ) 
 		wep:AddForm( "Vapaad", 1 ) wep:AddForm( "Vapaad", 2 ) wep:AddForm( "Vapaad", 3 ) 
 		wep:AddForm( "Juyo", 1 ) wep:AddForm( "Juyo", 2 ) wep:AddForm( "Juyo", 3 ) 
-		wep:AddForm( "Adept", 1 ) wep:AddForm( "Adept", 2 ) wep:AddForm( "Adept", 3 ) 
+		wep:AddForm( "Zenith", 1 ) wep:AddForm( "Zenith", 2 ) wep:AddForm( "Zenith", 3 ) 
 		wep:AddForm( "Jar'Kai", 1 ) wep:AddForm( "Jar'Kai", 2 ) wep:AddForm( "Jar'Kai", 3 ) 
 		wep:AddForm( "Relentless", 1 ) wep:AddForm( "Relentless", 2 ) wep:AddForm( "Relentless", 3 ) 
 	end,

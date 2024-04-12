@@ -1,9 +1,4 @@
-
-
-
-
-
-
+-- Hook for wos reflecting, both half and full.
 hook.Add("EntityTakeDamage", "wos_mvg_block_half_damage_reflect", function(target, dmginfo)
 
     if target:IsPlayer() and target:GetNWFloat("ReflectTimeHalf", 0) >= CurTime() then
@@ -40,7 +35,7 @@ local PlayerKillXP = 200
 ------------
 
 
- 
+
 hook.Add("loadCustomDarkRPItems", "WOS.Custom.OnStart", function()
     TeamsAllowed_wiltOS = {}
     local index = 1 

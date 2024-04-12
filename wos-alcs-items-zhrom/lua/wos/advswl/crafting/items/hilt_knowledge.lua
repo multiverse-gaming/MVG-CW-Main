@@ -20,6 +20,7 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/the knowledge seeker/the knowledge seeker.mdl"
+	wep.UseLength = 46
 end
 
 wOS:RegisterItem( ITEM )

@@ -42,9 +42,9 @@ FORM.Stances[1] = {
 		Rate = nil,
 	},
 	[ "air_left" ] = {
-		Sequence = "ryoku_a_left_t1",
-		Time = 1,
-		Rate = 1.5,
+		Sequence = "judge_a_right_t1",
+		Time = 0.6,
+		Rate = 2.0,
 	},
 	[ "air_right" ] = {
 		Sequence = "ryoku_a_right_t1",

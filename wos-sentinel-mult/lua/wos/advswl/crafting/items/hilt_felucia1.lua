@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Felucia 1 Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Very Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,8 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/starwars/cwa/lightsabers/felucia1.mdl"
+	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 60
 end
 
 wOS:RegisterItem( ITEM )

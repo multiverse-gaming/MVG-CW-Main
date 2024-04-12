@@ -78,7 +78,7 @@ TREE.Tier[1][1] = {
 }
 TREE.Tier[1][2] = {
 	Name = "Guardian Leap",
-	Description = "Use the force to leap forwards.",
+	Description = "THIS IS CURRENTLY A USELESS SKILL. PLEASE WAIT UNTIL THE NEXT PATCH :)",
 	Icon = "wos/forceicons/leap.png",
 	PointsRequired = 0,
 	Requirements = {
@@ -86,7 +86,7 @@ TREE.Tier[1][2] = {
 	},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Guardian Leap" ) end,
+	OnSaberDeploy = function( wep ) end,
 }
 
 TREE.Tier[1][3] = {
@@ -97,7 +97,7 @@ TREE.Tier[1][3] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
+	OnSaberDeploy = function( wep ) wep.GuardianLeap = true end,
 }
 
 TREE.Tier[1][4] = {
@@ -155,16 +155,16 @@ TREE.Tier[2][2] = {
 }
 
 TREE.Tier[2][3] = {
-	Name = "Force Stamina",
-	Description = "Channel the force into yourself, and regain your lost stamina.",
-	Icon = "wos/forceicons/reflect.png",
+	Name = "Ground Slam",
+	Description = "Slam your fist into the ground and damage the enemies before you.",
+	Icon = "wos/devestators/slam.png",
 	PointsRequired = 2,
 	Requirements = {
 	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stamina" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Ground Slam" ) end,
 }
 
 TREE.Tier[2][4] = {
@@ -195,31 +195,17 @@ TREE.Tier[3][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Saber Throw" ) end,
 }
 
---[[
-TREE.Tier[3][1] = {
-	Name = "Strong Hardened Force Push",
-	Description = "Deal massive damage to your opponent, but hurt yourself at the same time.",
-	Icon = "wos/forceicons/push.png",
-	PointsRequired = 2,
-	Requirements = {
-	[2] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Strong Hardened Force Push" ) end,
-}]]--
-
 TREE.Tier[3][2] = {
-	Name = "Ground Slam",
-	Description = "Slam your fist into the ground and damage the enemies before you.",
-	Icon = "wos/devestators/slam.png",
+	Name = "Force Stamina",
+	Description = "Channel the force into yourself, and regain your lost stamina.",
+	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
-	[2] = { 3 },
+	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Ground Slam" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stamina" ) end,
 }
 
 TREE.Tier[3][3] = {	

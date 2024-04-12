@@ -31,7 +31,7 @@ SWEP.Contact = ""
 SWEP.RenderGroup = RENDERGROUP_BOTH
 SWEP.Slot = 0
 SWEP.SlotPos = 4
-SWEP.Spawnable = true
+SWEP.Spawnable = false
 SWEP.DrawAmmo = false
 SWEP.DrawCrosshair = false
 SWEP.AutoSwitchTo = false
@@ -59,7 +59,7 @@ SWEP.SaberBurnDamage = 0 -- How much damage the saber does when it's colliding w
 SWEP.MaxForce = 50 --The maximum amount of force in the meter
 SWEP.RegenSpeed = 1.5 --The MULTIPLIER for the regen speed. Half speed = 0.5, Double speed = 2, etc.
 SWEP.CanKnockback = true --Should this saber be able to push people back when they get hit?
-SWEP.ForcePowerList = {  }
+SWEP.ForcePowerList = { "Force Leap" }
 --Force powers you want the saber to have ( REMEMBER TO PUT A COMMA AFTER EACH ONE, AND COPY THE TITLE EXACTLY AS IT'S LISTED )
 --For a list of options, just look at the keys in autorun/client/wos_forcematerialbuilding.lua
 

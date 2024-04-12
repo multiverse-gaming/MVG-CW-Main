@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Kylo Ren's Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(UNIQUE)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,7 @@ ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/weapons/starwars/w_kr_hilt.mdl"
+	wep.UseLength = 46
 end
 
 wOS:RegisterItem( ITEM )

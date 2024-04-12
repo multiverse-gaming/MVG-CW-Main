@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Executioner's Hilt"
 
-ITEM.Description = "(LEGENDARY)"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 

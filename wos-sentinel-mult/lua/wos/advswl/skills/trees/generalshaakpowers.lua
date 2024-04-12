@@ -83,7 +83,7 @@ TREE.Tier[1][2] = {
 
 TREE.Tier[1][3] = {
 	Name = "Health Upgrade",
-	Description = "Shaak ti can take more hits than average.",
+	Description = "Shaak Ti can take more hits than average.",
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 1,
 	Requirements = {},

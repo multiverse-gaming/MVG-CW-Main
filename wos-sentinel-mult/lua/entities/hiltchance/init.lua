@@ -30,7 +30,8 @@ function ENT:Use(ply)
         [TEAM_JEDIGRANDMASTER] = true,
         [TEAM_JEDIGENERALAAYLA] = true,
         [TEAM_JEDIGENERALLUMINARA] = true,
-        [TEAM_JEDIGENERALVOS] = true
+        [TEAM_JEDIGENERALVOS] = true,
+        [TEAM_JEDITOURNAMENT] = true,
 	}
     if jedi[ply:Team()] then
 		local type = math.random(1,100)
@@ -41,17 +42,17 @@ function ENT:Use(ply)
 			if chance <= 50 then
 				items = {"Ganodi Hilt", "Pulsating Hilt", "Instigator Hilt", "Byph Hilt", "Dani Hilt", "Petro Hilt", "Gray Hilt", "Royal 2 Hilt", "Royal 3 Hilt",
 						"Jedi Knight's Hilt", "Exile Hilt", "Qui-Gon Gin's Hilt", "Obi-Wan Kenobi's Hilt EP1", "Saesee Tiin's Hilt", "Unstable Hilt", "Basic 1 Hilt",
-							"Basic 2 Hilt", "Basic 3 Hilt", "Basic 5 Hilt", "Basic 6 Hilt", "Basic 7 Hilt", "Basic 8 Hilt", "Basic 9 Hilt", "Sateleshan's Sparring Hilt"}
+							"Basic 2 Hilt", "Basic 3 Hilt", "Basic 5 Hilt", "Basic 6 Hilt", "Basic 7 Hilt", "Basic 8 Hilt", "Basic 9 Hilt"}
 			elseif chance <= 70 then
 				items = {"Samurai Hilt", "Pulsating Blue Hilt", "Forked Hilt", "Royal 1 Hilt", "Jocastanu Hilt", "Ziost Guardian's Hilt", "Unstable Arbiter's Hilt",
 						"Pitiless Raider Hilt", "Mytag Hilt", "Artusian Hilt", "Firenode Hilt", "Fearless Retaliator's Hilt", "Conqueror's Hilt", "Blademaster's Hilt", "Days Hilt"}
 			elseif chance <= 85 then
-				items = {"Felucia 2 Hilt", "Felucia 1 Hilt", "Adi Galia's Hilt", "Affiliation Hilt", "Zatt Hilt", "Zebra Hilt", "Unknown Hilt", "Talz Hilt", "Gungi Hilt", "Thexan's Hilt",
+				items = {"Felucia 2 Hilt", "Felucia 1 Hilt", "Adi Galia's Hilt", "Affiliation Hilt", "Zatt Hilt", "Zebra Hilt", "Talz Hilt", "Gungi Hilt", "Thexan's Hilt",
 						"Revanite's Mk2 Hilt", "Praetorian's Hilt", "Unstable Peacemaker's Hilt", "Vindicator's Hilt", "Warden's Hilt", "Kyle Hilt"}
 			elseif chance <= 95 then
 				items = {"Katooni Hilt", "Sparkling Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Dauntless Hilt", "Outlander Hilt", "Rishi's Mk1 Hilt", "Tythonian Force Master's Hilt", "Vengeance's Sunsealed Hilt", "Hiridu Hilt"}
 			else
-				items = {"Executioner's Hilt", "Dragonpearl Hilt", "Seny Atirall's Hilt", "Eternal Commander's Mk 4 Hilt", "Rishi's Mk2 Hilt", "Crossguard Hilt" }
+				items = {"Executioner's Hilt", "Dragonpearl Hilt", "Seny Atirall's Hilt", "Eternal Commander's Mk 4 Hilt", "Rishi's Mk2 Hilt", "Crossguard Hilt", "Unknown Hilt", }
 			end
 		elseif type <= 85 then
 			if chance <= 50 then
@@ -65,9 +66,9 @@ function ENT:Use(ply)
 				items = {"Trident Hilt", "Elegant Dual Hilt", "Serenity's Sunsealed Hilt", "Warmaster's Double Hilt", "Grantek Hilt", "Artusian Twin Hilt",
 						"Inscrutable Twin Hilt", "Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Pike 4 Hilt"}
 			elseif chance <= 95 then
-				items = {"Occultists' Hilt", "Iokath Mk4 Hilt", "Hermit's Hilt", "Lone Wolf's Hilt", "Corusca Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Peacemaker's Twin Hilt", "Herald's Twin Hilt", "Blade Pommel Hilt"}
+				items = {"Occultists' Hilt", "Iokath Mk4 Hilt", "Hermit's Hilt", "Lone Wolf's Hilt", "Corusca Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Peacemaker's Twin Hilt", "Herald's Twin Hilt" }
 			else
-				items = {"Rishi's Mk1 Hilt", "Outlander Dual Hilt", "Indomitable Vanquisher's Hilt", "Descendant's Sheirloom Hilt", "Borth Twin Hilt", "Eternal Twin Hilt"}
+				items = {"Rishi's Mk1 Hilt", "Outlander Dual Hilt", "Indomitable Vanquisher's Hilt", "Descendant's Sheirloom Hilt", "Borth Twin Hilt", "Eternal Twin Hilt",  "Blade Pommel Hilt" }
 			end
 		else
 			if chance <= 80 then
@@ -86,7 +87,7 @@ function ENT:Use(ply)
 		end
 		local randomItem = table.Random(items)
 		wOS:HandleItemPickup(ply, randomItem) 
-		print(ply:Nick() .. " (" .. ply:SteamID() .. ") picked up a hiltchance and got: " .. randomItem)
+		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), randomItem)
 		self:Remove()
     	--local randomItems = {69,75,76,77,78,79,80,81,82,84,86,87,96,103,105,106,107,108,110,111,128,129,130,133,134,135,136,137,139,140,141,146,153,158,159}
     	--local randomItemsRare = {181,183}

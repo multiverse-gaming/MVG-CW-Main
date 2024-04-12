@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Adi Galia's Hilt"
 
-ITEM.Description = "(UNIQUE)"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 

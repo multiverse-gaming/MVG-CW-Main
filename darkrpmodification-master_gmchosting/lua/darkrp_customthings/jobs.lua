@@ -3830,7 +3830,7 @@ TEAM_RCWRECKER = DarkRP.createJob("CF99 Wrecker", {
 
     category = "Bad Batch Squad",
 
-    PlayerSpawn = function(ply) timer.Simple(4.5, function() ply:SetModelScale(1.1, 0) end) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 3
 
@@ -5516,7 +5516,7 @@ TEAM_JEDIGRANDMASTER = DarkRP.createJob("Jedi Grand Master", {
 
     canDemote = false,
 
-    PlayerSpawn = function(ply) timer.Simple(4.5, function() ply:SetModelScale(0.5, 0) end) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed(240) ply:SetGravity(1) end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed(240) ply:SetGravity(1) end,
 
     sortOrder = 1
 
@@ -6402,7 +6402,7 @@ TEAM_WOOKIE = DarkRP.createJob("Wookiee", {
 
     category = "Legacy Neutral Jobs",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetModelScale(1.2, 0) ply:SetRunSpeed (250) ply:SetGravity(1) end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (250) ply:SetGravity(1) end,
 
     sortOrder = 1
 
@@ -6436,7 +6436,7 @@ TEAM_JAWA = DarkRP.createJob("Jawa", {
 
     category = "Legacy Neutral Jobs",
 
-    PlayerSpawn = function(ply) timer.Simple(4.5, function() ply:SetModelScale(0.6, 0.001) end) ply:SetMaxHealth(200) ply:SetHealth(200) ply:SetRunSpeed (240) ply:SetGravity(1) end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(200) ply:SetHealth(200) ply:SetRunSpeed (240) ply:SetGravity(1) end,
 
     sortOrder = 2
 

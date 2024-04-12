@@ -20,6 +20,7 @@ FORM.UserGroups = {
     ["noaccess"] = { 1, 2, 3 },
     ["pac3"] = { 1, 2, 3 },
 }
+
 FORM.Stances = {}
 
 FORM.Stances[1] = {

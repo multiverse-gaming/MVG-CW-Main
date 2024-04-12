@@ -22,6 +22,7 @@ FORM.UserGroups = {
 }
 
 FORM.Stances = {}
+
 FORM.Stances[1] = {
 	[ "idle" ] = "ryoku_idle_lower",
 	[ "run" ] = "ryoku_run_lower",

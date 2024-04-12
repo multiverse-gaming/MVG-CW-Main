@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Blademaster's Hilt"
 
-ITEM.Description = "(RARE)"
+ITEM.Description = "(Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/blademaster'sshoto.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 46	
 	wep.SaberDamage = wep.SaberDamage + 40
 end
 

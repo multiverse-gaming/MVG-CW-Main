@@ -67,7 +67,7 @@ TREE.Tier[1][1] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Leap" ) end,
+	OnSaberDeploy = function( wep ) wep.MasterLeap = true end,
 }
 
 TREE.Tier[1][2] = {

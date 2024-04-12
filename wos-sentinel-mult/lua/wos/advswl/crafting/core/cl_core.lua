@@ -280,10 +280,12 @@ hook.Add( "PostDrawTranslucentRenderables", "wOS.DrawSaberBladeAnd3D2D", functio
 
 	end	
 	
+	-- !!! 
+	--[[
 	if not bladesFound then
 		local pos, dir = wOS:FindBladePosAng( nil, false, wOS.CraftingMenu.Saber )
 		rb655_RenderBlade_wos( pos, dir, wOS[ wOS.CurrentCraftTable ].UseLength, wOS[ wOS.CurrentCraftTable ].UseLength, wOS[ wOS.CurrentCraftTable ].UseWidth, wOS[ wOS.CurrentCraftTable ].UseColor, wOS[ wOS.CurrentCraftTable ].UseDarkInner == 1, wOS[ wOS.CurrentCraftTable ].UseInnerColor, wOS.CraftingMenu.Saber:EntIndex(), false, false, blades, wOS[ wOS.CurrentCraftTable ].CustomSettings )
-	end
+	end]]--
 	
 	for _, frame in ipairs( wOS.CraftingButtons ) do
 		frame:Renders()
@@ -527,6 +529,7 @@ end
 
 function wOS:FindHandPosAng( model )
 
+	num = num or 1
 	local attachment = model:LookupBone( "ValveBiped.Bip01_R_Hand" )
 
 	if ( attachment && attachment >= 0 ) then

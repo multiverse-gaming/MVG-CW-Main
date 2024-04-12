@@ -76,7 +76,7 @@ TREE.Tier[1][1] = {
 
 TREE.Tier[1][2] = {
 	Name = "Consular Leap",
-	Description = "Use the force to leap forwards.",
+	Description = "THIS IS CURRENTLY A USELESS SKILL. PLEASE WAIT UNTIL NEXT PATCH :)",
 	Icon = "wos/forceicons/leap.png",
 	PointsRequired = 0,
 	Requirements = {
@@ -84,7 +84,7 @@ TREE.Tier[1][2] = {
 	},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Force Leap" ) end,
+	OnSaberDeploy = function( wep ) end,
 }
 
 TREE.Tier[1][3] = {
@@ -95,7 +95,7 @@ TREE.Tier[1][3] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 50) end, 
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end, 
 }
 
 TREE.Tier[1][4] = {
@@ -127,6 +127,32 @@ TREE.Tier[1][5] = {
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
+	Name = "Group Heal Skill",
+	Description = "Heal people around you. Seperate Skill.",
+	Icon = "wos/forceicons/group_heal.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 2 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Group Heal" ) end,
+}
+
+TREE.Tier[2][2] = {
+	Name = "Group Heal Upgrade",
+	Description = "Heal people around you. Crouching Force Heal skill.",
+	Icon = "wos/forceicons/group_heal.png",
+	PointsRequired = 2,
+	Requirements = {
+	[1] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.GroupHeal = true end,
+}
+
+TREE.Tier[2][3] = {
 	Name = "Force Heal",
 	Description = "Stay ready whilst getting ready to get back in the fight.",
 	Icon = "wos/forceicons/meditate.png",
@@ -139,20 +165,7 @@ TREE.Tier[2][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Force Heal" ) end,
 }
 
-TREE.Tier[2][2] = {
-	Name = "Group Heal",
-	Description = "Hold CTRL with Force Heal to use this skill.",
-	Icon = "wos/forceicons/group_heal.png",
-	PointsRequired = 2,
-	Requirements = {
-	[2] = { 1 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep.GroupHeal = true end,
-}
-
-TREE.Tier[2][3] = {
+TREE.Tier[2][4] = {
 	Name = "Force Shield",
 	Description = "Shield yourself from oncoming fire.",
 	Icon = "wos/forceicons/reflect.png",
@@ -165,7 +178,7 @@ TREE.Tier[2][3] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Shield" ) end,
 }
 
-TREE.Tier[2][4] = {
+TREE.Tier[2][5] = {
 	Name = "Force Buff",
 	Description = "After a brief focus, you can use more force for a time.",
 	Icon = "wos/devestators/sonic.png",
@@ -203,7 +216,7 @@ TREE.Tier[3][2] = {
 	[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
+	OnPlayerDeath = function( ply ) ply.IsSpeeding = nil end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Speed" )
 	if (wep:GetOwner():GetRunSpeed() > 450) then
 		RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
