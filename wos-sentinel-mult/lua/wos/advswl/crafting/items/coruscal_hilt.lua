@@ -1,8 +1,8 @@
 local ITEM = {}
 
-ITEM.Name = "Vengeance's Sunsealed Double Hilt"
+ITEM.Name = "Coruscal Hilt"
 
-ITEM.Description = "(Legendary)"
+ITEM.Description = "(Epic)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -12,15 +12,15 @@ ITEM.UserGroups = false
 --Does this item disappear from the inventory after it's been applied?
 ITEM.BurnOnUse = false
 
-ITEM.Model = "models/swtor/arsenic/lightsabers/vengeance'sunsealedsaberstaff.mdl"
+ITEM.Model = "models/swtor/arsenic/lightsabers/coruscalightsaber.mdl"
 
 --The chance for the item to appear randomly. 0 = will not spawn, 100 = incredibly high chance
 ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/swtor/arsenic/lightsabers/vengeance'sunsealedsaberstaff.mdl"
+	wep.UseHilt = "models/swtor/arsenic/lightsabers/coruscalightsaber.mdl"
 	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 100
+	wep.SaberDamage = wep.SaberDamage + 80
 end
 
 wOS:RegisterItem( ITEM )

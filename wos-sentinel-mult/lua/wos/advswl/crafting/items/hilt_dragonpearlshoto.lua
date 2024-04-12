@@ -1,6 +1,6 @@
 local ITEM = {}
 
-ITEM.Name = "Vengeance's Sunsealed Double Hilt"
+ITEM.Name = "Dragonpearl Shoto"
 
 ITEM.Description = "(Legendary)"
 
@@ -12,14 +12,14 @@ ITEM.UserGroups = false
 --Does this item disappear from the inventory after it's been applied?
 ITEM.BurnOnUse = false
 
-ITEM.Model = "models/swtor/arsenic/lightsabers/vengeance'sunsealedsaberstaff.mdl"
+ITEM.Model = "models/swtor/arsenic/lightsabers/dragonpearllightsaber.mdl"
 
 --The chance for the item to appear randomly. 0 = will not spawn, 100 = incredibly high chance
 ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/swtor/arsenic/lightsabers/vengeance'sunsealedsaberstaff.mdl"
-	wep.UseLength = 46
+	wep.UseHilt = "models/swtor/arsenic/lightsabers/dragonpearllightsaber.mdl"
+	wep.UseLength = 33
 	wep.SaberDamage = wep.SaberDamage + 100
 end
 

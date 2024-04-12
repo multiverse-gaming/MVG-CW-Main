@@ -43,21 +43,23 @@ function ENT:Use(ply)
 			if chance <= 50 then
 				items = { "Basic 1 Hilt", "Basic 2 Hilt", "Basic 3 Hilt", "Byph Hilt", "Dani Hilt", "Exile Hilt",
 					"Ganodi Hilt", "Gray Hilt", "Instigator Hilt", "Jedi Knight's Hilt", "Petro Hilt", "Pulsating Hilt",
-					"Royal 3 Hilt", "Saesee Tiin's Hilt", "Unstable Hilt" }
+					"Royal 3 Hilt", "Saesee Tiin's Hilt", "Unstable Hilt", "Ashara Hilt", "Challengers Hilt", "Chrysopaz Hilt",
+					"Chrysopaz Shoto" }
 			elseif chance <= 70 then
 				items = { "Artusian Hilt", "Blademaster's Hilt", "Conqueror's Hilt", "Fearless Retaliator's Hilt", "Firenode Hilt", "Mytag Hilt",
 					"Pitiless Raider Hilt", "Unstable Arbiter's Hilt", "Ziost Guardian's Hilt", "Forked Hilt", "Talz Hilt", "Pulsating Blue Hilt",
-					"Royal 1 Hilt", "Samurai Hilt", "Days Hilt" }
+					"Royal 1 Hilt", "Samurai Hilt", "Days Hilt", "Followers Hilt", "Followers Shoto" }
 			elseif chance <= 85 then
 				items = { "Elegant Dual Hilt", "Praetorian's Hilt", "Revanite's Mk2 Hilt", "Thexan's Hilt", "Unstable Peacemaker's Hilt", "Vindicator's Hilt",
 					"Warden's Hilt", "Kyle Hilt", "Gungi Hilt", "Affiliation Hilt", "Zebra Hilt", "Zatt Hilt",
-					"Felucia 2 Hilt", "Felucia 1 Hilt" }
+					"Felucia 2 Hilt", "Felucia 1 Hilt", "Blade Masters Attenuated Hilt", "Exarch Hilt", "Exarch Shoto" }
 			elseif chance <= 96 then
 				items = { "Dauntless Hilt", "Outlander Hilt", "Rishi's Mk1 Hilt", "Tythonian Force Master's Hilt", "Vengeance's Sunsealed Hilt", "Hiridu Hilt",
-					"Katooni Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Sparkling Hilt" }
+					"Katooni Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Sparkling Hilt", "Coruscal Hilt", "Coruscal Shoto" }
 			else
 				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt", "Seny Atirall's Hilt",
-					"Royal 2 Hilt", "Unknown Hilt", "Adi Galia's Hilt", "Blade Pommel Hilt" }
+					"Royal 2 Hilt", "Unknown Hilt", "Adi Galia's Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
+					"Dragonpearl Shoto" }
 			end
 		elseif type <= 90 then
 			-- Double Hilts
@@ -66,15 +68,17 @@ function ENT:Use(ply)
 					"Vengence Double Hilt", "Redeemer's Twin Hilt", "Derelict Twin Hilt", "Desolator Twin Hilt", "Pike 2 Hilt" }
 			elseif chance <= 70 then
 				items = { "Antique Corro Twin Hilt", "Defiant Twin Hilt", "Dragon Pearl Twin Hilt", "Antiques Ocorro Hilt", "Despot's Hilt", "Pike 1 Hilt",
-					"Sateleshan's Hilt", "Vigorous Hilt", "Vindicator's Double Hilt", "Zakuulan's Mk 1 Hilt", "Zakuulan's Mk 2 Hilt", "Senya Tirall's Twin Hilt" }
+					"Sateleshan's Hilt", "Vigorous Hilt", "Vindicator's Double Hilt", "Zakuulan's Mk 1 Hilt", "Zakuulan's Mk 2 Hilt", "Senya Tirall's Twin Hilt",
+					"Ardent Dual Hilt", "Frontier Hunter Hilt" }
 			elseif chance <= 85 then
 				items = { "Artusian Twin Hilt", "Grantek Hilt", "Pike 4 Hilt", "Serenity's Sunsealed Hilt", "Warmaster's Double Hilt", "Inscrutable Twin Hilt",
-					"Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Trident Hilt" }
+					"Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Trident Hilt", "Blade Masters Staff Hilt", "Champions Hilt" }
 			elseif chance <= 96 then
 				items = { "Corusca Twin Hilt", "Herald's Twin Hilt", "Hermit's Hilt", "Iokath Mk4 Hilt", "Lone Wolf's Hilt", "Occultists' Hilt",
-					"Peacemaker's Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt" }
+					"Peacemaker's Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Chrysopaz Staff Hilt", "Dual Blade 5 Hilt", "Reverie Staff Hilt" }
 			else
-				items = { "Eternal Twin Hilt", "Borth Twin Hilt", "Descendant's Sheirloom Hilt", "Indomitable Vanquisher's Hilt", "Outlander Dual Hilt" }
+				items = { "Eternal Twin Hilt", "Borth Twin Hilt", "Descendant's Sheirloom Hilt", "Indomitable Vanquisher's Hilt", "Outlander Dual Hilt", "The Knowledge Seeker Hilt",
+					"Devastating Staff Hilt", "Vengeance's Sunsealed Double Hilt" }
 			end
 		else
 			local color = { "Orange", "Yellow", "Green", "Light Green", "Cyan", "Blue", "Purple", "White", "Pink" }
