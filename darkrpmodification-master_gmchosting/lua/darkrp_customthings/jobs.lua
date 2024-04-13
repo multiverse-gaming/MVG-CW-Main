@@ -245,11 +245,11 @@ TEAM_501STGENERAL = DarkRP.createJob("501st General", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/aussiwozzi/cgi/base/501st_rex.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the 501st Legion!]],
 
-    weapons = {"arccw_dc15a_501st", "arccw_dual_dc17", "arccw_meeks_z6","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone"},
+    weapons = {"arccw_dc15a_501st", "arccw_dual_dc17", "arccw_meeks_z6","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone","datapad_player"},
 
     command = "501stgen",
 
@@ -681,11 +681,11 @@ TEAM_212THGENERAL = DarkRP.createJob("212th General", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dual_dc17", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade","weapon_remotedrone"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dual_dc17", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade","weapon_remotedrone","datapad_player"},
 
     command = "212thgen",
 
@@ -1118,11 +1118,11 @@ TEAM_GREENGENERAL = DarkRP.createJob("Green Company General", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_gree.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_gree.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_dual_dc17","weapon_remotedrone"},
+    weapons = {"realistic_hook", "arccw_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_dual_dc17","weapon_remotedrone","datapad_player"},
 
     command = "gcgen",
 
@@ -1562,11 +1562,11 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker"},
+    weapons = {"arccw_dp23", "arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
 
     command = "stgen",
 
@@ -1598,7 +1598,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun"},
+    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stmco",
 
@@ -1630,7 +1630,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun"},
+    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stco",
 
@@ -1664,7 +1664,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun"},
+    weapons = {"arccw_dp23", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stxo",
 
@@ -1698,7 +1698,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff"},
+    weapons = {"arccw_dp23", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
 
     command = "stmjr",
 
@@ -1732,7 +1732,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     description = [[Congratulations, you are an Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23",  "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield"},
+    weapons = {"arccw_dp23",  "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield","datapad_player"},
 
     command = "stlt",
 
@@ -1768,7 +1768,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23"},
+    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23","datapad_player"},
 
     command = "stso",
 
@@ -1838,7 +1838,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun" ,"arccw_westarm5_m", "arccw_dp23","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker"},
+    weapons = {"arccw_dc17_stun" ,"arccw_westarm5_m", "arccw_dp23","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player"},
 
     command = "arcast",
 
@@ -1870,7 +1870,7 @@ TEAM_CGARC = DarkRP.createJob("Coruscant Guard ARC", {
 
     description = [[Congratulations, you are a Coruscant Guard ARC Trooper!]],
 
-    weapons = {"arccw_dc17_stun", "arccw_westarm5_m","arccw_dp23", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield"},
+    weapons = {"arccw_dc17_stun", "arccw_westarm5_m","arccw_dp23", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","datapad_player"},
 
     command = "starc",
 
@@ -1904,7 +1904,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun"},
+    weapons = {"arccw_dp23", "arccw_dc17_stun", "stunstick", "arccw_dc15a_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player"},
 
     command = "stmo",
 
@@ -1938,7 +1938,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23", "arccw_dc17_stun", "arccw_dc15a_stun","stunstick", "weapon_cuff_elastic", "weapon_policeshield","weaponchecker"},
+    weapons = {"arccw_dp23", "arccw_dc17_stun", "arccw_dc15a_stun","stunstick", "weapon_cuff_elastic", "weapon_policeshield","weaponchecker","datapad_player"},
 
     command = "stsgt",
 
@@ -1972,7 +1972,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23","arccw_dc17_stun", "arccw_dc15a_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator"},
+    weapons = {"arccw_dp23","arccw_dc17_stun", "arccw_dc15a_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player"},
 
     command = "stmt",
 
@@ -2006,7 +2006,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     description = [[Congratulations, you are a trooper of the Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield","arccw_dc15a_stun"},
+    weapons = {"arccw_dc17_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield","arccw_dc15a_stun","datapad_player"},
 
     command = "sttrp",
 
@@ -2039,11 +2039,11 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/cmd_bacara.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/herm/cgi_new/21st/cmd_bacara.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_gm", "arccw_dual_dc17", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone"},
+    weapons = {"arccw_dc15a_gm", "arccw_dual_dc17", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
 
     command = "gmgen",
 
@@ -2485,11 +2485,11 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     color = Color(153, 144, 144, 255),
 
-    model = {"models/aussiwozzi/cgi/base/104th_wolffe.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/104th/104th_trooper2.mdl","models/herm/cgi_new/104th/104th_trooper1.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/104th_wolffe.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/104th/104th_trooper2.mdl","models/herm/cgi_new/104th/104th_trooper1.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_dual_dc17", "realistic_hook", "arccw_valkenx38x", "weapon_jetpack","weapon_remotedrone"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_dual_dc17", "realistic_hook", "arccw_valkenx38x", "weapon_jetpack","weapon_remotedrone","datapad_player"},
 
     command = "wpgen",
 
@@ -2926,11 +2926,11 @@ TEAM_CEGENERAL = DarkRP.createJob("327th General", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_bly.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the 327th!]],
 
-    weapons = {"datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
+    weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_dual_dc17", "arccw_dc15s_327th", "defuser_bomb","defuse_kit", "arccw_dp23", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
 
     command = "cegen",
 
@@ -3398,11 +3398,11 @@ TEAM_ARCGENERAL = DarkRP.createJob("ARC General", {
 
     color = Color(255, 255, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_com.mdl", "models/aussiwozzi/cgi/base/arc_gen.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_com.mdl", "models/aussiwozzi/cgi/base/arc_gen.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are an ARC General!]],
 
-    weapons = {"arccw_westarm5_m", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade"},
+    weapons = {"arccw_westarm5_m", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade","datapad_player"},
 
     command = "arcgen",
 
@@ -3535,11 +3535,11 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/commando/rc_boss.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/commando/rc_boss.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[You are the general of the Republic Commandos!]],
 
-    weapons = {"arccw_dc17m_delta", "arccw_dual_dc17ext_delta","realistic_hook","weapon_remotedrone"},
+    weapons = {"arccw_dc17m_delta", "arccw_dual_dc17ext_delta","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal","datapad_player"},
 
     command = "rcgen",
 
@@ -4702,13 +4702,11 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 -- Shadow / SDW --
 
--- Shadow / SDW --
-
-TEAM_SDWGENERAL = DarkRP.createJob("SDW General", {
+TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
 	color = Color(130,16,8),
-    model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
     description = [[Congratulations You are now Shadow General]],
-    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2"},
+    weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert","realistic_hook","datapad_player"},
     command = "sdwgen",
     max = 2,
     salary = 300,
@@ -4749,7 +4747,7 @@ TEAM_SDWMCO = DarkRP.createJob("Shadow Marshal Commander", {
 
 TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
+    model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
     description = [[Congratulations You are now SDW CO!]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwco",
@@ -4770,7 +4768,7 @@ TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
 
 TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
+    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
     description = [[Congratulations You are now SDW XO!]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwxo",
@@ -4791,7 +4789,7 @@ TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
 
 TEAM_SDWMJR = DarkRP.createJob("Shadow Major", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","covert"},
+    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
     description = [[Congratulations You are now SDW Major!]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwmjr",
@@ -4942,11 +4940,11 @@ TEAM_MEDICALGENERAL = DarkRP.createJob("Medical General", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl", "models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl", "models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the General of the Regimetntal Medics!]],
 
-    weapons = {"weapon_bactainjector", "arccw_dc15a_501st", "arccw_dual_dc17", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun","weapon_remotedrone"},
+    weapons = {"weapon_bactainjector", "arccw_dc15a_501st", "arccw_dual_dc17", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun","weapon_remotedrone","datapad_player"},
 
     command = "medgen",
 
@@ -5334,9 +5332,9 @@ TEAM_FLEET_RDE = DarkRP.createJob("Fleet Research and Development Engineer", {
 
 TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
     color = Color(122, 122, 122, 255),
-    model = {"models/aussiwozzi/cgi/base/buck_advisor.mdl", "models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb_director.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb_director.mdl"},
     description = [[Congratulations you are the Supreme General of the Titan's Battalion!]],
-    weapons = {"arccw_dc15_ultimate", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone"},
+    weapons = {"arccw_dc15_ultimate", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player"},
     command = "sg",
     max = 1,
     salary = 300,
@@ -5352,9 +5350,9 @@ TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
 
 TEAM_BATTALIONGENERAL = DarkRP.createJob("Battalion General", {
     color = Color(122, 122, 122, 255),
-    model = {"models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are a Battalion General of the Titan's Battalion!]],
-    weapons = {"realistic_hook", "arccw_dc15_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6"},
+    weapons = {"realistic_hook", "arccw_dc15_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6","datapad_player"},
     command = "bg",
     max = 2,
     salary = 300,
@@ -5369,9 +5367,9 @@ TEAM_BATTALIONGENERAL = DarkRP.createJob("Battalion General", {
 
 TEAM_ASSISTANTBATTALIONGENERAL = DarkRP.createJob("Assistant General", {
     color = Color(122, 122, 122, 255),
-    model = {"models/aussiwozzi/cgi/base/rhc_1.mdl", "models/aussiwozzi/cgi/base/rhc_2.mdl", "models/aussiwozzi/cgi/base/rhc_osman.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are an Assistant General!]],
-    weapons = {"realistic_hook", "arccw_dc15_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun"},
+    weapons = {"realistic_hook", "arccw_dc15_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun","datapad_player"},
     command = "abg",
     max = 3,
     salary = 300,
@@ -5389,9 +5387,9 @@ TEAM_ASSISTANTBATTALIONGENERAL = DarkRP.createJob("Assistant General", {
 
 TEAM_NSOCPT = DarkRP.createJob("NSO Captain", {
     color = Color(76, 90, 117),
-    model = {"models/aussiwozzi/cgi/base/nso_roach.mdl","models/aussiwozzi/cgi/base/nso_crusader.mdl","models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_nari.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_deyash.mdl"},
     description = [[Congratulations, you are the Captain of the NSO's!]],
-    weapons = {"arccw_dc15_ultimate", "arccw_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
+    weapons = {"arccw_dc15_ultimate", "arccw_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic","datapad_player"},
     command = "nsocpt",
     max = 1,
     salary = 200,
@@ -5443,7 +5441,7 @@ TEAM_NSOCQC = DarkRP.createJob("NSO CQC Expert", {
 
 TEAM_NSOMED = DarkRP.createJob("NSO Medic", {
     color = Color(76, 90, 117),
-    model = {"models/aussiwozzi/cgi/base/nso_roach.mdl","models/aussiwozzi/cgi/base/nso_crusader.mdl","models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_nari.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_roach.mdl"},
     description = [[Congratulations, you are a NSO medic!]],
     weapons = {"arccw_dc15_nso", "arccw_dc17_stun", "sfw_cgelectrostaff","weapon_defibrillator", "weapon_bactainjector", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsomed",
@@ -5461,7 +5459,7 @@ TEAM_NSOMED = DarkRP.createJob("NSO Medic", {
 
 TEAM_NSOA = DarkRP.createJob("NSO Agent", {
     color = Color(76, 90, 117),
-    model = {"models/aussiwozzi/cgi/base/nso_roach.mdl","models/aussiwozzi/cgi/base/nso_crusader.mdl","models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_nari.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
     description = [[Congratulations, you are a NSO Agent!]],
     weapons = {"arccw_dc15_nso", "arccw_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsoa",

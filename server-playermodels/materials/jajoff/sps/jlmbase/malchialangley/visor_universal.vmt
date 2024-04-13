@@ -1,0 +1,23 @@
+"VertexLitGeneric"
+{
+
+
+
+
+
+	"$baseTexture" "jajoff\sps\JLMBASE\jaronlangley\visor_universal"
+	"$bumpmap" "jajoff\sps\JLMBASE\jaronlangley\MISC_BUMP"
+	$nocull 1
+	$surfaceprop Glass
+
+	$phong 1
+	$phongfresnelranges "[6.25 6.5 7]"
+	$phongexponent 150
+	$phongboost 5
+        "$lightwarptexture" 	"jajoff\sps\JLMBASE\jaronlangley/lightwrap"
+	"$phongexponenttexture" "jajoff\sps\JLMBASE\jaronlangley/exp"
+
+}   
+
+
+
