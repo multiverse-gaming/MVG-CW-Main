@@ -201,7 +201,7 @@ TREE.Tier[3][2] = {
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+		[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
