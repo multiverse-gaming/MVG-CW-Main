@@ -170,6 +170,16 @@ DarkRP.createEntity("Hilt Chance", {
     category = "Entities",
 })
 
+DarkRP.createEntity("New Hilt Chance", {
+    ent = "hiltchancenew",
+    model = "models/items/ammocrate_rockets.mdl",
+    price = 0,
+    max = 1,
+    cmd = "hiltchannew",
+    allowed = {TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALTIPLAR, TEAM_JEDIGENERALTIPLEE, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALADI, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALAAYLA, TEAM_SOD, TEAM_JEDIGENERALVOS},
+    category = "Entities",
+})
+
 DarkRP.createEntity("XP Holocron", {
     ent = "xpholocron",
     model = "models/kingpommes/starwars/misc/jedi/jedi_holocron_2.mdl",
@@ -397,6 +407,26 @@ DarkRP.createEntity("Knight Hilt Blueprint", {
     category = "Entities",
 })
 
+DarkRP.createEntity("High General Prep", {
+    ent = "crystalspurified",
+    model = "models/lt_c/sci_fi/light_spotlight.mdl",
+    price = 0,
+    max = 1,
+    cmd = "crystalspurified",
+    allowed = {TEAM_JEDIGRANDMASTER},
+    category = "Entities",
+})
+
+DarkRP.createEntity("Master Prep", {
+    ent = "crystalsfocused",
+    model = "models/lt_c/sci_fi/light_spotlight.mdl",
+    price = 0,
+    max = 1,
+    cmd = "crystalsfocused",
+    allowed = {TEAM_JEDIGRANDMASTER},
+    category = "Entities",
+})
+
 DarkRP.createEntity("Aayla Secura Prep", {
     ent = "aaylahilt",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",
@@ -478,7 +508,7 @@ DarkRP.createEntity("Shaak Ti Prep", {
 })
 
 DarkRP.createEntity("Vos Prep", {
-    ent = "vosHilt",
+    ent = "voshilt",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",
     price = 0,
     max = 1,
@@ -517,16 +547,6 @@ DarkRP.createEntity("Yoda Prep", {
     category = "Entities",
 })
 
-DarkRP.createEntity("PREV PLAYERS ONLY", {
-    ent = "knighthilt",
-    model = "models/lt_c/sci_fi/light_spotlight.mdl",
-    price = 0,
-    max = 1,
-    cmd = "knightprep",
-    allowed = {TEAM_JEDIGENERALADI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALVOS},
-    category = "Entities",
-})
-
 DarkRP.createEntity("Consular Prep", {
     ent = "consularspec",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",
@@ -553,26 +573,6 @@ DarkRP.createEntity("Guardian Prep", {
     price = 0,
     max = 1,
     cmd = "guardianspec",
-    allowed = {TEAM_JEDIGENERALADI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALVOS, TEAM_JEDICOUNCIL, TEAM_JEDIGURDCHIEF},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Temple Guard Prep", {
-    ent = "templegaurd",
-    model = "models/lt_c/sci_fi/light_spotlight.mdl",
-    price = 0,
-    max = 1,
-    cmd = "guardprep",
-    allowed = {TEAM_JEDIGENERALADI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALVOS, TEAM_JEDICOUNCIL, TEAM_JEDIGURDCHIEF},
-    category = "Entities",
-})
-
-DarkRP.createEntity("Temple Guard Twin Prep", {
-    ent = "templegaurdtwin",
-    model = "models/lt_c/sci_fi/light_spotlight.mdl",
-    price = 0,
-    max = 1,
-    cmd = "guardtwinprep",
     allowed = {TEAM_JEDIGENERALADI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALVOS, TEAM_JEDICOUNCIL, TEAM_JEDIGURDCHIEF},
     category = "Entities",
 })

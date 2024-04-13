@@ -172,7 +172,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if IsValid( self.ChokeTarget ) then return end
 			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
 			if not tr.Entity then return end
-			if not tr.Entity:IsPlayer()then return end
+			if not tr.Entity:IsPlayer() then return end
 			if self.Owner:GetPos():Distance( tr.Entity:GetPos() ) >= 300 then return end
 			self.ChokeTarget = tr.Entity
 			self.ChokeTarget:EmitSound( "wos/icefuse/choke_start.wav" )
@@ -417,21 +417,21 @@ wOS.ForcePowers:RegisterNewPower({
     action = function( self )
         if !self:GetCloaking() then return end
         local ent = self:SelectTargets( 1, 30 )[ 1 ]
-        if (!IsValid( ent ) || !ent:IsPlayer()) then self:SetNextAttack( 0.2 ) return end
-        if ( self:GetForce() < 50 ) then self:SetNextAttack( 0.2 ) return end
-        self:GetOwner():SetSequenceOverride("b_c3_t2", 1)
+        if (!IsValid( ent ) || !ent:IsPlayer()) then return end
+        if ( self:GetForce() < 50 ) then return end
+        self:GetOwner():SetSequenceOverride("b_c3_t2", 0.4)
         self:SetForce( self:GetForce() - 50 )
         self:GetOwner():EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
         self:GetOwner():AnimResetGestureSlot( GESTURE_SLOT_CUSTOM )
         self:GetOwner():SetAnimation( PLAYER_ATTACK1 )
-        ent:TakeDamage( self.saberDamage, self:GetOwner(), self )
+        ent:TakeDamage( 200, self:GetOwner(), self )
 		
 		ent:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 		ent:SetNW2Float( "wOS.DisorientTime", CurTime() + 1 )
 		ent:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 1 )
 		ent.WOS_CripplingSlow = CurTime() + 4
 		
-        self.CloakTime = CurTime()
+        self.CloakTime = CurTime() + 0.2
         return true
     end
 })

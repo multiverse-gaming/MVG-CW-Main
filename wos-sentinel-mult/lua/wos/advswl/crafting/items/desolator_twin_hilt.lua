@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Desolator Twin Hilt"
 
-ITEM.Description = "(Common)"
+ITEM.Description = "(Uncommon)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,7 @@ ITEM.Rarity = 0
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/desolator'sstarforgeddualsaber.mdl"
 	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 20
 end
 
 wOS:RegisterItem( ITEM )

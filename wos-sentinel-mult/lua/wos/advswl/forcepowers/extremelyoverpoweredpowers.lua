@@ -52,48 +52,6 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
-	name = "Lightning Stream",
-	icon = "LST",
-	image = "wos/forceicons/lightstream.png",
-	description = "An endless stream of lightning",
-	think = function( self )
-		if ( self:GetNextSecondaryFire() > CurTime() ) then return end
-		if ( self:GetForce() < 1 ) then return end
-		if not self.Owner:IsOnGround() then return end
-		if !self.Owner:KeyDown( IN_ATTACK2 ) then return end
-		if self.Owner:GetVelocity():Length2DSqr() < 65 then
-			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
-			if tr.Entity then
-				if tr.Entity:IsPlayer() or tr.Entity:IsNPC() then
-					if self.Owner:GetPos():DistToSqr( tr.Entity:GetPos() ) < 200000 then 
-						local dmg = DamageInfo()
-						dmg:SetAttacker( self.Owner )
-						dmg:SetInflictor( self or self.Owner )
-						dmg:SetDamage( 10 )
-						tr.Entity:TakeDamageInfo( dmg )
-					end
-				end
-			end
-			local ed = EffectData()
-			ed:SetEntity( self.Owner )
-			ed:SetAngles( self.Owner:GetAimVector():Angle() )
-			ed:SetEntity( self.Owner )
-			util.Effect( "wos_alcs_lightstream", ed, true, true )
-			self.Owner:SetSequenceOverride( "wos_cast_lightning_armed", 0.25 )
-			self:SetForce( self:GetForce() - 2 )
-			self:SetNextAttack( 0.1 )
-			if ( !self.SoundLightning ) then
-				self.SoundLightning = CreateSound( self.Owner, "ambient/energy/force_field_loop1.wav" )
-				self.SoundLightning:Play()
-			else
-				self.SoundLightning:Play()
-			end
-			timer.Create( "test" .. self:EntIndex(), 0.2, 1, function() if ( self.SoundLightning ) then self.SoundLightning:Stop() self.SoundLightning = nil end end )
-		end
-	end,
-})
-
-wOS.ForcePowers:RegisterNewPower({
 	name = "Burn Out",
 	icon = "BO",
 	image = "wos/forceicons/burnout.png",

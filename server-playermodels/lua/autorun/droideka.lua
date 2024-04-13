@@ -15,7 +15,111 @@ local settings = {
 	["mouthbodygroup"] = 0,
 	["mouthframes"] = 0,
 	["mouthstandingframe"] = 0,
-	["mouthstartingframe"] = 0
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = false,
+}
+
+local settings2 = {
+	["name"] = "Yoda1",
+	["model"] = "models/tfa/comm/gg/pm_sw_yodanojig.mdl",
+	["scale"] = 0.5,
+	["developermode"] = false,
+	["viewoffset"] = 32,
+	["duckviewoffset"] = 14,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = true,
+}
+
+local settings3 = {
+	["name"] = "Yoda2",
+	["model"] = "models/tfa/comm/gg/pm_sw_yoda.mdl",
+	["scale"] = 0.5,
+	["developermode"] = false,
+	["viewoffset"] = 32,
+	["duckviewoffset"] = 14,
+	["seatoffset"] = 16,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = true,
+}
+
+local settings4 = {
+	["name"] = "Jawa",
+	["model"] = "models/jajoff/sw/jawacustom.mdl",
+	["scale"] = 0.6,
+	["developermode"] = false,
+	["viewoffset"] = 38,
+	["duckviewoffset"] = 16,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = true,
+}
+
+local settings5 = {
+	["name"] = "Wrecker",
+	["model"] = "models/player/bad_batch/wrecker.mdl",
+	["scale"] = 1.1,
+	["developermode"] = false,
+	["viewoffset"] = 70,
+	["duckviewoffset"] = 31,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = true,
+}
+
+local settings6 = {
+	["name"] = "Wookiee1",
+	["model"] = "models/grand/wookie_wild.mdl",
+	["scale"] = 1.2,
+	["developermode"] = false,
+	["viewoffset"] = 76,
+	["duckviewoffset"] = 33,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = true,
+}
+
+local settings7 = {
+	["name"] = "Wookiee2",
+	["model"] = "models/grand/wookie.mdl",
+	["scale"] = 1.2,
+	["developermode"] = false,
+	["viewoffset"] = 76,
+	["duckviewoffset"] = 33,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = true,
 }
 
 local mEnt = FindMetaTable("Entity")
@@ -25,120 +129,101 @@ mEnt.NewSetModel = mEnt.NewSetModel || mEnt.SetModel
 function mEnt:SetModel(model)
 
 	self.NewSetModel(self, model)
-
 	if(self:IsPlayer()) then
-
 		hook.Run("SPM_ModelChange", self)
-
 	end
 
 end
 
 if(SERVER) then
 
-	util.AddNetworkString(settings["name"].."ResetModel")
-	util.AddNetworkString(settings["name"].."RescaleModel")
+	util.AddNetworkString("CustomResetModel")
+	util.AddNetworkString("CustomRescaleModel")
 
 else
-
-	net.Receive(settings["name"].."ResetModel", function()
-
+	net.Receive("CustomResetModel", function()
 		local ply = LocalPlayer()
-
 		if(IsValid(ply)) then
-
 			ply:SetModelScale(1)
 			ply:ResetHull()
 			ply:SetViewOffset(Vector(0, 0, 64))
 			ply:SetViewOffsetDucked(Vector(0, 0, 28))
-
 		end
 
 	end)
 
-	net.Receive(settings["name"].."RescaleModel", function()
-
+	net.Receive("CustomRescaleModel", function()
 		local ply = LocalPlayer()
-
 		if(IsValid(ply)) then
-
-			ply:SetModelScale(settings["scale"])
-			ply:SetViewOffset(Vector(0, 0, settings["viewoffset"]))
-			ply:SetViewOffsetDucked(Vector(0, 0, settings["duckviewoffset"]))
-
+			local model = net.ReadString()
+			local tab = SPM_Pool[model]
+			ply:SetModelScale(tab["scale"])
+			ply:SetViewOffset(Vector(0, 0, tab["viewoffset"]))
+			ply:SetViewOffsetDucked(Vector(0, 0, tab["duckviewoffset"]))
 		end
 
 	end)
-
 end
 
 if(SERVER) then
 
-	hook.Add("SPM_ModelChange", settings["name"].."SpawningFunction", function(ply)
+	hook.Add("SPM_ModelChange", "SpawningFunction", function(ply)
 
 		timer.Simple(0, function()
-
 			if(SPM_Pool[ply:GetModel()] == nil) then
-
 				ply:SetModelScale(1)
 				ply:ResetHull()
 				ply:SetViewOffset(Vector(0, 0, 64))
 				ply:SetViewOffsetDucked(Vector(0, 0, 28))
 
-				net.Start(settings["name"].."ResetModel")
+				net.Start("CustomResetModel")
 				net.Send(ply)
-
 			end
-
 		end)
 
 		timer.Simple(FrameTime(), function()
-
-			if(SPM_Pool[ply:GetModel()] != nil) then
-
+			if(SPM_Pool[ply:GetModel()] ~= nil) then
 				local tab = SPM_Pool[ply:GetModel()]
 
 				ply:SetModelScale(tab["scale"])
 				ply:SetViewOffset(Vector(0, 0, tab["viewoffset"]))
 				ply:SetViewOffsetDucked(Vector(0, 0, tab["duckviewoffset"]))
-				net.Start(tab["name"].."RescaleModel")
+				net.Start("CustomRescaleModel")
+				net.WriteString( ply:GetModel() )
 				net.Send(ply)
-
 			end
-
 		end)
 
 	end)
-	
+
 end
 
 
-hook.Add("PlayerEnteredVehicle", settings["name"].."VehicleOffset", function(ply, veh)
+hook.Add("PlayerEnteredVehicle", "CustomVehicleOffset", function(ply, veh)
 
 	if(ply:InVehicle()) then
-
 		if(ply:GetModel() == settings["model"]) then
-
 			ply:SetPos(Vector(0, 0, settings["seatoffset"]))
-
 		end
-
 	end
 
 end)
 
-hook.Add("PostPlayerDeath", settings["name"].."RemoveDeathRagdoll", function(ply)
-
-	if(ply:GetModel() == settings["model"]) then
-
-		local rag = ply:GetRagdollEntity()
-
-		if(IsValid(rag)) then
-
-			rag:Remove()
-
+hook.Add("PostPlayerDeath", "CustomRemoveScaleDeathRagdoll", function(ply)
+	
+	if(SPM_Pool[ply:GetModel()] ~= nil) then
+		local tab = SPM_Pool[ply:GetModel()]
+		if(tab["removeRagdoll"]) then
+			local rag = ply:GetRagdollEntity()
+			if(IsValid(rag)) then
+				rag:Remove()
+			end
+		elseif (tab["scaleRagdoll"]) then 
+			local rag = ply:GetRagdollEntity()
+			if(IsValid(rag)) then
+				rag:SetModelScale(tab["scale"])
+			end
 		end
-
 	end
 
 end)
@@ -146,11 +231,8 @@ end)
 hook.Add("PostDrawTranslucentRenderables", settings["name"].."DeveloperMode", function()
 
 	local ply = LocalPlayer()
-
 	if(settings["developermode"] == true) then
-
 		if(ply:GetModel() == settings["model"]) then
-
 			local ePos = ply:EyePos()
 			local eOffset = (ePos - ply:GetPos()).Z
 
@@ -160,21 +242,20 @@ hook.Add("PostDrawTranslucentRenderables", settings["name"].."DeveloperMode", fu
 			render.SetColorMaterial()
 			render.DrawBox(ply:GetPos() , Angle(0, 0, 0), min, max, Color(255, 0, 0, 150))
 			render.DrawBox(ply:EyePos(), Angle(0, 0, 0), Vector(min.X, min.Y, -1), Vector(max.X, max.Y, 1), Color(255, 255, 0, 100))
-
 		end
-
 	end
 
 end)
 
-hook.Add("Initialize", settings["name"].."SetPool", function()
-
+hook.Add("Initialize", "CustomSetPool", function()
 	SPM_Pool = {}
-
 	timer.Simple(FrameTime(), function()
-
 		SPM_Pool[settings["model"]] = settings
-
+		SPM_Pool[settings2["model"]] = settings2
+		SPM_Pool[settings3["model"]] = settings3
+		SPM_Pool[settings4["model"]] = settings4
+		SPM_Pool[settings5["model"]] = settings5
+		SPM_Pool[settings6["model"]] = settings6
+		SPM_Pool[settings7["model"]] = settings7
 	end)
-
 end)

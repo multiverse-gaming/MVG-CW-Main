@@ -71,7 +71,7 @@ TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
 	Name = "Yoda's Stance",
-	Description = "Your signature stance.",
+	Description = "Your signature stance - Jumping around your opponent.",
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 0,
 	Requirements = {},
@@ -110,7 +110,7 @@ TREE.Tier[2][1] = {
 
 TREE.Tier[2][2] = {
 	Name = "Sonic Discharge",
-	Description = "Blind the stronger enemies around you, but destory the weaker ones.",
+	Description = "Blind the stronger enemies around you, but destroy the weaker ones.",
 	Icon = "wos/forceicons/pull.png",
 	PointsRequired = 3,
 	Requirements = {},

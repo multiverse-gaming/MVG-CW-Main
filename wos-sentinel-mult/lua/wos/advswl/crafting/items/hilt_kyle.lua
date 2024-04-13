@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Kyle Katarn's Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,8 @@ ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/sgg/starwars/weapons/w_kyle_saber_hilt.mdl"
+	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 100
 end
 
 wOS:RegisterItem( ITEM )

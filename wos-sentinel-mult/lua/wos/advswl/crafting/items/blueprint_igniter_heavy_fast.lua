@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Heavy Fast Igniter Blueprint"
 
-ITEM.Description = ""
+ITEM.Description = "Change the sound of your saber"
 
 ITEM.Type = WOSTYPE.BLUEPRINT
 

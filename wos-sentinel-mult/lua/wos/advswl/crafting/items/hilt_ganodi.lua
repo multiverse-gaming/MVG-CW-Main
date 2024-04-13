@@ -20,6 +20,7 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/starwars/cwa/lightsabers/ganodi.mdl"
+	wep.UseLength = 46
 end
 
 wOS:RegisterItem( ITEM )

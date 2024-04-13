@@ -1,6 +1,78 @@
 wOS = wOS or {}
 wOS.ForcePowers = wOS.ForcePowers or {}
 
+wOS.ForcePowers:RegisterNewPower({ -- This is like a backstab, and only works in close proximity, when cloaked.
+    name = "Shadow Strike",
+    icon = "SS",
+    distance = 30,
+    image = "wos/forceicons/shadow_strike.png",
+    cooldown = 15,
+    target = 1,
+    manualaim = false,
+    description = "From the darkness it preys",
+    action = function( self )
+        if !self:GetCloaking() then return end
+        local ent = self:SelectTargets( 1, 30 )[ 1 ]
+        if (!IsValid( ent ) || !ent:IsPlayer()) then return end
+        if ( self:GetForce() < 50 ) then return end
+        self:GetOwner():SetSequenceOverride("b_c3_t2", 0.4)
+        self:SetForce( self:GetForce() - 50 )
+        self:GetOwner():EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
+        self:GetOwner():AnimResetGestureSlot( GESTURE_SLOT_CUSTOM )
+        self:GetOwner():SetAnimation( PLAYER_ATTACK1 )
+        ent:TakeDamage( 400, self:GetOwner(), self )
+		
+		ent:SetNW2Float( "wOS.BlindTime", CurTime() + 6 )
+		ent:SetNW2Float( "wOS.DisorientTime", CurTime() + 1 )
+		ent:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 1 )
+		ent.WOS_CripplingSlow = CurTime() + 2
+		
+        self.CloakTime = CurTime() + 0.2
+        return true
+    end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Sith Cloak",
+		icon = "SC",
+		image = "wos/forceicons/advanced_cloak.png",
+		cooldown = 45,
+		description = "Shrowd yourself with the force.",
+		action = function( self )
+			if (self:GetCloaking()) then
+				-- If cloaking, go on CD and turn cloak off so you can attack.
+				self.CloakTime = CurTime()
+				self:GetOwner():SetNoTarget(false)
+				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+				return true
+			end
+			if ( self:GetForce() < 50) then return end
+
+			self:SetForce( self:GetForce() - 25 )
+			self:SetNextAttack( 0.7 )
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+
+			self.CloakTime = CurTime() + 3600
+			-- Look up timer.Create and see delay and repitions in the arguments. You will see why it's like this.
+			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 0, function() 
+				if self:GetCloaking() then 
+					if (self:GetForce() <= 1) then
+						-- If out of force, turn cloak off.
+						self.CloakTime = CurTime()
+						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+						do return end
+					end
+
+					if self.Owner:GetVelocity():Length() > 130 then
+						self:SetForce( self:GetForce() - 2 )
+					elseif self.Owner:GetVelocity():Length() > 40 then
+						self:SetForce( self:GetForce() - 1 )
+					end
+				end	
+			end)
+		end
+})
+
 wOS.ForcePowers:RegisterNewPower({
     name = "Channel Hatred",
     icon = "HT",
@@ -53,6 +125,71 @@ wOS.ForcePowers:RegisterNewPower({
             self.ChannelCooldown = CurTime() + 3
         end
     end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+	name = "Sith Force Push",
+	icon = "WFP",
+	target = 1,
+	distance = 150,
+	description = "Hurl your opponent for 100 damage",
+	image = "wos/forceicons/pull.png",
+	cooldown = 8,
+	manualaim = false,
+	action = function( self )
+		if ( self:GetForce() < 50 ) then return end
+		local ent = self:SelectTargets( 1 )[ 1 ]
+		if not IsValid( ent ) then return end
+		self:SetForce( self:GetForce() - 50 )
+		self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
+
+		local dmg = DamageInfo()
+		dmg:SetAttacker( self:GetOwner() || self )
+		dmg:SetInflictor( self:GetOwner() || self )
+		dmg:SetDamageType( DMG_DISSOLVE )
+		dmg:SetDamage( 100 )
+		ent:TakeDamageInfo( dmg )
+		local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
+		newpos = newpos / newpos:Length()
+		ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
+		self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
+		return true
+	end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Sith Group Push",
+		icon = "SPH",
+		target = 50,
+		distance = 650,
+		description = "Push and damage everyone in front of you for 75",
+		image = "wos/forceicons/icefuse/group_push.png",
+		cooldown = 16,
+		manualaim = false,
+		action = function( self )
+			if ( self:GetForce() < 40 ) then return end
+			local foundents = self:SelectTargets( 50, 650 )
+			if #foundents < 1 then return end
+			for id, ent in pairs( foundents ) do
+				local newpos = ( self.Owner:GetPos() - ent:GetPos() )
+				newpos = newpos / newpos:Length()
+				ent:SetVelocity( newpos*-850 + Vector( 0, 0, 300 ) )
+				if ent:IsPlayer() then
+					local time = ent:SetSequenceOverride( "h_reaction_upper", 2 )
+				end
+
+				local dmg = DamageInfo()
+				dmg:SetAttacker( self:GetOwner() || self )
+				dmg:SetInflictor( self:GetOwner() || self )
+				dmg:SetDamageType( DMG_DISSOLVE )
+				dmg:SetDamage( 75 )
+				ent:TakeDamageInfo( dmg )
+			end
+			self:SetForce( self:GetForce() - 40 )
+			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
+			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+			return true
+		end,
 })
 
 wOS.ForcePowers:RegisterNewPower({
@@ -149,6 +286,118 @@ wOS.ForcePowers:RegisterNewPower({
 			self:SetForce( self:GetForce() - neededForce )
 
 			self:SetNextAttack( 1 )
+			return true
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+	name = "Lightning Stream",
+	icon = "LST",
+	image = "wos/forceicons/lightstream.png",
+	description = "An endless stream of lightning",
+	think = function( self )
+		if ( self:GetNextSecondaryFire() > CurTime() ) then return end
+		if ( self:GetForce() < 1 ) then return end
+		if not self.Owner:IsOnGround() then return end
+		if !self.Owner:KeyDown( IN_ATTACK2 ) then return end
+		if self.Owner:GetVelocity():Length2DSqr() < 65 then
+			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
+			if tr.Entity then
+				if tr.Entity:IsPlayer() or tr.Entity:IsNPC() then
+					if self.Owner:GetPos():DistToSqr( tr.Entity:GetPos() ) < 200000 then 
+						local dmg = DamageInfo()
+						dmg:SetAttacker( self.Owner )
+						dmg:SetInflictor( self or self.Owner )
+						dmg:SetDamage( 10 )
+						tr.Entity:TakeDamageInfo( dmg )
+					end
+				end
+			end
+			local ed = EffectData()
+			ed:SetEntity( self.Owner )
+			ed:SetAngles( self.Owner:GetAimVector():Angle() )
+			ed:SetEntity( self.Owner )
+			util.Effect( "wos_alcs_lightstream", ed, true, true )
+			self.Owner:SetSequenceOverride( "wos_cast_lightning_armed", 0.25 )
+			self:SetForce( self:GetForce() - 2 )
+			self:SetNextAttack( 0.1 )
+			if ( !self.SoundLightning ) then
+				self.SoundLightning = CreateSound( self.Owner, "ambient/energy/force_field_loop1.wav" )
+				self.SoundLightning:Play()
+			else
+				self.SoundLightning:Play()
+			end
+			timer.Create( "test" .. self:EntIndex(), 0.2, 1, function() if ( self.SoundLightning ) then self.SoundLightning:Stop() self.SoundLightning = nil end end )
+		end
+	end,
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Mandalorian Fire",
+		icon = "C",
+		description = "Shoot out flames.",
+		image = "wos/forceicons/combust.png",
+		cooldown = 5,
+		manualaim = false,
+		action = function( self )
+			if ( self:GetForce() < 50 ) then return end
+			self:SetForce( self:GetForce() - 50 )
+			
+			-- Set a flame-wristy enough animation.
+			self.Owner:SetSequenceOverride( "walk_revolver", 2 )
+			self:SetNextAttack(2)
+
+			-- Set a stream of fire every X seconds, capture current player to continue doing it in case of weapon switching.
+			local mando = self.Owner
+			mando:EmitSound( "ambient/fire/fire_big_loop1.wav", 100, math.random( 95, 110 ) )
+			timer.Create(self.Owner:SteamID64().."-MandalorianFire", 0.1, 20, function()
+				
+				-- Get direction of fire.
+				local trace = mando:GetEyeTrace()
+				local distance = mando:GetPos():Distance(trace.HitPos)
+
+				-- Setup fire effects.
+				local flamefx = EffectData()
+				flamefx:SetOrigin(trace.HitPos)
+				flamefx:SetStart(mando:GetShootPos())
+				flamefx:SetAttachment(1)
+				flamefx:SetEntity(mando:GetActiveWeapon())
+				util.Effect("flame_thrower_fire",flamefx, true, true)
+				
+				-- Ignite stuff.
+				if distance < 500 then
+					if !self:IsValid() then return end
+					
+					for i, v in pairs (ents.FindInSphere(trace.HitPos, 80)) do
+						if v:IsValid() then
+							local damageinfo = DamageInfo()
+							damageinfo:SetDamage( 20 )
+							damageinfo:SetAttacker( mando )
+							damageinfo:SetDamageType( DMG_BURN ) 
+							v:TakeDamageInfo( damageinfo )
+						end
+					end
+	
+					if trace.Entity:IsValid() then
+						if trace.Entity:IsPlayer() then
+							if trace.Entity:GetPhysicsObject():IsValid() then
+								trace.Entity:Ignite(math.random(2,4), 100) 
+							end 
+						elseif trace.Entity:IsNPC() then
+							if trace.Entity:GetPhysicsObject():IsValid() then
+								trace.Entity:Fire("Ignite","",1)
+								trace.Entity:Ignite(math.random(12,16), 100) 
+							end 
+						elseif trace.Entity:GetPhysicsObject():IsValid() then
+							if !trace.Entity:IsOnFire() then 
+								trace.Entity:Ignite(math.random(16,32), 100) 
+							end 
+						end
+					end
+				end
+				
+			end)
+			timer.Simple (2, function() mando:StopSound( "ambient/fire/fire_big_loop1.wav" ) end)
 			return true
 		end
 })

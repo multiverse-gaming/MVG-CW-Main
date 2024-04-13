@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Senya Tirall's Twin Hilt"
 
-ITEM.Description = "(RARE)"
+ITEM.Description = "(Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 

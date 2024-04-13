@@ -84,16 +84,16 @@ TREE.Tier[1][1] = {
 }
 
 TREE.Tier[1][2] = {
-	Name = "Sentinel Leap",
-	Description = "Use the force to leap forwards.",
-	Icon = "wos/forceicons/leap.png",
+	Name = "Sentinel Abilities Skill",
+	Description = "Use this to use fold space, emp, breach and light.",
+	Icon = "wos/forceicons/advanced_cloak.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Leap" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Tech Abilities" ) end,
 }
 
 TREE.Tier[1][3] = {
@@ -104,7 +104,7 @@ TREE.Tier[1][3] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
+	OnSaberDeploy = function( wep ) wep.SentinelLeap = true end,
 }
 
 TREE.Tier[1][4] = {
@@ -115,7 +115,7 @@ TREE.Tier[1][4] = {
 	Requirements = {
 	[1] = { 3 },
 	},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 100 ) ply:SetHealth( ply:Health() - 100 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 75 ) ply:SetHealth( ply:Health() - 75 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -128,7 +128,7 @@ TREE.Tier[1][5] = {
 	Requirements = {
 	[1] = { 4 },
 	},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 100 ) ply:SetHealth( ply:Health() - 100 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10 ) ply:SetMaxHealth( ply:GetMaxHealth() - 75 ) ply:SetHealth( ply:Health() - 75 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -149,12 +149,12 @@ TREE.Tier[2][1] = {
 }
 
 TREE.Tier[2][2] = {
-	Name = "Force Breach",
-	Description = "Open doors, move elevators, and create opportunity.",
+	Name = "Force Breach Skill",
+	Description = "Open doors, move elevators. Seperate Skill",
 	Icon = "wos/forceicons/icefuse/breach.png",
-	PointsRequired = 2,
+	PointsRequired = 0,
 	Requirements = {
-	[1] = { 3 },
+	[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -162,16 +162,16 @@ TREE.Tier[2][2] = {
 }
 
 TREE.Tier[2][3] = {
-	Name = "Force Slow",
-	Description = "Use the force to hinder your opponents movement",
-	Icon = "wos/forceicons/push.png",
+	Name = "Force Breach Upgrade",
+	Description = "Open doors, move elevators. Crouching Sentinel Abilities skill.",
+	Icon = "wos/forceicons/icefuse/breach.png",
 	PointsRequired = 2,
 	Requirements = {
 	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Slow" ) end,
+	OnSaberDeploy = function( wep ) wep.ForceBreach = true end,
 }
 
 TREE.Tier[2][4] = {
@@ -188,8 +188,8 @@ TREE.Tier[2][4] = {
 }
 
 TREE.Tier[2][5] = {
-	Name = "Force Light",
-	Description = "Light the way for yourself and others.",
+	Name = "Force Light Upgrade",
+	Description = "Light the way for yourself and others. Walking Sentinel Abilities skill.",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -197,18 +197,44 @@ TREE.Tier[2][5] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForceLight = true end,
+}
+
+TREE.Tier[2][6] = {
+	Name = "Force Light Skill",
+	Description = "Light the way for yourself and others. Seperate Skill",
+	Icon = "wos/forceicons/lightstream.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 5 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
+}
+
+TREE.Tier[2][7] = {
+	Name = "Force Slow",
+	Description = "Use the force to hinder your opponents movement",
+	Icon = "wos/forceicons/push.png",
+	PointsRequired = 2,
+	Requirements = {
+	[1] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Slow" ) end,
 }
 
 TREE.Tier[3] = {}
 
 TREE.Tier[3][1] = {
-	Name = "Fold Space",
-	Description = "Step through space to your target - but beware the stun.",
+	Name = "Fold Space Skill",
+	Description = "Step through space to your target. Seperate Ability.",
 	Icon = "wos/forceicons/icefuse/teleport.png",
-	PointsRequired = 2,
+	PointsRequired = 0,
 	Requirements = {
-	[2] = { 3 },
+	[3] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -216,12 +242,25 @@ TREE.Tier[3][1] = {
 }
 
 TREE.Tier[3][2] = {
+	Name = "Fold Space Upgrade",
+	Description = "Step through space to your target. Default Sentinel Abilities skill.",
+	Icon = "wos/forceicons/icefuse/teleport.png",
+	PointsRequired = 2,
+	Requirements = {
+	[2] = { 4 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.FoldSpace = true end,
+}
+
+TREE.Tier[3][3] = {
 	Name = "Force Speed",
 	Description = "Move much faster for a brief period.",
 	Icon = "wos/forceicons/charge.png",
 	PointsRequired = 2,
 	Requirements = {
-	[2] = { 3 },
+	[2] = { 4 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -231,13 +270,26 @@ TREE.Tier[3][2] = {
 	end	end,
 }
 
-TREE.Tier[3][3] = {
-	Name = "Force EMP",
-	Description = "Destroy all the droids around you.",
+TREE.Tier[3][4] = {
+	Name = "Force EMP Upgrade",
+	Description = "Destroy all the droids around you. Sprinting Sentinel Abilities skill.",
 	Icon = "wos/forceicons/icefuse/blind.png",
 	PointsRequired = 2,
 	Requirements = {
-	[2] = { 3 },
+	[2] = { 4 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForceEMP = true end,
+}
+
+TREE.Tier[3][5] = {
+	Name = "Force EMP Skill",
+	Description = "Destroy all the droids around you. Seperate Skill.",
+	Icon = "wos/forceicons/icefuse/blind.png",
+	PointsRequired = 0,
+	Requirements = {
+	[3] = { 4 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,

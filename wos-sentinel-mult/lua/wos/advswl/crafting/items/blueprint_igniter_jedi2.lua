@@ -6,7 +6,7 @@ ITEM.Name = "Jedi Original Igniter Blueprint"
 
 
 
-ITEM.Description = ""
+ITEM.Description = "Change the sound of your saber"
 
 
 

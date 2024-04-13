@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Blade Pommel Hilt"
 
-ITEM.Description = "(EPIC)"
+ITEM.Description = "(Epic)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/donation7/donation7.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 28
 	wep.SaberDamage = wep.SaberDamage + 80
 end
 

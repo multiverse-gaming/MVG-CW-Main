@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Asajj Ventress' Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(UNIQUE)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,7 @@ ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/starwars/cwa/lightsabers/ventress.mdl"
+	wep.UseLength = 46
 end
 
 wOS:RegisterItem( ITEM )

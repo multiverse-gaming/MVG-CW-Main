@@ -31,10 +31,11 @@ function ENT:Use(ply)
         [TEAM_JEDIGENERALAAYLA] = true,
         [TEAM_JEDIGENERALLUMINARA] = true,
         [TEAM_JEDIGENERALVOS] = true,
+        [TEAM_JEDITOURNAMENT] = true,
         }
     if jedi[ply:Team()] then
 	ply:AddSkillXP(800)
-    print(ply:Nick() .. " (" .. ply:SteamID() .. ") picked up a xpholocron")
+	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "XP Holocron")
 	self:Remove()
     end
 end

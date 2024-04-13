@@ -17,6 +17,9 @@ function ENT:OnSpawn( PObj )
 	GunnerSeat.HidePlayer = true
 	self:SetGunnerSeat( GunnerSeat )
 
+	local RumbleSeat = self:AddPassengerSeat( Vector(-70,-65,20), Angle(0,90,0) )
+	RumbleSeat.HidePlayer = false 
+
 	self.sndBTL = self:AddSoundEmitter( Vector(0,0,0), "lvs/vehicles/laat/ballturret_loop.wav", "lvs/vehicles/laat/ballturret_loop.wav" )
 	self.sndBTL:SetSoundLevel( 110 )
 

@@ -179,7 +179,6 @@ wOS.ForcePowers:RegisterNewPower({
 		newpos = newpos / newpos:Length()
 		ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 		self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
-		self:SetNextAttack( 1.5 )
 		return true
 	end
 })
@@ -212,7 +211,6 @@ wOS.ForcePowers:RegisterNewPower({
 		newpos = newpos / newpos:Length()
 		ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 		self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
-		self:SetNextAttack( 1.5 )
 		return true
 	end
 })

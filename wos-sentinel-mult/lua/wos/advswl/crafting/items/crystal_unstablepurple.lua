@@ -21,7 +21,7 @@ ITEM.Rarity = 5
 ITEM.OnEquip = function( wep )
 	wep.CustomSettings[ "Blade" ] = "Unstable"
 	wep.UseColor = Color( 255, 0, 255 )
-	wep.MaxForce = wep.MaxForce + 25
+	wep.MaxForce = wep.MaxForce + 10
 	wep.UseWidth = wep.UseWidth - wep.UseWidth*0.25
 end
 

@@ -56,10 +56,10 @@ SWEP.DualWielded = false --Should this be a dual wielded saber?
 SWEP.CanMoveWhileAttacking = true -- Can the user move while attacking
 SWEP.SaberDamage = 200 --How much damage the saber does when it's being swung
 SWEP.SaberBurnDamage = 0 -- How much damage the saber does when it's colliding with someone ( coming in contact with laser )
-SWEP.MaxForce = 50 --The maximum amount of force in the meter
+SWEP.MaxForce = 100 --The maximum amount of force in the meter
 SWEP.RegenSpeed = 1 --The MULTIPLIER for the regen speed. Half speed = 0.5, Double speed = 2, etc.
 SWEP.CanKnockback = true --Should this saber be able to push people back when they get hit?
-SWEP.ForcePowerList = { "Advanced Force Heal" } 
+SWEP.ForcePowerList = { "Mandalorian Fire", "Advanced Force Heal" } 
 --Force powers you want the saber to have ( REMEMBER TO PUT A COMMA AFTER EACH ONE, AND COPY THE TITLE EXACTLY AS IT'S LISTED )
 --For a list of options, just look at the keys in autorun/client/wos_forcematerialbuilding.lua
 

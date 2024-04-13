@@ -14,6 +14,7 @@ end
 function ENT:Use( ply )
     local item1 = wOS:GetItemData( "Jedi Knight's Hilt" )
     wOS:HandleItemPickup( ply, item1.Name )
+	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Hilt")
     self:Remove()
 end
 

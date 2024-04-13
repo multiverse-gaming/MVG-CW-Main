@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Luke Skywalker's Hilt EP6"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(UNIQUE)"
 
 ITEM.Type = WOSTYPE.HILT
 
