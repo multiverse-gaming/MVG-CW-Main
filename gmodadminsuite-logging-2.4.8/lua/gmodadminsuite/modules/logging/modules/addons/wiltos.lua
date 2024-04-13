@@ -6,7 +6,11 @@ MODULE.Colour   = Color(255,90,0)
 
 MODULE:Setup(function()
 	MODULE:Hook("WILTOS.ItemUsed", "WILTOS.ItemUsed", function(playerUser, playerSpawner, itemUsed, itemGot)
-		MODULE:LogPhrase("command_used", GAS.Logging:FormatPlayer(playerUser), itemUsed, GAS.Logging:FormatPlayer(playerSpawner), itemGot)
+		MODULE:LogPhrase("wiltosLog",
+		GAS.Logging:FormatPlayer(playerUser),
+		GAS.Logging:Highlight(itemUsed),
+		GAS.Logging:FormatPlayer(playerSpawner),
+		GAS.Logging:Highlight(itemGot))
 	end)
 	
 	-- How to call this function:

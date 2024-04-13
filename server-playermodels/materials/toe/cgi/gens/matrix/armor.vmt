@@ -1,0 +1,60 @@
+"VertexlitGeneric"
+{
+	$basetexture toe\cgi\gens\matrix\armor
+	$color2 "[1.0 1.0 1.0]"
+
+	$envmap "env_cubemap"
+	$envmaptint "[0.001 0.001 0.001]"
+	$envmapfresnel 1
+	$blendTintByBaseAlpha 1
+	$normalmapalphaenvmapmask 1
+	$halflambert 1
+	$phong 1
+    $phongfresnelranges "[1 0.8 0]"
+	$phongboost	1
+    $nocull 1
+	
+	//$blendtintcoloroverbase 0
+	//"$PhongBrightnessScalar" "0.5"
+	//
+	//Proxies
+	//{
+	//	PlayerColor
+	//	{
+	//		resultVar	$color2 // pass the player color value to Gmod
+	//		default		0.23 0.35 0.41 // unused for now.
+	//	}
+	//	Clamp // clamp the chosen color between 1% and 125% (usually)
+	//	{
+	//		min 0.01
+	//		max 1.25
+	//		srcVar1 "$color2"
+	//		resultVar "$color2"
+	//	}
+	//	Clamp // copy this value to phong tint, clamp it to 50% min.
+	//	{
+	//		min 0.5
+	//		max 1.0
+	//		srcVar1 "$color2"
+	//		resultVar "$phongtint"
+	//	}
+	//	Equals // copy $color2 value to exterior variable. this makes it
+	//	{      // no longer a RGB array but a single float instead (!??)
+	//		srcVar1 "$color2"
+	//		resultVar "$PhongBrightnessScalar"
+	//	}
+	//	Multiply // multiply $phongtint by this new float value.
+	//	{
+	//		srcVar1 "$phongtint"
+	//		srcVar2 "$phongBrightnessScalar"
+	//		resultVar "$phongtint"
+	//	}
+	//	Clamp // the result of this multiply doesn't go any lower than 20%
+	//	{
+	//		min 0.25
+	//		max 1.00
+	//		srcVar1 "$phongtint"
+	//		resultVar "$phongtint"
+	//	}
+	//}
+}

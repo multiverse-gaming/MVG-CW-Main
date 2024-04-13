@@ -709,6 +709,12 @@ GAS:hook("Tick", "logging:ExtraProcessingQueue", function()
 									GAS:print("[bLogs] [" .. module.Category .. " / " .. module.Name .. "] Discord proxy returned HTTP " .. code, GAS_PRINT_COLOR_BAD, GAS_PRINT_TYPE_WARN)
 									print(body)
 								end
+
+								if (string.find(discord_webhooks[webhook_i][2], "1228397978952405052")) then
+									-- Send to Jedi Discord only WiltOS stuff
+									if (!string.find(title, "Kits And Hilts")) then return end
+								end
+
 								execute(webhook_i)
 							end,
 							failure = function(reason)

@@ -1,0 +1,21 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "toe\cgi\shared\helmet_visor"
+	"$bumpmap" "toe\cgi\shared\MISC_BUMP"
+	$color2 "[1.0 1.0 1.0]"
+
+	$envmap "env_cubemap"
+	$envmaptint "[0.01 0.01 0.01]"
+	$envmapfresnel 1
+	$blendTintByBaseAlpha 1
+	$normalmapalphaenvmapmask 1
+$halflambert 1
+	$phong "1"
+    		$phongexponent "3"
+			$phongboost "1"
+			$phongfresnelranges "[0. 7.7 0.55]"
+			$phongtint "[0.4 0.4 0.4]"
+        "$lightwarptexture" 	"toe\cgi\shared\lightwrap"
+	"$phongexponenttexture" "toe\cgi\shared\exp"
+    $nocull 1
+}

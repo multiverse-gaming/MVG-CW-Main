@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "jajoff\sps\JLMBASE\jaronlangley\armor_jajon_upper"
+	"$bumpmap" "jajoff\sps\JLMBASE\jaronlangley\MISC_BUMP"
+	$nocull 1
+	$phong "1"
+    		$phongexponent "4"
+			$phongboost "1"
+			$phongfresnelranges "[0.05 0.078 1.55]"
+			$phongtint "[0.2 0.2 0.2]"
+        "$lightwarptexture" 	"jajoff\sps\JLMBASE\jaronlangley/lightwrap"
+	"$phongexponenttexture" "jajoff\sps\JLMBASE\jaronlangley/exp"
+   
+
+}
+
+
