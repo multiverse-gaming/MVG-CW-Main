@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "SpyShadow117/SciFi/floor1b"
+	"$bumpmap" "SpyShadow117/SciFi/floor1_bump"
+	"$surfaceprop" "Concrete"
+	"$envmap" "env_cubemap" 
+	"$envmaptint" "[.2 .2 .2]"
+}

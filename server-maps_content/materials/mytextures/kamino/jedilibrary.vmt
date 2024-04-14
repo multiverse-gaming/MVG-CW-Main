@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "mytextures/kamino/jedilibrary"
+   	"$selfillum" "1"
+	"$surfaceprop" "glass"
+	"$bumpmap" "mytextures/kamino/jedilibrary"
+}

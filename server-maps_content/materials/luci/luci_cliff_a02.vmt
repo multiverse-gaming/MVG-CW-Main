@@ -1,0 +1,12 @@
+WorldVertexTransition
+{
+	$basetexture "hgn/cru/world/l01_cliff_a02"
+	$bumpmap "hgn/cru/world/l01_cliff_a02_normal"
+	$surfaceprop Rock
+
+	$basetexture2 "nature/cso_grass01"
+	$surfaceprop2 Grass
+
+	$blendmodulatetexture "nature/forest_modulate"
+	$seamless_scale 0.005
+}

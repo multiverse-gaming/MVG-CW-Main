@@ -1,0 +1,11 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "statua/lightbar/metal"
+	"$halflambert" "1"
+	"$nodecal" "1"
+
+	"$phong" "1"
+	"$phongexponent" "255"
+	"$phongboost" "6"
+	"$phongfresnelranges" "[0.05 0.5 1]"
+}

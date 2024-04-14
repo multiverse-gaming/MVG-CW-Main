@@ -1,0 +1,8 @@
+"WorldVertexTransition"
+{
+	"$baseTexture" "scape/scape_grass"
+	"$baseTexture2" "z-o-m-b-i-e/STALKER/grnd/grnd_rocks_01"
+	"$surfaceprop" "grass"
+	"$surfaceprop2" "rock"
+                 "$seamless_scale"  "0.001"
+}

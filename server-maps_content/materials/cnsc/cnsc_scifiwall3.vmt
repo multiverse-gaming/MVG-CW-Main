@@ -1,0 +1,19 @@
+LightmappedGeneric
+//"MN_PrlxLightmappedGeneric"
+{
+	"$basetexture"	"cnsc\cnsc_scifiwall3"
+	"$bumpmap" "cnsc\cnsc_scifiwall3_normal"
+	"$envmap" "env_cubemap"
+	"$surfaceprop" "metal"
+
+	"$envmapcontrast" 0.1
+	"$envmaptint" "[1 1 1]"
+    	"$normalmapalphaenvmapmask" 1
+
+    	"$parallaxmap"	"cnsc/cnsc_scifiwall3_height"
+    	"$parallaxmapscale"	0.25
+
+	"$heightmap" "cnsc/cnsc_scifiwall3_height"
+	"$heightscale" 0.4
+	"$heightmapsample" 16
+}

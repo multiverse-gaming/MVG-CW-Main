@@ -1,0 +1,8 @@
+LightmappedGeneric
+//"MN_PrlxLightmappedGeneric"
+{
+	"$basetexture"	"cnsc\cnsc_scifiwallvent"
+	"$bumpmap" "cnsc\cnsc_scifiwallbare_height"
+	"$surfaceprop" "metal"
+
+}

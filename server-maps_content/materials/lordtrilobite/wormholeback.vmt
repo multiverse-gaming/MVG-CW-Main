@@ -1,0 +1,16 @@
+"UnlitGeneric"
+
+//Texture made by Lord Trilobite
+    {
+            "$basetexture"	"lordtrilobite/wormholeback"
+	"$alpha"		1
+            "Proxies"
+            {
+                    "TextureScroll"
+                    {
+                            "texturescrollvar"		"$baseTextureTransform"
+                            "texturescrollrate"		0.5
+                            "texturescrollangle"	0
+                    }
+            }
+    }

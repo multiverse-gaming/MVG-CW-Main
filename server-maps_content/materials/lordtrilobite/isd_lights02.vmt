@@ -1,0 +1,10 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"			"lordtrilobite/isd_lights02"
+	"$surfaceprop"			"metal"
+   	"$selfillum"			"1"
+   	"$selfillummask"		"lordtrilobite/isd_lights02"
+
+}

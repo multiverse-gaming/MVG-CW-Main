@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_TRIM_SET01A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_bln/c0_0_0"
+	}
+}

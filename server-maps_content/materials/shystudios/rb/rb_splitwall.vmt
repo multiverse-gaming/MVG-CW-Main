@@ -1,0 +1,10 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/rb_splitwall"
+	"$bumpmap" "shystudios/rb/rb_splitwall_nrm"
+	"$surfaceprop" "Metal"
+	"%keywords" "rb"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[ 0.3 0.3 0.3 ]"
+}

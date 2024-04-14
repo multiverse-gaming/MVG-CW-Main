@@ -1,0 +1,14 @@
+"UnlitGeneric"
+{
+	"$basetexture" "maps/background_mill/waterfall"
+	"$translucent" 1
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$basetexturetransform"
+			"texturescrollrate" 2
+			"texturescrollangle" -90
+		} 
+	}
+}

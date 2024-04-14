@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/sec/rb_laserhall"
+	"$bumpmap" "shystudios/rb/sec/rb_laserhall_nrm"
+	"$surfaceprop" "Metal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[ 0.3 0.3 0.3 ]"
+}

@@ -1,0 +1,8 @@
+"worldvertextransition"
+{
+	"$basetexture" "pk02/pk02_rock01_C"
+	"$basetexture2" "nature/dirtfloor005b"
+
+	"$surfaceprop" "rock"
+	"$surfaceprop2" "dirt"
+}

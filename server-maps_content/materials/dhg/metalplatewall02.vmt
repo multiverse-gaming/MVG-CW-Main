@@ -1,0 +1,11 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "dhg/metalplatewall02"
+	"$bumpmap" "dhg/metalplatewall02_n"
+	"$envmaptint" "[0.35 0.35 0.35]"
+	"$envmapcontrast" 1
+	"$envmap"	"env_cubemap"
+	"$normalmapalphaenvmapmask" 1	
+
+	"$surfaceprop" metal
+}

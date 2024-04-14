@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "custom/screen_orbit"
+	"$selfillum" 1
+}

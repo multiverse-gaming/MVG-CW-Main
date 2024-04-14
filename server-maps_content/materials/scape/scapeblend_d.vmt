@@ -1,0 +1,13 @@
+"WorldVertexTransition"
+{
+	"$baseTexture" "z-o-m-b-i-e/metro_2033/grnd/grnd_sand_02"
+	"$bumpmap" "scape/scape_sand_norm"
+	"$baseTexture2" "scape/scape_sand"
+	"$bumpmap2" "scape/scape_sand_norm"
+    "$detail"             "MaxOfS2D/terrain_detail"
+	"$detailscale"        "0.04"
+	"$detailblendfactor"  "0.3"
+	"$detailblendmode"    "0"
+	"$surfaceprop" "dirt"
+	"$surfaceprop2" "dirt"
+}

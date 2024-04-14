@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "starwars/syphadias/props/sw_tor/bioware_ea/props/city/city_bench_metal_2"
+	"$nocull" 1
+}

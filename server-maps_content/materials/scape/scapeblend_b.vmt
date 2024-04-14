@@ -1,0 +1,14 @@
+"WorldVertexTransition"
+{
+	"$baseTexture2" "scape/scape_sand"
+	"$bumpmap2" "scape/scape_sand_norm"
+	"$baseTexture" "scape/scape_grass"
+	"$bumpmap" "scape/scape_grass_norm"
+    "$detail"             "MaxOfS2D/terrain_detail"
+	"$detailscale"        "0.04"
+	"$detailblendfactor"  "0.3"
+	"$detailblendmode"    "0"
+	"$surfaceprop2" "dirt"
+	"$surfaceprop" "grass"
+	"%detailtype" "forest_floor_01"
+}

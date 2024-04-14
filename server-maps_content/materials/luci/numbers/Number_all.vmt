@@ -1,0 +1,15 @@
+"UnlitGeneric"
+{
+    "$basetexture" "Luci/Numbers/Number_all"
+	"$surfaceprop" "glass"
+	"$translucent" "1"
+	"Proxies"
+	{
+      "ToggleTexture"
+      {
+         "toggleTextureVar" "$baseTexture"
+                     "toggleTextureFrameNumVar" "$frame"
+                     "toggleTextureShouldWrap" "0"
+      }
+   }
+}

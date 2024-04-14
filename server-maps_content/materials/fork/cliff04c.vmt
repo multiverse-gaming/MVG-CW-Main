@@ -1,0 +1,12 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "fork/cliff04c"
+	"$basetexture2" "fork/forest_grass_01_1024"
+	"$blendmodulatetexture" "nature/blendtexture01"
+
+	"$surfaceprop" "concrete"
+	"$detail" "detail/rock_detail_01"
+	"$detailscale" "8"
+	"$detailblendfactor" 1
+	"$detailblendmode" 0
+}

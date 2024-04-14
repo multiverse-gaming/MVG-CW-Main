@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "custom/screen_ship"
+	"$selfillum" 1
+}

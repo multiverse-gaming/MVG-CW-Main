@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_COMPUTER01A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_jedivssith_wos_v2/c12066_-191_19"
+	}
+}

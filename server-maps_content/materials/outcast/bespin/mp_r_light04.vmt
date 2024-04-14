@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "outcast/bespin/mp_r_light04"
+	"$surfaceprop" "metal"
+    "$selfillum" 0.3
+    "$selfillummask" outcast/bespin/mp_r_light04_glow
+    "$selfillumtint" 244 70 74
+}

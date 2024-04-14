@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "starwars/doomgiver/comp_panel_11"
+	"$surfaceprop" metal
+	"$selfillum" 1
+}

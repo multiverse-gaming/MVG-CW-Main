@@ -1,0 +1,5 @@
+"UnlitGeneric" {
+  "$basetexture" "lights/white"
+  //"$color" "{54 52 48}"
+  "$color" "{41 40 36}"
+}

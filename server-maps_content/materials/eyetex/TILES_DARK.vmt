@@ -1,0 +1,12 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "eyetex/tiles_dark"
+	"$surfaceprop" "tile"
+	"$bumpmap" "eyetex/tiles_dark_normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmapcontrast" 1
+	"$envmapsaturation" 1
+	"$envmaptint" "[ .25 .25 .25 ]"
+ 	"%keywords" "eyetex"
+}

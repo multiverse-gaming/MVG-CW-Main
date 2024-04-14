@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"nature/milground008"
+	"%tooltexture"		"nature/milground008_2_plants_tooltexture"
+	"%detailtype"		"militia_leaves_grass"
+	"$surfaceprop"		"grass"
+}

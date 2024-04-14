@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "mytextures/jediknight/crate_trim11_red"
+	"$surfaceprop" "metal"
+}

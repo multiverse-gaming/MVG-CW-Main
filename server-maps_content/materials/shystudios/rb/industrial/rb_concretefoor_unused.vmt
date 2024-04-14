@@ -1,0 +1,11 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/industrial/rb_concretefoor_unused"
+	"$bumpmap" "shystudios/rb/industrial/rb_concretefoor_unused_nrm"
+	"$surfaceprop" "Concrete"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[ 0.2 0.2 0.2 ]"
+	"%keywords" "rb"
+	"$reflectivity" "[0.1 0.1 0.1]" 
+}

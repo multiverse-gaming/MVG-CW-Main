@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/misc/tablet_large"
+	"$nocull" 1
+}

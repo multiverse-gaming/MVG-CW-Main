@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+//Model ported by KingPommes
+{
+	"$basetexture"			"lordtrilobite/starwars/props/kybercrate01_black"
+	"$bumpmap"			"lordtrilobite/starwars/props/kybercrate01_NRM"
+
+	"$normalmapalphaenvmapmask"	"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"4.6"
+	"$phongexponent"		"23.8"
+	"$PhongFresnelRanges"		"[.05 .5 1]"
+}

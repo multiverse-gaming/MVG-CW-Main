@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_TRIM04A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_vfinal_dev_l2c9_final/c3301_-428_1643"
+	}
+}

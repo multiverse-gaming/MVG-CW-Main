@@ -1,0 +1,15 @@
+"LightmappedGeneric"
+{
+	"$baseTexture" "bma/bm_mtldr_1a_d"
+	"$surfaceprop" "metal"
+	"%keywords" "black,mesa"
+	"$bumpmap"	"bma/bm_mtldr_1a_n"
+
+	"$envmap"		"env_cubemap"
+	"$envmapmask" "bma/bm_mtldr_1_s"
+	"$envmapcontrast" "1"
+	"$envmaptint" "[1 1 1]"
+	"$envmapsaturation" "[1 1 1]"
+}
+
+

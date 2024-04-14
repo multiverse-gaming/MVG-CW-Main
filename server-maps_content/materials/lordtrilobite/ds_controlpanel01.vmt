@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/ds_controlpanel01"
+   	"$selfillum"		"1"
+   	"$selfillummask"	"lordtrilobite/ds_controlpanel01"
+	"$surfaceprop"		"metal"
+}

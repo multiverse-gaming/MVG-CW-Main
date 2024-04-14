@@ -1,0 +1,14 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"lordtrilobite/isd_exteriorgreebles02"
+	"$bumpmap"		"lordtrilobite/isd_exteriorgreebles_NRM"
+	"$surfaceprop"		"metal"
+
+	"$detail"		"lordtrilobite/isd_exteriorpanels"
+	//"$detail"		"detail\metal_detail_01"
+	"$detailscale"		"6.532"
+	"$detailblendfactor"	"0.60"
+	"$detailblendmode"	"0"
+
+
+}

@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/NATURE/TOXICSLIME002A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_advanced_d1b2/c0_0_0"
+		"Proxies"
+		{
+		}
+	}
+}

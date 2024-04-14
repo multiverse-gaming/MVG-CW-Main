@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "bananakin/titan/large_floor_grey"
+	"$surfaceprop" "metal"
+}

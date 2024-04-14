@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/LORDTRILOBITE/ISD_METAL06.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c-4766_-79_3586"
+	}
+}

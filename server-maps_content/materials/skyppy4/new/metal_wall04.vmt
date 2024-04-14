@@ -1,0 +1,7 @@
+"LightmappedGeneric" 
+{ 
+	"$basetexture" "Skyppy4/new/metal_wall04"
+	"$bumpmap" "Skyppy4/new/normals/metal_wall04_normal"
+	"$normalmapalphaenvmapmask" "1"
+	"$surfaceprop" "Metal"
+}

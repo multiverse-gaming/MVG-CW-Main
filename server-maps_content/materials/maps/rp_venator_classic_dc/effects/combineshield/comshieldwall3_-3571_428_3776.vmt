@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/EFFECTS/COMBINESHIELD/COMSHIELDWALL3.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c-3571_428_3776"
+		"Proxies"
+		{
+		}
+	}
+}

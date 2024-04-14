@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/NATURE/BLENDMUDDIRT001A.vmt"
+	"replace"
+	{
+		"LightmappedGeneric_DX9"
+		{
+			"$envmap"		"maps/stenesforest/c-766_-795_-90"
+		}
+	}
+}

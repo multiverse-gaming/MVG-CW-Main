@@ -1,0 +1,8 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/imp_metalgrate01"
+	"$translucent"		"1"
+
+}
