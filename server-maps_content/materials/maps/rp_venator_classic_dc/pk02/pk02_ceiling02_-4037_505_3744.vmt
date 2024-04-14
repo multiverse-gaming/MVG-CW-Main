@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_CEILING02.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c-4037_505_3744"
+	}
+}

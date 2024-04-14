@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "starwars/syphadias/props/sw_tor/bioware_ea/props/sith/sith_interior_statue_redglow"
+
+	"$selfillum"		"1"
+   	"$selfillummask"	"starwars/syphadias/props/sw_tor/bioware_ea/props/sith/sith_interior_statue_redglow_ILUM"
+
+	"$nocull" 1
+}

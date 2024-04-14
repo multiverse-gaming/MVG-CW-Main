@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/KEYSTONE/BWKSWALL_4.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c3756_-51_3770"
+	}
+}

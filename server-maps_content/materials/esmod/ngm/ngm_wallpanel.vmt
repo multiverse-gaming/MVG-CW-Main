@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$baseTexture" "esmod\ngm/ngm_wallpanel"
+	"$surfaceprop" "metal"
+}

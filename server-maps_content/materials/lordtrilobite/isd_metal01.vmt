@@ -1,0 +1,14 @@
+"LightmappedGeneric"
+{
+	"$basetexture"			"lordtrilobite/isd_metal01"
+	"$bumpmap"			"lordtrilobite/isd_metal01_NRM"
+	"$basetexturetransform"		"center .5 .5 scale 2 2 rotate 0 translate 0 0"
+	"$surfaceprop"			"metal"
+
+	"$detail"			"detail\metal_detail_01"
+	"$detailscale"			"2.532"
+	"$detailblendfactor"		"0.40"
+	"$detailblendmode"		"0"
+
+
+}

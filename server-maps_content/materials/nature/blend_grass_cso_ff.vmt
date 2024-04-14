@@ -1,0 +1,10 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "nature/cso_grass01"
+	"$basetexture2" "nature/cso_dirt01"
+	"$surfaceprop2" "dirt"
+	"$surfaceprop" "grass"
+	"$blendmodulatetexture" "nature/forest_modulate"
+	$seamless_scale 0.005
+  
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/screen_medical"
+	"$selfillum" "1"
+}

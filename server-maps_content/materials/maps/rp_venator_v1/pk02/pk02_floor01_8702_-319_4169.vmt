@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_FLOOR01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_v1/c8702_-319_4169"
+	}
+}

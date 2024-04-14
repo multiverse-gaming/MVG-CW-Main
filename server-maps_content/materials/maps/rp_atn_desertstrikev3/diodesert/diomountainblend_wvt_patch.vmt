@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"diodesert/cliff_0_04"
+	"%tooltexture"		"nature/milground004_rock2_tooltexture"
+	"$surfaceprop"		"dirt"
+	"%detailtype"		"rural_dkdirt_grass"
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "mytextures/kamino/grid"
+	"$surfaceprop" "no_decal"
+}

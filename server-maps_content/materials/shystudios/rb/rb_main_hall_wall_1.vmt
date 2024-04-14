@@ -1,0 +1,12 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/rb_main_hall_wall_1"
+	"$bumpmap" "shystudios/rb/rb_main_hall_wall_1_nrm"
+	"$surfaceprop" "Metal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[ 0.4 0.4 0.4 ]"
+	"$selfillum" 	"1"
+	"%keywords" "rb"
+	//"$envmapcontrast" 1
+}

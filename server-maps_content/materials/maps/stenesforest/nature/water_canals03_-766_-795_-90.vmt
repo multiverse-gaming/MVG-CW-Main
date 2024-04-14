@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/NATURE/WATER_CANALS03.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/stenesforest/c-766_-795_-90"
+		"Proxies"
+		{
+		}
+	}
+}

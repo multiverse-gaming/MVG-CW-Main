@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/NATALYA/N_HULL_02.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/ze_space_station_b3/c-2008_-1144_137"
+	}
+}

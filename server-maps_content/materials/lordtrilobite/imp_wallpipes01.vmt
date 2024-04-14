@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/imp_wallpipes01"
+	"$bumpmap"		"lordtrilobite/imp_wallpipes01_NRM"
+	"$surfaceprop"		"metal"
+
+}

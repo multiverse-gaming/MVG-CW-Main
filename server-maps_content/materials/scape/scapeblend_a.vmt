@@ -1,0 +1,13 @@
+"WorldVertexTransition"
+{
+	"$baseTexture" "scape/scape_road"
+	"$bumpmap" "scape/scape_road_norm"
+	"$baseTexture2" "scape/scape_sand"
+	"$bumpmap2" "scape/scape_sand_norm"
+    "$detail"             "MaxOfS2D/terrain_detail"
+	"$detailscale"        "0.04"
+	"$detailblendfactor"  "0.3"
+	"$detailblendmode"    "0"
+	"$surfaceprop" "concrete"
+	"$surfaceprop2" "dirt"
+}

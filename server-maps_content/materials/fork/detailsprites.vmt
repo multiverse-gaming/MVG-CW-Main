@@ -1,0 +1,9 @@
+"UnlitGeneric" {
+  "$translucent" 1
+  "$basetexture" "fork/tree_pine04_card"
+  "$nocull" 1
+  "$vertexcolor" 1
+  "$vertexalpha" 1
+  
+  "$color" "[0.5 0.6 0.5]"
+}

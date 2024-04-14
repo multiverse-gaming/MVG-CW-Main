@@ -1,0 +1,24 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+
+//Standard imperial floor
+{
+	"$basetexture"			"lordtrilobite/isd_floor02"
+	"$bumpmap"			"lordtrilobite/isd_floor01_NRM"
+	"$surfaceprop"			"metal"
+
+	"$normalmapalphaenvmapmask"	"1"
+	//"$envmapmask"			"lordtrilobite/isd_floor01_SPEC"
+	"$envmaptint"			"[0.2 0.2 0.2]"
+	"$refractamount"		".60" 
+	"$envmap"			"env_cubemap"
+
+
+	"$detail"			"detail\metal_detail_01"
+	"$detailscale"			"2.532"
+	"$detailblendfactor"		"0.40"
+	"$detailblendmode"		"0"
+
+
+}

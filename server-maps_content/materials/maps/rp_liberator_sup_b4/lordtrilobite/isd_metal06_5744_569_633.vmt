@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/LORDTRILOBITE/ISD_METAL06.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_liberator_sup_b4/c5744_569_633"
+	}
+}

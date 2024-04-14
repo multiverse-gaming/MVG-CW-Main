@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "outcast/imp_mine/ceiling_light"
+	"$surfaceprop" "metal"
+    	"$selfillum" 1
+}

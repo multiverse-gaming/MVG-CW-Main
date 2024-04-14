@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "mytextures/jediknight/byss_ghall_wall2"
+	"$surfaceprop" "metal"
+}

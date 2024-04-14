@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "custom/screen_data"
+	"$selfillum" "1"
+}

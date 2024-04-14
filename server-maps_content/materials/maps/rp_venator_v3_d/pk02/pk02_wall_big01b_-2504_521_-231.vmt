@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_WALL_BIG01B.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_v3_d/c-2504_521_-231"
+	}
+}

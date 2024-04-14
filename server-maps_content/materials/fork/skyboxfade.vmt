@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "fork/skyboxfade"
+	"$translucent" 1
+	"$decal" 1
+	"$nofog" 1
+}

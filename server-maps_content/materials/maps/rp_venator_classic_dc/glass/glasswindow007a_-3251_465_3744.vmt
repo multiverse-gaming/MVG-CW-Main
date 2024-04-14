@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/GLASS/GLASSWINDOW007A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c-3251_465_3744"
+	}
+}

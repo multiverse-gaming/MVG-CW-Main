@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "Luci/Numbers/Number1"
+	"$surfaceprop" "Glass"
+	"$translucent" 1
+}

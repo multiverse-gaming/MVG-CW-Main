@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/base/rb_basetop"
+	"$bumpmap" "shystudios/rb/base/rb_basetop_nrm"
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+    "$basetexture" "mytextures/kamino/jedidoor"
+	"$surfaceprop" "rock"
+}

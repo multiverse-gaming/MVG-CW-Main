@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/REALWORLDTEXTURES2/METAL/METAL_169.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c5011_745_3814"
+	}
+}

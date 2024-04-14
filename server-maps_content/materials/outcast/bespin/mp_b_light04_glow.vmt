@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "outcast/bespin/mp_b_light04_glow"
+	"$translucent" "1"
+}

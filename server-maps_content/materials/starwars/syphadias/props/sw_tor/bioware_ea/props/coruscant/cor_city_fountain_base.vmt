@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "starwars/syphadias/props/sw_tor/bioware_ea/props/coruscant/cor_city_fountain_base"
+		
+	"$selfillum"		"1"
+   	"$selfillummask"	"starwars/syphadias/props/sw_tor/bioware_ea/props/coruscant/cor_city_fountain_base_ILUM"
+
+	"$nocull" 1
+}

@@ -1,0 +1,13 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "eyetex/genericwall05"
+	"$surfaceprop" "metal"
+	"$bumpmap" "eyetex/genericwall05_normal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+                "$selfillum" 1
+	"$envmapcontrast" 1
+	"$envmapsaturation" 1
+	"$envmaptint" "[ .31 .31 .31 ]"
+ 	"%keywords" "eyetex"
+}

@@ -1,0 +1,25 @@
+"LightmappedGeneric"
+{
+	//Diffuse
+
+	"$baseTexture" "keystone/bwkstile_3"
+//	"$nocull" 1
+	//Normale
+//	"$detail" "keystone/detail_metal"
+	"$bumpmap" "keystone/bwkstile_1_normal"
+	$surfaceprop metal
+	//Post-Process
+	"$detailblendmode" 0
+
+	//Auto-illum du Cadran
+//	"$selfillum" 1
+	
+	//Cubemaps
+
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[0.02 0.02 0.02]"
+//	"LightmappedGeneric_DX9"
+//	{
+//		"$alpha" 0.975
+//	}
+}

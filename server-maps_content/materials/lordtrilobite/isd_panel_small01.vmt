@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"lordtrilobite/isd_panel_small01"
+   	"$selfillum"		"1"
+   	"$selfillummask"	"lordtrilobite/isd_panel_small01"
+	"$surfaceprop"		"metal"
+}
