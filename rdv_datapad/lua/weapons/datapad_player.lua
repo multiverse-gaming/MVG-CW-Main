@@ -10,7 +10,7 @@ if ( CLIENT ) then
 	SWEP.Purpose = "Datapad"
 	SWEP.Instructions = "Datapad"
 	SWEP.Slot = 1
-	SWEP.SlotPos = 1
+	SWEP.SlotPos = 5
 	SWEP.DrawAmmo = false					 
 
 end
