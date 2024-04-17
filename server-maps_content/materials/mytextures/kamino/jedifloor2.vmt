@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$baseTexture"	"mytextures/kamino/jedifloor2"
+	"$surfaceprop"	"tile"
+}

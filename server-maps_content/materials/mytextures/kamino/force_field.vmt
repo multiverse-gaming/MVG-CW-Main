@@ -1,0 +1,15 @@
+"UnlitGeneric"
+    {
+        "$basetexture" "mytextures/kamino/force_field"
+		"$translucent" "1"
+		"$surfaceprop" "no_decal"
+        "Proxies"
+        {
+			"TextureScroll"
+			{
+				"texturescrollvar" "$basetexturetransform"
+				"texturescrollrate" "0.08"
+				"texturescrollangle" "270.00"
+			}
+        }
+    }

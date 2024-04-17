@@ -20,7 +20,6 @@ ITEM.Rarity = 0
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/unrelentingaggressordualsaber.mdl"
 	wep.UseLength = 46
-	
 end
 
 wOS:RegisterItem( ITEM )

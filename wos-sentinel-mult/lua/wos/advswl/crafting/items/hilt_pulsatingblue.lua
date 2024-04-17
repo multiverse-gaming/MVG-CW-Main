@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Pulsating Blue Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,8 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/starwars/cwa/lightsabers/pulsatingblue.mdl"
+	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 40
 end
 
 wOS:RegisterItem( ITEM )

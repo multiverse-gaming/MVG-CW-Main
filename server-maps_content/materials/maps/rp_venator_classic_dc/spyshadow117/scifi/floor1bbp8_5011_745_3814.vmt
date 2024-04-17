@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/SPYSHADOW117/SCIFI/FLOOR1BBP8.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c5011_745_3814"
+	}
+}

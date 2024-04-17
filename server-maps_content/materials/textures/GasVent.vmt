@@ -1,0 +1,6 @@
+"LightmappedGeneric" 
+{ 
+    "$basetexture" "textures/GasVent" 
+    "$bumpmap" "textures/GasVent-normal"
+    "$surfaceprop" "metal"
+}

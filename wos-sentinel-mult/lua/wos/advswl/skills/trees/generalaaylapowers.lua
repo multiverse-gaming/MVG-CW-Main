@@ -75,7 +75,7 @@ TREE.Tier[1][1] = {
 		ply:Give("alydus_fusioncutter")
 		ply:Give("weapon_remotedrone")
 	end, 
-	OnPlayerDeath = function( ply ) end,
+	OnPlayerDeath = function( ply ) ply.IsSpeeding = nil end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Speed" ) end,
 }
 

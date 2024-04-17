@@ -95,32 +95,6 @@ wOS.ForcePowers:RegisterNewPower({
     end
 })
 
-wOS.ForcePowers:RegisterNewPower({ -- This is like a backstab, and only works in close proximity, when cloaked.
-    name = "Shadow Strike",
-    icon = "SS",
-    distance = 30,
-    image = "wos/forceicons/shadow_strike.png",
-    cooldown = 0,
-    target = 1,
-    manualaim = false,
-    description = "From the darkness it preys",
-    action = function( self )
-        if !self:GetCloaking() then return end
-        local ent = self:SelectTargets( 1, 30 )[ 1 ]
-        if !IsValid( ent ) then self:SetNextAttack( 0.2 ) return end
-        if ( self:GetForce() < 50 ) then self:SetNextAttack( 0.2 ) return end
-        self:GetOwner():SetSequenceOverride("b_c3_t2", 1)
-        self:SetForce( self:GetForce() - 100 )
-        self:GetOwner():EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
-        self:GetOwner():AnimResetGestureSlot( GESTURE_SLOT_CUSTOM )
-        self:GetOwner():SetAnimation( PLAYER_ATTACK1 )
-        ent:TakeDamage( 500, self:GetOwner(), self )
-        self.CloakTime = CurTime() + 0.5
-        self:SetNextAttack( 0.7 )
-        return true
-    end
-})
-
 wOS.ForcePowers:RegisterNewPower({
 		name = "Force Repulse",
 		icon = "R",
@@ -207,18 +181,24 @@ wOS.ForcePowers:RegisterNewPower({
 		end
 })
 
-wOS.ForcePowers:RegisterNewPower({ -- This really isn't clear, but I think it's supposed to grevious animation you towards people.
+wOS.ForcePowers:RegisterNewPower({ -- !!! Move to sith abilities when ready.
 		name = "Unrelenting Advance",
 		icon = "UA",
 		image = "wos/forceicons/absorb.png",
 		cooldown = 0,
-		description = "You spin me right round, baby right round, like a record baby, right round round round",
+		description = "Slowly move towards people, blocking bullets as you go.",
 		action = function( self )
 			if ( self:GetForce() < 1 ) then return end
-			self:SetForce( self:GetForce() - 0.1 )
-			self:GetOwner():SetNW2Float( "wOS.GrievousAnim", CurTime() + 0.6 )
+			if (self.UnrelentingAdvanceCD == nil || self.UnrelentingAdvanceCD < CurTime()) then
+				--self:GetOwner():SetNW2Float( "wOS.GrievousAnim", CurTime() + 0.6 )
+        		self:GetOwner():SetSequenceOverride("pure_h_left_t3", 1)
+        		self:GetOwner():AnimResetGestureSlot( GESTURE_SLOT_CUSTOM )
+        		self:GetOwner():SetAnimation( PLAYER_ATTACK1 )
+				self.UnrelentingAdvanceCD = CurTime() + 0.9
+			end
 			self:SetNextAttack( 0.3 )
-			self:GetOwner():SetNW2Float( "BlockTime", CurTime() + 0.6 )
+			self:GetOwner():SetNW2Float( "Blocking", CurTime() + 0.6 )
+			self:SetForce( self:GetForce() - 0.5 )
 			return true
 		end
 })

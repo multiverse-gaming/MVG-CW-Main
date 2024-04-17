@@ -1,0 +1,7 @@
+"LightmappedGeneric"
+//Created by KingPommes
+{
+	"$basetexture" "KingPommes/Venator/interior/corridor/corridor_wall_empty"
+	"$surfaceprop" "metal"
+	"$bumpmap" "KingPommes/Venator/interior/corridor/corridor_wall_empty_normal"
+}

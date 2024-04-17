@@ -1,0 +1,6 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/worldwalls/rb_brushed_metal_5_5"
+	"$bumpmap" "shystudios/rb/worldwalls/rb_brushed_metal_5_5_nrm"
+	"$surfaceprop" "Metal"
+}

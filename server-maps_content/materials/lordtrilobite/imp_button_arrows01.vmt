@@ -1,0 +1,9 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/imp_button_arrows01"
+	"$surfaceprop"		"metal"
+
+	"$selfillum"		1
+}

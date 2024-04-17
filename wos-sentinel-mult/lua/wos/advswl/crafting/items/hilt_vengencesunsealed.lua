@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Vengeance's Sunsealed Hilt"
 
-ITEM.Description = "(EPIC)"
+ITEM.Description = "(Epic)"
 
 ITEM.Type = WOSTYPE.HILT
 

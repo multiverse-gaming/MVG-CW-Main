@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Revanite's Mk2 Hilt"
 
-ITEM.Description = "(VERY RARE)"
+ITEM.Description = "(Very Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 

@@ -1,0 +1,10 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "shystudios/rb/stage_set/rb_ss_1c"
+	"$bumpmap" "shystudios/rb/stage_set/rb_ss_1c_nrm"
+	"$surfaceprop" "Metal"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[ 0.3 0.3 0.3 ]"
+	"%keywords" "rb"
+}

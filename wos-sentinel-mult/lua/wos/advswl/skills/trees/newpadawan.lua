@@ -24,7 +24,7 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Padawan Skill Tree"
+TREE.Name = "Padawan Skill Tree" -- !!! remove tree? 
 
 --Description of the skill tree
 TREE.Description = "The trainee has begun their journey."
@@ -41,7 +41,7 @@ TREE.MaxTiers = 1
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = { "TEAM_JEDIPADAWAN" }
+TREE.JobRestricted = {} --{ "TEAM_JEDIPADAWAN" }
 
 TREE.Tier = {}
 

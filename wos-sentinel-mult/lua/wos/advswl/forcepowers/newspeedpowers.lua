@@ -41,6 +41,8 @@ wOS.ForcePowers:RegisterNewPower({
     action = function( self )
         if ( self:GetForce() < 40 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
         self:SetForce( self:GetForce() - 40 )
+        -- Don't allow the user to use a speed skill if they have already used a speed skill.
+        if (self.Owner.IsSpeeding ~= nil && self.Owner.IsSpeeding) then return end
 
         if (self.Owner:GetRunSpeed() > 500) then -- 370 (10 over max speed) + 100 (sentinel spawn boost) + speed
             self.Owner:SetRunSpeed(240)
@@ -54,7 +56,13 @@ wOS.ForcePowers:RegisterNewPower({
         ed:SetRadius( 30 )
         util.Effect( "rb655_force_repulse_out", ed, true, true )
         local jedi = self.Owner
-        timer.Simple( 10, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 220 ) end )
+        timer.Simple( 10, function() 
+            if (jedi.IsSpeeding) then
+                jedi:SetRunSpeed( jedi:GetRunSpeed() - 220 ) end
+                jedi.IsSpeeding = nil
+            end
+        )
+        jedi.IsSpeeding = true
         return true
     end
 })
@@ -93,6 +101,8 @@ wOS.ForcePowers:RegisterNewPower({
 		action = function( self )
 			if ( self:GetForce() < 30 || CLIENT || self.Owner:GetRunSpeed() > 500 ) then return end
 			self:SetForce( self:GetForce() - 30 )
+            -- Don't allow the user to use a speed skill if they have already used a speed skill.
+            if (self.Owner.IsSpeeding ~= nil && self.Owner.IsSpeeding) then return end
 
             if (self.Owner:GetRunSpeed() > 500) then -- 370 (silly max speed) + speed
                 self.Owner:SetRunSpeed(240)
@@ -106,7 +116,13 @@ wOS.ForcePowers:RegisterNewPower({
 			ed:SetRadius( 30 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
             local jedi = self.Owner
-			timer.Simple( 5, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 175 ) end )
+			timer.Simple( 5, function() 
+                if (jedi.IsSpeeding) then
+                    jedi:SetRunSpeed( jedi:GetRunSpeed() - 175 ) end
+                    jedi.IsSpeeding = nil
+                end
+            )
+            jedi.IsSpeeding = true
 			return true
 		end
 })
@@ -121,8 +137,10 @@ wOS.ForcePowers:RegisterNewPower({
 		manualaim = false,
 		action = function( self )
 			if ( self:GetForce() < 40 || CLIENT ) then return end
-			self:SetForce( self:GetForce() - 40 )
+            -- Don't allow the user to use a speed skill if they have already used a speed skill.
+            if (self.Owner.IsSpeeding ~= nil && self.Owner.IsSpeeding) then return end
 
+			self:SetForce( self:GetForce() - 40 )
 		    local sped = self.Owner:GetRunSpeed()
 			self.Owner:SetRunSpeed( sped + 280 )
 			local ed = EffectData()
@@ -130,7 +148,13 @@ wOS.ForcePowers:RegisterNewPower({
 			ed:SetRadius( 30 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
             local jedi = self.Owner
-			timer.Simple( 10, function() jedi:SetRunSpeed( jedi:GetRunSpeed() - 280 ) end )
+            timer.Simple( 10, function() 
+                if (jedi.IsSpeeding) then
+                    jedi:SetRunSpeed( jedi:GetRunSpeed() - 280 ) end
+                    jedi.IsSpeeding = nil
+                end
+            )
+            jedi.IsSpeeding = true
 			return true
 		end
 })

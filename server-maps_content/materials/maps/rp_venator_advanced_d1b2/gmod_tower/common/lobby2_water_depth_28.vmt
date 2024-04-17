@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/gmod_tower/common/lobby2_water.vmt"
+	"insert"
+	{
+		"$waterdepth"		"28"
+	}
+}

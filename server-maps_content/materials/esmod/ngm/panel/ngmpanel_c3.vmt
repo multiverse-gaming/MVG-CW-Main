@@ -1,0 +1,10 @@
+"lightmappedgeneric"
+{
+	"$basetexture" "esmod/ngm/panel/ngmpanel_c3"
+	"$bumpmap" "esmod/ngm/panel/ngmpanel_c3_normal"
+	"$surfaceprop" "Metal_Box"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmapcontrast" 1
+	"$envmaptint" "[.3 .3 .3]"
+}

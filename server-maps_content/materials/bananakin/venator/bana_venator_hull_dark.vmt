@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "bananakin/venator/bana_venator_hull_dark"
+	"$surfaceprop" "metal"
+}

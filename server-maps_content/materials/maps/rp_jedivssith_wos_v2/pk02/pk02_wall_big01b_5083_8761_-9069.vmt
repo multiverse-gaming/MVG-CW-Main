@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_WALL_BIG01B.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_jedivssith_wos_v2/c5083_8761_-9069"
+	}
+}

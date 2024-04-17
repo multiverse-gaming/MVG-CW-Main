@@ -63,7 +63,7 @@ TREE.Tier[1][1] = {
 	Name = "Jedi Knight",
 	Description = "You have reached the rank of Knight",
 	Icon = "wos/forceicons/absorb.png",
-	PointsRequired = 3,
+	PointsRequired = 2,
     Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -72,7 +72,7 @@ TREE.Tier[1][1] = {
 
 TREE.Tier[2] = {}
 
-TREE.Tier[2][1] = {
+--[[TREE.Tier[2][1] = {
 	Name = "Force Leap",
 	Description = "Leap through the air",
 	Icon = "wos/forceicons/leap.png",
@@ -83,9 +83,9 @@ TREE.Tier[2][1] = {
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Leap" ) end,
-}
+}]]--
 
-TREE.Tier[2][2] = {
+TREE.Tier[2][1] = {
 	Name = "Force Speed",
 	Description = "A brief burst of speed.",
 	Icon = "wos/forceicons/charge.png",

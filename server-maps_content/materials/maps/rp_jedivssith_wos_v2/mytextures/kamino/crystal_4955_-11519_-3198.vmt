@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/MYTEXTURES/KAMINO/CRYSTAL.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_jedivssith_wos_v2/c4955_-11519_-3198"
+		"Proxies"
+		{
+		}
+	}
+}

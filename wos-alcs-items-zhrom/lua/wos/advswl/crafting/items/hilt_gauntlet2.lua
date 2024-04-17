@@ -20,6 +20,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/gauntlet/gauntlet.mdl"
+	wep.UseLength = 46
 end
 
 wOS:RegisterItem( ITEM )

@@ -1,0 +1,11 @@
+"patch"
+{
+	"include"		"materials/LIQUIDS/INFERNOWATER.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c4135_-57_3946"
+		"Proxies"
+		{
+		}
+	}
+}

@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Pike 2 Hilt"
 
-ITEM.Description = "(UNCOMMON)"
+ITEM.Description = "(Uncommon)"
 
 ITEM.Type = WOSTYPE.HILT
 

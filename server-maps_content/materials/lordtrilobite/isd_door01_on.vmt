@@ -1,0 +1,13 @@
+"LightmappedGeneric"
+{
+	"$basetexture"		"lordtrilobite/isd_door01_on"
+	"$bumpmap"		"lordtrilobite/isd_door01_NRM"
+   	"$selfillum"		"1"
+   	"$selfillummask"	"lordtrilobite/isd_door01_on"
+	"$surfaceprop"		"metal"
+
+	"$detail"		"detail\metal_detail_01"
+	"$detailscale"		"4.532"
+	"$detailblendfactor"	"0.30"
+	"$detailblendmode"	"0"
+}

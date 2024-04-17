@@ -1,0 +1,8 @@
+LightmappedGeneric
+{
+	"$basetexture"	"cnsc\cnsc_scifiplatewall2"
+	"$bumpmap" "cnsc\cnsc_scifiplatewall2_normal"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .1 .1 .15 ]"
+	"$surfaceprop" "metal"
+}

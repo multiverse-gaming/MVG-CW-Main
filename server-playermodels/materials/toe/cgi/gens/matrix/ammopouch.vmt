@@ -1,0 +1,16 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "toe\cgi\shared\pauldron"
+	$color2 "[1.0 1.0 1.0]"
+
+	$envmap "env_cubemap"
+	$envmaptint "[0.001 0.001 0.001]"
+	$envmapfresnel 1
+	$blendTintByBaseAlpha 1
+	$normalmapalphaenvmapmask 1
+$halflambert 1
+	$phong 1
+    $phongfresnelranges "[1 0.8 0]"
+	$phongboost	"1"
+    $nocull 1
+}

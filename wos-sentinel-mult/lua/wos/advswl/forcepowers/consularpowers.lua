@@ -146,6 +146,10 @@ wOS.ForcePowers:RegisterNewPower({
 		manualaim = false,
 		description = "Heals all around you.",
 		action = function( self )
+			-- Check Global CD for shared skill.
+			if (self.GroupHealCD != nil && self.GroupHealCD > CurTime()) then return end
+
+			-- Do the regular ability.
 			if ( self:GetForce() < 80 ) then return end
 			local players = 0
 			for _, ply in pairs( ents.FindInSphere( self:GetOwner():GetPos(), 200 ) ) do
@@ -171,6 +175,9 @@ wOS.ForcePowers:RegisterNewPower({
 			end
 			self:GetOwner():AddSkillXP( tbl )
     		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+
+			-- Global CD for shared ability.
+			self.GroupHealCD = CurTime() + 60
 			return true
 		end
 })
@@ -197,6 +204,10 @@ wOS.ForcePowers:RegisterNewPower({
 				--self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
+				-- Check Global CD for shared skill.
+				if (self.GroupHealCD ~= nil && self.GroupHealCD > CurTime()) then return end
+	
+				-- Do the regular ability.
 				if ( self:GetForce() < 80 ) then return end
 				local players = 0
 				for _, ply in pairs( ents.FindInSphere( self:GetOwner():GetPos(), 200 ) ) do
@@ -213,7 +224,10 @@ wOS.ForcePowers:RegisterNewPower({
 				util.Effect( "rb655_force_heal", ed, true, true )
 				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.6 )
 				self:SetForce( self:GetForce() - 80 )
-				return true
+
+				-- Global CD for shared ability.
+				self.GroupHealCD = CurTime() + 60
+				-- return true -- Not needed anymore, now that Global CD applies.
 			elseif (!self:GetOwner():KeyDown( IN_WALK )) then
 				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
 				local ed = EffectData()
@@ -250,7 +264,6 @@ wOS.ForcePowers:RegisterNewPower({
 			self:SetForce( self:GetForce() - 20 )
 			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
-			self:SetNextAttack( 1.5 )
 			return true
 		end,
 })
@@ -280,7 +293,6 @@ wOS.ForcePowers:RegisterNewPower({
 			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
 			self:SetForce( self:GetForce() - 20 )
-			self:SetNextAttack( 1.5 )
 			return true
 		end,
 })

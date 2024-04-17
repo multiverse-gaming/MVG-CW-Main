@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Blade Pommel Hilt"
 
-ITEM.Description = "(EPIC)"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -19,8 +19,8 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/donation7/donation7.mdl"
-	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 80
+	wep.UseLength = 35
+	wep.SaberDamage = wep.SaberDamage + 100
 end
 
 wOS:RegisterItem( ITEM )

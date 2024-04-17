@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_DOOR01.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c3376_-51_3696"
+	}
+}

@@ -25,7 +25,7 @@ ITEM.Rarity = 5
 ITEM.OnEquip = function( wep )
 	wep.CustomSettings[ "Blade" ] = "Corrupted"
 	wep.UseColor = Color(31, 187, 255, 255)
-	wep.MaxForce = wep.MaxForce + 50
+	wep.MaxForce = wep.MaxForce + 20
 end
 
 wOS:RegisterItem( ITEM )

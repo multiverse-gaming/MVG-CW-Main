@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "The Knowledge Seeker Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,8 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/the knowledge seeker/the knowledge seeker.mdl"
+	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 100
 end
 
 wOS:RegisterItem( ITEM )

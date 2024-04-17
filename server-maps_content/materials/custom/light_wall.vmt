@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "custom\light_wall"
+	"$envmap" "env_cubemap"
+	"$envmapmask" "custom\light_wall_ref"
+	"$selfillum"	1
+}

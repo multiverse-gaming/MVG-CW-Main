@@ -4,7 +4,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Dual Blade 5 Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Epic)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -22,6 +22,7 @@ ITEM.Rarity = 0
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/sgg/starwars/weapons/w_saber_dual_5_hilt.mdl"
 	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 80
 end
 
 wOS:RegisterItem( ITEM )

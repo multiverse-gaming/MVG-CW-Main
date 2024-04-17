@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/AGENCY/CONCRETE/CONCRETEWALL05.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_jedivssith_wos_v2/c5133_-8788_-3515"
+	}
+}

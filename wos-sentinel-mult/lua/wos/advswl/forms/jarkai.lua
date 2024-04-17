@@ -18,6 +18,7 @@ FORM.UserGroups = {
     ["pacvip"] = { 1, 2, 3 },
 	["user"] = { 1, 2, 3 },
     ["noaccess"] = { 1, 2, 3 },
+    ["pac3"] = { 1, 2, 3 },
 }
 
 FORM.Stances = {}

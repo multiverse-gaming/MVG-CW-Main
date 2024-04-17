@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$baseTexture"	"mytextures/kamino/jedicouncilpillarwall"
+	"$surfaceprop"	"tile"
+}

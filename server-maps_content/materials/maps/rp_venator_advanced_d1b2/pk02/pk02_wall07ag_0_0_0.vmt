@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/PK02/PK02_WALL07AG.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_advanced_d1b2/c0_0_0"
+	}
+}

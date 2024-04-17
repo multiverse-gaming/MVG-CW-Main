@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Vengeance's Sunsealed Double Hilt"
 
-ITEM.Description = "(VERY RARE)"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,7 +20,7 @@ ITEM.Rarity = 0
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/vengeance'sunsealedsaberstaff.mdl"
 	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 60
+	wep.SaberDamage = wep.SaberDamage + 100
 end
 
 wOS:RegisterItem( ITEM )

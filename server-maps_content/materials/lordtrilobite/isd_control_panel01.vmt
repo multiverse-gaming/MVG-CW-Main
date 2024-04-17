@@ -1,0 +1,13 @@
+"LightmappedGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/isd_control_panel01"
+	"$bumpmap"		"lordtrilobite/isd_control_panel01_NRM"
+	"$surfaceprop"		"metal"
+
+	"$detail"		"detail/metal_detail_01"
+	"$detailscale"		"4.532"
+	"$detailblendfactor"	"0.30"
+	"$detailblendmode"	"0"
+}

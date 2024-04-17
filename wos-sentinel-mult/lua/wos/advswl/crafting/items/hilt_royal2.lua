@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Royal 2 Hilt"
 
-ITEM.Description = "(UNIQUE)"
+ITEM.Description = "(Legendary)"
 
 ITEM.Type = WOSTYPE.HILT
 

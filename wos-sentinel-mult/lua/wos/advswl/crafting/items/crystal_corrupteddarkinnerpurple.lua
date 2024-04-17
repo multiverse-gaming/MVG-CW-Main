@@ -20,7 +20,7 @@ ITEM.OnEquip = function( wep )
 	wep.CustomSettings[ "Blade" ] = "Corrupted"
 	wep.UseColor = Color( 255, 0, 255 )
 	wep.UseDarkInner = 1
-	wep.MaxForce = wep.MaxForce + 50
+	wep.MaxForce = wep.MaxForce + 20
 end
 
 wOS:RegisterItem( ITEM )

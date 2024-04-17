@@ -1,0 +1,66 @@
+//"LightmappedGeneric"
+Water
+{
+	$normalmap "liquids/water_river_normal_sharp"
+
+	$forceexpensive 1
+
+	$reflectentities 1
+
+	$reflect2dskybox 1
+	$reflectonlymarkedentities 0
+
+	$flowmap "liquids/c9_m4_flowmap"
+	$flow_normaluvscale 160
+	$flow_worlduvscale 1
+	$flow_timeintervalinseconds 0.2
+	$flow_uvscrolldistance 0.02
+	$flow_bumpstrength 1
+	$flow_timescale .2
+	$flow_noise_texture "liquids/water_noise2"
+	$flow_noise_scale 0.0005
+	$flow_debug 0
+
+	//$basetexture "liquids/c9_m4_flowmap"
+	$basetexture "nature/foam_001"
+	$color_flow_uvscale 100
+	$color_flow_timeintervalinseconds 0.8
+	$color_flow_uvscrolldistance 0.33
+	$color_flow_lerpexp 1.3
+	$color_flow_displacebynormalstrength 0.02
+
+	$reflecttexture _rt_WaterReflection
+	$reflectamount 0.4
+	$reflecttint "[1 1 1]"
+	$refracttexture _rt_WaterRefraction
+	$refractamount 0.25
+	$refracttint "{67 78 82}"
+
+	$fogenable 1
+
+	// $fogstart and $fogend must be same as in water_reserve2_generator or
+	// you will get visual artifacts when looking out the window in the
+	// generator room!
+
+	$fogstart 50
+	$fogend 128
+
+	$lightmapwaterfog 1
+	$fogcolor "{54 61 55}"
+	$flashlighttint 1
+
+	// Set $waterleafoptimization to 0 if there are multiple water surfaces in
+	// the scene. Has a noticeable performance impact, but fixes visual
+	// artifacts.
+
+	$waterleafoptimization 0
+
+	$forceenvmap 1
+	$envmap env_cubemap
+
+	$abovewater 1
+	$bottommaterial "nature/water_reservoir_01_beneath"
+	"%compilewater" 1
+	"%tooltexture" "nature/water_frame01_normal"
+	$surfaceprop slime
+}

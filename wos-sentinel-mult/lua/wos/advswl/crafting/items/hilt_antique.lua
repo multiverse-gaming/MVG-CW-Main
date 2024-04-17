@@ -2,7 +2,7 @@ local ITEM = {}
 
 ITEM.Name = "Antiques Ocorro Hilt"
 
-ITEM.Description = "(RARE)"
+ITEM.Description = "(Rare)"
 
 ITEM.Type = WOSTYPE.HILT
 

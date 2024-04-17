@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+   "$basetexture" "mytextures\kamino\target_generic"
+   "$translucent" "1"
+   "$surfaceprop" "glass"  
+}

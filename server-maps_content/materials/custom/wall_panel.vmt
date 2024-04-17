@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "custom/wall_panel"
+	"$surfaceprop" "Metal"
+}

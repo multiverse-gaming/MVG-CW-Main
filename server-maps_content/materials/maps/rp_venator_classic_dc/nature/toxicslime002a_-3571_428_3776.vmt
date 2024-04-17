@@ -1,0 +1,20 @@
+"patch"
+{
+	"include"		"materials/NATURE/TOXICSLIME002A.vmt"
+	"replace"
+	{
+		"$envmap"		"maps/rp_venator_classic_dc/c-3571_428_3776"
+		">=DX90"
+		{
+			"Proxies"
+			{
+			}
+		}
+		"<DX90"
+		{
+			"Proxies"
+			{
+			}
+		}
+	}
+}

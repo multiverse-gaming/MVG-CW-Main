@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Katooni Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Epic)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -20,6 +20,8 @@ ITEM.Rarity = 20
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/starwars/cwa/lightsabers/katooni.mdl"
+	wep.UseLength = 46
+	wep.SaberDamage = wep.SaberDamage + 80
 end
 
 wOS:RegisterItem( ITEM )

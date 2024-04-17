@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/liquids/infernowater.vmt"
+	"insert"
+	{
+		"$waterdepth"		"492"
+	}
+}

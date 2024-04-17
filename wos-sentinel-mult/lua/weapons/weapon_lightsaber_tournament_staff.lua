@@ -104,7 +104,7 @@ SWEP.UseForms = {
 	["Shien"] = {1, 2, 3},
 	["Djem So"] = {1, 2, 3},
 	["Juyo"] = {1, 2, 3}, 
-	["Adept"] = {1, 2, 3}, 
+	["Zenith"] = {1, 2, 3}, 
 	["Relentless"] = {1, 2, 3},
 }
 

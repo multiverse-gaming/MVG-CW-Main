@@ -1,0 +1,8 @@
+"patch"
+{
+	"include"		"materials/maps/rp_venator_classic_dc/dev/dev_water2_4135_-57_3946.vmt"
+	"insert"
+	{
+		"$waterdepth"		"94"
+	}
+}

@@ -320,14 +320,14 @@ TREE.Tier[4][2] = {
 }
 
 TREE.Tier[4][3] = {
-	Name = "Adept 1",
-	Description = "Gives your Form Adept Stance 1",
+	Name = "Zenith 1",
+	Description = "Gives your Form Zenith Stance 1",
 	Icon = "wos/skilltrees/forms/versatile.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Zenith", 1 ) end,
 }
 
 TREE.Tier[4][4] = {
@@ -377,25 +377,25 @@ TREE.Tier[5][1] = {
 }
 
 TREE.Tier[5][2] = {
-	Name = "Adept 3",
-	Description = "Gives your Form Adept Stance 3",
+	Name = "Zenith 3",
+	Description = "Gives your Form Zenith Stance 3",
 	Icon = "wos/skilltrees/forms/versatile.png",
 	PointsRequired = 1,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 3 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Zenith", 3 ) end,
 }
 
 TREE.Tier[5][3] = {
-	Name = "Adept 2",
-	Description = "Gives your Form Adept Stance 2",
+	Name = "Zenith 2",
+	Description = "Gives your Form Zenith Stance 2",
 	Icon = "wos/skilltrees/forms/versatile.png",
 	PointsRequired = 1,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Adept", 2 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Zenith", 2 ) end,
 }
 
 TREE.Tier[5][4] = {

@@ -5,18 +5,74 @@ wOS.ForcePowers:RegisterNewPower({
 		name = "Force Leap",
 		icon = "L",
 		image = "wos/forceicons/leap.png",
-		cooldown = 2,
+		cooldown = 3,
 		manualaim = false,
-		description = "Jump longer and higher. Aim higher to jump higher/further.",
+		description = "Jump longer and higher. Will be affected by your class",
 		action = function( self )
-			if ( self:GetForce() < 20 || !self:GetOwner():IsOnGround() ) then return end
-			self:SetForce( self:GetForce() - 20 )
-			self:SetNextAttack( 0.5 )
-			self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
-			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-			-- Trigger the jump animation, yay
-			self:CallOnClient( "ForceJumpAnim", "" )
-			return true
+			-- Master Leap
+			if (self.MasterLeap) then
+				if (self:GetOwner():IsOnGround() && self:GetForce() >= 15) then
+					-- On ground - normal leap
+					self:SetForce( self:GetForce() - 15 )
+					self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+					self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+					self:CallOnClient( "ForceJumpAnim", "" )
+				elseif (!self:GetOwner():IsOnGround() && self:GetForce() >= 30) then
+					-- In air - leap and cooldown.
+					self:SetForce( self:GetForce() - 30 )
+					self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 256 + Vector( 0, 0, 512 ) )
+					self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+					self:CallOnClient( "ForceJumpAnim", "" )
+					return true
+				end
+
+			-- Consular Leap
+			elseif (self.ConsularLeap) then
+				if ( self:GetForce() < 15 || !self:GetOwner():IsOnGround() ) then return end
+				if (self.LeapCD ~= nil && self.LeapCD > CurTime()) then return end
+				self:SetForce( self:GetForce() - 15 )
+				self:SetNextAttack( 0.5 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				-- Trigger the jump animation, yay
+				self:CallOnClient( "ForceJumpAnim", "" )
+				self.LeapCD = CurTime() + 1
+
+			-- Sentinel Leap
+			elseif (self.SentinelLeap) then
+				if ( self:GetForce() < 20 || !self:GetOwner():IsOnGround() ) then return end
+				if (self.LeapCD ~= nil && self.LeapCD > CurTime()) then return end
+				self:SetForce( self:GetForce() - 20 )
+				self:SetNextAttack( 0.5 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				-- Trigger the jump animation, yay
+				self:CallOnClient( "ForceJumpAnim", "" )
+				self.LeapCD = CurTime() + 2
+
+			-- Guardian Leap
+			elseif (self.GuardianLeap) then
+				if ( self:GetForce() < 30 || !self:GetOwner():IsOnGround() ) then return end
+				self:SetForce( self:GetForce() - 30 )
+				self:SetNextAttack( 0.5 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				-- Trigger the jump animation, yay
+				self:CallOnClient( "ForceJumpAnim", "" )
+				return true
+
+			-- All Other Leapers
+			else
+				if ( self:GetForce() < 20 || !self:GetOwner():IsOnGround() ) then return end
+				if (self.LeapCD ~= nil && self.LeapCD > CurTime()) then return end
+				self:SetForce( self:GetForce() - 20 )
+				self:SetNextAttack( 0.5 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				-- Trigger the jump animation, yay
+				self:CallOnClient( "ForceJumpAnim", "" )
+				self.LeapCD = CurTime() + 2
+			end
 		end
 })
 
@@ -80,6 +136,50 @@ wOS.ForcePowers:RegisterNewPower({
 			-- Trigger the jump animation, yay
 			self:CallOnClient( "ForceJumpAnim", "" )
 			return true
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Sith Leap",
+		icon = "SL",
+		image = "wos/forceicons/leap.png",
+		cooldown = 1,
+		manualaim = false,
+		description = "Jump through the air. Evily.",
+		action = function( self )
+			if ( self:GetForce() < 15 || !self:GetOwner():IsOnGround() ) then return end
+			self:SetForce( self:GetForce() - 15 )
+			self:SetNextAttack( 0.5 )
+			self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			-- Trigger the jump animation, yay
+			self:CallOnClient( "ForceJumpAnim", "" )
+			return true
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Sith Master Leap",
+		icon = "SL",
+		image = "wos/forceicons/leap.png",
+		cooldown = 3,
+		description = "Jump through the air. Evily, and twice.",
+		action = function( self )
+			if ( CLIENT ) then return end
+			if (self:GetOwner():IsOnGround() && self:GetForce() >= 15) then
+				-- On ground - normal leap
+				self:SetForce( self:GetForce() - 15 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 512 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				self:CallOnClient( "ForceJumpAnim", "" )
+			elseif (!self:GetOwner():IsOnGround() && self:GetForce() >= 30) then
+				-- In air - leap and cooldown.
+				self:SetForce( self:GetForce() - 30 )
+				self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 256 + Vector( 0, 0, 512 ) )
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				self:CallOnClient( "ForceJumpAnim", "" )
+				return true
+			end
 		end
 })
 
