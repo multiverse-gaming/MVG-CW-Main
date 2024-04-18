@@ -3,17 +3,15 @@ if ( SERVER ) then
 	SWEP.HoldType = "slam"
 end
 
-if ( CLIENT ) then
-	SWEP.PrintName = "Datapad"
-	SWEP.Author = "Goldermor"
-	SWEP.Contact = ""
-	SWEP.Purpose = "Datapad"
-	SWEP.Instructions = "Datapad"
-	SWEP.Slot = 1
-	SWEP.SlotPos = 5
-	SWEP.DrawAmmo = false					 
+SWEP.PrintName = "Datapad"
+SWEP.Author = "Goldermor"
+SWEP.Contact = ""
+SWEP.Purpose = "Datapad"
+SWEP.Instructions = "Datapad"
+SWEP.Slot = 1
+SWEP.SlotPos = 5
+SWEP.DrawAmmo = false					 
 
-end
 
 SWEP.Category = "MVG - Engineering Gear"
 
