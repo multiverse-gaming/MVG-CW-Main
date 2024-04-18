@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/bad_batch/hunter/hunter_helm_1"
+	$bumpmap "models/bad_batch/hunter/none"
+}

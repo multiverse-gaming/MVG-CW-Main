@@ -535,7 +535,6 @@ return {
 			pvp_misc_dmg_other = "{1} took {2}",
 
 			steamfam = "{1} is Steam Family sharing with {2}",
-			wiltosLog = "{1} spawned item {2} that {3} picked up and got {4}",
 		},
 
 		pvp_dmgtype_generic = "%u damage",

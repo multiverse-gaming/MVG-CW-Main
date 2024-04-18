@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/bad_batch/tech/tech_goggles"
+	$bumpmap "models/bad_batch/hunter/none"
+	$additive 1
+}
