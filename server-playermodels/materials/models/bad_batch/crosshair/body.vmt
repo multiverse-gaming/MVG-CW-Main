@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/bad_batch/crosshair/crosshair_body"
+	$bumpmap "models/bad_batch/hunter/none"
+}

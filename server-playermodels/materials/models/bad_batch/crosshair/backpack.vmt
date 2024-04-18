@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/bad_batch/crosshair/crosshair_backpack"
+	$bumpmap "models/bad_batch/hunter/none"
+	$selfillum 1
+}

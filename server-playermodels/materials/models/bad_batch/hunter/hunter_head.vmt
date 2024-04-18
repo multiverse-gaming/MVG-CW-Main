@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/bad_batch/hunter/hunter_head"
+	$bumpmap "models/bad_batch/hunter/none"
+	$phong 1
+	$phongboost 0
+}
