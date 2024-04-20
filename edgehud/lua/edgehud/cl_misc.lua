@@ -673,62 +673,62 @@ if notificationSystemConfig != "Other Design" then
 		local notificationDermaFile = file.Read("lua/includes/modules/notification.lua","GAME")
 
 		--Append code to the bottom so we get access to the panel.
-		notificationDermaFile = notificationDermaFile .. "\nEdgeHUD.NotificationPanel = PANEL"
+		--notificationDermaFile = notificationDermaFile .. "\nEdgeHUD.NotificationPanel = PANEL"
 
 		--Change the notification startpos.
-		notificationDermaFile = string.Replace(notificationDermaFile,"local ideal_y = ScrH() - 150 - h - total_h","local ideal_y = ScrH() - 210 - h - total_h")
+		--notificationDermaFile = string.Replace(notificationDermaFile,"local ideal_y = ScrH() - 150 - h - total_h","local ideal_y = ScrH() - 210 - h - total_h")
 
 		--Make it idiot proof to avoid unnecessary errors pointing to EdgeHUD.
-		notificationDermaFile = string.Replace(notificationDermaFile, "Panel.Length = length", "Panel.Length = length or 3")
+		--notificationDermaFile = string.Replace(notificationDermaFile, "Panel.Length = length", "Panel.Length = length or 3")
 
 		--Run the code.
-		RunString(notificationDermaFile,"EdgeHUD")
+		--RunString(notificationDermaFile,"EdgeHUD")
 
 		--Save the PANEL:Init function.
-		EdgeHUD.NotificationPanel.oldFunc = EdgeHUD.NotificationPanel.Init
+		--EdgeHUD.NotificationPanel.oldFunc = EdgeHUD.NotificationPanel.Init
 
 		--Create a table for the notifications.
-		local notificationsTbl = {}
+		---local notificationsTbl = {}
 
 		--OVerride the PANEL:Init function.
-		function EdgeHUD.NotificationPanel:Init(  )
+		--function EdgeHUD.NotificationPanel:Init(  )
 
 			--Call the old PANEL:Init function.
-			self:oldFunc()
+			--self:oldFunc()
 
-			timer.Simple(0,function(  )
+			--timer.Simple(0,function(  )
 
-				if !IsValid(self) then return end
+			--	if !IsValid(self) then return end
 
-				local oldPos = self.fy
+			--	local oldPos = self.fy
 
-				self.fy = oldPos - 100
+			--	self.fy = oldPos - 100
 
-			end)
+		--	end)
 
-			notificationsTbl[self] = true
+			--notificationsTbl[self] = true
 
 			--Set the default font.
-			self.Label:SetFont("EdgeHUD:Notification")
+		--	self.Label:SetFont("EdgeHUD:Notification")
 
 			--Disable positioning stuff.
-			self.Label:Dock(NODOCK)
-			self.Label:SetContentAlignment(7)
+		--	self.Label:Dock(NODOCK)
+		--	self.Label:SetContentAlignment(7)
 
-		end
+		--end
 
-		function EdgeHUD.NotificationPanel:OnRemove(  )
+		--function EdgeHUD.NotificationPanel:OnRemove(  )
 
-			notificationsTbl[self] = nil
+		--	notificationsTbl[self] = nil
 
-		end
+		--end
 
-		function EdgeHUD.NotificationPanel:Think()
-			self:SetAlpha(EdgeHUD.shouldDraw and 255 or 0)
-		end
+		--function EdgeHUD.NotificationPanel:Think()
+		--	self:SetAlpha(EdgeHUD.shouldDraw and 255 or 0)
+		--end
 
 		--Override the paint function.
-		EdgeHUD.NotificationPanel.Paint = function( s,w,h )
+		--[[EdgeHUD.NotificationPanel.Paint = function( s,w,h )
 
 			surface.SetDrawColor(COLORS["Black_Transparent"])
 			surface.DrawRect(0,0,w,h)
@@ -768,7 +768,7 @@ if notificationSystemConfig != "Other Design" then
 			surface.SetDrawColor(66, 134, 244, 255)
 			surface.DrawRect(math.max(x,barPos - barWidth + x) + 1,y + 1,math.min(barWidth,barBackgroundWidth + barWidth - barPos,barPos) - 2,3)
 
-		end
+		end --]]
 
 		--OVerride the SizeToContents func.
 		function EdgeHUD.NotificationPanel:SizeToContents(  )
