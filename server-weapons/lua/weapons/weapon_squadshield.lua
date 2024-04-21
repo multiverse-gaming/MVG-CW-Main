@@ -103,11 +103,11 @@ function SWEP:PrimaryAttack()
 
     })
 
-    if self.Owner:IsOnGround() and tr.HitWorld then
+    if tr.Hit then
 
         local squadshield = ents.Create("squadshield")
 
-        squadshield:SetPos(self.Owner:GetPos() + Vector(0, 0, 2))
+        squadshield:SetPos(tr.HitPos + Vector(0, 0, 2))
         squadshield:AddEffects(EF_NOSHADOW)
         squadshield:Spawn()
 
