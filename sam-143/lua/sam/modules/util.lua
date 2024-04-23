@@ -60,7 +60,7 @@ command.new("mapreset")
 	:Help("mapreset_help")
 
 	:OnExecute(function(ply)
-		game.CleanUpMap()
+		game.CleanUpMap( false, nil, function() end )
 
 		sam.player.send_message(nil, "mapreset", {
 			A = ply
