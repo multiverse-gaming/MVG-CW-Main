@@ -97,6 +97,16 @@ DarkRP.createEntity("Hacking Tools", {
     category = "Entities",
 })
 
+DarkRP.createEntity("Moondust Crate", {
+    ent = "moondust_crate",
+    model = "models/kingpommes/starwars/misc/imp_crate_single_closed.mdl",
+    price = 0,
+    max = 2,
+    cmd = "mdc",
+    allowed = {TEAM_CECHIEF, TEAM_RCECHO, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CEMECHANIC, TEAM_RCTECH, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEEXECUTIVEOFFICER, TEAM_CETROOPER, TEAM_CEFAB, TEAM_RCTECH, TEAM_JEDISENTINEL, TEAM_JEDICOUNCIL, TEAM_CEGENERAL, TEAM_RCFIXER, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER, TEAM_JEDIGENERALAAYLA, TEAM_JEDISENGUARD},
+    category = "Entities",
+})
+
 DarkRP.createEntity("Repair Plug", {
     ent = "touch_pickup_repairkit_admin",
     model = "models/props_c17/tools_wrench01a.mdl",

@@ -58,13 +58,15 @@ function ENT:Use(activator, caller)
 end
 
 function ENT:Touch( entity )
-	if entity:GetClass() == "havoc_engine" or entity:GetClass() == "funkzentrale" or entity:GetClass() == "treibstoffpumpe" or entity:GetClass() == "schild" or entity:GetClass() == "gravitation" then
+	if entity:GetClass() == "ventymcventface" or entity:GetClass() == "havoc_engine" or entity:GetClass() == "funkzentrale" or entity:GetClass() == "treibstoffpumpe" or entity:GetClass() == "schild" or entity:GetClass() == "gravitation" then
 		self:Remove()
 		if entity:GetClass() == "funkzentrale" then entity:SetNWBool( "zentrale", true ) entity:SetNWInt( "enginehealth", 500 ) SetGlobalBool("commsDown", false) end
 		if entity:GetClass() == "treibstoffpumpe" then entity:SetNWInt( "enginehealth", 350 ) end
 		if entity:GetClass() == "schild" then entity:SetNWInt( "enginehealth", 1000 ) end
 		if entity:GetClass() == "havoc_engine" then entity:SetNWInt( "enginehealth", 100 ) end
 		if entity:GetClass() == "gravitation" then entity:SetNWInt( "enginehealth", 600 ) RunConsoleCommand( "sv_gravity", 600 ) end
+		if entity:GetClass() == "ventymcventface" then entity:SetNWInt( "venthealth", 500 ) end
+		
 		--[[
 		timer.Create("gm_ship_repairkit_check_msg", 0.1, 1, function()
 			for k, v in pairs( player.GetAll() ) do
