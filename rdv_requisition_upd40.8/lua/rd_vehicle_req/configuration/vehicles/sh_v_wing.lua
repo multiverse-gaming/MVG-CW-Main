@@ -39,18 +39,6 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th Executive Officer",
   "327th Major",
   "327th Talon Squadron",
-  "Fleet Admiral",
-  "Grand Admiral",
-  --"RC Impact",
-  "Fleet Ensign",
-    "Fleet Recruit",
-    "Fleet Member",
-    "Fleet High Ranking",
-  "Fleet Lieutenant",
-  "Fleet Lieutenant Commander",
-  "Fleet Commander",
-  "Fleet Captain",
-  "Fleet Commodore",
   "RC Fixer",
   "RC Tech"
 })

@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/wampa/wampa_mask2"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}
