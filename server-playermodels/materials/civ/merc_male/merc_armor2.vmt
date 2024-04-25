@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/merc_male/merc_armor2"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}

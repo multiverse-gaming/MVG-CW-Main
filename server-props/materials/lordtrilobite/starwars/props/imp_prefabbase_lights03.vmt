@@ -1,0 +1,18 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"			"lordtrilobite/isd_lights03"
+	"$bumpmap"			"lordtrilobite/isd_metal01_NRM"
+	"$surfaceprop"			"metal"
+   	"$selfillum"			"1"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"0.6"
+	"$phongexponent"		"17.8"
+	"$PhongFresnelRanges"		"[0.5 0.5 0.5]"
+
+}

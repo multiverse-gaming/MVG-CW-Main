@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/gundark/gundark_gloves3"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}

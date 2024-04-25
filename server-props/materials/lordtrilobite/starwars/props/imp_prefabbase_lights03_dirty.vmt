@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"			"lordtrilobite/isd_lights03_dirty"
+	"$surfaceprop"			"metal"
+
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+}

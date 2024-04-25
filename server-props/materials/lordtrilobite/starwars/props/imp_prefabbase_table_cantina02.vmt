@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"			"lordtrilobite/starwars/props/table_cantina02"
+	"$bumpmap"			"lordtrilobite/starwars/props/table_cantina01_NRM"
+	"$surfaceprop"			"metal"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"3.1"
+	"$phongexponent"		"12.8"
+	"$PhongFresnelRanges"		"[.05 .5 1]"
+}

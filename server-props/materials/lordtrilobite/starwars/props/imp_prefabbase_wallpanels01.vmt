@@ -1,0 +1,25 @@
+"Vertexlitgeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"			"lordtrilobite/starwars/ISD/isd_bridgepanel"
+	"$bumpmap"			"lordtrilobite/starwars/ISD/isd_bridgepanel_NRM"
+	"$surfaceprop"			"metal"
+   	"$selfillum"			"1"
+
+	"$normalmapalphaenvmapmask"	"1"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"3.6"
+	"$phongexponent"		"12.8"
+	"$PhongFresnelRanges"		"[0.5 0.5 0.5]"
+
+	"$detail"			"detail\metal_detail_01"
+	"$detailscale"			"9.532"
+	"$detailblendfactor"		"0.40"
+	"$detailblendmode"		"0"
+
+}

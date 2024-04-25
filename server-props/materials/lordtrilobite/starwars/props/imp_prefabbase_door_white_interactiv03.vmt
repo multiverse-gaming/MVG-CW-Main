@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"			"lordtrilobite/door_white_interactiv03"
+	"$bumpmap"			"lordtrilobite/tat_door03_NRM"
+	"$surfaceprop"			"metal"
+
+	"$detail"			"detail\metal_detail_01"
+	"$detailscale"			"2.532"
+	"$detailblendfactor"		"0.40"
+	"$detailblendmode"		"0"
+
+
+}

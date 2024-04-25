@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/formal_female/formal_gloves2"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}
