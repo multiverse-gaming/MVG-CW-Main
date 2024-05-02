@@ -478,7 +478,7 @@ TEAM_ARCALPHA501st = DarkRP.createJob("501st Alpha ARC", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_arc_cobalt.mdl","models/aussiwozzi/cgi/base/501st_jesse_arc.mdl","models/aussiwozzi/cgi/base/501st_fives.mdl","models/aussiwozzi/cgi/base/501st_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl", "models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl", "models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_arc_cobalt.mdl","models/aussiwozzi/cgi/base/501st_jesse_arc.mdl","models/aussiwozzi/cgi/base/501st_fives.mdl","models/aussiwozzi/cgi/base/501st_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl", "models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl", "models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha 501st!]],
 
@@ -915,7 +915,7 @@ TEAM_ARCALPHA212th = DarkRP.createJob("212th Alpha ARC", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/212th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/212th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
     description = [[Congratulations, you are 212th ARC Alpha!]],
 
     weapons = {"arccw_westarm5_m", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade"},
@@ -1353,7 +1353,7 @@ TEAM_ARCALPHAGC = DarkRP.createJob("Green Company Alpha ARC", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/41st_draa_arc.mdl", "models/aussiwozzi/cgi/base/41st_arc.mdl","models/aussiwozzi/cgi/base/41st_cooker_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/41st_draa_arc.mdl", "models/aussiwozzi/cgi/base/41st_arc.mdl","models/aussiwozzi/cgi/base/41st_cooker_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha Green Company!]],
 
@@ -1804,7 +1804,7 @@ TEAM_CGMASSIF = DarkRP.createJob("Coruscant Guard Massif Hound", {
 
     description = [[Congratulations, you are a Massif Hound of the Coruscant Guard!]],
 
-    weapons = {"weapon_massiftackle"},
+    weapons = {"weapon_fistsofreprisal","weapon_massiftackle"},
 
     command = "stmh",
 
@@ -1822,7 +1822,7 @@ TEAM_CGMASSIF = DarkRP.createJob("Coruscant Guard Massif Hound", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (300) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (300) ply:SetGravity(1) end,
 
 OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (300) end,
 
@@ -1834,7 +1834,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/CG_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl", "models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/CG_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl", "models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
@@ -2273,7 +2273,7 @@ TEAM_ARCALPHAGM = DarkRP.createJob("Galactic Marines Alpha ARC", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/herm/cgi_new/21st/21st_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl", "models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl", "models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/herm/cgi_new/21st/21st_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl", "models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl", "models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha Galactic Marines!]],
 
@@ -2718,7 +2718,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     color = Color(153, 144, 144, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
@@ -3192,7 +3192,7 @@ TEAM_ARCALPHACE = DarkRP.createJob("327th Alpha ARC", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/327th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/327th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha 327th!]],
 
@@ -3430,7 +3430,7 @@ TEAM_ARCMC = DarkRP.createJob("ARC Marshal Commander", {
 
     color = Color(255, 255, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/arc_rancor_colt.mdl","models/aussiwozzi/cgi/base/arc_rancor_blitz.mdl","models/aussiwozzi/cgi/base/arc_rancor_hammer.mdl","models/aussiwozzi/cgi/base/arc_rancor_havoc.mdl","models/aussiwozzi/cgi/base/arc_fordo.mdl","models/aussiwozzi/cgi/base/arc_gen.mdl","models/aussiwozzi/cgi/base/arc_com.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/arc_rancor_colt.mdl","models/aussiwozzi/cgi/base/arc_rancor_blitz.mdl","models/aussiwozzi/cgi/base/arc_rancor_hammer.mdl","models/aussiwozzi/cgi/base/arc_rancor_havoc.mdl","models/aussiwozzi/cgi/base/arc_fordo.mdl","models/aussiwozzi/cgi/base/arc_gen.mdl","models/aussiwozzi/cgi/base/arc_com.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of ARC!]],
 
@@ -3462,7 +3462,7 @@ TEAM_ARCCOLT = DarkRP.createJob("ARC Command", {
 
     color = Color(255, 255, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl","models/aussiwozzi/cgi/base/arc_rancor_colt.mdl","models/aussiwozzi/cgi/base/arc_rancor_blitz.mdl","models/aussiwozzi/cgi/base/arc_rancor_hammer.mdl","models/aussiwozzi/cgi/base/arc_rancor_havoc.mdl","models/aussiwozzi/cgi/base/arc_fordo.mdl","models/aussiwozzi/cgi/base/arc_gen.mdl","models/aussiwozzi/cgi/base/arc_com.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_rancor_colt.mdl","models/aussiwozzi/cgi/base/arc_rancor_blitz.mdl","models/aussiwozzi/cgi/base/arc_rancor_hammer.mdl","models/aussiwozzi/cgi/base/arc_rancor_havoc.mdl","models/aussiwozzi/cgi/base/arc_fordo.mdl","models/aussiwozzi/cgi/base/arc_gen.mdl","models/aussiwozzi/cgi/base/arc_com.mdl"},
 
     description = [[Congratulations, you are an ARC Command!]],
 
@@ -4704,8 +4704,8 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
-    description = [[You are now a Shadow General]],
+    model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    description = [[Congratulations You are now Shadow General]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert","realistic_hook","datapad_player"},
     command = "sdwgen",
     max = 2,
@@ -4768,7 +4768,7 @@ TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
 
 TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl"},
     description = [[Congratulations You are now SDW XO!]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwxo",
@@ -4789,7 +4789,7 @@ TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
 
 TEAM_SDWMJR = DarkRP.createJob("Shadow Major", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_officer.mdl","models/aussiwozzi/cgi/base/shadow_arf.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl"},
     description = [[Congratulations You are now SDW Major!]],
     weapons = {"arccw_dc19","arccw_dual_dc17ext_suppressed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwmjr",
@@ -6553,7 +6553,7 @@ TEAM_NEUTRALDROID = DarkRP.createJob("Republic Droid", {
 
 TEAM_DUA = DarkRP.createJob("Dooms Unit Assault", {
     color = Color(51, 102, 0, 255),
-    model = {"models/herm/cgi_new/doom_unit/du_trooper1.mdl"}, 
+    model = {"models/herm/cgi_new/doom_unit/du_trooper1.mdl","models/aussiwozzi/cgi/base/doom_jet.mdl","models/aussiwozzi/cgi/base/doom_hrs.mdl","models/aussiwozzi/cgi/base/doom_sydney.mdl"}, 
     description = [[Congratulations! You are apart of the Dooms Unit Assault, for the republic.]],
     weapons = {"arccw_dual_dc17", "arccw_meeks_z6"},
     command = "dua",
@@ -6570,7 +6570,7 @@ TEAM_DUA = DarkRP.createJob("Dooms Unit Assault", {
 
 TEAM_SIEGE = DarkRP.createJob("442nd Siege Battalion", {
     color = Color(56, 79, 26, 255),
-    model = {"models/herm/cgi_new/442nd/442nd_trooper1.mdl"}, 
+    model = {"models/herm/cgi_new/442nd/442nd_trooper1.mdl","models/aussiwozzi/cgi/base/442nd_odin.mdl","models/aussiwozzi/cgi/base/442nd_raffle.mdl"}, 
     description = [[Congratulations! You are apart of the 442nd Siege Battalion, for the republic!]],
     weapons = {"arccw_dual_dc17", "arccw_dc15s", "arccw_hunter_shotgun"},
     command = "siege",
@@ -6589,7 +6589,7 @@ TEAM_SIEGE = DarkRP.createJob("442nd Siege Battalion", {
 
 TEAM_MEDMM = DarkRP.createJob("91st Marksman", {
     color = Color(111, 42, 40, 255),
-    model = {"models/herm/cgi_new/91st/91st_trooper1.mdl"}, 
+    model = {"models/herm/cgi_new/91st/91st_trooper1.mdl","models/aussiwozzi/cgi/base/91st_razor.mdl","models/aussiwozzi/cgi/base/91st_strac.mdl","models/aussiwozzi/cgi/base/91st_strike.mdl"}, 
     description = [[Congratulations! You are a 91st Marksman, for the republic!]],
     weapons = {"arccw_dc17", "arccw_valkenx38a", "realistic_hook"},
     command = "91stmm",
@@ -6607,7 +6607,7 @@ TEAM_MEDMM = DarkRP.createJob("91st Marksman", {
 
 TEAM_JAGUAR = DarkRP.createJob("Jaguar Hunters", {
     color = Color(80, 51, 49, 255),
-    model = {"models/herm/cgi_new/jaguar/jaguar_trooper1.mdl"}, 
+    model = {"models/herm/cgi_new/jaguar/jaguar_trooper1.mdl","models/aussiwozzi/cgi/base/jaguar_arf.mdl","models/aussiwozzi/cgi/base/jaguar_trooper.mdl"}, 
     description = [[Congratulations! You are a Jaguar Hunter for the republic.]],
     weapons = {"arccw_dc17_suppressed", "arccw_dc19le", "realistic_hook"},
     command = "jaguar",

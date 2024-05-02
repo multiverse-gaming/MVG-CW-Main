@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/dweller_male/dweller_outfit"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}

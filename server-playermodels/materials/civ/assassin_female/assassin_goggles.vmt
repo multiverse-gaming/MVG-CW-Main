@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	$baseTexture "civ/assassin_female/assassin_goggles"
+	$surfaceprop flash
+	$halflambert 1
+              "$nocull" "1"
+}

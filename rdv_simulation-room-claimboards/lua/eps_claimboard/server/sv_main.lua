@@ -1,6 +1,5 @@
 if EPS_ClaimBoard_Config.Death then
 	hook.Add("PlayerDeath", "EPS_Claimboard_PlayerDeathRemove", function(ply)
-		print("test")
 		for k, v in pairs(ents.FindByClass("claimboard")) do
 			if v:GetClaimBoardClaimer() == ply then
 				EPS_ClaimPanel:Unclaim(ply, v)

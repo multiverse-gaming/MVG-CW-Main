@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"		"lordtrilobite/ds_controlpanel01_dirty"
+   	"$selfillum"		"1"
+	"$surfaceprop"		"metal"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+}

@@ -1,0 +1,18 @@
+"VertexLitGeneric"
+
+//Texture made by Lord Trilobite
+{
+	"$basetexture"		"lordtrilobite/imp_metalgrate02_dirty"
+	"$surfaceprop"		"metal"
+	"$alphatest"		"1"
+	"$alphatestreference"	".7"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"0.1"
+	"$phongexponent"		"17.8"
+	"$PhongFresnelRanges"		"[0.5 0.5 0.5]"
+
+}

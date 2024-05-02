@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+
+//Model and texture created by LordTrilobite
+{
+	"$basetexture"			"lordtrilobite/starwars/props/couch_cantina02_dirty"
+	"$bumpmap"			"lordtrilobite/starwars/props/couch_cantina01_NRM"
+
+	"$normalmapalphaenvmapmask"	"1"
+
+	"$model"			"1"
+	"%notooltexture"		"1"
+
+	"$Phong"			"1"
+	"$PhongBoost"			"2.1"
+	"$phongexponent"		"11.8"
+	"$PhongFresnelRanges"		"[.05 .5 1]"
+}
