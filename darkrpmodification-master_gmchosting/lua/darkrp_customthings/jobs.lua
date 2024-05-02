@@ -3590,7 +3590,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
