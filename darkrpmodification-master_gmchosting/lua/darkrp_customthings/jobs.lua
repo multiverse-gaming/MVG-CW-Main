@@ -3574,7 +3574,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     weapons = {"weapon_battlefocus_normal", "arccw_dc17m_delta", "arccw_dual_dc17ext_delta", "realistic_hook", "arccw_dc17m_shotgun"},
 
-    command = "Republic Commandos",
+    command = "rcmco",
 
     max = 1,
 
@@ -3590,7 +3590,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
