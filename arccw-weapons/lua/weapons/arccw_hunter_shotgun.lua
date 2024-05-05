@@ -34,9 +34,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_huntershotgun.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 33
+SWEP.Damage = 35
 SWEP.RangeMin = 15
-SWEP.DamageMin = 11
+SWEP.DamageMin = 35
 SWEP.Range = 50
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BUCKSHOT
@@ -51,15 +51,15 @@ SWEP.TracerCol = Color(255, 165, 18)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 8
+SWEP.Primary.ClipSize = 5
 
 SWEP.Recoil = 1.5
 SWEP.RecoilSide = 0.6
 SWEP.RecoilPunch = 0.8
 SWEP.RecoilRise = 1
 
-SWEP.Delay = 90 / 150
-SWEP.Num = 5
+SWEP.Delay = 60 / 100
+SWEP.Num = 7
 SWEP.Firemodes = {
 	{
 		Mode = 1
@@ -69,9 +69,9 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.AccuracyMOA = 50 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 450 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 100
+SWEP.AccuracyMOA = 120 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 0
 
 SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil
