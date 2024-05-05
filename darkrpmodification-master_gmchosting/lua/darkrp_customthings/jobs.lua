@@ -1016,7 +1016,7 @@ TEAM_212THSERGEANT = DarkRP.createJob("212th Sergeant", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl"},
 
     description = [[Congratulations, you are a Sergeant of the 212th Attack Battalion!]],
 
@@ -2718,7 +2718,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     color = Color(153, 144, 144, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl","models/aussiwozzi/cgi/base/104th_evo.mdl","models/aussiwozzi/cgi/base/104th_evo_officer.mdl"},
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
@@ -2752,7 +2752,7 @@ TEAM_WPARC = DarkRP.createJob("Wolfpack ARC", {
 
     color = Color(153, 144, 144, 255),
 
-    model = {"models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl"},
+    model = {"models/aussiwozzi/cgi/base/104th_arc.mdl","models/aussiwozzi/cgi/base/104th_arc_hazzi.mdl","models/aussiwozzi/cgi/base/104th_arc_dusty.mdl","models/aussiwozzi/cgi/base/104th_evo.mdl","models/aussiwozzi/cgi/base/104th_evo_officer.mdl"},
 
     description = [[Congratulations, you are a Wolfpack ARC Trooper!]],
 

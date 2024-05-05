@@ -23,8 +23,8 @@ ENT.GibModels = {
 
 ENT.AITEAM = 2
 
-ENT.MaxVelocity = 2500
-ENT.MaxThrust = 2500
+ENT.MaxVelocity = 3000
+ENT.MaxThrust = 3000
 
 ENT.ThrustVtol = 55
 ENT.ThrustRateVtol = 3
@@ -38,8 +38,8 @@ ENT.ForceLinearMultiplier = 1
 ENT.ForceAngleMultiplier = 1
 ENT.ForceAngleDampingMultiplier = 1
 
-ENT.MaxHealth = 800
-ENT.MaxShield = 100
+ENT.MaxHealth = 500
+ENT.MaxShield = 250
 
 function ENT:InitWeapons()
 	self.FirePositions = {
@@ -49,8 +49,8 @@ function ENT:InitWeapons()
 
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/hmg.png")
-	weapon.Ammo = 1000
-	weapon.Delay = 0.15
+	weapon.Ammo = 1600
+	weapon.Delay = 0.13
 	weapon.HeatRateUp = 0.5
 	weapon.HeatRateDown = 1
 	weapon.Attack = function( ent )
@@ -79,9 +79,9 @@ function ENT:InitWeapons()
 		bullet.TracerName = "lvs_laser_blue"
 		bullet.Force	= 10
 		bullet.HullSize 	= 30
-		bullet.Damage	= 40
-		bullet.SplashDamage = 60
-		bullet.SplashDamageRadius = 250
+		bullet.Damage	= 35
+		bullet.SplashDamage = 50
+		bullet.SplashDamageRadius = 150
 		bullet.Velocity = 50000
 		bullet.Attacker 	= ent:GetDriver()
 		bullet.Callback = function(att, tr, dmginfo)
@@ -117,7 +117,7 @@ function ENT:InitWeapons()
 
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/protontorpedo.png")
-	weapon.Ammo = 4
+	weapon.Ammo = 15
 	weapon.Delay = 0 -- this will turn weapon.Attack to a somewhat think function
 	weapon.HeatRateUp = -0.5 -- cool down when attack key is held. This system fires on key-release.
 	weapon.HeatRateDown = 0.25
