@@ -104,11 +104,11 @@ SWEP.Primary.ClipSize = 45
 
 
 
-SWEP.Recoil = 0.6
+SWEP.Recoil = 0.29
 
-SWEP.RecoilSide = 0.2
+SWEP.RecoilSide = 0.11
 
--- SWEP.RecoilRise = 0.22
+SWEP.RecoilRise = 0.22
 
 
 
@@ -140,11 +140,11 @@ SWEP.Firemodes = {
 
 
 
-SWEP.AccuracyMOA = 50 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 3.6 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 
-SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
+SWEP.HipDispersion = 500 -- inaccuracy added by hip firing.
 
-    SWEP.MoveDispersion = 200
+SWEP.MoveDispersion = 200
 
 -- SWEP.JumpDispersion = 1000
 

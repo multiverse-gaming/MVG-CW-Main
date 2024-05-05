@@ -2790,7 +2790,7 @@ TEAM_ARCMEDOFFICER = DarkRP.createJob("Wolfpack Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17", "arccw_cr2", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade"},
+    weapons = {"arccw_dc17", "arccw_cr2", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade","tf_weapon_medigun"},
 
     command = "wpmo",
 
@@ -2857,7 +2857,7 @@ TEAM_ARCMEDTROOPER = DarkRP.createJob("Wolfpack Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17", "arccw_cr2", "weapon_thruster", "realistic_hook"},
+    weapons = {"arccw_dc17", "arccw_cr2", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade"},
 
     command = "wpmt",
 
@@ -2893,7 +2893,7 @@ TEAM_ARCTROOPER = DarkRP.createJob("Wolfpack Trooper", {
 
     description = [[Congratulations, you are a trooper of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_dc17", "weapon_jetpack"},
+    weapons = {"arccw_dc17", "arccw_cr2", "weapon_thruster", "realistic_hook"},
 
     command = "wptrp",
 
