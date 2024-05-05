@@ -34,6 +34,9 @@ SWEP.Secondary.Delay = 0.3
 SWEP.Secondary.Ammo = "none"
 
 function SWEP:PrimaryAttack()
+
+	if ( CLIENT ) then return end
+
     self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
 
     local found
@@ -43,7 +46,9 @@ function SWEP:PrimaryAttack()
 
     for k,v in pairs(player.GetAll()) do
         local maxhealth = v:GetMaxHealth() or 100
-        if v == self:GetOwner() or v:GetShootPos():Distance(self:GetOwner():GetShootPos()) > 85 or v:Health() >= maxhealth or not v:Alive() then continue end
+        if v == self:GetOwner() or v:GetShootPos():Distance(self:GetOwner():GetShootPos()) > 85 or not v:Alive() then continue end
+
+        if v:Health() >= maxhealth then self.Owner:EmitSound("WallHealth.Deny") continue end
 
         local direction = v:GetShootPos() - self:GetOwner():GetShootPos()
         direction:Normalize()
@@ -57,17 +62,23 @@ function SWEP:PrimaryAttack()
     end
     self:GetOwner():LagCompensation(false)
 
-    if found then
-        if (found:Health() + 10) > found:GetMaxHealth() then
-
-            found:SetHealth(found:GetMaxHealth())
-
-        else
-
-            found:SetHealth(found:Health() + 10)
-
+    --[[if found then
+        if (found:Health() >= found:GetMaxHealth()) then 
+           self.Owner:EmitSound("starwars/items/bacta.wav")
+            print("Hello world")
+        else 
+            found:SetHealth(math.min(found:Health() + 10, found:GetMaxHealth()))
+            print("Health"..found:Health())
         end
+    end --]]
 
+    if found then
+        if (found:Health() + 10) >= found:GetMaxHealth() then
+            found:SetHealth(found:GetMaxHealth())
+            self.Owner:EmitSound("WallHealth.Deny")
+        else
+            found:SetHealth(found:Health() + 10)
+        end
         self:EmitSound("weapons/physcannon/physcannon_charge.wav", 10, found:Health() / found:GetMaxHealth() * 100, 1)
     end
 end

@@ -43,9 +43,9 @@ local sv_gravity = GetConVar "sv_gravity"
 local soundCreated = false
 
 -- SETTINGS YOU CAN CHANGE WITHOUT RUINING THE JETPACK FUNCTIONS
-local jetpackStrafeSpeed = 500 -- Higher is faster
-local jetpackSpeed = 500 -- Higher is faster
-local fuelDrain = 1 -- Lower is slower
+local jetpackStrafeSpeed = 250 -- Higher is faster
+local jetpackSpeed = 200 -- Higher is faster
+local fuelDrain = 0.5 -- Lower is slower
 local fuelRecharge = 2 -- Lower is slower
 local infiniteFuel = false -- True means it"s enabled = it got infinite amount of fuel
 

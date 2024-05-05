@@ -32,8 +32,8 @@ ENT.ForceAngleDampingMultiplier = 1
 ENT.ForceLinearMultiplier = 1
 ENT.ForceLinearRate = 0.25
 
-ENT.MaxVelocityX = 950
-ENT.MaxVelocityY = 950
+ENT.MaxVelocityX = 715
+ENT.MaxVelocityY = 715
 
 ENT.MaxTurnRate = 0.8
 

@@ -116,7 +116,7 @@ function SWEP:PrimaryAttack()
 	local need
 	if ( IsValid( ent ) ) then need = 75 end
 
-	if ( IsValid( ent ) && self:Clip1() >= 50 && ( ent:IsPlayer() || ent:IsNPC() ) && ent:Health() <= ent:GetMaxHealth() ) then
+	if ( IsValid( ent ) && self:Clip1() >= 50 && ( ent:IsPlayer() || ent:IsNPC() ) && ent:Health() < ent:GetMaxHealth() ) then
 
 		self:TakePrimaryAmmo( 50 )
 
