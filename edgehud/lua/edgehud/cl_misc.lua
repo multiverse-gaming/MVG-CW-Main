@@ -771,7 +771,7 @@ if notificationSystemConfig != "Other Design" then
 		end --]]
 
 		--OVerride the SizeToContents func.
-		function EdgeHUD.NotificationPanel:SizeToContents(  )
+	--[[]	function EdgeHUD.NotificationPanel:SizeToContents(  )
 
 			--Resize the label.
 			self.Label:SizeToContents()
@@ -872,9 +872,9 @@ if notificationSystemConfig != "Other Design" then
 				end
 			end
 		end)
-
+ --]]
 	end
-
+ --[[
 	--Add delayed notifications.
 	for k,v in pairs(EdgeHUD_NotificationsQueue_Legacy) do
 		notification.AddLegacy(v.text,v.type,v.length)
@@ -887,8 +887,8 @@ if notificationSystemConfig != "Other Design" then
 	--Reset the EdgeHUD_NotificationsQueue_Legacy and EdgeHUD_NotificationsQueue_Progress.
 	EdgeHUD_NotificationsQueue_Legacy = {}
 	EdgeHUD_NotificationsQueue_Progress = {}
-
-end
+--]]
+end 
 
 timer.Simple(0,function( )
 
