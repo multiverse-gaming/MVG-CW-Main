@@ -7,3 +7,5 @@ ENT.Category = "Anti Cloak"
 
 ENT.Spawnable = true
 ENT.AdminSpawnable = true
+
+ENT.IconOverride = "materials/entities/joefort_ressource_25.png"
