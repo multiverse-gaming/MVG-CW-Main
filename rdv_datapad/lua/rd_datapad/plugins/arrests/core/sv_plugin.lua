@@ -114,9 +114,29 @@ end
 
 local C_DELAY = {}
 
-util.AddNetworkString("RDV_DATAPAD_ARREST_REPORT")
+util.AddNetworkString("RDV_DATAPAD_ARREST_REPORT_START")
 
-net.Receive("RDV_DATAPAD_ARREST_REPORT", function(msg)
+net.Receive("RDV_DATAPAD_ARREST_REPORT_START", function(msg)
+
+	local msg = net.ReadString()
+	local length = net.ReadInt(32)
+
+	releaseTime = os.time() + length*60
+	releaseTimeFormated = os.date("%H:%M:%S", releaseTime)
+
+	msg = msg..releaseTimeFormated
+
+
+	for i, ply in ipairs( player.GetAll() ) do
+		NCS_SHARED.AddText(ply, Color( 255, 0, 0 ), "[RFA] ", Color( 255, 255, 0 ), msg)
+        //ply:ChatPrint(msg)
+    end
+end)
+
+util.AddNetworkString("RDV_DATAPAD_ARREST_REPORT_END")
+
+net.Receive("RDV_DATAPAD_ARREST_REPORT_END", function(msg)
+
 	local msg = net.ReadString()
 
 	for i, ply in ipairs( player.GetAll() ) do

@@ -1,12 +1,9 @@
 local OBJ = NCS_DATAPAD.GetPlugin()
 
 function OBJ:IsArrestEntrySafe(TITLE, DESCRIPTION, TIME)
-    print(TITLE..DESCRIPTION..TIME)
     if #TITLE <= 0 or #DESCRIPTION <= 0 then
         return false, NCS_DATAPAD.GetLang(nil, "WHY")
     end
-
-    print(isnumber(TIME))
 
     local MAX_DESC = (NCS_DATAPAD.CONFIG.DescLimit or 0)
     local MAX_TITL = (NCS_DATAPAD.CONFIG.TitleLimit or 0)
