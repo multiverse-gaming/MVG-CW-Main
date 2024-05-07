@@ -26,7 +26,7 @@ att.Mult_DamageMin = 0
 att.Mult_AccuracyMOA = 0 -- 18
 att.Mult_HipDispersion = 0
 
-att.Mult_MoveSpeed = 1.1
+att.Mult_MoveSpeed = 1.2
 
 att.Override_ClipSize = 10
 
