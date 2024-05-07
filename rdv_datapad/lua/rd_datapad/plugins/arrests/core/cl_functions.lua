@@ -15,15 +15,20 @@ local function CreateArrestReport(USER, SECTIONS, TIME)
         return false, MSG
     end
 
-    net.Start("RDV_DATAPAD_ARREST_REPORT_START")
-        net.WriteString("Trooper: "..USER.." | Sections Breached: " ..SECTIONS.. " | Arrest Length: ".. tostring(TIME).. " | Release Time: ") -- ..releaseTimeFormated
-        net.WriteInt(TIME, 32)
+    releaseTime = os.time() + TIME*60
+
+    print(releaseTime)
+
+    releaseTimeFormated = os.date("%H:%M:%S", releaseTime)
+
+    net.Start("RDV_DATAPAD_ARREST_REPORT")
+        net.WriteString("Trooper: "..USER.." | Sections Breached: " ..SECTIONS.. " | Arrest Length: ".. tostring(TIME).. " | Release Time: " ..releaseTimeFormated)
     net.SendToServer()
 
     timer.Simple(TIME*60, function() 
         surface.PlaySound("ambient/alarms/klaxon1.wav")
-        net.Start("RDV_DATAPAD_ARREST_REPORT_END")
-        net.WriteString("Trooper: "..USER.." sentence over.")
+        net.Start("RDV_DATAPAD_ARREST_REPORT")
+            net.WriteString("Trooper: "..USER.." sentence over.")
         net.SendToServer()
     end)
 
