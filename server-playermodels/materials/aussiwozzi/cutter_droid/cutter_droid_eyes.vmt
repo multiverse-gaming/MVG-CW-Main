@@ -1,0 +1,17 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "aussiwozzi\cutter_droid\cutter_droid_eyes"
+	$selfillum "1"
+	$selfillummask "aussiwozzi\cutter_droid\cutter_droid_eyes"
+	$color2 "[2.9 2.9 2.9]"
+                $translucent 1
+"Proxies"
+{
+"AnimatedTexture"
+{
+"animatedTextureVar" "$basetexture"
+"animatedTextureFrameNumVar" "$frame"
+"animatedTextureFrameRate" "1"
+}
+}
+}

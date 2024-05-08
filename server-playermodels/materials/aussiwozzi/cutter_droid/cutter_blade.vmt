@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	// Original shader: VertexLitTranslucentTexture
+	"$translucent" 1
+	"$basetexture" "aussiwozzi\cutter_droid\cutter_blade"
+}
