@@ -183,7 +183,7 @@ wOS.ForcePowers:RegisterNewPower({
 	name = "Force Slow",
 	icon = "SL",
 	target = 1,
-	distance = 300,
+	distance = 350,
 	description = "Slow your opponents movement",
 	image = "wos/forceicons/push.png",
 	cooldown = 30,

@@ -36,7 +36,7 @@ TREE.TreeIcon = "wos/forceicons/meditate.png"
 TREE.BackgroundColor = Color( 255, 0, 0, 25 )
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 2
+TREE.MaxTiers = 3
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
@@ -73,22 +73,61 @@ TREE.Tier[1][1] = {
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
-	Name = "Force Push",
-	Description = "Push an enemy away from yourself.",
+	Name = "Force Push Upgrade",
+	Description = "Push an enemy away from yourself. Modifies Push And Pull.",
 	Icon = "wos/forceicons/push.png",
 	PointsRequired = 1,
     Requirements = {  },
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Push" ) end,
+	OnSaberDeploy = function( wep ) wep.ForcePull = true end,
 }
 
 TREE.Tier[2][2] = {
-	Name = "Force Pull",
-	Description = "Pull someone towards you.",
+	Name = "Force Push And Pull",
+	Description = "If you've bought the upgrades, use or hold Shift to pull/push.",
+	Icon = "wos/forceicons/pull.png",
+	PointsRequired = 0,
+    Requirements = {  },
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Push And Pull" ) end,
+}
+
+TREE.Tier[2][3] = {
+	Name = "Force Pull Upgrade",
+	Description = "Pull someone towards you. Modifies Push And Pull.",
 	Icon = "wos/forceicons/pull.png",
 	PointsRequired = 1,
     Requirements = {  },
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForcePull = true end,
+}
+
+TREE.Tier[3] = {}
+
+TREE.Tier[3][1] = {
+	Name = "Force Push Skill",
+	Description = "Push an enemy away from yourself. Seperate Skill.",
+	Icon = "wos/forceicons/push.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 1 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Push" ) end,
+}
+
+TREE.Tier[3][2] = {
+	Name = "Force Pull Skill",
+	Description = "Pull someone towards you. Seperate Skill.",
+	Icon = "wos/forceicons/pull.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 3 },
+	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Pull" ) end,

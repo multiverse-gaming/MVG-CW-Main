@@ -1,8 +1,9 @@
-local ITEM = {}
+local ITEM = {} 
+ITEM.Rarity = 100
 
-ITEM.Name = "Blade Pommel Hilt"
+ITEM.Name = "Mundi's Hilt"
 
-ITEM.Description = "(Legendary)"
+ITEM.Description = "(Unique)"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -12,14 +13,14 @@ ITEM.UserGroups = false
 --Does this item disappear from the inventory after it's been applied?
 ITEM.BurnOnUse = false
 
-ITEM.Model = "models/donation7/donation7.mdl"
+ITEM.Model = "models/lightsaber2/lightsaber2.mdl"
 
 --The chance for the item to appear randomly. 0 = will not spawn, 100 = incredibly high chance
-ITEM.Rarity = 0
+ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/donation7/donation7.mdl"
-	wep.UseLength = 38
+	wep.UseHilt = "models/lightsaber2/lightsaber2.mdl"
+	wep.UseLength = 46
 	wep.SaberDamage = wep.SaberDamage + 100
 end
 

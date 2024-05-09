@@ -13,7 +13,6 @@ wOS.ForcePowers:RegisterNewPower({
 			self:SetForce( self:GetForce() - 50 )
 			self:SetEnabled(false)
 			self:SetBladeLength(0)
-			self:SetNextAttack( 1 )
 			self:GetOwner():DrawWorldModel(false)
 
 			local ent = ents.Create("ent_lightsaber_thrown")

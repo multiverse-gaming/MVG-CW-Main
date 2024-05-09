@@ -17,7 +17,7 @@ ITEM.UserGroups = false
 ITEM.BurnOnUse = false
 
 --The model of the item on the floor / inventory
-ITEM.Model = "models/venator/venator_kybercrystal_wos_blue.mdl"
+ITEM.Model = "models/venator/venator_kybercrystal_wos_white.mdl"
 
 --The chance for the item to appear randomly. 0 = will not spawn, 100 = incredibly high chance
 ITEM.Rarity = 5

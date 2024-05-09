@@ -58,7 +58,7 @@ function ENT:Use(ply)
 					"Katooni Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Sparkling Hilt", "Coruscal Hilt", "Coruscal Shoto" }
 			else
 				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt", "Seny Atirall's Hilt",
-					"Royal 2 Hilt", "Unknown Hilt", "Adi Galia's Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
+					"Royal 2 Hilt", "Unknown Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
 					"Dragonpearl Shoto" }
 			end
 		elseif type <= 90 then
@@ -102,7 +102,7 @@ function ENT:Use(ply)
 		
 		local randomItem = table.Random(items)
 		wOS:HandleItemPickup(ply, randomItem) 
-		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), randomItem)
+		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), "New Hilt Chance", randomItem)
 		self:Remove()
     end
 end

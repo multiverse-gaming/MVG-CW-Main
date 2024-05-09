@@ -12,7 +12,7 @@ function ENT:Initialize()
 end
 
 function ENT:Use( ply )
-    local item1 = wOS:GetItemData( "Royal 2 Hilt" )
+    local item1 = wOS:GetItemData( "Mundi's Hilt" )
     local item2 = wOS:GetItemData( "Corrupted Crystal ( Blue )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )

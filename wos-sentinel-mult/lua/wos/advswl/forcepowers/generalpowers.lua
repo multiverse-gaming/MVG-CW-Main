@@ -189,13 +189,13 @@ wOS.ForcePowers:RegisterNewPower({
 			end
 			if self.ChokeCooldown && CurTime() - 10 < self.ChokeCooldown then return end]]--
 			if ( self:GetNextSecondaryFire() > CurTime() ) then return end
-			if ( self:GetForce() < 4 ) then return end
+			if ( self:GetForce() < 2 ) then return end
 			if not self.ChokeTarget:Alive() then self.ChokeTarget = nil return end
 			if ( !self.Owner:KeyDown( IN_ATTACK2 ) && !self.Owner:KeyReleased( IN_ATTACK2 ) ) then return end
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
 			if ( !self.Owner:KeyReleased( IN_ATTACK2 ) ) then
 				local dmg = DamageInfo()
-				dmg:SetDamage( 2 )
+				dmg:SetDamage( 3 )
 				dmg:SetDamageType( DMG_SLASH )
 				dmg:SetAttacker( self.Owner )
 				dmg:SetInflictor( self )
@@ -207,7 +207,7 @@ wOS.ForcePowers:RegisterNewPower({
 				self.Owner:SetSequenceOverride( "wos_cast_choke_armed", 0.5)
 				self.ChokeTarget:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 0.5 )
 				self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.1 )
-				self:SetForce( self:GetForce() - 2 )
+				self:SetForce( self:GetForce() - 1.5 )
 				if ( !self.SoundChoking ) then
 					self.SoundChoking = CreateSound( self.Owner, "wos/icefuse/choke_active.wav" )
 					self.SoundChoking:PlayEx( 0.25, 100 )
@@ -475,8 +475,8 @@ wOS.ForcePowers:RegisterNewPower({
 			local saberDamage = self.SaberDamage
 			self.SaberDamage = saberDamage + 200
 			self:GetOwner():SetNW2Float( "WinduRageTime", CurTime() + 25 )
-			timer.Simple(31, function()
-				self.SaberDamage = 200
+			timer.Simple(25, function()
+				self.SaberDamage = saberDamage
 			end)
 			return true
 		end

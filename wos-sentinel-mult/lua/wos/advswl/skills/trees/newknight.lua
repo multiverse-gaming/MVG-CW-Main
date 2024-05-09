@@ -72,19 +72,6 @@ TREE.Tier[1][1] = {
 
 TREE.Tier[2] = {}
 
---[[TREE.Tier[2][1] = {
-	Name = "Force Leap",
-	Description = "Leap through the air",
-	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 0,
-    Requirements = {
-	    [1] = { 1 },
-	    },
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Leap" ) end,
-}]]--
-
 TREE.Tier[2][1] = {
 	Name = "Force Speed",
 	Description = "A brief burst of speed.",
@@ -100,6 +87,5 @@ TREE.Tier[2][1] = {
 			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing force speed")
 		end	end,
 }
-
 
 wOS:RegisterSkillTree( TREE )

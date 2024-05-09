@@ -67,7 +67,7 @@ TREE.Tier[1][1] = {
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 1,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) ply:Give("weapon_force_heal", true) end,
 	OnPlayerDeath = function( ply ) end,
@@ -75,19 +75,6 @@ TREE.Tier[1][1] = {
 }
 
 TREE.Tier[1][2] = {
-	Name = "Consular Leap",
-	Description = "THIS IS CURRENTLY A USELESS SKILL. PLEASE WAIT UNTIL NEXT PATCH :)",
-	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 0,
-	Requirements = {
-	[1] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end, 
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
-}
-
-TREE.Tier[1][3] = {
 	Name = "Jedi Consular",
 	Description = "Welcome to the rank of Consular.",
 	Icon = "wos/forceicons/absorb.png",
@@ -98,26 +85,26 @@ TREE.Tier[1][3] = {
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end, 
 }
 
-TREE.Tier[1][4] = {
+TREE.Tier[1][3] = {
 	Name = "Consular Tradeoff 1",
 	Description = "Focus your hardiness into your force.",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 0,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 25 ) ply:SetHealth( ply:Health() - 25 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end, 
 }
 
-TREE.Tier[1][5] = {
+TREE.Tier[1][4] = {
 	Name = "Consular Tradeoff 2",
 	Description = "Focus your hardiness into your force.",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 0,
 	Requirements = {
-	[1] = { 4 },
+	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 25 ) ply:SetHealth( ply:Health() - 25 ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -145,7 +132,7 @@ TREE.Tier[2][2] = {
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -158,7 +145,7 @@ TREE.Tier[2][3] = {
 	Icon = "wos/forceicons/meditate.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -171,7 +158,7 @@ TREE.Tier[2][4] = {
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -179,16 +166,16 @@ TREE.Tier[2][4] = {
 }
 
 TREE.Tier[2][5] = {
-	Name = "Force Buff",
-	Description = "After a brief focus, you can use more force for a time.",
-	Icon = "wos/devestators/sonic.png",
+	Name = "Force Protect",
+	Description = "Give another a chance to live.",
+	Icon = "wos/forceicons/throw.png",
 	PointsRequired = 2,
 	Requirements = {
-	[1] = { 3 },
+	[1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Buff" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Protect" ) end,
 }
 
 
@@ -328,20 +315,19 @@ TREE.Tier[5][1] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1] ) end,
 }
 
 TREE.Tier[5][2] = {
-	Name = "Force Protect",
-	Description = "Give another a chance to live.",
-	Icon = "wos/forceicons/throw.png",
+	Name = "Force Sacrifice",
+	Description = "Channel damage to an ally into yourself.",
+	Icon = "wos/devestators/sonic.png",
 	PointsRequired = 10,
 	Requirements = {
 		[5] = { 1, 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Protect" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Sacrifice" ) end,
 }
 
 TREE.Tier[5][3] = {

@@ -31,7 +31,7 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "FP",
 	target = 1,
 	image = "wos/forceicons/pull.png",
-	cooldown = 180,
+	cooldown = 60,
 	manualaim = true,
 	description = "Hover over a friend, and protect them from harm",
 	action = function( self )
@@ -49,8 +49,8 @@ wOS.ForcePowers:RegisterNewPower({
 		end )
 
 		local originalArmor = ent:Armor()
-		ent:SetArmor(originalArmor + 200)
-		timer.Simple(10, function()
+		ent:SetArmor(originalArmor + 150)
+		timer.Simple(20, function()
 			ent:SetArmor(math.min(originalArmor, ent:Armor()))
 		end)
 		
@@ -70,7 +70,7 @@ wOS.ForcePowers:RegisterNewPower({
     	self:PlayWeaponSound( "lightsaber/force_leap.wav" )
         
 		self:SetMaxForce(self:GetMaxForce() + 100)
-		timer.Simple(45, function()
+		timer.Simple(120, function()
 			self:SetMaxForce(self:GetMaxForce() - 100)
 		end)
         return true
@@ -193,10 +193,10 @@ wOS.ForcePowers:RegisterNewPower({
 		action = function( self )
 			if ( self:GetForce() < 6 or CLIENT ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
-			self:SetNextAttack( 0.2 )
 
 			if (self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
 				if (ent:Health() >= ent:GetMaxHealth()) then return end
+				self:SetNextAttack( 0.1 )
 				local ed = EffectData()
 				ed:SetOrigin( ent:GetPos() )
 				ent:SetHealth( math.min(ent:Health() + 10, ent:GetMaxHealth()))
@@ -236,6 +236,7 @@ wOS.ForcePowers:RegisterNewPower({
 				self:GetOwner():Extinguish()
 				self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
+				self:SetNextAttack( 0.2 )
 			end
 		end
 })
@@ -295,4 +296,61 @@ wOS.ForcePowers:RegisterNewPower({
 			self:SetForce( self:GetForce() - 20 )
 			return true
 		end,
+})
+
+wOS.ForcePowers:RegisterNewPower({ -- As is, does not yet work.
+	name = "Force Sacrifice",
+	icon = "SC",
+	target = 1,
+	distance = 150,
+	description = "Sacrifice your life for your ally",
+	image = "wos/forceicons/throw.png",
+	cooldown = 150,
+	manualaim = true,
+	action = function( self )
+		-- If force below a certain amount, or owner would instantly get removed from the EntityTakeDamage, or bad target, stop.
+		if ( self:GetForce() < 100 || self:GetOwner():Health() < 50 ) then return end
+		local ent = self:SelectTargets( 1 )[ 1 ]
+		if not IsValid( ent ) || !ent:IsPlayer() then return end
+		
+		-- Play sound.
+    	self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+
+		-- Add hook, with a specific name and only applying to the targeted player.
+		local jedi = self:GetOwner()
+		local hookName = jedi:SteamID64() .. ".ForceSacrificeHook." .. math.random(1, 100000)
+		local deathHookName = jedi:SteamID64() .. ".ForceSacrificeDeathHook"
+		hook.Add("EntityTakeDamage", hookName, function ( target, dmginfo )
+			-- If the player targeted is the entity.
+			if (target == ent) then
+				if (jedi.fsac_takingDamag == nil || not jedi.fsac_takingDamage) then
+					jedi.fsac_takingDamage = true
+					-- If jedi would live, deal damage to jedi. Otherwise, remove the force power.
+					if jedi:Health() < dmginfo:GetDamage() then 
+						hook.Remove("EntityTakeDamage", hookName)
+						hook.Remove("PostPlayerDeath", deathHookName)
+					else
+						jedi:TakeDamage(dmginfo:GetDamage(), dmginfo:GetAttacker(), dmginfo:GetInflictor())
+						dmginfo:SetDamage(0)
+						jedi.fsac_takingDamage = false
+					end
+				end
+			end
+		end)
+		hook.Add("PostPlayerDeath", deathHookName, function ( ply )
+			if (ply == jedi || ply == ent) then --if (ply:SteamID64() == jedi:SteamID64()) then
+				hook.Remove("EntityTakeDamage", hookName)
+				hook.Remove("PostPlayerDeath", deathHookName)
+			end			
+		end)
+
+		timer.Simple(10, function ()
+			hook.Remove("EntityTakeDamage", hookName)
+			hook.Remove("PostPlayerDeath", deathHookName)
+		end)
+
+		-- Successful force power - remove force.
+		self:SetForce(self:GetForce() - 100)
+		return true
+	end
 })
