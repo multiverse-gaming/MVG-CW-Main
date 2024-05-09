@@ -2,6 +2,54 @@ wOS = wOS or {}
 wOS.ForcePowers = wOS.ForcePowers or {}
 
 wOS.ForcePowers:RegisterNewPower({
+	name = "Dueling Abilities",
+	icon = "DA",
+	target = 1,
+	distance = 300,
+	description = "Default - Force Reflect, Sprint - Force Valor, Walk - Force Stamina",
+	image = "wos/forceicons/push.png",
+	cooldown = 0,
+	manualaim = true,
+	action = function( self )
+		if ( self:GetOwner():KeyDown( IN_WALK ) && self.ForceStamina ) then
+			-- Force Stamina
+			if (self.ForceStaminaCD != nil && self.ForceStaminaCD > CurTime()) then return end
+			if ( self:GetForce() < 50 ) then return end
+			self:SetForce( self:GetForce() - 50 )
+    		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+	        self:SetStamina(self:GetMaxStamina())
+			self.ForceStaminaCD = CurTime() + 60
+
+		elseif ( self:GetOwner():KeyDown( IN_SPEED ) && self.ForceValor ) then
+			-- Force Valor
+			if ( self:GetForce() < 60 || !self:GetOwner():IsOnGround() ) then return end
+			if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
+			if (self.ForceValorCD != nil && self.ForceValorCD > CurTime()) then return end
+			self:SetForce( self:GetForce() - 60 )
+
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 20 )
+			self.ForceValorCD = CurTime() + 60
+
+		elseif ( self.ForceReflect ) then
+			-- Force Reflect
+    		if (self:GetForce() < 100 || !self:GetOwner():IsOnGround() ) then return end
+			if (self.ForceReflectCD != nil && self.ForceReflectCD > CurTime()) then return end
+    		if self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == 0 or self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == nil then 
+    		    self:GetOwner():SetNWFloat("ReflectTimeHalf", CurTime()) 
+    		end
+    		if self:GetOwner():GetNWFloat( "ReflectTimeHalf", 5 ) >= CurTime() then return end
+    		self:SetForce( self:GetForce() - 100 )
+    		self:SetNextAttack( 0.7 )
+    		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+    		self:GetOwner():SetNWFloat( "ReflectTimeHalf", CurTime() + 5 )
+			self.ForceReflectCD = CurTime() + 20
+
+		end
+	end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 	name = "Force Stamina",
 	icon = "S",
 	image = "wos/forceicons/reflect.png",
@@ -9,10 +57,11 @@ wOS.ForcePowers:RegisterNewPower({
 	description = "Regenerate your stamina",
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
+		if (self.ForceStaminaCD != nil && self.ForceStaminaCD > CurTime()) then return end
 		self:SetForce( self:GetForce() - 50 )
     	self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-        
         self:SetStamina(self:GetMaxStamina())
+		self.ForceStaminaCD = CurTime() + 60
         return true
     end
 })
@@ -71,6 +120,10 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Shocks and destroys everything around you",
 		action = function( self )
 			if ( self:GetForce() < 60 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
+			local maxdist = 128 * 4
+			if (self.FocussedGroundSlam != nil && self.FocussedGroundSlam) then
+				maxdist = 128 * 2
+			end
 			local elev = 400
 			local time = 1
 			ent = self:GetOwner()
@@ -87,7 +140,6 @@ wOS.ForcePowers:RegisterNewPower({
 				end
 			end
 
-			local maxdist = 128 * 4
 
 			local ed = EffectData()
 			ed:SetOrigin( self:GetOwner():GetPos() + Vector( 0, 0, 36 ) )
@@ -134,6 +186,75 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
+		name = "Focussed Ground Slam",
+		icon = "FGS",
+		texture = "star/icon/ground_slam.png",
+        cooldown = 60,
+		description = "Shocks and destroys everything around you - carefully",
+		action = function( self )
+			if ( self:GetForce() < 60 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
+			local elev = 400
+			local time = 1
+			ent = self:GetOwner()
+
+			self:SetForce(self:GetForce() - 100)
+			self:SetNextAttack( 20 )
+
+			for j = 0,6 do
+				for i = 0, 24 do
+					local ed = EffectData()
+					ed:SetOrigin( self:GetOwner():GetPos() + Vector(0,0,0) )
+					ed:SetStart( self:GetOwner():GetPos() + Vector(0,0,0) + Angle(0 , i * 15, 0):Forward() * 128)
+					util.Effect( "force_groundslam", ed, true, true )
+				end
+			end
+
+			local maxdist = 128
+
+			local ed = EffectData()
+			ed:SetOrigin( self:GetOwner():GetPos() + Vector( 0, 0, 36 ) )
+			ed:SetRadius( maxdist )
+			util.Effect( "judge_h_s2_t3", ed, true, true )
+			for i, e in pairs( ents.FindInSphere( self:GetOwner():GetPos(), maxdist ) ) do
+			if(e == self:GetOwner()) then continue end
+			--if (e.Team and e:Team() == self:GetOwner():Team()) or (e.PlayerTeam and e.PlayerTeam == self:GetOwner():Team()) then continue end
+
+				local dist = self:GetOwner():GetPos():Distance( e:GetPos() )
+				local mul = ( maxdist - dist ) / 256
+
+				local v = ( self:GetOwner():GetPos() - e:GetPos() ):GetNormalized()
+				v.z = 0
+
+				local dmg = DamageInfo()
+				dmg:SetDamagePosition( e:GetPos() + e:OBBCenter() )
+				dmg:SetDamage( 600 * mul )
+				dmg:SetDamageType( DMG_DISSOLVE )
+				dmg:SetDamageForce( -v * math.min( mul * 20000, 40000 ) )
+				dmg:SetInflictor( self:GetOwner() )
+				dmg:SetAttacker( self:GetOwner() )
+				e:TakeDamageInfo( dmg )
+
+				if ( e:IsOnGround() ) then
+					e:SetVelocity( v * mul * -2048 + Vector( 0, 0, 64 ) )
+				elseif ( !e:IsOnGround() ) then
+					e:SetVelocity( v * mul * -1024 + Vector( 0, 0, 64 ) )
+				end
+			end
+
+			if ( !self.SoundLightning ) then
+				self.SoundLightning = CreateSound( self:GetOwner(), "lightsaber/force_lightning" .. math.random( 1, 2 ) .. ".wav" )
+				self.SoundLightning:Play()
+				self.SoundLightning:ChangeVolume(0,0.3)
+			else
+				self.SoundLightning:Play()
+			end
+			timer.Create( "test", 0.6, 1, function() if ( self.SoundLightning ) then self.SoundLightning:Stop() self.SoundLightning = nil end end )
+
+			self:PlayWeaponSound( "ambient/explosions/explode_7.wav" )
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 name = "Force Reflect Half",
 icon = "FRH",
 image = "wos/forceicons/reflect.png",
@@ -141,6 +262,7 @@ cooldown = 20,
 description = "An eye for an eye",
 action = function(self)
     if (self:GetForce() < 100 || !self:GetOwner():IsOnGround() ) then return end
+	if (self.ForceReflectCD != nil && self.ForceReflectCD > CurTime()) then return end
     if self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == 0 or self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == nil then 
         self:GetOwner():SetNWFloat("ReflectTimeHalf", CurTime()) 
     end
@@ -149,6 +271,7 @@ action = function(self)
     self:SetNextAttack( 0.7 )
     self:PlayWeaponSound( "lightsaber/force_leap.wav" )
     self:GetOwner():SetNWFloat( "ReflectTimeHalf", CurTime() + 5 )
+	self.ForceReflectCD = CurTime() + 20
     return true
 end
 })
@@ -223,11 +346,13 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Unleash your focused mind",
 		action = function( self )
 		if ( self:GetForce() < 60 || !self:GetOwner():IsOnGround() ) then return end
-			if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
+		if (self.ForceValorCD != nil && self.ForceValorCD > CurTime()) then return end
+		if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
 			self:SetForce( self:GetForce() - 60 )
 
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 20 )
+			self.ForceValorCD = CurTime() + 60
 			return true
 		end
 })

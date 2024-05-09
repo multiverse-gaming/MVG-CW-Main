@@ -47,7 +47,7 @@ function ENT:Use(ply)
 				items = {"Samurai Hilt", "Pulsating Blue Hilt", "Forked Hilt", "Royal 1 Hilt", "Jocastanu Hilt", "Ziost Guardian's Hilt", "Unstable Arbiter's Hilt",
 						"Pitiless Raider Hilt", "Mytag Hilt", "Artusian Hilt", "Firenode Hilt", "Fearless Retaliator's Hilt", "Conqueror's Hilt", "Blademaster's Hilt", "Days Hilt"}
 			elseif chance <= 85 then
-				items = {"Felucia 2 Hilt", "Felucia 1 Hilt", "Adi Galia's Hilt", "Affiliation Hilt", "Zatt Hilt", "Zebra Hilt", "Talz Hilt", "Gungi Hilt", "Thexan's Hilt",
+				items = {"Felucia 2 Hilt", "Felucia 1 Hilt", "Affiliation Hilt", "Zatt Hilt", "Zebra Hilt", "Talz Hilt", "Gungi Hilt", "Thexan's Hilt",
 						"Revanite's Mk2 Hilt", "Praetorian's Hilt", "Unstable Peacemaker's Hilt", "Vindicator's Hilt", "Warden's Hilt", "Kyle Hilt"}
 			elseif chance <= 95 then
 				items = {"Katooni Hilt", "Sparkling Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Dauntless Hilt", "Outlander Hilt", "Rishi's Mk1 Hilt", "Tythonian Force Master's Hilt", "Vengeance's Sunsealed Hilt", "Hiridu Hilt"}
@@ -87,7 +87,7 @@ function ENT:Use(ply)
 		end
 		local randomItem = table.Random(items)
 		wOS:HandleItemPickup(ply, randomItem) 
-		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), randomItem)
+		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner():GetName(), "New Hilt Chance", randomItem)
 		self:Remove()
     	--local randomItems = {69,75,76,77,78,79,80,81,82,84,86,87,96,103,105,106,107,108,110,111,128,129,130,133,134,135,136,137,139,140,141,146,153,158,159}
     	--local randomItemsRare = {181,183}

@@ -9,8 +9,9 @@ MODULE:Setup(function()
 		MODULE:LogPhrase("wiltosLog",
 		GAS.Logging:FormatPlayer(playerUser),
 		GAS.Logging:Highlight(itemUsed),
-		GAS.Logging:FormatPlayer(playerSpawner),
+		GAS.Logging:Highlight(playerSpawner),
 		GAS.Logging:Highlight(itemGot))
+		--MODULE:Log(GAS.Logging:FormatPlayer(ply) .. ": " .. GAS.Logging:Highlight("[OOC]") .. " " .. GAS.Logging:Escape(args))
 	end)
 	
 	-- How to call this function:

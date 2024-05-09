@@ -77,16 +77,16 @@ TREE.Tier[1][1] = {
 	end	end,
 }
 TREE.Tier[1][2] = {
-	Name = "Guardian Leap",
-	Description = "THIS IS CURRENTLY A USELESS SKILL. PLEASE WAIT UNTIL THE NEXT PATCH :)",
-	Icon = "wos/forceicons/leap.png",
+	Name = "Dueling Abilities",
+	Description = "Use this to use valor, stamina and reflect.",
+	Icon = "wos/forceicons/advanced_cloak.png",
 	PointsRequired = 0,
 	Requirements = {
 	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Dueling Abilities" ) end,
 }
 
 TREE.Tier[1][3] = {
@@ -168,12 +168,25 @@ TREE.Tier[2][3] = {
 }
 
 TREE.Tier[2][4] = {
-	Name = "Force Reflect (Half)",
-	Description = "Use the force to reflect half damage for a time.",
+	Name = "Force Reflect Half Upgrade",
+	Description = "Use the force to reflect half damage for a time. Default Dueling Abilities skill.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
 	[1] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForceReflect = true end,
+}
+
+TREE.Tier[2][5] = {
+	Name = "Force Reflect Half Skill",
+	Description = "Use the force to reflect half damage for a time. Seperate Skill.",
+	Icon = "wos/forceicons/reflect.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 4 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -183,6 +196,32 @@ TREE.Tier[2][4] = {
 TREE.Tier[3] = {}
 
 TREE.Tier[3][1] = {
+	Name = "Force Stamina Skill",
+	Description = "Channel the force into yourself, and regain your lost stamina.",
+	Icon = "wos/forceicons/reflect.png",
+	PointsRequired = 0,
+	Requirements = {
+		[3] = { 2 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stamina" ) end,
+}
+
+TREE.Tier[3][2] = {
+	Name = "Force Stamina Upgrade",
+	Description = "Channel the force into yourself, and regain your lost stamina.",
+	Icon = "wos/forceicons/reflect.png",
+	PointsRequired = 2,
+	Requirements = {
+		[2] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForceStamina = true end,
+}
+
+TREE.Tier[3][3] = {
 	Name = "Saber Throw",
 	Description = "Throw your saber at your opponent.",
 	Icon = "wos/forceicons/throw.png",
@@ -195,26 +234,39 @@ TREE.Tier[3][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Saber Throw" ) end,
 }
 
-TREE.Tier[3][2] = {
-	Name = "Force Stamina",
-	Description = "Channel the force into yourself, and regain your lost stamina.",
-	Icon = "wos/forceicons/reflect.png",
+TREE.Tier[3][4] = {	
+	Name = "Focused Ground Slam",
+	Description = "Make Ground Slam safer to use near allies. ",
+	Icon = "wos/forceicons/shadow_strike.png",
+	PointsRequired = 0,
+	Requirements = {
+		[2] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.FocussedGroundSlam = true end,
+}
+
+TREE.Tier[3][5] = {	
+	Name = "Force Valor Upgrade",
+	Description = "Deal more damage briefly.",
+	Icon = "wos/forceicons/shadow_strike.png",
 	PointsRequired = 2,
 	Requirements = {
 		[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stamina" ) end,
+	OnSaberDeploy = function( wep ) wep.ForceValor = true end,
 }
 
-TREE.Tier[3][3] = {	
-	Name = "Force Valor",
-	Description = "Deal more damage briefly.",
+TREE.Tier[3][6] = {	
+	Name = "Force Valor Skill",
+	Description = "Deal more damage briefly. Seperate Skill. ",
 	Icon = "wos/forceicons/shadow_strike.png",
-	PointsRequired = 2,
+	PointsRequired = 0,
 	Requirements = {
-	[2] = { 3 },
+		[3] = { 5 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -268,7 +320,6 @@ TREE.Tier[5][1] = {
 	Requirements = {
 		[4] = { 1 },
 	},
-	-- HPDOUBLECHANGE
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,

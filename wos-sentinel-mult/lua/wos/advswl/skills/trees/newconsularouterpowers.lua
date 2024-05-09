@@ -60,14 +60,14 @@ TREE.Tier = {}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Sentinel - Force EMP",
-	Description = "Less damage that a sentinel can put out, but hurts droids all the same.",
-	Icon = "wos/forceicons/icefuse/blind.png",
+	Name = "Sentinel - Force Light",
+	Description = "Consulars need to see in the dark too.",
+	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 8,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Consular Force EMP" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
 }
 
 TREE.Tier[1][2] = {

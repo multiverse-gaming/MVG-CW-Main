@@ -9,6 +9,43 @@ wOS = wOS or {}
 wOS.ForcePowers = wOS.ForcePowers or {}
 
 wOS.ForcePowers:RegisterNewPower({
+		name = "Push And Pull",
+		icon = "P",
+		target = 1,
+		description = "Default - Force Pull, Sprint - Force Push",
+		image = "wos/forceicons/pull.png",
+		cooldown = 8,
+		manualaim = false,
+		action = function( self )
+			if ( self:GetOwner():KeyDown( IN_SPEED ) && self.ForcePush ) then
+				if ( self:GetForce() < 30 ) then return end
+				local ent = self:SelectTargets( 1 )[ 1 ]
+				if not IsValid( ent ) then return end
+				self:GetOwner():SetSequenceOverride("idle_magic", 1)
+				self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
+				local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
+				newpos = newpos / newpos:Length()
+				ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
+				self:SetForce( self:GetForce() - 30 )
+				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
+				return true
+
+			elseif ( self.ForcePull ) then
+				if ( self:GetForce() < 30 ) then return end
+				local ent = self:SelectTargets( 1 )[ 1 ]
+				if not IsValid( ent ) then return end
+				self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
+				local newpos = ( self:GetOwner():GetPos() - ent:GetPos() )
+				newpos = newpos / newpos:Length()
+				ent:SetVelocity( newpos*700 + Vector( 0, 0, 300 ) )
+				self:SetForce( self:GetForce() - 30 )
+				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
+				return true
+			end
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 		name = "Force Pull",
 		icon = "PL",
 		target = 1,
@@ -26,7 +63,6 @@ wOS.ForcePowers:RegisterNewPower({
 			ent:SetVelocity( newpos*700 + Vector( 0, 0, 300 ) )
 			self:SetForce( self:GetForce() - 30 )
 			self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
-			self:SetNextAttack( 1.5 )
 			return true
 		end
 })
@@ -51,7 +87,6 @@ wOS.ForcePowers:RegisterNewPower({
 			ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 			self:SetForce( self:GetForce() - 30 )
 			self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
-			self:SetNextAttack( 1.5 )
 			return true
 		end
 })

@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Ganodi Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Common)"
 
 ITEM.Type = WOSTYPE.HILT
 

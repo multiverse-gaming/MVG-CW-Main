@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "The Grand Saber Hilt"
 
-ITEM.Description = "Lightsaber Hilt"
+ITEM.Description = "(Unique)"
 
 ITEM.Type = WOSTYPE.HILT
 

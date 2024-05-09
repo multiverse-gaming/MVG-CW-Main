@@ -32,8 +32,8 @@ FORM.Stances[1] = {
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "r_right_t3",
-		Time = nil,
+		Sequence = "ryoku_r_right_t1",
+		Time = 0.9,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
