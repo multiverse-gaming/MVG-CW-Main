@@ -41,6 +41,16 @@ wOS.ALCS.LightsaberBase:AddBind({
 	end,
 })
 
+util.AddNetworkString("wOS.ALCS.ToggleTargetModel")
+wOS.ALCS.LightsaberBase:AddBind({
+	Name = "Target Mode Toggle",
+	Binds = { IN_WALK, IN_SPEED },
+	Func = function( wep )
+		net.Start( "wOS.ALCS.ToggleTargetModel" )
+		net.Send( wep.Owner )
+	end,
+})
+
 --[[
 wOS.ALCS.LightsaberBase:AddBind({
 	Name = "Force Lock-On",

@@ -609,8 +609,8 @@ function wOS.ALCS.LightsaberBase:HandleTarget( wep )
 	local ply = wep.Owner
 	
 	if not powerdata.target then return end
-	
-	if not ply:KeyDown( IN_USE ) then return end
+
+	if not ply:KeyDown( IN_USE ) && ( wep.TargetMode ~= 2 ) then return end
 	
 	local targets = wep:GetTargetEntity( powerdata.dist or 512, powerdata.target )
 	for _, target in ipairs( targets ) do
@@ -632,4 +632,16 @@ function wOS.ALCS.LightsaberBase:HandleTarget( wep )
 		} )		
 	end
 
+end
+
+if (!SERVER) then
+	net.Receive( "wOS.ALCS.ToggleTargetModel", function()
+		local wep = LocalPlayer():GetActiveWeapon()
+		if not wep.IsLightsaber then return end
+		if (wep.TargetMode == nil || wep.TargetMode == 1) then
+			wep.TargetMode = 2
+		else
+			wep.TargetMode = 1
+		end
+	end )
 end
