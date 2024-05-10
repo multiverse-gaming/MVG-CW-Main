@@ -175,19 +175,6 @@ TREE.Tier[2][3] = {
 }
 
 TREE.Tier[2][4] = {
-	Name = "Force Blind",
-	Description = "Use the force to hinder your opponents sight.",
-	Icon = "wos/forceicons/icefuse/blind.png",
-	PointsRequired = 2,
-	Requirements = {
-	[1] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Blind" ) end,
-}
-
-TREE.Tier[2][5] = {
 	Name = "Force Light Upgrade",
 	Description = "Light the way for yourself and others. Walking Sentinel Abilities skill.",
 	Icon = "wos/forceicons/lightstream.png",
@@ -200,17 +187,30 @@ TREE.Tier[2][5] = {
 	OnSaberDeploy = function( wep ) wep.ForceLight = true end,
 }
 
-TREE.Tier[2][6] = {
+TREE.Tier[2][5] = {
 	Name = "Force Light Skill",
 	Description = "Light the way for yourself and others. Seperate Skill",
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 0,
 	Requirements = {
-	[2] = { 5 },
+	[2] = { 4 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
+}
+
+TREE.Tier[2][6] = {
+	Name = "Force Blind",
+	Description = "Use the force to hinder your opponents sight.",
+	Icon = "wos/forceicons/icefuse/blind.png",
+	PointsRequired = 2,
+	Requirements = {
+	[1] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Blind" ) end,
 }
 
 TREE.Tier[2][7] = {

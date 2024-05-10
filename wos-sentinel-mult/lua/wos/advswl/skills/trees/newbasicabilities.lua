@@ -80,7 +80,7 @@ TREE.Tier[2][1] = {
     Requirements = {  },
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep.ForcePull = true end,
+	OnSaberDeploy = function( wep ) wep.ForcePush = true end,
 }
 
 TREE.Tier[2][2] = {
