@@ -343,17 +343,4 @@ TREE.Tier[5][3] = {
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina( wep:GetMaxStamina() + ForceHpSpeedStamina[4] + 1 ) end,
 }
 
---[[TREE.Tier[5][1] = {
-	Name = "Force Sacrifice",
-	Description = "Protect a target with your very lifeforce.",
-	Icon = "wos/forceicons/throw.png",
-	PointsRequired = 15,
-	Requirements = {
-		[4] = { 2, 4 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Sacrifice" ) end,
-}]]--
-
 wOS:RegisterSkillTree( TREE )

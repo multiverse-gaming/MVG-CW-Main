@@ -449,12 +449,13 @@ wOS.ForcePowers:RegisterNewPower({
 
 			local maxStamina = self:GetMaxStamina()
 			self:SetMaxStamina(98)
+			local wep = self
 			-- Every X seconds, give Obi full stamina. 
 			timer.Create("wos.Custom.ObiStamina." .. self.Owner:SteamID64(), 0.5, 20, function() 
-				self:SetMaxStamina(self:GetMaxStamina())
+				wep:SetStamina(wep:GetMaxStamina())
 			end)
 			timer.Simple(10, function()
-				self:SetMaxStamina(maxStamina)
+				wep:SetMaxStamina(maxStamina)
 			end)
 			return true
 		end

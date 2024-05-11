@@ -90,9 +90,9 @@ TREE.Tier[1][2] = {
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:Give("weapon_lightsaber_personal_yoda") end,
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce( wep:GetMaxForce() + 30 ) end,
+	OnSaberDeploy = function( wep ) wep.RegenSpeed = 1.5 wep:SetMaxForce( wep:GetMaxForce() + 30 ) end,
 }
 
 TREE.Tier[2] = {}
