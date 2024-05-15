@@ -92,23 +92,23 @@ player_manager.AddValidHands( "Phase 2 91st Recon ARC Spirit (CGI)", "models/aus
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit Jet Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_jet.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit Jet Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_jet.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit Jet Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_arms.mdl",0,"10000000" )
+player_manager.AddValidHands( "Phase 2 Doom's Unit Jet Trooper (CGI)", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit HRS Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_hrs.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit HRS Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_hrs.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Trooper (CGI)", "models/aussiwozzi/cgi/base/doom_arms.mdl",0,"10000000" )
+player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Trooper (CGI)", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit Sydney (CGI)", "models/aussiwozzi/cgi/base/doom_sydney.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit HRS Sydney (CGI)", "models/aussiwozzi/cgi/base/doom_sydney.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Sydney (CGI)", "models/aussiwozzi/cgi/base/doom_arms.mdl",0,"10000000" )
+player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Sydney (CGI)", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit HRS Officer (CGI)", "models/aussiwozzi/cgi/base/doom_hrs_officer.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit HRS Officer (CGI)", "models/aussiwozzi/cgi/base/doom_hrs_officer.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Officer (CGI)", "models/aussiwozzi/cgi/base/doom_arms.mdl",0,"10000000" )
+player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Officer (CGI)", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit HRS Medic (CGI)", "models/aussiwozzi/cgi/base/doom_hrs_medic.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit HRS Medic (CGI)", "models/aussiwozzi/cgi/base/doom_hrs_medic.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Medic (CGI)", "models/aussiwozzi/cgi/base/doom_arms.mdl",0,"10000000" )
+player_manager.AddValidHands( "Phase 2 Doom's Unit HRS Medic (CGI)", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 21st Nova Corps Tre (CGI)", "models/aussiwozzi/cgi/base/gm_elite.mdl" )
 player_manager.AddValidModel( "Phase 2 21st Nova Corps Tre (CGI)", "models/aussiwozzi/cgi/base/gm_elite.mdl" )
