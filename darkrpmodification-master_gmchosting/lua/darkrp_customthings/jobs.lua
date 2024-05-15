@@ -5423,7 +5423,7 @@ TEAM_NSOADV = DarkRP.createJob("NSO Advisor", {
 
 TEAM_NSOCQC = DarkRP.createJob("NSO CQC Expert", {
     color = Color(76, 90, 117),
-    model = {"models/aussiwozzi/cgi/base/nso_roach.mdl","models/aussiwozzi/cgi/base/nso_crusader.mdl","models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_nari.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
     description = [[Congratulations, you are a NSO CQC expert!]],
     weapons = {"arccw_cr2", "arccw_dc15_nso", "arccw_dual_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsocqc",
@@ -5459,7 +5459,7 @@ TEAM_NSOMED = DarkRP.createJob("NSO Medic", {
 
 TEAM_NSOA = DarkRP.createJob("NSO Agent", {
     color = Color(76, 90, 117),
-    model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_nari.mdl"},
     description = [[Congratulations, you are a NSO Agent!]],
     weapons = {"arccw_dc15_nso", "arccw_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsoa",
