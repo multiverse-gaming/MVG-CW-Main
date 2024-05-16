@@ -7,7 +7,7 @@ wOS.ForcePowers:RegisterNewPower({
 	target = 1,
 	distance = 300,
 	description = "Default - Force Reflect, Sprint - Force Valor, Walk - Force Stamina",
-	image = "wos/forceicons/push.png",
+	image = "wos/skilltrees/forms/aggressive.png",
 	cooldown = 0,
 	manualaim = true,
 	action = function( self )
@@ -287,6 +287,7 @@ wOS.ForcePowers:RegisterNewPower({
 	manualaim = false,
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
+		if (self.ForceHardenedPushCD != nil && self.ForceHardenedPushCD > CurTime()) then return end
 		local ent = self:SelectTargets( 1 )[ 1 ]
 		if not IsValid( ent ) then return end
 		self:SetForce( self:GetForce() - 50 )
@@ -302,6 +303,7 @@ wOS.ForcePowers:RegisterNewPower({
 		newpos = newpos / newpos:Length()
 		ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 		self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
+		self.ForceHardenedPushCD = CurTime() + 10
 		return true
 	end
 })

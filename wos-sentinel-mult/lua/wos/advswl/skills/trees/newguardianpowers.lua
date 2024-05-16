@@ -129,12 +129,12 @@ TREE.Tier[1][5] = {
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
-	Name = "Weak Hardened Force Push",
+	Name = "Weak Hardened Force Push Skill",
 	Description = "Hurt your enemy, and push them away.",
 	Icon = "wos/forceicons/pull.png",
-	PointsRequired = 2,
+	PointsRequired = 0,
 	Requirements = {
-	[1] = { 3 },
+	[2] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -142,32 +142,19 @@ TREE.Tier[2][1] = {
 }
 
 TREE.Tier[2][2] = {
-	Name = "Charge",
-	Description = "Launch yourself at your opponent.",
-	Icon = "wos/forceicons/charge.png",
+	Name = "Weak Hardened Force Push Upgrade",
+	Description = "Upgrades the basic Push And Pull skill to do damage.",
+	Icon = "wos/forceicons/pull.png",
 	PointsRequired = 2,
 	Requirements = {
 	[1] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Charge" ) end,
+	OnSaberDeploy = function( wep ) wep.HardenedForcePush = true end,
 }
 
 TREE.Tier[2][3] = {
-	Name = "Ground Slam",
-	Description = "Slam your fist into the ground and damage the enemies before you.",
-	Icon = "wos/devestators/slam.png",
-	PointsRequired = 2,
-	Requirements = {
-	[1] = { 3 },
-	},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Ground Slam" ) end,
-}
-
-TREE.Tier[2][4] = {
 	Name = "Force Reflect Half Upgrade",
 	Description = "Use the force to reflect half damage for a time. Default Dueling Abilities skill.",
 	Icon = "wos/forceicons/reflect.png",
@@ -180,17 +167,30 @@ TREE.Tier[2][4] = {
 	OnSaberDeploy = function( wep ) wep.ForceReflect = true end,
 }
 
-TREE.Tier[2][5] = {
+TREE.Tier[2][4] = {
 	Name = "Force Reflect Half Skill",
 	Description = "Use the force to reflect half damage for a time. Seperate Skill.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 0,
 	Requirements = {
-	[2] = { 4 },
+	[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Reflect Half" ) end,
+}
+
+TREE.Tier[2][5] = {
+	Name = "Charge",
+	Description = "Launch yourself at your opponent.",
+	Icon = "wos/forceicons/charge.png",
+	PointsRequired = 2,
+	Requirements = {
+	[1] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Charge" ) end,
 }
 
 TREE.Tier[3] = {}
@@ -234,20 +234,33 @@ TREE.Tier[3][3] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Saber Throw" ) end,
 }
 
-TREE.Tier[3][4] = {	
+TREE.Tier[3][4] = {
+	Name = "Ground Slam",
+	Description = "Slam your fist into the ground and damage the enemies before you.",
+	Icon = "wos/devestators/slam.png",
+	PointsRequired = 2,
+	Requirements = {
+		[2] = { 3 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Ground Slam" ) end,
+}
+
+TREE.Tier[3][5] = {	
 	Name = "Focused Ground Slam",
 	Description = "Make Ground Slam safer to use near allies. ",
 	Icon = "wos/forceicons/shadow_strike.png",
 	PointsRequired = 0,
 	Requirements = {
-		[2] = { 3 },
+		[3] = { 4 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep.FocussedGroundSlam = true end,
 }
 
-TREE.Tier[3][5] = {	
+TREE.Tier[3][6] = {	
 	Name = "Force Valor Upgrade",
 	Description = "Deal more damage briefly.",
 	Icon = "wos/forceicons/shadow_strike.png",
@@ -260,13 +273,13 @@ TREE.Tier[3][5] = {
 	OnSaberDeploy = function( wep ) wep.ForceValor = true end,
 }
 
-TREE.Tier[3][6] = {	
+TREE.Tier[3][7] = {	
 	Name = "Force Valor Skill",
 	Description = "Deal more damage briefly. Seperate Skill. ",
 	Icon = "wos/forceicons/shadow_strike.png",
 	PointsRequired = 0,
 	Requirements = {
-		[3] = { 5 },
+		[3] = { 6 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,

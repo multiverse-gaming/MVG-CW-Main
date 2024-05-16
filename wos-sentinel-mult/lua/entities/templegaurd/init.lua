@@ -16,6 +16,7 @@ function ENT:Use( ply )
     local item2 = wOS:GetItemData( "Crystal ( Yellow )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Temple Guard Prep (Pike)", "Hilt And Crystal")
     self:Remove()
 end
 

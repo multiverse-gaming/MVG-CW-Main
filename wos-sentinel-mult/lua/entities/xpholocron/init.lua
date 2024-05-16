@@ -35,7 +35,7 @@ function ENT:Use(ply)
         }
     if jedi[ply:Team()] then
 	ply:AddSkillXP(400)
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "XP Holocron")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "XP Holocron", "400 XP")
 	self:Remove()
     end
 end

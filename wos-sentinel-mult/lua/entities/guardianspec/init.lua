@@ -15,7 +15,7 @@ function ENT:Use( ply )
     wOS:HandleItemPickup( ply, "Twin Hilt")
     wOS:HandleItemPickup( ply, "Crystal ( Blue )")
     wOS:HandleItemPickup( ply, "Crystal ( Cyan )")
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Crystals")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Guardian Prep", "Hilt And Crystals")
     self:Remove()
 end
 

@@ -20,7 +20,8 @@ function ENT:Use( ply )
     wOS:HandleItemPickup( ply, item2.Name )
     wOS:HandleItemPickup( ply, item3.Name )
     wOS:HandleItemPickup( ply, item4.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Hilts and Crystals")
+	wOS:HandleItemPickup(ply, randomItem) 
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Aayla Prep", "Hilts And Crystals")
     self:Remove()
 end
 

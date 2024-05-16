@@ -16,7 +16,7 @@ function ENT:Use( ply )
     local item2 = wOS:GetItemData( "Corrupted Crystal ( Blue )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Hilts and Crystals")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Plo Koon Prep", "Hilt And Crystal")
     self:Remove()
 end
 

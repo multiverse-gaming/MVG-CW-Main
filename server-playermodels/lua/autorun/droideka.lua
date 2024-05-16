@@ -18,6 +18,8 @@ local settings = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = true,
 	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local settings2 = {
@@ -35,12 +37,14 @@ local settings2 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = true,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local settings3 = {
 	["name"] = "Yoda2",
 	["model"] = "models/tfa/comm/gg/pm_sw_yoda.mdl",
-	["scale"] = 0.5,
+	["scale"] = nil,
 	["developermode"] = false,
 	["viewoffset"] = 32,
 	["duckviewoffset"] = 14,
@@ -52,6 +56,8 @@ local settings3 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = true,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = 0.4,
 }
 
 local settings4 = {
@@ -69,6 +75,8 @@ local settings4 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = true,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local settings5 = {
@@ -86,6 +94,8 @@ local settings5 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local settings6 = {
@@ -103,6 +113,8 @@ local settings6 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local settings7 = {
@@ -120,6 +132,8 @@ local settings7 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
 }
 
 local mEnt = FindMetaTable("Entity")
@@ -157,7 +171,17 @@ else
 		if(IsValid(ply)) then
 			local model = net.ReadString()
 			local tab = SPM_Pool[model]
-			ply:SetModelScale(tab["scale"])
+
+			if (tab["scale"] ~= nil) then
+				ply:SetModelScale(tab["scale"])
+			end
+
+			if (tab["hullScale"] ~= nil) then
+				local min, max = ply:GetHull()
+				ply:SetHull(min, Vector(16, 16, 72 * tab["hullScale"]))
+				ply:SetHullDuck(min, Vector(16, 16, 36 * tab["hullScale"]))
+			end
+
 			ply:SetViewOffset(Vector(0, 0, tab["viewoffset"]))
 			ply:SetViewOffsetDucked(Vector(0, 0, tab["duckviewoffset"]))
 		end
@@ -185,9 +209,19 @@ if(SERVER) then
 			if(SPM_Pool[ply:GetModel()] ~= nil) then
 				local tab = SPM_Pool[ply:GetModel()]
 
-				ply:SetModelScale(tab["scale"])
+				if (tab["scale"] ~= nil) then
+					ply:SetModelScale(tab["scale"])
+				end
+
 				ply:SetViewOffset(Vector(0, 0, tab["viewoffset"]))
 				ply:SetViewOffsetDucked(Vector(0, 0, tab["duckviewoffset"]))
+
+				if (tab["hullScale"] ~= nil) then
+					local min, max = ply:GetHull()
+					ply:SetHull(min, Vector(16, 16, 72 * tab["hullScale"]))
+					ply:SetHullDuck(min, Vector(16, 16, 36 * tab["hullScale"]))
+				end
+				
 				net.Start("CustomRescaleModel")
 				net.WriteString( ply:GetModel() )
 				net.Send(ply)
@@ -226,6 +260,31 @@ hook.Add("PostPlayerDeath", "CustomRemoveScaleDeathRagdoll", function(ply)
 		end
 	end
 
+end)
+
+hook.Add("EntityTakeDamage", "ReducePlayerKnockbackPerModel", function(target, dmginfo)
+    -- Check if the entity taking damage is a player
+    if target:IsPlayer() then
+		local tab = SPM_Pool[target:GetModel()]
+		if(SPM_Pool[target:GetModel()] ~= nil) then
+			local scale = tab["scale"]
+			if scale ~= nil && scale < 1 then
+				if (!target._TakingReducedKnockbackDamage) then
+					target._TakingReducedKnockbackDamage = true
+					local mulitplier = scale * scale * scale
+					local newDamage = dmginfo:GetDamage()
+					dmginfo:SetDamage(mulitplier * dmginfo:GetDamage())
+					local newDamageInfo = DamageInfo()
+					local Attacker = dmginfo:GetAttacker()
+					newDamageInfo:SetAttacker(Attacker)
+					newDamageInfo:SetDamage(newDamage - dmginfo:GetDamage())
+					newDamageInfo:SetDamageType( dmginfo:GetDamageType() )
+					target:TakeDamageInfo(newDamageInfo)
+					target._TakingReducedKnockbackDamage = false
+				end
+			end
+		end
+    end
 end)
 
 hook.Add("PostDrawTranslucentRenderables", settings["name"].."DeveloperMode", function()

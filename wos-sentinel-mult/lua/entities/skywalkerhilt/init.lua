@@ -18,7 +18,7 @@ function ENT:Use( ply )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
     wOS:HandleItemPickup( ply, item3.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Hilts and Crystals")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Anakin Prep", "Hilts And Crystal")
     self:Remove()
 end
 
