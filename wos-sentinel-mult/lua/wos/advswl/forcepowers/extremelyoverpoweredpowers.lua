@@ -361,7 +361,7 @@ wOS.ForcePowers:RegisterNewPower({
 		return true
 	end
 })
-
+--[[
 hook.Add( "EntityTakeDamage", "wOS.ALCS.DA.EnergyShell", function( ply, dmg )
 	if ( !ply.GetActiveWeapon || !ply:IsPlayer() ) then return end
 	local wep = ply:GetActiveWeapon()
@@ -372,7 +372,7 @@ hook.Add( "EntityTakeDamage", "wOS.ALCS.DA.EnergyShell", function( ply, dmg )
 	dmg:SetDamage( dmg:GetDamage()*0.2 )
 	wep:SetDevEnergy( math.min( wep:GetDevEnergy() + damage, 100 ) )
 	return
-end )
+end )]]--
 
 hook.Add( "Move", "wOS.ALCS.DA.SlowingEffect", function( ply, mv )
 

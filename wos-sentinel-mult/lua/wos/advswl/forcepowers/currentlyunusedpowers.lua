@@ -241,13 +241,13 @@ hook.Add( "PlayerCanJoinTeam", "wOS.Lightsaber.StopTheChoke", function( ply )
 
 end)
 
-local BattlemeditationMVGDamageReduction = false
+--local BattlemeditationMVGDamageReduction = false
 
-hook.Add("EntityTakeDamage", "BattlemeditationMVGDamageReductionHook", function(target, dmg)
+--[[hook.Add("EntityTakeDamage", "BattlemeditationMVGDamageReductionHook", function(target, dmg)
 	if BattlemeditationMVGDamageReduction and target:IsPlayer() then
 		dmg:ScaleDamage(0.9)
 	end
-end)
+end)]]--
 
 wOS.ForcePowers:RegisterNewPower({
 

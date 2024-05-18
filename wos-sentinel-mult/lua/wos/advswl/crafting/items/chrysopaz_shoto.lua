@@ -1,6 +1,6 @@
 local ITEM = {}
 
-ITEM.Name = "Chrysopaz Hilt"
+ITEM.Name = "Chrysopaz Shoto"
 
 ITEM.Description = "(Common)"
 
@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/chrysopazlightsaber.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 33
 end
 
 wOS:RegisterItem( ITEM )
