@@ -102,7 +102,7 @@ function ENT:Use(ply)
 		
 		local randomItem = table.Random(items)
 		wOS:HandleItemPickup(ply, randomItem) 
-		hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), "New Hilt Chance", randomItem)
+		hook.Call("WILTOS.ItemUsed", nil, ply, "New Hilt Chance", randomItem)
 		self:Remove()
     end
 end

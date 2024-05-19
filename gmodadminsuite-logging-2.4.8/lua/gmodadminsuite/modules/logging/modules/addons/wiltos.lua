@@ -5,17 +5,12 @@ MODULE.Name		= "Kits And Hilts"
 MODULE.Colour   = Color(255,90,0)
 
 MODULE:Setup(function()
-	MODULE:Hook("WILTOS.ItemUsed", "WILTOS.ItemUsed", function(playerUser, playerSpawner, itemUsed, itemGot)
+	MODULE:Hook("WILTOS.ItemUsed", "WILTOS.ItemUsed", function(playerUser, itemUsed, itemGot)
 		MODULE:LogPhrase("wiltosLog",
 		GAS.Logging:FormatPlayer(playerUser),
 		GAS.Logging:Highlight(itemUsed),
-		GAS.Logging:Highlight(playerSpawner),
 		GAS.Logging:Highlight(itemGot))
-		--MODULE:Log(GAS.Logging:FormatPlayer(ply) .. ": " .. GAS.Logging:Highlight("[OOC]") .. " " .. GAS.Logging:Escape(args))
 	end)
-	
-	-- How to call this function:
-	-- hook.Call("WILTOS.ItemUsed", nil, playerUser, playerSpawner, itemUsed, itemGot)
 end)
 
 GAS.Logging:AddModule(MODULE)

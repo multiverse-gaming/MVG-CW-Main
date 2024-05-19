@@ -28,6 +28,18 @@ wOS.ForcePowers:RegisterNewPower({
 				ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 				self:SetForce( self:GetForce() - 30 )
 				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
+
+				if (self.HardenedForcePush != nil && self.HardenedForcePush) then
+					if (self.ForceHardenedPushCD != nil && self.ForceHardenedPushCD > CurTime()) then return true end
+					local dmg = DamageInfo()
+					dmg:SetAttacker( self:GetOwner() || self )
+					dmg:SetInflictor( self:GetOwner() || self )
+					dmg:SetDamageType( DMG_DISSOLVE )
+					dmg:SetDamage( 75 )
+					ent:TakeDamageInfo( dmg )
+					self.ForceHardenedPushCD = CurTime() + 10
+				end
+
 				return true
 
 			elseif ( self.ForcePull ) then

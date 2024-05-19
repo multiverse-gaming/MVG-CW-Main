@@ -14,7 +14,7 @@ end
 function ENT:Use( ply )
     local item1 = wOS:GetItemData( "Jedi Knight Hilt Blueprint" )
     wOS:HandleItemPickup( ply, item1.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, self:GetOwner(), self:GetName(), "Hilt")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Knight Blueprint", "Blueprint")
     self:Remove()
 end
 

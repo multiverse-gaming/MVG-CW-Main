@@ -170,16 +170,6 @@ DarkRP.createEntity("V Wing", {
 
 
 
-DarkRP.createEntity("Hilt Chance", {
-    ent = "hiltchance",
-    model = "models/items/ammocrate_rockets.mdl",
-    price = 0,
-    max = 1,
-    cmd = "hiltchan",
-    allowed = {TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALTIPLAR, TEAM_JEDIGENERALTIPLEE, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALADI, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALAAYLA, TEAM_SOD, TEAM_JEDIGENERALVOS},
-    category = "Entities",
-})
-
 DarkRP.createEntity("New Hilt Chance", {
     ent = "hiltchancenew",
     model = "models/items/ammocrate_rockets.mdl",
