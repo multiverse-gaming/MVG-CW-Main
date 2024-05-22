@@ -6,10 +6,10 @@ list.Set( "PlayerOptionsModel", "Droideka", 	"models/starwars/stan/droidekas/dro
 local settings = {
 	["name"] = "Droideka",
 	["model"] = "models/starwars/stan/droidekas/droideka.mdl",
-	["scale"] = 1,
+	["scale"] = 0.77,
 	["developermode"] = false,
-	["viewoffset"] = 100,
-	["duckviewoffset"] = 90,
+	["viewoffset"] = 68,
+	["duckviewoffset"] = 50,
 	["seatoffset"] = 4,
 	["talkingspeed"] = 0,
 	["mouthbodygroup"] = 0,
@@ -20,6 +20,7 @@ local settings = {
 	["scaleRagdoll"] = false,
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
 }
 
 local settings2 = {
@@ -29,7 +30,7 @@ local settings2 = {
 	["developermode"] = false,
 	["viewoffset"] = 32,
 	["duckviewoffset"] = 14,
-	["seatoffset"] = 4,
+	["seatoffset"] = 0,
 	["talkingspeed"] = 0,
 	["mouthbodygroup"] = 0,
 	["mouthframes"] = 0,
@@ -39,6 +40,7 @@ local settings2 = {
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
 }
 
 local settings3 = {
@@ -48,7 +50,7 @@ local settings3 = {
 	["developermode"] = false,
 	["viewoffset"] = 32,
 	["duckviewoffset"] = 14,
-	["seatoffset"] = 16,
+	["seatoffset"] = 0,
 	["talkingspeed"] = 0,
 	["mouthbodygroup"] = 0,
 	["mouthframes"] = 0,
@@ -58,6 +60,7 @@ local settings3 = {
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
 	["hullScale"] = 0.4,
+	["horizontalHullScale"] = nil,
 }
 
 local settings4 = {
@@ -77,6 +80,7 @@ local settings4 = {
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
 }
 
 local settings5 = {
@@ -95,7 +99,8 @@ local settings5 = {
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
-	["hullScale"] = nil,
+	["hullScale"] = 1.05,
+	["horizontalHullScale"] = nil,
 }
 
 local settings6 = {
@@ -115,6 +120,7 @@ local settings6 = {
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
 }
 
 local settings7 = {
@@ -134,6 +140,27 @@ local settings7 = {
 	["scaleRagdoll"] = true,
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
+local settings8 = {
+	["name"] = "Massif",
+	["model"] = "models/mrpounder1/player/massif.mdl",
+	["scale"] = nil,
+	["developermode"] = false,
+	["viewoffset"] = 25,
+	["duckviewoffset"] = 15,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = 0.5,
+	["horizontalHullScale"] = nil,
 }
 
 local mEnt = FindMetaTable("Entity")
@@ -177,9 +204,12 @@ else
 			end
 
 			if (tab["hullScale"] ~= nil) then
-				local min, max = ply:GetHull()
-				ply:SetHull(min, Vector(16, 16, 72 * tab["hullScale"]))
-				ply:SetHullDuck(min, Vector(16, 16, 36 * tab["hullScale"]))
+				local horizontalHullSize = 16
+				if (tab["horizontalHullScale"] ~= nil) then
+					horizontalHullSize = horizontalHullSize * tab["horizontalHullScale"]
+				end
+				ply:SetHull(Vector(-horizontalHullSize, -horizontalHullSize, 0), Vector(horizontalHullSize, horizontalHullSize, 72 * tab["hullScale"]))
+				ply:SetHullDuck(Vector(-horizontalHullSize, -horizontalHullSize, 0), Vector(horizontalHullSize, horizontalHullSize, 36 * tab["hullScale"]))
 			end
 
 			ply:SetViewOffset(Vector(0, 0, tab["viewoffset"]))
@@ -217,9 +247,12 @@ if(SERVER) then
 				ply:SetViewOffsetDucked(Vector(0, 0, tab["duckviewoffset"]))
 
 				if (tab["hullScale"] ~= nil) then
-					local min, max = ply:GetHull()
-					ply:SetHull(min, Vector(16, 16, 72 * tab["hullScale"]))
-					ply:SetHullDuck(min, Vector(16, 16, 36 * tab["hullScale"]))
+					local horizontalHullSize = 16
+					if (tab["horizontalHullScale"] ~= nil) then
+						horizontalHullSize = horizontalHullSize * tab["horizontalHullScale"]
+					end
+					ply:SetHull(Vector(-horizontalHullSize, -horizontalHullSize, 0), Vector(horizontalHullSize, horizontalHullSize, 72 * tab["hullScale"]))
+					ply:SetHullDuck(Vector(-horizontalHullSize, -horizontalHullSize, 0), Vector(horizontalHullSize, horizontalHullSize, 36 * tab["hullScale"]))
 				end
 				
 				net.Start("CustomRescaleModel")
@@ -316,5 +349,6 @@ hook.Add("Initialize", "CustomSetPool", function()
 		SPM_Pool[settings5["model"]] = settings5
 		SPM_Pool[settings6["model"]] = settings6
 		SPM_Pool[settings7["model"]] = settings7
+		SPM_Pool[settings8["model"]] = settings8
 	end)
 end)

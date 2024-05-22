@@ -7738,7 +7738,7 @@ TEAM_DROIDEKA = DarkRP.createJob("Droideka", {
 
     description = [[You are a Droideka!]],
 
-    weapons = {"gmod_tool","keypad_cracker"},
+    weapons = {"gmod_tool","keypad_cracker", "personal_shield_activator_droideka", "arccw_droideka_twin"},
 
     command = "droideka",
 
@@ -7756,7 +7756,7 @@ TEAM_DROIDEKA = DarkRP.createJob("Droideka", {
 
     category = "Confederacy of Independent Systems",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(3000) ply:SetHealth(3000) ply:SetRunSpeed (350) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(2500) ply:SetHealth(2500) ply:SetRunSpeed (350) ply:SetGravity(1)  end,
 
     sortOrder = 13
 
