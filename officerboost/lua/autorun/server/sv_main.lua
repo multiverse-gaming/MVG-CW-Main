@@ -55,8 +55,8 @@ function OfficerBoost:CreateBoost(ply, type)
         if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
 
         -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
-        print(ent:Team())
-        print(enemy_teams[ent:Team()])
+        --print(ent:Team())
+        --print(enemy_teams[ent:Team()])
         if (type == "LastStand") then
             if (!enemy_teams[ent:Team()]) then continue end
         else
