@@ -9,8 +9,20 @@ end)
 if SERVER then
 
 	hook.Add('EntityTakeDamage','PShield',function(ent,dmg)
-		if ent:IsPlayer() and !dmg:IsFallDamage() and IsValid(ent:GetNWEntity('PShield')) and ent:GetNWEntity('PShield'):GetActive() then
-			return true
+		if ent:IsPlayer() and IsValid(ent:GetNWEntity('PShield')) and ent:GetNWEntity('PShield'):GetActive() then
+			local damageType = dmg:GetDamageType()
+			if (damageType == DMG_BULLET || damageType == DMG_SLASH || damageType == DMG_BLAST || damageType == DMG_BURN ) then
+				-- Explicitly deny some damage types. They should hit the shield anyway.
+				return true
+			elseif (damageType == DMG_FALL) then
+				-- Do nothing. Fall damage should hurt a shield user.
+			else
+				-- This damage should be transfered to the PShield, so damage done directly to the user
+				-- isn't ignored.
+				local shield = ent:GetNWEntity('PShield')
+				shield:TakeDamageInfo(dmg)
+				return true
+			end
 		end
 	end)
 
@@ -31,7 +43,7 @@ if SERVER then
     end)
 
 	hook.Add('PhysgunPickup','PShield',function(ply,ent)
-		if ent:GetClass() == 'personal_shield' then return false end
+		if ent:GetClass() == 'personal_shield' || ent:GetClass() == 'personal_shield_droideka' then return false end
 	end)
 
 end
