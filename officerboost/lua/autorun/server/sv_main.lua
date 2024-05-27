@@ -1,77 +1,5 @@
 util.AddNetworkString("OfficerBoost.DrawHUD")
 
-local enemy_teams = {
-    [TEAM_BOSK] = true,
-    [TEAM_HONDO] = true,
-    [TEAM_CADBANE] = true,
-    [TEAM_PREVISZLA] = true,
-    [TEAM_SAVAGEOPRESS] = true,
-    [TEAM_GENERALGRIEVOUS] = true,
-    [TEAM_DARTHMAUL] = true,
-    [TEAM_ASAJJVENTRESS] = true,
-    [TEAM_COUNTDOOKU] = true,
-    [TEAM_CUSTOMENEMY] = true,
-    [TEAM_BXASSAULT] = true,
-    [TEAM_BXHEAVY] = true,
-    [TEAM_BXMARK] = true,
-    [TEAM_BXMELEE] = true,
-    [TEAM_BXCAPTAIN] = true,
-    [TEAM_DEATHWATCH] = true,
-    [TEAM_SITH] = true,
-    [TEAM_MAGNA] = true,
-    [TEAM_DROIDEKA] = true,
-    [TEAM_B2DROID] =     true,
-    [TEAM_DROIDCOMMANDER] = true,
-    [TEAM_COMMANDODROID] = true,
-    [TEAM_B1SNIPER] = true,
-    [TEAM_B1PILOT] = true,
-    [TEAM_B1HEAVY] = true,
-    [TEAM_B1BATTLE] = true,
-    [TEAM_UNDEAD] = true,
-    [TEAM_PRISONER] = true,
-    [TEAM_PIRATETROOPER] = true,
-    [TEAM_PIRATEHEAVY] = true,
-    [TEAM_PIRATESNIPER] = true,
-    [TEAM_PIRATESPECIALIST] = true,
-    [TEAM_PIRATEMELEE] = true,
-    [TEAM_PIRATEMEDIC] = true,
-    [TEAM_PIRATEENGINEER] = true,
-    [TEAM_UMBARANTROOPER] = true,
-    [TEAM_UMBARANHEAVYTROOPER] = true,
-    [TEAM_UMBARANSNIPER] = true,
-    [TEAM_UMBARANENGINEER] = true,
-    [TEAM_UMBARANOFFICER] = true,
-    [TEAM_DURGE] = true
-}
-
-function OfficerBoost:CreateBoost(ply, type)
-    local data = OfficerBoost.Config[type]
-
-    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
-
-    for key, ent in pairs(entities) do
-        if not IsValid(ent) then continue end
-        if not ent:IsPlayer() then continue end
-        if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
-
-        -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
-        if (type == "LastStand") then
-            if (!enemy_teams[ent:Team()]) then continue end
-        else
-            if (enemy_teams[ent:Team()]) then continue end
-        end
-
-        ent:SetNWBool("OfficerBoost.Boosted", true)
-
-        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
-
-        net.Start("OfficerBoost.DrawHUD")
-        net.WriteString(ply:SteamID64())
-        net.WriteString(type)
-        net.Send(ent)
-    end
-end
-
 hook.Add("PlayerSpawn", "OfficerBoost.ResetValues", function(ply)
     if ply:GetNWBool("OfficerBoost.Boosted", false) then
         ply:SetWalkSpeed(ply.OBWalkSpeed)
@@ -219,6 +147,78 @@ hook.Add("OfficerBoost.OnBoost", "LastStandBoost501st", function(ply, type, crea
 end)
 
 util.AddNetworkString("OfficerBoost.DrawHUD")
+
+function OfficerBoost:CreateBoost(ply, type)
+    local data = OfficerBoost.Config[type]
+
+    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
+
+    local enemy_teams = {
+        [TEAM_BOSK] = true,
+        [TEAM_HONDO] = true,
+        [TEAM_CADBANE] = true,
+        [TEAM_PREVISZLA] = true,
+        [TEAM_SAVAGEOPRESS] = true,
+        [TEAM_GENERALGRIEVOUS] = true,
+        [TEAM_DARTHMAUL] = true,
+        [TEAM_ASAJJVENTRESS] = true,
+        [TEAM_COUNTDOOKU] = true,
+        [TEAM_CUSTOMENEMY] = true,
+        [TEAM_BXASSAULT] = true,
+        [TEAM_BXHEAVY] = true,
+        [TEAM_BXMARK] = true,
+        [TEAM_BXMELEE] = true,
+        [TEAM_BXCAPTAIN] = true,
+        [TEAM_DEATHWATCH] = true,
+        [TEAM_SITH] = true,
+        [TEAM_MAGNA] = true,
+        [TEAM_DROIDEKA] = true,
+        [TEAM_B2DROID] =     true,
+        [TEAM_DROIDCOMMANDER] = true,
+        [TEAM_COMMANDODROID] = true,
+        [TEAM_B1SNIPER] = true,
+        [TEAM_B1PILOT] = true,
+        [TEAM_B1HEAVY] = true,
+        [TEAM_B1BATTLE] = true,
+        [TEAM_UNDEAD] = true,
+        [TEAM_PRISONER] = true,
+        [TEAM_PIRATETROOPER] = true,
+        [TEAM_PIRATEHEAVY] = true,
+        [TEAM_PIRATESNIPER] = true,
+        [TEAM_PIRATESPECIALIST] = true,
+        [TEAM_PIRATEMELEE] = true,
+        [TEAM_PIRATEMEDIC] = true,
+        [TEAM_PIRATEENGINEER] = true,
+        [TEAM_UMBARANTROOPER] = true,
+        [TEAM_UMBARANHEAVYTROOPER] = true,
+        [TEAM_UMBARANSNIPER] = true,
+        [TEAM_UMBARANENGINEER] = true,
+        [TEAM_UMBARANOFFICER] = true,
+        [TEAM_DURGE] = true
+    }
+
+    for key, ent in pairs(entities) do
+        if not IsValid(ent) then continue end
+        if not ent:IsPlayer() then continue end
+        if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
+
+        -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
+        if (type == "LastStand") then
+            if (!enemy_teams[ent:Team()]) then continue end
+        else
+            if (enemy_teams[ent:Team()]) then continue end
+        end
+
+        ent:SetNWBool("OfficerBoost.Boosted", true)
+
+        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
+
+        net.Start("OfficerBoost.DrawHUD")
+        net.WriteString(ply:SteamID64())
+        net.WriteString(type)
+        net.Send(ent)
+    end
+end
 
 hook.Add("PlayerSpawn", "OfficerBoost.ResetValues", function(ply)
     if ply:GetNWBool("OfficerBoost.Boosted", false) then
@@ -375,31 +375,3 @@ hook.Add("EntityTakeDamage", "EntityTookDamage", function(target, dmgInfo)
         end
     end
 end)
-
-function OfficerBoost:CreateBoost(ply, type)
-    local data = OfficerBoost.Config[type]
-
-    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
-
-    for key, ent in pairs(entities) do
-        if not IsValid(ent) then continue end
-        if not ent:IsPlayer() then continue end
-        if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
-
-        -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
-        if (type == "LastStand") then
-            if (!enemy_teams[ent:Team()]) then continue end
-        else
-            if (enemy_teams[ent:Team()]) then continue end
-        end
-
-        ent:SetNWBool("OfficerBoost.Boosted", true)
-
-        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
-
-        net.Start("OfficerBoost.DrawHUD")
-        net.WriteString(ply:SteamID64())
-        net.WriteString(type)
-        net.Send(ent)
-    end
-end
