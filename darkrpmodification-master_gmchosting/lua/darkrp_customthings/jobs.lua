@@ -883,7 +883,7 @@ TEAM_212THHEAVYTROOPER = DarkRP.createJob("212th Ghost Company", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/212th_pilot.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl"},
+    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl"},
 
     description = [[Congratulations, you are a part of the Ghost Company in the 212th Attack Battalion!]],
 
