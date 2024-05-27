@@ -26,16 +26,15 @@ SWEP.Clipsize = -1
 SWEP.DefaultClip = -1
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "none"
-local jetpackVelocity = 1200
 local maxFuel = 100 -- no point in changing this, change drain and recharge
 local status = true
 local sv_gravity = GetConVar"sv_gravity"
 local soundCreated = false
 
 -- SETTINGS YOU CAN CHANGE WITHOUT RUINING THE JETPACK FUNCTIONS
-local jetpackStrafeSpeed = 340 -- Higher is faster
-local jetpackSpeed = 250 -- Higher is faster
-local jetpackDeleceration = 3 -- Change to make it floatier/not
+local jetpackStrafeSpeed = 340 -- Speed while strafing (X/Y axis); higher is faster.
+local jetpackFlightSpeed = 210 -- Speed that you travel up/down with.
+local jetpackDeleceration = 5 -- Change to make it floatier/not.
 local fuelDrain = 0.5 -- Lower is slower
 local fuelRecharge = 2 -- Lower is slower
 local infiniteFuel = false -- True means it"s enabled = it got infinite amount of fuel
@@ -65,15 +64,23 @@ function SWEP:Initialize()
                 if not infiniteFuel then weaponId:SetFuel(math.Clamp(weaponId:GetFuel() - fuelDrain, 0, maxFuel)) end
                 if weaponId:GetFuel() == 0 then weaponId:SetCanFly(false) end
                 local vel = mv:GetVelocity()
-                if mv:KeyDown(IN_JUMP) and vel.z < jetpackSpeed then
-                    vel.z = vel.z + jetpackVelocity * FrameTime()
-                elseif mv:KeyDown(IN_SPEED) and (vel.z > 10 or vel.z < -10) then
-                    vel.z = math.Approach(vel.z, 0, jetpackVelocity * FrameTime())
+                -- Clone vel to use after transforming values.
+                local oldVel = vel
+                if mv:KeyDown(IN_JUMP) and vel.z < jetpackFlightSpeed then
+                    -- If holding jump, Travel up quickly.
+                    vel.z = vel.z + (jetpackFlightSpeed / 2)
+                elseif mv:KeyDown(IN_SPEED) and (vel.z > 10) then
+                    -- If holding run and traveling up, slowly equalise speed.
+                    vel.z = math.Approach(vel.z, 0, 40)
+                elseif mv:KeyDown(IN_SPEED) and (vel.z < -10) then
+                    -- If holding run and traveling down, quickly equalise speed (gravity will pull you).
+                    vel.z = math.Approach(vel.z, 0, 100)
                 elseif mv:KeyDown(IN_SPEED) and (vel.z <= 10 or vel.z >= -10) then
+                    -- If holding run and moving very slowly, kill speed so you can hover perfectly.
                     vel.z = 0
                 end
 
-                if mv:KeyDown(IN_DUCK) then vel.z = vel.z - jetpackVelocity * FrameTime() end
+                if mv:KeyDown(IN_DUCK) then vel.z = vel.z - (jetpackFlightSpeed / 2) end
                 if vel.z == 0 and mv:KeyDown(IN_SPEED) then -- This enables stable hover.
                     ply:SetNWBool("gravityOff", true)
                     vel.z = vel.z + sv_gravity:GetFloat() * 0.5 * FrameTime()
@@ -91,11 +98,6 @@ function SWEP:Initialize()
                 -- Normalize, multipy by max velocity (for server tick?)
                 move_vel:Normalize()
                 move_vel:Mul(jetpackStrafeSpeed)
-
-                -- Take current speed, clamp to max speeds.
-                vel.x = math.Clamp(vel.x, -jetpackStrafeSpeed, jetpackStrafeSpeed) 
-                vel.y = math.Clamp(vel.y, -jetpackStrafeSpeed, jetpackStrafeSpeed)
-                local oldVel = vel
 
                 -- Have it hover properly - and have old vel influence our speed.
                 vel.x = (move_vel.x + (jetpackDeleceration * oldVel.x)) / (jetpackDeleceration + 1)
@@ -229,6 +231,9 @@ function SWEP:PrimaryAttack()
     else
         if SERVER then self:SetActive(true) end
     end
+end
+
+function SWEP:SecondaryAttack()
 end
 
 function PlayerTick(ply, mv)
