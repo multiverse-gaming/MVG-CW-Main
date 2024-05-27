@@ -168,34 +168,6 @@ hook.Add("OfficerBoost.OnBoost", "LastStandBoost", function(ply, type, creator)
     end)
 end)
 
-function OfficerBoost:CreateBoost(ply, type)
-    local data = OfficerBoost.Config[type]
-
-    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
-
-    for key, ent in pairs(entities) do
-        if not IsValid(ent) then continue end
-        if not ent:IsPlayer() then continue end
-        if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
-
-        -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
-        if (type == "LastStand") then
-            if (!enemy_teams[ent:Team()]) then continue end
-        else
-            if (enemy_teams[ent:Team()]) then continue end
-        end
-
-        ent:SetNWBool("OfficerBoost.Boosted", true)
-
-        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
-
-        net.Start("OfficerBoost.DrawHUD")
-        net.WriteString(ply:SteamID64())
-        net.WriteString(type)
-        net.Send(ent)
-    end
-end
-
 hook.Add("OfficerBoost.OnBoost", "LastStandBoost501st", function(ply, type, creator)
 
     if type != "501st" then return end
@@ -403,3 +375,31 @@ hook.Add("EntityTakeDamage", "EntityTookDamage", function(target, dmgInfo)
         end
     end
 end)
+
+function OfficerBoost:CreateBoost(ply, type)
+    local data = OfficerBoost.Config[type]
+
+    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
+
+    for key, ent in pairs(entities) do
+        if not IsValid(ent) then continue end
+        if not ent:IsPlayer() then continue end
+        if ent:GetNWBool("OfficerBoost.Boosted", false) then continue end -- Checks whether the player is already boosted
+
+        -- If Last Stand (the one only enemies have), apply to enemy teams. If not, apply only to friendlies.
+        if (type == "LastStand") then
+            if (!enemy_teams[ent:Team()]) then continue end
+        else
+            if (enemy_teams[ent:Team()]) then continue end
+        end
+
+        ent:SetNWBool("OfficerBoost.Boosted", true)
+
+        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
+
+        net.Start("OfficerBoost.DrawHUD")
+        net.WriteString(ply:SteamID64())
+        net.WriteString(type)
+        net.Send(ent)
+    end
+end
