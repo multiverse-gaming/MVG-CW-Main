@@ -508,7 +508,7 @@ DarkRP.createEntity("Shaak Ti Prep", {
 })
 
 DarkRP.createEntity("Vos Prep", {
-    ent = "voshilt",
+    ent = "quinlanhilt",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",
     price = 0,
     max = 1,

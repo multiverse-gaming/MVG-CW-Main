@@ -8,7 +8,7 @@ function ENT:Initialize()
 	self.Entity:SetMoveType( MOVETYPE_VPHYSICS )
 	self.Entity:SetSolid( SOLID_VPHYSICS )
 	self.Entity:SetUseType( SIMPLE_USE )
-	self:SetCollisionGroup( COLLISION_GROUP_NONE )	
+	self:SetCollisionGroup( COLLISION_GROUP_NONE )
 end
 
 function ENT:Use( ply )
@@ -21,7 +21,7 @@ function ENT:Use( ply )
 end
 
 function ENT:UpdateTransmitState()
-	return TRANSMIT_ALWAYS 
+	return TRANSMIT_ALWAYS
 end
 
 function ENT:SpawnFunction( ply, tr, ClassName )
