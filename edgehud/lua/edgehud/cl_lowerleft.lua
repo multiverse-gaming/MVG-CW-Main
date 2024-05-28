@@ -34,6 +34,16 @@ if EdgeHUD.Configuration.GetConfigValue( "LowerLeft" ) then
 				return 100
 			end
 		},
+		{
+			Icon = Material("edgehud/icon_salary.png", "smooth"),
+			Color = Color(47,144,82),
+			getData = function (  )
+				return ply:getDarkRPVar("money")
+			end,
+			getMax = function(  )
+				return ply:getDarkRPVar("money")
+			end
+		}
 	}
 
 	local ingameName = EdgeHUD.Configuration.GetConfigValue( "Lowerleft_IdentityType" ) == "Ingame Name"

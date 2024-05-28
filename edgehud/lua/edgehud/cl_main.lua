@@ -10,6 +10,9 @@ EdgeHUD.Disconnected = false
 --Get the screen dimensions.
 local screenWidth = ScrW()
 local screenHeight = ScrH()
+local targetAspectRatio = 0.5625 -- 9 / 16 for 16:9 aspect ratio
+local playerAspectRatio = ScrH() / ScrW() -- e.g., for 5120x1440 this will be 0.28125; for 2560x1080 this will be 0.421875
+local aspectRatioTransformPercentage = math.Clamp((targetAspectRatio / playerAspectRatio) - 1, 0, 2) * 25
 
 --Create a table to store all variables in.
 EdgeHUD.Vars = {}
@@ -32,8 +35,8 @@ EdgeHUD.Vars.iconMargin_Small = math.floor(EdgeHUD.Vars.WidgetHeight * 0.13)
 EdgeHUD.Vars.iconSize_Large = math.floor(EdgeHUD.Vars.WidgetHeight * 0.5)
 
 --cl_lowerleft
-EdgeHUD.Vars.statusWidgetWidth = math.floor(EdgeHUD.Vars.hungerMod and screenHeight * 0.088 or screenHeight * 0.138)
-EdgeHUD.Vars.infoWidgetWidth = EdgeHUD.Vars.hungerMod and (EdgeHUD.Vars.statusWidgetWidth * 3 + EdgeHUD.Vars.ElementsMargin * 2) or (EdgeHUD.Vars.statusWidgetWidth * 2 + EdgeHUD.Vars.ElementsMargin)
+EdgeHUD.Vars.statusWidgetWidth = math.floor(EdgeHUD.Vars.hungerMod and screenHeight * 0.038 or screenHeight * 0.088)
+EdgeHUD.Vars.infoWidgetWidth = EdgeHUD.Vars.hungerMod and (EdgeHUD.Vars.statusWidgetWidth * 4 + EdgeHUD.Vars.ElementsMargin * 3) or (EdgeHUD.Vars.statusWidgetWidth * 3 + EdgeHUD.Vars.ElementsMargin * 2)
 
 --cl_topleft
 EdgeHUD.Vars.salaryWidgetWidth = math.floor(screenHeight * 0.11)
@@ -83,9 +86,9 @@ elseif config_Measurementunit == "Screen Width Percentage" then
 
 elseif config_Measurementunit == "Screen Height/Width Percentage Respectively" then
 
-	EdgeHUD.LeftOffset = EdgeHUD.LeftOffset / 100 * ScrW()
+	EdgeHUD.LeftOffset = (EdgeHUD.LeftOffset + aspectRatioTransformPercentage) / 100 * ScrW()
 	EdgeHUD.TopOffset =  EdgeHUD.TopOffset / 100 * ScrH()
-	EdgeHUD.RightOffset =  EdgeHUD.RightOffset / 100 * ScrW()
+	EdgeHUD.RightOffset =  (EdgeHUD.RightOffset + aspectRatioTransformPercentage) / 100 * ScrW()
 	EdgeHUD.BottomOffset =  EdgeHUD.BottomOffset / 100 * ScrH()
 	EdgeHUD.LevelbarOffset =  EdgeHUD.LevelbarOffset / 100 * ScrH()
 
