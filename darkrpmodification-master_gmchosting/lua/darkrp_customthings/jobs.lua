@@ -7658,7 +7658,7 @@ TEAM_ENEMYENGINEER = DarkRP.createJob("CIS Engineer", {
 
     description = [[You are a B1 Battledroid!]],
 
-    weapons = {"arccw_e5",  "realistic_hook", "weapon_physcannon","keypad_cracker", "alydus_fusioncutter", "weapon_squadshield", "alydus_fortificationbuildertablet"},
+    weapons = {"turret_placer", "turret_placerhostile", "arccw_e5",  "realistic_hook", "weapon_physcannon","keypad_cracker", "alydus_fusioncutter", "weapon_squadshield", "alydus_fortificationbuildertablet"},
 
     command = "eengineer",
 
@@ -8281,7 +8281,7 @@ TEAM_PIRATEENGINEER = DarkRP.createJob("Enemy Engineer", {
 
     description = [[You are a Enemy Engineer!]],
 
-    weapons = {"arccw_cj9", "realistic_hook", "arccw_k16", "weapon_physcannon", "alydus_fusioncutter", "weapon_squadshield", "alydus_fortificationbuildertablet","keypad_cracker"},
+    weapons = {"turret_placer", "turret_placerhostile", "arccw_cj9", "realistic_hook", "arccw_k16", "weapon_physcannon", "alydus_fusioncutter", "weapon_squadshield", "alydus_fortificationbuildertablet","keypad_cracker"},
 
     command = "pireng",
 
