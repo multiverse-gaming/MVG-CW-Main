@@ -20,12 +20,7 @@ OBJ:SetClass("lvs_starfighter_nbt630")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "327th General",
-  "327th Marshal Commander",
-  "327th Commander",
-  "327th Executive Officer",
-  "327th Major",
-  "327th Talon Squadron",
+  "Fleet Maverick",
 })
 
 -- Nicolas's Rank System Support
