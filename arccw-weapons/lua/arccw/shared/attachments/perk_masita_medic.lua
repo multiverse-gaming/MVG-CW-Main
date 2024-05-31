@@ -13,12 +13,11 @@ att.NotForNPC = true
 att.UBGL = true
 att.UBGL_PrintName = "Healing Darts"
 att.UBGL_Automatic = true
-att.UBGL_ClipSize = 5
+att.UBGL_ClipSize = 3
 att.UBGL_Ammo = "ar2"
 att.UBGL_RPM = 100
 att.UBGL_Recoil = 1
-att.UBGL_Capacity = 5
--- Healing amount var located line 44
+att.UBGL_Capacity = 3
 
 local function Ammo(wep)
     return wep.Owner:GetAmmoCount("ar2")
@@ -50,27 +49,23 @@ att.UBGL_Fire = function(wep, ubgl)
     })
 
     wep:EmitSound("masita/perks/combatheal_var_08.mp3", 100)
-
 end
 
 att.UBGL_Reload = function(wep, ubgl)
-    //print(wep:Clip2())
+    -- Check reload stats.
     if wep:Clip2() >= 3 then return end
+    local ammoLeft = Ammo(wep)
+    if ammoLeft <= 0 then return end
 
-    if Ammo(wep) <= 0 then return end
+    -- Set animation / cooldown.
+    local a = wep:SelectAnimation("reload") or self:SelectAnimation("draw")
+    wep:PlayAnimation(a, wep:GetBuff_Mult("Mult_ReloadTime"), true, 0, nil, nil, true)
+    wep:SetPriorityAnim(CurTime() + wep:GetAnimKeyTime(a, true) * wep:GetBuff_Mult("Mult_ReloadTime"))
 
-    wep:EmitSound("w/rifles.wav", 100)
-
-
-    local reserve = Ammo(wep)
-
-    reserve = reserve + wep:Clip2()
-
-    //local clip = 3
-
-    local load = math.Clamp(3, 0, reserve)
-
-    wep.Owner:SetAmmo(reserve - load, "pistol")
-
+    -- Set correct ammo.
+    ammoLeft = ammoLeft + wep:Clip2()
+    local clip = 3
+    local load = math.Clamp(clip, 0, ammoLeft)
+    wep:GetOwner():RemoveAmmo(load - wep:Clip2(), "ar2")
     wep:SetClip2(load)
 end

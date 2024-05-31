@@ -65,7 +65,7 @@ TREE.Tier[1][1] = {
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 3,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) 
+	OnPlayerSpawn = function( ply )
 		ply:Give("weapon_physcannon")
 		ply:Give("datapad_player")
 		ply:Give("defuser_bomb")
@@ -74,7 +74,7 @@ TREE.Tier[1][1] = {
 		ply:Give("weapon_extinguisher_infinite")
 		ply:Give("alydus_fusioncutter")
 		ply:Give("weapon_remotedrone")
-	end, 
+	end,
 	OnPlayerDeath = function( ply ) ply.IsSpeeding = nil end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Force Speed" ) end,
 }

@@ -6,7 +6,7 @@ list.Set( "PlayerOptionsModel", "Droideka", 	"models/starwars/stan/droidekas/dro
 local settings = {
 	["name"] = "Droideka",
 	["model"] = "models/starwars/stan/droidekas/droideka.mdl",
-	["scale"] = 0.77,
+	["scale"] = 0.85,
 	["developermode"] = false,
 	["viewoffset"] = 68,
 	["duckviewoffset"] = 50,

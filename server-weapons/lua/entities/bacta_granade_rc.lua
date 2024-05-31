@@ -1,6 +1,6 @@
 ENT.Type = "anim"
 ENT.Base = "base_anim"
-ENT.Heal = 500
+ENT.Heal = 150
 ENT.Radius = 200
 
 
@@ -38,7 +38,7 @@ function ENT:PhysicsCollide( data, physobj )
 	for k, v in pairs( tobeblasted ) do
 		if v:IsPlayer() then
 			if ( SERVER ) then
-				v:SetHealth( math.min( v:Health() + 50, v:GetMaxHealth() ) ) --math.min( v:Health() + v:GetMaxHealth() * 0.5, v:GetMaxHealth() )
+				v:SetHealth( math.min( v:Health() + self.Heal, v:GetMaxHealth() ) )
 			end
 		end
 	end
