@@ -3,7 +3,7 @@ AddCSLuaFile()
 ENT.PrintName		= 'Personal Shield (Droideka)'
 ENT.Base			= 'base_gmodentity'
 ENT.Type			= 'anim'
-ENT.Model			= 'models/hunter/misc/sphere375x375.mdl' -- Use this for a bigger shield. It's really quite big though.
+ENT.Model			= 'models/hunter/misc/sphere2x2.mdl'
 ENT.RenderGroup		= RENDERGROUP_TRANSLUCENT
 ENT.Radius			= 48 									-- Sphere radius, 48 is default (Do not change this value!)
 ENT.DamageCapacity	= 400									-- The amount of damage gets absorbed
@@ -19,7 +19,6 @@ function ENT:SetupDataTables()
 	self:NetworkVar('Bool',0,'Active') -- If its currently active.
 	self:NetworkVar('Bool',1,'Damaged') 
 	self:NetworkVar('Int',0,'ActiveOffset')
-
 	self:NetworkVar('Bool', 2, 'AutoEnable')
 end
 
@@ -32,7 +31,8 @@ if SERVER then
 		self:SetModel(self.Model)
 		--self:PhysicsInitSphere(self.Radius,'no_decal')
 		--self:PhysicsInit(SOLID_NONE)
-		self:SetModelScale(0.2)
+		--self:SetModelScale(self.Radius/48)
+		--self:SetModelScale(0.2) -- This just makes it look smaller in the c-menu.
 		self:SetMoveType(MOVETYPE_NONE)
 		self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
 		self:PhysWake()
@@ -43,7 +43,6 @@ if SERVER then
 		self:SetOwner(owner)
 		self:SetPos(owner:GetPos() + wepoffset)
 		self:SetParent(owwep)
-		--self:SetPos(self:GetPos() - Vector(0, 0, 30))
 		self:SetMaxHealth(self.DamageCapacity)
 		self:SetHealth(self.DamageCapacity)
 		self.SoundLoop = CreateSound(self,'ambient/machines/combine_shield_loop3.wav')
@@ -112,19 +111,6 @@ if SERVER then
 	function ENT:ShotBullet()
 		return
 	end
-		--[[if( CLIENT ) then return end
-
-		if !self:GetActive() then return end
-
-
-		if IsValid(self) then
-
-			//self:ToggleShield(false) --turn off shoot though
-			//self:SetActiveOffset(CurTime()+ self.TimeReenableForShooting)
-			self:SetAutoEnable(true)
-		end
-	end --]]
-
 end
 
 if CLIENT then

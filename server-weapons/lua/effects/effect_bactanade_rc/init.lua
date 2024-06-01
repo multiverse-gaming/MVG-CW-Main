@@ -39,10 +39,6 @@ function EFFECT:Init(data)
 				particle:SetBounce(0.42)
 
 				particle:SetLighting(false)
-				
-				
-				
-
 			end
 			local dlight = DynamicLight( LocalPlayer():EntIndex() )
 	if ( dlight ) then
@@ -55,7 +51,7 @@ function EFFECT:Init(data)
 		dlight.Size = 256
 		dlight.DieTime = CurTime() + 3
 	end
-			
+
 			local particle = emitter:Add( "sprites/orangecore1", Pos )
 			if (particle) then
 
@@ -68,7 +64,7 @@ function EFFECT:Init(data)
 				if math.random(1,12) == 12 then rand = math.random(210,232) end
 				particle:SetColor(0,150,255)
 
-				particle:SetStartAlpha(math.Rand(100,152)) //Old values, 142, 162
+				particle:SetStartAlpha(math.Rand(40,50)) --Older values: 142, 162. Old Values: 100, 152 
 				particle:SetEndAlpha(0)
 
 				local Size = math.Rand(112,132)
@@ -86,23 +82,20 @@ function EFFECT:Init(data)
 				particle:SetBounce(0.42)
 
 				particle:SetLighting(false)
-				
-				
-
 			end
 
 		end
 
-	//We're done with this emitter
+	--We're done with this emitter
 	emitter:Finish()
 
 end
 
-//Kill effect
+--Kill effect
 function EFFECT:Think()
 return false
 end
 
-//Not used
+--Not used
 function EFFECT:Render()
 end

@@ -69,6 +69,7 @@ SWEP.AccuracyMOA = 0.01 -- accuracy in Minutes of Angle. There are 60 MOA in a d
 SWEP.HipDispersion = 800 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 400
 SWEP.SightsDispersion = 0
+SWEP.JumpDispersion = 1000
 
 ----AMMO / stuff----
 

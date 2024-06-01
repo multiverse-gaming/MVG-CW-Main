@@ -10,27 +10,17 @@ ENT.DamageCapacity	= 200									-- The amount of damage gets absorbed
 ENT.RechargeTime	= 30									-- Recharge time, in seconds
 ENT.DamageEffect	= true									-- Emit lightup effect on the sphere when is damaged
 ENT.Spawnable		= false
-
-
 ENT.TimeReenableForShooting = 5								-- Shooting time amount waiting to reenable.
 
-
 local wepoffset = Vector(0,0,36)
-
-
-
 
 function ENT:SetupDataTables()
 	self:NetworkVar('Entity',0,'ShieldOwner')
 	self:NetworkVar('Bool',0,'Active') -- If its currently active.
 	self:NetworkVar('Bool',1,'Damaged') 
 	self:NetworkVar('Int',0,'ActiveOffset')
-
 	self:NetworkVar('Bool', 2, 'AutoEnable')
 end
-
-
-
 
 if SERVER then
 
@@ -42,6 +32,7 @@ if SERVER then
 		--self:PhysicsInitSphere(self.Radius,'no_decal')
 		--self:PhysicsInit(SOLID_NONE)
 		--self:SetModelScale(self.Radius/48)
+		--self:SetModelScale(0.2) -- This just makes it look smaller in the c-menu.
 		self:SetMoveType(MOVETYPE_NONE)
 		self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
 		self:PhysWake()
@@ -116,26 +107,10 @@ if SERVER then
 		end
 
 	end
-
 	
 	function ENT:ShotBullet()
 		return
 	end
-		--[[if( CLIENT ) then return end
-
-		if !self:GetActive() then return end
-
-
-		if IsValid(self) then
-
-			//self:ToggleShield(false) --turn off shoot though
-			//self:SetActiveOffset(CurTime()+ self.TimeReenableForShooting)
-			self:SetAutoEnable(true)
-		end
-	end --]]
-
-	
-	
 end
 
 if CLIENT then
