@@ -142,7 +142,7 @@ function ENT:InitWeapons()
 		ent.SNDRight:PlayOnce( 100 + math.sin( CurTime() + ent:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1 )
 	end
 	weapon.OnSelect = function( ent )
-		ent:EmitSound("physics/metal/weapon_impact_soft3.wav")
+		ent:EmitSound("lvs/vehicles/iftx/txblastersnew.wav")
 	end
 	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
 	weapon.OnThink = function( ent, active )
@@ -228,7 +228,7 @@ function ENT:InitWeapons()
 		ent:SetOverheated( true )
 	end
 	weapon.OnSelect = function( ent )
-		ent:EmitSound("weapons/shotgun/shotgun_cock.wav")
+		ent:EmitSound("lvs/vehicles/iftx/txrocketsnew.wav")
 	end
 	self:AddWeapon( weapon )
 
@@ -237,7 +237,7 @@ end
 
 ENT.EngineSounds = {
 	{
-		sound = "lvs/vehicles/iftx/loop.wav",
+		sound = "lvs/vehicles/iftx/loopnew.wav",
 		Pitch = 70,
 		PitchMin = 0,
 		PitchMax = 255,
@@ -279,5 +279,5 @@ sound.Add( {
 	volume = 1.0,
 	level = 125,
 	pitch = {95, 105},
-	sound = "lvs/vehicles/iftx/fire_missile.mp3"
+	sound = "lvs/vehicles/iftx/txmissilenew.wav"
 } )
