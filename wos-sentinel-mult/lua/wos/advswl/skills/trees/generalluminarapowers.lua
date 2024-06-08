@@ -60,8 +60,8 @@ TREE.Tier = {}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Master Force Leap",
-	Description = "Jump in the air, using the force as leverage.",
+	Name = "Master Force Leap Upgrade",
+	Description = "Jump in the air - upgrades Leap.",
 	Icon = "wos/forceicons/leap.png",
 	PointsRequired = 3,
 	Requirements = {},
@@ -90,6 +90,17 @@ TREE.Tier[1][3] = {
 	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
+}
+
+TREE.Tier[1][4] = {
+	Name = "Master Force Leap Skill",
+	Description = "Jump in the air - seperate skill.",
+	Icon = "wos/forceicons/leap.png",
+	PointsRequired = 3,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Master Leap" ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

@@ -76,7 +76,7 @@ wOS.ForcePowers:RegisterNewPower({
 		if ( self:GetForce() < 75 ) then return end
 		self:SetForce( self:GetForce() - 75 )
     	self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-        
+
 		local originalArmor = self:GetOwner():Armor()
 		self:GetOwner():SetArmor(200)
 		timer.Simple(10, function()
@@ -84,6 +84,35 @@ wOS.ForcePowers:RegisterNewPower({
 		end)
         return true
     end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Taunt",
+		icon = "T",
+		distance = 1200,
+		image = "wos/devestators/sonic.png",
+		cooldown = 20,
+		manualaim = false,
+		description = "Taunt your enemies",
+		action = function( self )
+			if ( self:GetForce() < 50 ) then self:SetNextAttack( 0.2 ) return end
+			self:SetForce( self:GetForce() - 50 )
+
+			-- Set NPC's target to be the user.
+			for i, e in pairs( ents.FindInSphere( self:GetOwner():GetPos(), 900 ) ) do
+				if (e:IsNpc()) then
+					e:SetTarget(self.Owner)
+				end
+			end
+
+			-- Play effect and sound.
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			local ed = EffectData()
+			ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
+			ed:SetRadius( 30 )
+			util.Effect( "rb655_force_repulse_out", ed, true, true )
+			return true
+		end
 })
 
 wOS.ForcePowers:RegisterNewPower({

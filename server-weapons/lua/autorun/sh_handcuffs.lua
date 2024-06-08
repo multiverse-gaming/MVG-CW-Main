@@ -71,7 +71,10 @@ hook.Add( "SetupMove", "Cuffs Move Penalty", function(ply, mv, cmd)
 		end
 	end
 	
-	mv:SetMaxClientSpeed( mv:GetMaxClientSpeed()*0.6 )
+	if (cuffs.Leash == nil || !cuffs.Leash) then
+		-- If this isn't a leash weapon, for dogs, then reduce speed of the bound person.
+		mv:SetMaxClientSpeed( mv:GetMaxClientSpeed()*0.6 )
+	end
 	
 	if cuffs:GetRopeLength()<=0 then return end // No forced movement
 	if not IsValid(cuffs:GetKidnapper()) then return end // Nowhere to move to

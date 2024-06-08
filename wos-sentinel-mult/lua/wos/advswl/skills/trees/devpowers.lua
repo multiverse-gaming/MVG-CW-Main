@@ -291,14 +291,14 @@ TREE.Tier[3][6] = {
 }
 
 TREE.Tier[3][7] = {
-	Name = "Guardian - Guardian Saber Throw",
-	Description = "Gives ST.",
+	Name = "Guardian - Taunt",
+	Description = "Gives T.",
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, 
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Guardian Saber Throw" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Taunt" ) end,
 }
 
 TREE.Tier[4] = {}
