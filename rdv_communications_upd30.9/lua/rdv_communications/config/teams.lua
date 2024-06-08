@@ -11,7 +11,7 @@ teams = {
         "Fleet Recruit",
         "Fleet Research and Development Engineer",
         "Fleet Research and Development Medic",
-        "Fleet Intelligence Officer",
+        "Fleet Strategic and Operational Command",
     },
 
     -- ==== Generals ====

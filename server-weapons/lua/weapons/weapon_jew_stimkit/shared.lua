@@ -78,12 +78,12 @@ function SWEP:PrimaryAttack()
 		local targetPly = tr.Entity
 
 		if targetPly:IsPlayer() then
-			print(targetPly)
 			local maxhealth = targetPly:GetMaxHealth() + 100  -- Max HP to heal could be set job specific, create a table to reference further up and put it here with an or statement
 
 			if targetPly:Health() >= maxhealth then
 				if not CLIENT then return end
-				LocalPlayer():PrintMessage(HUD_PRINTTALK, "The syringe is not effective past target users' health!")
+				--LocalPlayer():PrintMessage(HUD_PRINTTALK, "The syringe is not effective past target users' health!")
+				self:EmitSound("common/warning.wav", 50)
 			else
 				local newHealth = targetPly:Health() + 50
 
@@ -108,7 +108,8 @@ function SWEP:SecondaryAttack()
 
 	if self.Owner:Health() >= maxhealth then
 		if CLIENT then
-			LocalPlayer():PrintMessage(HUD_PRINTTALK, "The syringe is not effective past your own health!")
+			--LocalPlayer():PrintMessage(HUD_PRINTTALK, "The syringe is not effective past your own health!")
+			self:EmitSound("common/warning.wav", 50)
 		end
 		self:SetNextSecondaryFire(CurTime() + 0.1)
 	else

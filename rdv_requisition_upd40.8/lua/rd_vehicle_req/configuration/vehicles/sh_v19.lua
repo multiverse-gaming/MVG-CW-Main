@@ -42,7 +42,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Intelligence Officer"
+  "Fleet Strategic and Operational Command"
 })
 
 -- Nicolas's Rank System Support

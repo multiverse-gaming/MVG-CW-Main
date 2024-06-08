@@ -75,7 +75,8 @@ TREE.Tier[1][1] = {
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 0,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) timer.Create("yodaJumpAttackTimer", 0.25, 0, function() 
+	OnPlayerSpawn = function( ply ) timer.Create("yodaJumpAttackTimer", 0.25, 0, function()
+		if (!IsValid(ply)) then return end
 		local localWep = ply:GetActiveWeapon()
 		if (IsValid(localWep)) then localWep.AerialLand = false end end)
         ply:SetJumpPower(280)

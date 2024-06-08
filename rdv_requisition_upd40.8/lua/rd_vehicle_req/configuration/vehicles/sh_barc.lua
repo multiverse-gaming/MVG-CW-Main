@@ -50,6 +50,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Green Company Marksman",
   "Green Company Ranger",
   "Green Company Lieutenant",
+  "Green Company ARC",
   "Wookiee",
   "Smuggler"
 

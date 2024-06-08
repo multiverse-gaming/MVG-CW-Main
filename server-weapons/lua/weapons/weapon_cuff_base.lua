@@ -162,8 +162,10 @@ function SWEP:DoHandcuff( target )
 			end)
 		end
 	end
-	
+
 	local cuff = target:Give( "weapon_handcuffed" )
+	if (self:GetClass() == "weapon_leash_rope") then cuff.Leash = true end
+
 	cuff:SetCuffStrength( self.CuffStrength + (math.Rand(-self.CuffStrengthVariance,self.CuffStrengthVariance)) )
 	cuff:SetCuffRegen( self.CuffRegen + (math.Rand(-self.CuffRegenVariance,self.CuffRegenVariance)) )
 	

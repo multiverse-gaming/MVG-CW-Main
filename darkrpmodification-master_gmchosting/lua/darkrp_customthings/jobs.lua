@@ -5277,12 +5277,12 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 ---- FLEET SPECIALISTS----
-TEAM_FLEET_IO = DarkRP.createJob("Fleet Intelligence Officer", {
+TEAM_FLEET_IO = DarkRP.createJob("Fleet Strategic and Operational Command", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
-    description = [[Congratulations You are now a Fleet Intelligence Officer!]],
+    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl","models/aussiwozzi/cgi/base/advisor_stooge.mdl"},
+    description = [[Congratulations You are now a Fleet Strategic and Operational Command!]],
     weapons = {"datapad_player", "arccw_dc15s","arccw_defender_sporting","weapon_remotedrone","weapon_cuff_elastic","voice_amplifier"},
-    command = "fleetio",
+    command = "fleetsoc",
     max = 4,
     salary = 200,
     admin = 0,
