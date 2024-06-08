@@ -214,7 +214,7 @@ function ENT:InitWeapons()
 				projectile:SetDamage( 300 )
 				projectile:SetRadius( 150 )
 				projectile:Enable()
-				projectile:EmitSound( "LVS.IFTX.FIRE_MISSILE" )
+				projectile:EmitSound( "LVS.IFTX.FIRE_MISSILE_NEW" )
 
 				if ent.MirrorPrimary then
 					ent:PlayAnimation( "fire_left" )
@@ -274,7 +274,7 @@ ENT.EngineSounds = {
 }
 
 sound.Add( {
-	name = "LVS.IFTX.FIRE_MISSILE",
+	name = "LVS.IFTX.FIRE_MISSILE_NEW",
 	channel = CHAN_WEAPON,
 	volume = 1.0,
 	level = 125,
