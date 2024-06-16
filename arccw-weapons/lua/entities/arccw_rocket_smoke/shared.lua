@@ -20,6 +20,7 @@ function ENT:Initialize()
     local pb_hor = 1
     self:SetModel(self.Model)
     self:PhysicsInitBox( Vector(-pb_vert,-pb_hor,-pb_hor), Vector(pb_vert,pb_hor,pb_hor) )
+    self.Owner = self:GetOwner()
 
     local phys = self:GetPhysicsObject()
     if phys:IsValid() then
@@ -35,6 +36,26 @@ function ENT:Initialize()
         if !IsValid(self) then return end
         self:SetCollisionGroup(COLLISION_GROUP_PROJECTILE)
     end)
+
+    -- Backblast
+    -- Select an area behind the shooter.
+    local playerPos = self.Owner:GetPos()
+    local forwardVector = self.Owner:GetForward()
+    local behindPos = playerPos - forwardVector * 75
+    local backblast = ents.FindInSphere(behindPos + Vector(0, 0, 50), 70)
+    for _, target in pairs(backblast) do
+        if(target:IsPlayer() || target:IsNPC()) then
+            -- Deal damage behind the player when firing.
+            if (target == self.Owner) then continue end
+            local dmginfo = DamageInfo()
+            dmginfo:SetDamageType(DMG_BLAST)
+            dmginfo:SetAttacker(self.Owner)
+            dmginfo:SetDamage(250)
+            dmginfo:SetDamageForce(-forwardVector * 2000)
+            dmginfo:SetInflictor(self)
+            target:TakeDamageInfo(dmginfo)
+        end
+    end
 end
 
 function ENT:Think()

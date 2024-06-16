@@ -71,20 +71,20 @@ SWEP.CustomSettings = {}
 SWEP.UseForms = {
 	["Shien"] = {1, 2, 3},
 	["Djem So"] = {1, 2, 3},
-	["Shii-Cho"] = {1, 2, 3}, 
-	["Makashi"] = {1, 2, 3}, 
-	["Soresu"] = {1, 2, 3}, 
-	["Ataru"] = {1, 2, 3}, 
+	["Shii-Cho"] = {1, 2, 3},
+	["Makashi"] = {1, 2, 3},
+	["Soresu"] = {1, 2, 3},
+	["Ataru"] = {1, 2, 3},
 	["Niman"] = {1, 2, 3},
-	["Juyo"] = {1, 2, 3}, 
-	["Zenith"] = {1, 2, 3}, 
+	["Juyo"] = {1, 2, 3},
+	["Zenith"] = {1, 2, 3},
 	["Relentless"] = {1, 2, 3},
 }
 
 --Use these options to overwrite the player's commands
-SWEP.UseHilt = "models/starwars/cwa/lightsabers/aaylasecura.mdl" -- Model path of the hilt
+SWEP.UseHilt = "models/weapons/starwars/w_maul_saber_staff_hilt.mdl" -- Model path of the hilt
 SWEP.UseLength = 46 -- Length of the saber 
-SWEP.UseWidth = 2 -- Width of the saber
+SWEP.UseWidth = 1.5 -- Width of the saber
 SWEP.UseColor = Color( 0, 0, 255 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
 SWEP.UseDarkInner = false -- Does it have a dark inner? 1 = true
 SWEP.UseLoopSound = false -- The loop sound path

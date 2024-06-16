@@ -100,17 +100,19 @@ function ENT:FlashBang()
 
     for _, k in pairs(targets) do
         if k:IsPlayer() then
-            local dist = k:EyePos():Distance(flashorigin)
-            local dp = (k:EyePos() - flashorigin):Dot(k:EyeAngles():Forward())
-
-            local time = Lerp( dp, 2.5, 0.25 )
-
-            time = Lerp( dist / flashpower, time, 0 )
-
-            if k:VisibleVec( flashorigin ) then
+            local tr = util.TraceLine({
+                start = flashorigin,
+                endpos = k:EyePos(),
+                filter = {k, self}
+            })
+            
+            if (!tr.Hit) then
+                local dist = k:EyePos():Distance(flashorigin)
+                local dp = (k:EyePos() - flashorigin):Dot(k:EyeAngles():Forward())
+                local time = Lerp( dp, 2.5, 0.25 )
+                time = Lerp( dist / flashpower, time, 0 )
                 k:ScreenFade( SCREENFADE.IN, Color( 255, 255, 255, 255 ), 6, time )
             end
-
             k:SetDSP( 37, false )
 
         elseif k:IsNPC() then
