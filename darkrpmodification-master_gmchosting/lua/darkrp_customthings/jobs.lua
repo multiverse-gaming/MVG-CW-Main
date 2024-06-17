@@ -3126,7 +3126,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("327th Talon Squadron", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl", "models/aussiwozzi/cgi/base/unassigned_pilot.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl"},
 
     description = [[Congratulations, you are now a member of Talon Squadron in the 327th!]],
 
