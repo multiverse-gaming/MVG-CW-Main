@@ -62,7 +62,7 @@ OBJ:SetCategory("Fighter")
 --  Should we require a grant?
 --[[---------------------------------]]--
 
-OBJ:SetRequest(false)
+OBJ:SetRequest(true)
 
 --[[---------------------------------]]--
 --  Enable changing vehicle skins. (Optional)
