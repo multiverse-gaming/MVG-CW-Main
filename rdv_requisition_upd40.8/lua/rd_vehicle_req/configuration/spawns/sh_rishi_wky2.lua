@@ -27,7 +27,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Green Company General",
   "Coruscant Guard General",
   "Galactic Marines General",
-  "104th General",
+  "Wolfpack General",
   "ARC General",
   "RC General",
   "Shadow General",
@@ -82,7 +82,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Strategic and Operational Command",
+  "Fleet Intelligence Officer",
   "Fleet Research and Development Medic",
   "Fleet Research and Development Engineer"
 })
@@ -107,7 +107,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "212th Heavy Ordnance Officer",
     "Green Company Reconnaissance Officer",
     "Galactic Marines Breaching Officer",
-    "104th Reconnaissance Officer",
+    "Wolfpack Reconnaissance Officer",
     "Engineering Officer",
     "Medical Officer",
     "NSO Advisor",
@@ -120,7 +120,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Green Company General",
     "Coruscant Guard General",
     "Galactic Marines General",
-    "104th General",
+    "Wolfpack General",
     "ARC General",
     "RC General",
     "Shadow General",
@@ -132,7 +132,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Fleet Seniority",
     "Fleet Admiral",
     "Grand Admiral",
-    "Fleet Strategic and Operational Command",
+    "Fleet Intelligence Officer",
     "Fleet Research and Development Medic",
     "Fleet Research and Development Engineer"
 })

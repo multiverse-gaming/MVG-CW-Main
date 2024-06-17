@@ -52,7 +52,7 @@ SWEP.Secondary.Ammo = "none"
 ------------------------------------------------------------THINGS YOU WILL EDIT ARE BELOW HERE-------------------------------------------------------------------------
 SWEP.PrintName = "Sentinel Lightsaber" --Name of the lightsaber
 SWEP.Class = "weapon_lightsaber_preset_sentinel" --The file name of this swep
-SWEP.DualWielded = false --Should this be a dual wielded saber?
+SWEP.DualWielded = true --Should this be a dual wielded saber?
 SWEP.CanMoveWhileAttacking = true -- Can the user move while attacking
 SWEP.SaberDamage = 200 --How much damage the saber does when it's being swung
 SWEP.SaberBurnDamage = 0 -- How much damage the saber does when it's colliding with someone ( coming in contact with laser )
@@ -69,22 +69,17 @@ SWEP.PersonalLightsaber = false
 SWEP.CustomSettings = {}
 
 SWEP.UseForms = {
-	["Shien"] = {1, 2, 3},
-	["Djem So"] = {1, 2, 3},
 	["Shii-Cho"] = {1, 2, 3}, 
-	["Makashi"] = {1, 2, 3}, 
-	["Soresu"] = {1, 2, 3}, 
+	["Shien"] = {1, 2, 3}, 
+	["Djem So"] = {1, 2, 3}, 
 	["Ataru"] = {1, 2, 3}, 
-	["Niman"] = {1, 2, 3},
-	["Juyo"] = {1, 2, 3}, 
-	["Zenith"] = {1, 2, 3}, 
-	["Relentless"] = {1, 2, 3},
+	["Jar'Kai"] = {1, 2, 3}, 
 }
 
 --Use these options to overwrite the player's commands
 SWEP.UseHilt = "models/starwars/cwa/lightsabers/aaylasecura.mdl" -- Model path of the hilt
 SWEP.UseLength = 46 -- Length of the saber 
-SWEP.UseWidth = 2 -- Width of the saber
+SWEP.UseWidth = 1.5 -- Width of the saber
 SWEP.UseColor = Color( 227, 125, 2 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
 SWEP.UseDarkInner = false -- Does it have a dark inner? 1 = true
 SWEP.UseLoopSound = false -- The loop sound path
@@ -93,10 +88,10 @@ SWEP.UseOnSound = false -- The on sound path
 SWEP.UseOffSound = false -- The off sound path
 
 --These are the ones for the second saber for dual wielding. If you are using a single saber, this doesn't do shit
-SWEP.UseSecHilt = false
+SWEP.UseSecHilt = "models/starwars/cwa/lightsabers/aaylasecura.mdl"
 SWEP.UseSecLength = 41
-SWEP.UseSecWidth = false
-SWEP.UseSecColor = false
+SWEP.UseSecWidth = 1.5
+SWEP.UseSecColor = Color( 227, 125, 2 )
 SWEP.UseSecDarkInner = false
 
 -----------------------------------------------------------END OF EDIT----------------------------------------------------------------
