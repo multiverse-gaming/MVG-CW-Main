@@ -5212,7 +5212,7 @@ TEAM_FLEETADMIRAL = DarkRP.createJob("Fleet Admiral", {
 
     color = Color(122, 122, 122, 255),
 
-    model = {"models/jajoff/sps/republic/tc13j/rsb03.mdl","models/jajoff/sps/republic/tc13j/rsb03_female.mdl","models/aussiwozzi/cgi/base/shadow_pilot.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/rsb03.mdl","models/jajoff/sps/republic/tc13j/rsb03_female.mdl","models/aussiwozzi/cgi/base/shadow_pilot.mdl", "models/player/wullf/wullf.mdl"},
 
     description = [[Congratulations You Are Now A Member Of The Navy!]],
 
@@ -5246,7 +5246,7 @@ TEAM_GRANDADMIRAL = DarkRP.createJob("Grand Admiral", {
 
     color = Color(122, 122, 122, 255),
 
-    model = {"models/jajoff/sps/republic/tc13j/rsb03.mdl","models/jajoff/sps/republic/tc13j/rsb03_female.mdl","models/aussiwozzi/cgi/base/shadow_pilot.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/rsb03.mdl","models/jajoff/sps/republic/tc13j/rsb03_female.mdl","models/aussiwozzi/cgi/base/shadow_pilot.mdl","models/player/wullf/wullf.mdl"},
 
     description = [[Congratulations You Are The Grand Admiral!]],
 

@@ -59,7 +59,7 @@ include("sh_fort_config.lua")
 end
 end
 
-JoeFort.Ressources = JoeFort.Ressources or 250
+JoeFort.Ressources = JoeFort.Ressources or 500
 if JoeFort.configoverride then return end
 
 -- RESOURCE EDITS - +10 so far (fences only)
