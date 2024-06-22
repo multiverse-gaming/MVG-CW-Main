@@ -143,17 +143,19 @@ end
 end
 
 function SWEP:Deploy()
-self:SetWeaponHoldType( self.HoldType )
-self.Weapon:SendWeaponAnim( ACT_VM_DRAW )
-self:SetNextPrimaryFire( CurTime() + 0.5 )
-self:SetNextSecondaryFire( CurTime() + 0.5 )
-self.Attack = 0
-self.AttackTimer = CurTime()
-self.Idle = 0
-self.IdleTimer = CurTime() + self.Owner:GetViewModel():SequenceDuration()
-self.Owner:SetWalkSpeed( self.WalkSpeed )
-self.Owner:SetRunSpeed( self.RunSpeed )
-return true
+    self:SetWeaponHoldType( self.HoldType )
+    self.Weapon:SendWeaponAnim( ACT_VM_DRAW )
+    self:SetNextPrimaryFire( CurTime() + 0.5 )
+    self:SetNextSecondaryFire( CurTime() + 0.5 )
+    self.Attack = 0
+    self.AttackTimer = CurTime()
+    self.Idle = 0
+    self.IdleTimer = CurTime() + self.Owner:GetViewModel():SequenceDuration()
+    self.Owner.mediWalkSpeed = self.Owner:GetWalkSpeed()
+    self.Owner.mediRunSpeed = self.Owner:GetRunSpeed()
+    self.Owner:SetWalkSpeed( self.WalkSpeed )
+    self.Owner:SetRunSpeed( self.RunSpeed )
+    return true
 end
 
 function SWEP:Holster()
@@ -165,8 +167,8 @@ self.Attack = 0
 self.AttackTimer = CurTime()
 self.Idle = 0
 self.IdleTimer = CurTime()
-self.Owner:SetWalkSpeed( 160 )
-self.Owner:SetRunSpeed( 240 )
+self.Owner:SetWalkSpeed( self.Owner.mediWalkSpeed )
+self.Owner:SetRunSpeed( self.Owner.mediRunSpeed )
 return true
 end
 
