@@ -35,7 +35,7 @@ SWEP.DamageMin = 450
 SWEP.Range = 1200000
 SWEP.Penetration = 22
 
-SWEP.DamageType = DMG_BULLET--DMG_BULLET
+SWEP.DamageType = DMG_DISSOLVE --DMG_BULLET
 SWEP.MuzzleVelocity = 500
 SWEP.TracerNum = 1
 SWEP.Tracer = "pulsar_tracer" --"tfa_tracer_blue"
