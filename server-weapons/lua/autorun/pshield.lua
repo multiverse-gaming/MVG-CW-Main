@@ -9,9 +9,24 @@ end)
 if SERVER then
 
 	hook.Add('EntityTakeDamage','PShield',function(ent,dmg)
+		if (ent:IsPlayer()) then
+			print(0)
+			print(IsValid(ent:GetNWEntity('PShield')))
+			if (IsValid(ent:GetNWEntity('PShield'))) then
+				print(ent:GetNWEntity('PShield'):GetActive())
+			end
+		end
+
 		if ent:IsPlayer() and IsValid(ent:GetNWEntity('PShield')) and ent:GetNWEntity('PShield'):GetActive() then
 			local damageType = dmg:GetDamageType()
-			if (damageType == DMG_BULLET || damageType == DMG_SLASH || damageType == DMG_BLAST || damageType == DMG_BURN ) then
+			print(1)
+			if (ent:GetClass() == "personal_shield_droideka") then
+				print(2)
+				-- Droideka has a huge hitbox, so direct it all to the shield.
+				local shield = ent:GetNWEntity('PShield')
+				shield:TakeDamageInfo(dmg)
+				return true
+			elseif (damageType == DMG_BULLET || damageType == DMG_SLASH || damageType == DMG_BLAST || damageType == DMG_BURN ) then
 				-- Explicitly deny some damage types. They should hit the shield anyway.
 				return true
 			elseif (damageType == DMG_FALL) then

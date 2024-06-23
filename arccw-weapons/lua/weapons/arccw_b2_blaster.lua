@@ -32,7 +32,7 @@ SWEP.IconOverride = "materials/entities/rw_sw_b2rp_blaster.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 40
+SWEP.Damage = 30
 SWEP.RangeMin = 145
 SWEP.DamageMin = 40
 SWEP.Range = 325
@@ -51,10 +51,10 @@ SWEP.HullSize = 1.5
 SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 60
 
-SWEP.Recoil = 0.7
+SWEP.Recoil = 0.29
 SWEP.RecoilPunch = 0.8
-SWEP.RecoilSide = 0.25
-SWEP.RecoilRise = 0.31
+SWEP.RecoilSide = 0.11
+SWEP.RecoilRise = 0.22
 
 SWEP.Delay = 60 / 400
 SWEP.Num = 2
@@ -67,9 +67,9 @@ SWEP.Firemodes = {
     }
 }
 
-SWEP.AccuracyMOA = 31 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 100
+SWEP.AccuracyMOA = 30 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 200
 
 SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil

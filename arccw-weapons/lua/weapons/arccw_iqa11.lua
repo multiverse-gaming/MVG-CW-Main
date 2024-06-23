@@ -32,9 +32,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_iqa11.png"
 SWEP.NoHideLeftHandInCustomization = false
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 300
+SWEP.Damage = 250
 SWEP.RangeMin = 375
-SWEP.DamageMin = 300
+SWEP.DamageMin = 250
 SWEP.Range = 800
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -48,13 +48,13 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 3
+SWEP.Primary.ClipSize = 4
 
 SWEP.Recoil = 0.54
 SWEP.RecoilSide = 0.11
 SWEP.RecoilRise = 0.22
 
-SWEP.Delay = 60 / 50
+SWEP.Delay = 60 / 60
 SWEP.Num = 1
 SWEP.Firemodes = {
     {
@@ -67,7 +67,7 @@ SWEP.Firemodes = {
 
 SWEP.AccuracyMOA = 0.01 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 800 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 100
+SWEP.MoveDispersion = 700
 SWEP.SightsDispersion = 0
 
 -- Mobility when weapon is out

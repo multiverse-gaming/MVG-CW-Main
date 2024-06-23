@@ -14,6 +14,6 @@ ENT.Model = "models/Items/AR2_Grenade.mdl"
 ENT.BoxSize = Vector(8, 4, 1)
 ENT.DamageOverride = 500
 ENT.Radius = 250
---ENT.ImpactDamage = 500
+ENT.ImpactDamage = 500
 ENT.Boost = 200
 ENT.DragCoefficient = 0

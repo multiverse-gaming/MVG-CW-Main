@@ -83,6 +83,7 @@ SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false --
+
 SWEP.MuzzleFlashColor = Color(0, 0, 255)
 
 
@@ -150,94 +151,6 @@ SWEP.AttachmentElements = {
     },
 }
 WMOverride = "models/arccw/fisher/extendeddc17/extendeddc17.mdl"
---SWEP.Attachments 
---[[SWEP.Attachments = {
-    [1] = {
-        PrintName = "Optic", -- print name
-        DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "swoptic_module",
-        WMScale = Vector(111, 111, 111),
-        Bone = "v_scoutblaster_reference001", -- relevant bone any attachments wwill be mostly referring to
-        Offset = {
-            vpos = Vector(0, -2, 3.5),
-            vang = Angle(0, 180, 0),
-            wpos = Vector(600, 150, -600),
-            wang = Angle(-0, 90, 180)
-        },
-    },
-    [2] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "v_scoutblaster_reference001", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0, -7, 1),
-            vang = Angle(0, 90, 0),
-            wpos = Vector(1100, 150, -300),
-            wang = Angle(0, 0, 180)
-        },
-    },    
-    [3] = {
-        PrintName = "Muzzle", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        WMScale = Vector(111, 111, 111),
-        Slot = {"muzzle", "cr2_muzzle", "cr2c_muzzle", "stealth_muzzle"},
-        Bone = "scoutblaster_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-.1, 0, 8.7),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(1340, 150, -430),
-            wang = Angle(0, 0, 180)
-        },
-    },        
-    [4] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [5] = {
-        PrintName = "Training/Perk", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "perk",
-    },
-    [6] = {
-        PrintName = "Charms", -- print name
-        DefaultAttName = "No Charm", -- used to display the "no attachment" text
-        Slot = {"charm"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "scoutblaster_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.7, -0.6, 2),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(900, 200, -500),
-            wang = Angle(-10, 0, 180)
-        },
-    },          
-    [7] = {
-        PrintName = "Killcounter", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = {"killcounter"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "scoutblaster_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.7, 0.5, 0),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(450, 240, -420),
-            wang = Angle(0, 0, 180)
-        },
-    },   
-    [8] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [9] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },   
-}--]]
 
 
 SWEP.Animations = {

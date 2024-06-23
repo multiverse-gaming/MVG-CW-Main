@@ -48,7 +48,7 @@ DarkRP.createEntity("Laser Turret", {
 
 
 DarkRP.createEntity("Fortification Resources", {
-    ent = "joefort_ressource_100",
+    ent = "joefort_ressource_500",
     model = "models/kingpommes/starwars/misc/imp_crate_single_closed.mdl",
     price = 0,
     max = 1,
@@ -169,6 +169,16 @@ DarkRP.createEntity("V Wing", {
 })
 
 
+
+DarkRP.createEntity("Hilt Chance", {
+    ent = "hiltchance",
+    model = "models/items/ammocrate_rockets.mdl",
+    price = 0,
+    max = 1,
+    cmd = "hiltchan",
+    allowed = {TEAM_JEDIGRANDMASTER, TEAM_JEDIGENERALTANO, TEAM_JEDIGENERALTIPLAR, TEAM_JEDIGENERALTIPLEE, TEAM_JEDIGENERALSKYWALKER, TEAM_JEDIGENERALOBI, TEAM_JEDIGENERALSHAAK, TEAM_JEDIGENERALLUMINARA, TEAM_JEDIGENERALAAYLA, TEAM_JEDIGENERALKIT, TEAM_JEDIGENERALPLO, TEAM_JEDIGENERALADI, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALAAYLA, TEAM_SOD, TEAM_JEDIGENERALVOS},
+    category = "Entities",
+})
 
 DarkRP.createEntity("New Hilt Chance", {
     ent = "hiltchancenew",
@@ -508,7 +518,7 @@ DarkRP.createEntity("Shaak Ti Prep", {
 })
 
 DarkRP.createEntity("Vos Prep", {
-    ent = "quinlanhilt",
+    ent = "voshilt",
     model = "models/lt_c/sci_fi/light_spotlight.mdl",
     price = 0,
     max = 1,

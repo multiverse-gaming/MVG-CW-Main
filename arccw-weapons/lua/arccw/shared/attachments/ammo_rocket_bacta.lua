@@ -11,7 +11,7 @@ att.Desc_Cons = {
 att.AutoStats = true
 att.Slot = "riggsbacta"
 
-att.Override_ClipSize = 3
+att.Override_ClipSize = 5
 att.Mult_RPM = 0.1
 att.Mult_MuzzleVelocity = 10
 

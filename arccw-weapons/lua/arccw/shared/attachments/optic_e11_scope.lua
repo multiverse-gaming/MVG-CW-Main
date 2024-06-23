@@ -19,7 +19,7 @@ att.AdditionalSights = {
     {
         Pos = Vector(0, 9, -1.2),
         Ang = Angle(0, 0, 0),
-        Magnification = 1.5,
+        Magnification = 1,
         ScrollFunc = ArcCW.SCROLL_ZOOM,
         ZoomLevels = 10,
         ZoomSound = "weapons/arccw/fiveseven/fiveseven_slideback.wav",
@@ -37,7 +37,7 @@ att.HolosightBone = "holosight"
 att.HolosightPiece = "models/atts/e11_scope_hsp.mdl"
 att.Colorable = false
 
-att.HolosightMagnification = 0
+att.HolosightMagnification = 1
 att.HolosightBlackbox = true
 
 att.HolosightConstDist = 44

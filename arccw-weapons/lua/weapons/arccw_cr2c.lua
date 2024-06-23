@@ -31,9 +31,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_cr2c.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 35
+SWEP.Damage = 25
 SWEP.RangeMin = 160
-SWEP.DamageMin = 35
+SWEP.DamageMin = 25
 SWEP.Range = 350
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -49,13 +49,13 @@ SWEP.TracerCol = Color(0, 250, 0)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 45
+SWEP.Primary.ClipSize = 35
 
-SWEP.Recoil = 0.27
-SWEP.RecoilSide = 0.25
+SWEP.Recoil = 0.6
+SWEP.RecoilSide = 0.4
 SWEP.RecoilRise = 0.13
 
-SWEP.Delay = 60 / 450
+SWEP.Delay = 60 / 800
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -66,7 +66,7 @@ SWEP.Firemodes = {
     },    
 }
 
-SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 50 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 SWEP.JumpDispersion = 1000

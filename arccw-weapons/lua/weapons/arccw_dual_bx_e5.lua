@@ -33,9 +33,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_dual_e5bx.png"
 SWEP.DefaultBodygroups = "000000000000"
 SWEP.NoHideLeftHandInCustomization = true
 
-SWEP.Damage = 38
+SWEP.Damage = 45
 SWEP.RangeMin = 150
-SWEP.DamageMin = 38
+SWEP.DamageMin = 45
 SWEP.Range = 350
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -51,14 +51,14 @@ SWEP.TracerCol = Color(250, 0, 0)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 40
+SWEP.Primary.ClipSize = 80
 
-SWEP.Recoil = 0.7
-SWEP.RecoilPunch = 1.4
-SWEP.RecoilSide = 0.25
-SWEP.RecoilRise = 0.31
+SWEP.Recoil = 0.35
+--SWEP.RecoilPunch = 1.4
+SWEP.RecoilSide = 0.22
+SWEP.RecoilRise = 0.33
 
-SWEP.Delay = 60 / 512
+SWEP.Delay = 60 / 600
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -72,9 +72,11 @@ SWEP.Firemodes = {
     },    
 }
 
-SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 50
+SWEP.ShootWhileSprint = true
+
+SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 200
 
 
 ----AMMO / stuff----

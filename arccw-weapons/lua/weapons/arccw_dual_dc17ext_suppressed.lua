@@ -32,6 +32,7 @@ SWEP.IconOverride = "materials/entities/dual_dc17ext_supressed.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 SWEP.NoHideLeftHandInCustomization = true
+
 SWEP.Damage = 30
 SWEP.RangeMin = 135
 SWEP.DamageMin = 30
@@ -173,36 +174,6 @@ SWEP.AttachmentElements = {
     }
 }
 WMOverride = "models/arccw/fisher/extendeddc17/extendeddc17.mdl"
-
---SWEP.Attachments 
---[[SWEP.Attachments = {
-    [1] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        Bone = "RightHand_1stP", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-9, -3, 2),
-            vang = Angle(170, 2, -90),
-        },
-    },    
-    [2] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [3] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [4] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },
-}   --]]
-
 
 SWEP.Animations = {
     ["idle"] = {

@@ -14,7 +14,7 @@ function ENT:Initialize()
 	-- USE THIS TO CHANGE ROCKET DAMAGE
 	Rocket_damage = 800
 
-self.flightvector = self.Entity:GetForward() * ((30*15.5)/5)
+self.flightvector = self.Entity:GetForward() * ((60*15.5)/5)
 self.timeleft = CurTime() + 15
 self.Owner = self:GetOwner()
 self.Entity:SetModel( "models/items/ar2_grenade.mdl" )
@@ -47,7 +47,7 @@ for _, target in pairs(backblast) do
 		local dmginfo = DamageInfo()
 		dmginfo:SetDamageType(DMG_BLAST)
 		dmginfo:SetAttacker(self.Owner)
-		dmginfo:SetDamage(250)
+		dmginfo:SetDamage(150)
 		dmginfo:SetDamageForce(-forwardVector * 2000)
 		dmginfo:SetInflictor(self)
 		target:TakeDamageInfo(dmginfo)

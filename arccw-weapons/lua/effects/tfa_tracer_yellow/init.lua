@@ -81,7 +81,7 @@ function EFFECT:Think()
 			effectdata:SetStart( hitColor )
 			effectdata:SetOrigin( self.EndPos )
 			effectdata:SetNormal( self.Dir:GetNormalized() )
-		--util.Effect( "laser_hit", effectdata )
+		util.Effect( "laser_hit", effectdata )
 
 		return false
 	end
@@ -117,7 +117,7 @@ function EFFECT:Render()
     local endDistance = self.Speed * self.StartTime
     local endPos = self.StartPos + self.Dir:GetNormalized() * endDistance
 
-  --[[]  if (dlight) then
+    if (dlight) then
         dlight.pos = endPos
         dlight.r = 218
         dlight.g = 165
@@ -126,6 +126,6 @@ function EFFECT:Render()
         dlight.Decay = 1000
         dlight.Size = 300
         dlight.DieTime = CurTime() + 3
-    end --]]
+    end
 end
 end

@@ -12,13 +12,13 @@ att.Slot = "stealth_setting"
 --att.Override_Tracer = "lrb_11_tracer"
 att.Override_MuzzleEffect = false
 att.Reload = 1
---att.Mult_DamageMin = 0.76
+att.Mult_DamageMin = 0.76
 att.Mult_Recoil = 0.9
 att.Mult_SightTime = 1
---att.Mult_RPM = 1.15
+att.Mult_RPM = 1.15
 att.NotForNPCs = true
---att.Mult_Damage = 0.85
---att.Mult_MuzzleVelocity = 0.8
+att.Mult_Damage = 0.85
+att.Mult_MuzzleVelocity = 0.8
 
 att.Hook_GetShootSound = function(wep, sound)
     return false

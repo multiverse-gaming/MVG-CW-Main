@@ -15,16 +15,18 @@ att.AutoStats = true
 
 att.Silencer = false
 
-att.Mult_Damage = 7.5 -- 300 Damage
+att.Mult_Damage = 8.75 -- 300 Damage
 att.Mult_DamageMin = 7.5
 att.Mult_RPM = 0.1
-att.Override_ClipSize = 5
+att.Override_ClipSize = 2
 
-att.Mult_AccuracyMOA = 0.00175438596
-att.Mult_HipDispersion = 2
+att.Mult_AccuracyMOA = 0
+att.Mult_HipDispersion = 3.2
 
 att.Mult_RecoilSide = 1.25
 att.Mult_Recoil = 1.2
+
+att.Mult_SpeedMult = 0
 
 --Archived - Painite
 --att.Mult_ShootVol = 1.25

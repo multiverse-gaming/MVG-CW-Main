@@ -193,7 +193,7 @@ SWEP.Attachments = {
     },
     [2] = {
         PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
+        DefaultAttName = "Standard", -- used to display the "no attachment" text
         Slot = {"ultimateshotgun","sw_ammo"}, --NSO shotgun and stunrounds
     },
 }

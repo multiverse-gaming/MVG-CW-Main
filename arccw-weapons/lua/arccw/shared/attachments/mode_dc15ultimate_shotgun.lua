@@ -15,9 +15,9 @@ att.AutoStats = true
 
 att.Silencer = false
 
-att.Mult_Damage = 8.5714285714285714285714285714286 -- 50 Damage
-//att.Mult_DamageMin = 8.5714285714285714285714285714286 --300 DMG
-att.Mult_DamageMin = 8.5714285714285714285714285714286//1.42857142857
+att.Mult_Damage = 6 -- 210 Damage
+//att.Mult_DamageMin = 6 --210 Damage
+att.Mult_DamageMin = 6 --210 Damage
 att.Mult_RPM = 0.22222222222222222222222222222222
 att.Mult_Num = 6
 

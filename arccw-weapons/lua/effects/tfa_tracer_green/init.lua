@@ -82,7 +82,7 @@ function EFFECT:Think()
 			effectdata:SetStart( hitColor )
 			effectdata:SetOrigin( self.EndPos )
 			effectdata:SetNormal( self.Dir:GetNormalized() )
-		--util.Effect( "laser_hit", effectdata )
+		util.Effect( "laser_hit", effectdata )
 
 		return false
 	end
@@ -114,19 +114,19 @@ function EFFECT:Render()
 
     if --[[DynamicTracer:GetBool()]] true then
     local spawn = util.CRC(tostring(self:GetPos()))
-   -- local dlight = DynamicLight(self:EntIndex() + spawn)
+    local dlight = DynamicLight(self:EntIndex() + spawn)
     local endDistance = self.Speed * self.StartTime
     local endPos = self.StartPos + self.Dir:GetNormalized() * endDistance
 
-  --  if (dlight) then
-  --      dlight.pos = endPos
-  --      dlight.r = 0
-  --      dlight.g = 255
-  --      dlight.b = 0
-  --      dlight.brightness = 3
-  --      dlight.Decay = 1000
-  --      dlight.Size = 200
-   --     dlight.DieTime = CurTime() + 3
-  --  end
+    if (dlight) then
+        dlight.pos = endPos
+        dlight.r = 0
+        dlight.g = 255
+        dlight.b = 0
+        dlight.brightness = 3
+        dlight.Decay = 1000
+        dlight.Size = 200
+        dlight.DieTime = CurTime() + 3
+    end
 end
 end

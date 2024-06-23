@@ -51,14 +51,14 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 68
+SWEP.Primary.ClipSize = 30
 
 SWEP.Recoil = 0.3
 SWEP.RecoilPunch = 0.6
 SWEP.RecoilSide = 0.17
 SWEP.RecoilRise = 0.22
 
-SWEP.Delay = 60 / 616
+SWEP.Delay = 60 / 600
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -72,7 +72,7 @@ SWEP.Firemodes = {
     },        
 }
 
-SWEP.AccuracyMOA = 10 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 35 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 50
 

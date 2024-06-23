@@ -12,8 +12,8 @@ ENT.AdminSpawnable = false
 ENT.Model = "models/Items/AR2_Grenade.mdl"
 
 ENT.BoxSize = Vector(8, 4, 1)
-ENT.DamageOverride = 200
+ENT.DamageOverride = 350
 ENT.Radius = 250
-ENT.ImpactDamage = 300
+ENT.ImpactDamage = 0
 ENT.Boost = 200
 ENT.DragCoefficient = 0

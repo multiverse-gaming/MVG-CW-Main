@@ -32,9 +32,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_e5.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 40
+SWEP.Damage = 45
 SWEP.RangeMin = 175
-SWEP.DamageMin = 40
+SWEP.DamageMin = 45
 SWEP.Range = 550000
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -52,11 +52,11 @@ SWEP.HullSize = 1.5
 SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 50
 
-SWEP.Recoil = 0.35
-SWEP.RecoilSide = 0.1
-SWEP.RecoilRise = 0
+SWEP.Recoil = 0.29
+SWEP.RecoilSide = 0.11
+SWEP.RecoilRise = 0.22
 
-SWEP.Delay = 60 / 450
+SWEP.Delay = 60 / 550
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -70,9 +70,11 @@ SWEP.Firemodes = {
     },    
 }
 
-SWEP.AccuracyMOA = 0.1 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 100
+SWEP.ShootWhileSprint = true
+
+SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 200
 
 
 ----AMMO / stuff----

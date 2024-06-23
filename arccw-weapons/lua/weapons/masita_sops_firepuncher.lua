@@ -45,7 +45,7 @@ SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 25
+SWEP.Primary.ClipSize = 20
 --[[SWEP.ExtendedClipSize = 15
 SWEP.ReducedClipSize = 5--]]
 
@@ -54,7 +54,7 @@ SWEP.Recoil = 0.25
 SWEP.RecoilSide = 0.2
 SWEP.AccuracyMOA = 0.01 
 SWEP.HipDispersion = 400
-SWEP.MoveDispersion = 50
+SWEP.MoveDispersion = 200
 
 SWEP.Delay = 60 / 200
 SWEP.Num = 1

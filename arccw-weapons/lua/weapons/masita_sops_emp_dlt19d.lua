@@ -29,8 +29,8 @@ SWEP.WorldModelOffset = {
 }
 
 -- Damage & Tracer
-SWEP.Damage = 30
-SWEP.DamageMin = 30
+SWEP.Damage = 35
+SWEP.DamageMin = 35
 SWEP.Range = 97200000
 SWEP.RangeMin = 620
 SWEP.Penetration = 22
@@ -49,14 +49,14 @@ SWEP.Primary.ClipSize = 50
 
 SWEP.VisualRecoilMult = 0
 SWEP.Recoil = 0.29
-SWEP.RecoilSide = 0.11
-SWEP.RecoilRise = 0.22
+SWEP.RecoilSide = 0.22
+SWEP.RecoilRise = 0.33
 
 SWEP.AccuracyMOA = 5.7
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 
-SWEP.Delay = 60 / 550
+SWEP.Delay = 60 / 450
 SWEP.Num = 1
 SWEP.Firemodes = {
     {
@@ -71,7 +71,7 @@ SWEP.Firemodes = {
 }
 
 SWEP.SpeedMult = 0.85
-SWEP.SightedSpeedMult = 0.40
+SWEP.SightedSpeedMult = 0.75
 SWEP.SightTime = 0.4 / 1.25
 
 -- Ammo, Sounds & MuzzleEffect
@@ -81,7 +81,7 @@ SWEP.FastMuzzleEffect = nil
 SWEP.MuzzleFlashColor = Color(250, 0, 0)
 SWEP.Primary.Ammo = "ar2"
 
-SWEP.ShootVol = 140
+SWEP.ShootVol = 80
 SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0.04
 

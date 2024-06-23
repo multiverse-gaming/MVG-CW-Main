@@ -78,6 +78,7 @@ function SWEP:PrimaryAttack()
 		local targetPly = tr.Entity
 
 		if targetPly:IsPlayer() then
+			print(targetPly)
 			local maxhealth = targetPly:GetMaxHealth() + 100  -- Max HP to heal could be set job specific, create a table to reference further up and put it here with an or statement
 
 			if targetPly:Health() >= maxhealth then

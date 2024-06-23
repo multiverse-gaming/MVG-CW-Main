@@ -19,6 +19,7 @@ att.Mult_MuzzleVelocity = 50
 att.Override_ChamberSize = -10
 att.MagReducer = true
 att.Add_ClipSize =  1
+att.Override_Num = 1
 att.Override_ShootEntity = "arccw_rocket"
 
 att.Hook_AddShootSound = function(wep, data)

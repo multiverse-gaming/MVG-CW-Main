@@ -26,15 +26,17 @@ SWEP.Clipsize = -1
 SWEP.DefaultClip = -1
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "none"
+local jetpackVelocity = 1200
 local maxFuel = 100 -- no point in changing this, change drain and recharge
 local status = true
 local sv_gravity = GetConVar"sv_gravity"
 local soundCreated = false
 
 -- SETTINGS YOU CAN CHANGE WITHOUT RUINING THE JETPACK FUNCTIONS
-local jetpackStrafeSpeed = 340 -- Speed while strafing (X/Y axis); higher is faster.
-local jetpackFlightSpeed = 210 -- Speed that you travel up/down with.
-local jetpackDeleceration = 5 -- Change to make it floatier/not.
+local jetpackStrafeSpeed = 340 -- Speed while strafing (X/Y axis); higher is faster
+local jetpackFlightSpeed = 210 -- Speed that you travel up/down with. 
+local jetpackFlightAcceleration = 0.7
+local jetpackDeleceration = 5 -- Change to make it floatier/not
 local fuelDrain = 0.5 -- Lower is slower
 local fuelRecharge = 2 -- Lower is slower
 local infiniteFuel = false -- True means it"s enabled = it got infinite amount of fuel
@@ -64,7 +66,7 @@ function SWEP:Initialize()
                 if not infiniteFuel then weaponId:SetFuel(math.Clamp(weaponId:GetFuel() - fuelDrain, 0, maxFuel)) end
                 if weaponId:GetFuel() == 0 then weaponId:SetCanFly(false) end
                 local vel = mv:GetVelocity()
-                -- Clone vel to use after transforming values.
+                -- Clone vel to use after transforming values
                 local oldVel = vel
                 if mv:KeyDown(IN_JUMP) and vel.z < jetpackFlightSpeed then
                     -- If holding jump, Travel up quickly.
@@ -98,6 +100,12 @@ function SWEP:Initialize()
                 -- Normalize, multipy by max velocity (for server tick?)
                 move_vel:Normalize()
                 move_vel:Mul(jetpackStrafeSpeed)
+
+                -- -- Take current speed, clamp to max speeds.
+                -- -- Pretty sure this is useless right? We're doing this work and then overwriting it 3 lines later
+                -- vel.x = math.Clamp(vel.x, -jetpackStrafeSpeed, jetpackStrafeSpeed)
+                -- vel.y = math.Clamp(vel.y, -jetpackStrafeSpeed, jetpackStrafeSpeed)
+                -- local oldVel = vel
 
                 -- Have it hover properly - and have old vel influence our speed.
                 vel.x = (move_vel.x + (jetpackDeleceration * oldVel.x)) / (jetpackDeleceration + 1)

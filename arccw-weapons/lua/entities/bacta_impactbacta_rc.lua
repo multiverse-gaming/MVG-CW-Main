@@ -1,6 +1,6 @@
 ENT.Type = "anim"
 ENT.Base = "base_anim"
-ENT.Heal = 150
+ENT.Heal = 50
 ENT.Radius = 200
 
 

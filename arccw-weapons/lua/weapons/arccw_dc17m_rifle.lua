@@ -201,29 +201,6 @@ SWEP.Attachments = {
             wang = Angle(-15, 0, 180)
         },
     },
---[[    [2] = {
-        PrintName = "Tactical",
-        DefaultAttName = "No Attachment",
-        Slot = {"tactical", "tac_pistol"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(1, -2.5, 5),
-            vang = Angle(90, 0, 30),
-            wpos = Vector(1600, 200, -900),
-            wang = Angle(-15, 0, -90)
-        },
-    },
-    [3] = {
-        PrintName = "Foregrip",
-        DefaultAttName = "No Attachment",
-        Slot = "foregrip",
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(-0.3, 5, 4),
-            vang = Angle(90, 0, -90),
-        },
-    },--]]
     [2] = {
         PrintName = "Magazine",
         DefaultAttName = "No Attachment",
@@ -249,52 +226,6 @@ SWEP.Attachments = {
             wang = Angle(-15, 0, -90)
         },
     },
---[[    [6] = {
-        PrintName = "Energization",
-        DefaultAttName = "Standard Energization",
-        Slot = "ammo",
-    },
-    [7] = {
-        PrintName = "Training/Perk",
-        DefaultAttName = "None",
-        Slot = "perk",
-    },
-    [8] = {
-        PrintName = "Charms",
-        DefaultAttName = "No Charm",
-        Slot = {"charm"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(0.5, -0.4, 5),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(1500, 200, -670),
-            wang = Angle(-10 , 0, 180)
-        },
-    },
-    [9] = {
-        PrintName = "Killcounter", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = {"killcounter"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.8, -0.4, -4),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(400, 200, -390),
-            wang = Angle(-15 , 0, 180)
-        },
-    },   
-    [10] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [11] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    }--]]
 }
 
 

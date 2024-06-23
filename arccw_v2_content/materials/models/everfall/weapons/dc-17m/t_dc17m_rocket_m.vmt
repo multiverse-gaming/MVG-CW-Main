@@ -1,0 +1,18 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "Models/Markus/SWBF2/Gameplay/Equipment/Specials/CloneCommando_DC17M/Texture/T_DC17M_Rocket_Color"
+	"$bumpmap" "Models/Markus/SWBF2/Gameplay/Equipment/Specials/CloneCommando_DC17M/Texture/T_DC17M_Rocket_Normal"
+
+	"$phongexponenttexture" "Models/Markus/SWBF2/Gameplay/Equipment/Specials/CloneCommando_DC17M/Texture/T_DC17M_Rocket_Exponent"
+	"$phongalbedotint"	"1"
+
+	"$color2"			"[0.65 0.65 0.65]"
+	"$translucent"		"1"
+
+	"$phong" "1"
+	"$phongboost"	"19.986979"
+	$phongboost			3
+	$phongexponent 		80
+
+	"$phongfresnelranges"	"[0.87 0.9 1]"
+}
