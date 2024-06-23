@@ -38,7 +38,7 @@ SWEP.Penetration = 22
 SWEP.DamageType = DMG_DISSOLVE --DMG_BULLET
 SWEP.MuzzleVelocity = 500
 SWEP.TracerNum = 1
-SWEP.Tracer = "pulsar_tracer" --"tfa_tracer_blue"
+SWEP.Tracer = "tfa_tracer_blue" --"pulsar_tracer"
 SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 

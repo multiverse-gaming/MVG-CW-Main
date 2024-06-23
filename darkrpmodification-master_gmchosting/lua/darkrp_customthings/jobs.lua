@@ -7663,7 +7663,7 @@ TEAM_TECHNICALDROID = DarkRP.createJob("Technical Droid", {
     sortOrder = 8
 })
 
-TEAM_BOUNTYHUNTERREINFORCE = DarkRP.createJob("Bounty Hunter", {
+TEAM_BOUNTYHUNTERREINFORCE = DarkRP.createJob("Enemy Bounty Hunter", {
     color = Color(204, 0, 0, 255),
     model = {
         "models/assassin/pm_civ_assassin_human_female.mdl","models/assassin/pm_civ_assassin_human_male.mdl","models/bandit/pm_civ_bandit_human_female.mdl","models/bandit/pm_civ_bandit_human_male.mdl"
