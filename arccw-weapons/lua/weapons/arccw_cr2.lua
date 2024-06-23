@@ -100,7 +100,7 @@ SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
 
-SWEP.Primary.ClipSize = 45
+SWEP.Primary.ClipSize = 35
 
 
 
