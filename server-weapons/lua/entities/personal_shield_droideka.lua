@@ -19,6 +19,7 @@ function ENT:SetupDataTables()
 	self:NetworkVar('Bool',0,'Active') -- If its currently active.
 	self:NetworkVar('Bool',1,'Damaged') 
 	self:NetworkVar('Int',0,'ActiveOffset')
+
 	self:NetworkVar('Bool', 2, 'AutoEnable')
 end
 

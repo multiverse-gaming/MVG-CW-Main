@@ -115,12 +115,12 @@ function SWEP:NormalSpeed() -- Resets the speed
     if self.Owner:IsValid() then
         if (self.Owner.OBRunSpeed != nil) then
             self.Owner.OBRunSpeed = 260
-            self.Owner.OBWalkSpeed = 190
+            self.Owner.OBWalkSpeed = 210
             self.Owner:SetRunSpeed(self.Owner:GetRunSpeed() - 20)
-            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() - 20, 190))
+            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() - 20, 210))
         else
             self.Owner:SetRunSpeed(260)
-            self.Owner:SetWalkSpeed(190)
+            self.Owner:SetWalkSpeed(210)
         end
     end
 end
@@ -129,12 +129,12 @@ function SWEP:CustomSpeed() -- New speed
     if self.Owner:IsValid() then
         if (self.Owner.OBRunSpeed != nil) then
             self.Owner.OBRunSpeed = 280
-            self.Owner.OBWalkSpeed = 210
+            self.Owner.OBWalkSpeed = 230
             self.Owner:SetRunSpeed(self.Owner:GetRunSpeed() + 20)
-            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() + 20, 210))
+            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() + 20, 230))
         else
             self.Owner:SetRunSpeed(280)
-            self.Owner:SetWalkSpeed(210)
+            self.Owner:SetWalkSpeed(230)
         end
     end
 end

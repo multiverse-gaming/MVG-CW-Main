@@ -340,7 +340,7 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "Confederacy of Independent Systems",
+	name = "CIS Infantry",
 	categorises = "jobs",
 	startExpanded =false,
 	color = Color(204, 0, 0, 255),
@@ -349,7 +349,7 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "Event Enemy",
+	name = "CIS Reinforcements",
 	categorises = "jobs",
 	startExpanded =false,
 	color = Color(204, 0, 0, 255),
@@ -358,7 +358,7 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "Event Characters",
+	name = "CIS Special Forces",
 	categorises = "jobs",
 	startExpanded =false,
 	color = Color(204, 0, 0, 255),
@@ -367,10 +367,19 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "Malus Testing",
+	name = "Event Enemy",
 	categorises = "jobs",
 	startExpanded =false,
 	color = Color(204, 0, 0, 255),
 	canSee = function(ply) return true end,
 	sortOrder = 40,
+}
+
+DarkRP.createCategory{
+	name = "Event Characters",
+	categorises = "jobs",
+	startExpanded =false,
+	color = Color(204, 0, 0, 255),
+	canSee = function(ply) return true end,
+	sortOrder = 41,
 }

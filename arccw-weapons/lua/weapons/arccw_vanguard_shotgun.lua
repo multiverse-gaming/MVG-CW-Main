@@ -51,14 +51,14 @@ SWEP.TracerCol = Color(255, 165, 18)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 15
+SWEP.Primary.ClipSize = 10
 
 SWEP.Recoil = 1.5
 SWEP.RecoilSide = 0.6
 SWEP.RecoilPunch = 0.8
 SWEP.RecoilRise = 1
 
-SWEP.Delay = 60 / 250
+SWEP.Delay = 60 / 175
 SWEP.Num = 7
 SWEP.Firemodes = {
 	{

@@ -32,6 +32,7 @@ SWEP.IconOverride = "materials/entities/rw_sw_dual_dc17ext.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 SWEP.NoHideLeftHandInCustomization = true
+
 SWEP.Damage = 30
 SWEP.RangeMin = 135
 SWEP.DamageMin = 30

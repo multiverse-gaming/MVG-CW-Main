@@ -1,0 +1,18 @@
+"VertexLitGeneric"
+{
+	$basetexture "servius\starwars\dc15s\T_DC15A_Color"
+	$bumpmap "servius\starwars\dc15s\T_DC15A_Normal"
+    $phongexponenttexture "servius\starwars\dc15s\T_DC15A_Exponent"
+
+    $color2 "[0.5 0.5 0.5]"
+
+    $phong 				1
+    $phongboost			10
+    $phongalbedotint		 1
+    $phongfresnelranges			"[1 5 22.5]"
+
+    $envmap				"env_cubemap"
+    $envmaptint				"[ .1 .1 .1 ]"
+    $envmapfresnel			 0.1
+    $basemapalphaenvmapmask 1
+}

@@ -19,6 +19,8 @@ att.Mult_Damage = 6.1538461538461538461538461538462 -- 400 Damage
 att.Mult_DamageMin = 6.1538461538461538461538461538462
 att.Override_ClipSize = 1
 
+att.Mult_HipDispersion = 2
+
 -- Recoil
 att.Mult_RecoilSide = 1.25
 att.Mult_Recoil = 1.2

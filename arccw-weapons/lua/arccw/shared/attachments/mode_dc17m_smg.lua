@@ -18,9 +18,10 @@ att.Silencer = false
 att.Mult_Damage = 0.85714285714285714285714285714286 -- 30 Damage
 att.Mult_DamageMin = 0.85714285714285714285714285714286
 att.Mult_RPM = 2
+att.Add_ClipSize = -10
 -- att.Override_ClipSize =
 
-att.Mult_AccuracyMOA = 4.4444444444444444444444444444444 -- 18
+att.Mult_AccuracyMOA = 7.777777777777778 -- 35
 att.Mult_HipDispersion = 8
 
 --att.Mult_RecoilSide = 1.5

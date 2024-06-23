@@ -39,6 +39,10 @@ function EFFECT:Init(data)
 				particle:SetBounce(0.42)
 
 				particle:SetLighting(false)
+				
+				
+				
+
 			end
 			local dlight = DynamicLight( LocalPlayer():EntIndex() )
 	if ( dlight ) then
@@ -51,7 +55,7 @@ function EFFECT:Init(data)
 		dlight.Size = 256
 		dlight.DieTime = CurTime() + 3
 	end
-
+			
 			local particle = emitter:Add( "sprites/orangecore1", Pos )
 			if (particle) then
 

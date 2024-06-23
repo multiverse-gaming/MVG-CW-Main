@@ -53,10 +53,10 @@ SWEP.HullSize = 1.5
 SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 6
 
-SWEP.Recoil = 1.5
+SWEP.Recoil = 0.8
 SWEP.RecoilSide = 0.6
 SWEP.RecoilPunch = 0.8
-SWEP.RecoilRise = 1
+SWEP.RecoilRise = 0.18
 
 SWEP.Delay = 60 / 120
 SWEP.Num = 6
@@ -69,9 +69,9 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.AccuracyMOA = 50.2 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 80 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 0
+SWEP.MoveDispersion = 200
 
 SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil

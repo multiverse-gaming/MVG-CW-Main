@@ -1,0 +1,5 @@
+UnlitGeneric
+{
+$basetexture "vgui/white"
+$nodraw	"1"
+}

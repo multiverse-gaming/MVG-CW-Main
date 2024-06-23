@@ -15,9 +15,9 @@ att.AutoStats = true
 
 att.Silencer = true
 
-att.Mult_Damage = 8.5714285714285714285714285714286 -- 300 Damage
-att.Mult_DamageMin = 8.5714285714285714285714285714286
-att.Mult_RPM = 0.11
+att.Mult_Damage = 7.14285714286 -- 300 Damage
+att.Mult_DamageMin = 7.14285714286
+att.Mult_RPM = 0.1333333333333333
 att.Override_ClipSize = 3
 
 att.Mult_AccuracyMOA = 0.00175438596

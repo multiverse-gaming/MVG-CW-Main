@@ -32,9 +32,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_e5c.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 40
+SWEP.Damage = 35
 SWEP.RangeMin = 145
-SWEP.DamageMin = 40
+SWEP.DamageMin = 35
 SWEP.Range = 376
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -51,14 +51,14 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 100
+SWEP.Primary.ClipSize = 60
 
-SWEP.Recoil = 0.44
+SWEP.Recoil = 0.35
 SWEP.RecoilSide = 0.25
 SWEP.RecoilPunch = 0.8
-SWEP.RecoilRise = 0.34
+SWEP.RecoilRise = 0.33
 
-SWEP.Delay = 60 / 650
+SWEP.Delay = 60 / 550
 SWEP.Num = 1
 SWEP.Firemodes = {
     {
@@ -69,8 +69,8 @@ SWEP.Firemodes = {
     },         
 }
 
-SWEP.AccuracyMOA = 0.01 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
+SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 
 SWEP.Bipod_Integral = true -- Integral bipod (ie, weapon model has one)

@@ -30,15 +30,15 @@ SWEP.WorldModelOffset = {
 }
 
 -- Damage & Tracer
-SWEP.Damage = 500
-SWEP.DamageMin = 500
+SWEP.Damage = 450
+SWEP.DamageMin = 450
 SWEP.Range = 1200000
 SWEP.Penetration = 22
 
-SWEP.DamageType = DMG_BULLET
+SWEP.DamageType = DMG_BULLET--DMG_BULLET
 SWEP.MuzzleVelocity = 500
 SWEP.TracerNum = 1
-SWEP.Tracer = "tfa_tracer_blue"
+SWEP.Tracer = "pulsar_tracer" --"tfa_tracer_blue"
 SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 
@@ -51,8 +51,8 @@ SWEP.VisualRecoilMult = 0
 SWEP.Recoil = 2.1
 SWEP.RecoilSide = 1.02
 SWEP.AccuracyMOA = 0.06 
-SWEP.HipDispersion = 170
-SWEP.MoveDispersion = 267
+SWEP.HipDispersion = 600
+SWEP.MoveDispersion = 600
 
 SWEP.Delay = 60 / 150
 SWEP.Num = 1

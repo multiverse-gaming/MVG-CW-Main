@@ -320,8 +320,20 @@ function SWEP:SecondaryAttack(tr)
 	t.endpos = ply:GetPos() + ply:EyeAngles():Forward() * 500--700
 	t.filter = ply
 	local tr = util.TraceEntity( t, ply )
+	//print(tr.Hit)
+	if tr.Hit then
+		print(tr.HitNormal)
+		if (tr.HitNormal.x == 1 or tr.HitNormal.x == -1) then
+			tr.HitPos.x = ply:GetPos().x
+		elseif (tr.HitNormal.y == 1 or tr.HitNormal.y == -1) then
+			tr.HitPos.y = ply:GetPos().y
+		elseif (tr.HitNormal.z == 1 or tr.HitNormal.z == -1) then
+			tr.HitPos.z = ply:GetPos().z
+		end
+	end
+	//print(tr.HitPos, " Player Landed")
 	ply:SetPos( tr.HitPos )
-	self:SetNextSecondaryFire( CurTime() + 3)
+	self:SetNextSecondaryFire( CurTime() + 1) //meant to be 3, 1 to dev
 	if self.Transparency == 0 then
 		self:ResetVis()
 	end

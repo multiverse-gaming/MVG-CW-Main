@@ -74,6 +74,10 @@ function ENT:Detonate()
     if !self:IsValid() or self:WaterLevel() > 2 then return end
     self:EmitSound("arccw_go/smokegrenade/smoke_emit.wav", 90, 100, 1, CHAN_AUTO)
 
+    if IsValid(self.Trail) then
+        self.Trail:Remove()
+    end
+
     local cloud = ents.Create( "arccw_smoke" )
 
     if !IsValid(cloud) then return end

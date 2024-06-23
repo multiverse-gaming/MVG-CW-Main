@@ -159,19 +159,7 @@ SWEP.AttachmentElements = {
 
 WMOverride = "models/starwars/grady/props/weapons/z6-rotatory-blaster.mdl"
 
---SWEP.Attachments 
---[[SWEP.Attachments = {                 
-    [1] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [2] = {
-        PrintName = "Training/Perk", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "perk",
-    },          
-}--]]
+
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle"
@@ -210,7 +198,7 @@ SWEP.Animations = {
         SoundTable = {
         {s = "weapons/z6/SW02_Blasters_Z6RotaryBlaster_Start_Short_VAR_01.ogg", v = 75,t = 0 / 30, c = CHAN_ITEM},
         },
-        Time = 0.9,
+        Time = 0,
     },
     ["reload"] = {
         Source = "reload", 

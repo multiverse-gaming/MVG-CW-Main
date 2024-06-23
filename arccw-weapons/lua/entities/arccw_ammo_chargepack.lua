@@ -58,7 +58,7 @@ function ENT:Use( activator, caller )
         self:Remove()
     elseif self.UseTimer <= CurTime() and activator:IsPlayer() then
         activator:GiveAmmo(clip1*4, ammoType1, false)
-		activator:GiveAmmo(3 , ammoType2, false)
+		activator:GiveAmmo(10 , ammoType2, false)
         self:Remove()
     end
 end

@@ -50,12 +50,12 @@ SWEP.TracerCol = Color(250, 0, 0)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 250
+SWEP.Primary.ClipSize = 150
 
-SWEP.Recoil = 0.28
-SWEP.RecoilSide = 0.25
+SWEP.Recoil = 0.29
+SWEP.RecoilSide = 0.11
 SWEP.RecoilPunch = 2
-SWEP.RecoilRise = 0.34
+SWEP.RecoilRise = 0.22
 
 SWEP.Delay = 60 / 900
 SWEP.Num = 1
@@ -72,8 +72,8 @@ SWEP.Firemodes = {
 }
 
 SWEP.AccuracyMOA = 30 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 50
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 200
 
 --[[SWEP.Bipod_Integral = true -- Integral bipod (ie, weapon model has one)
 SWEP.BipodDispersion = 0.8 -- Bipod dispersion for Integral bipods

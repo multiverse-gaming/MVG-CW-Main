@@ -46,14 +46,14 @@ SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 40
+SWEP.Primary.ClipSize = 35
 
 SWEP.Recoil = 0.34
 SWEP.RecoilPunch = 1.4
 SWEP.RecoilSide = 0.2
 SWEP.RecoilRise = 0.17
 
-SWEP.Delay = 60 / 500
+SWEP.Delay = 60 / 550
 SWEP.Num = 1
 SWEP.Firemodes = {
     {
@@ -285,6 +285,7 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "reload",
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
+        Time = 2.5,
         SoundTable = {
             {s = "everfall/weapons/miscellaneous/reload/overheat/overheat_overheated_large_var_04.mp3", t = 0.1/30},
             {s = "everfall/weapons/miscellaneous/reload/reset/overheatactivecoolingsuccess_var_01.mp3", t = 2},

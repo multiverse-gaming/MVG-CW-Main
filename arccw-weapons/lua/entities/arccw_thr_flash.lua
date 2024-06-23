@@ -112,6 +112,7 @@ function ENT:FlashBang()
                 local time = Lerp( dp, 2.5, 0.25 )
                 time = Lerp( dist / flashpower, time, 0 )
                 k:ScreenFade( SCREENFADE.IN, Color( 255, 255, 255, 255 ), 6, time )
+                print("Hit"..k:GetName())
             end
             k:SetDSP( 37, false )
 

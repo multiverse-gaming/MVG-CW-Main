@@ -113,19 +113,19 @@ function EFFECT:Render()
 
     if --[[DynamicTracer:GetBool()]] true then
     local spawn = util.CRC(tostring(self:GetPos()))
-   -- local dlight = DynamicLight(self:EntIndex() + spawn)
+    local dlight = DynamicLight(self:EntIndex() + spawn)
     local endDistance = self.Speed * self.StartTime
     local endPos = self.StartPos + self.Dir:GetNormalized() * endDistance
 
-  --  if (dlight) then
-      --  dlight.pos = endPos
-      --  dlight.r = 255
-     --   dlight.g = 0
-     --   dlight.b = 0
-     --   dlight.brightness = 3
-     --   dlight.Decay = 1000
-     --   dlight.Size = 300
-     --   dlight.DieTime = CurTime() + 3
-  --  end
+    if (dlight) then
+        dlight.pos = endPos
+        dlight.r = 255
+        dlight.g = 0
+        dlight.b = 0
+        dlight.brightness = 3
+        dlight.Decay = 1000
+        dlight.Size = 300
+        dlight.DieTime = CurTime() + 3
+    end
 end
 end

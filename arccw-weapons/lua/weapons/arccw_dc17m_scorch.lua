@@ -80,6 +80,7 @@ SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false --
+
 SWEP.MuzzleFlashColor = Color(0, 0, 255)
 
 SWEP.ShootWhileSprint = true
@@ -148,90 +149,6 @@ SWEP.AttachmentElements = {
 }
 
 WMOverride = "models/arccw/sauce/dc17m_rocket.mdl"
---SWEP.Attachments 
---[[SWEP.Attachments = {
-    [1] = {
-        PrintName = "Optic", -- print name
-        DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "optic",
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight", -- relevant bone any attachments wwill be mostly referring to
-        Offset = {
-            vpos = Vector(-0.5, -3, -2),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(800, 40, -800),
-            wang = Angle(-15, 0, 180)
-        },
-    },
-    [2] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector( 1, -2.5, 5),
-            vang = Angle(90, 0, 30),
-            wpos = Vector(1600, 200, -900),
-            wang = Angle(-15, 0, -90)
-        },
-    },    
-    [3] = {
-        PrintName = "Foregrip", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = "foregrip",
-        Bone = "dlt19_sight", -- relevant bone any attachments wwill be mostly referring to
-        Offset = {
-            vpos = Vector(-0.3, 5, 4),
-            vang = Angle(90, 0, -90),
-        },
-        NoWM = true,
-    },    
-    [1] = {
-        PrintName = "Ammo", -- print name
-        DefaultAttName = "Standard Rocket", -- used to display the "no attachment" text
-        Slot = "rocketammo",
-    },
-    [5] = {
-        PrintName = "Training/Perk", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "perk",
-    },
-    [6] = {
-        PrintName = "Charms", -- print name
-        DefaultAttName = "No Charm", -- used to display the "no attachment" text
-        Slot = {"charm"},
-        NoWM = true,
-        Bone = "dlt19_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.8, -0.4, -6),
-            vang = Angle(90, 0, -90),
-        },
-    },          
-    [7] = {
-        PrintName = "Killcounter", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = {"killcounter"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.8, -0.4, -4),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(400, 200, -390),
-            wang = Angle(-15 , 0, 180)
-        },
-    },   
-    [8] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [9] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },     
-} --]]
 
 SWEP.Animations = {
     ["idle"] = {

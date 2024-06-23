@@ -14,4 +14,4 @@ att.Override_ClipSize = 3
 att.Mult_RPM = 1
 att.Mult_MuzzleVelocity = 1
 
-att.Override_ShootEntity = "arccw_darman_300dmg"
+att.Override_ShootEntity = "arccw_darman_100dmg"

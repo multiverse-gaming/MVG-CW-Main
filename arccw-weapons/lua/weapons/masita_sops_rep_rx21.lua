@@ -43,7 +43,7 @@ SWEP.ReducedClipSize = 15
 
 SWEP.MuzzleVelocity = 400
 SWEP.TraceNum = 1
-SWEP.Tracer = "tfa_tracer_blue"
+SWEP.Tracer = "tracer_blue"
 SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 
@@ -66,7 +66,7 @@ SWEP.Firemodes = {
 }
 
 -- Speed Mult
-SWEP.AccuracyMOA = 4.5 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 200 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 100
 

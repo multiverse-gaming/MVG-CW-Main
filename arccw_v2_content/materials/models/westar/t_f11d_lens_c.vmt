@@ -1,0 +1,17 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/SW_Battlefront/Weapons/f11d/t_f11d_lens_c"
+	"$bumpmap" "models/SW_Battlefront/Weapons/f11d/t_f11d_lens_n"
+	"$color2"	"[1 1 1]"
+	"$blendTintByBaseAlpha"	"1"
+
+	"$phong" "1"
+	"$phongboost"	"1.7"
+	"$phongfresnelranges" "[1 0.8 0]"
+	"$phongexponent" 999
+
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask"	"0"
+	"$envmaptint"	"[0.01 0.01 0.01]"
+	"$envmapfresnel"	"1"
+}
