@@ -1566,7 +1566,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
 
     command = "stgen",
 
@@ -1598,7 +1598,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stmco",
 
@@ -1630,7 +1630,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stco",
 
@@ -1664,7 +1664,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dual_dc17_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "stxo",
 
@@ -1698,7 +1698,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_dual_dc17_stun", "arccw_dc15a_v2_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
+    weapons = {"arccw_dp23_v2", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "arccw_dc15a_v2_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
 
     command = "stmjr",
 
@@ -5334,7 +5334,7 @@ TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb_director.mdl"},
     description = [[Congratulations you are the Supreme General of the Titan's Battalion!]],
-    weapons = {"arccw_dc15_v2_ultimate", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_dc15_v2_ultimate", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player"},
     command = "sg",
     max = 1,
     salary = 300,
@@ -5352,7 +5352,7 @@ TEAM_BATTALIONGENERAL = DarkRP.createJob("Battalion General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are a Battalion General of the Titan's Battalion!]],
-    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun", "arccw_sw_rocket_rps6","datapad_player"},
+    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6","datapad_player"},
     command = "bg",
     max = 2,
     salary = 300,
@@ -5369,7 +5369,7 @@ TEAM_ASSISTANTBATTALIONGENERAL = DarkRP.createJob("Assistant General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are an Assistant General!]],
-    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_dual_dc17_stun","datapad_player"},
+    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun","datapad_player"},
     command = "abg",
     max = 3,
     salary = 300,
@@ -5425,7 +5425,7 @@ TEAM_NSOCQC = DarkRP.createJob("NSO CQC Expert", {
     color = Color(76, 90, 117),
     model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
     description = [[Congratulations, you are a NSO CQC expert!]],
-    weapons = {"arccw_cr2", "arccw_dc15_v2_nso", "arccw_dual_dc17_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
+    weapons = {"arccw_cr2", "arccw_dc15_v2_nso", "arccw_duals_dc17ext_v2_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsocqc",
     max = 5,
     salary = 200,
@@ -7663,7 +7663,7 @@ TEAM_TECHNICALDROID = DarkRP.createJob("Technical Droid", {
     sortOrder = 8
 })
 
-TEAM_BOUNTYHUNTERREINFORCE = DarkRP.createJob("Bounty Hunter", {
+TEAM_BOUNTYHUNTERREINFORCE = DarkRP.createJob("Enemy Bounty Hunter", {
     color = Color(204, 0, 0, 255),
     model = {
         "models/assassin/pm_civ_assassin_human_female.mdl","models/assassin/pm_civ_assassin_human_male.mdl","models/bandit/pm_civ_bandit_human_female.mdl","models/bandit/pm_civ_bandit_human_male.mdl"

@@ -421,7 +421,7 @@ add("PostGamemodeLoaded", "SAM.DarkRP", function()
 			local pos = ply:GetPos()
 			local t
 			for k, v in pairs(RPExtraTeams) do
-				if !(v.category == "Event Enemy" or v.category == "Event Characters" or v.category == "Confederacy of Independent Systems" or v.category == "Other") then
+				if !(v.category == "CIS Infantry" or v.category == "CIS Reinforcements" or v.category == "CIS Special Forces" or v.category == "Event Enemy" or v.category == "Event Characters" or v.category == "Other") then
 					t = k
 					DarkRP.notify(ply, 0, 4, DarkRP.getPhrase("updated_spawnpos", v.name))
 					
@@ -452,7 +452,7 @@ add("PostGamemodeLoaded", "SAM.DarkRP", function()
 			local pos = ply:GetPos()
 			local t
 			for k, v in pairs(RPExtraTeams) do
-				if v.category == "Event Enemy" or v.category == "Event Characters" or v.category == "Confederacy of Independent Systems" or v.category == "Other" then
+				if v.category == "CIS Infantry" or v.category == "CIS Reinforcements" or v.category == "CIS Special Forces" or v.category == "Event Enemy" or v.category == "Event Characters" or v.category == "Other" then
 					t = k
 					DarkRP.notify(ply, 0, 4, DarkRP.getPhrase("updated_spawnpos", v.name))
 					

@@ -43,7 +43,7 @@ SWEP.ReducedClipSize = 15
 
 SWEP.MuzzleVelocity = 400
 SWEP.TraceNum = 1
-SWEP.Tracer = "tracer_blue"
+SWEP.Tracer = "tfa_tracer_blue"
 SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 1.5
 
