@@ -75,6 +75,7 @@ SWEP.MoveDispersion = 50
 
 ---Mobility
 SWEP.SpeedMult = 1
+SWEP.ShootWhileSprint = true
 
 SWEP.ShootWhileSprint = true
 
@@ -155,81 +156,6 @@ SWEP.AttachmentElements = {
     }
 }
 WMOverride = "models/arccw/SW_Battlefront/Weapons/dc17_blaster.mdl" -- change the world model to something else. Please make sure it's compatible with the last one.
-
---SWEP.Attachments 
-SWEP.Attachments = {
-    [1] = {
-        PrintName = "Optic", -- print name
-        DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "",
-        Bone = "DC-15SA", -- relevant bone any attachments will be mostly referring to
-		Offset = {
-            vpos = Vector(-0.4, -3.1, -3),
-            vang = Angle(90, 0, -90),
-        },
-    },
-    [2] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {},
-        Bone = "DC-15SA", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-.3, 0, 0),
-            vang = Angle(90, 0, -90),
-        },
-    },
-    [3] = {
-        PrintName = "Muzzle", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {},
-        Bone = "DC-15SA", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-.4, -1.4, 2),
-            vang = Angle(90, 0, -90),
-        },
-    },        
-    [4] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [5] = {
-        PrintName = "Training/Perk", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "perk",
-    },
-    [6] = {
-        PrintName = "Charms", -- print name
-        DefaultAttName = "No Charm", -- used to display the "no attachment" text
-        Slot = {"charm"},
-        Bone = "DC-15SA", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.24, -2, -2),
-            vang = Angle(90, 0, -90),
-        },
-    },          
-    [7] = {
-        PrintName = "Killcounter", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = {""},
-        Bone = "DC-15SA", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.7, 0.5, 0),
-            vang = Angle(90, 0, -90),
-        },
-    },   
-    [8] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [9] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },   
-}
-
 
 SWEP.Animations = {
     ["idle"] = {

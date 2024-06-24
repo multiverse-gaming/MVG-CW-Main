@@ -76,6 +76,7 @@ SWEP.MoveDispersion = 50
 
 ---Mobility
 SWEP.SpeedMult = 1
+SWEP.ShootWhileSprint = true
 
 
 SWEP.NoFlash = true -- disable light flash
@@ -155,34 +156,6 @@ SWEP.AttachmentElements = {
     }
 }
 WMOverride = "models/arccw/SW_Battlefront/Weapons/dc17_blaster.mdl" -- change the world model to something else. Please make sure it's compatible with the last one.
-
-SWEP.Attachments = {
-    [1] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        Bone = "RightHand_1stP", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-9, -3, 2),
-            vang = Angle(170, 2, -90),
-        },
-    },    
-    [2] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [3] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [4] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },   
-}   
 
 SWEP.Animations = {
     ["idle"] = {
