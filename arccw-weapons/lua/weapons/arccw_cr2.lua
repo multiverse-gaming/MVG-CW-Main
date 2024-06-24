@@ -276,7 +276,7 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload", 
-        Time = 3.35,
+        Time = 2.5,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SMG1,
         SoundTable = {
             {s = "ArcCW_dc15a.reload2", t = 1 / 30}, --s sound file
