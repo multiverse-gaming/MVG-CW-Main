@@ -1584,7 +1584,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     category = "Coruscant Guard",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 0
 
@@ -1616,7 +1616,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 1
 
@@ -1648,7 +1648,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 2
 
@@ -1660,7 +1660,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/cg_thorn.mdl", "models/aussiwozzi/cgi/base/cg_thire.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_officer.mdl","models/aussiwozzi/cgi/base/cg_pibs.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl","models/herm/cgi_new/shock/shock_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/cg_thorn.mdl", "models/aussiwozzi/cgi/base/cg_thire.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_officer.mdl","models/aussiwozzi/cgi/base/cg_pibs.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
@@ -1682,7 +1682,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 3
 
@@ -1694,7 +1694,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/cg_thorn.mdl","models/aussiwozzi/cgi/base/CG_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl","models/aussiwozzi/cgi/base/cg_pibs.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl","models/herm/cgi_new/shock/shock_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/aussiwozzi/cgi/base/cg_thorn.mdl","models/aussiwozzi/cgi/base/CG_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl","models/aussiwozzi/cgi/base/cg_pibs.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl"},
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
@@ -1716,7 +1716,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 4
 
@@ -1728,7 +1728,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/CG_officer.mdl", "models/aussiwozzi/cgi/base/cg_pubs.mdl", "models/aussiwozzi/cgi/base/cg_raffle.mdl","models/aussiwozzi/cgi/base/cg_tops.mdl","models/aussiwozzi/cgi/base/cg_riot.mdl","models/aussiwozzi/cgi/base/cg_rys.mdl","models/aussiwozzi/cgi/base/cg_thire.mdl","models/aussiwozzi/cgi/base/cg_jek.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_stone.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl","models/herm/cgi_new/shock/shock_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/CG_officer.mdl", "models/aussiwozzi/cgi/base/cg_pubs.mdl", "models/aussiwozzi/cgi/base/cg_raffle.mdl","models/aussiwozzi/cgi/base/cg_tops.mdl","models/aussiwozzi/cgi/base/cg_riot.mdl","models/aussiwozzi/cgi/base/cg_rys.mdl","models/aussiwozzi/cgi/base/cg_thire.mdl","models/aussiwozzi/cgi/base/cg_jek.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_stone.mdl","models/herm/cgi_new/shock/shock_trooper1.mdl"},
 
     description = [[Congratulations, you are an Officer of the Coruscant Guard!]],
 
@@ -1750,7 +1750,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 5
 
@@ -1786,9 +1786,9 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (250) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1) end,
 
-OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (250) end,
+OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (260) end,
 
     sortOrder = 7
 
@@ -1922,7 +1922,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 11
 
@@ -1956,7 +1956,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 12
 
@@ -1990,7 +1990,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 13
 
@@ -2024,7 +2024,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (250) ply:SetGravity(1)
+PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (260) ply:SetGravity(1)
 
 end,
 
