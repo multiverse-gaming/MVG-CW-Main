@@ -3672,7 +3672,7 @@ TEAM_RCSEV = DarkRP.createJob("RC Sev", {
 
     description = [[You are RC Sev, the sniper of the Republic Commandos!]],
 
-    weapons = {"arccw_dc17sa_duals", "arccw_dc17m_sev_v2", "arccw_dc17sa_duals", "realistic_hook"},
+    weapons = {"arccw_dc17sa_duals", "arccw_dc17m_sev_v2", "arccw_dc17m_v2_delta", "arccw_dc17sa_duals", "realistic_hook"},
 
     command = "rcsev",
 
@@ -3706,7 +3706,7 @@ TEAM_RCSCORCH = DarkRP.createJob("RC Scorch", {
 
     description = [[You are RC Scorch, the explosives expert of the Republic Commandos!]],
 
-    weapons = {"arccw_dc17sa_duals", "arccw_dc17m_scorch_v2", "arccw_dc17sa_duals", "arccw_thermal_grenade", "realistic_hook"},
+    weapons = {"arccw_dc17sa_duals", "arccw_dc17m_scorch_v2", "arccw_dc17m_v2_delta", "arccw_dc17sa_duals", "arccw_thermal_grenade", "realistic_hook"},
 
     command = "rcscorch",
 
