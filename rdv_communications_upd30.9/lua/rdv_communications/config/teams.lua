@@ -9,6 +9,7 @@ teams = {
         "Fleet Lieutenant",
         "Fleet Officer",
         "Fleet Recruit",
+        "Fleet Strategic and Operational Command",
         "Fleet Research and Development Engineer",
         "Fleet Research and Development Medic",
         "Fleet Intelligence Officer",
