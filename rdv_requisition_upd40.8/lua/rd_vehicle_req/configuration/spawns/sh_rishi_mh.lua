@@ -11,10 +11,10 @@ OBJ:SetMap("rp_mvg_rishirepublic") -- Optional, falls back to the map you're pla
 --[[---------------------------------]]--
 -- 'getpos' in console, add commas between the numbers.
 
-OBJ:SetPosition(Vector(5073.920410, 8537.581055, -13763.454102))
+OBJ:SetPosition(Vector(4985.976563, 8352.242188, -13873.968750))
 
 
-OBJ:SetAngles(Angle(3.067459, -90.648300, 0.000000))
+OBJ:SetAngles(Angle(0.924006, -87.624161, 0.000000))
 
 --[[---------------------------------]]--
 --  Requesting Permissions (Optional)
