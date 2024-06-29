@@ -51,7 +51,7 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 30
+SWEP.Primary.ClipSize = 40
 
 SWEP.Recoil = 0.3
 SWEP.RecoilPunch = 0.6
