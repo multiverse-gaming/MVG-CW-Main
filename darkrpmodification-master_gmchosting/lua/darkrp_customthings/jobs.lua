@@ -7478,7 +7478,7 @@ TEAM_COMMANDERDROID = DarkRP.createJob("Commander Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_commander_pm.mdl",
     },
     description = [[You are a Commander Droid!]],
-    weapons = { "arccw_e5c",  "arccw_cis_se14", "realistic_hook", "tf_weapon_medigun", "personal_shield_activator", "weapon_officerboost_laststand" },
+    weapons = { "arccw_e5c",  "arccw_cis_se14", "realistic_hook", "lord_chrome_medkit", "personal_shield_activator", "weapon_officerboost_laststand" },
     command = "commanderdroid",
     max = 0,
     salary = 200,
@@ -7722,14 +7722,14 @@ TEAM_BXASSASSINDROID = DarkRP.createJob("BX Assassin Droid", {
     sortOrder = 1
 })
 
-TEAM_BXFLAMERDROID = DarkRP.createJob("BX Flamer Droid", {
+TEAM_BXSLUGDROID = DarkRP.createJob("BX Slugthrower Droid", {
     color = Color(204, 0, 0, 255),
     model = {
         "models/bx_citadel/pm_droid_cis_bx_citadel.mdl",
     },
     description = [[You are an flamer Droid!]],
-    weapons = { "arccw_dual_e5", "weapons_flamethrower", "realistic_hook", "weapon_cloak" },
-    command = "bxflamerdroid",
+    weapons = { "arccw_e5", "arccw_slugthrower", "realistic_hook" },
+    command = "bxslugdroid",
     max = 0,
     salary = 200,
     admin = 0,
@@ -7737,7 +7737,7 @@ TEAM_BXFLAMERDROID = DarkRP.createJob("BX Flamer Droid", {
     candemote = false,
     hasLicense = false,
     category = "CIS Special Forces",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(2000) ply:SetHealth(2000) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(1600) ply:SetHealth(1600) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 2
 })
 
