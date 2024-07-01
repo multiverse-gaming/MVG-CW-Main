@@ -48,6 +48,7 @@ function ENT:Use(activator, caller)
 
     if self.Broken then
         if self.Task then
+            print("[TerminalTask] Terminal " .. self:EntIndex() .. " requires: " .. self.Task)
             net.Start("TerminalTask")
             net.WriteEntity(self)
             net.WriteString(self.Task)
@@ -64,7 +65,12 @@ function ENT:Break()
     if not self.Broken then
         self.Broken = true
         self.Task = table.Random(tasks)
-        print("[TerminalSystem] Terminal " .. self:EntIndex() .. " assigned task: " .. self.Task)
+        
+        if self.Task then
+            print("[TerminalSystem] Terminal " .. self:EntIndex() .. " assigned task: " .. self.Task)
+        else
+            print("[TerminalSystem] This terminal is broken, but no task is assigned.")
+        end
     end
 end
 
@@ -74,10 +80,6 @@ function ENT:Repair()
         self.Broken = false
         print("[TerminalSystem] Terminal " .. self:EntIndex() .. " repaired.")
         self.Task = nil
-        net.Start("TerminalTask")
-        net.WriteEntity(self)
-        net.WriteString("")
-        net.Broadcast()
 
         timer.Simple(repairCooldown, function()
             if IsValid(self) then
