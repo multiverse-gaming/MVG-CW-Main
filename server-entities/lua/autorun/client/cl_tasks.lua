@@ -204,6 +204,126 @@ local function CreateWiringPanel(task)
     end
 end
 
+local function CreateSwipeCardPanel(terminal)
+    local frame = vgui.Create("DFrame")
+    frame:SetTitle("Swipe Card")
+    frame:SetSize(600, 200)
+    frame:Center()
+    frame:MakePopup()
+
+    local card = vgui.Create("DPanel", frame)
+    card:SetSize(100, 150)
+    card:SetPos(50, 25)
+    card.Paint = function(self, w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(255, 255, 255, 255))
+        draw.SimpleText("CARD", "DermaLarge", w / 2, h / 2, Color(0, 0, 0), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    end
+
+    local startX = card.x
+    local isDragging = false
+    local targetX = frame:GetWide() - card:GetWide() - 50
+
+    card.OnMousePressed = function()
+        isDragging = true
+    end
+
+    card.OnMouseReleased = function()
+        isDragging = false
+        if card.x >= targetX then
+            net.Start("CompleteTask")
+            net.WriteEntity(terminal)
+            net.SendToServer()
+            frame:Close()
+        else
+            card:SetPos(startX, 25)
+        end
+    end
+
+    card.Think = function()
+        if isDragging then
+            local x, y = frame:CursorPos()
+            card:SetPos(math.Clamp(x - card:GetWide() / 2, startX, targetX), 25)
+        end
+    end
+end
+
+local function CreateCleanFilterPanel(terminal)
+    local frame = vgui.Create("DFrame")
+    frame:SetTitle("Clean Filter")
+    frame:SetSize(800, 600)
+    frame:Center()
+    frame:MakePopup()
+
+    local exitHole = vgui.Create("DPanel", frame)
+    exitHole:SetSize(50, 150)
+    exitHole:SetPos(50, 275)
+    exitHole.Paint = function(self, w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(0, 0, 0, 255))
+        draw.RoundedBox(0, 5, 5, w - 10, h - 10, Color(169, 169, 169, 255))
+    end
+
+    local objects = {}
+    local velocities = {}
+
+    for i = 1, 6 do
+        local obj = vgui.Create("DPanel", frame)
+        obj:SetSize(50, 50)
+        obj:SetPos(600, math.random(50, 550))
+        obj:SetBackgroundColor(Color(math.random(100, 255), math.random(100, 255), math.random(100, 255), 255))
+        table.insert(objects, obj)
+
+        local velocity = { x = math.random(-2, 2), y = math.random(-2, 2) }
+        table.insert(velocities, velocity)
+
+        local isDragging = false
+
+        obj.OnMousePressed = function()
+            isDragging = true
+        end
+
+        obj.OnMouseReleased = function()
+            isDragging = false
+            local objX, objY = obj:GetPos()
+            local holeX, holeY = exitHole:GetPos()
+
+            if objX < holeX + exitHole:GetWide() and objY > holeY and objY < holeY + exitHole:GetTall() then
+                obj:Remove()
+                table.RemoveByValue(objects, obj)
+
+                if #objects == 0 then
+                    net.Start("CompleteTask")
+                    net.WriteEntity(terminal)
+                    net.SendToServer()
+                    frame:Close()
+                end
+            end
+        end
+
+        obj.Think = function()
+            if isDragging then
+                local x, y = frame:CursorPos()
+                obj:SetPos(x - obj:GetWide() / 2, y - obj:GetTall() / 2)
+            else
+                local x, y = obj:GetPos()
+                local vx, vy = velocities[i].x, velocities[i].y
+
+                x = x + vx
+                y = y + vy
+
+                if x < 0 or x + obj:GetWide() > frame:GetWide() then
+                    velocities[i].x = -vx
+                end
+
+                if y < 0 or y + obj:GetTall() > frame:GetTall() then
+                    velocities[i].y = -vy
+                end
+
+                obj:SetPos(x, y)
+            end
+        end
+    end
+end
+
 net.Receive("TerminalTask", function()
     local terminal = net.ReadEntity()
     local task = net.ReadString()
@@ -212,6 +332,10 @@ net.Receive("TerminalTask", function()
             CreateWiringPanel(terminal)
         elseif task == "Prime Shields" then
             CreateHexagonPanel(terminal)
+        elseif task == "Swipe Card" then
+            CreateSwipeCardPanel(terminal)
+        elseif task == "Clean Filter" then
+            CreateCleanFilterPanel(terminal)
         else
             print("[TerminalSystem] Unknown task received.")
         end
