@@ -13,7 +13,9 @@ ENT.AdminSpawnable = true
 
 tasks = tasks or {
     "Fix Wiring",
-    "Prime Shields"
+    "Prime Shields",
+    "Swipe Card",
+    "Clean Filter"
 }
 
 local breakChance = 0.1
