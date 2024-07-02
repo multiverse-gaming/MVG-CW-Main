@@ -11,7 +11,7 @@ ENT.Category = "Custom Engineering Entities"
 ENT.Spawnable = true
 ENT.AdminSpawnable = true
 
-tasks = tasks or {
+local tasks = {
     "Fix Wiring",
     "Prime Shields",
     "Swipe Card",
@@ -24,11 +24,9 @@ local repairCooldown = 30 -- Cooldown period after repair in seconds (adjust as 
 
 if SERVER then
     util.AddNetworkString("TerminalTask")
+    util.AddNetworkString("UpdateEngineerCount")
     util.AddNetworkString("RequestTerminalStatus")
     util.AddNetworkString("SendTerminalStatus")
-
-    NCS_DATAPAD = NCS_DATAPAD or {}
-    NCS_DATAPAD.Terminals = NCS_DATAPAD.Terminals or {}
 
     function ENT:Initialize()
         self:SetModel("models/lordtrilobite/starwars/isd/imp_console_medium01.mdl")
@@ -38,8 +36,6 @@ if SERVER then
         self:SetUseType(SIMPLE_USE)
         self.Broken = false
         self.Task = nil
-
-        table.insert(NCS_DATAPAD.Terminals, self)
 
         timer.Create("BreakCheck_" .. self:EntIndex(), breakInterval, 0, function()
             if IsValid(self) and not self.Broken then
@@ -75,7 +71,7 @@ if SERVER then
         if not self.Broken then
             self.Broken = true
             self.Task = table.Random(tasks)
-            
+
             if self.Task then
                 print("[TerminalSystem] Terminal " .. self:EntIndex() .. " assigned task: " .. self.Task)
             else
@@ -92,7 +88,7 @@ if SERVER then
 
             timer.Simple(repairCooldown, function()
                 if IsValid(self) then
-                    self.Broken = false 
+                    self.Broken = false
                 end
             end)
         end
@@ -100,19 +96,5 @@ if SERVER then
 
     function ENT:OnRemove()
         timer.Remove("BreakCheck_" .. self:EntIndex())
-        table.RemoveByValue(NCS_DATAPAD.Terminals, self)
     end
-
-    net.Receive("RequestTerminalStatus", function(len, ply)
-        local terminalStatus = {}
-        for _, terminal in ipairs(NCS_DATAPAD.Terminals) do
-            if IsValid(terminal) then
-                table.insert(terminalStatus, {entity = terminal, broken = terminal.Broken})
-            end
-        end
-
-        net.Start("SendTerminalStatus")
-        net.WriteTable(terminalStatus)
-        net.Send(ply)
-    end)
 end

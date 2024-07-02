@@ -1,9 +1,10 @@
 util.AddNetworkString("TerminalTask")
+util.AddNetworkString("UpdateEngineerCount")
+
 include("sv_tasks.lua")
 
 local terminals = {}
 local baseChance = 10
-local jobThreshold = 1
 
 local engineerTeams = {
     TEAM_CEGENERAL,
@@ -29,12 +30,6 @@ local function RegisterTerminals()
     print("[TerminalSystem] Registered " .. #terminals .. " terminals.")
 end
 
-hook.Add("PlayerInitialSpawn", "RegisterTerminalsOnSpawn", function(ply)
-    if #terminals == 0 then
-        RegisterTerminals()
-    end
-end)
-
 hook.Add("OnEntityCreated", "RegisterTerminalsOnEntityCreated", function(ent)
     if ent:GetClass() == "task_terminal" then
         timer.Simple(0.1, function()
@@ -49,6 +44,7 @@ hook.Add("InitPostEntity", "RegisterTerminalsInitPostEntity", function()
     end
 end)
 
+
 function table.contains(table, element)
     for _, value in ipairs(table) do
         if value == element then
@@ -56,19 +52,6 @@ function table.contains(table, element)
         end
     end
     return false
-end
-
-local function GetEngineerCount()
-    local count = 0
-    for _, ply in ipairs(player.GetAll()) do
-        if IsValid(ply) and ply:IsPlayer() then
-            local team_id = ply:Team()
-            if table.contains(engineerTeams, team_id) then
-                count = count + 1
-            end
-        end
-    end
-    return count
 end
 
 local function IsEngineer(ply)
@@ -92,30 +75,20 @@ local function CanBreakTerminal(terminal)
 end
 
 hook.Add("Think", "RandomTerminalBreakage", function()
-    local engineerCount = GetEngineerCount()
-    print("[TerminalSystem] Engineer count: " .. engineerCount)
     
-    if engineerCount >= jobThreshold then
-        local chance = baseChance + (engineerCount - jobThreshold) * 2
-        if math.random(1, 100) <= chance then
-            if #terminals > 0 then
-                local terminal = table.Random(terminals)
-                if CanBreakTerminal(terminal) then
-                    print("[TerminalSystem] Breaking terminal: " .. terminal:EntIndex())
-                    if terminal.Break then
-                        terminal:Break()
+        if #terminals > 0 then
+            local terminal = table.Random(terminals)
+            if CanBreakTerminal(terminal) then
+                if terminal.Break then
+                    terminal:Break()
                         terminal.lastRepairTime = CurTime()
-                    else
-                        print("[TerminalSystem] Error: Terminal does not have a Break method.")
-                    end
                 else
-                    print("[TerminalSystem] Terminal is on cooldown or already broken.")
+                    print("[TerminalSystem] Error: Terminal does not have a Break method.")
                 end
-            else
-                print("[TerminalSystem] No terminals registered.")
             end
+        else
+            print("[TerminalSystem] No terminals registered.")
         end
-    end
 end)
 
 net.Receive("CompleteTask", function(len, ply)
