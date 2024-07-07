@@ -56,7 +56,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
 --  Vehicle Category
 --[[---------------------------------]]--
 
-OBJ:SetCategory("Fighter")
+OBJ:SetCategory("Heavy Bomber")
 
 --[[---------------------------------]]--
 --  Should we require a grant?
