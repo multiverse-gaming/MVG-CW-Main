@@ -21,7 +21,8 @@ OBJ:SetClass("lvs_jedi_eta")
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 "Jedi Consular",
-"Jedi Grand Master"
+"Jedi Grand Master",
+"GC Grand Master"
 })
 
 -- Nicolas's Rank System Support

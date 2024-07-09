@@ -20,7 +20,8 @@ OBJ:SetClass("lvs_ahsoka_eta")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-"Jedi Commander Ahsoka Tano"
+"Jedi Commander Ahsoka Tano",
+"501st Commander Ahsoka Tano"
 })
 
 -- Nicolas's Rank System Support

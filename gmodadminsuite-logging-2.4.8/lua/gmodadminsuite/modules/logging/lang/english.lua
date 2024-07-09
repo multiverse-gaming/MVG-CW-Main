@@ -536,6 +536,7 @@ return {
 
 			steamfam = "{1} is Steam Family sharing with {2}",
 			wiltosLog = "{1} picked up entity {2}, and got {3}",
+			playerCheatingOnWiltOS = "{1} shouldn't be using {2}",
 		},
 
 		pvp_dmgtype_generic = "%u damage",

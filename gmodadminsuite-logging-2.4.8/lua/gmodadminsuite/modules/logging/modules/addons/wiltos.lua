@@ -13,4 +13,12 @@ MODULE:Setup(function()
 	end)
 end)
 
+MODULE:Setup(function()
+	MODULE:Hook("WILTOS.PlayerCouldBeCheating", "WILTOS.PlayerCouldBeCheating", function(playerUser, skillTree)
+		MODULE:LogPhrase("playerCheatingOnWiltOS",
+		GAS.Logging:FormatPlayer(playerUser),
+		GAS.Logging:Highlight(skillTree))
+	end)
+end)
+
 GAS.Logging:AddModule(MODULE)
