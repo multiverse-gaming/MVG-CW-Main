@@ -1,0 +1,1 @@
+xLogs.Economy = xLogs.Economy or {}
