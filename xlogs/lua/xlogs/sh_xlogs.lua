@@ -81,7 +81,11 @@ hook.Add("OnGamemodeLoaded", "xLogsSetupAdminSystem", xLogs.SetupAdminSystem)
 -- Check if a user has permissions for a permission node
 function xLogs.HasPermission(ply, node)
 	if (xLogs.AdminSystem == "CAMI") then
-		return CAMI and CAMI.PlayerHasAccess(ply, node) or ply:IsSuperAdmin()
+		if node == "xlogs_enablecategories" then 
+			return CAMI and CAMI.PlayerHasAccess(ply, node) or ply:IsSuperAdmin()
+		else 
+			return CAMI and CAMI.PlayerHasAccess(ply, "xlogs_viewlogs")
+		end
 	end
 
 	local func = xLogs.AdminSystems[xLogs.AdminSystem].CheckPermission

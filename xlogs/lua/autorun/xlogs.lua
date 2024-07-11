@@ -12,6 +12,10 @@ xLogs.LoggingTypes = xLogs.LoggingTypes or {}
 xLogs.Logs = xLogs.Logs or {}
 xLogs.Settings = xLogs.Settings or {}
 
+if CAMI then
+    CAMI.RegisterPrivilege({Name = "xlogs_viewlogs", MinAccess = "admin", Description = name})
+end
+
 local includeFunctions = {
     sv = SERVER and include or function() end,
     cl = SERVER and AddCSLuaFile or include,
