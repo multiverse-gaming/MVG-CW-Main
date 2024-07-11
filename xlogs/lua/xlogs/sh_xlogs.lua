@@ -122,7 +122,7 @@ function xLogs.RunLog(typ, str, ...)
 
 	xLogs.DB:insertQuery(string.format("%s%s", xLogs.Config.LogsTableNamePrefix, string.lower(cat)), {"Type", "Content", "Time"}, {typ, content, tim})
 
-	MsgN(string.format("[%s : %s] <%s> %s", cat, typ, os.date("%H:%M:%S - %d/%m/%Y", tim), content))
+	//MsgN(string.format("[%s : %s] <%s> %s", cat, typ, os.date("%H:%M:%S - %d/%m/%Y", tim), content))
 
 	xLogs.NetworkLog(typ, content, tim)
 
