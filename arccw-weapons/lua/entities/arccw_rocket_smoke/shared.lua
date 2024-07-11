@@ -50,9 +50,10 @@ function ENT:Initialize()
             local dmginfo = DamageInfo()
             dmginfo:SetDamageType(DMG_BLAST)
             dmginfo:SetAttacker(self.Owner)
-            dmginfo:SetDamage(150)
-            dmginfo:SetDamageForce(-forwardVector * 2000)
+            dmginfo:SetDamage(420)
+            dmginfo:SetDamageForce(-forwardVector * 8000)
             dmginfo:SetInflictor(self)
+            target:SetVelocity( Vector( 0, 0, 64 ) ) -- Really make target fly if shot straight on.
             target:TakeDamageInfo(dmginfo)
         end
     end

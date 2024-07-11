@@ -14,25 +14,39 @@ end
 function ENT:Use(ply)
     local jedi = {
         [TEAM_JEDIPADAWAN] = true,
+        [TEAM_327THJEDI] = true,
+        [TEAM_501STJEDI] = true,
+        [TEAM_212THJEDI] = true,
         [TEAM_JEDIKNIGHT] = true,
         [TEAM_JEDISENTINEL] = true,
         [TEAM_JEDIGUARDIAN] = true,
         [TEAM_JEDICONSULAR] = true,
         [TEAM_JEDICOUNCIL] = true,
         [TEAM_JEDIGENERALADI] = true,
+        [TEAM_GMGENERALADI] = true,
         [TEAM_JEDIGENERALSHAAK] = true,
+        [TEAM_CGGENERALSHAAK] = true,
         [TEAM_JEDIGENERALKIT] = true,
+        [TEAM_RCGENERALKIT] = true,
         [TEAM_JEDIGENERALPLO] = true,
+        [TEAM_WPGENERALPLO] = true,
         [TEAM_JEDIGENERALTANO] = true,
+        [TEAM_501STGENERALTANO] = true,
         [TEAM_JEDIGENERALWINDU] = true,
         [TEAM_JEDIGENERALOBI] = true,
+        [TEAM_212THGENERALOBI] = true,
         [TEAM_JEDIGENERALSKYWALKER] = true,
+        [TEAM_501STGENERALSKYWALKER] = true,
         [TEAM_JEDIGRANDMASTER] = true,
+        [TEAM_GCGRANDMASTER] = true,
         [TEAM_JEDIGENERALAAYLA] = true,
+        [TEAM_327THGENERALAAYLA] = true,
         [TEAM_JEDIGENERALLUMINARA] = true,
+        [TEAM_GCGENERALLUMINARA] = true,
         [TEAM_JEDIGENERALVOS] = true,
+        [TEAM_SHADOWGENERALVOS] = true,
         [TEAM_JEDITOURNAMENT] = true,
-	}
+        }
     if jedi[ply:Team()] then
 		local type = math.random(1,100)
 		local chance = math.random(1,100)
@@ -59,7 +73,7 @@ function ENT:Use(ply)
 			else
 				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt", "Seny Atirall's Hilt",
 					"Royal 2 Hilt", "Unknown Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
-					"Dragonpearl Shoto" }
+					"Dragonpearl Shoto", "Claw's Hilt" }
 			end
 		elseif type <= 90 then
 			-- Double Hilts
@@ -72,7 +86,7 @@ function ENT:Use(ply)
 					"Ardent Dual Hilt", "Frontier Hunter Hilt" }
 			elseif chance <= 85 then
 				items = { "Artusian Twin Hilt", "Grantek Hilt", "Pike 4 Hilt", "Serenity's Sunsealed Hilt", "Warmaster's Double Hilt", "Inscrutable Twin Hilt",
-					"Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Trident Hilt", "Blade Masters Staff Hilt", "Champions Hilt" }
+					"Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Trident's Hilt", "Blade Masters Staff Hilt", "Champions Hilt" }
 			elseif chance <= 96 then
 				items = { "Corusca Twin Hilt", "Herald's Twin Hilt", "Hermit's Hilt", "Iokath Mk4 Hilt", "Lone Wolf's Hilt", "Occultists' Hilt",
 					"Peacemaker's Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Chrysopaz Staff Hilt", "Dual Blade 5 Hilt", "Reverie Staff Hilt" }

@@ -142,7 +142,7 @@ net.Receive("xLogsNetworkLog", function()
 	local cat = xLogs.LoggingTypes[typ].Cat
 	table.insert(xLogs.Logs[cat], {Type = typ, Content = content, Time = tim})
 
-	MsgC(xLogs.LoggingTypes[typ].Col, string.format("[%s : %s] ", cat, typ), Color(200, 200, 200, 255), string.format("<%s> %s\n", os.date("%H:%M:%S - %d/%m/%Y", tim), content))
+	//MsgC(xLogs.LoggingTypes[typ].Col, string.format("[%s : %s] ", cat, typ), Color(200, 200, 200, 255), string.format("<%s> %s\n", os.date("%H:%M:%S - %d/%m/%Y", tim), content))
 
 	local relaycvar = GetConVar("onscreenrelay")
 	if relaycvar and relaycvar:GetBool() then

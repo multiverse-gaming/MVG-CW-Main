@@ -21,10 +21,15 @@ teams = {
 
     Jedi = {
         "Jedi Grand Master",
+        "GC Grand Master",
         "Jedi General Aayla Secura",
+        "327th General Aayla Secura",
         "Jedi Sentinel",
         "Jedi Sentinel Temple Guard",
         "Jedi Council Member",
+        "501st Jedi",
+        "212th Jedi",
+        "327th Jedi",
     },
 
     Engineers = {

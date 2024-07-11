@@ -86,6 +86,7 @@ teams = {
         "212th Medic Officer",
         "212th Sergeant",
         "212th Medic Trooper",
+        "212th Medic Trooper",
     },
 
     Team212Trp = {
@@ -330,17 +331,28 @@ teams = {
     -- ==== JEDI ====
     JediCouncil = {
         "Jedi Grand Master",
+        "GC Grand Master",
         "Jedi Master Mace Windu",
         "Jedi General Anakin Skywalker",
+        "501st General Anakin Skywalker",
         "Jedi General Obi-Wan Kenobi",
+        "212th General Obi-Wan Kenobi",
         "Jedi Commander Ahsoka Tano",
+        "501st Commander Ahsoka Tano",
         "Jedi General Plo Koon",
+        "WP General Plo Koon",
         "Jedi General Kit Fisto",
+        "RC General Kit Fisto",
         "Jedi General Aayla Secura",
+        "327th General Aayla Secura",
         "Jedi General Shaak Ti",
+        "CG General Shaak Ti",
         "Jedi General Ki-Adi-Mundi",
+        "GM General Ki-Adi-Mundi",
         "Jedi General Quinlan Vos",
+        "Shadow General Quinlan Vos",
         "Jedi General Luminara Unduli",
+        "GC General Luminara Unduli",
         "Jedi Council Member"
     },
 
@@ -355,6 +367,9 @@ teams = {
         "Jedi Consular",
         "Jedi Guardian",
         "Jedi Sentinel",
+        "327th Jedi",
+        "501st Jedi",
+        "212th Jedi",
     },
 
     Jedi = {

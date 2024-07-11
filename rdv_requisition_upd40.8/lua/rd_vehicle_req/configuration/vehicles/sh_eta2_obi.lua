@@ -20,7 +20,8 @@ OBJ:SetClass("lvs_obi-wan_eta")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-"Jedi General Obi-Wan Kenobi"
+"Jedi General Obi-Wan Kenobi",
+"212th General Obi-Wan Kenobi"
 })
 
 -- Nicolas's Rank System Support
