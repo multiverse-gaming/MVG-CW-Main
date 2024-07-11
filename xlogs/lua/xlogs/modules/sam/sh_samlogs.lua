@@ -6,7 +6,7 @@ function xLogs.SAM.LogCommandUse(ply, cmd_name, args, cmd)
 		if (k == 1) then argsStr = v else argsStr = string.format("%s, %s", argsStr, v) end
 	end
 
-	if ply == "console" then 
+	if !IsValid(ply) then 
 		xLogs.RunLog("SAM", string.format(xLogs.GetLanguageString("rancommand"), "Console", cmd_name, argsStr))
 		return
 	end
