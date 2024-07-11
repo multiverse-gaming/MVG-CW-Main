@@ -6,6 +6,11 @@ function xLogs.SAM.LogCommandUse(ply, cmd_name, args, cmd)
 		if (k == 1) then argsStr = v else argsStr = string.format("%s, %s", argsStr, v) end
 	end
 
+	if !IsValid(ply) then 
+		xLogs.RunLog("SAM", string.format(xLogs.GetLanguageString("rancommand"), "Console", cmd_name, argsStr))
+		return
+	end
+
 	xLogs.RunLog("SAM", string.format(xLogs.GetLanguageString("rancommand"), xLogs.DoPlayerFormatting(ply), cmd_name, argsStr))
 end
 
@@ -19,9 +24,9 @@ function xLogs.SAM.LogUserGroupChangeID(steamid, rank, old_rank, expiry_date, ex
 	end
 end
 
-hook.Add("PostGamemodeLoaded", "xLogsxAdminRegisterCat", function()
+hook.Add("PostGamemodeLoaded", "xLogsSAMRegisterCat", function()
 	xLogs.RegisterLoggingCategory("SAM", Color(219, 15, 255, 255), true, function()
-		return SAM or false
+		return sam or false
 	end)
 
 	xLogs.RegisterLoggingType("SAM", "SAM", Color(240, 30, 17, 255), false, {
