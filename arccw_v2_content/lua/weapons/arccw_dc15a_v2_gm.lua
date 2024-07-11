@@ -38,6 +38,7 @@ SWEP.Range = 550000
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
 SWEP.MuzzleVelocity = 400
+SWEP.SpeedMult = 1
 
 
 SWEP.TraceNum = 1
@@ -49,10 +50,10 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 45
+SWEP.Primary.ClipSize = 55
 
 SWEP.Recoil = 1.005
-SWEP.RecoilSide = 0.85
+SWEP.RecoilSide = 0.18
 --SWEP.RecoilRise = 0.22
 SWEP.RecoilPunch = 0 -- Visual Recoil - Set to 0.1 just so the recoil doesn't feel snappy when shooting -- Painite.
 

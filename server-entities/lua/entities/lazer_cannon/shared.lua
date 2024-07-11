@@ -79,7 +79,7 @@ function ENT:DoShot()
 			effectdata:SetAngles(effectPosAng.Ang + Angle(0,-90,0))
 			effectdata:SetEntity(self)
 			effectdata:SetScale( 2 )
-			util.Effect( "rw_sw_laser_blue", effectdata )
+			util.Effect( "tfa_tracer_blue", effectdata )
 
 		--elseif SERVER then
 			self:EmitSound(self.ShotSound,50,100)
@@ -105,14 +105,14 @@ function ENT:DoShot()
 						tracerEffect:SetStart(self.shootPos:GetPos())
 						tracerEffect:SetOrigin(trace.HitPos)
 						tracerEffect:SetScale(6000)
-						util.Effect("rw_sw_laser_blue",tracerEffect)
+						util.Effect("tfa_tracer_blue",tracerEffect)
 						if(!trace.HitSky)then
 						local effectdata = EffectData()
 						effectdata:SetOrigin(trace.HitPos)
 						effectdata:SetScale(2)
 						effectdata:SetRadius(trace.MatType)
 						effectdata:SetNormal(trace.HitNormal)
-						util.Effect("rw_sw_laser_blue",effectdata)
+						util.Effect("tfa_tracer_blue",effectdata)
 						end
 					--end
 

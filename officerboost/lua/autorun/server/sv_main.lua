@@ -174,7 +174,7 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_BOUNTYHUNTERREINFORCE] = true,
         [TEAM_BXCOMMANDODROID] = true,
         [TEAM_BXASSASSINDROID] =     true,
-        [TEAM_BXFLAMERDROID] = true,
+        [TEAM_BXSLUGDROID] = true,
         [TEAM_BXSPLICERDROID] = true,
         [TEAM_BXRECONDROID] = true,
         [TEAM_BXHEAVYDROID] = true,
