@@ -428,7 +428,7 @@ wOS.ForcePowers:RegisterNewPower({
 				dmg:SetInflictor( self:GetOwner() || self )
 				dmg:SetDamage( 8 )
 				local wep = ent:GetActiveWeapon()
-				if IsValid( wep ) and wep.IsLightsaber and wep:GetBlocking() then
+				if IsValid( wep ) and wep.IsLightsaber and wep:GetBlocking() and wep:GetStamina() > 4 then
 					ent:EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
 					if wOS.ALCS.Config.EnableStamina then
 						wep:AddStamina( -5 )
@@ -437,7 +437,6 @@ wOS.ForcePowers:RegisterNewPower({
 					end
 					ent:SetSequenceOverride( "h_block", 0.5 )
 				else
-					if ent:IsNPC() then dmg:SetDamage( 1.6 ) end
 					ent:TakeDamageInfo( dmg )
 				end
 			end

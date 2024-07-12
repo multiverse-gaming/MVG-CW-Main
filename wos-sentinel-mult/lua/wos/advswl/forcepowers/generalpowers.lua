@@ -28,7 +28,7 @@ wOS.ForcePowers:RegisterNewPower({
 				dmg:SetDamageForce( Vector(0,0,0) )
 
 				local wep = ent:GetActiveWeapon()
-				if IsValid( wep ) and wep.IsLightsaber and wep:GetBlocking() then
+				if IsValid( wep ) and wep.IsLightsaber and wep:GetBlocking() and wep:GetStamina() > 4 then
 					ent:EmitSound( "lightsaber/saber_hit_laser" .. math.random( 1, 4 ) .. ".wav" )
 					wep:AddStamina( -5 )
 					ent:SetSequenceOverride( "h_block", 0.5 )
