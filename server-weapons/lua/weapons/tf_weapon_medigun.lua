@@ -29,9 +29,6 @@ SWEP.DrawAmmo = true
 SWEP.CSMuzzleFlashes = 1
 SWEP.Base = "weapon_base"
 
-SWEP.WalkSpeed = 160
-SWEP.RunSpeed = 240
-
 SWEP.Attack = 0
 SWEP.AttackTimer = CurTime()
 SWEP.Idle = 0
@@ -151,10 +148,6 @@ function SWEP:Deploy()
     self.AttackTimer = CurTime()
     self.Idle = 0
     self.IdleTimer = CurTime() + self.Owner:GetViewModel():SequenceDuration()
-    self.Owner.mediWalkSpeed = self.Owner:GetWalkSpeed()
-    self.Owner.mediRunSpeed = self.Owner:GetRunSpeed()
-    self.Owner:SetWalkSpeed( self.WalkSpeed )
-    self.Owner:SetRunSpeed( self.RunSpeed )
     return true
 end
 
@@ -167,8 +160,6 @@ self.Attack = 0
 self.AttackTimer = CurTime()
 self.Idle = 0
 self.IdleTimer = CurTime()
-self.Owner:SetWalkSpeed( self.Owner.mediWalkSpeed )
-self.Owner:SetRunSpeed( self.Owner.mediRunSpeed )
 return true
 end
 

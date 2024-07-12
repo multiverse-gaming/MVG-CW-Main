@@ -177,7 +177,7 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "Reload", 
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
-        Time = 6,
+        Time = 4.5,
         LHIK = true,
         SoundTable = {
             --{s = "viper/weapons/sierra552/wfoly_ar_sierra552_reload_xmag_fast_empty_end.ogg", t = 20 / 60},

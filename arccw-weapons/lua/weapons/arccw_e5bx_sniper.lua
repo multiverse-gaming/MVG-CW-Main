@@ -37,7 +37,7 @@ SWEP.RangeMin = 400
 SWEP.DamageMin = 550
 SWEP.Range = 800
 SWEP.Penetration = 1
-SWEP.DamageType = DMG_BULLET
+SWEP.DamageType = DMG_DISSOLVE
 SWEP.MuzzleVelocity = 400
 
 

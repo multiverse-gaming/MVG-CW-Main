@@ -66,7 +66,7 @@ SWEP.Firemodes = {
     },    
 }
 
-SWEP.AccuracyMOA = 50 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 30 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 SWEP.JumpDispersion = 1000
@@ -278,7 +278,7 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload", 
-        Time = 3.35,
+        Time = 2.5,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_SMG1,
         SoundTable = {
             {s = "ArcCW_dc15a.reload2", t = 1 / 30}, --s sound file

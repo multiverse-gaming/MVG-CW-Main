@@ -78,6 +78,7 @@ SWEP.HipDispersion = 150 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 50
 
 SWEP.SpeedMult = 1
+SWEP.ShootWhileSprint = true
 
 
 SWEP.NoFlash = nil -- disable light flash
