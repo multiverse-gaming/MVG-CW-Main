@@ -1,7 +1,6 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
-include("sv_tasks.lua")
 
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
@@ -24,9 +23,7 @@ local repairCooldown = 30 -- Cooldown period after repair in seconds (adjust as 
 
 if SERVER then
     util.AddNetworkString("TerminalTask")
-    util.AddNetworkString("UpdateEngineerCount")
-    util.AddNetworkString("RequestTerminalStatus")
-    util.AddNetworkString("SendTerminalStatus")
+
 
     function ENT:Initialize()
         self:SetModel("models/lordtrilobite/starwars/isd/imp_console_medium01.mdl")
