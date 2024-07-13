@@ -96,7 +96,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Strategic and Operational Command",
+  "Fleet SOC Advanced Warfare Division",
+  "Fleet SOC Republic Intel",
   "Fleet Research and Development Medic",
   "Fleet Research and Development Engineer"
 })
@@ -131,7 +132,8 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Fleet Seniority",
     "Fleet Admiral",
     "Grand Admiral",
-    "Fleet Strategic and Operational Command",
+    "Fleet SOC Advanced Warfare Division",
+    "Fleet SOC Republic Intel",
     "Fleet Research and Development Medic",
     "Fleet Research and Development Engineer",
     "Supreme General",
@@ -155,7 +157,8 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Fleet Seniority",
     "Fleet Admiral",
     "Grand Admiral",
-    "Fleet Strategic and Operational Command",
+    "Fleet SOC Advanced Warfare Division",
+    "Fleet SOC Republic Intel",
     "Fleet Research and Development Medic",
     "Fleet Research and Development Engineer"
 })

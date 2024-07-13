@@ -5699,12 +5699,29 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 ---- FLEET SPECIALISTS----
-TEAM_FLEET_IO = DarkRP.createJob("Fleet Strategic and Operational Command", {
+TEAM_FLEET_IO = DarkRP.createJob("Fleet SOC Republic Intel", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl","models/aussiwozzi/cgi/base/advisor_stooge.mdl"},
-    description = [[Congratulations You are now a Fleet Strategic and Operational Command!]],
-    weapons = {"datapad_player", "arccw_dc15s_v2","arccw_defender_sporting","weapon_remotedrone","weapon_cuff_elastic","voice_amplifier"},
-    command = "fleetsoc",
+    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
+    description = [[Congratulations You are now a Fleet SOC Republic Intel!]],
+    weapons = {"datapad_player", "arccw_dc17_stun_v2","arccw_defender_sporting","weapon_remotedrone","weapon_cuff_elastic","voice_amplifier"},
+    command = "fleetsocintel",
+    max = 4,
+    salary = 200,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Fleet Branches",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
+    sortOrder = 4
+})
+
+TEAM_FLEET_IOA = DarkRP.createJob("Fleet SOC Advanced Warfare Division", {
+    color = Color(122, 122, 122, 255),
+    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
+    description = [[Congratulations You are now a Fleet SOC Advanced Warfare Division!]],
+    weapons = {"datapad_player", "arccw_dc15s_v2","arccw_defender_sporting","weapon_remotedrone","voice_amplifier"},
+    command = "fleetsocwarfare",
     max = 4,
     salary = 200,
     admin = 0,
