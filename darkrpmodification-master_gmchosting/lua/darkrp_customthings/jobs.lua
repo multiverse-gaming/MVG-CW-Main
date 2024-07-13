@@ -5843,12 +5843,12 @@ TEAM_NSOADV = DarkRP.createJob("NSO Advisor", {
 
 })
 
-TEAM_NSOCQC = DarkRP.createJob("NSO CQC Expert", {
+TEAM_NSOCQC = DarkRP.createJob("NSO Vanguard", {
     color = Color(76, 90, 117),
     model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
-    description = [[Congratulations, you are a NSO CQC expert!]],
+    description = [[Congratulations, you are a NSO Vanguard!]],
     weapons = {"arccw_cr2", "arccw_dc15_v2_nso", "arccw_duals_dc17ext_v2_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
-    command = "nsocqc",
+    command = "nsovan",
     max = 5,
     salary = 200,
     admin = 0,
@@ -5865,7 +5865,7 @@ TEAM_NSOMED = DarkRP.createJob("NSO Medic", {
     color = Color(76, 90, 117),
     model = {"models/aussiwozzi/cgi/base/nso_roach.mdl"},
     description = [[Congratulations, you are a NSO medic!]],
-    weapons = {"arccw_dc15_v2_nso", "arccw_dc17_stun_v2", "sfw_cgelectrostaff","weapon_defibrillator", "weapon_bactainjector", "realistic_hook", "weapon_cuff_elastic"},
+    weapons = {"arccw_dc15_v2_nso", "arccw_dc17_stun_v2", "sfw_cgelectrostaff","weapon_defibrillator", "weapon_bactainjector","arccw_ammo_crate", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsomed",
     max = 5,
     salary = 200,
