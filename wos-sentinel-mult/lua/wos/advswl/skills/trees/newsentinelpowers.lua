@@ -102,7 +102,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheating(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingSentinel(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep.SentinelLeap = true end,
 }
@@ -304,7 +304,7 @@ TREE.Tier[4][1] = {
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + ForceHpSpeedStamina[3] ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingSentinel(ply) ply:SetRunSpeed( ply:GetRunSpeed() + ForceHpSpeedStamina[3] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -381,12 +381,13 @@ TREE.Tier[5][3] = {
 
 wOS:RegisterSkillTree( TREE )
 
-function CheckIfPlayerIsCheating(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
-		-- Player is playing reg jedi - make sure they have "High" or "entinel" in their name.
-		if (!string.match(ply:Name(), "entinel") || !string.match(ply:Name(), "High")) then
-			hook.Call("WILTOS.PlayerCouldBeCheating", nil, ply, "Sentinel Skills")
+function CheckIfPlayerIsCheatingSentinel(ply)
+	local teamName = team.GetName(ply:Team())
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
+		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
+		if (!string.match(ply:Name(), "entinel") && !string.match(ply:Name(), "nvestigator") && !string.match(ply:Name(), "atchmaster") && !string.match(ply:Name(), "rtisan")
+		&& !string.match(ply:Name(), "High")) then
+			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing sentinel powers")
 		end
 	end
 end

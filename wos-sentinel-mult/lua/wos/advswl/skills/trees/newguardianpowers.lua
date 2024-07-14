@@ -95,7 +95,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheating(ply) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingGuardian(ply) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep.GuardianLeap = true end,
 }
@@ -294,7 +294,7 @@ TREE.Tier[4][1] = {
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingGuardian(ply) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -366,12 +366,13 @@ TREE.Tier[5][3] = {
 
 wOS:RegisterSkillTree( TREE )
 
-function CheckIfPlayerIsCheating(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
+function CheckIfPlayerIsCheatingGuardian(ply)
+	local teamName = team.GetName(ply:Team())
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
-		if (!string.match(ply:Name(), "uardian") || !string.match(ply:Name(), "High")) then
-			hook.Call("WILTOS.PlayerCouldBeCheating", nil, ply, "Guardian Skills")
+		if (!string.match(ply:Name(), "uardian") && !string.match(ply:Name(), "lademaster") && !string.match(ply:Name(), "eacekeeper") && !string.match(ply:Name(), "attlemaster")
+		&& !string.match(ply:Name(), "High")) then
+			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing guardian powers")
 		end
 	end
 end
