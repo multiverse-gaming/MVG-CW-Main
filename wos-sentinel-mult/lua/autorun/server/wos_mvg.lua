@@ -53,6 +53,9 @@ hook.Add("loadCustomDarkRPItems", "WOS.Custom.OnStart", function()
         if string.match(currentName, "Jedi") then
             TeamsAllowed_wiltOS[index] = id
             index = index + 1
+        elseif string.match(currentName, "General") then
+            TeamsAllowed_wiltOS[index] = id
+            index = index + 1
         end
     end
 end)
