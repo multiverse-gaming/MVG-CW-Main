@@ -81,7 +81,7 @@ TREE.Tier[1][2] = {
 	PointsRequired = 1,
 	Requirements = {},
 	OnPlayerSpawn = function( ply )
-		CheckIfPlayerIsCheating(ply)
+		CheckIfPlayerIsCheatingConsular(ply)
 	end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end,
@@ -347,12 +347,13 @@ TREE.Tier[5][3] = {
 
 wOS:RegisterSkillTree( TREE )
 
-function CheckIfPlayerIsCheating(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
-		-- Player is playing reg jedi - make sure they have "High" or "onsular" in their name.
-		if (!string.match(ply:Name(), "onsular") || !string.match(ply:Name(), "High")) then
-			hook.Call("WILTOS.PlayerCouldBeCheating", nil, ply, "Consular Skills")
+function CheckIfPlayerIsCheatingConsular(ply)
+	local teamName = team.GetName(ply:Team())
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
+		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
+		if (!string.match(ply:Name(), "onsular") && !string.match(ply:Name(), "age") && !string.match(ply:Name(), "	orekeeper") && !string.match(ply:Name(), "cholar")
+		&& !string.match(ply:Name(), "High")) then
+			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing consular powers")
 		end
 	end
 end

@@ -68,7 +68,7 @@ TREE.Tier[1][1] = {
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingCouncil(ply) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1])
 	wep:SetForce(wep:GetForce() + (ForceHpSpeedStamina[1] / 2))
@@ -81,7 +81,7 @@ TREE.Tier[1][2] = {
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheating(ply) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingCouncil(ply) ply:SetMaxHealth( ply:GetMaxHealth() + ForceHpSpeedStamina[2] ) ply:SetHealth( ply:Health() + ForceHpSpeedStamina[2] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -92,7 +92,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheating(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 5 ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingCouncil(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 5 ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -103,19 +103,19 @@ TREE.Tier[1][4] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingCouncil(ply) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4]) end,
 }
 
 wOS:RegisterSkillTree( TREE )
 
-function CheckIfPlayerIsCheating(ply)
+function CheckIfPlayerIsCheatingCouncil(ply)
 	local team = ply:Team()
 	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" in their name.
 		if (!string.match(ply:Name(), "High")) then
-			hook.Call("WILTOS.PlayerCouldBeCheating", nil, ply, "Council Skills")
+			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing council powers")
 		end
 	end
 end

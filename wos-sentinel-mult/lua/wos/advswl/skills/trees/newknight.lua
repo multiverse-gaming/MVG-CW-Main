@@ -41,7 +41,7 @@ TREE.MaxTiers = 2
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = { "TEAM_JEDIKNIGHT", "TEAM_501STJEDI", "TEAM_212THJEDI", "TEAM_327THJEDI" }
+TREE.JobRestricted = { "TEAM_JEDIKNIGHT" }
 
 TREE.Tier = {}
 
@@ -65,7 +65,7 @@ TREE.Tier[1][1] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 2,
     Requirements = {},
-	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheating(ply) end,
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) end,
 }
@@ -89,13 +89,3 @@ TREE.Tier[2][1] = {
 }
 
 wOS:RegisterSkillTree( TREE )
-
-function CheckIfPlayerIsCheating(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
-		-- Player is playing reg jedi - make sure they have "Knight" in their name.
-		if (!string.match(ply:Name(), "Knight")) then
-			hook.Call("WILTOS.PlayerCouldBeCheating", nil, ply, "Knight Skills")
-		end
-	end
-end
