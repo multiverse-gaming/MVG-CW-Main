@@ -144,7 +144,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Maverick",
   "Fleet StarFighter Officer",
   "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer"
+  "Fleet Research and Development Officer",
+  "Bounty Hunter"
 
 })
 

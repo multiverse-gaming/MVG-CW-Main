@@ -66,7 +66,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
     "501st Jedi",
     "212th Jedi",
     "327th Jedi",
-    "Jedi Guardian"
+    "Jedi Guardian",
+    "Bounty Hunter"
 })
 
 -- Nicolas's Rank System Support

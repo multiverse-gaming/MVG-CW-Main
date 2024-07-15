@@ -36,7 +36,7 @@ function xLogs.Economy.SendEconomyData(ply)
 	if not ply then ply = player.GetAll() end
 
 	local sendtb = util.Compress(util.TableToJSON(xLogs.Economy.Info or {}))
-    net.Start("xLogsSendEconomyInfo")
+    net.Start("xLogsSendEconomyInfo", true)
         net.WriteUInt(#sendtb, 32)
         net.WriteData(sendtb, #sendtb)
     net.Send(ply)
@@ -46,7 +46,7 @@ function xLogs.Economy.SendEconomyPlayerData(ply)
 	if not ply then ply = player.GetAll() end
 
 	local sendtb = util.Compress(util.TableToJSON(xLogs.Economy.PlayerInfo or {}))
-    net.Start("xLogsSendEconomyPlayerInfo")
+    net.Start("xLogsSendEconomyPlayerInfo", true)
         net.WriteUInt(#sendtb, 32)
         net.WriteData(sendtb, #sendtb)
     net.Send(ply)
