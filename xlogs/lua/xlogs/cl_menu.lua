@@ -647,7 +647,7 @@ function xLogs.Menu.SettingsTab()
 		if not xLogs.HasPermission(LocalPlayer(), v.Permission) then continue end
 
 		local checkbox = xLogs.Utils.DoCheckbox(ServerCol, 0, y, xLogs.Utils.ScreenScale(32, true), xLogs.Utils.ScreenScale(32, true), Color(35, 35, 35), Color(20, 150, 20), v.Value or false, function(self, val)
-			net.Start("xLogsUpdateSetting")
+			net.Start("xLogsUpdateSetting", true)
 				net.WriteString(v.ID)
 				net.WriteBool(val)
 			net.SendToServer()
