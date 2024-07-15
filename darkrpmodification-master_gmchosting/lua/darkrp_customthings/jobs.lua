@@ -4372,7 +4372,7 @@ TEAM_RCFI = DarkRP.createJob("RC Fi", {
 
         "arccw_dc17sa",
 
-        "arccw_dc17m_fi",
+        "arccw_dc17m_fi_v2",
 
         "realistic_hook"
 
