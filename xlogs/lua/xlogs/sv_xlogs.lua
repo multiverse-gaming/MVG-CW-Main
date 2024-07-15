@@ -131,7 +131,8 @@ function xLogs.NetworkLogs(len, ply)
 	local send = xLogs.SplitLogTables(ply, alllogs)
 
 	for k1, v1 in ipairs(send) do
-		net.Start("xLogsNetworkLogs")
+		net.Start("xLogsNetworkLogs", true)
+
 			net.WriteUInt(table.Count(v1), 32)
 			for k, v in ipairs(v1) do
 				net.WriteString(v.Cat)
@@ -143,7 +144,7 @@ function xLogs.NetworkLogs(len, ply)
 	end
 
 	for k, v in pairs(xLogs.LoggingCats) do
-		net.Start("xLogsUpdateSettingCl")
+		net.Start("xLogsUpdateSettingCl", true) -- Use unreliable network buffers, doesn't guarantee delivery, but should fix activedev+ from being kicked due to buffer overflows
 			net.WriteString("enable" .. k)
 			net.WriteBool(v.Enabled)
 		net.Send(ply)
@@ -170,7 +171,8 @@ function xLogs.NetworkLog(typ, content, tim)
 		send = player.GetAll()
 	end
 
-	net.Start("xLogsNetworkLog")
+	net.Start("xLogsNetworkLog", true)
+
 		net.WriteString(typ)
 		net.WriteString(content)
 		net.WriteInt(tim, 32)
@@ -189,7 +191,8 @@ net.Receive("xLogsUpdateSetting", function(len, ply)
 	settingTb.Func(val)
 	settingTb.Value = val
 
-	net.Start("xLogsUpdateSettingCl")
+	net.Start("xLogsUpdateSettingCl", true)
+
 		net.WriteString(setting)
 		net.WriteBool(val)
 	net.Broadcast()
