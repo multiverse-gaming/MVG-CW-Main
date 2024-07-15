@@ -132,6 +132,7 @@ function xLogs.NetworkLogs(len, ply)
 
 	for k1, v1 in ipairs(send) do
 		net.Start("xLogsNetworkLogs", true)
+
 			net.WriteUInt(table.Count(v1), 32)
 			for k, v in ipairs(v1) do
 				net.WriteString(v.Cat)
@@ -171,6 +172,7 @@ function xLogs.NetworkLog(typ, content, tim)
 	end
 
 	net.Start("xLogsNetworkLog", true)
+
 		net.WriteString(typ)
 		net.WriteString(content)
 		net.WriteInt(tim, 32)
@@ -190,6 +192,7 @@ net.Receive("xLogsUpdateSetting", function(len, ply)
 	settingTb.Value = val
 
 	net.Start("xLogsUpdateSettingCl", true)
+
 		net.WriteString(setting)
 		net.WriteBool(val)
 	net.Broadcast()
