@@ -157,6 +157,14 @@ SWEP.AttachmentElements = {
 }
 WMOverride = "models/arccw/SW_Battlefront/Weapons/dc17_blaster.mdl" -- change the world model to something else. Please make sure it's compatible with the last one.
 
+SWEP.Attachments = {       
+    [1] = {
+        PrintName = "Energization", -- print name
+        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
+        Slot = "SDWAmmo",
+    },
+}
+
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle",
