@@ -103,7 +103,7 @@ wOS.ForcePowers:RegisterNewPower({
     name = "Enemy Mystify",
     icon = "M",
     image = "wos/forceicons/icefuse/blind.png",
-    cooldown = 50,
+    cooldown = 90,
     manualaim = false,
     description = "An electromagnetic pulse that conufses and stumbles foes",
     action = function( self )
@@ -142,8 +142,8 @@ wOS.ForcePowers:RegisterNewPower({
         for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), 350 ) ) do
             if v:IsValid() && v:IsPlayer() then
 				if v == self.Owner then continue end
-				v.WOS_CripplingSlow = CurTime() + 3
-				v:SetNW2Float( "wOS.BlindTime", CurTime() + 9 )
+				v.WOS_CripplingSlow = CurTime() + 1
+				v:SetNW2Float( "wOS.BlindTime", CurTime() + 6 )
             end
         end
 

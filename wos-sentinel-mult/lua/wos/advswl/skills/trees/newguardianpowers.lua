@@ -371,7 +371,7 @@ function CheckIfPlayerIsCheatingGuardian(ply)
 	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
 		if (!string.match(ply:Name(), "uardian") && !string.match(ply:Name(), "lademaster") && !string.match(ply:Name(), "eacekeeper") && !string.match(ply:Name(), "attlemaster")
-		&& !string.match(ply:Name(), "High")) then
+		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing guardian powers")
 		end
 	end
