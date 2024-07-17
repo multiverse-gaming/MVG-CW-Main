@@ -795,7 +795,7 @@ TEAM_212THGENERAL = DarkRP.createJob("212th General", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the 212th Attack Battalion!]],
 
@@ -829,7 +829,7 @@ TEAM_212THMCOMMANDER = DarkRP.createJob("212th Marshal Commander", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the 212th Attack Battalion!]],
 
@@ -861,7 +861,7 @@ TEAM_212THCOMMANDER = DarkRP.createJob("212th Commander", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
 
     description = [[Congratulations, you are the Commander of the 212th Attack Battalion!]],
 
@@ -895,7 +895,7 @@ TEAM_212THEXECUTIVEOFFICER = DarkRP.createJob("212th Executive Officer", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_waxer.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl"},
+    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_waxer.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the 212th Attack Battalion]],
 
@@ -929,7 +929,7 @@ TEAM_212THMAJOR = DarkRP.createJob("212th Major", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_boil.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/herm/cgi_new/212th/212th_trooper1.mdl","models/herm/cgi_new/212th/212th_trooper2.mdl"},
+    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_boil.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
 
     description = [[Congratulations, you are the Major of the 212th Attack Battalion]],
 
@@ -963,7 +963,7 @@ TEAM_212THLIEUTENANT = DarkRP.createJob("212th Lieutenant", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_dug2.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl"},
+    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_dug2.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl"},
 
     description = [[Congratulations, you are a Lieutenant of the 212th Attack Battalion!]],
 
@@ -997,7 +997,7 @@ TEAM_212THHEAVYTROOPER = DarkRP.createJob("212th Ghost Company", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl"},
+    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl"},
 
     description = [[Congratulations, you are a part of the Ghost Company in the 212th Attack Battalion!]],
 
@@ -1130,7 +1130,7 @@ TEAM_212THSERGEANT = DarkRP.createJob("212th Sergeant", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl"},
+    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl"},
 
     description = [[Congratulations, you are a Sergeant of the 212th Attack Battalion!]],
 
