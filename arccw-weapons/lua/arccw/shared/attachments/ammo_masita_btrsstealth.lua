@@ -19,6 +19,7 @@ att.Override_PhysTracerProfile = 7
 att.Override_TracerNum = 0
 
 --att.Override_Tracer = "lrb_11_tracer"
+att.TracerCol = Color(0, 0, 0, 0)
 att.Override_MuzzleEffect = false
 
 --[[att.Mult_MalfunctionMean = 1.3

@@ -278,7 +278,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
@@ -2764,7 +2764,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2c", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2c", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","weapon_remotedrone","datapad_player"},
 
     command = "wpgen",
 
@@ -2797,7 +2797,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
 
     command = "wpmco",
 
@@ -2829,7 +2829,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
 
     command = "wpco",
 
@@ -2863,7 +2863,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
 
     command = "wpxo",
 
@@ -2897,7 +2897,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
 
     command = "wpmjr",
 
@@ -2965,7 +2965,7 @@ TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Pathfinder", {
 
     description = [[Congratulations, you are part of the Pathfinders in the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2","arccw_hunter_shotgun", "arccw_cr2c", "weapon_jetpack"},
+    weapons = {"arccw_dc17_v2","arccw_valken38x_v2", "arccw_cr2c", "weapon_jetpack"},
 
     command = "wppf",
 
@@ -4372,7 +4372,7 @@ TEAM_RCFI = DarkRP.createJob("RC Fi", {
 
         "arccw_dc17sa",
 
-        "arccw_dc17m_fi",
+        "arccw_dc17m_fi_v2",
 
         "realistic_hook"
 
@@ -5130,7 +5130,7 @@ end,
 
 TEAM_SDWMCO = DarkRP.createJob("Shadow Marshal Commander", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/jajoff/sps/jlmbase/characters/schewekir.mdl","models/jajoff/sps/jlmbase/characters/darvont.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_commander.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/aussiwozzi/cgi/base/shadow_arc.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
     description = [[Congratulations You are now  Marshal Commander Walon Vau]],
     weapons = {"arccw_dc19","arccw_duals_dc17ext_v2_suppresed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert"},
     command = "sdwmco",
@@ -5860,12 +5860,12 @@ TEAM_NSOADV = DarkRP.createJob("NSO Advisor", {
 
 })
 
-TEAM_NSOCQC = DarkRP.createJob("NSO CQC Expert", {
+TEAM_NSOCQC = DarkRP.createJob("NSO Vanguard", {
     color = Color(76, 90, 117),
     model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
-    description = [[Congratulations, you are a NSO CQC expert!]],
+    description = [[Congratulations, you are a NSO Vanguard!]],
     weapons = {"arccw_cr2", "arccw_dc15_v2_nso", "arccw_duals_dc17ext_v2_stun", "sfw_cgelectrostaff", "realistic_hook", "weapon_cuff_elastic"},
-    command = "nsocqc",
+    command = "nsovan",
     max = 5,
     salary = 200,
     admin = 0,
@@ -5882,7 +5882,7 @@ TEAM_NSOMED = DarkRP.createJob("NSO Medic", {
     color = Color(76, 90, 117),
     model = {"models/aussiwozzi/cgi/base/nso_roach.mdl"},
     description = [[Congratulations, you are a NSO medic!]],
-    weapons = {"arccw_dc15_v2_nso", "arccw_dc17_stun_v2", "sfw_cgelectrostaff","weapon_defibrillator", "weapon_bactainjector", "realistic_hook", "weapon_cuff_elastic"},
+    weapons = {"arccw_dc15_v2_nso", "arccw_dc17_stun_v2", "sfw_cgelectrostaff","weapon_defibrillator", "weapon_bactainjector","arccw_ammo_crate", "realistic_hook", "weapon_cuff_elastic"},
     command = "nsomed",
     max = 5,
     salary = 200,

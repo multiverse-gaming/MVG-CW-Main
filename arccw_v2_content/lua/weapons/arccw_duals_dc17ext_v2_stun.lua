@@ -106,7 +106,7 @@ SWEP.IronSightStruct = {
         Ang = Angle(0, 0, 0),
     },
     Magnification = 1,
-    CrosshairInSights = false,
+    CrosshairInSights = true,
 }
 SWEP.HoldtypeHolstered = ""
 SWEP.HoldtypeActive = "duel"
@@ -249,11 +249,11 @@ SWEP.Animations = {
     },
 }
 function SWEP:ChooseShootAnim(ifp, ...)
-	if self:Clip1() == 2 then
-		return self:PlayAnimation(self:GetStat("Animations.shoot1_empty"))
-	elseif self:Clip1() == 1 then
-		return self:PlayAnimation(self:GetStat("Animations.shoot2_empty"))
-	end
+    if self:Clip1() == 2 then
+        return self:PlayAnimation(self:GetStat("Animations.shoot1_empty"))
+    elseif self:Clip1() == 1 then
+        return self:PlayAnimation(self:GetStat("Animations.shoot2_empty"))
+    end
 
-	return BaseClass.ChooseShootAnim(self, ifp, ...)
+    return BaseClass.ChooseShootAnim(self, ifp, ...)
 end

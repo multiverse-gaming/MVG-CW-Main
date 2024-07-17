@@ -109,7 +109,7 @@ SWEP.IronSightStruct = {
         Ang = Angle(0, 0, 0),
     },
     Magnification = 1,
-    CrosshairInSights = false,
+    CrosshairInSights = true,
 }
 SWEP.HoldtypeHolstered = ""
 SWEP.HoldtypeActive = "duel"

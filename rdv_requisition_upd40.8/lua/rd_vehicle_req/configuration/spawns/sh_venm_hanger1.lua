@@ -100,7 +100,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Grand Admiral",
   "FleetStrategic and Operational Command",
   "Fleet Research and Development Medic",
-  "Fleet Research and Development Engineer"
+  "Fleet Research and Development Engineer",
+  "Bounty Hunter"
 })
 
 -- Nicolas's Rank System Support

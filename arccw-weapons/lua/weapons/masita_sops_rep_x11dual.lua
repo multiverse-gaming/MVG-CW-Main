@@ -96,10 +96,11 @@ SWEP.ShootSoundSilenced = "armas/disparos/dc19.wav"
 SWEP.IronSightStruct = {
     Pos = Vector(0, -4, 1),
     Ang = Angle(0, 0, 0),
-     Magnification = 1,
-     SwitchToSound = "weapon_hand/ads/0242-00001a46.mp3",
-     SwitchFromSound = "weapon_hand/ads/0242-00001a43.mp3",
-     ViewModelFOV = 60,
+    Magnification = 1,
+    SwitchToSound = "weapon_hand/ads/0242-00001a46.mp3",
+    SwitchFromSound = "weapon_hand/ads/0242-00001a43.mp3",
+    ViewModelFOV = 60,
+    CrosshairInSights = true,
 }
 
 SWEP.HoldtypeHolstered = "idle"

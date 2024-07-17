@@ -114,6 +114,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th Jedi",
   "Jedi Guardian",
   "327th K Company",
+  "Bounty Hunter"
 })
 
 -- Nicolas's Rank System Support
