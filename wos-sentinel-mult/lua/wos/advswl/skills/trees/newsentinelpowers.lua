@@ -386,7 +386,7 @@ function CheckIfPlayerIsCheatingSentinel(ply)
 	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
 		if (!string.match(ply:Name(), "entinel") && !string.match(ply:Name(), "nvestigator") && !string.match(ply:Name(), "atchmaster") && !string.match(ply:Name(), "rtisan")
-		&& !string.match(ply:Name(), "High")) then
+		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing sentinel powers")
 		end
 	end

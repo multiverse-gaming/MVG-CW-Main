@@ -114,7 +114,7 @@ function CheckIfPlayerIsCheatingCouncil(ply)
 	local team = ply:Team()
 	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" in their name.
-		if (!string.match(ply:Name(), "High")) then
+		if (!string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing council powers")
 		end
 	end
