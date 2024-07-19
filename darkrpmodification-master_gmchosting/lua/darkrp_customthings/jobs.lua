@@ -5522,7 +5522,7 @@ TEAM_FLEETRECRUIT = DarkRP.createJob("Fleet Recruit", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 5,
+    sortOrder = 6,
 
 })
 
@@ -5557,7 +5557,7 @@ TEAM_FLEETMEMBER = DarkRP.createJob("Fleet Officer", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(425) ply:SetHealth(425) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 4,
+    sortOrder = 5,
 
 })
 
@@ -5590,7 +5590,7 @@ TEAM_FLEETLIEUTENANT = DarkRP.createJob("Fleet Lieutenant", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 3,
+    sortOrder = 4,
 
 })
 
@@ -5623,7 +5623,7 @@ TEAM_FLEETMEMBERSNR = DarkRP.createJob("Fleet Seniority", {
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(475) ply:SetHealth(475) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 2,
+    sortOrder = 3,
 
 })
 
@@ -5658,7 +5658,7 @@ TEAM_FLEETADMIRAL = DarkRP.createJob("Fleet Admiral", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 1,
+    sortOrder = 2,
 
 })
 
@@ -5692,11 +5692,41 @@ TEAM_GRANDADMIRAL = DarkRP.createJob("Grand Admiral", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
-    sortOrder = 0,
+    sortOrder = 1,
 
 })
 
+TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
+    color = Color(122, 122, 122, 255),
+
+    model = {"models/jajoff/sps/republic/tc13j/rsb_director.mdl", "models/jajoff/sps/republic/tc13j/rsb03.mdl"},
+
+    description = [[Congratulations, you are a member of the RSB!]],
+
+    weapons = {"datapad_player", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic"},
+
+    command = "rsb",
+
+    max = 3,
+
+    salary = 500,
+
+    admin = 0,
+
+    vote = false,
+
+    candemote = false,
+
+    hasLicense = false,
+
+    category = "Fleet Officers",
+
+PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(700) ply:SetRunSpeed (260) ply:SetGravity(1) end,
+
+    sortOrder = 0,
+
+})
 
 ---- FLEET SPECIALISTS----
 TEAM_FLEET_IO = DarkRP.createJob("Fleet SOC Republic Intel", {
@@ -8610,7 +8640,7 @@ TEAM_REPUBLICCHARACTER = DarkRP.createJob("Republic Character", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/riddick/sr/palpatine/palpatine.mdl","models/jajoff/sps/republic/tc13j/tarkin.mdl","models/player/wullf/wullf.mdl","models/tfa/comm/gg/pm_sw_padme.mdl","models/jajoff/sps/republic/tc13j/rsb_director.mdl","models/player/mandalorian/dutchess_satine.mdl"},
+    model = {"models/riddick/sr/palpatine/palpatine.mdl","models/jajoff/sps/republic/tc13j/tarkin.mdl","models/player/wullf/wullf.mdl","models/tfa/comm/gg/pm_sw_padme.mdl","models/player/mandalorian/dutchess_satine.mdl"},
 
     description = [[You are an Republic Event Character!]],
 
