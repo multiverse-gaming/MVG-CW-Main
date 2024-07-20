@@ -31,9 +31,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_valken38x.png"
 SWEP.NoHideLeftHandInCustomization = false
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 150
+SWEP.Damage = 100
 SWEP.RangeMin = 230
-SWEP.DamageMin = 150
+SWEP.DamageMin = 100
 SWEP.Range = 490
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -49,13 +49,13 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 8
+SWEP.Primary.ClipSize = 10
 
-SWEP.Recoil = 1
+SWEP.Recoil = 0.7
 SWEP.RecoilSide = 0.25
-SWEP.RecoilRise = 0.34
+SWEP.RecoilRise = 0.22
 
-SWEP.Delay = 60 / 150
+SWEP.Delay = 60 / 160
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -66,7 +66,7 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.AccuracyMOA = 2.3 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 2.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 SWEP.JumpDispersion = 1000 -- inaccuracy added by jumping
@@ -128,7 +128,7 @@ SWEP.Attachments = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
         Slot = "optic",
-        WMScale = Vector(111, 111, 111),
+        --WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
             vpos = Vector(0, -0.7, -4.1),

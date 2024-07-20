@@ -161,13 +161,12 @@ SWEP.Attachments = {
         PrintName = "Muzzle",
         DefaultAttName = "No Attachment",
         Slot = "DC17m_muzzle",
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight",
+        Bone = "optic",
         Offset = {
-            vpos = Vector(-0.4, -2.25, 10),
+            vpos = Vector(0.05, 1.15, 19.45),
             vang = Angle(90, 0, -90),
-            wpos = Vector(2350, 40, -1120),
-            wang = Angle(-15, 0, -90)
+            wpos = Vector(22.1, 1.51, -8.7),
+            wang = Angle(-10, 0, -90)
         },
     },
 }

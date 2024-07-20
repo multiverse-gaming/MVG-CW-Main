@@ -51,7 +51,7 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 30
+SWEP.Primary.ClipSize = 40
 
 SWEP.Recoil = 0.3
 SWEP.RecoilPunch = 0.6
@@ -61,9 +61,9 @@ SWEP.RecoilRise = 0.22
 SWEP.Delay = 60 / 600
 SWEP.Num = 1
 SWEP.Firemodes = {
-	{
-		Mode = 2
-	},
+    {
+        Mode = 2
+    },
     {
         Mode = 1
     },
@@ -95,9 +95,10 @@ SWEP.MuzzleFlashColor = Color(0, 0, 255, 50)
 SWEP.IronSightStruct = {
     Pos = Vector(0, -4, 1),
     Ang = Angle(0, 0, 0),
-     Magnification = 1,
-     SwitchToSound = "",
-     ViewModelFOV = 90,
+    Magnification = 1,
+    SwitchToSound = "",
+    ViewModelFOV = 90,
+    CrosshairInSights = true,
 }
 SWEP.HoldtypeHolstered = ""
 SWEP.HoldtypeActive = "duel"

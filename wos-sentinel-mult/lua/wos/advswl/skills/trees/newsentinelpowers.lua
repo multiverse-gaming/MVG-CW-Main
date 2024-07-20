@@ -41,7 +41,7 @@ TREE.MaxTiers = 5
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = {"TEAM_JEDISENTINEL", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE","TEAM_JEDIGURDCHIEF","TEAM_JEDISENGUARD", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
+TREE.JobRestricted = JediSentinel
 
 local ForceHpSpeedStamina = {20, 50, 10, 12}
 
@@ -69,7 +69,7 @@ TREE.Tier[1][1] = {
 	Requirements = {
 	[1] = { 3 },
 	},
-	OnPlayerSpawn = function( ply ) 
+	OnPlayerSpawn = function( ply )
 		ply:Give("weapon_physcannon")
 		ply:Give("datapad_player")
 		ply:Give("defuser_bomb")
@@ -102,7 +102,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end, 
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingSentinel(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep.SentinelLeap = true end,
 }
@@ -304,7 +304,7 @@ TREE.Tier[4][1] = {
 	Icon = "wos/forceicons/cloak.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetRunSpeed( ply:GetRunSpeed() + ForceHpSpeedStamina[3] ) end,
+	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingSentinel(ply) ply:SetRunSpeed( ply:GetRunSpeed() + ForceHpSpeedStamina[3] ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -380,3 +380,14 @@ TREE.Tier[5][3] = {
 }
 
 wOS:RegisterSkillTree( TREE )
+
+function CheckIfPlayerIsCheatingSentinel(ply)
+	local teamName = team.GetName(ply:Team())
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
+		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
+		if (!string.match(ply:Name(), "entinel") && !string.match(ply:Name(), "nvestigator") && !string.match(ply:Name(), "atchmaster") && !string.match(ply:Name(), "rtisan")
+		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
+			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing sentinel powers")
+		end
+	end
+end

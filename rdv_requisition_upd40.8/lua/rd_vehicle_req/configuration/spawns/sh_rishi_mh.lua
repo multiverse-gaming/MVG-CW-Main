@@ -11,10 +11,10 @@ OBJ:SetMap("rp_mvg_rishirepublic") -- Optional, falls back to the map you're pla
 --[[---------------------------------]]--
 -- 'getpos' in console, add commas between the numbers.
 
-OBJ:SetPosition(Vector(5073.920410, 8537.581055, -13763.454102))
+OBJ:SetPosition(Vector(4985.976563, 8352.242188, -13873.968750))
 
 
-OBJ:SetAngles(Angle(3.067459, -90.648300, 0.000000))
+OBJ:SetAngles(Angle(0.924006, -87.624161, 0.000000))
 
 --[[---------------------------------]]--
 --  Requesting Permissions (Optional)
@@ -102,19 +102,33 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "RC Charger",
   "Jedi Consular",
   "Jedi Grand Master",
-  "Jedi General Quinlan Vos",
-  "Jedi General Aayla Secura",
-  "Jedi Commander Ahsoka Tano",
-  "Jedi General Obi-Wan Kenobi",
-  "Jedi General Plo Koon",
-  "Jedi General Kit Fisto",
-  "Jedi General Shaak Ti",
-  "Jedi General Ki-Adi-Mundi",
-  "Jedi General Luminara Unduli",
-  "Jedi Council Member",
+  "GC Grand Master",
   "Jedi Master Mace Windu",
-  "Jedi Sentinel",
   "Jedi General Anakin Skywalker",
+  "501st General Anakin Skywalker",
+  "Jedi General Obi-Wan Kenobi",
+  "212th General Obi-Wan Kenobi",
+  "Jedi Commander Ahsoka Tano",
+  "501st Commander Ahsoka Tano",
+  "Jedi General Plo Koon",
+  "WP General Plo Koon",
+  "Jedi General Kit Fisto",
+  "RC General Kit Fisto",
+  "Jedi General Aayla Secura",
+  "327th General Aayla Secura",
+  "Jedi General Shaak Ti",
+  "CG General Shaak Ti",
+  "Jedi General Ki-Adi-Mundi",
+  "GM General Ki-Adi-Mundi",
+  "Jedi General Quinlan Vos",
+  "Shadow General Quinlan Vos",
+  "Jedi General Luminara Unduli",
+  "GC General Luminara Unduli",
+  "Jedi Sentinel",
+  "Jedi Council Member",
+  "501st Jedi",
+  "212th Jedi",
+  "327th Jedi",
   "Jedi Guardian",
   "Smuggler",
   "RC Clone Advisor",
@@ -130,7 +144,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Maverick",
   "Fleet StarFighter Officer",
   "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer"
+  "Fleet Research and Development Officer",
+  "Bounty Hunter"
 
 })
 

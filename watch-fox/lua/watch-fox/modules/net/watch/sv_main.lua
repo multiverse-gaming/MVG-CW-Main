@@ -28,6 +28,6 @@ end)
 -- Implementing the readString hook
 hook.Add("watchfox.security.readString", "watch.readString", function(stringContent)
 
-    print(WatchFox.Core.WrapperContext:GetNameOfPlayerSender():SteamID() .. ", content of string:" .. stringContent)
+    --print(WatchFox.Core.WrapperContext:GetNameOfPlayerSender():SteamID() .. ", content of string:" .. stringContent)
 
 end)

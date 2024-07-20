@@ -78,6 +78,7 @@ SWEP.HipDispersion = 150 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 50
 
 SWEP.SpeedMult = 1
+SWEP.ShootWhileSprint = true
 
 
 SWEP.NoFlash = nil -- disable light flash
@@ -108,7 +109,7 @@ SWEP.IronSightStruct = {
         Ang = Angle(0, 0, 0),
     },
     Magnification = 1,
-    CrosshairInSights = false,
+    CrosshairInSights = true,
 }
 SWEP.HoldtypeHolstered = ""
 SWEP.HoldtypeActive = "duel"

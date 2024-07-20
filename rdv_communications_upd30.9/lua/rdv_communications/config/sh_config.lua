@@ -75,7 +75,9 @@ COMMS:RegisterChannel("501st Legion Primary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Anakin Skywalker",
-        "Jedi Commander Ahsoka Tano"
+        "Jedi Commander Ahsoka Tano",
+        "501st General Anakin Skywalker",
+        "501st Commander Ahsoka Tano"
     ),
 
     CustomCheck = function(ply)
@@ -98,7 +100,9 @@ COMMS:RegisterChannel("501st Legion Secondary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Anakin Skywalker",
-        "Jedi Commander Ahsoka Tano"
+        "Jedi Commander Ahsoka Tano",
+        "501st General Anakin Skywalker",
+        "501st Commander Ahsoka Tano"
     ),
 
     CustomCheck = function(ply)
@@ -121,7 +125,8 @@ COMMS:RegisterChannel("212th Attack Battalion Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
-        "Jedi General Obi-Wan Kenobi"
+        "Jedi General Obi-Wan Kenobi",
+        "212th General Obi-Wan Kenobi"
     ),
 
     CustomCheck = function(ply)
@@ -144,7 +149,8 @@ COMMS:RegisterChannel("212th Attack Battalion Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
-        "Jedi General Obi-Wan Kenobi"
+        "Jedi General Obi-Wan Kenobi",
+        "212th General Obi-Wan Kenobi"
     ),
 
     CustomCheck = function(ply)
@@ -168,6 +174,7 @@ COMMS:RegisterChannel("Green Company Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "GC Grand Master",
         "Jedi Grand Master"
     ),
 
@@ -190,6 +197,7 @@ COMMS:RegisterChannel("Green Company Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "GC Grand Master",
         "Jedi Grand Master"
     ),
 
@@ -214,7 +222,8 @@ COMMS:RegisterChannel("Coruscant Guard Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
-        "Jedi General Shaak Ti"
+        "Jedi General Shaak Ti",
+        "CG General Shaak Ti"
     ),
 
     CustomCheck = function(ply)
@@ -237,7 +246,8 @@ COMMS:RegisterChannel("Coruscant Guard Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
-        "Jedi General Shaak Ti"
+        "Jedi General Shaak Ti",
+        "CG General Shaak Ti"
     ),
 
     CustomCheck = function(ply)
@@ -261,6 +271,7 @@ COMMS:RegisterChannel("Galactic Marines Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "GM General Ki-Adi-Mundi",
         "Jedi General Ki-Adi-Mundi"
     ),
 
@@ -284,6 +295,7 @@ COMMS:RegisterChannel("Galactic Marines Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "GM General Ki-Adi-Mundi",
         "Jedi General Ki-Adi-Mundi"
     ),
 
@@ -308,6 +320,7 @@ COMMS:RegisterChannel("Wolfpack Battalion Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "WP General Plo Koon",
         "Jedi General Plo Koon"
     ),
 
@@ -330,6 +343,7 @@ COMMS:RegisterChannel("Wolfpack Battalion Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        "WP General Plo Koon",
         "Jedi General Plo Koon"
     ),
 
@@ -355,6 +369,7 @@ COMMS:RegisterChannel("Engineers Primary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
+        "327th General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),
@@ -379,6 +394,7 @@ COMMS:RegisterChannel("Engineers Secondary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
+        "327th General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),
@@ -399,6 +415,7 @@ COMMS:RegisterChannel("Shadow Troopers", {
         teams.Marshal,
         teams.TeamNSO,
         "Jedi General Quinlan Vos",
+        "Shadow General Quinlan Vos",
         "Shadow General"
     ),
 
@@ -419,7 +436,8 @@ COMMS:RegisterChannel("Republic Commandos Primary", {
         teams.Marshal,
         teams.TeamMed,
         teams.TeamNSO,
-        "Jedi General Kit Fisto"
+        "Jedi General Kit Fisto",
+        "RC General Kit Fisto"
     ),
 
     CustomCheck = function(ply)
@@ -439,7 +457,8 @@ COMMS:RegisterChannel("Republic Commandos Secondary", {
         teams.Marshal,
         teams.TeamMed,
         teams.TeamNSO,
-        "Jedi General Kit Fisto"
+        "Jedi General Kit Fisto",
+        "RC General Kit Fisto"
     ),
 
     CustomCheck = function(ply)

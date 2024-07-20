@@ -41,7 +41,7 @@ TREE.MaxTiers = 5
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = {"TEAM_JEDICONSULAR", "TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE","TEAM_JEDIGURDCHIEF","TEAM_JEDICONGUARD", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER", "TEAM_JEDIGENERALVOS", "TEAM_JEDIGENERALLUMINARA"}
+TREE.JobRestricted = JediConsular
 
 local ForceHpSpeedStamina = {20, 50, 10, 12}
 
@@ -80,9 +80,11 @@ TREE.Tier[1][2] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
+	OnPlayerSpawn = function( ply )
+		CheckIfPlayerIsCheatingConsular(ply)
+	end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end, 
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end,
 }
 
 TREE.Tier[1][3] = {
@@ -95,7 +97,7 @@ TREE.Tier[1][3] = {
 	},
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 25 ) ply:SetHealth( ply:Health() - 25 ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end, 
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end,
 }
 
 TREE.Tier[1][4] = {
@@ -108,7 +110,7 @@ TREE.Tier[1][4] = {
 	},
 	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() - 25 ) ply:SetHealth( ply:Health() - 25 ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end, 
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 20) end,
 }
 
 TREE.Tier[2] = {}
@@ -344,3 +346,14 @@ TREE.Tier[5][3] = {
 }
 
 wOS:RegisterSkillTree( TREE )
+
+function CheckIfPlayerIsCheatingConsular(ply)
+	local teamName = team.GetName(ply:Team())
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
+		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
+		if (!string.match(ply:Name(), "onsular") && !string.match(ply:Name(), "age") && !string.match(ply:Name(), "	orekeeper") && !string.match(ply:Name(), "cholar")
+		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
+			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing consular powers")
+		end
+	end
+end

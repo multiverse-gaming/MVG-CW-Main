@@ -32,9 +32,9 @@ SWEP.NoHideLeftHandInCustomization = false
 SWEP.DefaultBodygroups = "000000000000"
 
 SWEP.Damage = 25
-SWEP.RangeMin = 190
-SWEP.DamageMin = 25
-SWEP.Range = 550000
+SWEP.RangeMin = 35
+SWEP.DamageMin = 15
+SWEP.Range = 45
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
 SWEP.MuzzleVelocity = 400
@@ -52,11 +52,9 @@ SWEP.HullSize = 1
 SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 55
 
-SWEP.Recoil = 1.005
-SWEP.RecoilSide = 0.18
---SWEP.RecoilRise = 0.22
-SWEP.RecoilPunch = 0 -- Visual Recoil - Set to 0.1 just so the recoil doesn't feel snappy when shooting -- Painite.
-
+SWEP.Recoil = 0.29
+SWEP.RecoilSide = 0.11
+SWEP.RecoilRise = 0.22
 
 SWEP.Delay = 60 / 850
 SWEP.Num = 1
@@ -72,7 +70,7 @@ SWEP.Firemodes = {
     },            
 }
 
-SWEP.AccuracyMOA = 35 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 
@@ -84,8 +82,8 @@ SWEP.ShootVol = 50
 SWEP.ShootPitch = 100
 
 
-SWEP.DistantShootSound = "dc15a/SW02_Weapons_Blasters_Shared_Corebass_Tight_Close_VAR_02 0 0 0.mp3"
-SWEP.ShootSound = "dc15a/SW02_Weapons_Blasters_DC15_Laser_Close_VAR_03 4 1 0.mp3"
+SWEP.DistantShootSound = "shared/corebass_0001.ogg"
+SWEP.ShootSound = "dp24/dp24.ogg"
 SWEP.ShootSoundSilenced = "w/dc19.wav"
 
 SWEP.NoFlash = nil -- disable light flash
@@ -156,8 +154,8 @@ SWEP.Animations = {
         }
     },
     ["reload"] = {
-        Source = "reload", 
-        Time = 3,
+        Source = "reload",
+		Time = 3,
         LHIK = true,
         LHIKOut = 0.6,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
