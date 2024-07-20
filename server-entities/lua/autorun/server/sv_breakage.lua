@@ -87,7 +87,7 @@ hook.Add("Think", "RandomTerminalBreakage", function()
                 end
             end
         else
-            print("[TerminalSystem] No terminals registered.")
+           -- print("[TerminalSystem] No terminals registered.")
         end
 end)
 

@@ -10,7 +10,7 @@ function OBJ:DoClick(ply, MENU, PAGE)
     local SCROLL = vgui.Create("DPanel", PAGE)
     SCROLL:Dock(FILL)
     SCROLL.Paint = function()
-        draw.SimpleText(NCS_DATAPAD.GetLang(nil, "DAP_terminalStatus"), "NCS_DEF_FRAME_TITLE", w * 0.5, h * 0.1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(NCS_DATAPAD.GetLang(nil, "Terminal Status"), "NCS_DEF_FRAME_TITLE", w * 0.5, h * 0.1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
     SCROLL:DockMargin(0, h * 0.02, w * 0.02, h * 0.02)
     
@@ -24,6 +24,9 @@ function OBJ:DoClick(ply, MENU, PAGE)
         for _, terminalData in ipairs(terminals) do
             local terminal = terminalData.entity
             local status = terminalData.broken and "Broken" or "Functioning"
+            if terminalData.broken and terminalData.claimedBy then
+                status = status .. " (Claimed by " .. terminalData.claimedBy .. ")"
+            end
 
             local panel = vgui.Create("DPanel")
             panel:SetTall(40)
@@ -32,6 +35,22 @@ function OBJ:DoClick(ply, MENU, PAGE)
             panel.Paint = function(self, w, h)
                 draw.RoundedBox(8, 0, 0, w, h, Color(60, 60, 60, 255))
                 draw.SimpleText("Terminal " .. terminal:EntIndex() .. ": " .. status, "NCS_DEFCON_TextLabel", 10, h / 2, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
+            end
+
+            if terminalData.broken then
+                panel:SetMouseInputEnabled(true)
+                panel.OnMousePressed = function()
+                    if terminalData.claimedBy == ply:Nick() then
+                        net.Start("UnclaimTerminal")
+                        net.WriteEntity(terminal)
+                        net.SendToServer()
+                    elseif not terminalData.claimedBy then
+                        net.Start("ClaimTerminal")
+                        net.WriteEntity(terminal)
+                        net.SendToServer()
+                    end
+                end
+                panel:SetCursor("hand")
             end
 
             terminalList:AddItem(panel)
@@ -50,3 +69,28 @@ function OBJ:DoClick(ply, MENU, PAGE)
         net.Receive("SendTerminalStatus", function() end)
     end
 end
+
+local espTerminals = {}
+
+net.Receive("ESPAdd", function()
+    local terminal = net.ReadEntity()
+    if IsValid(terminal) then
+        table.insert(espTerminals, terminal)
+    end
+end)
+
+net.Receive("ESPRemove", function()
+    local terminal = net.ReadEntity()
+    if IsValid(terminal) then
+        for i, ent in ipairs(espTerminals) do
+            if ent == terminal then
+                table.remove(espTerminals, i)
+                break
+            end
+        end
+    end
+end)
+
+hook.Add("PreDrawHalos", "AddTerminalHalos", function()
+    halo.Add(espTerminals, Color(0, 255, 0), 1, 1, 1, true, true)
+end)
