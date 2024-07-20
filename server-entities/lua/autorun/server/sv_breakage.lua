@@ -86,6 +86,8 @@ hook.Add("Think", "RandomTerminalBreakage", function()
                     print("[TerminalSystem] Error: Terminal does not have a Break method.")
                 end
             end
+        else
+           -- print("[TerminalSystem] No terminals registered.")
         end
 end)
 
