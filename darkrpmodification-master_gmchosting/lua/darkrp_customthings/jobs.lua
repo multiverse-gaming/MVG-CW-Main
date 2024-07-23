@@ -5109,7 +5109,7 @@ TEAM_RCGENERALKIT = DarkRP.createJob("RC General Kit Fisto", {
 
 TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
 	color = Color(130,16,8),
-    model = {"models/jajoff/sps/jlmbase/characters/journeymanprotector.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
     description = [[Congratulations You are now Shadow General]],
     weapons = {"arccw_dc19","arccw_duals_dc17ext_v2_suppresed","weapon_cloak","sfw_staffv2","sfw_estaffdual2","covert","realistic_hook","datapad_player"},
     command = "sdwgen",
