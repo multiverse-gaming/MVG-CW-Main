@@ -4,6 +4,8 @@ SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "[ ArcCW ] Republic TFA Weapons - V2" -- edit this if you like
 SWEP.AdminOnly = false
 
+SWEP.Slot = 3
+
 SWEP.PrintName = "DC-15s (327th)"
 SWEP.Trivia_Class = "Modular Blaster"
 SWEP.Trivia_Desc = "High tech verstile modular blaster base, suited for allround usage."

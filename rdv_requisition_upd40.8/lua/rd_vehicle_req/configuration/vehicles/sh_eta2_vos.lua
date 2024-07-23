@@ -20,7 +20,8 @@ OBJ:SetClass("lvs_jedi_eta")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-"Jedi General Quinlan Vos"
+"Jedi General Quinlan Vos",
+"Shadow General Quinlan Vos"
 })
 
 -- Nicolas's Rank System Support

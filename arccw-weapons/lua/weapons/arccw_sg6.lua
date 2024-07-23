@@ -39,15 +39,15 @@ SWEP.RangeMin = 16
 SWEP.DamageMin = 40
 SWEP.Range = 50
 SWEP.Penetration = 1
-SWEP.DamageType = DMG_BUCKSHOT
+SWEP.DamageType = DMG_ENERGYBEAM
 SWEP.MuzzleVelocity = 400
 
 SWEP.TraceNum = 1
 SWEP.PhysTracerProfile = 1
 
 SWEP.TracerNum = 1
-SWEP.Tracer = "tfa_tracer_red"
-SWEP.TracerCol = Color(250, 0, 0)
+SWEP.Tracer = "tfa_tracer_yellow"
+SWEP.TracerCol = Color(255, 165, 18)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0

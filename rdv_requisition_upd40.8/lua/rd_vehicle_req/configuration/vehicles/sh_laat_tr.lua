@@ -46,7 +46,12 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "327th Sergeant",
   "327th K Company",
   "Jedi Grand Master",
+  "GC Grand Master",
   "Jedi General Aayla Secura",
+  "327th General Aayla Secura",
+  "501st Jedi",
+  "212th Jedi",
+  "327th Jedi",
   "Jedi Sentinel",
   "Jedi Sentinel Temple Guard",
   "Jedi Council Member",
@@ -58,7 +63,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Strategic and Operational Command",
+  "Fleet SOC Advanced Warfare Division",
+  "Fleet SOC Republic Intel",
   "Fleet Research and Development Medic",
   "Fleet Research and Development Engineer"
 })

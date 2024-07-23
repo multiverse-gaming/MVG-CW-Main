@@ -50,7 +50,10 @@ hook.Add("loadCustomDarkRPItems", "WOS.Custom.OnStart", function()
     local index = 1 
     for id,value in pairs (team.GetAllTeams()) do
         local currentName = value.Name
-        if string.StartWith(currentName, "Jedi") then
+        if string.match(currentName, "Jedi") then
+            TeamsAllowed_wiltOS[index] = id
+            index = index + 1
+        elseif string.match(currentName, "General") then
             TeamsAllowed_wiltOS[index] = id
             index = index + 1
         end

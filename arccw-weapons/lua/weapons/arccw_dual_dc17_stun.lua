@@ -60,9 +60,9 @@ SWEP.RecoilRise = 0.31
 SWEP.Delay = 60 / 520
 SWEP.Num = 1
 SWEP.Firemodes = {
-	{
-		Mode = 1
-	},
+    {
+        Mode = 1
+    },
     {
         Mode = 0
     },
@@ -91,9 +91,10 @@ SWEP.MuzzleFlashColor = Color(0, 0, 255, 50)
 SWEP.IronSightStruct = {
     Pos = Vector(0, -4, 1),
     Ang = Angle(0, 0, 0),
-     Magnification = 1,
-     SwitchToSound = "",
-     ViewModelFOV = 90,
+    Magnification = 1,
+    SwitchToSound = "",
+    ViewModelFOV = 90,
+    CrosshairInSights = true,
 }
 SWEP.HoldtypeHolstered = ""
 SWEP.HoldtypeActive = "duel"

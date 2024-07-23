@@ -21,10 +21,15 @@ OBJ:SetClass("lvs_jedi_eta")
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 "Jedi General Plo Koon",
+"WP General Plo Koon",
 "Jedi General Kit Fisto",
+"RC General Kit Fisto",
 "Jedi General Shaak Ti",
+"CG General Shaak Ti",
 "Jedi General Ki-Adi-Mundi",
-"Jedi General Luminara Unduli"
+"GM General Ki-Adi-Mundi",
+"Jedi General Luminara Unduli",
+"GC General Luminara Unduli"
 })
 
 -- Nicolas's Rank System Support
