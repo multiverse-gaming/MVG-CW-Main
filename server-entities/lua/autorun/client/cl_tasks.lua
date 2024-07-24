@@ -324,6 +324,146 @@ local function CreateCleanFilterPanel(terminal)
     end
 end
 
+local function CreateRecordTemperaturePanel(terminal)
+    local frame = vgui.Create("DFrame")
+    frame:SetTitle("Record Temperature")
+    frame:SetSize(650, 250)
+    frame:Center()
+    frame:MakePopup()
+
+    local temperatureDisplay = math.random(-3, 39)
+    local currentTemperature = 0
+
+    local buttonWidth = 60
+    local buttonSpacing = 10
+    local totalButtonWidth = 3 * buttonWidth + 2 * buttonSpacing
+
+    local tempDisplayPanel = vgui.Create("DPanel", frame)
+    tempDisplayPanel:SetSize(totalButtonWidth, 150)
+    tempDisplayPanel:SetPos(400, 25)
+    tempDisplayPanel.Paint = function(self, w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(255, 255, 255, 255))
+        draw.SimpleText("Temperature: " .. temperatureDisplay, "DermaLarge", w / 2, h / 2, Color(0, 0, 0), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    end
+
+    local inputPanel = vgui.Create("DPanel", frame)
+    inputPanel:SetSize(totalButtonWidth, 150)
+    inputPanel:SetPos(50, 25)
+    inputPanel.Paint = function(self, w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(255, 255, 255, 255))
+        draw.SimpleText("Current Value: " .. currentTemperature, "DermaLarge", w / 2, h / 2, Color(0, 0, 0), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    end
+
+    local decrementButton = vgui.Create("DButton", frame)
+    decrementButton:SetSize(buttonWidth, 30)
+    decrementButton:SetPos(50, 200)
+    decrementButton:SetText("-1")
+    decrementButton.DoClick = function()
+        currentTemperature = math.max(currentTemperature - 1, -3)
+        inputPanel:InvalidateLayout(true)
+    end
+
+    local submitButton = vgui.Create("DButton", frame)
+    submitButton:SetSize(buttonWidth, 30)
+    submitButton:SetPos(50 + buttonWidth + buttonSpacing, 200)
+    submitButton:SetText("Submit")
+    submitButton.DoClick = function()
+        if currentTemperature == temperatureDisplay then
+            net.Start("CompleteTask")
+            net.WriteEntity(terminal)
+            net.SendToServer()
+            frame:Close()
+        else
+            notification.AddLegacy("Temperature mismatch! Adjust the value.", NOTIFY_ERROR, 5)
+        end
+    end
+
+    local incrementButton = vgui.Create("DButton", frame)
+    incrementButton:SetSize(buttonWidth, 30)
+    incrementButton:SetPos(50 + 2 * (buttonWidth + buttonSpacing), 200)
+    incrementButton:SetText("+1")
+    incrementButton.DoClick = function()
+        currentTemperature = math.min(currentTemperature + 1, 39)
+        inputPanel:InvalidateLayout(true)
+    end
+end
+
+local function CreateClearAsteroidsPanel(terminal)
+    local frame = vgui.Create("DFrame")
+    frame:SetTitle("Clear Asteroids")
+    frame:SetSize(800, 600)
+    frame:Center()
+    frame:MakePopup()
+
+    local asteroidCount = 18
+    local asteroids = {}
+    local crosshairSize = 10
+    local crosshair = vgui.Create("DPanel", frame)
+    crosshair:SetSize(crosshairSize, crosshairSize)
+    crosshair.Paint = function(self, w, h)
+        surface.SetDrawColor(Color(255, 0, 0))
+        surface.DrawLine(w / 2, 0, w / 2, h)
+        surface.DrawLine(0, h / 2, w, h / 2)
+    end
+
+    local function CreateAsteroid()
+        local asteroid = vgui.Create("DPanel", frame)
+        local size = math.random(30, 50)
+        asteroid:SetSize(size, size)
+        asteroid:SetPos(frame:GetWide(), math.random(50, frame:GetTall() - size - 50))
+        asteroid.Paint = function(self, w, h)
+            draw.RoundedBox(8, 0, 0, w, h, Color(math.random(100, 200), math.random(100, 200), math.random(100, 200)))
+        end
+        asteroid.OnMousePressed = function()
+            asteroid:Remove()
+            table.RemoveByValue(asteroids, asteroid)
+            asteroidCount = asteroidCount - 1
+            if asteroidCount <= 0 then
+                net.Start("CompleteTask")
+                net.WriteEntity(terminal)
+                net.SendToServer()
+                frame:Close()
+            end
+        end
+        table.insert(asteroids, asteroid)
+    end
+
+    local function UpdateAsteroids()
+        for _, asteroid in ipairs(asteroids) do
+            local x, y = asteroid:GetPos()
+            asteroid:SetPos(x - 2, y)
+            if x < -asteroid:GetWide() then
+                asteroid:Remove()
+                table.RemoveByValue(asteroids, asteroid)
+                asteroidCount = asteroidCount - 1
+            end
+        end
+    end
+
+    local function DrawCounter()
+        draw.SimpleText("Asteroids Remaining: " .. asteroidCount, "DermaLarge", frame:GetWide() / 2, frame:GetTall() - 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+    end
+
+    timer.Create("AsteroidSpawner", 1, 0, function()
+        if IsValid(frame) then
+            CreateAsteroid()
+        end
+    end)
+
+    hook.Add("Think", "AsteroidMovement", function()
+        if IsValid(frame) then
+            UpdateAsteroids()
+            crosshair:SetPos(gui.MouseX() - crosshairSize / 2, gui.MouseY() - crosshairSize / 2)
+            frame:InvalidateLayout(true)
+        end
+    end)
+
+    function frame:Paint(w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(0, 0, 0, 150))
+        DrawCounter()
+    end
+end
+
 net.Receive("TerminalTask", function()
     local terminal = net.ReadEntity()
     local task = net.ReadString()
@@ -336,6 +476,10 @@ net.Receive("TerminalTask", function()
             CreateSwipeCardPanel(terminal)
         elseif task == "Clean Filter" then
             CreateCleanFilterPanel(terminal)
+        elseif task == "Record Temperature" then
+            CreateRecordTemperaturePanel(terminal)
+        elseif task == "Clear Asteroids" then
+            CreateClearAsteroidsPanel(terminal)
         else
             print("[TerminalSystem] Unknown task received.")
         end

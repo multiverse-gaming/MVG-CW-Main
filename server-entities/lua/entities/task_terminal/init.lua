@@ -15,12 +15,14 @@ local tasks = {
     "Fix Wiring",
     "Prime Shields",
     "Swipe Card",
-    "Clean Filter"
+    "Clean Filter",
+    "Record Temperature",
+    "Clear Asteroids"
 }
 
 local breakChance = 0.1
-local breakInterval = 180 -- Break interval in seconds (adjust as needed)
-local repairCooldown = 30 -- Cooldown period after repair in seconds (adjust as needed)
+local breakInterval = 180
+local repairCooldown = 30
 
 if SERVER then
     util.AddNetworkString("TerminalTask")
@@ -32,7 +34,6 @@ if SERVER then
     util.AddNetworkString("ESPAdd")
     util.AddNetworkString("ESPRemove")
 
-    -- List to keep track of all terminals and their statuses
     local terminalList = {}
 
     local function UpdateTerminalList()
@@ -110,18 +111,16 @@ if SERVER then
     function ENT:Repair()
         if self.Broken then
             self.Broken = false
+            self.Task = nil
             self.ClaimedBy = nil
             print("[TerminalSystem] Terminal " .. self:EntIndex() .. " repaired.")
-            self.Task = nil
-
-            timer.Simple(repairCooldown, function()
-                if IsValid(self) then
-                    self.Broken = false
-                end
-            end)
 
             net.Start("SendTerminalStatus")
             net.WriteTable(UpdateTerminalList())
+            net.Broadcast()
+
+            net.Start("ESPRemove")
+            net.WriteEntity(self)
             net.Broadcast()
         end
     end
@@ -132,6 +131,10 @@ if SERVER then
 
         net.Start("SendTerminalStatus")
         net.WriteTable(UpdateTerminalList())
+        net.Broadcast()
+
+        net.Start("ESPRemove")
+        net.WriteEntity(self)
         net.Broadcast()
     end
 
