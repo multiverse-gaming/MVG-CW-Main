@@ -12,6 +12,12 @@ ENT.Spawnable = true
 ENT.AdminSpawnable = true
 
 local tasks = {
+    "Fix Wiring",
+    "Prime Shields",
+    "Swipe Card",
+    "Clean Filter",
+    "Record Temperature",
+    "Clear Asteroids",
     "UnlockManifolds"
 }
 
