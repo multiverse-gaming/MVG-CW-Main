@@ -464,6 +464,74 @@ local function CreateClearAsteroidsPanel(terminal)
     end
 end
 
+local function CreateUnlockManifoldsPanel(terminal)
+    local frame = vgui.Create("DFrame")
+    frame:SetTitle("Unlock Manifolds")
+    frame:SetSize(400, 300)
+    frame:Center()
+    frame:MakePopup()
+
+    local buttonOrder = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    local shuffledButtons = table.Copy(buttonOrder)
+    table.Shuffle(shuffledButtons)
+
+    local currentStep = 1
+    local buttons = {}
+
+    local function ResetProgress()
+        currentStep = 1
+        for _, btn in ipairs(buttons) do
+            btn:SetEnabled(true)
+            btn:SetColor(Color(255, 255, 255))
+        end
+    end
+
+    local grid = vgui.Create("DPanel", frame)
+    grid:SetSize(380, 260)
+    grid:SetPos(10, 30)
+
+    grid.Paint = function(self, w, h)
+        draw.RoundedBox(8, 0, 0, w, h, Color(60, 60, 60, 255))
+    end
+
+    local cols, rows = 5, 2
+    local btnWidth, btnHeight = grid:GetWide() / cols, grid:GetTall() / rows
+
+    for i, btnNumber in ipairs(shuffledButtons) do
+        local btn = vgui.Create("DButton", grid)
+        btn:SetSize(btnWidth - 10, btnHeight - 10)
+        btn:SetPos(((i - 1) % cols) * btnWidth + 5, math.floor((i - 1) / cols) * btnHeight + 5)
+        btn:SetText(btnNumber)
+        btn:SetFont("DermaLarge")
+        btn:SetColor(Color(255, 255, 255))
+        btn.Paint = function(self, w, h)
+            draw.RoundedBox(8, 0, 0, w, h, Color(100, 100, 100))
+            self:SetTextColor(self:GetColor())
+        end
+
+        btn.DoClick = function()
+            if btnNumber == buttonOrder[currentStep] then
+                btn:SetColor(Color(0, 255, 0))
+                currentStep = currentStep + 1
+                btn:SetEnabled(false)
+                if currentStep > #buttonOrder then
+                    net.Start("CompleteTask")
+                    net.WriteEntity(terminal)
+                    net.SendToServer()
+                    frame:Close()
+                end
+            else
+                btn:SetColor(Color(255, 0, 0))
+                timer.Simple(1, function()
+                    ResetProgress()
+                end)
+            end
+        end
+
+        table.insert(buttons, btn)
+    end
+end
+
 net.Receive("TerminalTask", function()
     local terminal = net.ReadEntity()
     local task = net.ReadString()
@@ -480,6 +548,8 @@ net.Receive("TerminalTask", function()
             CreateRecordTemperaturePanel(terminal)
         elseif task == "Clear Asteroids" then
             CreateClearAsteroidsPanel(terminal)
+        elseif task == "UnlockManifolds" then
+            CreateUnlockManifoldsPanel(terminal)
         else
             print("[TerminalSystem] Unknown task received.")
         end

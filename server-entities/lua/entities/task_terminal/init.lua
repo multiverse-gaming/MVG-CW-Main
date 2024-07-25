@@ -17,7 +17,8 @@ local tasks = {
     "Swipe Card",
     "Clean Filter",
     "Record Temperature",
-    "Clear Asteroids"
+    "Clear Asteroids",
+    "UnlockManifolds"
 }
 
 local breakChance = 0.1
