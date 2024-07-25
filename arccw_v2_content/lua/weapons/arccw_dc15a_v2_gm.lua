@@ -53,7 +53,7 @@ SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 55
 
 SWEP.Recoil = 0.29
-SWEP.RecoilSide = 0.11
+SWEP.RecoilSide = 0.35
 SWEP.RecoilRise = 0.22
 
 SWEP.Delay = 60 / 850
