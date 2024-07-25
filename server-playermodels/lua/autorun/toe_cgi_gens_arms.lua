@@ -13,3 +13,11 @@ player_manager.AddValidHands( "General Fox Jack (CGI)", "models/toe/cgi/gens/gen
 list.Set( "PlayerOptionsModel", "General Archer (CGI)", "models/toe/cgi/gens/gen_archer.mdl" )
 player_manager.AddValidModel( "General Archer (CGI)", "models/toe/cgi/gens/gen_archer.mdl" )
 player_manager.AddValidHands( "General Archer (CGI)", "models/toe/cgi/gens/gen_archer_arms.mdl",0,"10000000" )
+
+list.Set( "PlayerOptionsModel", "General Id (CGI)", "models/toe/cgi/gens/gen_id.mdl" )
+player_manager.AddValidModel( "General Id (CGI)", "models/toe/cgi/gens/gen_id.mdl" )
+player_manager.AddValidHands( "General Id (CGI)", "models/toe/cgi/gens/gen_id_arms.mdl",0,"10000000" )
+
+list.Set( "PlayerOptionsModel", "General Nomad (CGI)", "models/toe/cgi/gens/gen_nomad.mdl" )
+player_manager.AddValidModel( "General Nomad (CGI)", "models/toe/cgi/gens/gen_nomad.mdl" )
+player_manager.AddValidHands( "General Nomad (CGI)", "models/toe/cgi/gens/gen_nomad_arms.mdl",0,"10000000" )
