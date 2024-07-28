@@ -2300,7 +2300,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/cmd_bacara.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
@@ -2332,7 +2332,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
 TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/herm/cgi_new/21st/cmd_bacara.mdl", "models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/21st_breaching_officer.mdl","models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/21st_arf.mdl","models/herm/cgi_new/21st/cmd_jet.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
     weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
@@ -2349,7 +2349,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
 
 TEAM_GMCOMMANDER = DarkRP.createJob("Galactic Marines Commander", {
     color = Color(119, 63, 202),
-    model = {"models/herm/cgi_new/21st/cmd_bacara.mdl","models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl","models/herm/cgi_new/21st/21st_breaching_officer.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/21st_arf.mdl","models/herm/cgi_new/21st/cmd_jet.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
     description = [[Congratulations, you are the Commander of the Galactic Marines!]],
     weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmco",
@@ -2368,7 +2368,7 @@ TEAM_GMEXECUTIVEOFFICER = DarkRP.createJob("Galactic Marines Executive Officer",
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_breaching_officer.mdl", "models/herm/cgi_new/21st/cmd_keller.mdl", "models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_keller.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the Galactic Marines!]],
 
@@ -2402,7 +2402,7 @@ TEAM_GMMAJOR = DarkRP.createJob("Galactic Marines Major", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_breaching_officer.mdl", "models/herm/cgi_new/21st/21st_major.mdl", "models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl", "models/herm/cgi_new/21st/cmd_jet.mdl", "models/herm/cgi_new/21st/21st_arf.mdl", "models/herm/cgi_new/21st/21st_barc.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_raffle.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
 
     description = [[Congratulations, you are the Major of the Galactic Marines!]],
 
@@ -2436,7 +2436,7 @@ TEAM_GMLIEUTENANT = DarkRP.createJob("Galactic Marines Lieutenant", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_officer.mdl","models/herm/cgi_new/21st/21st_arf.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl", "models/herm/cgi_new/21st/21st_barc.mdl", "models/herm/cgi_new/21st/cmd_jet.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/jet_grunt.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
 
     description = [[Congratulations, you are a Lieutenant of the Galactic Marines!]],
 
@@ -2468,7 +2468,7 @@ TEAM_GMFLAMETROOPER = DarkRP.createJob("Galactic Marines Flame Trooper", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/jet_grunt.mdl","models/herm/cgi_new/21st/cmd_jet.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl","models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_jet.mdl"},
 
     description = [[Congratulations, you are a Flame Trooper of the Galactic Marines!]],
 
@@ -2534,7 +2534,7 @@ TEAM_ARCALPHAGM = DarkRP.createJob("Galactic Marines Alpha ARC", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/herm/cgi_new/21st/21st_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl", "models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl", "models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/gm_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl", "models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl", "models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are ARC Alpha Galactic Marines!]],
 
@@ -2566,7 +2566,7 @@ TEAM_GMARC = DarkRP.createJob("Galactic Marines ARC", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_arc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_arc.mdl"},
 
     description = [[Congratulations, you are a Galactic Marines ARC Trooper!]],
 
@@ -2600,7 +2600,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_medical_officer.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_tre.mdl", "models/aussiwozzi/cgi/base/gm_medic.mdl"},
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
@@ -2634,7 +2634,7 @@ TEAM_GMSERGEANT = DarkRP.createJob("Galactic Marines Sergeant", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/21st_sergeant.mdl", "models/herm/cgi_new/21st/21st_arf.mdl","models/herm/cgi_new/21st/gm_trooper1.mdl", "models/herm/cgi_new/21st/21st_barc.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl","models/herm/cgi_new/21st/jet_grunt.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
 
     description = [[Congratulations, you are a Sergeant of the Galactic Marines!]],
 
@@ -2670,7 +2670,7 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/gm_trooper1.mdl", "models/herm/cgi_new/21st/21st_medic.mdl", "models/herm/cgi_new/21st/ku_grunt.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_medic.mdl"},
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
@@ -2706,7 +2706,7 @@ TEAM_GMTROOPER = DarkRP.createJob("Galactic Marines Trooper", {
 
     color = Color(119, 63, 202),
 
-    model = {"models/herm/cgi_new/21st/gm_trooper1.mdl","models/herm/cgi_new/21st/21st_trooper.mdl","models/herm/cgi_new/21st/gm_trooper2.mdl"},
+    model = {"models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
 
     description = [[Congratulations, you are a member of the Galactic Marines!]],
 
