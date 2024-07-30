@@ -585,7 +585,7 @@ cfg:AddURL({
 
 	tabName = "Donation Shop",
 
-	url = "https://multiverse-gaming.uk/store",
+	url = "https://store.multiverse-gaming.uk/",
 
 	icon = "HVnAVBY",
 })
