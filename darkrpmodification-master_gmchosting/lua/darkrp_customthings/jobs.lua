@@ -5704,7 +5704,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     description = [[Congratulations, you are a member of the RSB!]],
 
-    weapons = {"datapad_player", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic"},
+    weapons = {"datapad_player", "lord_chrome_medkit", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic"},
 
     command = "rsb",
 
@@ -5801,7 +5801,7 @@ TEAM_FLEET_RDE = DarkRP.createJob("Fleet Research and Development Engineer", {
 
 TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
     color = Color(122, 122, 122, 255),
-    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb_director.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are the Supreme General of the Titan's Battalion!]],
     weapons = {"arccw_dc15_v2_ultimate", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player"},
     command = "sg",
