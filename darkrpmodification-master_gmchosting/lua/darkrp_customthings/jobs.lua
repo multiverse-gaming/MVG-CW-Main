@@ -5748,7 +5748,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet SOC Republic Intel", {
 
 TEAM_FLEET_IOA = DarkRP.createJob("Fleet SOC Advanced Warfare Division", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl","models/aussiwozzi/cgi/base/advisor_stooge.mdl"},
     description = [[Congratulations You are now a Fleet SOC Advanced Warfare Division!]],
     weapons = {"datapad_player", "arccw_dc15s_v2","arccw_defender_sporting","weapon_remotedrone","voice_amplifier"},
     command = "fleetsocwarfare",
