@@ -5722,7 +5722,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     category = "Fleet Officers",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(700) ply:SetRunSpeed (260) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(1200) ply:SetHealth(1200) ply:SetRunSpeed (260) ply:SetGravity(1) end,
 
     sortOrder = 0,
 
