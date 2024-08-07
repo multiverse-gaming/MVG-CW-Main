@@ -5278,7 +5278,7 @@ TEAM_SDWTRP = DarkRP.createJob("Shadow Trooper", {
 
 TEAM_CVLD = DarkRP.createJob("Covert Lead", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/nso_blackout.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_roach.mdl"},
     description = [[Congratulations You are now leader of Covert!]],
     weapons = {"covert","arccw_dc19le","arccw_dc17_v2_suppressed","arccw_blaster_lrb11","arccw_btrs_41","weapon_cloak","sfw_staffv2"},
     command = "covlead",
@@ -5299,7 +5299,7 @@ TEAM_CVLD = DarkRP.createJob("Covert Lead", {
 
 TEAM_CVSPC = DarkRP.createJob("Covert Specialists", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/nso_spark.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
     description = [[Congratulations You are now a member of Covert!]],
     weapons = {"covert","arccw_dc19le","arccw_dc17_v2_suppressed","arccw_blaster_lrb11","weapon_cloak","sfw_staffv2"},
     command = "covspec",
@@ -5320,7 +5320,7 @@ TEAM_CVSPC = DarkRP.createJob("Covert Specialists", {
 
 TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/nso_trp.mdl"},
+    model = {"models/aussiwozzi/cgi/base/nso_nari.mdl"},
     description = [[Congratulations You are now a member of Covert!]],
     weapons = {"shadowblade","arccw_dc19le","arccw_dc17_v2_suppressed","weapon_cloak","sfw_staffv2"},
     command = "covtrp",
