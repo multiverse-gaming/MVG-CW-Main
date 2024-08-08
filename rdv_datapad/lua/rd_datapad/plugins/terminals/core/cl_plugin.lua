@@ -10,10 +10,10 @@ function OBJ:DoClick(ply, MENU, PAGE)
     local SCROLL = vgui.Create("DPanel", PAGE)
     SCROLL:Dock(FILL)
     SCROLL.Paint = function()
-        draw.SimpleText(NCS_DATAPAD.GetLang(nil, "Terminal Status"), "NCS_DEF_FRAME_TITLE", w * 0.5, h * 0.1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(NCS_DATAPAD.GetLang(nil, ""), "NCS_DEF_FRAME_TITLE", w * 0.5, h * 0.1, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
     SCROLL:DockMargin(0, h * 0.02, w * 0.02, h * 0.02)
-    
+
     local terminalList = vgui.Create("DPanelList", SCROLL)
     terminalList:Dock(FILL)
     terminalList:SetSpacing(5)
@@ -57,13 +57,17 @@ function OBJ:DoClick(ply, MENU, PAGE)
         end
     end
 
-    net.Start("RequestTerminalStatus")
-    net.SendToServer()
+    local function RefreshTerminalList()
+        net.Start("RequestTerminalStatus")
+        net.SendToServer()
+    end
 
     net.Receive("SendTerminalStatus", function()
         local terminals = net.ReadTable()
         UpdateTerminalList(terminals)
     end)
+
+    RefreshTerminalList()
 
     function SCROLL:OnRemove()
         net.Receive("SendTerminalStatus", function() end)
@@ -75,7 +79,9 @@ local espTerminals = {}
 net.Receive("ESPAdd", function()
     local terminal = net.ReadEntity()
     if IsValid(terminal) then
-        table.insert(espTerminals, terminal)
+        if not table.HasValue(espTerminals, terminal) then
+            table.insert(espTerminals, terminal)
+        end
     end
 end)
 

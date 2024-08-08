@@ -306,12 +306,6 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Assistant General"] = true,
         },
     },
-    ["NSO Command"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
-        Jobs = {
-            ["NSO Captain"] = true,
-            ["NSO Advisor"] = true,
-        },
-    },
     ["Fleet Officers"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
         Jobs = {
             ["Grand Admiral"] = true,
@@ -325,7 +319,6 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Fleet Research and Development Engineer"] = true,
             ["Fleet Research and Development Medic"] = true,
             ["Clone Advisor"] = true,
-            ["NSO Advisor"] = true,
         },
     },
    ["Medical Directive"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
