@@ -676,7 +676,7 @@ TEAM_501STTROOPER = DarkRP.createJob("501st Trooper", {
 })
 
 TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
-    color = Color(0, 166, 255, 255),
+    color = Color(0, 51, 255, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
     "models/tfa/comm/gg/pm_sw_adigallia.mdl",
@@ -755,7 +755,7 @@ TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
 })
 
 TEAM_501STGENERALTANO = DarkRP.createJob("501st Commander Ahsoka Tano", {
-    color = Color(242, 0, 255, 255),
+    color = Color(0, 51, 255, 255),
     model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -773,7 +773,7 @@ TEAM_501STGENERALTANO = DarkRP.createJob("501st Commander Ahsoka Tano", {
 })
 
 TEAM_501STGENERALSKYWALKER = DarkRP.createJob("501st General Anakin Skywalker", {
-    color = Color(242, 0, 255, 255),
+    color = Color(0, 51, 255, 255),
     model = {"models/player/sample/anakin/anakins7.mdl","models/tfa/comm/gg/pm_sw_anakin_v2.mdl"},
     description = [[You are Jedi General Anakin Skywalker. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
@@ -1227,7 +1227,7 @@ TEAM_212THTROOPER = DarkRP.createJob("212th Trooper", {
 })
 
 TEAM_212THJEDI = DarkRP.createJob("212th Jedi", {
-    color = Color(0, 166, 255, 255),
+    color = Color(255, 157, 0, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
     "models/tfa/comm/gg/pm_sw_adigallia.mdl",
@@ -1306,7 +1306,7 @@ TEAM_212THJEDI = DarkRP.createJob("212th Jedi", {
 })
 
 TEAM_212THGENERALOBI = DarkRP.createJob("212th General Obi-Wan Kenobi", {
-    color = Color(242, 0, 255, 255),
+    color = Color(255, 157, 0, 255),
     model = { "models/player/generalkenobi/cgikenobi.mdl","models/tfa/comm/gg/pm_sw_obiwan_alt.mdl","models/kylejwest/cgihdobiwan/cgihdobiwan.mdl","models/dw_sgt/pm_deathwatch_maul_sgt.mdl"},
     description = [[You are Jedi General Obi-Wan Kenobi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -1766,7 +1766,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 })
 
 TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
-    color = Color(242, 0, 255, 255),
+    color = Color(0, 255, 64, 255),
     model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -1783,7 +1783,7 @@ TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
 })
 
 TEAM_GCGRANDMASTER = DarkRP.createJob("GC Grand Master", {
-    color = Color(65, 230, 0),
+    color = Color(0, 255, 64, 255),
     model = {"models/tfa/comm/gg/pm_sw_yodanojig.mdl"},
     description = [[You are Jedi Grand Master Yoda. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -2277,7 +2277,7 @@ end,
 })
 
 TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
-    color = Color(242, 0, 255, 255),
+    color = Color(255, 77, 77, 255),
     model = {"models/tfa/comm/gg/pm_sw_shaakti.mdl"},
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick"},
@@ -2737,7 +2737,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 })
 
 TEAM_GMGENERALADI = DarkRP.createJob("GM General Ki-Adi-Mundi", {
-    color = Color(242, 0, 255, 255),
+    color = Color(119, 63, 202),
     model = {"models/tfa/comm/gg/pm_sw_mundi.mdl"},
     description = [[You are Jedi General Ki-Adi-Mundi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -3195,7 +3195,7 @@ TEAM_ARCTROOPER = DarkRP.createJob("Wolfpack Trooper", {
 })
 
 TEAM_WPGENERALPLO = DarkRP.createJob("WP General Plo Koon", {
-    color = Color(242, 0, 255, 255),
+    color = Color(153, 144, 144, 255),
     model = {"models/player/plokoon/plokoon.mdl"},
     description = [[You are Jedi General Plo Koon. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -3682,7 +3682,7 @@ TEAM_CETROOPER = DarkRP.createJob("327th Trooper", {
 })
 
 TEAM_327THJEDI = DarkRP.createJob("327th Jedi", {
-    color = Color(0, 166, 255, 255),
+    color = Color(198, 155, 61),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
     "models/tfa/comm/gg/pm_sw_adigallia.mdl",
@@ -3761,7 +3761,7 @@ TEAM_327THJEDI = DarkRP.createJob("327th Jedi", {
 })
 
 TEAM_327THGENERALAAYLA = DarkRP.createJob("327th General Aayla Secura", {
-    color = Color(242, 0, 255, 255),
+    color = Color(198, 155, 61),
     model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
@@ -5088,7 +5088,7 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 })
 
 TEAM_RCGENERALKIT = DarkRP.createJob("RC General Kit Fisto", {
-    color = Color(242, 0, 255, 255),
+    color = Color(255, 157, 0),
     model = {"models/tfa/comm/gg/pm_sw_fisto.mdl"},
     description = [[You are Jedi General Kit Fisto. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
@@ -5340,7 +5340,7 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
 })
 
 TEAM_SHADOWGENERALVOS = DarkRP.createJob("Shadow General Quinlan Vos", {
-    color = Color(242, 0, 255, 255),
+	color = Color(130,16,8),
     model = {"models/tfa/comm/gg/pm_sw_quinlanvos.mdl"},
     description = [[You are Jedi General Quinlan Vos. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},

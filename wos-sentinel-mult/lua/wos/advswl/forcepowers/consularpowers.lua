@@ -167,13 +167,9 @@ wOS.ForcePowers:RegisterNewPower({
 			self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.6 )
 			self:SetForce( self:GetForce() - 80 )
 			-- TODO: Add to these xp tables, figure out a healing->XP system.
-			local tbl = wOS.ALCS.Config.Skills.ExperienceTable[ self:GetOwner():GetUserGroup() ]
-			if not tbl then
-				tbl = wOS.ALCS.Config.Skills.ExperienceTable[ "Default" ].XPPerHeal
-			else
-				tbl = wOS.ALCS.Config.Skills.ExperienceTable[ self:GetOwner():GetUserGroup() ].XPPerHeal
+			if (players > 2) then
+				self:GetOwner():AddSkillXP( 15 )
 			end
-			self:GetOwner():AddSkillXP( tbl )
     		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 
 			-- Global CD for shared ability.
@@ -196,13 +192,14 @@ wOS.ForcePowers:RegisterNewPower({
 
 			if (self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
 				if (ent:Health() >= ent:GetMaxHealth()) then return end
-				self:SetNextAttack( 0.1 )
+				self:SetNextAttack( 0.2 )
 				local ed = EffectData()
 				ed:SetOrigin( ent:GetPos() )
-				ent:SetHealth( math.min(ent:Health() + 10, ent:GetMaxHealth()))
+				ent:SetHealth( math.min(ent:Health() + 20, ent:GetMaxHealth()))
 				ent:Extinguish()
 				--self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
+				self:GetOwner():AddSkillXP( 1 )
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
 				-- Check Global CD for shared skill.
 				if (self.GroupHealCD ~= nil && self.GroupHealCD > CurTime()) then return end
@@ -217,6 +214,9 @@ wOS.ForcePowers:RegisterNewPower({
 					if players >= 8 then break end
 					ply:SetHealth( math.Clamp( ply:Health() + 200, 0, ply:GetMaxHealth() ) )
 					players = players + 1
+				end
+				if (players > 2) then
+					self:GetOwner():AddSkillXP( 15 )
 				end
 				local ed = EffectData()
 				ed:SetOrigin( self:GetSaberPosAng() )
