@@ -1,0 +1,10 @@
+"UnlitGeneric"
+
+{
+	"$basetexture"	"models\weapons\optics\holos\ammo_counter_mags_col"
+	"$translucent" 	"1"
+	"$model"		"1"
+	"$additive"	"1"
+	"$color" "[1 2.2 2]"
+	"$color2" "[0.69 0.82 0.79]"
+}

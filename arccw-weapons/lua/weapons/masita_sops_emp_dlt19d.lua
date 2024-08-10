@@ -172,11 +172,11 @@ SWEP.AttachmentElements = {
 }
 WMOverride = "models/markus/swbf2/gameplay/equipment/longrange/dlt19d/dlt19d_mesh1p_mesh.mdl"
 
---[[SWEP.Attachments = {
+SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "None", 
-        Slot = "optic", 
+        Slot = {"rifleoptic","extraoptic"}, 
         Bone = "dlt19_sight",
         WMScale = Vector(111, 111, 111),
         Offset = {
@@ -188,19 +188,6 @@ WMOverride = "models/markus/swbf2/gameplay/equipment/longrange/dlt19d/dlt19d_mes
         CorrectiveAng = Angle(0, 0, 0),
         CorrectivePos = Vector(0, 0, 0),
     },     
-    {
-        PrintName = "Muzzle", 
-        DefaultAttName = "None",
-        Slot = {"muzzle", "cr2_muzzle", "cr2c_muzzle", "stealth_muzzle"},
-        Bone = "v_dlt19_reference001",
-        WMScale = Vector(111, 111, 111),
-        Offset = {
-            vpos = Vector(0, 36, 2),
-            vang = Angle(0, -90, 0),
-            wpos = Vector(4100, 0, -720),
-            wang = Angle(-5, 0, 180)
-        },
-    },  
     {
         PrintName = "Bipod",
         DefaultAttName = "None",
@@ -214,7 +201,21 @@ WMOverride = "models/markus/swbf2/gameplay/equipment/longrange/dlt19d/dlt19d_mes
             wang = Angle(-5, 0, 180)
 
         },
-    },   
+    }, 
+   --[[ {
+        PrintName = "Muzzle", 
+        DefaultAttName = "None",
+        Slot = {"muzzle", "cr2_muzzle", "cr2c_muzzle", "stealth_muzzle"},
+        Bone = "v_dlt19_reference001",
+        WMScale = Vector(111, 111, 111),
+        Offset = {
+            vpos = Vector(0, 36, 2),
+            vang = Angle(0, -90, 0),
+            wpos = Vector(4100, 0, -720),
+            wang = Angle(-5, 0, 180)
+        },
+    },  
+  
     {
         PrintName = "Tactical", 
         DefaultAttName = "None",
@@ -275,8 +276,8 @@ WMOverride = "models/markus/swbf2/gameplay/equipment/longrange/dlt19d/dlt19d_mes
             wpos = Vector(100, 90, -370),
             wang = Angle(-5, 0, 180)
         },
-    },        
-}--]]
+    },    --]]     
+}
 
 SWEP.Animations = {
     ["idle"] = {

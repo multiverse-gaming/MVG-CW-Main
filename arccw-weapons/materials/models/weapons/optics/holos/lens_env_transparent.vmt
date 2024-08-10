@@ -1,0 +1,13 @@
+"UnlitGeneric"
+{
+	"$basetexture"	"models\weapons\optics\null"
+		"$translucent" 	"1"
+	$model 1
+
+	"Proxies"
+	{
+		"Scope"
+		{
+		}
+	}
+}
