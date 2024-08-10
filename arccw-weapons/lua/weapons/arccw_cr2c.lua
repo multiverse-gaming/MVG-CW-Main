@@ -160,87 +160,12 @@ SWEP.Attachments = {
             wpos = Vector(500, 110, -710),
             wang = Angle(-15, 0, 180)
         },
-    }    
---[[    [2] = {
-        PrintName = "Foregrip", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = "foregrip",
-        WMScale = Vector(111, 111, 111),
-        Bone = "e11_sight", -- relevant bone any attachments wwill be mostly referring to
-        Offset = {
-            vpos = Vector(0, 3, 12),
-            vang = Angle(90, 0, -90),
-            wang = Angle(170, 180, 0),
-        },
-        SlideAmount = {
-            vmin = Vector(-0.2, 2.5, 8),
-            vmax = Vector(-0.2, 2.5, 11),
-            wmin = Vector(1200, 120, -480), 
-            wmax = Vector(1200, 120, -480)  -- how far this attachment can slide in both directions.
-        },                 
-    },
-    [3] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "e11_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(1, 1.5, 11),
-            vang = Angle(90, 0, 0),
-            wpos = Vector(1150, 230, -550),
-            wang = Angle(-15, 0, -90)
-        },
-    },
-    [4] = {
-        PrintName = "Muzzle", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        WMScale = Vector(111, 111, 111),
-        Slot = {"muzzle","dlt19_muzzle", "dc15a_muzzle", "cr2_muzzle", "cr2c_muzzle", "stealth_muzzle", "b1120_muzzle"},
-        Bone = "e11_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.1, 2.2, 16.5),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(2100, 120, -820),
-            wang = Angle(-15, 0, -90)
-        },
-    },             
-    [5] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
-    },
-    [6] = {
-        PrintName = "Magazine", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {},
-        WMScale = true,
-        Bone = "e11_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.3, 2.3, 4),
-            vang = Angle(0, 0, 0),
-            wpos = Vector(650, 10, -300),
-            wang = Angle(-15, 90, -90)
-        },
-    },   
-    [7] = {
-        PrintName = "Training/Perk", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "perk",
-    },
-    [8] = {
-        PrintName = "Charms", -- print name
-        DefaultAttName = "No Charm", -- used to display the "no attachment" text
-        Slot = {"charm"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "e11_sight", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(0.7, 1.5, 0),
-            vang = Angle(90, 0, -70),
-            wpos = Vector(400, 200, -470),
-            wang = Angle(-10 , 0, 180)
-        },
-    },   --]]
+    },    
+    [2] = {
+        PrintName = "Scan Dart",
+        DefaultAttName = "None",
+        Slot = {"cr2cscandart"},             
+    },      
 }
 
 
