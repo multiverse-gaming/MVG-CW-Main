@@ -33,31 +33,23 @@ local function AddESPInRadius(pos, radius, color)
     end
 end
 
-hook.Add("PlayerPostThink", "ScanDartFireBullet", function(ply)
-    if not ply:HasWeapon("arccw_cr2c") then return end
+hook.Add("EntityTakeDamage", "ScanDartHitEffect", function(target, dmginfo)
+    local attacker = dmginfo:GetAttacker()
+    if not IsValid(attacker) or not attacker:IsPlayer() then return end
 
-    local weapon = ply:GetActiveWeapon()
-    if not IsValid(weapon) or not weapon.Attachments then return end
+    local weapon = attacker:GetActiveWeapon()
+    if not IsValid(weapon) or weapon:GetClass() ~= "arccw_cr2c" then return end
 
-    for _, attachment in ipairs(weapon.Attachments) do
-        if attachment.Installed == "scandart" then
-            local trace = util.TraceLine({
-                start = ply:GetShootPos(),
-                endpos = ply:GetShootPos() + ply:GetAimVector() * 8192,
-                filter = ply
-            })
-
-            local hitPos = trace.HitPos
-
-            AddESPInRadius(hitPos, 512, Color(255, 0, 0))
-
-            if trace.HitWorld then
-                AddESPInRadius(hitPos, 512, Color(255, 0, 0))
-            end
-
-            break
-        end
+    local hitPos = dmginfo:GetDamagePosition()
+    if hitPos == vector_origin then
+        local trace = attacker:GetEyeTrace()
+        hitPos = trace.HitPos
     end
+
+    if target:IsPlayer() or target:IsNPC() then
+        AddESPEffect(target, Color(255, 0, 0))
+    end
+    AddESPInRadius(hitPos, 512, Color(255, 0, 0))
 end)
 
 hook.Add("PreDrawHalos", "ScanDartESP", function()
