@@ -351,7 +351,7 @@ function CheckIfPlayerIsCheatingConsular(ply)
 	local teamName = team.GetName(ply:Team())
 	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
 		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
-		if (!string.match(ply:Name(), "onsular") && !string.match(ply:Name(), "age") && !string.match(ply:Name(), "	orekeeper") && !string.match(ply:Name(), "cholar")
+		if (!string.match(ply:Name(), "onsular") && !string.match(ply:Name(), "age") && !string.match(ply:Name(), "orekeeper") && !string.match(ply:Name(), "cholar")
 		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. ply:GetName() .. " is likely abusing consular powers")
 		end

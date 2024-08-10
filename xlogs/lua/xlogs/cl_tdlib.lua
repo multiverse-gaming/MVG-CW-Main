@@ -533,7 +533,7 @@ classes.NetMessage = function(pnl, name, data)
 	data = data || function() end
 
 	pnl:On("DoClick", function()
-		net.Start(name, true)
+		net.Start(name)
 			data(pnl)
 		net.SendToServer()
 	end)

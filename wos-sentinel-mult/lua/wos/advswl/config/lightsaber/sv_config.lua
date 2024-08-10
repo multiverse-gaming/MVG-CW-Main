@@ -35,4 +35,4 @@ wOS.ALCS.Config.LightsaberLockOnBreakSquare = 800000
 /*
 	How long should a parry stun the victim? IN SECONDS
 */
-wOS.ALCS.Config.LightsaberParryStun = 1.5
+wOS.ALCS.Config.LightsaberParryStun = 2

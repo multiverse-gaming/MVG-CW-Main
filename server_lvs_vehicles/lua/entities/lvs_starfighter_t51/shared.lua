@@ -81,7 +81,7 @@ function ENT:InitWeapons()
 	
 	
 	local weapon = {}
-	weapon.Icon = Material("lvs/weapons/protontorpedo.png")
+	weapon.Icon = Material("lvs/weapons/bomb.png")
 	weapon.Ammo = 150
 	weapon.Delay = 0 -- this will turn weapon.Attack to a somewhat think function
 	weapon.HeatRateUp = -0.1 -- cool down when attack key is held. This system fires on key-release.

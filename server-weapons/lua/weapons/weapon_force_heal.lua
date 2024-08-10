@@ -231,6 +231,7 @@ function SWEP:PrimaryAttack()
 		self:SetNextPrimaryFire( CurTime() + 3 )
 
 		self.Owner:SetAnimation( PLAYER_ATTACK1 )
+		self.Owner:AddSkillXP( 5 )
 
 
 

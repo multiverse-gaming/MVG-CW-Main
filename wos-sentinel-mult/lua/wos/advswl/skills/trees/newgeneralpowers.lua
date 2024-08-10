@@ -65,7 +65,7 @@ TREE.Tier[1][1] = {
 	Name = "Force Channel",
 	Description = "Learn to control the things around you as you master the art of combat meditiating, focusing your power against hatred",
 	Icon = "wos/forceicons/channel_hatred.png",
-	PointsRequired = 4,
+	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -76,7 +76,7 @@ TREE.Tier[1][2] = {
 	Name = "Kyber Slam",
 	Description = "Unleash the true power of your crystal.",
 	Icon = "wos/devestators/slam.png",
-	PointsRequired = 8,
+	PointsRequired = 6,
 	Requirements = {
 	    [1] = { 1 },
 	},

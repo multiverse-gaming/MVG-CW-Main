@@ -165,7 +165,7 @@ net.Receive("xLogsNetworkLogs", function()
 end)
 
 hook.Add("InitPostEntity", "xLogsRequestLogs", function()
-	net.Start("xLogsRequestLogUpdate", true)
+	net.Start("xLogsRequestLogUpdate")
 	net.SendToServer()
 end)
 
