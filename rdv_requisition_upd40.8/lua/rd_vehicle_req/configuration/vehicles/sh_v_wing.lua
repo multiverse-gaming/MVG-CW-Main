@@ -20,7 +20,7 @@ OBJ:SetClass("lvs_starfighter_vwing")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "327th General",
+  "CE General",
   "501st General",
   "212th General",
   "Green Company General",
@@ -34,11 +34,11 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Supreme General",
   "Battalion General",
   "Assistant General",
-  "327th Marshal Commander",
-  "327th Commander",
-  "327th Executive Officer",
-  "327th Major",
-  "327th Talon Squadron",
+  "CE Marshal Chief",
+  "CE Chief",
+  "CE Assistant Chief",
+  "CE Chief Technician",
+  "CE Razor Squadron",
   "RC Fixer",
   "RC Tech"
 })

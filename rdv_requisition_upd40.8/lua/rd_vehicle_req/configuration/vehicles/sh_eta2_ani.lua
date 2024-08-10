@@ -23,7 +23,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 "Jedi Sentinel",
 "501st Jedi",
 "212th Jedi",
-"327th Jedi",
+"CE Jedi",
 "Jedi Sentinel Temple Guard",
 "Jedi General Anakin Skywalker",
 "501st General Anakin Skywalker"

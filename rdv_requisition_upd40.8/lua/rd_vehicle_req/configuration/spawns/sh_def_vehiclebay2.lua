@@ -21,7 +21,7 @@ OBJ:SetAngles(Angle(2.342125, 177.303391, 0.000000))
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "327th General",
+  "CE General",
   "501st General",
   "212th General",
   "Green Company General",
@@ -50,8 +50,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "212th ARC",
   "Green Company ARC",
   "Wolfpack ARC",
-  "327th ARC",
-  "327th Alpha ARC",
+  "CE ARC",
+  "CE Alpha ARC",
   "Galactic Marines ARC",
   "Coruscant Guard ARC",
   "Galactic Marines ARC",
@@ -80,8 +80,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Galactic Marines Medic Officer",
   "Coruscant Guard Medic Officer",
   "Wolfpack Medic Officer",
-  "327th Medic Officer",
-  "327th Medic Trooper",
+  "CE Medic Officer",
+  "CE Medic Trooper",
   "RC Charger",
   "Jedi Consular",
   "Jedi Grand Master",
@@ -98,7 +98,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi General Kit Fisto",
   "RC General Kit Fisto",
   "Jedi General Aayla Secura",
-  "327th General Aayla Secura",
+  "CE General Aayla Secura",
   "Jedi General Shaak Ti",
   "CG General Shaak Ti",
   "Jedi General Ki-Adi-Mundi",
@@ -111,9 +111,9 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Council Member",
   "501st Jedi",
   "212th Jedi",
-  "327th Jedi",
+  "CE Jedi",
   "Jedi Guardian",
-  "327th K Company",
+  "CE EOD",
   "Bounty Hunter"
 })
 
@@ -153,7 +153,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Supreme General",
     "Battalion General",
     "Assistant General",
-    "327th General",
+    "CE General",
     "501st General",
     "212th General",
     "Green Company General",

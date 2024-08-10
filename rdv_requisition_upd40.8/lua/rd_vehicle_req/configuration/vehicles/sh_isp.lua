@@ -43,15 +43,15 @@ OBJ:SetClass("lvs_fakehover_infantry_support_platform")
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 
-  "327th Commander",
+  "CE Chief",
 
-  "327th Executive Officer",
+  "CE Assistant Chief",
 
-  "327th Major",
+  "CE Chief Technician",
 
-  "327th K Company"
+  "CE EOD"
 ,
-  "327th Marshal Commander",
+  "CE Marshal Chief",
   "Fleet Director of Research and Development",
   "Fleet Research and Development Officer"
 })

@@ -21,7 +21,7 @@ OBJ:SetClass("lvs_aayla_eta")
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 "Jedi General Aayla Secura",
-"327th General Aayla Secura"
+"CE General Aayla Secura"
 })
 
 -- Nicolas's Rank System Support

@@ -4,7 +4,7 @@ SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
 SWEP.Category = "[ ArcCW ] Republic TFA Weapons - V2"
 SWEP.Credits = { Author1 = "cat"}
-SWEP.PrintName = "DP-23 (327th)"
+SWEP.PrintName = "DP-23 (CE)"
 SWEP.Trivia_Class = "Blaster Rifle"
 SWEP.Trivia_Desc = "High tech Blaster shotgun, built for piercing the enemy defenses."
 SWEP.Trivia_Manufacturer = "BlasTech Industries"
