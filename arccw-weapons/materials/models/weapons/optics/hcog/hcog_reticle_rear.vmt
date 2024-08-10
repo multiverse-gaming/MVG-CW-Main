@@ -1,0 +1,21 @@
+"UnlitGeneric"
+
+{
+	"$basetexture"	"models\weapons\optics\hcog\hcog_reticle_rear_col"
+	"$detail"		"models\weapons\optics\hcog\noise_post"
+	"$translucent" 	"1"
+	"$model"		"1"
+	"$additive"	"1"
+	"$color" "[1 1 1]"
+	"$color2" "[5 3 1]"
+
+	Proxies
+	{
+		TextureScroll
+		{
+			textureScrollVar	$detailtexturetransform
+			textureScrollRate	50
+			textureScrollAngle 	180
+		}
+	}
+}

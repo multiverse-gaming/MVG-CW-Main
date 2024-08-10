@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_inf", "models/dead_inf/dead_inf.mdl" )

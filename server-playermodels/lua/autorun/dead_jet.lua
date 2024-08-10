@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_jet", "models/dead_jet/dead_jet.mdl" )

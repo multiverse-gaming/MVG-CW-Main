@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture"		"models\weapons\arccw\scifi\tracker\modlel_diffuse"
+	"$bumpmap" 		"models\weapons\arccw\scifi\tracker\modlel_normal"
+	$phongexponenttexture	"models\weapons\arccw\scifi\tracker\modlel_spec"
+	"$color"			"[1.0 1.0 1.0]"		
+	
+	"$roughnessmultiplier" 		"0.8"
+	"$metal" "1"
+	
+}

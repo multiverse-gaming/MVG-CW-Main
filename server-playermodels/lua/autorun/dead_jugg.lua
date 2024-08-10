@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_jugg", "models/dead_jugg/dead_jugg.mdl" )
