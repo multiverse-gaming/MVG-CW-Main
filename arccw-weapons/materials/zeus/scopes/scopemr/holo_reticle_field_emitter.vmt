@@ -1,0 +1,11 @@
+"UnlitGeneric"
+
+{
+	"$basetexture"	"\zeus\scopes\scopemr\hcog_reticle_field_emitter_col"
+	"$detail"		"\zeus\scopes\scopemr\noise_post"
+	"$translucent" 	"1"
+	"$model"		"1"
+	"$additive"	"1"
+	"$color" "[1 1 1]"
+	"$color2" "[2 6 10]"
+}

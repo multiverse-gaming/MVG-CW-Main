@@ -1,0 +1,13 @@
+"UnlitGeneric"
+
+{
+	"$basetexture"	"zeus\scopes\tracker\background_glass_back"
+	"$detail"		"zeus\scopes\tracker\noise_tex"
+	"$translucent" 	"1"
+	"$model"		"1"
+	"$additive"	"1"
+	"$color" "[1 1 1]"
+	"$color2" "[1 1 1]"
+
+	
+}

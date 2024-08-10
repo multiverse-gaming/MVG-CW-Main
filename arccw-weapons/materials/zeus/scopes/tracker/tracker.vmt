@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$basetexture"		"zeus\scopes\tracker\modlel_diffuse"
+	"$bumpmap" 		"zeus\scopes\tracker\modlel_normal"
+	$phongexponenttexture	"zeus\scopes\tracker\modlel_spec"
+	"$color"			"[1.0 1.0 1.0]"		
+	
+	"$roughnessmultiplier" 		"0.8"
+	"$metal" "1"
+	
+}
