@@ -40,4 +40,3 @@ else
     util.AddNetworkString("NCS_SHARED.PlaySound")
     util.AddNetworkString("NCS_SHARED.AddText")
 end
-
