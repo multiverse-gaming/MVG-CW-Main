@@ -73,6 +73,8 @@ SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a de
 SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 200
 
+SWEP.SpeedMult = 1
+
 SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil
 SWEP.FastMuzzleEffect = nil

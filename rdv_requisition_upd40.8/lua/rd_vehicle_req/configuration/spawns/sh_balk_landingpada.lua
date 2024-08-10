@@ -93,6 +93,8 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "104th Reconnaissance Officer",
     "Engineering Officer",
     "Medical Officer",
+    "Fleet SOC Republic Intel",
+    "Fleet SOC Advanced Warfare Division",
     "Fleet Probation Officer",
     "Fleet Ensign",
     "Fleet Officer",

@@ -163,6 +163,8 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Fleet Admiral",
     "Grand Admiral",
     "Fleet Intelligence Officer",
+    "Fleet SOC Republic Intel",
+    "Fleet SOC Advanced Warfare Division",
     "Fleet Research and Development Medic",
     "Fleet Research and Development Engineer"
 

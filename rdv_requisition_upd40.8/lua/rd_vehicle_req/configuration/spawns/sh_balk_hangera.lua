@@ -145,6 +145,8 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "ARC General",
     "RC General",
     "Shadow General",
+    "Fleet SOC Republic Intel",
+    "Fleet SOC Advanced Warfare Division",
     "Jedi Grand Master"
 })
 

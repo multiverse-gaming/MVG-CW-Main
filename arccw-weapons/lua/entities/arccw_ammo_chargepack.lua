@@ -63,6 +63,7 @@ function ENT:Use( activator, caller )
 		activator:GiveAmmo(10, "grenade" ,false)
         activator:GiveAmmo(600, ammoType1, false)
 		activator:GiveAmmo(3 , ammoType2, false)
+
         self:Remove()
     end
 end

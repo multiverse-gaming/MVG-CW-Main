@@ -94,6 +94,7 @@ SWEP.UseForms = {
 	["Juyo"] = {1, 2, 3}, 
 	["Zenith"] = {1, 2, 3}, 
 	["Relentless"] = {1, 2, 3}, 
+	["Shii-Cho"] = {1, 2, 3},
 }
 
 SWEP.SelectedGrip = "Reverse Blade ( Right )"
