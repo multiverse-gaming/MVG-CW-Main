@@ -1,0 +1,21 @@
+"UnlitGeneric"
+
+{
+	"$basetexture"	"zeus\scopes\scopecq\hcog_reticle_field_emitter_col"
+	"$detail"		"zeus\scopes\scopecq\noise_post"
+	"$translucent" 	"1"
+	"$model"		"1"
+	"$additive"	"1"
+	"$color" "[1 1 200]"
+	"$color2" "[1 1 200]"
+
+	Proxies
+	{
+		TextureScroll
+		{
+			textureScrollVar	$detailtexturetransform
+			textureScrollRate	50
+			textureScrollAngle 	180
+		}
+	}
+}
