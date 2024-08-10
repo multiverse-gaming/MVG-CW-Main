@@ -21,9 +21,9 @@ OBJ:SetClass("lvs_repulsorlift_transport")
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Medical General",
-  "327th Medic Officer",
+  "CE Medic Officer",
   "Medical Officer",
-  "327th Medic Trooper"
+  "CE Medic Trooper"
 })
 
 -- Nicolas's Rank System Support

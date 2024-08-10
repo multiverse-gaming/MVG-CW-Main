@@ -34,7 +34,7 @@ teams = {
         "Coruscant Guard Marshal Commander",
         "Galactic Marines Marshal Commander",
         "Wolfpack Marshal Commander",
-        "327th Marshal Commander",
+        "CE Marshal Chief",
         "ARC Marshal Commander",
         "RC Marshal Commander",
         "Senior Medical Director"
@@ -176,22 +176,22 @@ teams = {
 
     -- ==== Engineers ====
     TeamCE = {
-        "327th General",
-        "327th Commander",
-        "327th Executive Officer",
-        "327th Major",
-        "327th Lieutenant",
-        "327th Talon Squadron",
-        "327th K Company",
-        "327th Alpha ARC",
-        "327th ARC",
-        "327th Medic Officer",
-        "327th Sergeant",
-        "327th Medic Trooper",
+        "CE General",
+        "CE Chief",
+        "CE Assistant Chief",
+        "CE Chief Technician",
+        "CE Engineer",
+        "CE Razor Squadron",
+        "CE EOD",
+        "CE Alpha ARC",
+        "CE ARC",
+        "CE Medic Officer",
+        "CE Specialist",
+        "CE Medic Trooper",
     },
 
     TeamCETrp = {
-        "327th Trooper",
+        "CE Trooper",
     },
 
     -- ==== ARC ====
@@ -213,8 +213,8 @@ teams = {
         "Galactic Marines ARC",
         "Wolfpack Alpha ARC",
         "Wolfpack ARC",
-        "327th Alpha ARC",
-        "327th ARC",
+        "CE Alpha ARC",
+        "CE ARC",
         "Trainee ARC",
     },
 
@@ -317,8 +317,8 @@ teams = {
         "Galactic Marines Medic Trooper",
         "Wolfpack Medic Officer",
         "Wolfpack Medic Trooper",
-        "327th Medic Officer",
-        "327th Medic Trooper",
+        "CE Medic Officer",
+        "CE Medic Trooper",
     },
 
     -- ==== NSO Command ====
@@ -345,7 +345,7 @@ teams = {
         "Jedi General Kit Fisto",
         "RC General Kit Fisto",
         "Jedi General Aayla Secura",
-        "327th General Aayla Secura",
+        "CE General Aayla Secura",
         "Jedi General Shaak Ti",
         "CG General Shaak Ti",
         "Jedi General Ki-Adi-Mundi",
@@ -368,7 +368,7 @@ teams = {
         "Jedi Consular",
         "Jedi Guardian",
         "Jedi Sentinel",
-        "327th Jedi",
+        "CE Jedi",
         "501st Jedi",
         "212th Jedi",
     },

@@ -94,7 +94,7 @@ DarkRP.createCategory{
 }
 
 DarkRP.createCategory{
-	name = "327th Engineering Corps",
+	name = "Combat Engineers",
 	categorises = "jobs",
 	startExpanded =false,
 	color = Color(204, 204, 0),
