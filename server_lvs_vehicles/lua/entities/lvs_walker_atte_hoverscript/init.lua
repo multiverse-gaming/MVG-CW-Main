@@ -1,6 +1,9 @@
 AddCSLuaFile( "shared.lua" )
 AddCSLuaFile( "cl_init.lua" )
 include("shared.lua")
+include("sv_controls.lua")
+include("sv_vehiclespecific.lua")
+
 
 function ENT:ToggleGravity( PhysObj, Enable )
 	if PhysObj:IsGravityEnabled() ~= Enable then

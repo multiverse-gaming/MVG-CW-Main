@@ -185,6 +185,18 @@ function ENT:OnMaintenance()
 	self:UnRagdoll()
 end
 
+function ENT:OnVehicleSpecificToggled( IsActive )
+	if self:GetAI() then
+		if not self:GetLightsActive() then return end
+
+		self:SetLightsActive( false )
+	end
+
+	self:SetLightsActive( IsActive )
+
+	self:EmitSound( "buttons/lightswitch2.wav", 75, 105 )
+end
+
 function ENT:AlignView( ply, SetZero )
 	if not IsValid( ply ) then return end
 

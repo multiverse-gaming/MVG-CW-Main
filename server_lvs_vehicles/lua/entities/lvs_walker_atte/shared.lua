@@ -62,6 +62,9 @@ function ENT:OnSetupDataTables()
 	self:AddDT( "Bool", "IsRagdoll" )
 	self:AddDT( "Vector", "AIAimVector" )
 
+	self:AddDT( "Bool", "LightsActive" )
+
+
 	if SERVER then
 		self:NetworkVarNotify( "IsCarried", self.OnIsCarried )
 	end

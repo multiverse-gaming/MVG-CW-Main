@@ -156,3 +156,55 @@ function ENT:LVSHudPaintInfoText( X, Y, W, H, ScrX, ScrY, ply )
 		self:LVSDrawCircle( hX, hY, H * 0.35, math.min( Throttle, 1 ) )
 	end
 end
+
+function ENT:RemoveLight()
+	if IsValid( self.projector ) then
+		self.projector:Remove()
+		self.projector = nil
+	end
+end
+
+ENT.LightMaterial = Material( "effects/lvs/laat_spotlight" )
+ENT.GlowMaterial = Material( "sprites/light_glow02_add" )
+
+function ENT:PreDrawTranslucent()
+	if not self:GetLightsActive() then
+		self:RemoveLight()
+
+		return
+	end
+
+	if not IsValid( self.projector ) then
+		local thelamp = ProjectedTexture()
+		thelamp:SetBrightness( 20 ) 
+		thelamp:SetTexture( "effects/flashlight/soft" )
+		thelamp:SetColor( Color(255,255,255) ) 
+		thelamp:SetEnableShadows( true ) 
+		thelamp:SetFarZ( 2500 ) 
+		thelamp:SetNearZ( 75 ) 
+		thelamp:SetFOV( 80 )
+		self.projector = thelamp
+	end
+
+	local Start1 = self:LocalToWorld( Vector(250,10,110) )
+	local Start2 = self:LocalToWorld( Vector(250,-10,110) )
+
+	local Dir1 = self:LocalToWorldAngles( Angle(40,5,0) ):Forward()
+	local Dir2 = self:LocalToWorldAngles( Angle(40,-5,0) ):Forward()
+
+	render.SetMaterial( self.GlowMaterial )
+	render.DrawSprite( Start1, 32, 32, Color( 100, 100, 100, 255) )
+	render.DrawSprite( Start2, 32, 32, Color( 100, 100, 100, 255) )
+
+	render.SetMaterial( self.LightMaterial )
+	render.DrawBeam( Start1,  Start1 + Dir1 * 400, 150, 0, 0.99, Color( 100, 100, 100, 5) ) 
+	render.DrawBeam( Start2,  Start2 + Dir2 * 400, 150, 0, 0.99, Color( 100, 100, 100, 5) ) 
+
+	if IsValid( self.projector ) then
+		self.projector:SetPos( self:LocalToWorld( Vector(250,10,110) ) )
+		self.projector:SetAngles( self:LocalToWorldAngles( Angle(15,0,0) ) )
+		self.projector:Update()
+	end
+
+	return false
+end

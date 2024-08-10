@@ -28,6 +28,7 @@ SWEP.WorldModelOffset = {
     ang = Angle(0, 0, 0),
     scale = 0.1
 }
+SWEP.ForceDefaultAmmo = 15
 
 SWEP.IconOverride = "materials/entities/rw_ammo_distributor.png"
 
