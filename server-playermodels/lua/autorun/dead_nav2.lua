@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_nav2", "models/dead_nav2/dead_nav2.mdl" )

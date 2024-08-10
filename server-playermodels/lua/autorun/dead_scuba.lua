@@ -1,1 +1,0 @@
-player_manager.AddValidModel( "dead_scuba", "models/dead_scuba/dead_scuba.mdl" )
