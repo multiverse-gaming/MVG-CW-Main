@@ -10,7 +10,6 @@ if SERVER then
 
 	hook.Add('EntityTakeDamage','PShield',function(ent,dmg)
 		if (ent:IsPlayer()) then
-			print(0)
 			print(IsValid(ent:GetNWEntity('PShield')))
 			if (IsValid(ent:GetNWEntity('PShield'))) then
 				print(ent:GetNWEntity('PShield'):GetActive())
@@ -19,9 +18,7 @@ if SERVER then
 
 		if ent:IsPlayer() and IsValid(ent:GetNWEntity('PShield')) and ent:GetNWEntity('PShield'):GetActive() then
 			local damageType = dmg:GetDamageType()
-			print(1)
 			if (ent:GetClass() == "personal_shield_droideka") then
-				print(2)
 				-- Droideka has a huge hitbox, so direct it all to the shield.
 				local shield = ent:GetNWEntity('PShield')
 				shield:TakeDamageInfo(dmg)

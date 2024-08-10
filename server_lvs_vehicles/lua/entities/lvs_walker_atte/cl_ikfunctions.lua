@@ -1,6 +1,14 @@
 
 function ENT:OnRemoved()
 	self:LegClearAll()
+	self:RemoveLight()
+end
+
+function ENT:RemoveLight()
+	if IsValid( self.projector ) then
+		self.projector:Remove()
+		self.projector = nil
+	end
 end
 
 local debugred = Color(255,0,0,255)
