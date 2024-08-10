@@ -31,7 +31,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Galactic Marines Medic Officer",
   "Coruscant Guard Medic Officer",
   "Wolfpack Medic Officer",
-  "327th Medic Officer",
+  "CE Medic Officer",
   "Fleet Director of Research and Development",
   "Fleet Research and Development Officer"
 

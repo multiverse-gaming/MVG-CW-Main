@@ -20,7 +20,7 @@ OBJ:SetClass("lvs_starfighter_n1")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "327th General",
+  "CE General",
   "501st General",
   "212th General",
   "Green Company General",

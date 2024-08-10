@@ -3212,15 +3212,15 @@ TEAM_WPGENERALPLO = DarkRP.createJob("WP General Plo Koon", {
 })
 
 
--- 327th --
+-- Combat Engineers --
 
-TEAM_CEGENERAL = DarkRP.createJob("327th General", {
+TEAM_CEGENERAL = DarkRP.createJob("CE General", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_bly.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
-    description = [[Congratulations, you are the Deployed General of the 327th!]],
+    description = [[Congratulations, you are the Deployed General of the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
 
@@ -3238,7 +3238,7 @@ TEAM_CEGENERAL = DarkRP.createJob("327th General", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3246,13 +3246,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunS
 
 })
 
-TEAM_CEMCOMMANDER = DarkRP.createJob("327th Marshal Commander", {
+TEAM_CEMCOMMANDER = DarkRP.createJob("CE Marshal Chief", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
-    description = [[Congratulations, you are the Marshal Commander of the 327th!]],
+    description = [[Congratulations, you are the Marshal Commander of the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
 
@@ -3270,7 +3270,7 @@ TEAM_CEMCOMMANDER = DarkRP.createJob("327th Marshal Commander", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3278,13 +3278,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunS
 
 })
 
-TEAM_CECOMMANDER = DarkRP.createJob("327th Commander", {
+TEAM_CECOMMANDER = DarkRP.createJob("CE Chief", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
-    description = [[Congratulations, you are the Commander of the 327th!]],
+    description = [[Congratulations, you are the Commander of the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
 
@@ -3302,7 +3302,7 @@ TEAM_CECOMMANDER = DarkRP.createJob("327th Commander", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3312,13 +3312,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunS
 
 
 
-TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("327th Executive Officer", {
+TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("CE Assistant Chief", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
-    description = [[Congratulations, you are now an Executive Officer of the 327th!]],
+    description = [[Congratulations, you are now an Executive Officer of the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "arccw_dp23_v2_327th", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
 
@@ -3336,7 +3336,7 @@ TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("327th Executive Officer", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3346,13 +3346,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 
-TEAM_CECHIEF = DarkRP.createJob("327th Major", {
+TEAM_CECHIEF = DarkRP.createJob("CE Chief Technician", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
-    description = [[Congratulations, you are now a Major of the 327th!]],
+    description = [[Congratulations, you are now a Major of the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dp23_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
 
@@ -3370,7 +3370,7 @@ TEAM_CECHIEF = DarkRP.createJob("327th Major", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3380,13 +3380,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunS
 
 
 
-TEAM_CELIEUTENANT = DarkRP.createJob("327th Lieutenant", {
+TEAM_CELIEUTENANT = DarkRP.createJob("CE Engineer", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/327th_pilot.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
-    description = [[Congratulations, you are now a Lieutenant of the 327th!]],
+    description = [[Congratulations, you are now a Lieutenant of the Combat Engineers!]],
 
     weapons = {"datapad_player", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
 
@@ -3404,7 +3404,7 @@ TEAM_CELIEUTENANT = DarkRP.createJob("327th Lieutenant", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3414,13 +3414,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunS
 
 
 
-TEAM_CEMECHANIC = DarkRP.createJob("327th Talon Squadron", {
+TEAM_CEMECHANIC = DarkRP.createJob("CE Razor Squadron", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl", "models/aussiwozzi/cgi/base/unassigned_pilot.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl"},
 
-    description = [[Congratulations, you are now a member of Talon Squadron in the 327th!]],
+    description = [[Congratulations, you are now a member of Talon Squadron in the Combat Engineers!]],
 
     weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit","weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
 
@@ -3438,7 +3438,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("327th Talon Squadron", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3448,13 +3448,13 @@ TEAM_CEMECHANIC = DarkRP.createJob("327th Talon Squadron", {
 
 
 
-TEAM_CEFAB = DarkRP.createJob("327th K Company", {
+TEAM_CEFAB = DarkRP.createJob("CE EOD", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/327th_raffle.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl"},
 
-    description = [[Congratulations, you are now a member of K Company in the 327th!]],
+    description = [[Congratulations, you are now a member of K Company in the Combat Engineers!]],
 
     weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "turret_placer", "fort_datapad", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
 
@@ -3472,7 +3472,7 @@ TEAM_CEFAB = DarkRP.createJob("327th K Company", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3480,17 +3480,17 @@ TEAM_CEFAB = DarkRP.createJob("327th K Company", {
 
 })
 
-TEAM_ARCALPHACE = DarkRP.createJob("327th Alpha ARC", {
+TEAM_ARCALPHACE = DarkRP.createJob("CE Alpha ARC", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/327th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
-    description = [[Congratulations, you are ARC Alpha 327th!]],
+    description = [[Congratulations, you are now an Alpha ARC of the Combat Engineers!]],
 
     weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb","defuse_kit","arccw_dp23_v2_327th", "arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite","weapon_remotedrone"},
 
-    command = "arca327th",
+    command = "arcace",
 
     max = 1,
 
@@ -3504,7 +3504,7 @@ TEAM_ARCALPHACE = DarkRP.createJob("327th Alpha ARC", {
 
     candemote = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3513,13 +3513,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 })
 
 
-TEAM_CEARC = DarkRP.createJob("327th ARC", {
+TEAM_CEARC = DarkRP.createJob("CE ARC", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_arc.mdl"},
 
-    description = [[Congratulations, you are a 327th ARC Trooper!]],
+    description = [[Congratulations, you are now an ARC Trooper of the Combat Engineers!]],
 
     weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th","arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite","weapon_remotedrone"},
 
@@ -3537,7 +3537,7 @@ TEAM_CEARC = DarkRP.createJob("327th ARC", {
 
     candemote = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3547,13 +3547,13 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 
-TEAM_CEMEDOFFICER = DarkRP.createJob("327th Medic Officer", {
+TEAM_CEMEDOFFICER = DarkRP.createJob("CE Medic Officer", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_medic_officer.mdl","models/aussiwozzi/cgi/base/917th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta_officer.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
 
-    description = [[Congratulations, you are a 327th Medical Officer!]],
+    description = [[Congratulations, you are now a Medical Officer of the Combat Engineers!]],
 
     weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "lord_chrome_medkit"},
 
@@ -3571,7 +3571,7 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("327th Medic Officer", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3581,13 +3581,13 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("327th Medic Officer", {
 
 
 
-TEAM_CESPECIALIST = DarkRP.createJob("327th Sergeant", {
+TEAM_CESPECIALIST = DarkRP.createJob("CE Specialist", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/unassigned_com.mdl","models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl", "models/aussiwozzi/cgi/base/327th_arf.mdl"},
 
-    description = [[Congratulations, you are an 327th Sergeant!]],
+    description = [[Congratulations, you are now a Specialist of the Combat Engineers!]],
 
     weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
 
@@ -3605,7 +3605,7 @@ TEAM_CESPECIALIST = DarkRP.createJob("327th Sergeant", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3615,13 +3615,13 @@ TEAM_CESPECIALIST = DarkRP.createJob("327th Sergeant", {
 
 
 
-TEAM_CEMEDTROOPER = DarkRP.createJob("327th Medic Trooper", {
+TEAM_CEMEDTROOPER = DarkRP.createJob("CE Medic Trooper", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_medic.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
 
-    description = [[Congratulations, you are a 327th Medic!]],
+    description = [[Congratulations, you are now a Medical Trooper of the Combat Engineers!]],
 
     weapons = {"datapad_player", "weapon_physcannon", "arccw_dp23_v2_327th", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator"},
 
@@ -3639,7 +3639,7 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("327th Medic Trooper", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3649,13 +3649,13 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("327th Medic Trooper", {
 
 
 
-TEAM_CETROOPER = DarkRP.createJob("327th Trooper", {
+TEAM_CETROOPER = DarkRP.createJob("CE Trooper", {
 
     color = Color(198, 155, 61),
 
     model = {"models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/unassigned_pilot.mdl"},
 
-    description = [[Congratulations, you are a 327th Trooper!]],
+    description = [[Congratulations, you are now a Trooper of the Combat Engineers!]],
 
     weapons = {"datapad_player", "weapon_physcannon", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2"},
 
@@ -3673,7 +3673,7 @@ TEAM_CETROOPER = DarkRP.createJob("327th Trooper", {
 
     hasLicense = false,
 
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
 
     PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
@@ -3681,7 +3681,7 @@ TEAM_CETROOPER = DarkRP.createJob("327th Trooper", {
 
 })
 
-TEAM_327THJEDI = DarkRP.createJob("327th Jedi", {
+TEAM_327THJEDI = DarkRP.createJob("CE Jedi", {
     color = Color(198, 155, 61),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
@@ -3746,33 +3746,33 @@ TEAM_327THJEDI = DarkRP.createJob("327th Jedi", {
     "models/player/jedi/twilek_female_sentinel.mdl",
     "models/player/jedi/twilek_sentinel_male.mdl"
     },
-    description = [[Congratulations, you are a 327th Jedi!]],
+    description = [[Congratulations, you are a CE Jedi!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
-    command = "327thjedi",
+    command = "cejedi",
     max = 4,
     salary = 150,
     admin = 0,
     vote = false,
     candemote = false,
     hasLicense = false,
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
     PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 13,
 })
 
-TEAM_327THGENERALAAYLA = DarkRP.createJob("327th General Aayla Secura", {
+TEAM_327THGENERALAAYLA = DarkRP.createJob("CE General Aayla Secura", {
     color = Color(198, 155, 61),
     model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
-    command = "327thaayla",
+    command = "ceaayla",
     max = 1,
     salary = 275,
     admin = 0,
     vote = false,
     hasLicense = false,
     candemote = false,
-    category = "327th Engineering Corps",
+    category = "Combat Engineers",
     PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 14,
 })
@@ -6509,7 +6509,7 @@ TEAM_JEDISENTINEL = DarkRP.createJob("Jedi Sentinel", {
         "models/player/jedi/twilek_sentinel_male.mdl"
     },
 
-    description = [[You are a Jedi Sentinel. It is your role to assist the 327th with their engineering.]],
+    description = [[You are a Jedi Sentinel. It is your role to assist the Combat Engineers with their engineering.]],
 
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
 

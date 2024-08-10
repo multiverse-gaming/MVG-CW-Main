@@ -41,7 +41,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi General Kit Fisto",
   "RC General Kit Fisto",
   "Jedi General Aayla Secura",
-  "327th General Aayla Secura",
+  "CE General Aayla Secura",
   "Jedi General Shaak Ti",
   "CG General Shaak Ti",
   "Jedi General Ki-Adi-Mundi",
@@ -54,7 +54,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Council Member",
   "501st Jedi",
   "212th Jedi",
-  "327th Jedi",
+  "CE Jedi",
   "Jedi Guardian"
 })
 
@@ -101,7 +101,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Supreme General",
     "Battalion General",
     "Assistant General",
-    "327th General",
+    "CE General",
     "501st General",
     "212th General",
     "Green Company General",

@@ -6,7 +6,7 @@ SWEP.AdminOnly = false
 
 SWEP.Slot = 3
 
-SWEP.PrintName = "DC-15s (327th)"
+SWEP.PrintName = "DC-15s (CE)"
 SWEP.Trivia_Class = "Modular Blaster"
 SWEP.Trivia_Desc = "High tech verstile modular blaster base, suited for allround usage."
 SWEP.Trivia_Manufacturer = "BlasTech Industries"
