@@ -36,8 +36,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Assistant General",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Research and Development Medic",
-  "Fleet Research and Development Engineer"
+  "Fleet Engineering Officer",
   })
 
 -- Nicolas's Rank System Support

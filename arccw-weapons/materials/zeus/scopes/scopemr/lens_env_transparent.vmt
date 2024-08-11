@@ -1,0 +1,13 @@
+"UnlitGeneric"
+{
+	"$basetexture"	"\zeus\scopes\scopemr\null"
+		"$translucent" 	"1"
+	$model 1
+
+	"Proxies"
+	{
+		"Scope"
+		{
+		}
+	}
+}

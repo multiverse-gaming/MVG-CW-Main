@@ -20,8 +20,7 @@ OBJ:SetClass("lvs_starfighter_clonestarfighter")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "Fleet Research and Development Medic",
-  "Fleet Research and Development Engineer"
+  "Fleet Engineering Officer"
 })
 
 -- Nicolas's Rank System Support
