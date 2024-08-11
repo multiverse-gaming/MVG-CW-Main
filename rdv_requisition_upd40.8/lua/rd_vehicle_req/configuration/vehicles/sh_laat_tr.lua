@@ -63,10 +63,9 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet SOC Advanced Warfare Division",
-  "Fleet SOC Republic Intel",
-  "Fleet Research and Development Medic",
-  "Fleet Research and Development Engineer"
+  "Fleet Engineering Officer",
+  "Fleet Security Officer",
+  "Fleet Medical Officer"
 })
 
 -- Nicolas's Rank System Support

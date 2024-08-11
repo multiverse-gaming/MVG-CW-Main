@@ -132,7 +132,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Guardian",
   "Smuggler",
   "RC Clone Advisor",
-    "Fleet Ensign",
+  "Fleet Ensign",
   "Fleet Officer",
   "Fleet Lieutenant",
   "Fleet Lieutenant Commander",
@@ -141,10 +141,9 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Fleet Commodore",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Maverick",
-  "Fleet StarFighter Officer",
-  "Fleet Director of Research and Development",
-  "Fleet Research and Development Officer",
+  "Fleet Engineering Officer",
+  "Fleet Security Officer",
+  "Fleet Medical Officer",
   "Bounty Hunter"
 
 })

@@ -27,8 +27,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
     "CE Chief Technician",
     "CE Razor Squadron",
     "Jedi Sentinel",
-    "Fleet Research and Development Medic",
-    "Fleet Research and Development Engineer"
+    "Fleet Engineering Officer"
 })
 
 -- Nicolas's Rank System Support
