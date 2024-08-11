@@ -20,12 +20,12 @@ OBJ:SetClass("lvs_starfighter_t51")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "CE General",
-  "CE Marshal Chief",
-  "CE Chief",
-  "CE Assistant Chief",
-  "CE Chief Technician",
-  "CE Razor Squadron",
+  "Combat Engineer General",
+  "Combat Engineer Marshal Chief",
+  "Combat Engineer Chief",
+  "Combat Engineer Assistant Chief",
+  "Combat Engineer Chief Technician",
+  "Combat Engineer Razor Squadron",
 })
 
 -- Nicolas's Rank System Support

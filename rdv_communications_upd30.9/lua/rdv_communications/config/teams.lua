@@ -34,7 +34,7 @@ teams = {
         "Coruscant Guard Marshal Commander",
         "Galactic Marines Marshal Commander",
         "Wolfpack Marshal Commander",
-        "CE Marshal Chief",
+        "Combat Engineer Marshal Chief",
         "ARC Marshal Commander",
         "RC Marshal Commander",
         "Senior Medical Director"
@@ -176,22 +176,22 @@ teams = {
 
     -- ==== Engineers ====
     TeamCE = {
-        "CE General",
-        "CE Chief",
-        "CE Assistant Chief",
-        "CE Chief Technician",
-        "CE Engineer",
-        "CE Razor Squadron",
-        "CE EOD",
-        "CE Alpha ARC",
-        "CE ARC",
-        "CE Medic Officer",
-        "CE Specialist",
-        "CE Medic Trooper",
+        "Combat Engineer General",
+        "Combat Engineer Chief",
+        "Combat Engineer Assistant Chief",
+        "Combat Engineer Chief Technician",
+        "Combat Engineer Technician",
+        "Combat Engineer Razor Squadron",
+        "Combat Engineer EOD",
+        "Combat Engineer Alpha ARC",
+        "Combat Engineer ARC",
+        "Combat Engineer Medic Officer",
+        "Combat Engineer Specialist",
+        "Combat Engineer Medic Trooper",
     },
 
     TeamCETrp = {
-        "CE Trooper",
+        "Combat Engineer Trooper",
     },
 
     -- ==== ARC ====
@@ -213,8 +213,8 @@ teams = {
         "Galactic Marines ARC",
         "Wolfpack Alpha ARC",
         "Wolfpack ARC",
-        "CE Alpha ARC",
-        "CE ARC",
+        "Combat Engineer Alpha ARC",
+        "Combat Engineer ARC",
         "Trainee ARC",
     },
 
@@ -317,8 +317,8 @@ teams = {
         "Galactic Marines Medic Trooper",
         "Wolfpack Medic Officer",
         "Wolfpack Medic Trooper",
-        "CE Medic Officer",
-        "CE Medic Trooper",
+        "Combat Engineer Medic Officer",
+        "Combat Engineer Medic Trooper",
     },
 
     -- ==== NSO Command ====
@@ -345,7 +345,7 @@ teams = {
         "Jedi General Kit Fisto",
         "RC General Kit Fisto",
         "Jedi General Aayla Secura",
-        "CE General Aayla Secura",
+        "Combat Engineer General Aayla Secura",
         "Jedi General Shaak Ti",
         "CG General Shaak Ti",
         "Jedi General Ki-Adi-Mundi",
@@ -368,7 +368,7 @@ teams = {
         "Jedi Consular",
         "Jedi Guardian",
         "Jedi Sentinel",
-        "CE Jedi",
+        "Combat Engineer Jedi",
         "501st Jedi",
         "212th Jedi",
     },

@@ -3380,7 +3380,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunS
 
 
 
-TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Engineer", {
+TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Technician", {
 
     color = Color(198, 155, 61),
 

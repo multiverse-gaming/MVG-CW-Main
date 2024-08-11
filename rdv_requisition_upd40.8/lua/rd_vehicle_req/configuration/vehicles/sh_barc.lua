@@ -20,7 +20,7 @@ OBJ:SetClass("lvs_fakehover_barc")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "CE General",
+  "Combat Engineer General",
   "501st General",
   "212th General",
   "Green Company General",
@@ -41,7 +41,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Green Company Alpha ARC",
   "Galactic Marines Alpha ARC",
   "Wolfpack Alpha ARC",
-  "CE Alpha ARC",
+  "Combat Engineer Alpha ARC",
   "Coruscant Guard Alpha ARC",
   "Green Company Marshal Commander",
   "Green Company Commander",

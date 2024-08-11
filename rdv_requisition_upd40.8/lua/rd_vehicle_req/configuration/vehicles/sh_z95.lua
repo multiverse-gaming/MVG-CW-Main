@@ -20,12 +20,12 @@ OBJ:SetClass("lvs_starfighter_repz95")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-    "CE General",
-    "CE Marshal Chief",
-    "CE Chief",
-    "CE Assistant Chief",
-    "CE Chief Technician",
-    "CE Razor Squadron",
+    "Combat Engineer General",
+    "Combat Engineer Marshal Chief",
+    "Combat Engineer Chief",
+    "Combat Engineer Assistant Chief",
+    "Combat Engineer Chief Technician",
+    "Combat Engineer Razor Squadron",
     "Jedi Sentinel",
     "Fleet Research and Development Medic",
     "Fleet Research and Development Engineer"
