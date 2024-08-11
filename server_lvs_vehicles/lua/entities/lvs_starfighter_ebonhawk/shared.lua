@@ -25,8 +25,8 @@ ENT.ForceLinearMultiplier = 1
 ENT.ForceAngleMultiplier = 1
 ENT.ForceAngleDampingMultiplier = 1
 
-ENT.MaxHealth = 2500
-ENT.MaxShield = 250
+ENT.MaxHealth = 4000
+ENT.MaxShield = 0
 
 function ENT:OnSetupDataTables()
 	self:AddDT( "Bool", "Foils" )

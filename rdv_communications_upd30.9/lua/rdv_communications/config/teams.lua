@@ -9,11 +9,9 @@ teams = {
         "Fleet Lieutenant",
         "Fleet Officer",
         "Fleet Recruit",
-        "Fleet SOC Advanced Warfare Division",
-        "Fleet SOC Republic Intel",
-        "Fleet Research and Development Engineer",
-        "Fleet Research and Development Medic",
-        "Fleet Intelligence Officer",
+        "Fleet Engineering Officer",
+        "Fleet Security Officer",
+        "Fleet Medical Officer"
     },
 
     -- ==== Generals ====

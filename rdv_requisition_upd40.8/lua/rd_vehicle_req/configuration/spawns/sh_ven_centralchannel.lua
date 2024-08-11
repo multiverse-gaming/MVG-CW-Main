@@ -132,17 +132,16 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Guardian",
   "Smuggler",
   "RC Clone Advisor",
+  "Bounty Hunter",
   "Fleet Recruit",
   "Fleet Officer",
   "Fleet Lieutenant",
   "Fleet Seniority",
   "Fleet Admiral",
   "Grand Admiral",
-  "Fleet Intelligence Officer",
-  "Fleet Research and Development Medic",
-  "Fleet Research and Development Engineer",
-  "Bounty Hunter"
-
+  "Fleet Engineering Officer",
+  "Fleet Security Officer",
+  "Fleet Medical Officer"
 })
 
 -- Nicolas's Rank System Support
