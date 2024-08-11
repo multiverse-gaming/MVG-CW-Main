@@ -310,33 +310,60 @@ function SWEP:PrimaryAttack()
 	self.NextRegenTime = CurTime() + self.SciFiRegenDelay
 
 	self:AddSciFiACC( 12 )
-
+	
+	
+	-- Uncloaks you
+	if CLIENT then return end
+    if(self.Owner:GetNWBool("CloakPlayerCloaked", false)) then 
+		self.Owner:SetNWBool("CloakPlayerCloaked", false)
+    	self.Owner:SetNoDraw(false)
+    	if not self.Owner:GetNWBool("AlreadyNotarget", false) then
+			self.Owner:SetNoTarget(false)
+    	end
+    	sound.Play("ambient/levels/citadel/portal_beam_shoot6.wav", self.Owner:GetPos(), 125, 255)
+	end
 end
 
 function SWEP:SecondaryAttack(tr)
-	local ply = self.Owner
-	local t = {}
-	t.start = ply:GetPos() + Vector( 0, 0, 52 )
-	t.endpos = ply:GetPos() + ply:EyeAngles():Forward() * 500--700
-	t.filter = ply
-	local tr = util.TraceEntity( t, ply )
-	//print(tr.Hit)
-	if tr.Hit then
-		print(tr.HitNormal)
-		if (tr.HitNormal.x == 1 or tr.HitNormal.x == -1) then
-			tr.HitPos.x = ply:GetPos().x
-		elseif (tr.HitNormal.y == 1 or tr.HitNormal.y == -1) then
-			tr.HitPos.y = ply:GetPos().y
-		elseif (tr.HitNormal.z == 1 or tr.HitNormal.z == -1) then
-			tr.HitPos.z = ply:GetPos().z
-		end
-	end
-	//print(tr.HitPos, " Player Landed")
-	ply:SetPos( tr.HitPos )
-	self:SetNextSecondaryFire( CurTime() + 1) //meant to be 3, 1 to dev
-	if self.Transparency == 0 then
-		self:ResetVis()
-	end
+	local bFoundEdge = false;
+	local hullTrace = util.TraceHull({
+		start = self.Owner:EyePos(),
+		endpos = self.Owner:EyePos() + self.Owner:EyeAngles():Forward() * 500, 
+		filter = self.Owner,
+		mins = Vector(-16, -16, 0),
+		maxs = Vector(16, 16, 9)
+	});
+
+	local groundTrace = util.TraceEntity({
+		start = hullTrace.HitPos + Vector(0, 0, 1),
+		endpos = hullTrace.HitPos - (self.Owner:EyePos() - self.Owner:GetPos()),
+		filter = self.Owner
+	}, self.Owner);
+
+	local edgeTrace;
+	if (hullTrace.Hit and hullTrace.HitNormal.z <= 0) then
+    	local ledgeForward = Angle(0, hullTrace.HitNormal:Angle().y, 0):Forward();
+		edgeTrace = util.TraceEntity({
+		    start = hullTrace.HitPos - ledgeForward * 33 + Vector(0, 0, 40),
+			endpos = hullTrace.HitPos - ledgeForward * 33,
+			filter = self.Owner
+		}, self.Owner);
+		if (edgeTrace.Hit and !edgeTrace.AllSolid) then
+			local clearTrace = util.TraceHull({
+				start = hullTrace.HitPos,
+				endpos = hullTrace.HitPos + Vector(0, 0, 35),
+				mins = Vector(-16, -16, 0),
+				maxs = Vector(16, 16, 1),
+				filter = self.Owner
+			});
+			bFoundEdge = !clearTrace.Hit;
+		end;
+	end;
+	local endPos = ( bFoundEdge and edgeTrace.HitPos ) or groundTrace.HitPos;
+	self.Owner:SetPos( endPos )
+
+	-- Set button cooldown
+	self:SetNextSecondaryFire( CurTime() + 2) -- Originally was 3 but have agreed to lower it to 2
 end
 
 

@@ -337,7 +337,16 @@ function SWEP:PrimaryAttack()
 	self.NextRegenTime = CurTime() + self.SciFiRegenDelay
 	
 	self:AddSciFiACC( 12 )
-
+	-- Uncloaks you
+	if CLIENT then return end
+    if(self.Owner:GetNWBool("CloakPlayerCloaked", false)) then 
+		self.Owner:SetNWBool("CloakPlayerCloaked", false)
+    	self.Owner:SetNoDraw(false)
+    	if not self.Owner:GetNWBool("AlreadyNotarget", false) then
+			self.Owner:SetNoTarget(false)
+    	end
+    	sound.Play("ambient/levels/citadel/portal_beam_shoot6.wav", self.Owner:GetPos(), 125, 255)
+	end
 end
 
 function SWEP:SecondaryAttack()
