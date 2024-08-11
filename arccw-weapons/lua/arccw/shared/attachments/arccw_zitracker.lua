@@ -2,7 +2,7 @@ att.PrintName = "ZI NV"
 att.Icon = Material("entities/arccw_tracker.png", "mips smooth")
 att.Description = "Advanced targeting sight highlights and tracks enemies."
 
-att.SortOrder = 4
+att.SortOrder = 18
 
 att.Desc_Pros = {
     "autostat.holosight",

@@ -131,8 +131,8 @@ SWEP.Attachments = {
         --WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
-            vpos = Vector(0, -0, -0.15),
-            vang = Angle(90, 0, -90),
+            vpos = Vector(-0.03, -0.6, 15),
+            vang = Angle(90, 1, -90),
             wpos = Vector(6, 0.4, -4.8),
             wang = Angle(-15, 0, 180)
         },

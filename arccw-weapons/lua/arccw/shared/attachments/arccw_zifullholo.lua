@@ -2,7 +2,7 @@ att.PrintName = "ZI Holo"
 att.Icon = Material("entities/arccw_fullholo.png", "mips smooth")
 att.Description = "For when you just need more sight picture and less sight."
 
-att.SortOrder = 4
+att.SortOrder = 15
 
 att.Desc_Pros = {
     "autostat.holosight",

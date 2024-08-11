@@ -2,7 +2,7 @@ att.PrintName = "ZI CQ-9"
 att.Icon = Material("entities/arccw_hcog.png", "mips smooth")
 att.Description = "The ZI CQ Scope offers minimal magnification is a perfect for close quarters combat. "
 
-att.SortOrder = 4
+att.SortOrder = 16
 
 att.Desc_Pros = {
     "autostat.holosight",
