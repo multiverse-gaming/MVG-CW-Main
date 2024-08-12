@@ -3214,7 +3214,7 @@ TEAM_WPGENERALPLO = DarkRP.createJob("WP General Plo Koon", {
 
 -- Combat Engineers --
 
-TEAM_CEGENERAL = DarkRP.createJob("CE General", {
+TEAM_CEGENERAL = DarkRP.createJob("Combat Engineer General", {
 
     color = Color(198, 155, 61),
 
@@ -3246,7 +3246,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunS
 
 })
 
-TEAM_CEMCOMMANDER = DarkRP.createJob("CE Marshal Chief", {
+TEAM_CEMCOMMANDER = DarkRP.createJob("Combat Engineer Marshal Chief", {
 
     color = Color(198, 155, 61),
 
@@ -3278,7 +3278,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunS
 
 })
 
-TEAM_CECOMMANDER = DarkRP.createJob("CE Chief", {
+TEAM_CECOMMANDER = DarkRP.createJob("Combat Engineer Chief", {
 
     color = Color(198, 155, 61),
 
@@ -3312,7 +3312,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunS
 
 
 
-TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("CE Assistant Chief", {
+TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("Combat Engineer Assistant Chief", {
 
     color = Color(198, 155, 61),
 
@@ -3346,7 +3346,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 
-TEAM_CECHIEF = DarkRP.createJob("CE Chief Technician", {
+TEAM_CECHIEF = DarkRP.createJob("Combat Engineer Chief Technician", {
 
     color = Color(198, 155, 61),
 
@@ -3380,7 +3380,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunS
 
 
 
-TEAM_CELIEUTENANT = DarkRP.createJob("CE Engineer", {
+TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Technician", {
 
     color = Color(198, 155, 61),
 
@@ -3414,7 +3414,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunS
 
 
 
-TEAM_CEMECHANIC = DarkRP.createJob("CE Razor Squadron", {
+TEAM_CEMECHANIC = DarkRP.createJob("Combat Engineer Razor Squadron", {
 
     color = Color(198, 155, 61),
 
@@ -3448,7 +3448,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("CE Razor Squadron", {
 
 
 
-TEAM_CEFAB = DarkRP.createJob("CE EOD", {
+TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     color = Color(198, 155, 61),
 
@@ -3480,7 +3480,7 @@ TEAM_CEFAB = DarkRP.createJob("CE EOD", {
 
 })
 
-TEAM_ARCALPHACE = DarkRP.createJob("CE Alpha ARC", {
+TEAM_ARCALPHACE = DarkRP.createJob("Combat Engineer Alpha ARC", {
 
     color = Color(198, 155, 61),
 
@@ -3513,7 +3513,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 })
 
 
-TEAM_CEARC = DarkRP.createJob("CE ARC", {
+TEAM_CEARC = DarkRP.createJob("Combat Engineer ARC", {
 
     color = Color(198, 155, 61),
 
@@ -3547,7 +3547,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunS
 
 
 
-TEAM_CEMEDOFFICER = DarkRP.createJob("CE Medic Officer", {
+TEAM_CEMEDOFFICER = DarkRP.createJob("Combat Engineer Medic Officer", {
 
     color = Color(198, 155, 61),
 
@@ -3581,7 +3581,7 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("CE Medic Officer", {
 
 
 
-TEAM_CESPECIALIST = DarkRP.createJob("CE Specialist", {
+TEAM_CESPECIALIST = DarkRP.createJob("Combat Engineer Specialist", {
 
     color = Color(198, 155, 61),
 
@@ -3615,7 +3615,7 @@ TEAM_CESPECIALIST = DarkRP.createJob("CE Specialist", {
 
 
 
-TEAM_CEMEDTROOPER = DarkRP.createJob("CE Medic Trooper", {
+TEAM_CEMEDTROOPER = DarkRP.createJob("Combat Engineer Medic Trooper", {
 
     color = Color(198, 155, 61),
 
@@ -3649,7 +3649,7 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("CE Medic Trooper", {
 
 
 
-TEAM_CETROOPER = DarkRP.createJob("CE Trooper", {
+TEAM_CETROOPER = DarkRP.createJob("Combat Engineer Trooper", {
 
     color = Color(198, 155, 61),
 
@@ -3681,7 +3681,7 @@ TEAM_CETROOPER = DarkRP.createJob("CE Trooper", {
 
 })
 
-TEAM_327THJEDI = DarkRP.createJob("CE Jedi", {
+TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
     color = Color(198, 155, 61),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
@@ -3746,7 +3746,7 @@ TEAM_327THJEDI = DarkRP.createJob("CE Jedi", {
     "models/player/jedi/twilek_female_sentinel.mdl",
     "models/player/jedi/twilek_sentinel_male.mdl"
     },
-    description = [[Congratulations, you are a CE Jedi!]],
+    description = [[Congratulations, you are a Combat Engineer Jedi!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "cejedi",
     max = 4,
@@ -3760,7 +3760,7 @@ TEAM_327THJEDI = DarkRP.createJob("CE Jedi", {
     sortOrder = 13,
 })
 
-TEAM_327THGENERALAAYLA = DarkRP.createJob("CE General Aayla Secura", {
+TEAM_327THGENERALAAYLA = DarkRP.createJob("Combat Engineer General Aayla Secura", {
     color = Color(198, 155, 61),
     model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],

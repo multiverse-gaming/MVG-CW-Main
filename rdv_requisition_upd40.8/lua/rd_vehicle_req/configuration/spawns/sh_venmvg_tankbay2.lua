@@ -22,7 +22,7 @@ OBJ:SetAngles(Angle(0.396258, 358.055542, 0.000000))
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "CE General",
+  "Combat Engineer General",
   "501st General",
   "212th General",
   "Green Company General",
@@ -51,8 +51,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "212th ARC",
   "Green Company ARC",
   "Wolfpack ARC",
-  "CE ARC",
-  "CE Alpha ARC",
+  "Combat Engineer ARC",
+  "Combat Engineer Alpha ARC",
   "Galactic Marines ARC",
   "Coruscant Guard ARC",
   "Galactic Marines ARC",
@@ -81,8 +81,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Galactic Marines Medic Officer",
   "Coruscant Guard Medic Officer",
   "Wolfpack Medic Officer",
-  "CE Medic Officer",
-  "CE Medic Trooper",
+  "Combat Engineer Medic Officer",
+  "Combat Engineer Medic Trooper",
   "RC Charger",
   "Jedi Consular",
   "Jedi Grand Master",
@@ -99,7 +99,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi General Kit Fisto",
   "RC General Kit Fisto",
   "Jedi General Aayla Secura",
-  "CE General Aayla Secura",
+  "Combat Engineer General Aayla Secura",
   "Jedi General Shaak Ti",
   "CG General Shaak Ti",
   "Jedi General Ki-Adi-Mundi",
@@ -112,9 +112,9 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Jedi Council Member",
   "501st Jedi",
   "212th Jedi",
-  "CE Jedi",
+  "Combat Engineer Jedi",
   "Jedi Guardian",
-  "CE EOD",
+  "Combat Engineer EOD",
   "Bounty Hunter"
 })
 -- Nicolas's Rank System Support
@@ -144,7 +144,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Supreme General",
     "Battalion General",
     "Assistant General",
-    "CE General",
+    "Combat Engineer General",
     "501st General",
     "212th General",
     "Green Company General",
