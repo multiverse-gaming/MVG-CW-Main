@@ -53,7 +53,7 @@ hook.Add( "EntityTakeDamage", "PowerArmor:EntityTakeDamage", function( ply, dmgI
 
         if ply:HasPowerArmor() or ply:Team() == TEAM_DROIDEKA or ply:Team() == TEAM_B2DROID then
 
-            dmgInfo:ScaleDamage(0.4) --Powerarmor damage reduction
+            dmgInfo:ScaleDamage(0.7) --Powerarmor damage reduction
 
             ply.m_bApplyingDamage = false
 
