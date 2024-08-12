@@ -6,7 +6,7 @@ SWEP.Author = "Durian"
 SWEP.Instructions = ""
 
 SWEP.Slot = 1 
-SWEP.SlotPos = 1 
+SWEP.SlotPos = 127 
 SWEP.DrawAmmo = false 
 
 SWEP.Primary.ClipSize = -1
