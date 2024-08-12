@@ -40,7 +40,7 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Combat Engineer Assistant Chief",
   "Combat Engineer Chief Technician",
   "Combat Engineer Technician",
-  "Combat Engineer Razor Squadronron",
+  "Combat Engineer Razor Squadron",
   "Combat Engineer EOD",
   "Combat Engineer ARC",
   "Combat Engineer Alpha ARC",
