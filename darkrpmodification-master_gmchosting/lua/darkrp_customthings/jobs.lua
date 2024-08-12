@@ -7886,7 +7886,7 @@ TEAM_SUPERBATTLEDROID = DarkRP.createJob("Super Battle Droid", {
     candemote = false,
     hasLicense = false,
     category = "CIS Reinforcements",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(3500) ply:SetHealth(3500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(7000) ply:SetHealth(7000) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 1
 })
 
@@ -7905,7 +7905,7 @@ TEAM_SUPERJUMPDROID = DarkRP.createJob("Super Jump Droid", {
     candemote = false,
     hasLicense = false,
     category = "CIS Reinforcements",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(2800) ply:SetHealth(2800) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(6000) ply:SetHealth(6000) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 2
 })
 
@@ -7924,7 +7924,7 @@ TEAM_DROIDEKA = DarkRP.createJob("Droideka", {
     candemote = false,
     hasLicense = false,
     category = "CIS Reinforcements",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(3000) ply:SetHealth(3000) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(6000) ply:SetHealth(6000) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
     sortOrder = 3
 })
 
