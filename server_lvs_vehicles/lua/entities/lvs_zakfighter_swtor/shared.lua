@@ -19,7 +19,7 @@ ENT.GibModels = {
 	"models/salza/arc170_gib6.mdl"
 }
 
-ENT.AITEAM = 3
+ENT.AITEAM = 2
 
 ENT.MaxVelocity = 2150
 ENT.MaxThrust = 2150

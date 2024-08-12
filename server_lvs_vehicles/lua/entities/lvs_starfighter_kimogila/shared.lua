@@ -11,7 +11,7 @@ ENT.AdminSpawnable		= false
 
 ENT.MDL = "models/kimogila/sfp_kimogila.mdl"
 
-ENT.AITEAM = 1
+ENT.AITEAM = 2
 
 ENT.MaxVelocity = 2150
 ENT.MaxThrust = 2150

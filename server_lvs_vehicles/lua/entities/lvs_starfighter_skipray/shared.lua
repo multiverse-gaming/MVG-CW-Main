@@ -11,7 +11,7 @@ ENT.AdminSpawnable		= false
 
 ENT.MDL = "models/skipray/skipray1.mdl"
 
-ENT.AITEAM = 1
+ENT.AITEAM = 2
 
 ENT.MaxVelocity = 1900
 ENT.MaxThrust = 1900
