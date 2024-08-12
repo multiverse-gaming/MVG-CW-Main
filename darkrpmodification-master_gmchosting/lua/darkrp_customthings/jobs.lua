@@ -249,7 +249,7 @@ TEAM_501STGENERAL = DarkRP.createJob("501st General", {
 
     description = [[Congratulations, you are the Deployed General of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone","datapad_player"},
 
     command = "501stgen",
 
@@ -282,7 +282,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6", "personal_shield_activator", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak", "personal_shield_activator", "weapon_officerboost_501st"},
 
     command = "501stmco",
 
@@ -314,7 +314,7 @@ TEAM_501STCOMMANDER = DarkRP.createJob("501st Commander", {
 
     description = [[Congratulations, you are the Commander of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6","personal_shield_activator", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak","personal_shield_activator", "weapon_officerboost_501st"},
 
     command = "501stco",
 
@@ -348,7 +348,7 @@ TEAM_501STEXECUTIVEOFFICER = DarkRP.createJob("501st Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6","personal_shield_activator", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak","personal_shield_activator", "weapon_officerboost_501st"},
 
     command = "501stxo",
 
@@ -382,7 +382,7 @@ TEAM_501STMAJOR = DarkRP.createJob("501st Major", {
 
     description = [[Congratulations, you are the Major of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6","personal_shield_activator", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak","personal_shield_activator", "weapon_officerboost_501st"},
 
     command = "501stmjr",
 
@@ -416,7 +416,7 @@ TEAM_501STLIEUTENANT = DarkRP.createJob("501st Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2","arccw_meeks_z6","personal_shield_activator","arccw_dc17_v2"},
+    weapons = {"arccw_dc15le_v2","arccw_z6_pak","personal_shield_activator","arccw_dc17_v2"},
 
     command = "501stlt",
 
@@ -450,7 +450,7 @@ TEAM_501STJUGGERNAUT = DarkRP.createJob("501st Heavy Trooper", {
 
     description = [[Congratulations, you are a Heavy Trooper of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_meeks_z6", "arccw_dc17_v2", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_z6_pak", "arccw_dc17_v2", "weapon_officerboost_501st"},
 
     command = "501stjug",
 
@@ -6930,7 +6930,7 @@ TEAM_DUA = DarkRP.createJob("Dooms Unit Assault", {
     color = Color(51, 102, 0, 255),
     model = {"models/herm/cgi_new/doom_unit/du_trooper1.mdl","models/aussiwozzi/cgi/base/doom_jet.mdl","models/aussiwozzi/cgi/base/doom_hrs.mdl","models/aussiwozzi/cgi/base/doom_sydney.mdl"}, 
     description = [[Congratulations! You are apart of the Dooms Unit Assault, for the republic.]],
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_meeks_z6"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_z6_pak"},
     command = "dua",
     max = 4,
     salary = 175,
@@ -7111,7 +7111,7 @@ TEAM_SIMHEAVY = DarkRP.createJob("Clone Heavy", {
 
     description = [[You are a Heavy Clone!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_dc15a_v2", "arccw_meeks_z6"},
+    weapons = {"arccw_dc17_v2", "arccw_dc15a_v2", "arccw_z6_pak"},
 
     command = "simheavy",
 
