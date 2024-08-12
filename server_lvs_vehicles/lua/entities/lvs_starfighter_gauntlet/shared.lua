@@ -27,7 +27,7 @@ ENT.ForceLinearMultiplier = 1
 ENT.ForceAngleMultiplier = 1
 ENT.ForceAngleDampingMultiplier = 1
 
-ENT.MaxHealth = 800
+ENT.MaxHealth = 2000
 ENT.MaxShield = 100
 
 function ENT:OnSetupDataTables()

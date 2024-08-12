@@ -114,7 +114,16 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Combat Engineer Jedi",
   "Jedi Guardian",
   "Combat Engineer EOD",
-  "Bounty Hunter"
+  "Bounty Hunter",
+  "Fleet Recruit",
+  "Fleet Officer",
+  "Fleet Lieutenant",
+  "Fleet Seniority",
+  "Fleet Admiral",
+  "Grand Admiral",
+  "Fleet Engineering Officer",
+  "Fleet Security Officer",
+  "Fleet Medical Officer"
 })
 
 -- Nicolas's Rank System Support

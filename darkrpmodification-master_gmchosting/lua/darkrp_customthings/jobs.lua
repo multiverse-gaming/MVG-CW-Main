@@ -776,7 +776,7 @@ TEAM_501STGENERALSKYWALKER = DarkRP.createJob("501st General Anakin Skywalker", 
     color = Color(0, 51, 255, 255),
     model = {"models/player/sample/anakin/anakins7.mdl","models/tfa/comm/gg/pm_sw_anakin_v2.mdl"},
     description = [[You are Jedi General Anakin Skywalker. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "501stsky",
     max = 1,
     salary = 275,
@@ -799,7 +799,7 @@ TEAM_212THGENERAL = DarkRP.createJob("212th General", {
 
     description = [[Congratulations, you are the Deployed General of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade","weapon_remotedrone","datapad_player"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade", "weapon_remotedrone", "datapad_player", "carkeys"},
 
     command = "212thgen",
 
@@ -833,7 +833,7 @@ TEAM_212THMCOMMANDER = DarkRP.createJob("212th Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6","arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmco",
 
@@ -865,7 +865,7 @@ TEAM_212THCOMMANDER = DarkRP.createJob("212th Commander", {
 
     description = [[Congratulations, you are the Commander of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6","arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thco",
 
@@ -899,7 +899,7 @@ TEAM_212THEXECUTIVEOFFICER = DarkRP.createJob("212th Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the 212th Attack Battalion]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thxo",
 
@@ -933,7 +933,7 @@ TEAM_212THMAJOR = DarkRP.createJob("212th Major", {
 
     description = [[Congratulations, you are the Major of the 212th Attack Battalion]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmjr",
 
@@ -967,7 +967,7 @@ TEAM_212THLIEUTENANT = DarkRP.createJob("212th Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thlt",
 
@@ -1001,7 +1001,7 @@ TEAM_212THHEAVYTROOPER = DarkRP.createJob("212th Ghost Company", {
 
     description = [[Congratulations, you are a part of the Ghost Company in the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thht",
 
@@ -1032,7 +1032,7 @@ TEAM_ARCALPHA212th = DarkRP.createJob("212th Alpha ARC", {
     model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/212th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
     description = [[Congratulations, you are 212th ARC Alpha!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
 
     command = "arca212th",
 
@@ -1066,7 +1066,7 @@ TEAM_212THARC = DarkRP.createJob("212th ARC", {
 
     description = [[Congratulations, you are a 212th ARC Trooper!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
 
     command = "212tharc",
 
@@ -1100,7 +1100,7 @@ TEAM_212THMEDOFFICER = DarkRP.createJob("212th Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "arccw_thermal_grenade", "realistic_hook"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "arccw_thermal_grenade", "realistic_hook", "carkeys"},
 
     command = "212thmo",
 
@@ -1134,7 +1134,7 @@ TEAM_212THSERGEANT = DarkRP.createJob("212th Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thsgt",
 
@@ -1292,7 +1292,7 @@ TEAM_212THJEDI = DarkRP.createJob("212th Jedi", {
     "models/player/jedi/twilek_sentinel_male.mdl"
     },
     description = [[Congratulations, you are a Jedi of the 212th Attack Battalion!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "212thjedi",
     max = 4,
     salary = 150,
@@ -1309,7 +1309,7 @@ TEAM_212THGENERALOBI = DarkRP.createJob("212th General Obi-Wan Kenobi", {
     color = Color(255, 157, 0, 255),
     model = { "models/player/generalkenobi/cgikenobi.mdl","models/tfa/comm/gg/pm_sw_obiwan_alt.mdl","models/kylejwest/cgihdobiwan/cgihdobiwan.mdl","models/dw_sgt/pm_deathwatch_maul_sgt.mdl"},
     description = [[You are Jedi General Obi-Wan Kenobi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "212thobi",
     max = 1,
     salary = 275,
@@ -1332,7 +1332,7 @@ TEAM_GREENGENERAL = DarkRP.createJob("Green Company General", {
 
     description = [[Congratulations, you are the Deployed General of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2","weapon_remotedrone","datapad_player"},
+    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2", "weapon_remotedrone", "datapad_player", "carkeys"},
 
     command = "gcgen",
 
@@ -1364,7 +1364,7 @@ TEAM_GREENMCOMMANDER = DarkRP.createJob("Green Company Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2"},
+    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2", "carkeys"},
 
     command = "gcmco",
 
@@ -1396,7 +1396,7 @@ TEAM_GREENCOMMANDER = DarkRP.createJob("Green Company Commander", {
 
     description = [[Congratulations, you are the Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2"},
+    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2", "carkeys"},
 
     command = "gcco",
 
@@ -1430,7 +1430,7 @@ TEAM_GREENEXECUTIVEOFFICER = DarkRP.createJob("Green Company Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2"},
+    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2", "carkeys"},
 
     command = "gcxo",
 
@@ -1464,7 +1464,7 @@ TEAM_GREENMAJOR = DarkRP.createJob("Green Company Major", {
 
     description = [[Congratulations, you are the Major of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2"},
+    weapons = {"realistic_hook", "arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "arccw_duals_dc17ext_v2", "carkeys"},
 
     command = "gcmjr",
 
@@ -1500,7 +1500,7 @@ TEAM_GREENLIEUTENANT = DarkRP.createJob("Green Company Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Green Company! Can Spawn: Barc Speeder]],
 
-    weapons = {"arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "arccw_dc17_v2"},
+    weapons = {"arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "arccw_dc17_v2", "carkeys"},
 
     command = "gclt",
 
@@ -1534,7 +1534,7 @@ TEAM_GREENMARKSMAN = DarkRP.createJob("Green Company Marksman", {
 
     description = [[Congratulations, you are a Marksman for the Green Company! Can Spawn: Barc Speeder]],
 
-    weapons = {"arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "realistic_hook", "arccw_dc17_v2"},
+    weapons = {"arccw_dc15s_v2_gc", "arccw_iqa11", "masita_sops_t702", "realistic_hook", "arccw_dc17_v2", "carkeys"},
 
     command = "gcmm",
 
@@ -1567,7 +1567,7 @@ TEAM_ARCALPHAGC = DarkRP.createJob("Green Company Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Green Company!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys"},
 
     command = "arcagc",
 
@@ -1599,7 +1599,7 @@ TEAM_GCARC = DarkRP.createJob("Green Company ARC", {
 
     description = [[Congratulations, you are a GC ARC Trooper!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys"},
 
     command = "gcarc",
 
@@ -1633,7 +1633,7 @@ TEAM_GREENMEDOFFICER = DarkRP.createJob("Green Company Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Green Company!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun"},
+    weapons = {"arccw_dc17_v2", "arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "carkeys"},
 
     command = "gcmo",
 
@@ -1667,7 +1667,7 @@ TEAM_GREENSERGEANT = DarkRP.createJob("Green Company Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Green Company!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_iqa11","realistic_hook", "arccw_dc15s_v2_gc"},
+    weapons = {"arccw_dc17_v2", "arccw_iqa11","realistic_hook", "arccw_dc15s_v2_gc", "carkeys"},
 
     command = "gcsgt",
 
@@ -1769,7 +1769,7 @@ TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
     color = Color(0, 255, 64, 255),
     model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gclum",
     max = 1,
     salary = 275,
@@ -1786,7 +1786,7 @@ TEAM_GCGRANDMASTER = DarkRP.createJob("GC Grand Master", {
     color = Color(0, 255, 64, 255),
     model = {"models/tfa/comm/gg/pm_sw_yodanojig.mdl"},
     description = [[You are Jedi Grand Master Yoda. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gcyoda",
     max = 1,
     salary = 300,
@@ -2280,7 +2280,7 @@ TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
     color = Color(255, 77, 77, 255),
     model = {"models/tfa/comm/gg/pm_sw_shaakti.mdl"},
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
     command = "cgshaak",
     max = 1,
     salary = 275,
@@ -2740,7 +2740,7 @@ TEAM_GMGENERALADI = DarkRP.createJob("GM General Ki-Adi-Mundi", {
     color = Color(119, 63, 202),
     model = {"models/tfa/comm/gg/pm_sw_mundi.mdl"},
     description = [[You are Jedi General Ki-Adi-Mundi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gmadi",
     max = 1,
     salary = 275,
@@ -3198,7 +3198,7 @@ TEAM_WPGENERALPLO = DarkRP.createJob("WP General Plo Koon", {
     color = Color(153, 144, 144, 255),
     model = {"models/player/plokoon/plokoon.mdl"},
     description = [[You are Jedi General Plo Koon. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "wpplo",
     max = 1,
     salary = 275,
@@ -3222,7 +3222,7 @@ TEAM_CEGENERAL = DarkRP.createJob("Combat Engineer General", {
 
     description = [[Congratulations, you are the Deployed General of the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook"},
+    weapons = {"turret_placerfriendly", "datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "realistic_hook", "carkeys"},
 
     command = "cegen",
 
@@ -3254,7 +3254,7 @@ TEAM_CEMCOMMANDER = DarkRP.createJob("Combat Engineer Marshal Chief", {
 
     description = [[Congratulations, you are the Marshal Commander of the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "carkeys"},
 
     command = "cemco",
 
@@ -3286,7 +3286,7 @@ TEAM_CECOMMANDER = DarkRP.createJob("Combat Engineer Chief", {
 
     description = [[Congratulations, you are the Commander of the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "carkeys"},
 
     command = "ceco",
 
@@ -3320,7 +3320,7 @@ TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("Combat Engineer Assistant Chief", {
 
     description = [[Congratulations, you are now an Executive Officer of the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "arccw_dp23_v2_327th", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "arccw_dp23_v2_327th", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "carkeys"},
 
     command = "cexo",
 
@@ -3354,7 +3354,7 @@ TEAM_CECHIEF = DarkRP.createJob("Combat Engineer Chief Technician", {
 
     description = [[Congratulations, you are now a Major of the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dp23_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "arccw_duals_dc17ext_v2", "arccw_dp23_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "fort_datapad", "carkeys"},
 
     command = "cemjr",
 
@@ -3388,7 +3388,7 @@ TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Technician", {
 
     description = [[Congratulations, you are now a Lieutenant of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
+    weapons = {"datapad_player", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "carkeys"},
 
     command = "celt",
 
@@ -3422,7 +3422,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("Combat Engineer Razor Squadron", {
 
     description = [[Congratulations, you are now a member of Talon Squadron in the Combat Engineers!]],
 
-    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit","weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
+    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit","weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "carkeys"},
 
     command = "cetal",
 
@@ -3456,7 +3456,7 @@ TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     description = [[Congratulations, you are now a member of K Company in the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "turret_placer", "fort_datapad", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "turret_placer", "fort_datapad", "arccw_dc15s_v2_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "carkeys"},
 
     command = "cece",
 
@@ -3488,7 +3488,7 @@ TEAM_ARCALPHACE = DarkRP.createJob("Combat Engineer Alpha ARC", {
 
     description = [[Congratulations, you are now an Alpha ARC of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb","defuse_kit","arccw_dp23_v2_327th", "arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite","weapon_remotedrone"},
+    weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite", "weapon_remotedrone", "carkeys"},
 
     command = "arcace",
 
@@ -3521,7 +3521,7 @@ TEAM_CEARC = DarkRP.createJob("Combat Engineer ARC", {
 
     description = [[Congratulations, you are now an ARC Trooper of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th","arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite","weapon_remotedrone"},
+    weapons = {"datapad_player", "arccw_westarm5_v2", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "arccw_dual_dc17s", "weapon_physcannon", "realistic_hook", "alydus_fusioncutter", "weapon_dronerepair", "weapon_extinguisher_infinite", "weapon_remotedrone", "carkeys"},
 
     command = "cearc",
 
@@ -3555,7 +3555,7 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("Combat Engineer Medic Officer", {
 
     description = [[Congratulations, you are now a Medical Officer of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "lord_chrome_medkit"},
+    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "lord_chrome_medkit", "carkeys"},
 
     command = "cemo",
 
@@ -3589,7 +3589,7 @@ TEAM_CESPECIALIST = DarkRP.createJob("Combat Engineer Specialist", {
 
     description = [[Congratulations, you are now a Specialist of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb","defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2"},
+    weapons = {"datapad_player", "alydus_fusioncutter", "arccw_dc15s_v2_327th", "weapon_physcannon", "defuser_bomb", "defuse_kit", "arccw_dp23_v2_327th", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_dc17_v2", "carkeys"},
 
     command = "cesgt",
 
@@ -3623,7 +3623,7 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("Combat Engineer Medic Trooper", {
 
     description = [[Congratulations, you are now a Medical Trooper of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "weapon_physcannon", "arccw_dp23_v2_327th", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator"},
+    weapons = {"datapad_player", "weapon_physcannon", "arccw_dp23_v2_327th", "arccw_dc15s_v2_327th", "defuser_bomb", "defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys"},
 
     command = "cemt",
 
@@ -3657,7 +3657,7 @@ TEAM_CETROOPER = DarkRP.createJob("Combat Engineer Trooper", {
 
     description = [[Congratulations, you are now a Trooper of the Combat Engineers!]],
 
-    weapons = {"datapad_player", "weapon_physcannon", "arccw_dc15s_v2_327th", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2"},
+    weapons = {"datapad_player", "weapon_physcannon", "arccw_dc15s_v2_327th", "defuser_bomb", "defuse_kit", "weapon_extinguisher_infinite", "alydus_fusioncutter", "weapon_dronerepair", "weapon_remotedrone", "arccw_dc17_v2"},
 
     command = "cetrp",
 
@@ -3747,7 +3747,7 @@ TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
     "models/player/jedi/twilek_sentinel_male.mdl"
     },
     description = [[Congratulations, you are a Combat Engineer Jedi!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "cejedi",
     max = 4,
     salary = 150,
@@ -3764,7 +3764,7 @@ TEAM_327THGENERALAAYLA = DarkRP.createJob("Combat Engineer General Aayla Secura"
     color = Color(198, 155, 61),
     model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "ceaayla",
     max = 1,
     salary = 275,
@@ -3790,7 +3790,7 @@ TEAM_ARCGENERAL = DarkRP.createJob("ARC General", {
 
     description = [[Congratulations, you are an ARC General!]],
 
-    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade","datapad_player"},
+    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade","datapad_player", "carkeys"},
 
     command = "arcgen",
 
@@ -3822,7 +3822,7 @@ TEAM_ARCMC = DarkRP.createJob("ARC Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of ARC!]],
 
-    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade"},
+    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade", "carkeys"},
 
     command = "arcmc",
 
@@ -3854,7 +3854,7 @@ TEAM_ARCCOLT = DarkRP.createJob("ARC Command", {
 
     description = [[Congratulations, you are an ARC Command!]],
 
-    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade"},
+    weapons = {"arccw_westarm5_v2", "weapon_remotedrone", "arccw_dual_dc17s", "realistic_hook", "arccw_flash_grenade", "carkeys"},
 
     command = "arcco",
 
@@ -3927,7 +3927,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     description = [[You are the general of the Republic Commandos!]],
 
-    weapons = {"arccw_dc17m_v2_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal","datapad_player"},
+    weapons = {"arccw_dc17m_v2_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal", "datapad_player"},
 
     command = "rcgen",
 
@@ -4026,7 +4026,7 @@ TEAM_RCFIXER = DarkRP.createJob("RC Fixer", {
 
     description = [[You are RC Fixer, the technology expert and unofficial second in command of the Republic Commandos!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "arccw_dc17m_v2_smg", "arccw_dc17sa_duals","weapon_squadshield", "turret_placer", "defuser_bomb","defuse_kit", "weapon_remotedrone", "weapon_extinguisher_infinite", "realistic_hook", "alydus_fusioncutter", "weapon_physcannon", "weapon_extinguisher_infinite", "weapon_dronerepair"},
+    weapons = {"turret_placerfriendly","datapad_player", "arccw_dc17m_v2_smg", "arccw_dc17sa_duals","weapon_squadshield", "turret_placer", "defuser_bomb","defuse_kit", "weapon_remotedrone", "weapon_extinguisher_infinite", "realistic_hook", "alydus_fusioncutter", "weapon_physcannon", "weapon_extinguisher_infinite", "weapon_dronerepair", "carkeys"},
 
     command = "rcfixer",
 
@@ -4234,7 +4234,7 @@ TEAM_RCTECH = DarkRP.createJob("CF99 Tech", {
 
     description = [[You are RC Tech of Clone Force 99!]],
 
-    weapons = {"datapad_player", "masita_sops_rep_x11dual","turret_placer", "defuser_bomb","defuse_kit", "realistic_hook", "weapon_remotedrone","weapon_squadshield", "weapon_physcannon", "alydus_fusioncutter", "weapon_extinguisher_infinite"},
+    weapons = {"datapad_player", "masita_sops_rep_x11dual","turret_placer", "defuser_bomb","defuse_kit", "realistic_hook", "weapon_remotedrone","weapon_squadshield", "weapon_physcannon", "alydus_fusioncutter", "weapon_extinguisher_infinite", "carkeys"},
 
     command = "rctech",
 
@@ -5091,7 +5091,7 @@ TEAM_RCGENERALKIT = DarkRP.createJob("RC General Kit Fisto", {
     color = Color(255, 157, 0),
     model = {"models/tfa/comm/gg/pm_sw_fisto.mdl"},
     description = [[You are Jedi General Kit Fisto. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "rcfisto",
     max = 1,
     salary = 275,
@@ -5343,7 +5343,7 @@ TEAM_SHADOWGENERALVOS = DarkRP.createJob("Shadow General Quinlan Vos", {
 	color = Color(130,16,8),
     model = {"models/tfa/comm/gg/pm_sw_quinlanvos.mdl"},
     description = [[You are Jedi General Quinlan Vos. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "shadowvos",
     max = 1,
     salary = 275,
@@ -5502,7 +5502,7 @@ TEAM_FLEETRECRUIT = DarkRP.createJob("Fleet Recruit", {
 
     description = [[Congratulations, You are now a Fleet Recruit!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
 
     command = "fleetrec",
 
@@ -5537,7 +5537,7 @@ TEAM_FLEETMEMBER = DarkRP.createJob("Fleet Officer", {
 
     description = [[Congratulations You Are Now A Officer Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
 
     command = "fleetofficer",
 
@@ -5570,7 +5570,7 @@ TEAM_FLEETLIEUTENANT = DarkRP.createJob("Fleet Lieutenant", {
 
     description = [[Congratulations You Are Now A Lieutenant Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
 
     command = "fleetlt",
 
@@ -5603,7 +5603,7 @@ TEAM_FLEETMEMBERSNR = DarkRP.createJob("Fleet Seniority", {
 
     description = [[Congratulations You Are Now A Member Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "voice_amplifier"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "voice_amplifier", "carkeys"},
 
     command = "fleetsnr",
 
@@ -5638,7 +5638,7 @@ TEAM_FLEETADMIRAL = DarkRP.createJob("Fleet Admiral", {
 
     description = [[Congratulations You Are Now A Member Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "carkeys"},
 
     command = "fleetadmiral",
 
@@ -5672,7 +5672,7 @@ TEAM_GRANDADMIRAL = DarkRP.createJob("Grand Admiral", {
 
     description = [[Congratulations You Are The Grand Admiral!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "arccw_ga_pistol"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "arccw_ga_pistol", "carkeys"},
 
     command = "grandadmiral",
 
@@ -5704,7 +5704,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     description = [[Congratulations, you are a member of the RSB!]],
 
-    weapons = {"datapad_player", "lord_chrome_medkit", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic"},
+    weapons = {"datapad_player", "lord_chrome_medkit", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic", "carkeys"},
 
     command = "rsb",
 
@@ -5729,12 +5729,12 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(1200) ply:SetHealth(1200) ply:SetRu
 })
 
 ---- FLEET SPECIALISTS----
-TEAM_FLEET_IO = DarkRP.createJob("Fleet SOC Republic Intel", {
+TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
-    description = [[Congratulations You are now a Fleet SOC Republic Intel!]],
-    weapons = {"datapad_player", "arccw_dc17_stun_v2","arccw_defender_sporting","weapon_remotedrone","weapon_cuff_elastic","voice_amplifier"},
-    command = "fleetsocintel",
+    description = [[Congratulations You are now a Fleet Security Officer!]],
+    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic", "voice_amplifier", "carkeys"},
+    command = "fleetso",
     max = 4,
     salary = 200,
     admin = 0,
@@ -5746,29 +5746,12 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet SOC Republic Intel", {
     sortOrder = 4
 })
 
-TEAM_FLEET_IOA = DarkRP.createJob("Fleet SOC Advanced Warfare Division", {
-    color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl","models/aussiwozzi/cgi/base/advisor_stooge.mdl"},
-    description = [[Congratulations You are now a Fleet SOC Advanced Warfare Division!]],
-    weapons = {"datapad_player", "arccw_dc15s_v2","arccw_defender_sporting","weapon_remotedrone","voice_amplifier"},
-    command = "fleetsocwarfare",
-    max = 4,
-    salary = 200,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Fleet Branches",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
-    sortOrder = 3
-})
-
-TEAM_FLEET_RDM = DarkRP.createJob("Fleet Research and Development Medic", {
+TEAM_FLEET_RDM = DarkRP.createJob("Fleet Medical Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/aussiwozzi/cgi/base/917th_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
-    description = [[Congratulations You are now a Fleet Research and Development Medic!]],
-    weapons = {"datapad_player", "arccw_defender_sporting","arccw_dc15s_v2","weapon_medkit","weapon_defibrillator","arccw_impact_bacta","tf_weapon_medigun","voice_amplifier","weapon_remotedrone"},
-    command = "fleetrndmed",
+    description = [[Congratulations You are now a Fleet Medical Officer!]],
+    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone"},
+    command = "fleetmo",
     max = 4,
     salary = 200,
     admin = 0,
@@ -5780,12 +5763,12 @@ TEAM_FLEET_RDM = DarkRP.createJob("Fleet Research and Development Medic", {
     sortOrder = 2
 })
 
-TEAM_FLEET_RDE = DarkRP.createJob("Fleet Research and Development Engineer", {
+TEAM_FLEET_RDE = DarkRP.createJob("Fleet Engineering Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/navy_03.mdl","models/jajoff/sps/republic/tc13j/navy_04.mdl","models/jajoff/sps/republic/tc13j/navy04_female.mdl","models/jajoff/sps/republic/tc13j/navy03_female.mdl","models/jajoff/sps/republic/tc13j/navy_01.mdl","models/jajoff/sps/republic/tc13j/navy01_female.mdl","models/jajoff/sps/republic/tc13j/navy_02.mdl","models/jajoff/sps/republic/tc13j/navy02_female.mdl","models/jajoff/sps/republic/tc13j/engineer.mdl","models/aussiwozzi/cgi/base/eod_trooper.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
-    description = [[Congratulations You are now a Fleet Research and Development Engineer!]],
-    weapons = {"datapad_player", "arccw_defender_sporting","arccw_dc15s_v2","weapon_dronerepair","weapon_physcannon","voice_amplifier","alydus_fusioncutter","weapon_remotedrone"},
-    command = "fleetrndeng",
+    description = [[Congratulations You are now a Fleet Engineering Officer!]],
+    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_dronerepair", "weapon_physcannon", "voice_amplifier", "alydus_fusioncutter", "weapon_remotedrone"},
+    command = "fleeteo",
     max = 4,
     salary = 200,
     admin = 0,
@@ -5803,7 +5786,7 @@ TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are the Supreme General of the Titan's Battalion!]],
-    weapons = {"arccw_dc15_v2_ultimate", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_dc15_v2_ultimate", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player", "carkeys"},
     command = "sg",
     max = 1,
     salary = 300,
@@ -5821,7 +5804,7 @@ TEAM_BATTALIONGENERAL = DarkRP.createJob("Battalion General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are a Battalion General of the Titan's Battalion!]],
-    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6","datapad_player"},
+    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun", "arccw_sw_rocket_rps6","datapad_player", "carkeys"},
     command = "bg",
     max = 2,
     salary = 300,
@@ -5838,7 +5821,7 @@ TEAM_ASSISTANTBATTALIONGENERAL = DarkRP.createJob("Assistant General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are an Assistant General!]],
-    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun","datapad_player"},
+    weapons = {"realistic_hook", "arccw_dc15_v2_ultimate", "weapon_remotedrone", "arccw_duals_dc17ext_v2_stun","datapad_player", "carkeys"},
     command = "abg",
     max = 3,
     salary = 300,
@@ -5869,7 +5852,9 @@ TEAM_JEDIGRANDMASTER = DarkRP.createJob("Jedi Grand Master", {
 
         "wos_inventory",
 
-        "arccw_ll30"
+        "arccw_ll30",
+
+        "carkeys"
 
     },
 
@@ -5904,7 +5889,7 @@ TEAM_JEDIGENERALWINDU = DarkRP.createJob("Jedi Master Mace Windu", {
 
     description = [[You are Jedi General Mace Windu. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "mace",
 
@@ -5938,7 +5923,7 @@ TEAM_JEDIGENERALSKYWALKER = DarkRP.createJob("Jedi General Anakin Skywalker", {
 
     description = [[You are Jedi General Anakin Skywalker. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "sky",
 
@@ -5972,7 +5957,7 @@ TEAM_JEDIGENERALOBI = DarkRP.createJob("Jedi General Obi-Wan Kenobi", {
 
     description = [[You are Jedi General Obi-Wan Kenobi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "obi",
 
@@ -6006,7 +5991,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "tano",
 
@@ -6042,7 +6027,7 @@ TEAM_JEDIGENERALPLO = DarkRP.createJob("Jedi General Plo Koon", {
 
     description = [[You are Jedi General Plo Koon. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "plo",
 
@@ -6076,7 +6061,7 @@ TEAM_JEDIGENERALKIT = DarkRP.createJob("Jedi General Kit Fisto", {
 
     description = [[You are Jedi General Kit Fisto. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "fisto",
 
@@ -6110,7 +6095,7 @@ TEAM_JEDIGENERALAAYLA = DarkRP.createJob("Jedi General Aayla Secura", {
 
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "aayla",
 
@@ -6144,7 +6129,7 @@ TEAM_JEDIGENERALSHAAK = DarkRP.createJob("Jedi General Shaak Ti", {
 
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
 
     command = "shaak",
 
@@ -6178,7 +6163,7 @@ TEAM_JEDIGENERALADI = DarkRP.createJob("Jedi General Ki-Adi-Mundi", {
 
     description = [[You are Jedi General Ki-Adi-Mundi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "adi",
 
@@ -6212,7 +6197,7 @@ TEAM_JEDIGENERALVOS = DarkRP.createJob("Jedi General Quinlan Vos", {
 
     description = [[You are Jedi General Quinlan Vos. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "vos",
 
@@ -6246,7 +6231,7 @@ TEAM_JEDIGENERALLUMINARA = DarkRP.createJob("Jedi General Luminara Unduli", {
 
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "lum",
 
@@ -6347,7 +6332,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
 
     description = [[You are apart of the Jedi council, a leading member of the Jedi Order!]],
 
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "council",
 
@@ -6402,7 +6387,7 @@ TEAM_JEDICONSULAR = DarkRP.createJob("Jedi Consular", {
 
     description = [[You are a Jedi Consular. It is your role to use the force to keep the peace and to protect the Jedi Order and the Republic!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_camo"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_camo", "carkeys"},
 
     command = "consular",
 
@@ -6457,7 +6442,7 @@ TEAM_JEDIGUARDIAN = DarkRP.createJob("Jedi Guardian", {
 
     description = [[You are a Jedi Guardian. It is your role to embark on the front-lines and deal with hostiles in a clean approach!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "guardian",
 
@@ -6511,7 +6496,7 @@ TEAM_JEDISENTINEL = DarkRP.createJob("Jedi Sentinel", {
 
     description = [[You are a Jedi Sentinel. It is your role to assist the Combat Engineers with their engineering.]],
 
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30" },
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
     command = "sentinel",
 
@@ -7213,7 +7198,7 @@ TEAM_SIMPILOT = DarkRP.createJob("Clone Pilot", {
 
     description = [[You are a Pilot Clone!]],
 
-    weapons = {"arccw_dc17_v2", "gmod_tool"},
+    weapons = {"arccw_dc17_v2", "gmod_tool", "carkeys"},
 
     command = "simpilot",
 
