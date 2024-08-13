@@ -482,7 +482,7 @@ TEAM_ARCALPHA501st = DarkRP.createJob("501st Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha 501st!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "personal_shield_activator"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "personal_shield_activator", "carkeys"},
 
     command = "arca501st",
 
@@ -549,7 +549,7 @@ TEAM_501STMEDOFFICER = DarkRP.createJob("501st Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_dc17_v2", "lord_chrome_medkit", "weapon_bactainjector", "personal_shield_activator","weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook"},
+    weapons = {"arccw_dc15le_v2", "arccw_dc17_v2", "lord_chrome_medkit", "weapon_bactainjector", "personal_shield_activator","weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook", "carkeys"},
 
     command = "501stmo",
 
@@ -617,7 +617,7 @@ TEAM_501STMEDTROOPER = DarkRP.createJob("501st Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_dc17_v2", "lord_chrome_medkit", "personal_shield_activator","weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook"},
+    weapons = {"arccw_dc15le_v2", "arccw_dc17_v2", "lord_chrome_medkit", "personal_shield_activator","weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
 
     command = "501stmt",
 
@@ -829,7 +829,7 @@ TEAM_212THMCOMMANDER = DarkRP.createJob("212th Marshal Commander", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_cody.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_meanstreak.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the 212th Attack Battalion!]],
 
@@ -895,7 +895,7 @@ TEAM_212THEXECUTIVEOFFICER = DarkRP.createJob("212th Executive Officer", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_waxer.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_waxer.mdl", "models/zeus/212th_desert_arf.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the 212th Attack Battalion]],
 
@@ -929,7 +929,7 @@ TEAM_212THMAJOR = DarkRP.createJob("212th Major", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_boil.mdl","models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_boil.mdl", "models/zeus/212th_desert_arf.mdl" ,"models/aussiwozzi/cgi/base/212th_meanstreak.mdl"},
 
     description = [[Congratulations, you are the Major of the 212th Attack Battalion]],
 
@@ -963,7 +963,7 @@ TEAM_212THLIEUTENANT = DarkRP.createJob("212th Lieutenant", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_dug2.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_dug2.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl", "models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl"},
 
     description = [[Congratulations, you are a Lieutenant of the 212th Attack Battalion!]],
 
@@ -997,7 +997,7 @@ TEAM_212THHEAVYTROOPER = DarkRP.createJob("212th Ghost Company", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_arf.mdl","models/aussiwozzi/cgi/base/212th_boulder_co.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl", "models/aussiwozzi/cgi/base/212th_ghost_officer.mdl","models/aussiwozzi/cgi/base/212th_ghost_company.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_officer.mdl","models/aussiwozzi/cgi/base/212th_officer.mdl", "models/aussiwozzi/cgi/base/212th_raffle.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl", "models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl"},
 
     description = [[Congratulations, you are a part of the Ghost Company in the 212th Attack Battalion!]],
 
@@ -1130,7 +1130,7 @@ TEAM_212THSERGEANT = DarkRP.createJob("212th Sergeant", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl", "models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_trooper.mdl","models/aussiwozzi/cgi/base/212th_allen.mdl","models/aussiwozzi/cgi/base/212th_boulder.mdl","models/aussiwozzi/cgi/base/212th_dug.mdl","models/aussiwozzi/cgi/base/212th_tahm.mdl","models/aussiwozzi/cgi/base/212th_barc.mdl","models/aussiwozzi/cgi/base/2ndac_trooper.mdl","models/aussiwozzi/cgi/base/212th_desert_trooper.mdl","models/aussiwozzi/cgi/base/2ndac_barlex.mdl", "models/zeus/212th_calereed.mdl", "models/zeus/212th_threepwood.mdl", "models/zeus/212th_desert_arf.mdl"},
 
     description = [[Congratulations, you are a Sergeant of the 212th Attack Battalion!]],
 
@@ -1168,7 +1168,7 @@ TEAM_212THMEDTROOPER = DarkRP.createJob("212th Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2","lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "arccw_thermal_grenade"},
+    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2","lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmt",
 
@@ -1703,7 +1703,7 @@ TEAM_GREENMEDTROOPER = DarkRP.createJob("Green Company Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Green Company!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator"},
+    weapons = {"arccw_dc17_v2", "arccw_iqa11", "realistic_hook", "arccw_dc15s_v2_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys"},
 
     command = "gcmt",
 
@@ -2082,7 +2082,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player"},
+    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
 
     command = "arcast",
 
@@ -2148,7 +2148,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player", "carkeys"},
 
     command = "stmo",
 
@@ -2216,7 +2216,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player"},
+    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
 
     command = "stmt",
 
@@ -2538,7 +2538,7 @@ TEAM_ARCALPHAGM = DarkRP.createJob("Galactic Marines Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Galactic Marines!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "seal6-c4"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "seal6-c4", "carkeys"},
 
     command = "arcagm",
 
@@ -2604,7 +2604,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit"},
+    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
 
     command = "gmmo",
 
@@ -2674,7 +2674,7 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook"},
+    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
 
     command = "gmmt",
 
@@ -2997,7 +2997,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys"},
 
     command = "arcawp",
 
@@ -3065,7 +3065,7 @@ TEAM_ARCMEDOFFICER = DarkRP.createJob("Wolfpack Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade","tf_weapon_medigun"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade","tf_weapon_medigun", "carkeys"},
 
     command = "wpmo",
 
@@ -3132,7 +3132,7 @@ TEAM_ARCMEDTROOPER = DarkRP.createJob("Wolfpack Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys"},
 
     command = "wpmt",
 
@@ -5366,7 +5366,7 @@ TEAM_MEDICALGENERAL = DarkRP.createJob("Medical General", {
 
     description = [[Congratulations, you are the General of the Regimetntal Medics!]],
 
-    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun","weapon_remotedrone","datapad_player"},
+    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun","weapon_remotedrone","datapad_player", "carkeys"},
 
     command = "medgen",
 
@@ -5398,7 +5398,7 @@ TEAM_MEDICALMCO = DarkRP.createJob("Senior Medical Director", {
 
     description = [[Congratulations, You are now the Senior Medical Director. You will lead all medics.]],
 
-    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun"},
+    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
     command = "medsdir",
 
@@ -5431,7 +5431,7 @@ TEAM_MEDICALDIRECTOR = DarkRP.createJob("Medical Director", {
 
     description = [[Congratulations, You are now the Medical Director. You will lead all medics.]],
 
-    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun"},
+    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
     command = "meddir",
 
@@ -5465,7 +5465,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     description = [[Congratulations, You are now the Assistant Medical Director. You will assist with leading all medics.]],
 
-    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun"},
+    weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
     command = "astmeddir",
 
