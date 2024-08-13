@@ -1,7 +1,7 @@
 
 ENT.Base = "lvs_base_starfighter"
 
-ENT.PrintName = "Gauntlet Heavy Fighter"
+ENT.PrintName = "Gauntlet Heavy Transport"
 ENT.Author = "Nashatok"
 ENT.Information = "Modified Aggressor-class Assault Fighter, used by bounty hunter and assassin IG-88B"
 ENT.Category = "[LVS] - Miscellaneous Vehicles"

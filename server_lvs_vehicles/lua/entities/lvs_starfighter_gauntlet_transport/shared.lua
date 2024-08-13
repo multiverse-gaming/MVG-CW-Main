@@ -1,20 +1,22 @@
 
 ENT.Base = "lvs_base_starfighter"
 
-ENT.PrintName = "GAT-12h Skipray"
+ENT.PrintName = "Gauntlet Heavy Transport"
 ENT.Author = "Nashatok"
-ENT.Information = "Designed by Seinar Fleet Systems for the Galactic Empire, the design is often seen in use by militia and pirates"
+ENT.Information = "Modified Aggressor-class Assault Fighter, used by bounty hunter and assassin IG-88B"
 ENT.Category = "[LVS] - Miscellaneous Vehicles"
 
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
 
-ENT.MDL = "models/skipray/skipray1.mdl"
+ENT.SpawnNormalOffset = -25
 
-ENT.AITEAM = 2
+ENT.MDL = "models/gauntlet/sfp_gauntlet.mdl"
 
-ENT.MaxVelocity = 1900
-ENT.MaxThrust = 1900
+ENT.AITEAM = 1
+
+ENT.MaxVelocity = 2500
+ENT.MaxThrust = 2500
 
 ENT.TurnRatePitch = 1
 ENT.TurnRateYaw = 1
@@ -25,49 +27,46 @@ ENT.ForceLinearMultiplier = 1
 ENT.ForceAngleMultiplier = 1
 ENT.ForceAngleDampingMultiplier = 1
 
-ENT.MaxHealth = 750
-ENT.MaxShield = 100
+ENT.MaxHealth = 2000
+ENT.MaxShield = 500
 
 function ENT:OnSetupDataTables()
 	self:AddDT( "Bool", "Foils" )
-
-	if SERVER then
-		self:NetworkVarNotify( "Foils", self.OnFoilsChanged )
-	end
+	self:AddDT( "Entity", "GunnerSeat" )
 end
 
 function ENT:InitWeapons()
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/dual_mg.png")
 	weapon.Ammo = 600
-	weapon.Delay = 0.2
-	weapon.HeatRateUp = 0.25
+	weapon.Delay = 0.12
+	weapon.HeatRateUp = 0.34
 	weapon.HeatRateDown = 1
 	weapon.Attack = function( ent )
 		local bullet = {}
 		bullet.Dir 	= ent:GetForward()
 		bullet.Spread 	= Vector( 0.015,  0.015, 0 )
-		bullet.TracerName = "lvs_laser_red"
+		bullet.TracerName = "lvs_laser_yellow"
 		bullet.Force	= 10
 		bullet.HullSize 	= 25
 		bullet.Damage	= 20
-		bullet.Velocity = 50000
-		bullet.SplashDamage = 30
-		bullet.SplashDamageRadius = 250
+		bullet.Velocity = 60000
+		bullet.SpashDamage 	= 45
+		bullet.SplashDamageRadius	= 150
 		bullet.Attacker 	= ent:GetDriver()
 		bullet.Callback = function(att, tr, dmginfo)
 			local effectdata = EffectData()
-				effectdata:SetStart( Vector(255,50,50) ) 
+				effectdata:SetStart( Vector(200,150,50) ) 
 				effectdata:SetOrigin( tr.HitPos )
 				effectdata:SetNormal( tr.HitNormal )
-			util.Effect( "lvs_laser_explosion", effectdata )
+			util.Effect( "lvs_laser_impact", effectdata )
 		end
 
 		for i = -1,1,2 do
-			bullet.Src 	= ent:LocalToWorld( Vector(115,73 * i,37) )
+			bullet.Src 	= ent:LocalToWorld( Vector(150,40 * i,172) )
 
 			local effectdata = EffectData()
-			effectdata:SetStart( Vector(255,50,50) )
+			effectdata:SetStart( Vector(200,150,50) )
 			effectdata:SetOrigin( bullet.Src )
 			effectdata:SetNormal( ent:GetForward() )
 			effectdata:SetEntity( ent )
@@ -84,61 +83,9 @@ function ENT:InitWeapons()
 	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
 	self:AddWeapon( weapon )
 
-	--Weapon 2 - Assault Turret
-	self.FirePositions = {
-		Vector(68,-5,122),
-		Vector(68,7,122),
-	}
-	local weapon = {}
-	weapon.Icon = Material("lvs/weapons/mg.png")
-	weapon.Ammo = 3000
-	weapon.Delay = 0.1
-	weapon.HeatRateUp = 0.25
-	weapon.HeatRateDown = 1
-	weapon.Attack = function( ent )
-		ent.NumPrim = ent.NumPrim and ent.NumPrim + 1 or 1
-		if ent.NumPrim > #ent.FirePositions then ent.NumPrim = 1 end
 
-		local CurPos = ent.FirePositions[ent.NumPrim]
-
-		local bullet = {}
-		bullet.Src 	= ent:LocalToWorld( CurPos )
-		bullet.Dir 	= ent:GetForward()
-		bullet.Spread 	= Vector( 0.025,  0.025, 0 )
-		bullet.TracerName = "lvs_laser_green"
-		bullet.Force	= 10
-		bullet.HullSize 	= 25
-		bullet.Damage	= 20
-		bullet.Velocity = 60000
-		bullet.Attacker 	= ent:GetDriver()
-		bullet.Callback = function(att, tr, dmginfo)
-			local effectdata = EffectData()
-				effectdata:SetStart( Vector(50,255,50) ) 
-				effectdata:SetOrigin( tr.HitPos )
-				effectdata:SetNormal( tr.HitNormal )
-			util.Effect( "lvs_laser_impact", effectdata )
-		end
-		ent:LVSFireBullet( bullet )
-
-		local effectdata = EffectData()
-		effectdata:SetStart( Vector(50,255,50) )
-		effectdata:SetOrigin( bullet.Src )
-		effectdata:SetNormal( ent:GetForward() )
-		effectdata:SetEntity( ent )
-		util.Effect( "lvs_muzzle_colorable", effectdata )
-
-		ent:TakeAmmo()
-
-		ent.SecondarySND:PlayOnce( 100 + math.cos( CurTime() + self:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1 )
-	end
-	weapon.OnSelect = function( ent ) ent:EmitSound("physics/metal/weapon_impact_soft3.wav") end
-	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
-	self:AddWeapon( weapon )
-	
-	--Weapon 3 - Proton Torpedoes
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/protontorpedo.png")
-	weapon.UseableByAI = false
 	weapon.Ammo = 12
 	weapon.Delay = 0 -- this will turn weapon.Attack to a somewhat think function
 	weapon.HeatRateUp = -0.5 -- cool down when attack key is held. This system fires on key-release.
@@ -163,16 +110,18 @@ function ENT:InitWeapons()
 		ent._nextMissle = T + 0.5
 
 		ent._swapMissile = not ent._swapMissile
-		--(0,0,165)
-		local Pos = Vector( 30,(ent._swapMissile and 95 or -95),70 )
+
+		local Pos = Vector( 180, (ent._swapMissile and -180 or 180), 172 )
+
+		local Driver = self:GetDriver()
 
 		local projectile = ents.Create( "lvs_protontorpedo" )
 		projectile:SetPos( ent:LocalToWorld( Pos ) )
-		projectile:SetAngles( ent:GetAngles() )
+		projectile:SetAngles( ent:LocalToWorldAngles( Angle(0,ent._swapMissile and 1 or -1,0) ) )
 		projectile:SetParent( ent )
 		projectile:Spawn()
 		projectile:Activate()
-		projectile:SetAttacker( ent:GetDriver() )
+		projectile:SetAttacker( IsValid( Driver ) and Driver or self )
 		projectile:SetEntityFilter( ent:GetCrosshairFilterEnts() )
 		projectile:SetSpeed( ent:GetVelocity():Length() + 4000 )
 
@@ -201,6 +150,50 @@ function ENT:InitWeapons()
 	weapon.OnSelect = function( ent ) ent:EmitSound("physics/metal/weapon_impact_soft3.wav") end
 	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
 	self:AddWeapon( weapon )
+	
+	
+	local weapon = {}
+	weapon.Icon = Material("lvs/weapons/mg.png")
+	weapon.Delay = 0.1
+	weapon.Attack = function( ent )
+		local pod = ent:GetDriverSeat()
+
+		if not IsValid( pod ) then return end
+
+		local dir = ent:GetAimVector()
+
+		if ent:AngleBetweenNormal( dir, ent:GetForward() ) > 60 then return true end
+
+		local trace = ent:GetEyeTrace()
+
+		ent.SwapTopBottom = not ent.SwapTopBottom
+
+		local veh = ent:GetVehicle()
+
+		veh.SNDTail:PlayOnce( 100 + math.Rand(-3,3), 1 )
+
+		local bullet = {}
+		bullet.Src = veh:LocalToWorld( ent.SwapTopBottom and Vector(-450,6,180) or Vector(-450,-6,180) )
+		bullet.Dir = (trace.HitPos - bullet.Src):GetNormalized()
+		bullet.Spread 	= Vector( 0.03,  0.03, 0.03 )
+		bullet.TracerName = "lvs_laser_yellow"
+		bullet.Force	= 10
+		bullet.HullSize 	= 25
+		bullet.Damage	= 45
+		bullet.Velocity = 50000
+		bullet.Attacker 	= ent:GetDriver()
+		bullet.Callback = function(att, tr, dmginfo)
+			local effectdata = EffectData()
+				effectdata:SetStart( Vector(200,150,50) ) 
+				effectdata:SetOrigin( tr.HitPos )
+				effectdata:SetNormal( tr.HitNormal )
+			util.Effect( "lvs_laser_impact", effectdata )
+		end
+		ent:LVSFireBullet( bullet )
+	end
+	weapon.OnSelect = function( ent ) ent:EmitSound("physics/metal/weapon_impact_soft3.wav")end
+	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
+	self:AddWeapon( weapon, 2 )
 end
 
 ENT.FlyByAdvance = 0.75
@@ -209,7 +202,7 @@ ENT.DeathSound = "lvs/vehicles/generic_starfighter/crash.wav"
 
 ENT.EngineSounds = {
 	{
-		sound = "lvs/vehicles/naboo_n1_starfighter/loop.wav",
+		sound = "eng_jedistarfighter_hi_lp.wav",
 		Pitch = 80,
 		PitchMin = 0,
 		PitchMax = 255,

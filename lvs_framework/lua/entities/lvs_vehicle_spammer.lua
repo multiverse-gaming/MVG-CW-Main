@@ -41,6 +41,8 @@ function ENT:SetupDataTables()
 	self:NetworkVar( "Int",7, "SpawnWithHealth", { KeyName = "spawnwithhealth", Edit = { type = "Int", order = 9,min = 0, max = 50000, category = "Vehicle-Options"} } )
 	self:NetworkVar( "Int",8, "SpawnWithShield", { KeyName = "spawnwithshield", Edit = { type = "Int", order = 10,min = 0, max = 50000, category = "Vehicle-Options"} } )
 
+	self:NetworkVar("Bool", 3, "SpawnWithAIDisabled", { KeyName = "ai", Edit = { type = "Boolean", order = 11, category = "Vehicle-Options" } })
+
 	self:NetworkVar( "Int",10, "SelfDestructAfterAmount", { KeyName = "selfdestructafteramount", Edit = { type = "Int", order = 22,min = 0, max = 100, category = "Spawner-Options"} } )
 	self:NetworkVar( "Bool",2, "MasterSwitch" )
 
@@ -154,7 +156,11 @@ if SERVER then
 						spawnedvehicle:SetAngles( ang )
 						spawnedvehicle:Spawn()
 						spawnedvehicle:Activate()
-						spawnedvehicle:SetAI( true )
+						if self:GetSpawnWithAIDisabled() then
+							spawnedvehicle:SetAI(false)
+						else
+							spawnedvehicle:SetAI(true)
+						end
 						spawnedvehicle:SetSkin( self:GetSpawnWithSkin() )
 						spawnedvehicle.SpawnedByAISpawner = true
 

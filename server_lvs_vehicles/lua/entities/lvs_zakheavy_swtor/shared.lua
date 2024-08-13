@@ -12,7 +12,7 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/ophra/ships/veh_neu_zak_mach2_flying_open.mdl"
 
 
-ENT.AITEAM = 3
+ENT.AITEAM = 2
 
 ENT.MaxVelocity = 2000
 ENT.MaxThrust = 1000
