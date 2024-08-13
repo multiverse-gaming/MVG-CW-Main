@@ -653,7 +653,7 @@ do
 			return func(self)
 		end
 
-		error("StringStream:readType: Couldn't read type " .. tostring(typeid))
+		_G.error("StringStream:readType: Couldn't read type " .. tostring(typeid))
 	end
 end
 
