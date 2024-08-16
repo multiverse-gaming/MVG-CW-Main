@@ -54,18 +54,12 @@ function ENT:Use( activator, caller )
     local ammoType2 = activator:GetActiveWeapon():GetSecondaryAmmoType()
     local clip1 = activator:GetActiveWeapon():GetMaxClip1()
     if ammoType1 == -1 and ammoType2 == -1 and activator:IsPlayer() then
-        activator:GiveAmmo(10, "rpg_round", false)
-		activator:GiveAmmo(10, "grenade" ,false)
-        activator:GiveAmmo(600, "ar2" ,false)
-        self:Remove()
+        activator:GiveAmmo(600, 2, false)
     elseif self.UseTimer <= CurTime() and activator:IsPlayer() then
-        activator:GiveAmmo(10, "rpg_round", false)
-		activator:GiveAmmo(10, "grenade" ,false)
-        activator:GiveAmmo(600, ammoType1, false)
-		activator:GiveAmmo(3 , ammoType2, false)
-
-        self:Remove()
+        activator:GiveAmmo(clip1*10, ammoType1, false)
+		activator:GiveAmmo(10 , ammoType2, false)
     end
+    self:Remove()
 end
 
 function ENT:PhysicsCollide( data, phys )

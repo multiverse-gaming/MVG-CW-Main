@@ -13,11 +13,15 @@ end
 
 function ENT:Use( ply )
     local item1 = wOS:GetItemData( "Purified Crystal ( Green )" )
-    local item2 = wOS:GetItemData( "Purified Crystal ( Blue )" )
-    local item3 = wOS:GetItemData( "Purified Crystal ( Purple )" )
+    local item2 = wOS:GetItemData( "Purified Crystal ( Light Green )" )
+    local item3 = wOS:GetItemData( "Purified Crystal ( Blue )" )
+    local item4 = wOS:GetItemData( "Purified Crystal ( Cyan )" )
+    local item5 = wOS:GetItemData( "Purified Crystal ( Purple )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
     wOS:HandleItemPickup( ply, item3.Name )
+    wOS:HandleItemPickup( ply, item4.Name )
+    wOS:HandleItemPickup( ply, item5.Name )
 	hook.Call("WILTOS.ItemUsed", nil, ply, "Purified Crystals", "Crystals")
     self:Remove()
 end
