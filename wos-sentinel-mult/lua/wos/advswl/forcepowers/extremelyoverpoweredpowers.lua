@@ -376,9 +376,10 @@ end )]]--
 
 hook.Add( "Move", "wOS.ALCS.DA.SlowingEffect", function( ply, mv )
 
+	if (not ply.WOS_CripplingSlow) then return end
 	local mod = 1
 
-	if ply.WOS_CripplingSlow and ply.WOS_CripplingSlow >= CurTime() then
+	if ply.WOS_CripplingSlow >= CurTime() then
 		mod = mod*0.3 -- 30%
 	end
 	

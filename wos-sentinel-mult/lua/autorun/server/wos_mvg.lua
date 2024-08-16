@@ -1,33 +1,32 @@
 -- Hook for wos reflecting, both half and full.
 hook.Add("EntityTakeDamage", "wos_mvg_block_half_damage_reflect", function(target, dmginfo)
 
-    if target:IsPlayer() and target:GetNWFloat("ReflectTimeHalf", 0) >= CurTime() then
-        if (!target._IsCurrentlyReflecting) then
-            target._IsCurrentlyReflecting = true
-            local damage = dmginfo:GetDamage()
-            dmginfo:SetDamage(damage / 2)
-            local AttackerDamageInfo = DamageInfo()
-            local Attacker = dmginfo:GetAttacker()
-            AttackerDamageInfo:SetAttacker(Attacker)
-            AttackerDamageInfo:SetDamage(damage)
-            AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
-            Attacker:TakeDamageInfo(AttackerDamageInfo)
-            target._IsCurrentlyReflecting = false
-        end
-    end
-
-    
-    if target:IsPlayer() and target:GetNWFloat("ReflectTime", 0) >= CurTime() then
-        if (!target._IsCurrentlyReflecting) then
-            target._IsCurrentlyReflecting = true
-            local AttackerDamageInfo = DamageInfo()
-            local Attacker = dmginfo:GetAttacker()
-            AttackerDamageInfo:SetAttacker(Attacker)
-            AttackerDamageInfo:SetDamage(dmginfo:GetDamage())
-            AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
-            Attacker:TakeDamageInfo(AttackerDamageInfo)
-            dmginfo:SetDamage(0)
-            target._IsCurrentlyReflecting = false
+    if (target:IsPlayer()) then
+        if target:GetNWFloat("ReflectTimeHalf", 0) >= CurTime() then
+            if (!target._IsCurrentlyReflecting) then
+                target._IsCurrentlyReflecting = true
+                local damage = dmginfo:GetDamage()
+                dmginfo:SetDamage(damage / 2)
+                local AttackerDamageInfo = DamageInfo()
+                local Attacker = dmginfo:GetAttacker()
+                AttackerDamageInfo:SetAttacker(Attacker)
+                AttackerDamageInfo:SetDamage(damage)
+                AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
+                Attacker:TakeDamageInfo(AttackerDamageInfo)
+                target._IsCurrentlyReflecting = false
+            end
+        elseif target:GetNWFloat("ReflectTime", 0) >= CurTime() then
+            if (!target._IsCurrentlyReflecting) then
+                target._IsCurrentlyReflecting = true
+                local AttackerDamageInfo = DamageInfo()
+                local Attacker = dmginfo:GetAttacker()
+                AttackerDamageInfo:SetAttacker(Attacker)
+                AttackerDamageInfo:SetDamage(dmginfo:GetDamage())
+                AttackerDamageInfo:SetDamageType( DMG_GENERIC ) 
+                Attacker:TakeDamageInfo(AttackerDamageInfo)
+                dmginfo:SetDamage(0)
+                target._IsCurrentlyReflecting = false
+            end
         end
     end
 end)
