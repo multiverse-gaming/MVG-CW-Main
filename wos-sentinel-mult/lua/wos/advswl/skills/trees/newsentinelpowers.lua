@@ -357,7 +357,7 @@ TREE.Tier[5][2] = {
 	Name = "Force Cloak",
 	Description = "Hide yourself from simple minded and programmed enemies.",
 	Icon = "wos/forceicons/advanced_cloak.png",
-	PointsRequired = 10,
+	PointsRequired = 8,
 	Requirements = {
 		[5] = { 1, 3 },
 	},

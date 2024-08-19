@@ -13,6 +13,8 @@ local WhitelistJobsNames = { --jobs to not take fall damage
 		"CIS Electro Staff User",
 		"Bossk",
 		"CIS Elite Melee",
+		"Shadow General Quinlan Vos",
+        "Jedi General Quinlan Vos",
 }
 
 local function JobCheck(ply)

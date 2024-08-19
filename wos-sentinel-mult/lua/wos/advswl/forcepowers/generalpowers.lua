@@ -370,31 +370,32 @@ wOS.ForcePowers:RegisterNewPower({
 				-- If cloaking, go on CD and turn cloak off so you can attack.
 				self.CloakTime = CurTime()
 				self:GetOwner():SetNoTarget(false)
-				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber)
 				return true
-			end
+			end	
 			if ( self:GetForce() < 50) then return end
 
 			self:SetForce( self:GetForce() - 25 )
 			self:SetNextAttack( 0.7 )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			self.CloakRandomNumber = math.random(1, 1000)
 
 			self.CloakTime = CurTime() + 3600
 			-- Look up timer.Create and see delay and repitions in the arguments. You will see why it's like this.
-			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 0, function() 
+			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber, 0.25, 0, function()
 				if self:GetCloaking() then 
 					if (self:GetForce() <= 1) then
 						-- If out of force, turn cloak off.
 						self.CloakTime = CurTime()
 						self:GetOwner():SetNoTarget(false)
-						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber)
 						do return end
 					end
 
 					if self.Owner:GetVelocity():Length() > 130 then
-						self:SetForce( self:GetForce() - 2 )
+						self:SetForce( self:GetForce() - 1.5 )
 					elseif self.Owner:GetVelocity():Length() > 40 then
-						self:SetForce( self:GetForce() - 1 )
+						self:SetForce( self:GetForce() - 0.5 )
 					end
 
 					self:GetOwner():SetNoTarget(true)

@@ -23,7 +23,7 @@ wOS.ALCS.Config.LightsaberHUD = WOS_ALCS.HUD.HYBRID
 	What is the maximum number of force power slots in the hybrid menu?
 	MUST USE | 		WOS_ALCS.HUD.HYBRID		| FOR IT TO FUNCTION
 */
-wOS.ALCS.Config.MaximumForceSlots = 9
+wOS.ALCS.Config.MaximumForceSlots = 11
 
 /* 
 	Should we enable the stamina mod?

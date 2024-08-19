@@ -51,7 +51,7 @@ wOS.ForcePowers:RegisterNewPower({
 		local originalArmor = ent:Armor()
 		ent:SetArmor(originalArmor + 150)
 		timer.Simple(20, function()
-			ent:SetArmor(math.min(originalArmor, ent:Armor()))
+			ent:SetArmor(math.min(ent:Armor(), math.max(originalArmor, ent:GetMaxArmor())))
 		end)
 		
 		return true

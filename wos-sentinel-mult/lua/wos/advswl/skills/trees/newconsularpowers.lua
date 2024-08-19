@@ -323,7 +323,7 @@ TREE.Tier[5][2] = {
 	Name = "Force Sacrifice",
 	Description = "Channel damage to an ally into yourself.",
 	Icon = "wos/devestators/sonic.png",
-	PointsRequired = 10,
+	PointsRequired = 6,
 	Requirements = {
 		[5] = { 1, 3 },
 	},

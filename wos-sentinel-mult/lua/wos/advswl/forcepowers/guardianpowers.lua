@@ -80,7 +80,7 @@ wOS.ForcePowers:RegisterNewPower({
 		local originalArmor = self:GetOwner():Armor()
 		self:GetOwner():SetArmor(200)
 		timer.Simple(10, function()
-			self:GetOwner():SetArmor(math.min(self:GetOwner():Armor(), originalArmor))
+			self:GetOwner():SetArmor(math.min(self:GetOwner():Armor(), math.max(originalArmor, self:GetOwner():GetMaxArmor())))
 		end)
         return true
     end
@@ -149,9 +149,11 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Shocks and destroys everything around you",
 		action = function( self )
 			if ( self:GetForce() < 60 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
-			local maxdist = 128 * 4
+			local maxdist = 512
+			local groundSlamDamage = 200 
 			if (self.FocussedGroundSlam != nil && self.FocussedGroundSlam) then
-				maxdist = 128 * 2
+				maxdist = 256
+				groundSlamDamage = 300
 			end
 			local elev = 400
 			local time = 1
@@ -186,7 +188,7 @@ wOS.ForcePowers:RegisterNewPower({
 
 				local dmg = DamageInfo()
 				dmg:SetDamagePosition( e:GetPos() + e:OBBCenter() )
-				dmg:SetDamage( 200 * mul )
+				dmg:SetDamage( groundSlamDamage * mul )
 				dmg:SetDamageType( DMG_DISSOLVE )
 				dmg:SetDamageForce( -v * math.min( mul * 20000, 40000 ) )
 				dmg:SetInflictor( self:GetOwner() )

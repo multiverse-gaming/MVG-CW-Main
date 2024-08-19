@@ -63,7 +63,7 @@ TREE.Tier[1][1] = {
 	Name = "Consular - Force Shield",
 	Description = "Can't use this skill regularly, but it should allow you to regain your stamina.",
 	Icon = "wos/forceicons/group_heal.png",
-	PointsRequired = 8,
+	PointsRequired = 6,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -74,24 +74,11 @@ TREE.Tier[1][2] = {
 	Name = "Sentinel - Force Light",
 	Description = "Guardians need to see in the dark too.",
 	Icon = "wos/forceicons/lightstream.png",
-	PointsRequired = 8,
+	PointsRequired = 6,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
 }
-
--- Moved into main tree. Remove comment when finalised.
---[[
-TREE.Tier[1][2] = {
-	Name = "Sentinel - Saber Throw",
-	Description = "Costs a lot more force, but at least you can hit that guy over there.",
-	Icon = "wos/forceicons/throw.png",
-	PointsRequired = 8,
-	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Guardian Saber Throw" ) end,
-}]]--
 
 wOS:RegisterSkillTree( TREE )
