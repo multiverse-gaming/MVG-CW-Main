@@ -178,6 +178,7 @@ wOS.ForcePowers:RegisterNewPower({
 			util.Effect( "h_c2_t3", ed, true, true )
 			for i, e in pairs( ents.FindInSphere( self:GetOwner():GetPos(), maxdist ) ) do
 			if(e == self:GetOwner()) then continue end
+			if(!e:IsPlayer() && !e:IsNPC()) then continue end
 			--if (e.Team and e:Team() == self:GetOwner():Team()) or (e.PlayerTeam and e.PlayerTeam == self:GetOwner():Team()) then continue end
 
 				local dist = self:GetOwner():GetPos():Distance( e:GetPos() )

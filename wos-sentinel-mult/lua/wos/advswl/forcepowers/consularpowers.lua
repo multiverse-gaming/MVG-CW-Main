@@ -31,7 +31,7 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "FP",
 	target = 1,
 	image = "wos/forceicons/pull.png",
-	cooldown = 60,
+	cooldown = 20,
 	manualaim = true,
 	description = "Hover over a friend, and protect them from harm",
 	action = function( self )
