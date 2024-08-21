@@ -40,6 +40,8 @@ hook.Add("EntityTakeDamage", "ScanDartHitEffect", function(target, dmginfo)
     local weapon = attacker:GetActiveWeapon()
     if not IsValid(weapon) or weapon:GetClass() ~= "arccw_cr2c" then return end
 
+    if weapon:GetDamage() ~= 0 then return end
+
     local hitPos = dmginfo:GetDamagePosition()
     if hitPos == vector_origin then
         local trace = attacker:GetEyeTrace()
@@ -51,6 +53,7 @@ hook.Add("EntityTakeDamage", "ScanDartHitEffect", function(target, dmginfo)
     end
     AddESPInRadius(hitPos, 512, Color(255, 0, 0))
 end)
+
 
 hook.Add("PreDrawHalos", "ScanDartESP", function()
     for _, ply in pairs(player.GetAll()) do

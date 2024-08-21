@@ -4,7 +4,7 @@ SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
 SWEP.Category = "[ ArcCW ] Republic TFA Weapons - V2"
 SWEP.Credits = { Author1 = "cat"}
-SWEP.PrintName = "DC-15 (NSO)"
+SWEP.PrintName = "DC-15 (Riot)"
 SWEP.Trivia_Class = "Blaster Rifle"
 SWEP.Trivia_Desc = "High tech DC-15A Blaster Rifle, preffered for long-range combat and general allround usage."
 SWEP.Trivia_Manufacturer = "BlasTech Industries"
