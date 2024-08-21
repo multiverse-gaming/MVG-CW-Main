@@ -249,7 +249,7 @@ TEAM_501STGENERAL = DarkRP.createJob("501st General", {
 
     description = [[Congratulations, you are the Deployed General of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6","personal_shield_activator", "realistic_hook", "weapon_officerboost_501st", "tfa_sparks_501st","weapon_remotedrone","datapad_player"},
 
     command = "501stgen",
 
@@ -282,7 +282,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
-    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_z6_pak", "personal_shield_activator", "weapon_officerboost_501st"},
+    weapons = {"arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "arccw_meeks_z6", "personal_shield_activator", "weapon_officerboost_501st"},
 
     command = "501stmco",
 
