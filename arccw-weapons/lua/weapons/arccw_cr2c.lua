@@ -160,12 +160,7 @@ SWEP.Attachments = {
             wpos = Vector(500, 110, -710),
             wang = Angle(-15, 0, 180)
         },
-    },    
-    [2] = {
-        PrintName = "Scan Dart",
-        DefaultAttName = "None",
-        Slot = {"cr2cscandart"},             
-    },      
+    }    
 }
 
 
