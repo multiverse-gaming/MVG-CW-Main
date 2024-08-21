@@ -53,7 +53,7 @@ FORM.Stances[1] = {
 	},
 	[ "air_forward" ] = {
 		Sequence = "h_c3_t3",
-		Time = 1,
+		Time = 2,
 		Rate = 1,
 	},
 	[ "heavy" ] = {

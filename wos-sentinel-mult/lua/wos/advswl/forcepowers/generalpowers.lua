@@ -55,7 +55,7 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
-name = "Force Stasis",
+name = "Force Stasis Old",
 icon = "ST",
 description = "The truth can bind us all.",
 image = "wos/forceicons/push.png",
@@ -99,6 +99,31 @@ end,
 })
 
 wOS.ForcePowers:RegisterNewPower({
+name = "Stasis",
+icon = "S",
+description = "The truth can bind us all.",
+image = "wos/forceicons/push.png",
+cooldown = 20,
+manualaim = true,
+action = function( self )
+	if ( self:GetForce() < 20 ) then return end
+	local ent = self:SelectTargets( 1 )[ 1 ]
+	if not IsValid( ent ) then return end
+	if not ent:IsPlayer() then return end
+
+	self:SetForce( self:GetForce() - 20 )
+	GMSERV:AddStatus(ent, self:GetOwner(), "stun", 10, 5, true)
+	self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+	local ed = EffectData()
+	ed:SetOrigin( self:GetSaberPosAng() )
+	ed:SetEntity( ent )
+	util.Effect( "wos_emerald_lightning", ed, true, true )
+
+	return true
+end,
+})
+
+wOS.ForcePowers:RegisterNewPower({
 	name = "Mundis Hardened Force Push",
 	icon = "HFP",
 	target = 1,
@@ -109,11 +134,11 @@ wOS.ForcePowers:RegisterNewPower({
 	manualaim = false,
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
-		self:SetForce( self:GetForce() - 50 )
 
 		local ent = self:SelectTargets( 1 )[ 1 ]
 		if not IsValid( ent ) then return end
 
+		self:SetForce( self:GetForce() - 50 )
 		self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
 		local dmg = DamageInfo()
 		dmg:SetAttacker( self:GetOwner() || self )
@@ -370,31 +395,32 @@ wOS.ForcePowers:RegisterNewPower({
 				-- If cloaking, go on CD and turn cloak off so you can attack.
 				self.CloakTime = CurTime()
 				self:GetOwner():SetNoTarget(false)
-				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+				timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber)
 				return true
-			end
+			end	
 			if ( self:GetForce() < 50) then return end
 
 			self:SetForce( self:GetForce() - 25 )
 			self:SetNextAttack( 0.7 )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			self.CloakRandomNumber = math.random(1, 1000)
 
 			self.CloakTime = CurTime() + 3600
 			-- Look up timer.Create and see delay and repitions in the arguments. You will see why it's like this.
-			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64(), 0.25, 0, function() 
+			timer.Create("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber, 0.25, 0, function()
 				if self:GetCloaking() then 
 					if (self:GetForce() <= 1) then
 						-- If out of force, turn cloak off.
 						self.CloakTime = CurTime()
 						self:GetOwner():SetNoTarget(false)
-						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64())
+						timer.Remove("wos.Custom.Cloaking." .. self:GetOwner():SteamID64() .. self.CloakRandomNumber)
 						do return end
 					end
 
 					if self.Owner:GetVelocity():Length() > 130 then
-						self:SetForce( self:GetForce() - 2 )
+						self:SetForce( self:GetForce() - 1.5 )
 					elseif self.Owner:GetVelocity():Length() > 40 then
-						self:SetForce( self:GetForce() - 1 )
+						self:SetForce( self:GetForce() - 0.5 )
 					end
 
 					self:GetOwner():SetNoTarget(true)

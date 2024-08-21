@@ -36,7 +36,7 @@ TREE.TreeIcon = "wos/forceicons/meditate.png"
 TREE.BackgroundColor = Color( 255, 0, 0, 25 )
 
 --How many tiers of skills are there?
-TREE.MaxTiers = 4
+TREE.MaxTiers = 5
 
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
@@ -100,7 +100,7 @@ TREE.Tier[1][4] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4]) end,
 }
@@ -113,7 +113,7 @@ TREE.Tier[2][1] = {
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 1,
 	Requirements = {[1] = { 1 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) end,
 }
@@ -146,7 +146,7 @@ TREE.Tier[2][4] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 1,
 	Requirements = {[1] = { 4 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4] + 1) end,
 }
@@ -159,7 +159,7 @@ TREE.Tier[3][1] = {
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 2,
 	Requirements = {[2] = { 1 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) end,
 }
@@ -192,7 +192,7 @@ TREE.Tier[3][4] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 2,
 	Requirements = {[2] = { 4 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4]) end,
 }
@@ -205,7 +205,7 @@ TREE.Tier[4][1] = {
 	Icon = "wos/forceicons/lightstream.png",
 	PointsRequired = 3,
 	Requirements = {[3] = { 1 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + ForceHpSpeedStamina[1]) end,
 }
@@ -238,9 +238,33 @@ TREE.Tier[4][4] = {
 	Icon = "wos/forceicons/absorb.png",
 	PointsRequired = 3,
 	Requirements = {[3] = { 4 },},
-	OnPlayerSpawn = function( ply ) end, 
+	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:SetMaxStamina(wep:GetMaxStamina() + ForceHpSpeedStamina[4] + 1) end,
+}
+
+TREE.Tier[5] = {}
+
+TREE.Tier[5][1] = {
+	Name = "Jedi Jump Upgrade 1",
+	Description = "You feel lighter.",
+	Icon = "wos/forceicons/leap.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) ply:SetJumpPower(ply:GetJumpPower() + 35) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) end,
+}
+
+TREE.Tier[5][2] = {
+	Name = "Jedi Jump Upgrade 2",
+	Description = "You feel lighter.",
+	Icon = "wos/forceicons/leap.png",
+	PointsRequired = 2,
+	Requirements = {[5] = { 1 },},
+	OnPlayerSpawn = function( ply ) ply:SetJumpPower(ply:GetJumpPower() + 35) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

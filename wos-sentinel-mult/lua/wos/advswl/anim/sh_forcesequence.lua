@@ -85,6 +85,7 @@ hook.Add( "UpdateAnimation", "wOS.SharedAnimations", function( ply, velocity, ma
 	local wep = ply:GetActiveWeapon()
 	if not IsValid( wep ) then return end
 	if not wep.IsLightsaber then return end
+	wep.AerialLand = false
 
 	local len = velocity:Length()
 	local movement = 1.0

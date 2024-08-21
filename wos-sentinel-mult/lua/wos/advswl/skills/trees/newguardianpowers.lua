@@ -307,7 +307,7 @@ TREE.Tier[4][2] = {
 	Requirements = {
 	[4] = { 1, 3 },
 	},
-	OnPlayerSpawn = function( ply ) ply:SetArmor(150) end, 
+	OnPlayerSpawn = function( ply ) ply:SetArmor(150) ply:SetMaxArmor(150) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
@@ -342,7 +342,7 @@ TREE.Tier[5][2] = {
 	Name = "Force Guard",
 	Description = "Gain enough armour to live through most attacks - briefly.",
 	Icon = "wos/skilltrees/forms/aggressive.png",
-	PointsRequired = 10,
+	PointsRequired = 6,
 	Requirements = {
 		[5] = { 1, 3 },
 	},

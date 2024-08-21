@@ -31,7 +31,7 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "FP",
 	target = 1,
 	image = "wos/forceicons/pull.png",
-	cooldown = 60,
+	cooldown = 20,
 	manualaim = true,
 	description = "Hover over a friend, and protect them from harm",
 	action = function( self )
@@ -51,7 +51,7 @@ wOS.ForcePowers:RegisterNewPower({
 		local originalArmor = ent:Armor()
 		ent:SetArmor(originalArmor + 150)
 		timer.Simple(20, function()
-			ent:SetArmor(math.min(originalArmor, ent:Armor()))
+			ent:SetArmor(math.min(ent:Armor(), math.max(originalArmor, ent:GetMaxArmor())))
 		end)
 		
 		return true

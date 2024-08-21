@@ -71,17 +71,12 @@ TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
 	Name = "Yoda's Stance",
-	Description = "Your signature stance - Jumping around your opponent.",
+	Description = "Your signature stance - Good for jump attacking.",
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 0,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) timer.Create("yodaJumpAttackTimer", 0.25, 0, function()
-		if (!IsValid(ply)) then return end
-		local localWep = ply:GetActiveWeapon()
-		if (IsValid(localWep)) then localWep.AerialLand = false end end)
-        ply:SetJumpPower(280)
-	end,
-	OnPlayerDeath = function( ply ) timer.Remove("yodaJumpAttackTimer") end,
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) wep:AddForm( "Yoda", 1 ) end,
 }
 
@@ -96,13 +91,24 @@ TREE.Tier[1][2] = {
 	OnSaberDeploy = function( wep ) wep.RegenSpeed = 1.5 wep:SetMaxForce( wep:GetMaxForce() + 30 ) end,
 }
 
+TREE.Tier[1][3] = {
+	Name = "Yoda's Jump",
+	Description = "You can jump around as much as you please.",
+	Icon = "wos/forceicons/leap.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) ply:SetJumpPower(ply:GetJumpPower() + 80) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) end,
+}
+
 TREE.Tier[2] = {}
 
 TREE.Tier[2][1] = {
 	Name = "Kyber Slam",
 	Description = "Slam enemies for 1200.",
 	Icon = "wos/forceicons/pull.png",
-	PointsRequired = 3,
+	PointsRequired = 2,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, --ply.DevestatorChoice = 1 end,
 	OnPlayerDeath = function( ply ) end,
@@ -113,7 +119,7 @@ TREE.Tier[2][2] = {
 	Name = "Sonic Discharge",
 	Description = "Blind the stronger enemies around you, but destroy the weaker ones.",
 	Icon = "wos/forceicons/pull.png",
-	PointsRequired = 3,
+	PointsRequired = 2,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end, --ply.DevestatorChoice = 2 end,
 	OnPlayerDeath = function( ply ) end,
