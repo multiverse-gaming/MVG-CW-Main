@@ -51,13 +51,6 @@ if EdgeHUD.Configuration.GetConfigValue( "LowerLeft" ) then
 	--Create a table where we store information about the widgets to add.
 	local infoWidgets = {
 		{
-			Title = EdgeHUD.GetPhrase("JOB"),
-			Icon = Material("edgehud/icon_job.png", "smooth"),
-			getData = function (  )
-				return ply:getDarkRPVar("job")
-			end
-		},
-		{
 			Title = EdgeHUD.GetPhrase("IDENTITY"),
 			Icon = Material("edgehud/icon_user.png", "smooth"),
 			getData = function (  )
@@ -105,7 +98,7 @@ if EdgeHUD.Configuration.GetConfigValue( "LowerLeft" ) then
 
 		--Create a x & y var for the position.
 		local x = VARS.ScreenMargin + (VARS.ElementsMargin + VARS.statusWidgetWidth) * (i - 1)
-		local y = screenHeight - VARS.ScreenMargin - VARS.WidgetHeight * 3 - VARS.ElementsMargin * 2
+		local y = screenHeight - VARS.ScreenMargin - VARS.WidgetHeight * 1.8 - VARS.ElementsMargin * 2
 
 		--Create a var for the current widget.
 		local curWidget = statusWidgets[i]

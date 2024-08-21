@@ -1,31 +1,25 @@
-
 TOOL.Category = "Event Tools"
 TOOL.Name = "Conquest"
-
 
 if CLIENT then
 	language.Add( "tool.republic_conquest.name", "Conquest" )
 	language.Add( "tool.republic_conquest.desc", "Creates objectives for players to do!" )
-	language.Add( "tool.republic_conquest.0", "Left Click: Creates a configured objecitve." )
-end
-
-if SERVER then
-	util.AddNetworkString("RQ_SyncConquestRemoval")
-end
-
-local function QueueConquestRemoval(index)
-	if CLIENT then
-		net.Start("RQ_SyncConquestRemoval")
-			net.WriteUInt(index, 16)
-		net.SendToServer()
-	end
+	language.Add( "tool.republic_conquest.0", "Left Click: Creates a configured objecitve. Right Click: Tie to entity. Reload: Remove from entity." )
 end
 
 local ConVarsDefault = TOOL:BuildConVarList()
 
-local function BuildCPanel()
-	local CPanel = controlpanel.Get("republic_conquest")
+local iconList = {
+    { name = "Blank", icon = "republic_conquest/border.png" },
+    { name = "Capture", icon = "republic_conquest/capture.png" },
+    { name = "Command Post", icon = "republic_conquest/command_post.png" },
+    { name = "Destroy", icon = "republic_conquest/destroy.png" },
+    { name = "Defend", icon = "republic_conquest/hold.png" },
+}
 
+local function ConquestBuildCPanel()
+	local CPanel = controlpanel.Get("republic_conquest")
+	if not CPanel then return end
 	CPanel:ClearControls()
 
     CPanel:AddControl( "ComboBox", 
@@ -42,151 +36,184 @@ local function BuildCPanel()
 		Text = "Republic Conquest",
 		Description = "Put down control points for players to conquer!"
 	}
-	)	
+	)
+
 	CPanel:AddControl( "slider", 
 	{ 
 		Label = "Radius:",
 	 	Command = "republic_conquest_radius",
 		min = "1",
-		max = "10000"
+		max = "100000"
 	}
 	)
-	CPanel:ControlHelp("What is the radius of your control point?")
+    CPanel:ControlHelp("Radius of a circle control point.")
 
+    CPanel:ControlHelp("How long does it take to capture?")
 	CPanel:AddControl( "slider", 
 	{ 
 		Label = "Time:",
 	 	Command = "republic_conquest_time",
 		min = "1",
-		max = "10000"
+		max = "100000"
 	}
 	)
-
 	CPanel:ControlHelp("How long does it take to capture your control point?")
 
-	CPanel:AddControl( "ComboBox", 
-	{
-		Label = "Point Icon:",
-		Command = "republic_conquest_icon",
-		Options = list.Get("RQ_PointIcons")
+	CPanel:AddControl( "slider", 
+	{ 
+		Label = "Expectation:",
+		Command = "republic_conquest_expectation",
+		min = "1",
+		max = "1000"
+	}
+	)
+	CPanel:ControlHelp("How many players does it take to get full capture rate?")
+
+	CPanel:AddControl( "textbox", 
+	{ 
+		Label = "Model:", 
+		Command = "republic_conquest_model"
 	} 
 	)
 
 	CPanel:AddControl( "checkbox", 
 	{ 
-		Label = "Display?", 
-		Command = "republic_conquest_display"
+		Label = "Use proximity hud?", 
+		Command = "republic_conquest_useproximity"
 	} 
 	)
+	CPanel:ControlHelp("Show on hud only if you're close?")
 
-    CPanel:ControlHelp("Sets if the point should display at all times. If not, it will only display when the player is in it.")
+	CPanel:AddControl( "slider",
+	{
+		Label = "Display distance:",
+		Command = "republic_conquest_proximity",
+		min = "1",
+		max = "100000"
+	}
+	)
 
-	CPanel:AddControl( "label", { Text = "Every single player / NPC in the radius will add 5% to the capture rate, max at 50% at 10 players."})
-	CPanel:AddControl( "label", { Text = "Do math, use twice the duration you want it to be captured."})
-
-	CPanel:AddControl( "Header", 
+	CPanel:AddControl( "checkbox", 
 	{ 
-		Description = "Delete a control point! Click on the index you placed!" 
+		Label = "Show circle?", 
+		Command = "republic_conquest_circle"
 	} 
 	)
+	CPanel:ControlHelp("Show the circle of the control point?")
 
-	local Panel = controlpanel.Get("republic_conquest")
-	local ComboBox = Panel:ListBox()
-	ComboBox:CleanList()
-	ComboBox:SetTall( 300 )
+	CPanel:AddControl( "checkbox", 
+	{ 
+		Label = "Show prop?", 
+		Command = "republic_conquest_model_active"
+	} 
+	)
+	CPanel:ControlHelp("Show prop?")
 
-	local Limit = 100
-	local Count = 0
-	
-	for k, v in ipairs( RepublicConquest.Point ) do
-		if isnumber(RepublicConquest.Point
-[k]) then return end
-	
-		if RepublicConquest.Point[k]["Active"] then
-			local Item = ComboBox:AddItem( "Control Point Index #".. tostring( k ).. " for ".. tostring(RepublicConquest.Point[k]["Time"]).."s" )
+	CPanel:AddControl( "checkbox", 
+	{ 
+		Label = "Apply to self?", 
+		Command = "republic_conquest_selfapply"
+	} 
+	)
+	CPanel:ControlHelp("Changes right click to apply to self.")
 
-			Item.DoClick = function()
-				QueueConquestRemoval(k) 
-				RepublicConquest:RemovePoint(k)
-			end
-		end
-		Count = Count + 1
-		if ( Count > Limit ) then break end
+	CPanel:AddControl( "checkbox",
+	{
+		Label = "Use NPC teams?",
+		Command = "republic_conquest_npc_team"
+	}
+	)
+	CPanel:ControlHelp("Use npc teams? (Friendly NPCs is on the player's team?)")
+
+	local matselect = CPanel:MatSelect("republic_conquest_icon", nil, true, 0.25, 0.25)
+	for k, v in pairs(iconList) do
+		matselect:AddMaterial(v.name, v.icon)
 	end
-
-	CPanel:AddControl("button", { Label = "Delete All", Command = "republic_conquest_deleteall" })
 end
 
-list.Set("RQ_PointIcons", "Blank", 				{republic_conquest_icon = "blank"})
-list.Set("RQ_PointIcons", "Capture", 				{republic_conquest_icon = "capture"})
-list.Set("RQ_PointIcons", "Command Post", 				{republic_conquest_icon = "post"})
-list.Set("RQ_PointIcons", "Destroy", 				{republic_conquest_icon = "destroy"})
-list.Set("RQ_PointIcons", "Defend", 				{republic_conquest_icon = "defend"})
-
-
-net.Receive("RepublicConquest_Menu", function()
-	BuildCPanel()
-end)
-
-function TOOL:BuildCPanel()
-	BuildCPanel()
+function TOOL:BuildCPanel(panel)
+	ConquestBuildCPanel(panel)
 end
 
-function TOOL:Deploy()
-	self.Owner.ShouldDisplayRepublic = true
-end
-
-function TOOL:Holster()
-	self.Owner.ShouldDisplayRepublic = false
-end
-
-function TOOL:Think()
-	self.Owner.ShouldDisplayRepublic = true
-end
+if CLIENT then ConquestBuildCPanel() end
 
 TOOL.ClientConVar[ "radius" ] = "100"
 TOOL.ClientConVar[ "time" ] = "500"
 TOOL.ClientConVar[ "icon" ] = "blank"
-TOOL.ClientConVar[ "display" ] = "1"
+TOOL.ClientConVar[ "circle" ] = "1"
+TOOL.ClientConVar[ "model_active" ] = "1"
+TOOL.ClientConVar[ "expectation" ] = "1"
+TOOL.ClientConVar[ "model" ] = "models/props_c17/oildrum001.mdl"
+TOOL.ClientConVar[ "selfapply" ] = "0"
+TOOL.ClientConVar[ "useproximity" ] = "0"
+TOOL.ClientConVar[ "proximity" ] = "500"
+TOOL.ClientConVar[ "npc_team" ] = "1"
 
 function TOOL:LeftClick(tr)
 	if not IsFirstTimePredicted() then return end
 	self:SetupConquest(tr.HitPos)
 end
 
+// Tie to an entity.
 function TOOL:RightClick(tr)
-	if not IsFirstTimePredicted() then return end
+	if not IsFirstTimePredicted() or CLIENT then return end
+	if self:GetClientInfo("selfapply") == "1" then
+		self:SetupConquest(tr.HitPos, self:GetOwner()) 
+	else
+		if not IsValid(tr.Entity) then return end
+		self:SetupConquest(tr.HitPos, tr.Entity)
+	end
 end
 
-function TOOL:SetupConquest(pos, pos1, pos2)
-	local radius = self:GetClientInfo("radius")
-	local owner = self.Owner
-	local time = self:GetClientInfo("time")
-	local icon = self:GetClientInfo("icon")
-	local display = self:GetClientInfo("display")
+function TOOL:Reload(tr)
+	if not IsFirstTimePredicted() or CLIENT then return end
+	if self:GetClientInfo("selfapply") == "1" then
+		self:RemoveConquest(self:GetOwner())
+	else
+		if not IsValid(tr.Entity) then return end
+		self:RemoveConquest(tr.Entity)
+	end
+end
 
-	RepublicConquest:AddPoint(pos, radius, pos1, pos2, owner, time, icon, display)
+function TOOL:SetupConquest(pos, entityToTie)
+	if CLIENT then return end
+	local data = {
+		radius = self:GetClientInfo("radius"),
+		owner = self:GetOwner(),
+		time = self:GetClientInfo("time"),
+		icon = self:GetClientInfo("icon"),
+		expectation = self:GetClientInfo("expectation"),
+		model = self:GetClientInfo("model"),
+		circle = self:GetClientInfo("circle"),
+		model_active = self:GetClientInfo("model_active"),
+		useproximity = self:GetClientInfo("useproximity"),
+		proximity = self:GetClientInfo("proximity"),
+		npc_team = self:GetClientInfo("npc_team"),
+	}
+
+	RepublicConquest:AddPoint(pos, data, entityToTie)
+end
+
+function TOOL:RemoveConquest(ent)
+	if CLIENT then return end
+	if not IsValid(ent) then return end
+	RepublicConquest:RemovePoint(ent)
 end
 
 if CLIENT then
-	hook.Add( "PostDrawTranslucentRenderables", "PreviewRepublicToolgunSphere", function()
-		if LocalPlayer().ShouldDisplayRepublic == true then
-			if not IsValid(LocalPlayer():GetActiveWeapon()) then return end
-			if LocalPlayer():GetActiveWeapon():GetClass() == "gmod_tool" then
+	hook.Add( "PostDrawTranslucentRenderables", "RepublicConquest_PreviewToolgunner", function()
+        if not IsValid(LocalPlayer():GetActiveWeapon()) then return end
+        if LocalPlayer():GetActiveWeapon():GetClass() != "gmod_tool" then return end
+        if LocalPlayer():GetWeapon("gmod_tool"):GetMode() == nil then return end
+        if LocalPlayer():GetWeapon("gmod_tool"):GetMode() != "republic_conquest" then return end
 
-				render.SetColorMaterial()
+        local tool = LocalPlayer():GetTool()
+        local pos = LocalPlayer():GetEyeTrace().HitPos
+		local radius = GetConVar("republic_conquest_radius"):GetInt()
+		render.SetColorMaterial()
+		render.DrawSphere( pos, radius, 30, 30, Color( 0, 175, 175, 100 ) )
 
-				local pos = LocalPlayer():GetEyeTrace().HitPos
-				
-				local radius = GetConVarNumber("republic_conquest_radius")
-				render.DrawSphere( pos, radius, 30, 30, Color( 0, 175, 175, 100 ) )
-			end
-		end
+		local proximity = GetConVar("republic_conquest_proximity"):GetInt()
+		render.DrawWireframeSphere( pos, proximity, 30, 30, Color( 0, 175, 175, 100 ) )
 	end )
 end
-
-concommand.Add("republic_conquest_deleteall", function()
-	net.Start("RepublicConquest_SyncServerRemovalAll")
-		RepublicConquest:ClearAll()
-	net.SendToServer()
-end)
