@@ -468,7 +468,6 @@ wOS.ForcePowers:RegisterNewPower({
 
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
 			self:SetForce( self:GetForce() - 75 )
-			self:SetNextAttack( 0.5 )
 			return true
 		end
 })

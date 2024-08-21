@@ -67,7 +67,7 @@ TREE.Tier[1][1] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Stasis" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Stasis" ) end,
 }
 
 TREE.Tier[1][2] = {

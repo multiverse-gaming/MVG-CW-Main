@@ -55,7 +55,7 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
-name = "Force Stasis",
+name = "Force Stasis Old",
 icon = "ST",
 description = "The truth can bind us all.",
 image = "wos/forceicons/push.png",
@@ -99,6 +99,31 @@ end,
 })
 
 wOS.ForcePowers:RegisterNewPower({
+name = "Stasis",
+icon = "S",
+description = "The truth can bind us all.",
+image = "wos/forceicons/push.png",
+cooldown = 20,
+manualaim = true,
+action = function( self )
+	if ( self:GetForce() < 20 ) then return end
+	local ent = self:SelectTargets( 1 )[ 1 ]
+	if not IsValid( ent ) then return end
+	if not ent:IsPlayer() then return end
+
+	self:SetForce( self:GetForce() - 20 )
+	GMSERV:AddStatus(ent, self:GetOwner(), "stun", 10, 5, true)
+	self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
+	local ed = EffectData()
+	ed:SetOrigin( self:GetSaberPosAng() )
+	ed:SetEntity( ent )
+	util.Effect( "wos_emerald_lightning", ed, true, true )
+
+	return true
+end,
+})
+
+wOS.ForcePowers:RegisterNewPower({
 	name = "Mundis Hardened Force Push",
 	icon = "HFP",
 	target = 1,
@@ -109,11 +134,11 @@ wOS.ForcePowers:RegisterNewPower({
 	manualaim = false,
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
-		self:SetForce( self:GetForce() - 50 )
 
 		local ent = self:SelectTargets( 1 )[ 1 ]
 		if not IsValid( ent ) then return end
 
+		self:SetForce( self:GetForce() - 50 )
 		self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
 		local dmg = DamageInfo()
 		dmg:SetAttacker( self:GetOwner() || self )
