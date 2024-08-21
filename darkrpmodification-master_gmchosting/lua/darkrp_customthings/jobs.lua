@@ -1806,13 +1806,13 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_stone.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
+    weapons = {"arccw_dc15_v2_riot", "arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
 
-    command = "stgen",
+    command = "cggen",
 
     max = 2,
 
@@ -1842,9 +1842,9 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dc15_v2_riot", "arccw_duals_dc17ext_v2_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
-    command = "stmco",
+    command = "cgmco",
 
     max = 1,
 
@@ -1874,9 +1874,9 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dc15_v2_riot", "arccw_duals_dc17ext_v2_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
-    command = "stco",
+    command = "cgco",
 
     max = 1,
 
@@ -1908,9 +1908,9 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_duals_dc17ext_v2_stun", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_dc15_v2_riot","arccw_duals_dc17ext_v2_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
-    command = "stxo",
+    command = "cgxo",
 
     max = 1,
 
@@ -1942,9 +1942,9 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "arccw_dc15a_v2_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
+    weapons = {"arccw_dc15_v2_riot","weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_duals_dc17ext_v2_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
 
-    command = "stmjr",
+    command = "cgmjr",
 
     max = 1,
 
@@ -1978,7 +1978,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     weapons = {"arccw_dp23_v2",  "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield","datapad_player"},
 
-    command = "stlt",
+    command = "cglt",
 
     max = 6,
 
@@ -2001,7 +2001,39 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunS
 })
 
 
+TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
+    color = Color(255, 77, 77, 255),
+
+    model = {"models/aussiwozzi/cgi/base/cg_hound.mdl", "models/aussiwozzi/cgi/base/CG_tracker.mdl"},
+
+    description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
+
+    weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "datapad_player"},
+
+    command = "cgrt",
+
+    max = 3,
+
+    salary = 200,
+
+    admin = 0,
+
+    vote = false,
+
+    hasLicense = false,
+
+    candemote = false,
+
+    category = "Coruscant Guard",
+
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1) end,
+
+OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (260) end,
+
+    sortOrder = 6
+
+})
 
 
 TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
@@ -2014,7 +2046,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23_v2","datapad_player"},
 
-    command = "stso",
+    command = "cgso",
 
     max = 3,
 
@@ -2050,7 +2082,7 @@ TEAM_CGMASSIF = DarkRP.createJob("Coruscant Guard Massif Hound", {
 
     weapons = {"weapon_fistsofreprisal","weapon_massiftackle"},
 
-    command = "stmh",
+    command = "cgmh",
 
     max = 1,
 
@@ -2084,7 +2116,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
 
-    command = "arcast",
+    command = "arcacg",
 
     max = 1,
 
@@ -2116,7 +2148,7 @@ TEAM_CGARC = DarkRP.createJob("Coruscant Guard ARC", {
 
     weapons = {"arccw_dc17_stun_v2", "arccw_westarm5_v2","arccw_dp23_v2", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","datapad_player"},
 
-    command = "starc",
+    command = "cgarc",
 
     max = 2,
 
@@ -2150,7 +2182,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player", "carkeys"},
 
-    command = "stmo",
+    command = "cgmo",
 
     max = 1,
 
@@ -2184,7 +2216,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "arccw_dc15a_v2_stun","stunstick", "weapon_cuff_elastic", "weapon_policeshield","weaponchecker","datapad_player"},
 
-    command = "stsgt",
+    command = "cgsgt",
 
     max = 0,
 
@@ -2218,7 +2250,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
 
-    command = "stmt",
+    command = "cgmt",
 
     max = 3,
 
@@ -2252,7 +2284,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     weapons = {"arccw_dc17_stun_v2", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield","arccw_dc15a_v2_stun","datapad_player"},
 
-    command = "sttrp",
+    command = "cgtrp",
 
     max = 0,
 
@@ -3426,7 +3458,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("Combat Engineer Razor Squadron", {
 
     command = "cetal",
 
-    max = 2,
+    max = 3,
 
     salary = 200,
 
@@ -3460,7 +3492,7 @@ TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     command = "cece",
 
-    max = 2,
+    max = 3,
 
     salary = 200,
 

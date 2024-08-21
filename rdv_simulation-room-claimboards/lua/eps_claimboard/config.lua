@@ -116,6 +116,7 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Coruscant Guard Executive Officer"] = true,
             ["Coruscant Guard Major"] = true,
             ["Coruscant Guard Lieutenant"] = true,
+            ["Coruscant Guard Riot Trooper"] = true,
             ["Coruscant Guard ARC"] = true,
             ["Coruscant Guard Alpha ARC"] = true,
             ["Coruscant Guard Defensive Unit"] = true,

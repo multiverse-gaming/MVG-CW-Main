@@ -119,6 +119,7 @@ teams = {
         "Coruscant Guard Executive Officer",
         "Coruscant Guard Major",
         "Coruscant Guard Lieutenant",
+        "Coruscant Guard Riot Trooper",
         "Coruscant Guard Security Officer",
         "Coruscant Guard Alpha ARC",
         "Coruscant Guard ARC",
