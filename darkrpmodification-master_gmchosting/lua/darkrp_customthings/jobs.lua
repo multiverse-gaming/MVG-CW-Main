@@ -2005,7 +2005,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_hound.mdl", "models/aussiwozzi/cgi/base/CG_tracker.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_stone.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot.mdl"},
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
