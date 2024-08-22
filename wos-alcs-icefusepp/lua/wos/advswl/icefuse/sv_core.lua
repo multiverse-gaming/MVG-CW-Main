@@ -12,6 +12,7 @@ hook.Add( "wOS.ALCS.GetSequenceOverride", "wOS.ALCS.ForceChokeAnim", function( p
 
 end )								
 
+--[[
 hook.Add( "Move", "wOS.ALCS.SlowingEffects", function( ply, mv )
 
 	local mod = 1
@@ -37,7 +38,7 @@ hook.Add( "Move", "wOS.ALCS.SlowingEffects", function( ply, mv )
 		mv:SetMaxClientSpeed( ply:GetWalkSpeed()*mod )
 	end
 	
-end )
+end )]]--
 
 hook.Add( "PlayerDeath", "wOS.ALCS.RemoveIceModifiers", function( ply )
 	ply.SlowTime = nil
@@ -46,6 +47,7 @@ hook.Add( "PlayerDeath", "wOS.ALCS.RemoveIceModifiers", function( ply )
 	ply:SetNW2Float( "wOS.SaberAttackDelay", 0 )
 end )
 
+--[[
 hook.Add( "ScalePlayerDamage", "wOS.ALCS.SaberBarrierBlockage", function( ent, hitgroup, dmginfo )
 	if not ent:IsPlayer() then return end
 	local wep = ent:GetActiveWeapon()
@@ -71,4 +73,4 @@ hook.Add( "ScalePlayerDamage", "wOS.ALCS.SaberBarrierBlockage", function( ent, h
 			end
 		end
 	end
-end )
+end )]]--
