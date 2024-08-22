@@ -25,7 +25,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
   "Combat Engineer Chief",
   "Combat Engineer Assistant Chief",
   "Combat Engineer Chief Technician",
-  "Combat Engineer Razor Squadron"
+  "Combat Engineer Razor Squadron",
+  "RC Fixer"
 })
 
 -- Nicolas's Rank System Support
