@@ -1806,7 +1806,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_stone.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_fox.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
