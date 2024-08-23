@@ -1530,7 +1530,7 @@ TEAM_GREENMARKSMAN = DarkRP.createJob("Green Company Marksman", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_ranger_officer.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_draa.mdl","models/aussiwozzi/cgi/base/41st_cooker.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_ranger_officer.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_draa.mdl","models/aussiwozzi/cgi/base/41st_cooker.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are a Marksman for the Green Company! Can Spawn: Barc Speeder]],
 

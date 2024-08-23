@@ -1,0 +1,21 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "zeus\41st_ranger_snow\helmet_visor"
+	"$bumpmap" "aussiwozzi\cgi\shared_base\MISC_BUMP"
+	$color2 "[1.0 1.0 1.0]"
+
+	$envmap "env_cubemap"
+	$envmaptint "[0.01 0.01 0.01]"
+	$envmapfresnel 1
+	$blendTintByBaseAlpha 1
+	$normalmapalphaenvmapmask 1
+$halflambert 1
+	$phong "1"
+    		$phongexponent "3"
+			$phongboost "1"
+			$phongfresnelranges "[0. 7.7 0.55]"
+			$phongtint "[0.4 0.4 0.4]"
+        "$lightwarptexture" 	"aussiwozzi\cgi\shared_base\lightwrap"
+	"$phongexponenttexture" "aussiwozzi\cgi\shared_base\exp"
+    $nocull 1
+}

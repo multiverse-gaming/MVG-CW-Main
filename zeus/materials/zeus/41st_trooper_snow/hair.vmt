@@ -1,0 +1,10 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "aussiwozzi\cgi\shared_base\hair"
+	$color2 "[1.0 1.0 1.0]"
+
+	$halflambert 1
+	$phong 1
+	$phongfresnelranges "[1 0.8 0]"
+	$phongboost	"0"
+}

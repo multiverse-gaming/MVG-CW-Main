@@ -1,0 +1,10 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "herm\cgi_new\21st\shared\antenna"
+	"$bumpmap" "herm\cgi_new\21st\shared\antenna_n"
+
+	$halflambert 1
+	$phong 1
+	$phongfresnelranges "[1 0.8 0]"
+	$phongboost	"0"
+}
