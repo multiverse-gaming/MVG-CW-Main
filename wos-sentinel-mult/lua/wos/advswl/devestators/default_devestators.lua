@@ -5,77 +5,6 @@
 	Contact: www.wiltostech.com
 		----------------------------------------]]--
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 wOS = wOS or {}
 
 wOS.Devestators:RegisterNewPower({
@@ -86,7 +15,25 @@ wOS.Devestators:RegisterNewPower({
 		action = function( self )
 			if self.UltimateCooldown and self.UltimateCooldown >= CurTime() then return end
 			self:SetForce( 0 )
-			self:SetNextAttack( 10 )
+			self:SetNextAttack( 5 )
+			self.Owner:SetVelocity( Vector( 0, 0, 300 ) )
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			self.Owner:SetSequenceOverride( "ryoku_a_s1_charge", 0 )
+			self:SetAttackDelay( CurTime() + 5 )
+			self.Owner:SetNW2Float( "wOS.DevestatorTime", CurTime() + 5 )
+			self.Owner.KyberSlam = true
+		end
+})
+
+wOS.Devestators:RegisterNewPower({
+		name = "Weakened Kyber Slam",
+		icon = "WKS",
+		description = "Loosen your crystal's chains",
+		image = "wos/devestators/slam.png",
+		action = function( self )
+			if self.UltimateCooldown and self.UltimateCooldown >= CurTime() then return end
+			self:SetForce( 0 )
+			self:SetNextAttack( 5 )
 			self.Owner:SetVelocity( Vector( 0, 0, 300 ) )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 			self.Owner:SetSequenceOverride( "ryoku_a_s1_charge", 0 )

@@ -34,3 +34,5 @@ xLogs.Config.RelayURL = "https://www.thexnator.dev/gms/discordrelay.php"
 xLogs.Config.RelayKey = "KSwWrN6bApvKfJx7"
 -- Webhook for Discord channel to relay logs to
 xLogs.Config.DiscordWebhook = "https://discord.com/api/webhooks/1192126250010038302/KqsSgd0dYA8fptfME7OFSEkznom7lnt_7ho3uXmpvoG1ZmVScfvXs3baQcMVx3miX8lB"
+-- Webhook for Jedi Discord channel to relay logs to
+xLogs.Config.JediDiscordWebhook = "https://discordapp.com/api/webhooks/1228397978952405052/hodw1bhuwkoALxj6HId5hI-Qe3SWl0YhhY36TFYQYWf9JPdi6bQwPoruJCu-R6iZp6Qr"

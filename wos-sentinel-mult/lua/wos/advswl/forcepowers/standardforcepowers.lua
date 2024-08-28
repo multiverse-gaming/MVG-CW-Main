@@ -37,7 +37,7 @@ wOS.ForcePowers:RegisterNewPower({
 					dmg:SetDamageType( DMG_DISSOLVE )
 					dmg:SetDamage( 75 )
 					ent:TakeDamageInfo( dmg )
-					self.ForceHardenedPushCD = CurTime() + 10
+					self.ForceHardenedPushCD = CurTime() + 8
 				end
 
 				return true

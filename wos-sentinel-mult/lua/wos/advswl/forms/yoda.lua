@@ -52,9 +52,9 @@ FORM.Stances[1] = {
 		Rate = 1.5,
 	},
 	[ "air_forward" ] = {
-		Sequence = "judge_a_s1_t2",
-		Time = 0.4,
-		Rate = 2.0,
+		Sequence = "h_c3_t3",
+		Time = 2,
+		Rate = 1.1	,
 	},
 	[ "heavy" ] = {
 		Sequence = "pure_h_s1_t3",

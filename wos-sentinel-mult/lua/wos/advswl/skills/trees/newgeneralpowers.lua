@@ -62,6 +62,19 @@ local ForceHpSpeedStamina = {20, 50, 10, 12}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
+	Name = "Weakened Kyber Slam",
+	Description = "Only for High Gens+. Only use once per day.",
+	Icon = "wos/devestators/slam.png",
+	PointsRequired = 4,
+	Requirements = {
+	    [1] = { 2 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep:AddDevestator( "Weakened Kyber Slam" ) end,
+}
+
+TREE.Tier[1][2] = {
 	Name = "Force Channel",
 	Description = "Learn to control the things around you as you master the art of combat meditiating, focusing your power against hatred",
 	Icon = "wos/forceicons/channel_hatred.png",
@@ -72,13 +85,13 @@ TREE.Tier[1][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Channel" ) end,
 }
 
-TREE.Tier[1][2] = {
+TREE.Tier[1][3] = {
 	Name = "Kyber Slam",
-	Description = "Unleash the true power of your crystal.",
+	Description = "Only for Master+. Only use once per day.",
 	Icon = "wos/devestators/slam.png",
 	PointsRequired = 6,
 	Requirements = {
-	    [1] = { 1 },
+	    [1] = { 2 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,

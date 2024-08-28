@@ -349,7 +349,7 @@ end)
 
 
 hook.Add("EntityTakeDamage", "ce_bc2_1_UncloakOnDamage", function(ent, dmginfo)
-	if IsValid(ent) and ent:IsPlayer() and ent.CloakActive then
+	if IsValid(ent) and ent:IsPlayer() and ent.CloakActive and dmginfo:GetDamage() > 0 then
 		if cloakconfig.CloakDamageMode == 1 then
 			Uncloak(ent, true, "Damage")
 		elseif cloakconfig.CloakDamageMode == 2 then

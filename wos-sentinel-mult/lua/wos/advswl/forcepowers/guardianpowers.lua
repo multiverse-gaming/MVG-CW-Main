@@ -315,7 +315,7 @@ wOS.ForcePowers:RegisterNewPower({
 	distance = 150,
 	description = "Hurt your opponent for 75",
 	image = "wos/forceicons/pull.png",
-	cooldown = 10,
+	cooldown = 8,
 	manualaim = false,
 	action = function( self )
 		if ( self:GetForce() < 50 ) then return end
@@ -335,7 +335,7 @@ wOS.ForcePowers:RegisterNewPower({
 		newpos = newpos / newpos:Length()
 		ent:SetVelocity( newpos*-700 + Vector( 0, 0, 300 ) )
 		self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
-		self.ForceHardenedPushCD = CurTime() + 10
+		self.ForceHardenedPushCD = CurTime() + 8
 		return true
 	end
 })
