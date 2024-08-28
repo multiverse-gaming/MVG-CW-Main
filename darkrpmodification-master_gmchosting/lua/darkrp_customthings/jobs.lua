@@ -799,7 +799,7 @@ TEAM_212THGENERAL = DarkRP.createJob("212th General", {
 
     description = [[Congratulations, you are the Deployed General of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade", "weapon_remotedrone", "datapad_player", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "realistic_hook", "arccw_thermal_grenade", "weapon_remotedrone", "datapad_player", "carkeys"},
 
     command = "212thgen",
 
@@ -833,7 +833,7 @@ TEAM_212THMCOMMANDER = DarkRP.createJob("212th Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmco",
 
@@ -865,7 +865,7 @@ TEAM_212THCOMMANDER = DarkRP.createJob("212th Commander", {
 
     description = [[Congratulations, you are the Commander of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thco",
 
@@ -899,7 +899,7 @@ TEAM_212THEXECUTIVEOFFICER = DarkRP.createJob("212th Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the 212th Attack Battalion]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thxo",
 
@@ -933,7 +933,7 @@ TEAM_212THMAJOR = DarkRP.createJob("212th Major", {
 
     description = [[Congratulations, you are the Major of the 212th Attack Battalion]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_duals_dc17ext_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmjr",
 
@@ -967,7 +967,7 @@ TEAM_212THLIEUTENANT = DarkRP.createJob("212th Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thlt",
 
@@ -1001,7 +1001,7 @@ TEAM_212THHEAVYTROOPER = DarkRP.createJob("212th Ghost Company", {
 
     description = [[Congratulations, you are a part of the Ghost Company in the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2", "arccw_sw_rocket_rps6", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thht",
 
@@ -1100,7 +1100,7 @@ TEAM_212THMEDOFFICER = DarkRP.createJob("212th Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "arccw_thermal_grenade", "realistic_hook", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2", "lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "arccw_thermal_grenade", "realistic_hook", "carkeys"},
 
     command = "212thmo",
 
@@ -1134,7 +1134,7 @@ TEAM_212THSERGEANT = DarkRP.createJob("212th Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thsgt",
 
@@ -1168,7 +1168,7 @@ TEAM_212THMEDTROOPER = DarkRP.createJob("212th Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2","lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2","lord_chrome_medkit", "arccw_ammo_crate", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
 
     command = "212thmt",
 
@@ -1202,7 +1202,7 @@ TEAM_212THTROOPER = DarkRP.createJob("212th Trooper", {
 
     description = [[Congratulations, you are a member of the 212th Attack Battalion!]],
 
-    weapons = {"masita_sops_emp_dlt19d", "arccw_dc17_v2"},
+    weapons = {"zeus_dlt19", "arccw_dc17_v2"},
 
     command = "212thtrp",
 
