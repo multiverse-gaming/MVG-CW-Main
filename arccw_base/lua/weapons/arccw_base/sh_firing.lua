@@ -764,13 +764,13 @@ function SWEP:DoRecoil()
     local irec = math.Rand(-1, 1)
     local recu = 1
 
-  --[[]  if self:InBipod() then
+    if self:InBipod() then
         local b = self.BipodRecoil * self:GetBuff_Mult("Mult_BipodRecoil")
 
         rmul = rmul * b
         recs = recs * b
         recv = recv * b
-    end --]]
+    end
 
     local recoiltbl = self:GetBuff_Override("Override_ShotRecoilTable") or self.ShotRecoilTable
 
