@@ -53,6 +53,9 @@ teams = {
         "Fleet Recruit",
         "Fleet StarFighter Officer",
         "Fleet Maverick",
+        "Fleet Medical Officer",
+        "Fleet Engineering Officer",
+        "Fleet Security Officer",
     },
 }
 
