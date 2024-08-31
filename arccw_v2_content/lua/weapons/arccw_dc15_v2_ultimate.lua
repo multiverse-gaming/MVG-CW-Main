@@ -58,9 +58,9 @@ SWEP.RecoilRise = 0.22
 SWEP.Delay = 60 / 450
 SWEP.Num = 1
 SWEP.Firemodes = {
-	{
-		Mode = 2
-	},
+    {
+        Mode = 2
+    },
 	{
 		Mode = 1
 	},
@@ -140,8 +140,8 @@ SWEP.Attachments = {
     [1] = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "optic",
-        --WMScale = Vector(111, 111, 111),
+        Slot = {"optic","extraoptic","thermaloptic"},
+        -- WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
             vpos = Vector(-0.03, -0.87, 8.0),
@@ -149,6 +149,7 @@ SWEP.Attachments = {
             wpos = Vector(17, 1, -8.5),
             wang = Angle(-16, 0, 180)
         },
+        --CorrectiveAng = Angle(-2.2, -0, 0)
     },
     [2] = {
         PrintName = "Internal Modifications", -- print name

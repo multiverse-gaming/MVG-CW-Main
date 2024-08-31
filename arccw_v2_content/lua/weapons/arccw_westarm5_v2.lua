@@ -97,7 +97,7 @@ SWEP.ProceduralViewBobAttachment = 1 -- attachment on which coolview is affected
 SWEP.MuzzleFlashColor = Color(0, 0, 250)
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-2.934, -8, 1.6),
+    Pos = Vector(-2.85, -8, 0.8),
     Ang = Angle(0, 0, 0),
      Magnification = 1,
      SwitchToSound = "zoom_in/gunfoley_zoomin_blasterrifle_08.mp3",
@@ -125,7 +125,7 @@ SWEP.Attachments = {
     [1] = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "optic",
+        Slot = {"optic","extraoptic"},
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
             vpos = Vector(-0.07, -1.7, 1),

@@ -11,7 +11,7 @@ att.Desc_Pros = {
 att.Desc_Cons = {
 }
 att.AutoStats = true
-att.Slot = "rifleoptic"
+att.Slot = "optic"
 
 att.Model = "models/atts/scope.mdl"
 att.ModelOffset = Vector(0, 0, -0)
