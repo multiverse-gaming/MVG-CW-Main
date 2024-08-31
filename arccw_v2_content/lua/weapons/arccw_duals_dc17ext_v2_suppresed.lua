@@ -180,7 +180,7 @@ SWEP.Animations = {
         Source = "neutral",
     },
     ["draw"] = {
-        Source = "idle",
+        Source = "deploy",
         SoundTable = {
             {
                 s = "draw/gunfoley_pistol_draw_var_06.mp3", -- sound; can be string or table
