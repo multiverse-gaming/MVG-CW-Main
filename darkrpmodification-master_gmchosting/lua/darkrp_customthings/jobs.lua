@@ -278,7 +278,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/zeus/22nd_dempsey_rh.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
