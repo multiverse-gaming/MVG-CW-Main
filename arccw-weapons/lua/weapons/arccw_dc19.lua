@@ -154,10 +154,10 @@ SWEP.AttachmentElements = {
 WMOverride = "models/arccw/player/applesauce/228th/DC15S_carbine.mdl"
 --SWEP.Attachments 
 SWEP.Attachments = {
---[[    [1] = {
+    [1] = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "optic",
+        Slot = "extraoptic",
         WMScale = Vector(111, 111, 111),
         Bone = "e11_sight", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
@@ -166,7 +166,7 @@ SWEP.Attachments = {
             wpos = Vector(450, 0, -400),
             wang = Angle(-15, 0, 180)
         },
-    },--]]
+    },
 --[[    [2] = {
         PrintName = "Tactical", -- print name
         DefaultAttName = "No Attachment", -- used to display the "no attachment" text
@@ -198,7 +198,7 @@ SWEP.Attachments = {
         wmax = Vector(1600, 00, -480) -- how far this attachment can slide in both directions.
         },        
     },     --]]     
-    [1] = {
+    [2] = {
         PrintName = "Muzzle", -- print name
         DefaultAttName = "No Attachment", -- used to display the "no attachment" text
         Slot = "Silencer",
@@ -224,7 +224,7 @@ SWEP.Attachments = {
             wang = Angle(-15, 90, -90)
         },
     },        --]]
-    [2] = {
+    [3] = {
         PrintName = "Energization", -- print name
         DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
         Slot = "SDWAmmo",

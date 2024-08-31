@@ -122,6 +122,23 @@ SWEP.CustomizeAng = Angle(12.149, 50.547, 45)
 
 SWEP.DefaultElements = {"", ""}
 
+--SWEP.Attachments 
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Optic", -- print name
+        DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
+        Slot = {"rifleoptic","extraoptic"},
+        --WMScale = Vector(111, 111, 111),
+        Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
+        Offset = {
+            vpos = Vector(-0.03, -0.6, 15),
+            vang = Angle(90, 1, -90),
+            wpos = Vector(20, 0.69, -10.85),
+            wang = Angle(-22, 2, 180)
+        },
+    },
+}
+
 SWEP.Animations = {
     ["idle"] = {
         Source = "idle"
