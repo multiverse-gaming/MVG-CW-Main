@@ -196,7 +196,7 @@ end)
 util.AddNetworkString("ViewClaims")
 
 net.Receive("ViewClaims",function(len,ply)
-	if ply:GetUserGroup() == "activedeveloper" or ply:GetUserGroup() == "headadmin" or ply:GetUserGroup() == "superadmin" then 
+	if ply:GetUserGroup() == "headadmin" or ply:GetUserGroup() == "superadmin" then 
 
 		local sid = net.ReadString()
 		net.Start("ViewClaims")

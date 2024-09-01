@@ -309,6 +309,7 @@ EPS_ClaimBoard_Config.Battalions = {
     },
     ["Fleet Officers"] = { -- Otherwise if you want certain teams to have certain battalions put the jobs name here.
         Jobs = {
+            ["RSB Member"] = true,
             ["Grand Admiral"] = true,
             ["Fleet Admiral"] = true,
             ["Fleet Seniority"] = true,
