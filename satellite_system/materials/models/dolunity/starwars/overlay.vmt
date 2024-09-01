@@ -1,0 +1,15 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/dolunity/starwars/overlay"
+	"$surfaceprop"  "metal"
+
+	 "Proxies"
+	{
+  		"AnimatedTexture"
+  		{
+   			"animatedTextureVar" "$basetexture"
+   			"animatedTextureFrameNumVar" "$frame"
+			"animatedTextureFrameRate" "10"
+  		}
+ 	}
+}

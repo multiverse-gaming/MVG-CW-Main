@@ -5534,7 +5534,7 @@ TEAM_FLEETRECRUIT = DarkRP.createJob("Fleet Recruit", {
 
     description = [[Congratulations, You are now a Fleet Recruit!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys", "kaito_satellite_tablet_noartillery"},
 
     command = "fleetrec",
 
@@ -5569,7 +5569,7 @@ TEAM_FLEETMEMBER = DarkRP.createJob("Fleet Officer", {
 
     description = [[Congratulations You Are Now A Officer Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys", "kaito_satellite_tablet_noartillery"},
 
     command = "fleetofficer",
 
@@ -5602,7 +5602,7 @@ TEAM_FLEETLIEUTENANT = DarkRP.createJob("Fleet Lieutenant", {
 
     description = [[Congratulations You Are Now A Lieutenant Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_defender_sporting", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
 
     command = "fleetlt",
 
@@ -5635,7 +5635,7 @@ TEAM_FLEETMEMBERSNR = DarkRP.createJob("Fleet Seniority", {
 
     description = [[Congratulations You Are Now A Member Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
 
     command = "fleetsnr",
 
@@ -5670,7 +5670,7 @@ TEAM_FLEETADMIRAL = DarkRP.createJob("Fleet Admiral", {
 
     description = [[Congratulations You Are Now A Member Of The Navy!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
 
     command = "fleetadmiral",
 
@@ -5704,7 +5704,7 @@ TEAM_GRANDADMIRAL = DarkRP.createJob("Grand Admiral", {
 
     description = [[Congratulations You Are The Grand Admiral!]],
 
-    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "arccw_ga_pistol", "carkeys"},
+    weapons = {"datapad_player", "weapon_remotedrone", "arccw_dual_defender_sporting", "arccw_ib94", "voice_amplifier", "arccw_ga_pistol", "carkeys", "kaito_satellite_tablet"},
 
     command = "grandadmiral",
 
@@ -5736,7 +5736,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     description = [[Congratulations, you are a member of the RSB!]],
 
-    weapons = {"datapad_player", "lord_chrome_medkit", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic", "carkeys"},
+    weapons = {"datapad_player", "lord_chrome_medkit", "weapon_remotedrone", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic", "carkeys", "kaito_satellite_tablet"},
 
     command = "rsb",
 
@@ -5765,7 +5765,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
-    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic", "voice_amplifier", "carkeys"},
+    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
     max = 4,
     salary = 200,
@@ -5782,7 +5782,7 @@ TEAM_FLEET_RDM = DarkRP.createJob("Fleet Medical Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/aussiwozzi/cgi/base/917th_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
     description = [[Congratulations You are now a Fleet Medical Officer!]],
-    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone"},
+    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone", "kaito_satellite_tablet"},
     command = "fleetmo",
     max = 4,
     salary = 200,
@@ -5799,7 +5799,7 @@ TEAM_FLEET_RDE = DarkRP.createJob("Fleet Engineering Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/navy_03.mdl","models/jajoff/sps/republic/tc13j/navy_04.mdl","models/jajoff/sps/republic/tc13j/navy04_female.mdl","models/jajoff/sps/republic/tc13j/navy03_female.mdl","models/jajoff/sps/republic/tc13j/navy_01.mdl","models/jajoff/sps/republic/tc13j/navy01_female.mdl","models/jajoff/sps/republic/tc13j/navy_02.mdl","models/jajoff/sps/republic/tc13j/navy02_female.mdl","models/jajoff/sps/republic/tc13j/engineer.mdl","models/aussiwozzi/cgi/base/eod_trooper.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
     description = [[Congratulations You are now a Fleet Engineering Officer!]],
-    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_dronerepair", "weapon_physcannon", "voice_amplifier", "alydus_fusioncutter", "weapon_remotedrone"},
+    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_dronerepair", "weapon_physcannon", "voice_amplifier", "alydus_fusioncutter", "weapon_remotedrone", "kaito_satellite_tablet"},
     command = "fleeteo",
     max = 4,
     salary = 200,

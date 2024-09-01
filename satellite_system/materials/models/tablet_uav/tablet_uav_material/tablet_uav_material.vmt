@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models\tablet_uav\tablet_uav_material\tablet_uav_material_base"
+	"$bumpmap" "models\tablet_uav\tablet_uav_material\tablet_uav_material_normal"
+	"$surfaceprop" "Metal"	
+
+	$phong 1
+	$phongexponenttexture	"models\tablet_uav\tablet_uav_material\tablet_uav_material_exponent"
+	$phongboost				0.5
+	$phongfresnelranges			"[.1.4.7]"
+}

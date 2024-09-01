@@ -1,0 +1,14 @@
+"VertexlitGeneric"
+{
+	"$phong"	1
+	"$basetexture" "models/dolunity/starwars/baseplate_dark_color"
+	"$bumpmap" "models/dolunity/starwars/baseplate_dark_normal"
+	"$phongexponenttexture" "models/dolunity/starwars/baseplate_dark_metallic"
+	"$nodecal" 1
+
+	"$phongboost"	6
+	"$phongfresnelranges"	"[0.01 0.01 0.01]"
+	"$rimlight"               1
+	"$rimlightexponent"       2
+	"$rimlightboost"          .2
+}

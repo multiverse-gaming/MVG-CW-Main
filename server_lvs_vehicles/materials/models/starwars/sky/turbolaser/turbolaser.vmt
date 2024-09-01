@@ -1,0 +1,15 @@
+"VertexlitGeneric"
+{
+	$basetexture "models\starwars\sky\turbolaser/turbolaser_cs"
+	$bumpmap "models\starwars\sky\turbolaser/turbolaser_nm"
+	
+	$phong 1
+  	$phongfresnelranges "[0.25 0.5 1]"
+	$phongboost 2
+
+	$rimlight 1
+	$rimlightexponent       2
+	$rimlightboost          .2
+	$rimmask 0	
+
+}

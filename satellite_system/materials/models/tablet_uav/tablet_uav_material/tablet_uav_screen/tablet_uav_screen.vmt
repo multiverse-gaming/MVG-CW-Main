@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models\tablet_uav\tablet_uav_material\tablet_uav_screen\tablet_uav_screen_base"
+	"$surfaceprop" "Glass"	
+
+	$phong 1
+	$phongboost				0.5
+	$phongfresnelranges			"[.1.4.7]"
+}

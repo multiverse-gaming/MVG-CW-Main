@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/dolunity/starwars/shell"
+	"$translucent" 1
+}
