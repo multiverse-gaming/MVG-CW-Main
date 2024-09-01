@@ -22,8 +22,8 @@ SWEP.WorldModel = "models/meeks/dc15a_rifle_meeks.mdl"
 SWEP.ViewModelFOV = 65
 SWEP.HideViewmodel = false
 SWEP.WorldModelOffset = {
-    pos = Vector(10, 0, -4),
-    ang = Angle(165, 0, 0),
+    pos = Vector(-8, 5, -1.5),
+    ang = Angle(158, 177, 0),
     bone = "ValveBiped.Bip01_R_Hand",
 }
 
