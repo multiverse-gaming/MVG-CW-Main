@@ -4,7 +4,7 @@ ENT.Base = "lvs_base_fakehover"
 ENT.PrintName = "Turbolaser"
 ENT.Author = "Dec"
 ENT.Information = "Big Turbolasers make things go boom"
-ENT.Category = "[LVS] SW-Vehicles"
+ENT.Category = "[LVS] - Turrets"
 
 ENT.Spawnable		= true
 ENT.AdminSpawnable	= false
