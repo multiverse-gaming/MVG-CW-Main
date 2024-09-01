@@ -18,7 +18,7 @@ SWEP.Slot = 3
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/meeks/dc15a_rifle_meeks.mdl"
-SWEP.WorldModel = "models/meeks/dc15a_rifle_meeks.mdl"
+SWEP.WorldModel = "models/meeks/worldmodels/w_dc15a_rifle.mdl"
 SWEP.ViewModelFOV = 65
 SWEP.HideViewmodel = false
 SWEP.WorldModelOffset = {
