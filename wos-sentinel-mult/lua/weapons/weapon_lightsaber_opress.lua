@@ -64,7 +64,7 @@ SWEP.ForcePowerList = { "Sith Leap", "Force Choke", "Saber Throw", "Advanced For
 --For a list of options, just look at the keys in autorun/client/wos_forcematerialbuilding.lua
 
 --Use these options to overwrite the player's commands
-SWEP.UseHilt = "models/wos/lct/weapons/lightsabers/doublevengence.mdl" -- Model path of the hilt
+SWEP.UseHilt = "models/weapons/starwars/w_maul_saber_staff_hilt.mdl" -- Model path of the hilt
 SWEP.UseLength = false -- Length of the saber 
 SWEP.UseWidth = false -- Width of the saber
 SWEP.UseColor = Color( 255, 0, 0 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
