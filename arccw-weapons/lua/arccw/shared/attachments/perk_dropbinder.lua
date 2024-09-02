@@ -6,7 +6,7 @@ att.Desc_Pros = {
 att.Desc_Cons = {
 }
 att.AutoStats = true
-att.Slot = "WPShot"
+att.Slot = "DisruptShot"
 
 att.NotForNPC = true
 
