@@ -546,6 +546,18 @@ net.Receive( "Cuffs_UntiePlayers", function(_,ply)
 
 end)
 
+hook.Add("Cuffs_InstantUntieAllVictims", "HookToUntineVictimsFromShotGuy", function(ply)
+	if (not IsValid(ply)) or ply:IsHandcuffed() then return end
+	-- Get everyone in a circle that's tied up.
+    for k, v in pairs ( ents.FindInSphere( ply:GetPos(), 500 ) ) do
+	    if v:IsValid() && v:IsPlayer() && v:IsHandcuffed() && v:GetActiveWeapon():GetKidnapper() == ply then
+			-- If the kidnapper is the player, un-link them.
+			v:GetActiveWeapon():SetKidnapper(nil)
+			hook.Call( "OnHandcuffStopDragging", GAMEMODE, ply, v, v:GetActiveWeapon() )
+		end
+	end
+end)
+
 hook.Add( "AllowPlayerPickup", "Cuffs UntieHook", function(ply,ent)
 
 	if IsValid(ent) and ent.IsHandcuffHook and ent.TiedHandcuffs then
