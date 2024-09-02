@@ -26,7 +26,7 @@ end
 function ENT:Use(P)
     local FOUND = false
 
-    NCS_DEFCON.IsAdmin(P, function(checkPassed)
+    NCS_DEFCON.IsStaff(P, function(checkPassed)
         if !checkPassed then
             for k, v in pairs(NCS_DEFCON.CONFIG.defconList) do
                 if v.teams and v.teams[team.GetName(P:Team())] or v.allteams then

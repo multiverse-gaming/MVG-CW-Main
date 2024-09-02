@@ -157,11 +157,12 @@ local function AddDefcon(UID, OF, COPY)
     end
 
     d_TEAMS.OnRowSelected = function(s, ind, row)
-            
+
         DATA.teams[row.teamName] = true
     end
     
     d_TEAMS.OnRowRightClick = function(s, ind, row)
+        
         DATA.teams[row.teamName] = nil
     end
 

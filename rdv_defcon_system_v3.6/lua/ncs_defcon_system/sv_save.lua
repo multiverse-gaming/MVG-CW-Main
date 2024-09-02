@@ -106,7 +106,7 @@ hook.Add("PlayerSay", "NCS_DEFCON_ConfigCommand", function(P, TEXT)
 
         return ""
     elseif string.lower(TEXT) == NCS_DEFCON.CONFIG.m_command then
-        NCS_DEFCON.IsAdmin(P, function(checkPassed)
+        NCS_DEFCON.IsStaff(P, function(checkPassed)
             if !checkPassed then
                 local FOUND = false
 

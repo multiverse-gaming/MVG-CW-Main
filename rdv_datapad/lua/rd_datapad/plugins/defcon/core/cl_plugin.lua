@@ -15,7 +15,7 @@ hook.Add("NCS_DEF_AddonLoaded", "RDV_DATAPAD_DefLoadedCL", function()
         end
         local w, h = PAGE:GetSize()
 
-        NCS_DEFCON.IsAdmin(LocalPlayer(), function(checkPassed)
+        NCS_DEFCON.IsStaff(LocalPlayer(), function(checkPassed)
             local SCROLL = vgui.Create("RDV_DAP_SCROLL", PAGE)
             SCROLL:Dock(FILL)
             SCROLL:DockMargin(0, h * 0.02, w * 0.02, h * 0.02)

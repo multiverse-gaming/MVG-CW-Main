@@ -4,7 +4,7 @@ ENT.Base = "lvs_base_starfighter"
 ENT.PrintName = "Y-Wing"
 ENT.Author = "KurtJQ"
 ENT.Information = "BTL-B Y-Wing Starfighter of the Republic"
-ENT.Category = "[LVS] - Star Wars"
+ENT.Category = "[LVS] - Republic Vehicles"
 
 ENT.Spawnable = true
 ENT.AdminSpawnable = false
@@ -220,7 +220,7 @@ function ENT:InitWeapons()
 
 		local bomb = ents.Create( "lvs_protonbomb" )
 		bomb:SetPos( ent:LocalToWorld( Vector( -135, 0, -10) ) )
-		bomb:SetAngles( ent:GetAngles() )
+		bomb:SetAngles( Angle(90, by, bz) )
 		bomb:SetParent( ent )
 		bomb:Spawn()
 		bomb:Activate()

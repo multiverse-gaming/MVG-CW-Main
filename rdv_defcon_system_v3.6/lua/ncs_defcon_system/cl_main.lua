@@ -167,7 +167,7 @@ net.Receive("RD_DEFCON_MENU", function()
         draw.SimpleText(NCS_DEFCON.GetLang(nil, "DEF_noDefcons"), "NCS_DEF_FRAME_TITLE", w * 0.5, h * 0.4, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 
-    NCS_DEFCON.IsAdmin(LocalPlayer(), function(checkPassed)
+    NCS_DEFCON.IsStaff(LocalPlayer(), function(checkPassed)
         for k, v in pairs(NCS_DEFCON.CONFIG.defconList) do
             if checkPassed or ( v.teams and v.teams[team.GetName(LocalPlayer():Team())] ) or v.allteams then
                 d_Count = d_Count + 1

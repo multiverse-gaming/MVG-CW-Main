@@ -4,6 +4,20 @@ end
 
 function NCS_DEFCON.IsAdmin(P, CB)
     if NCS_DEFCON.CONFIG.camienabled then
+        CAMI.PlayerHasAccess(P, "[NCS] Defcon Admin", function(ACCESS)
+            CB(ACCESS)
+        end )
+    else
+        if NCS_DEFCON.CONFIG.admins[P:GetUserGroup()] then
+            CB(true)
+        else
+            CB(false)
+        end
+    end
+end
+
+function NCS_DEFCON.IsStaff(P, CB)
+    if NCS_DEFCON.CONFIG.camienabled then
         CAMI.PlayerHasAccess(P, "[NCS] Defcon", function(ACCESS)
             CB(ACCESS)
         end )

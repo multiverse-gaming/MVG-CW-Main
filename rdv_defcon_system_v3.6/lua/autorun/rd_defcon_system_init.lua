@@ -44,6 +44,10 @@ timer.Simple(0, function()
 
     if CAMI then
         CAMI.RegisterPrivilege({
+            Name = "[NCS] Defcon Admin",
+            MinAccess = "superadmin"
+        })
+        CAMI.RegisterPrivilege({
             Name = "[NCS] Defcon",
             MinAccess = "superadmin"
         })

@@ -29,7 +29,7 @@ net.Receive("NCS_DEFCON_CHANGE", function(len, ply)
 		return
 	end
 
-	NCS_DEFCON.IsAdmin(ply, function(checkPassed)
+	NCS_DEFCON.IsStaff(ply, function(checkPassed)
 		local TEAMS = CFG[defcon].teams
 
 		if checkPassed or CFG[defcon].allteams or ( CFG[defcon].teams and TEAMS[team.GetName(ply:Team())] ) then
