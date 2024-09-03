@@ -575,6 +575,16 @@ DarkRP.createEntity("Guardian Prep", {
     category = "Entities",
 })
 
+DarkRP.createEntity("Temple Guard Prep", {
+    ent = "templeguardspec",
+    model = "models/lt_c/sci_fi/light_spotlight.mdl",
+    price = 0,
+    max = 1,
+    cmd = "templeguardspec",
+    allowed = {TEAM_JEDIGRANDMASTER, TEAM_GCGRANDMASTER, TEAM_JEDIGENERALSKYWALKER, TEAM_501STGENERALSKYWALKER, TEAM_JEDIGENERALOBI, TEAM_212THGENERALOBI, TEAM_JEDIGENERALWINDU, TEAM_JEDIGENERALTANO, TEAM_501STGENERALTANO, TEAM_JEDIGENERALPLO, TEAM_WPGENERALPLO, TEAM_JEDIGENERALKIT, TEAM_RCGENERALKIT, TEAM_JEDIGENERALAAYLA, TEAM_327THGENERALAAYLA, TEAM_JEDIGENERALSHAAK, TEAM_CGGENERALSHAAK, TEAM_JEDIGENERALADI, TEAM_GMGENERALADI, TEAM_JEDIGENERALVOS, TEAM_SHADOWGENERALVOS, TEAM_JEDIGENERALLUMINARA, TEAM_GCGENERALLUMINARA},
+    category = "Entities",
+})
+
 DarkRP.createEntity("Soulless One Escape Ship", {
     ent = "lvs_starfighter_soulless",
     model = "models/soulless/soulless1.mdl",
