@@ -158,7 +158,7 @@ function PANEL:Paint( w, h )
 
 	--Draw the corners.
 	surface.SetDrawColor(White_Corners)
-	EdgeHUD.DrawEdges(0,0,w,h, 8)
+	EdgeHUD.DrawEdges(0,0,w,h,8,2)
 
 end
 
@@ -195,7 +195,7 @@ hook.Add("EdgeHUD:AddonReload","EdgeHUD:Unload_WidgetBox",function(  )
 end)
 
 --Create a function used to draw the edges. Says it's a duplicate function, but isn't found sometimes.
-function EdgeHUD.DrawEdges( x, y, width, height, edgeSize )
+function EdgeHUD.DrawEdges( x, y, width, height, edgeSize, edgeWidth)
 
 	--Draw the upper left corner.
 	surface.DrawRect(x,y,edgeSize,edgeWidth)
