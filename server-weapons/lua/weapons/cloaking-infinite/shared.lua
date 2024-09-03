@@ -117,15 +117,19 @@ local function Cloak(ply)
 	end
 
 	if SERVER then
-		//if approachAlpha < cloakconfig.MinimumNPCVisibility then
+		--if approachAlpha < cloakconfig.MinimumNPCVisibility then
 		ply:SetNoTarget(true)
-		//else
-			//ply:SetNoTarget(false)
-		//end
+		--else
+			--ply:SetNoTarget(false)
+		--end
 	end
 end
 
-
+local enemyTeamsWithThisSwep = {
+	[TEAM_RECONBATTLEDROID] = true,
+	[TEAM_SNIPERDROID] = true,
+	[TEAM_BXRECONDROID] = true
+}
 
 local function Uncloak(ply, forced, debug, holdcharge)
 	--print(debug)
@@ -145,7 +149,11 @@ local function Uncloak(ply, forced, debug, holdcharge)
     ply:SetMaterial("")
 
     if SERVER then
-    	ply:SetNoTarget(false)
+		-- Only no-target people who aren't event enemies.
+
+		if (!enemyTeamsWithThisSwep[ply:Team()]) then
+			ply:SetNoTarget(false)
+		end
     end
 
     if not holdcharge then
@@ -262,20 +270,6 @@ hook.Add("PlayerPostThink", "ce_bc2_0_ThinkHook", function(ply)
 		ply.LastCharge = CurTime()
 	end
 
-	if SERVER and ply:HasWeapon("cloaking-0") then
-		if cloakconfig.CloakMode == "Charge" and cloakconfig.MaxCharge0 != 0 then
-			if ply.LastCharge + (1 * cloakconfig.ChargeLossMultiplier) <= CurTime() and ply:GetNWFloat("CloakCharge") > 0 and ply.CloakActive then 	-- Depletes Charge
-				ply:SetNWFloat("CloakCharge", ply:GetNWFloat("CloakCharge") - 1)
-				ply.LastCharge = CurTime()
-			elseif ply.LastCharge + (1 * cloakconfig.ChargeGainMultiplier) <= CurTime() and ply:GetNWFloat("CloakCharge") < cloakconfig.MaxCharge0 and !ply.CloakActive and !ply.CloakPause then 	-- Adds Charge
-				ply:SetNWFloat("CloakCharge", ply:GetNWFloat("CloakCharge") + 1)
-				ply.LastCharge = CurTime()
-			elseif ply.CloakActive and ply:GetNWFloat("CloakCharge") == 0 then	-- Uncloaks when out of charge
-				Uncloak(ply, true, "Charge", true)
-			end
-		end
-	end
-
 	-- Its like charge, without the recharge
 	if ply:HasWeapon("cloaking-infinite") then
 		if cloakconfig.CloakMode == "Timer" and cloakconfig.MaxCharge0 != 0 then
@@ -310,7 +304,6 @@ hook.Add("PlayerPostThink", "ce_bc2_0_ThinkHook", function(ply)
    		wepAlpha = 0
    	end
 
-
    	if cloakconfig.CloakType == "Transparent" and ply.CloakActive then
 		plyWeapon:SetRenderMode(RENDERMODE_TRANSALPHA)
 		plyWeapon:SetColor(Color(255, 255, 255, wepAlpha))
@@ -331,7 +324,7 @@ end)
 
 
 hook.Add("EntityTakeDamage", "ce_bc2_0_UncloakOnDamage", function(ent, dmginfo)
-	if IsValid(ent) and ent:IsPlayer() and ent.CloakActive then
+	if IsValid(ent) and ent:IsPlayer() and ent.CloakActive and dmginfo:GetDamage() > 0 then
 		if cloakconfig.CloakDamageMode == 1 then
 			Uncloak(ent, true, "Damage")
 		elseif cloakconfig.CloakDamageMode == 2 then

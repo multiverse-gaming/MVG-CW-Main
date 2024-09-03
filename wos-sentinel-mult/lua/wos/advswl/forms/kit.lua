@@ -52,9 +52,9 @@ FORM.Stances[1] = {
 		Rate = 1.5,
 	},
 	[ "air_forward" ] = {
-		Sequence = "vanguard_a_s1_t1",
-		Time = 0.6,
-		Rate = 1.2,
+		Sequence = "h_c3_t3",
+		Time = 2,
+		Rate = 1,
 	},
 	[ "heavy" ] = {
 		Sequence = "phalanx_h_right_t2",

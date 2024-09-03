@@ -91,7 +91,13 @@ end
 -- Send a log to the configured Discord webhook
 function xLogs.RunDiscordRelay(log)
 	if xLogs.Config.DoDiscordRelay and xLogs.Config.RelayURL and (xLogs.Config.RelayURL ~= "") then
-		http.Post(xLogs.Config.RelayURL, {title = string.format("%s - %s", xLogs.LoggingTypes[log.Type].Cat, log.Type), color = RGBToHex(xLogs.LoggingCats[xLogs.LoggingTypes[log.Type].Cat].Col), url = xLogs.Config.DiscordWebhook, content = log.Content})
+		local webhook
+		if (log.Type == "Item Used") then -- Include any more catagories here that should be sent to Jedi.
+			webhook = xLogs.Config.JediDiscordWebhook
+		else
+			webhook = xLogs.Config.DiscordWebhook
+		end
+		http.Post(xLogs.Config.RelayURL, {title = string.format("%s - %s", xLogs.LoggingTypes[log.Type].Cat, log.Type), color = RGBToHex(xLogs.LoggingCats[xLogs.LoggingTypes[log.Type].Cat].Col), url = webhook, content = log.Content})
 	end
 end
 

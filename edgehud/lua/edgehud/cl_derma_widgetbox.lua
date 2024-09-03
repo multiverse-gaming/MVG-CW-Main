@@ -193,3 +193,28 @@ hook.Add("EdgeHUD:AddonReload","EdgeHUD:Unload_WidgetBox",function(  )
 	hook.Remove("ScoreboardHide","EdgeHUD:ScoreboardHide")
 	timer.Remove("EdgeHUD:UpdateInfo")
 end)
+
+--Create a function used to draw the edges. Says it's a duplicate function, but isn't found sometimes.
+function EdgeHUD.DrawEdges( x, y, width, height, edgeSize )
+
+	--Draw the upper left corner.
+	surface.DrawRect(x,y,edgeSize,edgeWidth)
+	surface.DrawRect(x,y + edgeWidth,edgeWidth,edgeSize - edgeWidth)
+
+	local XRight = x + width
+
+	--Draw the upper right corner.
+	surface.DrawRect(XRight - edgeSize,y,edgeSize,edgeWidth)
+	surface.DrawRect(XRight - edgeWidth,y + edgeWidth,edgeWidth,edgeSize - edgeWidth)
+
+	local YBottom = y + height
+
+	--Draw the lower right corner.
+	surface.DrawRect(XRight - edgeSize,YBottom - edgeWidth,edgeSize,edgeWidth)
+	surface.DrawRect(XRight - edgeWidth,YBottom - edgeSize,edgeWidth,edgeSize - edgeWidth)
+
+	--Draw the lower left corner.
+	surface.DrawRect(x,YBottom - edgeWidth,edgeSize,edgeWidth)
+	surface.DrawRect(x,YBottom - edgeSize,edgeWidth,edgeSize - edgeWidth)
+
+end

@@ -59,12 +59,12 @@ SWEP.SaberBurnDamage = 0 -- How much damage the saber does when it's colliding w
 SWEP.MaxForce = 175 --The maximum amount of force in the meter
 SWEP.RegenSpeed = 1 --The MULTIPLIER for the regen speed. Half speed = 0.5, Double speed = 2, etc.
 SWEP.CanKnockback = true --Should this saber be able to push people back when they get hit?
-SWEP.ForcePowerList = { "Sith Leap", "Force Choke", "Saber Throw", "Advanced Force Heal", "Enemy Guard" } 
+SWEP.ForcePowerList = { "Sith Leap", "Force Choke", "Saber Throw", "Advanced Force Heal", "Enemy Guard", "Force Breach" } 
 --Force powers you want the saber to have ( REMEMBER TO PUT A COMMA AFTER EACH ONE, AND COPY THE TITLE EXACTLY AS IT'S LISTED )
 --For a list of options, just look at the keys in autorun/client/wos_forcematerialbuilding.lua
 
 --Use these options to overwrite the player's commands
-SWEP.UseHilt = "models/wos/lct/weapons/lightsabers/doublevengence.mdl" -- Model path of the hilt
+SWEP.UseHilt = "models/weapons/starwars/w_maul_saber_staff_hilt.mdl" -- Model path of the hilt
 SWEP.UseLength = false -- Length of the saber 
 SWEP.UseWidth = false -- Width of the saber
 SWEP.UseColor = Color( 255, 0, 0 ) -- RGB Color of saber. Red = Color( 255, 0, 0 ) Blue = Color( 0, 0, 255 ), etc.
