@@ -149,7 +149,7 @@ SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "Iron Sights",
-        Slot = {"rifleoptic","extraoptic"},
+        Slot = {"extraoptic"},
         Bone = "DC_15X_Rifle",
         WMScale = Vector(1, 1, 1),
         VMScale = Vector (0.8, 0.8, 0.8),
@@ -214,7 +214,7 @@ SWEP.Animations = {
     ["reload"] = {
         Source = "reload",
         LHIK = true,
-        TPAnim = ACT_HL2MP_GESTURE_RELOAD_PHYSGUN, 
+        TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2, 
         SoundTable = {
             {s = "zeus/dlt19/magrelease.wav", t = 0.1 },
             {s = "zeus/dlt19/magout.wav", t = 0.2 },
