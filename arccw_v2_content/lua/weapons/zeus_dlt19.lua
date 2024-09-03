@@ -4,14 +4,14 @@ SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
 SWEP.Slot = 3
 
-SWEP.Category = "[ ArcCW ] Republic TFA Weapons - V2"
-SWEP.Credits = "Kraken / Kalin"
-SWEP.PrintName = "DLT-19"
+SWEP.Category = "[ArcCW] Kraken's Empire Essentials"
+SWEP.Credits = "Kraken"
+SWEP.PrintName = "DLT-19 TEST"
 SWEP.Trivia_Class = "Blaster Heavy Rifle"
 SWEP.Trivia_Desc = "The DLT-19 heavy blaster rifle was a model of heavy blaster rifle manufactured by BlasTech Industries. They were used by regular stormtroopers and Heavy Weapons Stormtroopers of the Galactic Empire, but they also saw use by other parties, including the Alliance to Restore the Republic and certain bounty hunters."
 SWEP.Trivia_Manufacturer = "BlastTech Industries"
 SWEP.Trivia_Calibre = "Condensed Tibanna-Gas"
-SWEP.Trivia_Country = "Galactic Republic"
+SWEP.Trivia_Country = "Galactic Empire"
 SWEP.IconOverride = "zeus/dlt19/dlt19.png"
 
 -- Base
@@ -40,7 +40,7 @@ SWEP.DamageType = DMG_BULLET
 SWEP.MuzzleVelocity = 500
 
 SWEP.TracerNum = 1
-SWEP.TracerCol = Color(0, 0, 250)
+SWEP.TracerCol = Color(250, 250, 50)
 SWEP.TracerWidth = 10
 SWEP.Tracer = "tfa_tracer_blue"
 SWEP.HullSize = 1.5
@@ -83,7 +83,7 @@ SWEP.SightTime = 0.4 / 1.25
 SWEP.Primary.Ammo = "ar2"
 SWEP.ShootVol = 75
 SWEP.ShootPitch = 100
-SWEP.ShootPitchVariation = 0.1
+SWEP.ShootPitchVariation = 0.08
 
 SWEP.FirstShootSound = "zeus/dlt19/dlt19_1.wav"
 SWEP.ShootSound = "zeus/dlt19/dlt19_2.wav"
@@ -105,6 +105,7 @@ SWEP.IronSightStruct = {
      ViewModelFOV = 55,
 }
 
+
 -- Holdtype
 SWEP.HoldtypeHolstered = "passive"
 SWEP.HoldtypeActive = "ar2"
@@ -113,20 +114,20 @@ SWEP.HoltypeCustomize = "slam"
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 
-SWEP.ActivePos = Vector(0, 5.5, -0.5)
+SWEP.ActivePos = Vector(0, 4, 0)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
-SWEP.SprintPos = Vector(4.019, -3.226, -4.805)
+SWEP.SprintPos = Vector(4.019, -5.226, -1.805)
 SWEP.SprintAng = Angle(5, 40, 0)
 
 SWEP.CustomizePos = Vector(10, 0, 0)
 SWEP.CustomizeAng = Angle(6.8, 30.7, 10.3)
 
-SWEP.HolsterPos = Vector(4, 3, -1)
-SWEP.HolsterAng = Vector(-16, 30, -1)
+SWEP.HolsterPos = Vector(4, -3, -2)
+SWEP.HolsterAng = Vector(-15, 30, -15)
 
 -- Attachments
---[[SWEP.DefaultElements = {"muzzle"}
+SWEP.DefaultElements = {"muzzle"}
 SWEP.AttachmentElements = {
     ["muzzle"] = {
         VMElements = {
@@ -135,21 +136,21 @@ SWEP.AttachmentElements = {
                Bone = "DC_15X_Rifle",
                Scale = Vector(1, 1, 1),                
                Offset = {
-                   pos = Vector(-20, 30, -3),
+                   pos = Vector(-2, 200, -3),
                    ang = Angle(-90, 180, 0)
                },
                IsMuzzleDevice = true
            }
-        },
+        }
     }
-}--]]
+}
 
 
 SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "Iron Sights",
-        Slot = {"rifleoptic","extraoptic"},
+        Slot = {"extraoptic"},
         Bone = "DC_15X_Rifle",
         WMScale = Vector(1, 1, 1),
         VMScale = Vector (0.8, 0.8, 0.8),
