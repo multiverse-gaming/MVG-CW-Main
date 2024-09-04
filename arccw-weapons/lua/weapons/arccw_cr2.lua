@@ -158,7 +158,13 @@ SWEP.Attachments = {
             wpos = Vector(500, 110, -710),
             wang = Angle(-15, 0, 180)
         },
-    }    
+    },--[[
+    [2] = {
+        PrintName = "Underbarrel",
+        DefaultAttName = "Empty",
+        Slot = "DisruptShot",
+    },]]--
+}
 --[[    [2] = {
         PrintName = "Foregrip", -- print name
         DefaultAttName = "No Attachment", -- used to display the "no attachment" text
@@ -239,7 +245,6 @@ SWEP.Attachments = {
             wang = Angle(-10 , 0, 180)
         },
     },   --]]
-}
 
 
 SWEP.Animations = {
