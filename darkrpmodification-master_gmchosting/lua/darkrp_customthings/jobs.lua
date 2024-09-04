@@ -2963,7 +2963,7 @@ TEAM_ARCLIEUTENANT = DarkRP.createJob("Wolfpack Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2", "arccw_dc17_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
 
     command = "wplt",
 
