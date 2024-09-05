@@ -14,6 +14,8 @@ end
 function ENT:Use(ply)
     local jedi = {
         [TEAM_JEDIPADAWAN] = true,
+        [TEAM_WPJEDI] = true,
+        [TEAM_GMJEDI] = true,
         [TEAM_327THJEDI] = true,
         [TEAM_501STJEDI] = true,
         [TEAM_212THJEDI] = true,

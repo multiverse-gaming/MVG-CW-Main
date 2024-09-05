@@ -370,6 +370,8 @@ teams = {
         "Combat Engineer Jedi",
         "501st Jedi",
         "212th Jedi",
+        "Galactic Marines Jedi",
+        "Wolfpack Jedi",
     },
 
     Jedi = {
