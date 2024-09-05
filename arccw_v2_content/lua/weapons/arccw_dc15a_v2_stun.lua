@@ -18,12 +18,12 @@ SWEP.Slot = 3
 SWEP.UseHands = true
 
 SWEP.ViewModel = "models/meeks/dc15a_rifle_meeks.mdl"
-SWEP.WorldModel = "models/meeks/worldmodels/w_dc15a_rifle.mdl"
+SWEP.WorldModel = "models/meeks/dc15a_rifle_meeks.mdl"
 SWEP.ViewModelFOV = 65
 SWEP.HideViewmodel = false
 SWEP.WorldModelOffset = {
-    pos = Vector(10, 0, -4),
-    ang = Angle(165, 0, 0),
+    pos = Vector(-8, 5, -1.5),
+    ang = Angle(158, 177, 0),
     bone = "ValveBiped.Bip01_R_Hand",
 }
 
@@ -130,10 +130,10 @@ SWEP.Attachments = {
         -- WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
-            vpos = Vector(-0.03, -0.87, 8.0),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(17, 1, -8.5),
-            wang = Angle(-16, 0, 180)
+            vpos = Vector(-0.03, -0.6, 15),
+            vang = Angle(90, 1, -90),
+            wpos = Vector(20, 0.69, -10.85),
+            wang = Angle(-22, 2, 180)
         },
         --CorrectiveAng = Angle(-2.2, -0, 0)
     },
