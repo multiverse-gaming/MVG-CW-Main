@@ -24,6 +24,8 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 "501st Jedi",
 "212th Jedi",
 "Combat Engineer Jedi",
+"Galactic Marines Jedi",
+"Wolfpack Jedi",
 "Jedi Sentinel Temple Guard",
 "Jedi General Anakin Skywalker",
 "501st General Anakin Skywalker"
