@@ -1,6 +1,6 @@
-att.PrintName = "Scan"
+att.PrintName = "Scan-Self"
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
-att.Description = "Fire scan darts."
+att.Description = "Fire scan darts - only reveal their positions to yourself."
 att.Desc_Pros = {
 }
 att.Desc_Cons = {
@@ -13,7 +13,7 @@ att.Free = true
 att.HideIfUnavailable = false
 
 att.UBGL = true
-att.UBGL_PrintName = "Scan Shot"
+att.UBGL_PrintName = "Scan Shot Self"
 att.UBGL_Automatic = false
 att.UBGL_ClipSize = 1
 att.UBGL_Ammo = "ar2"
@@ -23,28 +23,6 @@ att.UBGL_Capacity = 1
 
 local function Ammo(wep)
     return wep.Owner:GetAmmoCount("ar2")
-end
-
-local function AddESPEffect(target, color)
-    if not IsValid(target) then return end
-
-    target:SetNWBool("ScanDartESP", true)
-    target:SetNWVector("ScanDartESP_Color", color)
-
-    timer.Simple(15, function()
-        if IsValid(target) then
-            target:SetNWBool("ScanDartESP", false)
-        end
-    end)
-end
-
-local function AddESPInRadius(pos, radius, color)
-    local entities = ents.FindInSphere(pos, radius)
-    for _, ent in ipairs(entities) do
-        if ent:IsPlayer() or ent:IsNPC() then
-            AddESPEffect(ent, color)
-        end
-    end
 end
 
 att.UBGL_Fire = function(wep, ubgl)
@@ -57,7 +35,10 @@ att.UBGL_Fire = function(wep, ubgl)
         Dir = wep.Owner:EyeAngles():Forward(),
         Callback = function(_, tr, dmg)
             if (!SERVER) then return end
-            AddESPInRadius(tr.HitPos, 512, Color(255, 0, 0))
+            net.Start("arccw_scandart")
+                net.WriteVector(tr.HitPos)
+                net.WriteInt(255, 16)
+            net.Send(wep.Owner) -- Send to the owner.
 
             wep:SetClip2(wep:Clip2() - 1)
         end
@@ -84,19 +65,3 @@ att.UBGL_Reload = function(wep, ubgl)
     wep:GetOwner():RemoveAmmo(load - wep:Clip2(), "ar2")
     wep:SetClip2(load)
 end
-
-hook.Add("PreDrawHalos", "ScanDartESP", function()
-    for _, ply in pairs(player.GetAll()) do
-        if ply:GetNWBool("ScanDartESP") then
-            local color = ply:GetNWVector("ScanDartESP_Color", Vector(255, 0, 0))
-            halo.Add({ply}, Color(color.x, color.y, color.z), 1, 1, 1, true, true)
-        end
-    end
-
-    for _, npc in pairs(ents.FindByClass("npc_*")) do
-        if npc:GetNWBool("ScanDartESP") then
-            local color = npc:GetNWVector("ScanDartESP_Color", Vector(255, 0, 0))
-            halo.Add({npc}, Color(color.x, color.y, color.z), 1, 1, 1, true, true)
-        end
-    end
-end)

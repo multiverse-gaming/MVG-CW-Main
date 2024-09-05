@@ -164,7 +164,7 @@ SWEP.Attachments = {
     [2] = {
         PrintName = "Underbarrel",
         DefaultAttName = "Empty",
-        Slot = {"ScanShot"}, -- Add DisruptShot here later.
+        Slot = {"ScanShot", "DisruptShot"},
     },
 }
 
