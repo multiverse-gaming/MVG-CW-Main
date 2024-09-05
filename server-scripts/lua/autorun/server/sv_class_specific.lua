@@ -10,9 +10,9 @@ local WhitelistJobsNames = { --jobs to not take fall damage
         "Covert Lead",
         "Covert Specialists",
         "Covert Trooper",
-		"CIS Electro Staff User",
 		"Bossk",
 		"CIS Elite Melee",
+		"Magna Guard",
 		"Shadow General Quinlan Vos",
         "Jedi General Quinlan Vos",
 }
