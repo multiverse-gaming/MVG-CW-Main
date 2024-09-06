@@ -2009,7 +2009,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "datapad_player"},
+    weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
 
     command = "cgrt",
 
@@ -2044,7 +2044,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23_v2","datapad_player"},
+    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23_v2","datapad_player"},
 
     command = "cgso",
 
@@ -2114,7 +2114,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
+    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
 
     command = "arcacg",
 
@@ -2146,7 +2146,7 @@ TEAM_CGARC = DarkRP.createJob("Coruscant Guard ARC", {
 
     description = [[Congratulations, you are a Coruscant Guard ARC Trooper!]],
 
-    weapons = {"arccw_dc17_stun_v2", "arccw_westarm5_v2","arccw_dp23_v2", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","datapad_player"},
+    weapons = {"arccw_dc17_stun_v2", "arccw_westarm5_v2","arccw_dp23_v2", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","datapad_player"},
 
     command = "cgarc",
 
@@ -2214,7 +2214,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "arccw_dc15a_v2_stun","stunstick", "weapon_cuff_elastic", "weapon_policeshield","weaponchecker","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "arccw_dc15a_v2_stun","stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield","weaponchecker","datapad_player"},
 
     command = "cgsgt",
 
@@ -2248,7 +2248,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
+    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
 
     command = "cgmt",
 
