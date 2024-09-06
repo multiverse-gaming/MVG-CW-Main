@@ -5312,8 +5312,8 @@ TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
     category = "Shadow",
 PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
 PlayerLoadout = function( ply )
-    ply:SetJumpPower(300)
-    ply:SetGravity(1.4)
+    ply:SetJumpPower(240)
+    ply:SetGravity(1)
 end,
     sortOrder = 0
 })
@@ -5333,8 +5333,8 @@ TEAM_SDWMCO = DarkRP.createJob("Shadow Marshal Commander", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 1
 })
@@ -5355,8 +5355,8 @@ TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 2
 })
@@ -5376,8 +5376,8 @@ TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (270)  end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 3
 })
@@ -5397,8 +5397,8 @@ TEAM_SDWMJR = DarkRP.createJob("Shadow Major", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270)  end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 4
 })
@@ -5418,8 +5418,8 @@ TEAM_SDWOFF = DarkRP.createJob("Shadow Officer", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 5
 })
@@ -5439,8 +5439,8 @@ TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 6
 })
@@ -5460,8 +5460,8 @@ TEAM_SDWTRP = DarkRP.createJob("Shadow Trooper", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 7
 })
@@ -5480,9 +5480,9 @@ TEAM_CVLD = DarkRP.createJob("Covert Lead", {
     hasLicense = false,
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270) end,
-        PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+    PlayerLoadout = function( ply )
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 8
 })
@@ -5502,8 +5502,8 @@ TEAM_CVSPC = DarkRP.createJob("Covert Specialists", {
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 9
 })
@@ -5523,8 +5523,8 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(300)
-        ply:SetGravity(1.4)
+        ply:SetJumpPower(240)
+        ply:SetGravity(1)
     end,
     sortOrder = 10
 })
