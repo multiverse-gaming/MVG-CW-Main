@@ -8,6 +8,6 @@ ENT.Information	= ""
 ENT.Category	= "Potato"
 
 ENT.Spawnable = false
-ENT.AdminSpawnable = true
+ENT.AdminSpawnable = false
 
 ENT.AutomaticFrameAdvance = false
