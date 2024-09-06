@@ -197,25 +197,24 @@ wOS.ForcePowers:RegisterNewPower({
 			if IsValid( self.ChokeTarget ) then return end
 			local tr = util.TraceLine( util.GetPlayerTrace( self.Owner ) )
 			if not tr.Entity then return end
-			if not tr.Entity:IsPlayer() then return end
+			if not tr.Entity:IsPlayer() && not tr.Entity:IsNPC() then return end
 			if self.Owner:GetPos():Distance( tr.Entity:GetPos() ) >= 300 then return end
 			self.ChokeTarget = tr.Entity
 			self.ChokeTarget:EmitSound( "wos/icefuse/choke_start.wav" )
-			self.ChokeTarget:SetSequenceOverride( "wos_force_choke", 0.5)
+			if tr.Entity:IsPlayer() then self.ChokeTarget:SetSequenceOverride( "wos_force_choke", 0.5)
+			else self.ChokeTarget:SetSequence( "cower" ) end
             self.Owner:SetSequenceOverride( "wos_cast_choke_armed", 0.5)
 			self.ChokePos = tr.Entity:GetPos()
 			--self:SetNextAttack( 3 )
 		end,
 		think = function( self )
 			if not IsValid( self.ChokeTarget ) then return end
-			if self.ChokeTarget == nil || self.ChokeTarget:IsNPC() then return end
-			--[[if self.ChokeCooldown && CurTime() > self.ChokeCooldown then 
-				self.ChokeCooldown = nil
-			end
-			if self.ChokeCooldown && CurTime() - 10 < self.ChokeCooldown then return end]]--
+			if self.ChokeTarget == nil then return end
+			if not self.ChokeTarget:IsPlayer() && not self.ChokeTarget:IsNPC() then return end
 			if ( self:GetNextSecondaryFire() > CurTime() ) then return end
 			if ( self:GetForce() < 2 ) then return end
-			if not self.ChokeTarget:Alive() then self.ChokeTarget = nil return end
+			if ( self.ChokeTarget:IsPlayer() ) then if not self.ChokeTarget:Alive() then self.ChokeTarget = nil return end
+			else if self.ChokeTarget:Health() <= 0 then self.ChokeTarget = nil return end end
 			if ( !self.Owner:KeyDown( IN_ATTACK2 ) && !self.Owner:KeyReleased( IN_ATTACK2 ) ) then return end
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
 			if ( !self.Owner:KeyReleased( IN_ATTACK2 ) ) then

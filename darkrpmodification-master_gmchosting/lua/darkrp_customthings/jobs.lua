@@ -2769,7 +2769,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 })
 
 TEAM_GMJEDI = DarkRP.createJob("Galactic Marines Jedi", {
-    color = Color(153, 144, 144, 255),
+    color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
     "models/tfa/comm/gg/pm_sw_adigallia.mdl",
