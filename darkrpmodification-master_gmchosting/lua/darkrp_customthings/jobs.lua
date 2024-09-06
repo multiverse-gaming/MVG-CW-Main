@@ -3068,17 +3068,17 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunS
 
 
 
-TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Pathfinder", {
+TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Direwolf", {
 
     color = Color(153, 144, 144, 255),
 
     model = {"models/aussiwozzi/cgi/base/104th_barc.mdl", "models/aussiwozzi/cgi/base/104th_evo_officer.mdl","models/aussiwozzi/cgi/base/104th_guardian.mdl","models/aussiwozzi/cgi/base/104th_mortar.mdl","models/aussiwozzi/cgi/base/104th_quantum.mdl","models/aussiwozzi/cgi/base/104th_arf.mdl","models/aussiwozzi/cgi/base/104th_evo.mdl","models/aussiwozzi/cgi/base/104th_jet_officer.mdl","models/aussiwozzi/cgi/base/104th_boost.mdl"},
 
-    description = [[Congratulations, you are part of the Pathfinders in the Wolfpack Battalion!]],
+    description = [[Congratulations, you are part of the Direwolves in the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_valken38x_v2", "arccw_cr2c", "weapon_jetpack"},
+    weapons = {"arccw_dc17_v2", "arccw_hunter_shotgun", "arccw_cr2c", "weapon_jetpack"},
 
-    command = "wppf",
+    command = "wpdw",
 
     max = 3,
 
