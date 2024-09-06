@@ -60,14 +60,14 @@ TREE.Tier = {}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Force Statis",
-	Description = "Stop someone in their tracks.",
-	Icon = "wos/forceicons/push.png",
+	Name = "Force Shield",
+	Description = "Use to give armor to yourself, hold alt for others.",
+	Icon = "wos/skilltrees/forms/aggressive.png",
 	PointsRequired = 3,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Stasis" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Shield" ) end,
 }
 
 TREE.Tier[1][2] = {
@@ -82,12 +82,12 @@ TREE.Tier[1][2] = {
 }
 
 TREE.Tier[1][3] = {
-	Name = "Health Upgrade",
-	Description = "Shaak Ti can take more hits than average.",
+	Name = "Armor Upgrade",
+	Description = "Shaak Ti has more armor than average.",
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end,
+	OnPlayerSpawn = function( ply ) ply:SetArmor(ply:GetArmor() + 50) ply:SetMaxArmor(ply:GetMaxArmor() + 50) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }

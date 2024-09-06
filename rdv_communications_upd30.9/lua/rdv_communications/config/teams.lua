@@ -353,14 +353,10 @@ teams = {
         "Shadow General Quinlan Vos",
         "Jedi General Luminara Unduli",
         "GC General Luminara Unduli",
-        "Jedi Council Member"
-    },
-
-    JediTemple = {
-        "Jedi Chief of Security Cin Drallig",
-        "Jedi Consular Temple Guard",
-        "Jedi Sentinel Temple Guard",
-        "Jedi Guardian Temple Guard",
+        "Jedi Council Member",
+        "CG Temple Guard Chief",
+        "Jedi General Cin Drallig",
+        "Temple Guard Chief"
     },
 
     JediSpec = {
@@ -370,6 +366,8 @@ teams = {
         "Combat Engineer Jedi",
         "501st Jedi",
         "212th Jedi",
+        "Coruscant Guard Temple Guard",
+        "Jedi Temple Guard",
         "Galactic Marines Jedi",
         "Wolfpack Jedi",
     },

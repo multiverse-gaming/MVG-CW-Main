@@ -24,13 +24,13 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Guardian Outer Skills"
+TREE.Name = "Temple Guard Skill Tree"
 
 --Description of the skill tree
-TREE.Description = "Skills from the Guardian and Consular paths are harder for you to learn, and worse than usual. Hopefully you can keep up."
+TREE.Description = "Skills to help lock down and guard the temple."
 
 --Icon for the skill tree ( Appears in category menu and above the skills )
-TREE.TreeIcon = "wos/forceicons/reflect.png"
+TREE.TreeIcon = "wos/skilltrees/forms/defensive.png"
 
 --What is the background color in the menu for this 
 TREE.BackgroundColor = Color( 177, 201, 0, 76)
@@ -41,7 +41,7 @@ TREE.MaxTiers = 1
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = { "TEAM_JEDIGUARDIAN", "TEAM_501STJEDI", "TEAM_212THJEDI", "TEAM_327THJEDI", "TEAM_WPJEDI", "TEAM_GMJEDI", "TEAM_CGJEDI" }
+TREE.JobRestricted = { "TEAM_JEDIGENERALSHAAK", "TEAM_CGGENERALSHAAK", "TEAM_CGJEDICHIEF", "TEAM_CGJEDI", "TEAM_JEDIGENCINDRALLIG", "TEAM_CGJEDICHIEF", "TEAM_TGJEDI" }
 
 TREE.Tier = {}
 
@@ -60,25 +60,14 @@ TREE.Tier = {}
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Consular - Force Shield",
-	Description = "Can't use this skill regularly, but it should allow you to regain your stamina.",
-	Icon = "wos/forceicons/group_heal.png",
-	PointsRequired = 6,
+	Name = "Force Statis",
+	Description = "Stop someone in their tracks.",
+	Icon = "wos/forceicons/push.png",
+	PointsRequired = 2,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Guardian Force Shield" ) end,
-}
-
-TREE.Tier[1][2] = {
-	Name = "Sentinel - Force Light",
-	Description = "Guardians need to see in the dark too.",
-	Icon = "wos/forceicons/lightstream.png",
-	PointsRequired = 6,
-	Requirements = {},
-	OnPlayerSpawn = function( ply ) end,
-	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Stasis" ) end,
 }
 
 wOS:RegisterSkillTree( TREE )

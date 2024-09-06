@@ -24,13 +24,13 @@
 local TREE = {}
 
 --Name of the skill tree
-TREE.Name = "Guardian Outer Skills"
+TREE.Name = "Cin Drallig Skill Tree"
 
 --Description of the skill tree
-TREE.Description = "Skills from the Guardian and Consular paths are harder for you to learn, and worse than usual. Hopefully you can keep up."
+TREE.Description = "Cin Drallig's special skills."
 
 --Icon for the skill tree ( Appears in category menu and above the skills )
-TREE.TreeIcon = "wos/forceicons/reflect.png"
+TREE.TreeIcon = "wos/forceicons/advanced_cloak.png"
 
 --What is the background color in the menu for this 
 TREE.BackgroundColor = Color( 177, 201, 0, 76)
@@ -41,44 +41,43 @@ TREE.MaxTiers = 1
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = { "TEAM_JEDIGUARDIAN", "TEAM_501STJEDI", "TEAM_212THJEDI", "TEAM_327THJEDI", "TEAM_WPJEDI", "TEAM_GMJEDI", "TEAM_CGJEDI" }
+TREE.JobRestricted = { "TEAM_JEDIGENCINDRALLIG", "TEAM_CGJEDICHIEF" }
 
 TREE.Tier = {}
-
---Tier format is as follows:
---To create the TIER Table, do the following
---TREE.Tier[ TIER NUMBER ] = {} 
---To populate it with data, the format follows this
---TREE.Tier[ TIER NUMBER ][ SKILL NUMBER ] = DATA
---Name, description, and icon are exactly the same as before
---PointsRequired is for how many skill points are needed to unlock this particular skill
---Requirements prevent you from unlocking this skill unless you have the pre-requisite skills from the last tiers. If you are on tier 1, this should be {}
---OnPlayerSpawn is a function called when the player just spawns
---OnPlayerDeath is a function called when the player has just died
---OnSaberDeploy is a function called when the player has just pulled out their lightsaber ( assuming you have SWEP.UsePlayerSkills = true )
 
 TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
-	Name = "Consular - Force Shield",
-	Description = "Can't use this skill regularly, but it should allow you to regain your stamina.",
-	Icon = "wos/forceicons/group_heal.png",
-	PointsRequired = 6,
+	Name = "Force Sense",
+	Description = "Sense all lifeforms around you.",
+	Icon = "wos/forceicons/meditate.png",
+	PointsRequired = 3,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Guardian Force Shield" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Sense" ) end,
 }
 
 TREE.Tier[1][2] = {
-	Name = "Sentinel - Force Light",
-	Description = "Guardians need to see in the dark too.",
-	Icon = "wos/forceicons/lightstream.png",
-	PointsRequired = 6,
+	Name = "Drallig's Stance",
+	Description = "Your signature stance.",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 0,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Light" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Cin", 1 ) end,
+}
+
+TREE.Tier[1][3] = {
+	Name = "Health Increase",
+	Description = "Cin Drallig is pretty hardy.",
+	Icon = "wos/forceicons/group_heal.png",
+	PointsRequired = 1,
+	Requirements = {},
+	OnPlayerSpawn = function( ply ) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) end,
 }
 
 wOS:RegisterSkillTree( TREE )
