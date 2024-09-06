@@ -13,7 +13,7 @@ att.UBGL_PrintName = "Bacta Clouds"
 att.UBGL_Automatic = false
 att.UBGL_ClipSize = 4
 att.UBGL_Ammo = "grenade"
-att.UBGL_RPM = 60
+att.UBGL_RPM = 100
 att.UBGL_Recoil = 1
 att.UBGL_Capacity = 4
 
@@ -28,11 +28,11 @@ att.Hook_ShouldNotSight = function(wep)
 end
 
 att.Hook_OnSelectUBGL = function(wep)
-    wep:SetNextSecondaryFire(CurTime() + 0.7)
+    wep:SetNextSecondaryFire(CurTime() + 0.2)
 end
 
 att.Hook_OnDeselectUBGL = function(wep)
-    wep:SetNextPrimaryFire(CurTime() + 0.4)
+    wep:SetNextPrimaryFire(CurTime() + 0.2)
 end
 
 att.UBGL_Fire = function(wep, ubgl)
