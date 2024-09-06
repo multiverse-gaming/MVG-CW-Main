@@ -1,0 +1,22 @@
+actor "NPC"
+{
+  channel "What You Mean?"
+  {
+    event gesture "awvawv"
+    {
+      time 0 0.6
+      param "Stand_to_crouchpistol"
+    }
+  }
+}
+
+scalesettings
+{
+  "CChoreoView" "86"
+  "ExpressionTool" "100"
+  "GestureTool" "100"
+  "RampTool" "100"
+  "SceneRampTool" "100"
+}
+fps 60
+snap off
