@@ -830,6 +830,7 @@ end
 	   CreateClientConVar("fmod_chat_support", '1', (FCVAR_ARCHIVE), "Enable additional informations in chat.", 0, 1)
 	end
 
+--[[ -- Seems to be a hook designed for the "special" npc's to talk to you.
 	local function FMOD_RadioTalker(data)
 		local Sound = data:ReadString()
 		local Entity = data:ReadEntity()
@@ -844,7 +845,9 @@ end
 		end
 	end 
 	usermessage.Hook("FMOD_RadioTalker",FMOD_RadioTalker)
+]]-- 
 
+--[[ -- God, I genuinely hate how all the stuff is before before the "IsPlayer()". Also, I think this makes your hear your Npc's stuff over radio?
 	hook.Add( "EntityEmitSound", "FMOD_RadioSoundsEdit", function( data )
 		local ply = LocalPlayer()
 		local name = data.SoundName
@@ -873,8 +876,10 @@ end
 			return true
 		end
 	end)
+]]--
 
-	--[[
+
+--[[ -- Halo's people that follow you. Don't *think* we need it, but it IS client side.
 	hook.Add("PreDrawHalos", "FMOD_Halos", function()
 	local ply = LocalPlayer()
 	local FMOD_Followers = {}
@@ -905,8 +910,9 @@ end
 	if #FMOD_Followers >= 1 then halo.Add(FMOD_Followers, Color(GetConVarNumber("fmod_halocolor_r"), GetConVarNumber("fmod_halocolor_g"), GetConVarNumber("fmod_halocolor_b")), 2, 2, 5, true, true) end
 	if #FMOD_Spotted >= 1 then halo.Add(FMOD_Spotted, Color(255, 0, 0), 2, 2, 5, true, true) end
 	end)
-	--]]
+]]--
 
+	-- This is what's outputting the various messages into your chat.
 	net.Receive("FMOD.Message", function()
 		if GetConVarNumber("fmod_chat_support") > 0 then
 			local ColorR = net.ReadFloat()
@@ -920,6 +926,8 @@ end
  
 if(SERVER)then
 
+	-- I swear litterally everyone just copies random code online without understanding what it does. Don't look at me like that.
+--[[-- Toggles the radio for certain players. Don't think we want the radio.
 	concommand.Add( "fmod_radio", function(ply,cmd,args,argStr)
 		if (!ply:GetNWBool("FMOD_AllowRadio")) then
 			ply:SetNWBool("FMOD_AllowRadio",true)
@@ -943,38 +951,41 @@ if(SERVER)then
 			net.Send(ply)
 		end
 	end)
+]]--
 
+	-- This allows players to sit in your vehicles? Why is there a Check2? Who TF knows.
+	-- This is a terribly written piece of garbage, but extremely inexpensive and good if rewritten.
 	hook.Add("PlayerSpawnedVehicle", "FMOD_NPCsVehicles", function(ply, veh)
 		if veh:GetClass() == "prop_vehicle_prisoner_pod" then
 			local VModel = veh:GetModel()
 			local check = veh:LookupAttachment("vehicle_feet_passenger0")
 			local check2 = veh:GetAttachment(check)
 			if check != 0 then
-				if VModel == "models/nova/airboat_seat.mdl" then 
+				if VModel == "models/nova/airboat_seat.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/nova/chair_office02.mdl" then 
+				elseif VModel == "models/nova/chair_office02.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/props_phx/carseat2.mdl" then 
+				elseif VModel == "models/props_phx/carseat2.mdl" then
 					veh.height = -19
 					veh.forward = 8
-				elseif VModel == "models/props_phx/carseat3.mdl" then 
+				elseif VModel == "models/props_phx/carseat3.mdl" then
 					veh.height = -20
 					veh.forward = 29
-				elseif VModel == "models/nova/chair_plastic01.mdl" then 
+				elseif VModel == "models/nova/chair_plastic01.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/nova/jalopy_seat.mdl" then 
+				elseif VModel == "models/nova/jalopy_seat.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/nova/jeep_seat.mdl" then 
+				elseif VModel == "models/nova/jeep_seat.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/nova/chair_wood01.mdl" then 
+				elseif VModel == "models/nova/chair_wood01.mdl" then
 					veh.height = -19
 					veh.forward = 0
-				elseif VModel == "models/nova/chair_office01.mdl" then 
+				elseif VModel == "models/nova/chair_office01.mdl" then
 					veh.height = -19
 					veh.forward = 0
 				else
@@ -996,6 +1007,7 @@ if(SERVER)then
 		end
 	end)
 
+	-- Makes the NPC no-targetable. This happens if you're crouching around with them. Not SURE we want it.
 	local function NPCDoBeStealthy(npc)
 		if !npc:IsFlagSet(65536) then
 			npc:AddFlags(65536)
@@ -1014,6 +1026,7 @@ if(SERVER)then
 		end
 	end
 
+	-- Cancels the above code.
 	local function NPCDontBeStealthy(npc)
 		if npc:IsFlagSet(65536) then
 			npc:RemoveFlags(65536)
@@ -1032,7 +1045,10 @@ if(SERVER)then
 		end
 	end
 
-	local function AddFoll(ent, ply)
+	-- Adds a follower. Were they extremely busy and couldn't just write "AddFollower"?
+	-- In both of these, we might want to get rid of the Custom/Special stuff. Additonally, the logging
+	-- to could be changed to "This person is now following you!" if we wanted. Useful for testing though.
+	function AddFoll(ent, ply)
 		ent:SetNWBool("FMOD_ImAfterSomeone", true)
 		if ply then
 			ent:SetNWString("FMOD_ImFollowing", ply:Nick()..ply:EntIndex())
@@ -1054,17 +1070,19 @@ if(SERVER)then
 		end
 		ent.FMODanimsTable = table.ToString(ent:GetSequenceList())
 		ent:SetCustomCollisionCheck(true)
+		-- Jump, Climb, Use things, open doors, open other doors, and can form squads.
 		ent:CapabilitiesAdd(2)
 		ent:CapabilitiesAdd(8)
 		ent:CapabilitiesAdd(256)
 		ent:CapabilitiesAdd(1024)
 		ent:CapabilitiesAdd(2048)
-		ent:CapabilitiesAdd(67108864) 
+		ent:CapabilitiesAdd(67108864)
 		ent:Fire("setsquad","playersquad_"..ply:Nick()..ply:EntIndex(),0)
 		ent:Fire("EnableArmorRecharge","",0)
 	end
- 
-	local function RemFoll(ent, ply)
+
+	-- Removes a Foll.
+	function RemFoll(ent, ply)
 		ent:SetNWBool("FMOD_ImAfterSomeone", false)
 		ent:SetNWString("FMOD_ImFollowing", nil)
 		ent:SetName("")
@@ -1097,7 +1115,8 @@ if(SERVER)then
 		ent:DropToFloor()
 	end
 
-	local function NPCFollRespond(ent)
+	-- This has the follower respond to you. Seeing as we have droids/clones+civs as CP/citizens, how about we don't?
+	function NPCFollRespond(ent)
 		local class = ent:GetClass()
 		if ent:GetNWString("FMOD_Custom_FollowMe") != "" then
 			ent:EmitSound(ent:GetNWString("FMOD_Custom_FollowMe"))
@@ -1127,7 +1146,8 @@ if(SERVER)then
 		end
 	end
 
-	local function NPCCopyRespond(ent)
+	-- Different voice line.
+	function NPCCopyRespond(ent)
 		if ent:GetNWString("FMOD_Custom_Copy") != "" then
 			ent:EmitSound(ent:GetNWString("FMOD_Custom_Copy"))
 		else
@@ -1156,7 +1176,8 @@ if(SERVER)then
 		end
 	end
 
-	local function NPCStayRespond(ent)
+	-- Different voice line.
+	function NPCStayRespond(ent)
 		if ent:GetNWString("FMOD_Custom_StayHere") != "" then
 			ent:EmitSound(ent:GetNWString("FMOD_Custom_StayHere"))
 		else
@@ -1185,10 +1206,16 @@ if(SERVER)then
 		end
 	end
 
+	-- Where half the functionality is in the mod.
+	-- We want to move this from a KeyPress to a SWEP.
 	hook.Add("KeyPress", "FMOD_Select", function(ply, key)
 		if GetConVarNumber("fmod_enable") > 0 then
+			if (key == IN_USE || key == IN_RELOAD || key == IN_WALK) then return end
+
 			local tr = ply:GetEyeTrace()
 			local ent = ply:GetEyeTrace().Entity
+
+			-- Adds follower.
 			if (key == IN_USE) and IsValid(ent) and ent:IsNPC() and (ent:Disposition(ply) != D_HT and ent:Disposition(ply) != D_FR) and ply:GetPos():Distance(ent:GetPos()) <= GetConVarNumber("fmod_min_call_dist") and (!ent:GetNWBool("FMOD_ImAfterSomeone")) then
 				AddFoll(ent, ply)
 				if GetConVarNumber("fmod_followers_speak") > 0 then
@@ -1198,6 +1225,8 @@ if(SERVER)then
 					ply.gfoll:Fire("Deactivate", "", 0)
 					ply.gfoll:Fire("Activate", "", 0.1)
 				end
+
+			-- Removes follower.
 			elseif (key == IN_USE) and IsValid(ent) and ent:IsNPC() and ply:GetPos():Distance(ent:GetPos()) <= GetConVarNumber("fmod_min_call_dist") and ent:GetNWBool("FMOD_ImAfterSomeone") and (ent:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex()) then
 				RemFoll(ent, ply)
 				if GetConVarNumber("fmod_followers_speak") > 0 then
@@ -1209,6 +1238,9 @@ if(SERVER)then
 				end
 			end
 
+			-- Majority of this code is about.
+			-- Half of this isnt needed - 
+			-- This code sends someone somewhere.
 			if ply:KeyDown(IN_WALK) and (key == IN_RELOAD) and (!((IsValid(tr.Entity)) and (tr.Entity:IsNPC() or tr.Entity:IsWeapon() or tr.Entity:GetClass()=="item_healthkit" or tr.Entity:GetClass()=="item_healthvial"))) then
 				for _,my_npc in pairs(ents.GetAll()) do
 					if my_npc and my_npc:IsNPC() and my_npc:GetNWBool("FMOD_ImAfterSomeone") and my_npc:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() then
@@ -1234,6 +1266,8 @@ if(SERVER)then
 						end
 					end
 				end
+
+			-- This code makes them return to you.
 			elseif ply:KeyDown(IN_RELOAD) and (key == IN_WALK) and (!((IsValid(tr.Entity)) and (tr.Entity:IsNPC() or tr.Entity:IsWeapon() or tr.Entity:GetClass()=="item_healthkit" or tr.Entity:GetClass()=="item_healthvial"))) then
 				for _,my_npc in pairs(ents.GetAll()) do
 					if my_npc and my_npc:IsNPC() and my_npc:GetNWBool("FMOD_ImAfterSomeone") and my_npc:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() then
@@ -1262,6 +1296,7 @@ if(SERVER)then
 				end
 			end
 
+			-- This code keeps someone at one spot.
 			if ply:KeyDown(IN_WALK) and (key == IN_RELOAD) and IsValid(tr.Entity) and tr.Entity:IsNPC() and tr.Entity:GetNWBool("FMOD_ImAfterSomeone") and tr.Entity:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() and tr.Entity:GetName() == ply:Nick()..ply:EntIndex() then
 				tr.Entity:SetName("")
 				tr.Entity:ClearEnemyMemory() 
@@ -1284,6 +1319,8 @@ if(SERVER)then
 					ply.gfoll:Fire("Deactivate", "", 0)
 					ply.gfoll:Fire("Activate", "", 0.1)
 				end
+
+			-- This code recalls someone.
 			elseif ply:KeyDown(IN_WALK) and (key == IN_RELOAD) and IsValid(tr.Entity) and tr.Entity:IsNPC() and tr.Entity:GetNWBool("FMOD_ImAfterSomeone") and tr.Entity:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() and tr.Entity:GetName() != ply:Nick()..ply:EntIndex() then
 				tr.Entity:SetName(tr.Entity:GetNWString("FMOD_ImFollowing"))
 				tr.Entity:ClearEnemyMemory() 
@@ -1310,7 +1347,8 @@ if(SERVER)then
 		end
 	end)
 
-	local function SafeToGetUp(ent, ply, ent2)
+	-- I think this mainly just tests whether there is enough space to get up.
+	local function SafeToGetUp(ent, ply, ent2) -- ent2?
 		local tr = util.TraceHull
 		{
 			start = ent:GetPos(),
@@ -1322,6 +1360,7 @@ if(SERVER)then
 		if tr.Hit then return false else return true end
 	end
 
+	-- Checks if there is enough space around the target to teleport to them.
 	local function SafeToTeleport(ent)
 		local tr = util.TraceHull{
 			start = ent:GetPos(),
@@ -1333,6 +1372,8 @@ if(SERVER)then
 		if tr.Hit then return false else return true end
 	end
 
+	-- This isn't really great.
+	-- Is this running through every NPC, for every player? Twice? What in the christmas candy fuck?
 	hook.Add("SetupMove", "FMOD_SetUP", function(ply, mv, cmd)
 		if GetConVarNumber("fmod_enable") > 0 then
 			if (!IsValid(ply.gfoll)) and ply:Alive() then
@@ -1349,6 +1390,7 @@ if(SERVER)then
 				ply.gfoll:Activate()
 			end
 
+			-- If NPC's hate or fear you, remove them as followers.
 			for _,my_npc in pairs(ents.GetAll()) do
 				if my_npc and my_npc:IsNPC() and my_npc:GetNWBool("FMOD_ImAfterSomeone") and my_npc:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() and (my_npc:Disposition(ply) == D_HT or my_npc:Disposition(ply) == D_FR) then
 					RemFoll(my_npc, ply)
@@ -1455,6 +1497,17 @@ if(SERVER)then
 		end
 	end)
 
+	-- Removes npc's following you when you die.
+	hook.Add("PlayerDeath", "FMOD_PlayerDeath", function(ply, weapon, killer)
+		if IsValid(ply.gfoll) then SafeRemoveEntity(ply.gfoll) end
+		for _,my_npc in pairs(ents.GetAll()) do
+			if my_npc and my_npc:IsNPC() and my_npc:GetNWBool("FMOD_ImAfterSomeone") and my_npc:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() then
+				RemFoll(my_npc, ply)
+			end
+		end
+	end)
+
+--[[-- I don't think we want to buff followers, or mess with friendly fire, or do anything with special npcs.
 	hook.Add("EntityTakeDamage", "FMOD_AntiFFire", function(target, dmginfo)
 		if GetConVarNumber("fmod_enable") > 0 then
 			local attacker = dmginfo:GetAttacker()
@@ -1479,15 +1532,7 @@ if(SERVER)then
 			end
 		end
 	end)
-
-	hook.Add("PlayerDeath", "FMOD_PlayerDeath", function(ply, weapon, killer)
-		if IsValid(ply.gfoll) then SafeRemoveEntity(ply.gfoll) end
-		for _,my_npc in pairs(ents.GetAll()) do
-			if my_npc and my_npc:IsNPC() and my_npc:GetNWBool("FMOD_ImAfterSomeone") and my_npc:GetNWString("FMOD_ImFollowing") == ply:Nick()..ply:EntIndex() then
-				RemFoll(my_npc, ply)
-			end
-		end
-	end)
+]]--
 
 --hook.Add( "ShouldCollide", "FMOD_Collide", function(ent1, ent2)
 --if GetConVarNumber("fmod_allow_collisions") <= 0 and ent1:IsNPC() and ent1:GetNWBool("FMOD_ImAfterSomeone") and (ent2:IsPlayer() or ent2:GetClass()=="player") and (ent1:Disposition(ent2) != D_HT or ent1:Disposition(ent2) != D_FR) then
@@ -1495,12 +1540,17 @@ if(SERVER)then
 --end
 --end)
 
+-- Most likely an unndeeded hook for MVG's reasons.
+--[[
 	hook.Add("EntityFireBullets", "FMOD_Accuracy", function(npc, data)
 		if npc:GetNWBool("FMOD_ImAfterSomeone") and npc:GetCurrentWeaponProficiency() != GetConVarNumber("fmod_buff_proficiency") then
 			npc:SetCurrentWeaponProficiency(GetConVarNumber("fmod_buff_proficiency"))
 		end
 	end)
+]]--
 
+-- Un-Halos npcs that die. Crazy that this wasn't commented out by default, and the halo was.
+--[[
 	hook.Add("OnNPCKilled", "FMOD_RemoveHalo", function(npc, killer, weapon)
 		if npc:GetNWBool("FMOD_Special") and IsValid(npc:GetNetworkedEntity("FMOD_CustomModel")) then
 			local model = npc:GetNetworkedEntity("FMOD_CustomModel")
@@ -1557,7 +1607,7 @@ if(SERVER)then
 		end
 	end)
 
----- Special Npc STUFF - Might use later for NPC followers. ----
+---- Special Npc STUFF - Not going to kill it off, because it looks vaguely useful. ----
 
 --[[
 	hook.Add("EntityTakeDamage", "FMOD_SpecialAntiDeath", function(target, dmginfo)
@@ -1639,6 +1689,7 @@ if(SERVER)then
 ]]
 end
 
+-- These are some of the example "special" npcs.
 --if ( IsMounted( "ep2" ) ) then
 --Your little friend.
 --[[
