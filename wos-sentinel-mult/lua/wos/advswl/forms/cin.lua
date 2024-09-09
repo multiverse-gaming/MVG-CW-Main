@@ -59,7 +59,7 @@ FORM.Stances[1] = {
 	[ "heavy" ] = {
 		Sequence = "b_c3_t1",
 		Time = nil,
-		Rate = 1,
+		Rate = 0.3
 	},
 	[ "heavy_charge" ] = "judge_r_s3_charge",
 }

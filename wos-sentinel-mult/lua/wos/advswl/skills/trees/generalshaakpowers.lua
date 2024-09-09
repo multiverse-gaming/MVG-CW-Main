@@ -87,7 +87,7 @@ TREE.Tier[1][3] = {
 	Icon = "wos/forceicons/group_heal.png",
 	PointsRequired = 1,
 	Requirements = {},
-	OnPlayerSpawn = function( ply ) ply:SetArmor(ply:GetArmor() + 50) ply:SetMaxArmor(ply:GetMaxArmor() + 50) end,
+	OnPlayerSpawn = function( ply ) ply:SetArmor(ply:Armor() + 50) ply:SetMaxArmor(ply:GetMaxArmor() + 50) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }

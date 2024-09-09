@@ -96,10 +96,10 @@ function ENT:Use(ply)
 					"Prophet's Twin Hilt", "Tempted Twin Hilt", "Unstable Twin Hilt", "Trident's Hilt", "Blade Masters Staff Hilt", "Champions Hilt" }
 			elseif chance <= 96 then
 				items = { "Corusca Twin Hilt", "Herald's Twin Hilt", "Hermit's Hilt", "Iokath Mk4 Hilt", "Lone Wolf's Hilt", "Occultists' Hilt",
-					"Peacemaker's Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Chrysopaz Staff Hilt", "Dual Blade 5 Hilt", "Reverie Staff Hilt" }
+					"Peacemaker's Twin Hilt", "Reckoning Twin Hilt", "Revanite Twin Hilt", "Chrysopaz Staff Hilt", "Dual Blade 5 Hilt", "Reverie Staff Hilt", "Temple Guard Improved" }
 			else
 				items = { "Eternal Twin Hilt", "Borth Twin Hilt", "Descendant's Sheirloom Hilt", "Indomitable Vanquisher's Hilt", "Outlander Dual Hilt", "The Knowledge Seeker Hilt",
-					"Devastating Staff Hilt", "Vengeance's Sunsealed Double Hilt" }
+					"Devastating Staff Hilt", "Vengeance's Sunsealed Double Hilt", "Temple Guard Perfected" }
 			end
 		else
 			local color = { "Orange", "Yellow", "Green", "Light Green", "Cyan", "Blue", "Purple", "White", "Pink" }

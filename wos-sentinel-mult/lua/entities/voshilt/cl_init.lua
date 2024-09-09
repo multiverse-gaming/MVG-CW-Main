@@ -1,6 +1,6 @@
 include('shared.lua')
-ENT.Spawnable			= false
-ENT.AdminSpawnable		= false
+ENT.Spawnable			= true
+ENT.AdminSpawnable		= true
 ENT.RenderGroup 		= RENDERGROUP_OPAQUE
 
 function ENT:Draw()

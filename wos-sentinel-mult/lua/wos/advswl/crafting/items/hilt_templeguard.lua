@@ -3,7 +3,7 @@ ITEM.Rarity = 100
 
 ITEM.Name = "Temple Guard Hilt"
 
-ITEM.Description = "(Very Rare)"
+ITEM.Description = "(Very Rare) Only useable by Temple Guard"
 
 ITEM.Type = WOSTYPE.HILT
 
@@ -19,9 +19,19 @@ ITEM.Model = "models/twinsaber/twinsaber.mdl"
 ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/twinsaber/twinsaber.mdl"
-	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 60
+	if (IsValid(wep) && wep.Owner) then
+		local team_name = team.GetName(wep.Owner:Team())
+		if (team_name == "Coruscant Guard Temple Guard" || team_name == "CG Temple Guard Chief" || team_name == "Temple Guard Chief" || team_name == "Jedi Temple Guard") then
+			wep.UseHilt = "models/twinsaber/twinsaber.mdl"
+			wep.UseLength = 46
+			wep.SaberDamage = wep.SaberDamage + 60
+		end
+		return
+	else
+		wep.UseHilt = "models/twinsaber/twinsaber.mdl"
+		wep.UseLength = 46
+		wep.SaberDamage = wep.SaberDamage + 60
+	end
 end
 
 wOS:RegisterItem( ITEM )

@@ -110,8 +110,9 @@ TREE.Tier[1][4] = {
 wOS:RegisterSkillTree( TREE )
 
 function CheckIfPlayerIsCheatingCouncil(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
+	local teamName = ply:Team()
+	if (string.match(ply:getJobTable().category, "Jedi")) then return end
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327") || string.match(teamName, "GM ") || string.match(teamName, "WP ") || (string.match(teamName, "Temple") && !string.match(teamName, "Chief"))) then
 		-- Player is playing reg jedi - make sure they have "High" in their name.
 		if (!string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing council powers")

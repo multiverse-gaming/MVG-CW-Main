@@ -12,15 +12,11 @@ function ENT:Initialize()
 end
 
 function ENT:Use( ply )
-    local item1 = wOS:GetItemData( "Aayla Secura's Hilt" )
-    local item2 = wOS:GetItemData( "Aayla Secura's Hilt" )
-    local item3 = wOS:GetItemData( "Corrupted Crystal ( Blue )" )
-    local item4 = wOS:GetItemData( "Corrupted Crystal ( Blue )" )
+    local item1 = wOS:GetItemData( "Obi-Wan Kenobi's Hilt EP1" )
+    local item2 = wOS:GetItemData( "Corrupted Crystal ( Green )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
-    wOS:HandleItemPickup( ply, item3.Name )
-    wOS:HandleItemPickup( ply, item4.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, "Aayla Prep", "Hilts And Crystals")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Vos Prep", "Hilt And Crystal")
     self:Remove()
 end
 

@@ -1,5 +1,5 @@
 ENT.Type 		= "anim"
-ENT.PrintName	= "Temple Guard Twin Setup"
+ENT.PrintName	= "Vos's Hilt"
 ENT.Author		= "Sneaky Lamb"
 ENT.Contact		= ""
 ENT.Category = "Sneaky's MVG Custom"

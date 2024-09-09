@@ -2327,11 +2327,11 @@ TEAM_CGJEDI = DarkRP.createJob("Coruscant Guard Temple Guard", {
 
 TEAM_CGJEDICHIEF = DarkRP.createJob("CG Temple Guard Chief", {
     color = Color(255, 77, 77, 255),
-    model = { "models/player/imagundi/rcinndrallig.mdl", "models/player/imagundi/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "cgcin",
-    max = 0,
+    command = "cgchief",
+    max = 1,
     salary = 225,
     admin = 0,
     vote = false,
@@ -6481,7 +6481,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
 TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
     color = Color(242, 0, 255, 255),
-    model = { "models/player/imagundi/rcinndrallig.mdl", "models/player/imagundi/cinndrallig.mdl" },
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl" },
     description = [[You are Jedi General Cin Drallig. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "cin",
@@ -6502,10 +6502,10 @@ TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
 
 TEAM_JEDITGCHIEF = DarkRP.createJob("Temple Guard Chief", {
     color = Color(0, 166, 255, 255),
-    model = { "models/player/imagundi/rcinndrallig.mdl", "models/player/imagundi/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "tgcheif",
+    command = "tgchief",
     max = 1,
     salary = 225,
     admin = 0,
@@ -6616,7 +6616,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 })
 
 TEAM_TGJEDI = DarkRP.createJob("Jedi Temple Guard", {
-    color = Color(255, 77, 77, 255),
+    color = Color(0, 166, 255, 255),
     model = { "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[Congratulations, you are a Jedi Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer" },
@@ -6880,7 +6880,7 @@ TEAM_JEDITOURNAMENT = DarkRP.createJob("Jedi Tournament", {
 
     description = [[Jedi Tournament Role]],
 
-    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "weapon_lightsaber_tournament_pike", "wos_inventory", "arccw_ll30"},
 
     command = "jeditourn",
 

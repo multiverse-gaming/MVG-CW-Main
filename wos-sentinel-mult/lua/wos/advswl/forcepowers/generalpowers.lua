@@ -226,11 +226,12 @@ wOS.ForcePowers:RegisterNewPower({
 
 			net.Start("arccw_scandart")
 				net.WriteVector(self.Owner:GetPos())
-				net.WriteInt(255, 16)
+				net.WriteInt(516, 16)
 			net.Send(self.Owner)
 
 			self:SetForce(self:GetForce() - 50)
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			return true
 		end
 })
 
