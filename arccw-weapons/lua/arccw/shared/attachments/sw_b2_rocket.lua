@@ -1,4 +1,6 @@
 att.PrintName = "B2 Rocket"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Test ammo for the B2 Rocket droid"
 
 att.SortOrder = 2

@@ -1,4 +1,6 @@
 att.PrintName = "Assault Stock"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Lightweight stock. Improves ADS speed at the cost of recoil."
 att.Desc_Pros = {
 }

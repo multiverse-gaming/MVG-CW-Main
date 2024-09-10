@@ -7,8 +7,8 @@ CreateConVar("arccw_enable_sway", 0, FCVAR_ARCHIVE + FCVAR_REPLICATED, "", 0, 1)
 CreateConVar("arccw_bodydamagemult_cancel", 1, FCVAR_ARCHIVE + FCVAR_REPLICATED, "", 0, 1)
 
 CreateConVar("arccw_attinv_lockmode", 0, FCVAR_ARCHIVE + FCVAR_REPLICATED, "Once owned, players can use attachments as much as they like.")
-CreateConVar("arccw_attinv_free", 1, FCVAR_ARCHIVE + FCVAR_REPLICATED, "All attachments can always be used.")
-CreateConVar("arccw_attinv_loseondie", 0, FCVAR_ARCHIVE + FCVAR_REPLICATED, "All attachments reset on death. If set to 2, drops all attachments in a box.", 0, 2)
+CreateConVar("arccw_attinv_free", 0, FCVAR_REPLICATED, "All attachments can always be used.")
+CreateConVar("arccw_attinv_loseondie", 1, FCVAR_ARCHIVE + FCVAR_REPLICATED, "All attachments reset on death. If set to 2, drops all attachments in a box.", 0, 2)
 
 CreateConVar("arccw_atts_spawnrand", 0, FCVAR_ARCHIVE, "Randomly give attachments to player spawned SWEPs.", 0, 1)
 CreateConVar("arccw_atts_ubglautoload", 1, FCVAR_ARCHIVE, "Automatically load underbarrel weapons when attached.", 0, 1)

@@ -1,4 +1,6 @@
 att.PrintName = "EMP Round"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Can disable vehicles and ships. Highly powered."
 att.Icon = Material("interfaz/armas/sw_cyrobangrenade.png")
 

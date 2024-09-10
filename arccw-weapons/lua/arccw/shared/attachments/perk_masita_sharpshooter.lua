@@ -1,4 +1,6 @@
 att.PrintName = "Sharpshooter"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/sith snip marksmanship/233430474_1706893393.png")
 att.Description = "You're a Sharpshooter, your shots will always be accurate alongside other benefits. Iron sights activate slowmo for better aim."
 att.Desc_Pros = {

@@ -162,7 +162,7 @@ SWEP.Attachments = {
     [2] = {
         PrintName = "Underbarrel",
         DefaultAttName = "Empty",
-        Slot = {"DisruptShot"},
+        Slot = {"WPShot"},
     },
 }
 --[[    [2] = {

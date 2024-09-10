@@ -1,4 +1,6 @@
 att.PrintName = "Extended Barrel"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Improves ranged performance, but at the cost of mobility."
 att.Desc_Pros = {
 }

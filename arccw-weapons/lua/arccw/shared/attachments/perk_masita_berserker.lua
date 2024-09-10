@@ -1,4 +1,6 @@
 att.PrintName = "Berserker"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi scoun sawbones/2553053340_4204086370.png")
 att.Description = "You're a Berseker, you have an almost limitless amount of physical strength."
 att.Desc_Pros = {

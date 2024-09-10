@@ -1,4 +1,6 @@
 att.PrintName = "Scan-Self"
+att.Free = false
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = "Fire scan darts - only reveal their positions to yourself."
 att.Desc_Pros = {
@@ -6,11 +8,9 @@ att.Desc_Pros = {
 att.Desc_Cons = {
 }
 att.AutoStats = true
-att.Slot = "ScanShot"
+att.Slot = "WPShot"
 
 att.NotForNPC = true
-att.Free = true
-att.HideIfUnavailable = false
 
 att.UBGL = true
 att.UBGL_PrintName = "Scan Shot Self"
@@ -37,7 +37,7 @@ att.UBGL_Fire = function(wep, ubgl)
             if (!SERVER) then return end
             net.Start("arccw_scandart")
                 net.WriteVector(tr.HitPos)
-                net.WriteInt(255, 16)
+                net.WriteInt(512, 16)
             net.Send(wep.Owner) -- Send to the owner.
 
             wep:SetClip2(wep:Clip2() - 1)

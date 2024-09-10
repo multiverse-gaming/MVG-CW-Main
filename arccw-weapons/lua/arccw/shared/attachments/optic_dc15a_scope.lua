@@ -1,4 +1,6 @@
 att.PrintName = "DC15a Magnifying Optic"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/dlt19x_icon.png")
 att.Description = "High-magnification sniper rifle scope for long range combat."
 

@@ -1,4 +1,6 @@
 att.PrintName = "Demolition expert"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/sith snip marksmanship/1630896351_777900936.png")
 att.Description = "You're a Demolition's expert. You can load an extra rounds for that one last punch."
 att.Desc_Pros = {

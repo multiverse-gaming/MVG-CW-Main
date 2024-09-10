@@ -1,4 +1,6 @@
 att.PrintName = "SW-Half Drum Magazine"
+att.Free = true
+att.HideIfUnavailable = true
 att.AbbrevName = "75-Round Mag"
 att.SortOrder = 100
 att.Icon = nil
