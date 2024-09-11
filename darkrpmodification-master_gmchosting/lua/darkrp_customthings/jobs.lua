@@ -1029,7 +1029,7 @@ TEAM_ARCALPHA212th = DarkRP.createJob("212th Alpha ARC", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/212th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl","models/zeus/212th_blackout.mdl","models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
     description = [[Congratulations, you are 212th ARC Alpha!]],
 
     weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
@@ -1062,7 +1062,7 @@ TEAM_212THARC = DarkRP.createJob("212th ARC", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl", "models/zeus/212th_blackout.mdl"},
 
     description = [[Congratulations, you are a 212th ARC Trooper!]],
 
@@ -3442,7 +3442,7 @@ TEAM_CEGENERAL = DarkRP.createJob("Combat Engineer General", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_bly.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = { "models/zeus/ce_senior.mdl","models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Combat Engineers!]],
 
@@ -3474,7 +3474,7 @@ TEAM_CEMCOMMANDER = DarkRP.createJob("Combat Engineer Marshal Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
+    model = {"models/zeus/ce_senior.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the Combat Engineers!]],
 
@@ -3506,7 +3506,7 @@ TEAM_CECOMMANDER = DarkRP.createJob("Combat Engineer Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
+    model = {"models/zeus/ce_senior.mdl"},
 
     description = [[Congratulations, you are the Commander of the Combat Engineers!]],
 
@@ -3540,7 +3540,7 @@ TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("Combat Engineer Assistant Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
+    model = {"models/zeus/ce_senior.mdl"},
 
     description = [[Congratulations, you are now an Executive Officer of the Combat Engineers!]],
 
@@ -3574,7 +3574,7 @@ TEAM_CECHIEF = DarkRP.createJob("Combat Engineer Chief Technician", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
+    model = {"models/zeus/ce_senior.mdl"},
 
     description = [[Congratulations, you are now a Major of the Combat Engineers!]],
 
@@ -3608,7 +3608,7 @@ TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Technician", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/327th_pilot.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
+    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
 
     description = [[Congratulations, you are now a Lieutenant of the Combat Engineers!]],
 
@@ -3642,7 +3642,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("Combat Engineer Razor Squadron", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl", "models/aussiwozzi/cgi/base/unassigned_pilot.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl"},
+    model = {"models/zeus/ce_razor.mdl"},
 
     description = [[Congratulations, you are now a member of Talon Squadron in the Combat Engineers!]],
 
@@ -3676,7 +3676,7 @@ TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/327th_raffle.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl"},
+    model = {"models/zeus/ce_eod.mdl"},
 
     description = [[Congratulations, you are now a member of K Company in the Combat Engineers!]],
 
@@ -3708,7 +3708,7 @@ TEAM_ARCALPHACE = DarkRP.createJob("Combat Engineer Alpha ARC", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/327th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/zeus/ce_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are now an Alpha ARC of the Combat Engineers!]],
 
@@ -3741,7 +3741,7 @@ TEAM_CEARC = DarkRP.createJob("Combat Engineer ARC", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_arc.mdl"},
+    model = {"models/zeus/ce_arc.mdl"},
 
     description = [[Congratulations, you are now an ARC Trooper of the Combat Engineers!]],
 
@@ -3775,7 +3775,7 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("Combat Engineer Medic Officer", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_medic_officer.mdl","models/aussiwozzi/cgi/base/917th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta_officer.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
+    model = {"models/zeus/ce_medic.mdl"},
 
     description = [[Congratulations, you are now a Medical Officer of the Combat Engineers!]],
 
@@ -3809,7 +3809,7 @@ TEAM_CESPECIALIST = DarkRP.createJob("Combat Engineer Specialist", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/unassigned_com.mdl","models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl", "models/aussiwozzi/cgi/base/327th_arf.mdl"},
+    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
 
     description = [[Congratulations, you are now a Specialist of the Combat Engineers!]],
 
@@ -3843,7 +3843,7 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("Combat Engineer Medic Trooper", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_medic.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
+    model = {"models/zeus/ce_medic.mdl"},
 
     description = [[Congratulations, you are now a Medical Trooper of the Combat Engineers!]],
 
@@ -3877,7 +3877,7 @@ TEAM_CETROOPER = DarkRP.createJob("Combat Engineer Trooper", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/unassigned_pilot.mdl"},
+    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
 
     description = [[Congratulations, you are now a Trooper of the Combat Engineers!]],
 
