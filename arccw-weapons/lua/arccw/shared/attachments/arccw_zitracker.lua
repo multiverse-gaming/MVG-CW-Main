@@ -1,4 +1,6 @@
 att.PrintName = "ZI NV"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/arccw_tracker.png", "mips smooth")
 att.Description = "Advanced targeting sight highlights and tracks enemies."
 

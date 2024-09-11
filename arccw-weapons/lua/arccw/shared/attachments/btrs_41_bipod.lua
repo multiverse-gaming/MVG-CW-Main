@@ -1,4 +1,6 @@
 att.PrintName = "Integral Bipod"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Bring down the bipod, making handling clunkier."
 
 att.SortOrder = 1

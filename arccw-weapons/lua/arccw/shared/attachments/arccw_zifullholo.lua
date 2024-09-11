@@ -1,4 +1,6 @@
 att.PrintName = "ZI Holo"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/arccw_fullholo.png", "mips smooth")
 att.Description = "For when you just need more sight picture and less sight."
 

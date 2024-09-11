@@ -1,4 +1,6 @@
 att.PrintName = "Shortbarrel"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Offers superior handling at the cost of performance."
 att.Desc_Pros = {
 }

@@ -1,4 +1,6 @@
 att.PrintName = "Extended-power"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "More tibanna compression. More damage at the cost of less magazine capacity."
 att.Desc_Pros = {
 }

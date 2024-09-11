@@ -1,4 +1,6 @@
 att.PrintName = "ZI CQ-9"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/arccw_hcog.png", "mips smooth")
 att.Description = "The ZI CQ Scope offers minimal magnification is a perfect for close quarters combat. "
 

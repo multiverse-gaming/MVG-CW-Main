@@ -1,4 +1,6 @@
 att.PrintName = "Stealth Setting"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_go_ammo_blanks.png", "mips smooth")
 att.Description = "Stealth Setting causes the tracer to become invisible!"
 att.Desc_Pros = {

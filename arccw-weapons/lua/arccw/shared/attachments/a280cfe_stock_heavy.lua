@@ -1,4 +1,6 @@
 att.PrintName = "Heavy Stock"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Heavy stocK. Improves recoil."
 att.Desc_Pros = {
 }

@@ -1,4 +1,6 @@
 att.PrintName = "Low Compression"
+att.Free = true
+att.HideIfUnavailable = true
 
 att.SortOrder = 18
 att.Icon = Material("interfaz/armas/sw_emitter2.png", "smooth mips")

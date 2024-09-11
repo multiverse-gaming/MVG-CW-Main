@@ -1,4 +1,6 @@
 att.PrintName = "Scan"
+att.Free = false
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = "Fire scan darts."
 att.Desc_Pros = {
@@ -6,11 +8,9 @@ att.Desc_Pros = {
 att.Desc_Cons = {
 }
 att.AutoStats = true
-att.Slot = "ScanShot"
+att.Slot = "WPShot"
 
 att.NotForNPC = true
-att.Free = true
-att.HideIfUnavailable = false
 
 att.UBGL = true
 att.UBGL_PrintName = "Scan Shot"

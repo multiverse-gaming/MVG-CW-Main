@@ -1,4 +1,6 @@
 att.PrintName = "The Commando"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/sith snip marksmanship/265384158_3363115073.png")
 att.Description = "You're a Commando, an ace when it comes to Blaster Carabines or Rifles. Your reload speed and accuracy will increase when using an assault or carabine blaster along other benefits."
 att.Desc_Pros = {

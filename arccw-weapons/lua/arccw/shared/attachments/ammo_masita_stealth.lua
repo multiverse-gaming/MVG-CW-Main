@@ -1,4 +1,6 @@
 att.PrintName = "Stealth Rounds"
+att.Free = true
+att.HideIfUnavailable = true
 
 att.SortOrder = 17
 att.Icon = Material("interfaz/armas/sw_blastersilencer.png", "smooth mips")

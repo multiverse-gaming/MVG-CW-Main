@@ -1,4 +1,6 @@
 att.PrintName = "Smokescreen"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_ammo_rpg7_smoke.png")
 att.Description = "Smoke rockets that produce a wide smokescreen on impact. Also does light damage."
 att.Desc_Pros = {

@@ -1,4 +1,6 @@
 att.PrintName = "Ion Round"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = ""
 att.Icon = Material("interfaz/iconos/kraken/jedi comm gunnery/292808524_4235241327.png")
 

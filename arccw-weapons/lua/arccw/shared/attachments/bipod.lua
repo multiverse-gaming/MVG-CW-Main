@@ -1,4 +1,6 @@
 att.PrintName = "Bipod"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_bipod.png")
 att.Description = "Bipod can be deployed by pressing +USE while in an eligible spot. While deployed, the user's aiming angle is limited and recoil is reduced to near-zero. Moving will release bipod. While not in use, the bipod negatively impacts weapon maneuverability."
 

@@ -1,4 +1,6 @@
 att.PrintName = "Healing Module"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = "Fire healing darts out of the DC17m underbarrel"
 att.Desc_Pros = {

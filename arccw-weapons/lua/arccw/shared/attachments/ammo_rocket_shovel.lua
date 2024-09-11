@@ -1,4 +1,6 @@
 att.PrintName = "Shovel Tip"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_ammo_shovel.png")
 att.Description = "A far cry from those regular rockets"
 att.Ignore = true

@@ -1,4 +1,6 @@
 att.PrintName = "Healing Bacta Launcher"
+att.Free = true
+att.HideIfUnavailable = true
 att.AbbrevName = "Healing Bacta"
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = "Fire bacta capsules out of the underbarrel"

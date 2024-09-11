@@ -1,4 +1,6 @@
 att.PrintName = "No Fuze"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "No fuze timer. Also slightly faster velocity"
 att.Icon = Material("interfaz/iconos/jedi/2721145501_3098306349.png")
 

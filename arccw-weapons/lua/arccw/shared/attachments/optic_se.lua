@@ -1,4 +1,6 @@
 att.PrintName = "Experimental Scope (SE)"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_optic_micro.png")
 att.Description = "test scope for swrp"
 

@@ -1,4 +1,6 @@
 att.PrintName = "Disrupt"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = "Fire rounds that make the enemy drop their binders."
 att.Desc_Pros = {
@@ -6,7 +8,7 @@ att.Desc_Pros = {
 att.Desc_Cons = {
 }
 att.AutoStats = true
-att.Slot = "DisruptShot"
+att.Slot = "WPShot"
 
 att.NotForNPC = true
 
