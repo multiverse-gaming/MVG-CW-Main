@@ -18,9 +18,19 @@ ITEM.Model = "models/starwars/cwa/lightsabers/reverseahsoka.mdl"
 ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/starwars/cwa/lightsabers/reverseahsoka.mdl"
-	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 100
+	if (IsValid(wep) && wep.Owner) then
+		local team_name = team.GetName(wep.Owner:Team())
+		if (string.match(team_name, "Commander")) then
+			wep.UseHilt = "models/starwars/cwa/lightsabers/reverseahsoka.mdl"
+			wep.UseLength = 46
+			wep.SaberDamage = wep.SaberDamage + 100
+		end
+		return
+	else
+		wep.UseHilt = "models/starwars/cwa/lightsabers/reverseahsoka.mdl"
+		wep.UseLength = 46
+		wep.SaberDamage = wep.SaberDamage + 100
+	end
 end
 
 wOS:RegisterItem( ITEM )

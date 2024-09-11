@@ -377,6 +377,7 @@ TREE.Tier[4][6] = {
 		wep:AddForm( "Yoda", 1 ) wep:AddForm( "Ahsoka", 1 ) wep:AddForm( "Shaak", 1 ) wep:AddForm( "Shaak", 2 ) wep:AddForm( "Fisto", 1 )
 		wep:AddForm( "Vos", 1 ) wep:AddForm( "Plo", 1 ) wep:AddForm( "Obi", 1 ) wep:AddForm( "Obi", 2 ) wep:AddForm( "Skywalker", 1 ) wep:AddForm( "Skywalker", 2 )
 		wep:AddForm( "Aayla", 1 ) wep:AddForm( "Luminara", 1 ) wep:AddForm( "Mundi", 1 )
+		wep:AddForm( "Cin", 1 )
 		wep:AddForm( "Vapaad", 1 ) wep:AddForm( "Vapaad", 2 ) wep:AddForm( "Vapaad", 3 )
 		wep:AddForm( "General Grievous", 1 ) wep:AddForm( "General Grievous", 2 ) wep:AddForm( "General Grievous", 3 )
 		wep:AddForm( "Juyo", 1 ) wep:AddForm( "Juyo", 2 ) wep:AddForm( "Juyo", 3 )

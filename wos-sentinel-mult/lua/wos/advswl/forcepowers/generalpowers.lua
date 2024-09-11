@@ -186,6 +186,56 @@ wOS.ForcePowers:RegisterNewPower({
 })
 
 wOS.ForcePowers:RegisterNewPower({
+		name = "Shield",
+		icon = "S",
+		image = "wos/skilltrees/forms/aggressive.png",
+		cooldown = 8,
+		target = 1,
+		manualaim = true,
+		description = "Armor yourself and others. Alt to target others.",
+		action = function( self )
+			if ( self:GetForce() < 6 or CLIENT ) then return end
+			local ent = self:SelectTargets( 1 )[ 1 ]
+
+			if (self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
+				-- Give others armor.
+				ent:SetArmor(math.min(self.Owner:Armor() + 100, self.Owner:GetMaxArmor()))
+
+				self:SetForce(self:GetForce() - 20)
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				return true
+			elseif (!self:GetOwner():KeyDown( IN_WALK )) then
+				-- Give yourself armor.
+				self.Owner:SetArmor(math.min(self.Owner:Armor() + 100, self.Owner:GetMaxArmor()))
+
+				self:SetForce(self:GetForce() - 20)
+				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+				return true
+			end
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Sense",
+		icon = "S",
+		image = "wos/forceicons/meditate.png",
+		cooldown = 30,
+		description = "Sense all lifeforms around you.",
+		action = function( self )
+			if ( self:GetForce() < 50 or CLIENT ) then return end
+
+			net.Start("arccw_scandart")
+				net.WriteVector(self.Owner:GetPos())
+				net.WriteInt(516, 16)
+			net.Send(self.Owner)
+
+			self:SetForce(self:GetForce() - 50)
+			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
+			return true
+		end
+})
+
+wOS.ForcePowers:RegisterNewPower({
 		name = "Force Choke",
 		icon = "CH",
 		description = "I find your lack of faith disturbing",

@@ -2308,11 +2308,45 @@ end,
 
 })
 
+TEAM_CGJEDI = DarkRP.createJob("Coruscant Guard Temple Guard", {
+    color = Color(255, 77, 77, 255),
+    model = { "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    description = [[Congratulations, you are a CG Temple Guard!]],
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
+    command = "cgtg",
+    max = 0,
+    salary = 150,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Coruscant Guard",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    sortOrder = 15,
+})
+
+TEAM_CGJEDICHIEF = DarkRP.createJob("CG Temple Guard Chief", {
+    color = Color(255, 77, 77, 255),
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
+    command = "cgchief",
+    max = 1,
+    salary = 225,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Coruscant Guard",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    sortOrder = 16,
+})
+
 TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
     color = Color(255, 77, 77, 255),
     model = {"models/tfa/comm/gg/pm_sw_shaakti.mdl"},
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic_officer", "stunstick", "carkeys"},
     command = "cgshaak",
     max = 1,
     salary = 275,
@@ -2322,7 +2356,7 @@ TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
     hasLicense = false,
     category = "Coruscant Guard",
     PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 15,
+    sortOrder = 17,
 })
 
 
@@ -6319,7 +6353,7 @@ TEAM_JEDIGENERALSHAAK = DarkRP.createJob("Jedi General Shaak Ti", {
 
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic_officer", "stunstick", "carkeys"},
 
     command = "shaak",
 
@@ -6445,9 +6479,44 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
 })
 
+TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
+    color = Color(242, 0, 255, 255),
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl" },
+    description = [[You are Jedi General Cin Drallig. It is your role to help lower ranking Jedi get an understanding of the Order!]],
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
+    command = "cin",
+    max = 1,
+    salary = 275,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Jedi Generals",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    sortOrder = 13,
+})
+
 
 
 --
+
+TEAM_JEDITGCHIEF = DarkRP.createJob("Temple Guard Chief", {
+    color = Color(0, 166, 255, 255),
+    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
+    command = "tgchief",
+    max = 1,
+    salary = 225,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Jedi",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    sortOrder = 1,
+})
+
 
 
 
@@ -6520,7 +6589,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
 
     },
 
-    description = [[You are apart of the Jedi council, a leading member of the Jedi Order!]],
+    description = [[You are a part of the Jedi council, a leading member of the Jedi Order!]],
 
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
@@ -6544,6 +6613,23 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
     sortOrder = 2,
 
+})
+
+TEAM_TGJEDI = DarkRP.createJob("Jedi Temple Guard", {
+    color = Color(0, 166, 255, 255),
+    model = { "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    description = [[Congratulations, you are a Jedi Temple Guard!]],
+    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer" },
+    command = "tg",
+    max = 0,
+    salary = 150,
+    admin = 0,
+    vote = false,
+    candemote = false,
+    hasLicense = false,
+    category = "Jedi",
+    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    sortOrder = 3,
 })
 
 
@@ -6794,7 +6880,7 @@ TEAM_JEDITOURNAMENT = DarkRP.createJob("Jedi Tournament", {
 
     description = [[Jedi Tournament Role]],
 
-    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "weapon_lightsaber_tournament_pike", "wos_inventory", "arccw_ll30"},
 
     command = "jeditourn",
 

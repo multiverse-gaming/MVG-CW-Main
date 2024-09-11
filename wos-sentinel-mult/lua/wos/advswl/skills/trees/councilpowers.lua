@@ -41,7 +41,6 @@ TREE.MaxTiers = 1
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
---TREE.JobRestricted = {"TEAM_JEDICOUNCIL", "TEAM_JEDIGENERALTIPLEE", "TEAM_JEDIGENERALTIPLAR", "TEAM_JEDIGENERALADI", "TEAM_JEDIGENERALSHAAK", "TEAM_JEDIGENERALAAYLA", "TEAM_JEDIGENERALKIT", "TEAM_JEDIGENERALPLO", "TEAM_JEDIGENERALTANO", "TEAM_JEDIGENERALWINDU", "TEAM_JEDIGENERALOBI", "TEAM_JEDIGENERALSKYWALKER", "TEAM_JEDIGRANDMASTER","TEAM_JEDIGENERALVOS","TEAM_JEDIGENERALLUMINARA","TEAM_JEDIGURDCHIEF"}
 TREE.JobRestricted = JediCouncil
 
 local ForceHpSpeedStamina = {20, 50, 10, 12}
@@ -111,8 +110,9 @@ TREE.Tier[1][4] = {
 wOS:RegisterSkillTree( TREE )
 
 function CheckIfPlayerIsCheatingCouncil(ply)
-	local team = ply:Team()
-	if (string.match(team, "501") || string.match(team, "212") || string.match(team, "327")) then
+	local teamName = ply:Team()
+	if (string.match(ply:getJobTable().category, "Jedi")) then return end
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327") || string.match(teamName, "GM ") || string.match(teamName, "WP ") || (string.match(teamName, "Temple") && !string.match(teamName, "Chief"))) then
 		-- Player is playing reg jedi - make sure they have "High" in their name.
 		if (!string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then
 			RunConsoleCommand("sam", "asay", "Player " .. wep:GetOwner():GetName() .. " is likely abusing council powers")
