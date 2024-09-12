@@ -307,7 +307,7 @@ TREE.Tier[4][2] = {
 	Requirements = {
 	[4] = { 1, 3 },
 	},
-	OnPlayerSpawn = function( ply ) ply:SetArmor(ply:GetArmor() + 150) ply:SetMaxArmor(ply:GetMaxArmor() + 150) end,
+	OnPlayerSpawn = function( ply ) ply:SetArmor(ply:Armor() + 150) ply:SetMaxArmor(ply:GetMaxArmor() + 150) end,
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
