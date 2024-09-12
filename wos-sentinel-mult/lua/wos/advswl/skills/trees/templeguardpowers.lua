@@ -30,7 +30,7 @@ TREE.Name = "Temple Guard Skill Tree"
 TREE.Description = "Skills to help lock down and guard the temple."
 
 --Icon for the skill tree ( Appears in category menu and above the skills )
-TREE.TreeIcon = "wos/skilltrees/forms/defensive.png"
+TREE.TreeIcon = "wos/forceicons/advanced_cloak.png"
 
 --What is the background color in the menu for this 
 TREE.BackgroundColor = Color( 177, 201, 0, 76)

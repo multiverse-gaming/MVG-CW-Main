@@ -359,6 +359,14 @@ teams = {
         "Temple Guard Chief"
     },
 
+    JediTemple = {
+        "CG Temple Guard Chief",
+        "Jedi General Cin Drallig",
+        "Coruscant Guard Temple Guard",
+        "Jedi Temple Guard",
+        "Temple Guard Chief"
+    },
+
     JediSpec = {
         "Jedi Consular",
         "Jedi Guardian",
