@@ -526,53 +526,56 @@ function wOS:HasSkillPoints( tree, tier, skill )
 	
 end
 
-local wiltOSTeams = {
-	[TEAM_JEDICOUNCIL] = true,
-	[TEAM_JEDIKNIGHT] = true,
-	[TEAM_JEDIPADAWAN] = true,
-	[TEAM_JEDIGENERALKIT] = true,
-	[TEAM_RCGENERALKIT] = true,
-	[TEAM_JEDIGRANDMASTER] = true,
-	[TEAM_GCGRANDMASTER] = true,
-	[TEAM_JEDIGUARDIAN] = true,
-	[TEAM_JEDICONSULAR] = true,
-	[TEAM_JEDISENTINEL] = true,
-	[TEAM_JEDIGENERALTANO] = true,
-	[TEAM_501STGENERALTANO] = true,
-	[TEAM_JEDIGENERALSKYWALKER] = true,
-	[TEAM_501STGENERALSKYWALKER] = true,
-	[TEAM_JEDIGENERALOBI] = true,
-	[TEAM_212THGENERALOBI] = true,
-	[TEAM_JEDIGENERALVOS] = true,
-	[TEAM_SHADOWGENERALVOS] = true,
-	[TEAM_JEDIGENERALWINDU] = true,
-	[TEAM_JEDIGENERALADI] = true,
-	[TEAM_GMGENERALADI] = true,
-	[TEAM_JEDIGENERALSHAAK] = true,
-	[TEAM_CGGENERALSHAAK] = true,
-	[TEAM_JEDIGENERALAAYLA] = true,
-	[TEAM_327THGENERALAAYLA] = true,
-	[TEAM_JEDIGENERALLUMINARA] = true,
-	[TEAM_GCGENERALLUMINARA] = true,
-	[TEAM_JEDIGENERALPLO] = true,
-	[TEAM_WPGENERALPLO] = true,
-	[TEAM_JEDITOURNAMENT] = true,
-	[TEAM_501STJEDI] = true,
-	[TEAM_327THJEDI] = true,
-	[TEAM_212THJEDI] = true,
-	[TEAM_GMJEDI] = true,
-	[TEAM_WPJEDI] = true,
-	[TEAM_TGJEDI] = true,
-	[TEAM_CGJEDI] = true,
-	[TEAM_JEDITGCHIEF] = true,
-	[TEAM_CGJEDICHIEF] = true,
-	[TEAM_JEDIGENCINDRALLIG] = true,
-}
+local wiltOSTeams = {}
+timer.Simple(20, function()
+	wiltOSTeams = {
+		[TEAM_JEDICOUNCIL] = true,
+		[TEAM_JEDIKNIGHT] = true,
+		[TEAM_JEDIPADAWAN] = true,
+		[TEAM_JEDIGENERALKIT] = true,
+		[TEAM_RCGENERALKIT] = true,
+		[TEAM_JEDIGRANDMASTER] = true,
+		[TEAM_GCGRANDMASTER] = true,
+		[TEAM_JEDIGUARDIAN] = true,
+		[TEAM_JEDICONSULAR] = true,
+		[TEAM_JEDISENTINEL] = true,
+		[TEAM_JEDIGENERALTANO] = true,
+		[TEAM_501STGENERALTANO] = true,
+		[TEAM_JEDIGENERALSKYWALKER] = true,
+		[TEAM_501STGENERALSKYWALKER] = true,
+		[TEAM_JEDIGENERALOBI] = true,
+		[TEAM_212THGENERALOBI] = true,
+		[TEAM_JEDIGENERALVOS] = true,
+		[TEAM_SHADOWGENERALVOS] = true,
+		[TEAM_JEDIGENERALWINDU] = true,
+		[TEAM_JEDIGENERALADI] = true,
+		[TEAM_GMGENERALADI] = true,
+		[TEAM_JEDIGENERALSHAAK] = true,
+		[TEAM_CGGENERALSHAAK] = true,
+		[TEAM_JEDIGENERALAAYLA] = true,
+		[TEAM_327THGENERALAAYLA] = true,
+		[TEAM_JEDIGENERALLUMINARA] = true,
+		[TEAM_GCGENERALLUMINARA] = true,
+		[TEAM_JEDIGENERALPLO] = true,
+		[TEAM_WPGENERALPLO] = true,
+		[TEAM_JEDITOURNAMENT] = true,
+		[TEAM_501STJEDI] = true,
+		[TEAM_327THJEDI] = true,
+		[TEAM_212THJEDI] = true,
+		[TEAM_GMJEDI] = true,
+		[TEAM_WPJEDI] = true,
+		[TEAM_TGJEDI] = true,
+		[TEAM_CGJEDI] = true,
+		[TEAM_JEDITGCHIEF] = true,
+		[TEAM_CGJEDICHIEF] = true,
+		[TEAM_JEDIGENCINDRALLIG] = true,
+	}
+end)
 
 if wOS.ALCS.Config.Skills.MountLevelToHUD then
 
 	hook.Add( "HUDPaint", "wOS.SkillTrees.MountHUD", function()
-		local team = LocalPlayer():Team()
+		print(wiltOSTeams[LocalPlayer():Team()])
 		if not ( wiltOSTeams[LocalPlayer():Team()]  ) then return end
 		local level = LocalPlayer():GetNW2Int( "wOS.SkillLevel", 0 )
 		local xp = LocalPlayer():GetNW2Int( "wOS.SkillExperience", 0 )
