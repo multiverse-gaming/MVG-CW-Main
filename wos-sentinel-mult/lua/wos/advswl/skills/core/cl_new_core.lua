@@ -575,7 +575,6 @@ end)
 if wOS.ALCS.Config.Skills.MountLevelToHUD then
 
 	hook.Add( "HUDPaint", "wOS.SkillTrees.MountHUD", function()
-		print(wiltOSTeams[LocalPlayer():Team()])
 		if not ( wiltOSTeams[LocalPlayer():Team()]  ) then return end
 		local level = LocalPlayer():GetNW2Int( "wOS.SkillLevel", 0 )
 		local xp = LocalPlayer():GetNW2Int( "wOS.SkillExperience", 0 )
