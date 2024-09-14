@@ -131,6 +131,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "104th Reconnaissance Officer",
     "Engineering Officer",
     "Medical Officer",
+    "Fleet Security Officer",
     "NSO Advisor",
     "Supreme General",
     "Battalion General",
