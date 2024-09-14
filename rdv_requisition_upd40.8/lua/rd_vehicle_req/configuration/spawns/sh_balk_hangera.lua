@@ -140,6 +140,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Fleet Commander",
     "Fleet Captain",
     "Fleet Commodore",
+    "Fleet Seniority",
     "Fleet Admiral",
     "Grand Admiral",
     "Supreme General",

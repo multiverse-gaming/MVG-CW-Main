@@ -124,18 +124,6 @@ OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
 --[[---------------------------------]]--
 
 OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
-    "Grand Admiral",
-    "Republic Intelligence",
-    "RC Clone Advisor",
-    "Clone Trooper Instructor",
-    "501st Heavy Ordnance Officer",
-    "212th Heavy Ordnance Officer",
-    "Green Company Reconnaissance Officer",
-    "Galactic Marines Breaching Officer",
-    "104th Reconnaissance Officer",
-    "Engineering Officer",
-    "Medical Officer",
-    "NSO Advisor",
     "Supreme General",
     "Battalion General",
     "Assistant General",
@@ -143,7 +131,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "501st General",
     "212th General",
     "Green Company General",
-    "Shock General",
+    "Coruscant Guard General",
     "Galactic Marines General",
     "104th General",
     "ARC General",

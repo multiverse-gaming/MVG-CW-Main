@@ -130,6 +130,7 @@ OBJ:AddGrantTeams({ -- Optional, falls back to customcheck
     "Galactic Marines Breaching Officer",
     "104th Reconnaissance Officer",
     "Engineering Officer",
+    "Fleet Security Officer",
     "Medical Officer",
     "NSO Advisor",
     "Supreme General",
