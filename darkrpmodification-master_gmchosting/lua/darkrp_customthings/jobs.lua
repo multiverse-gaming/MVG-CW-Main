@@ -5624,7 +5624,7 @@ TEAM_MEDICALMCO = DarkRP.createJob("Senior Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "medsdir",
+    command = "smd",
 
     max = 1,
 
@@ -5657,7 +5657,7 @@ TEAM_MEDICALDIRECTOR = DarkRP.createJob("Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "meddir",
+    command = "mdr",
 
     max = 1,
 
@@ -5691,7 +5691,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "astmeddir",
+    command = "amd",
 
     max = 1,
 
