@@ -172,7 +172,7 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Wolfpack Lieutenant"] = true,
             ["Wolfpack ARC"] = true,
             ["Wolfpack Alpha ARC"] = true,
-            ["Wolfpack Pathfinder"] = true,
+            ["Wolfpack Direwolf"] = true,
             ["Wolfpack Medic Officer"] = true,
             ["Wolfpack Medic Trooper"] = true,
 

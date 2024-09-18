@@ -1,4 +1,6 @@
 att.PrintName = "Standard Training"
+att.Free = true
+att.HideIfUnavailable = true
 
 att.Icon = Material("", "smooth mips")
 att.Description = [[The most basic training for weapon handling.

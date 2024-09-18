@@ -1,4 +1,6 @@
 att.PrintName = "Gravity Rocket"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = ""
 att.Icon = Material("interfaz/iconos/jedi/2908166817_3227357796.png")
 

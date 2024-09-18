@@ -41,7 +41,7 @@ TREE.MaxTiers = 1
 --Add user groups that are allowed to use this tree. If anyone is allowed, set this to FALSE ( TREE.UserGroups = false )
 TREE.UserGroups = false
 
-TREE.JobRestricted = { "TEAM_JEDIGUARDIAN", "TEAM_501STJEDI", "TEAM_212THJEDI", "TEAM_327THJEDI", "TEAM_WPJEDI", "TEAM_GMJEDI" }
+TREE.JobRestricted = { "TEAM_JEDIGUARDIAN", "TEAM_501STJEDI", "TEAM_212THJEDI", "TEAM_327THJEDI", "TEAM_WPJEDI", "TEAM_GMJEDI", "TEAM_CGJEDI" }
 
 TREE.Tier = {}
 

@@ -1,4 +1,6 @@
 att.PrintName = "Combat Support"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/2340717062_2624499759.png")
 att.Description = "You're a Combat Support, everything you do will award you ammo, along other benefits for your group."
 att.Desc_Pros = {

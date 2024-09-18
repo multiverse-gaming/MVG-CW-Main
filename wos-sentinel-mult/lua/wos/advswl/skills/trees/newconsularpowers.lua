@@ -349,7 +349,8 @@ wOS:RegisterSkillTree( TREE )
 
 function CheckIfPlayerIsCheatingConsular(ply)
 	local teamName = team.GetName(ply:Team())
-	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327")) then
+	if (string.match(ply:getJobTable().category, "Jedi")) then return end
+	if (string.match(teamName, "501") || string.match(teamName, "212") || string.match(teamName, "327") || string.match(teamName, "GM ") || string.match(teamName, "WP ") || (string.match(teamName, "Temple") && !string.match(teamName, "Chief"))) then
 		-- Player is playing reg jedi - make sure they have "High" or "uardian" in their name.
 		if (!string.match(ply:Name(), "onsular") && !string.match(ply:Name(), "age") && !string.match(ply:Name(), "orekeeper") && !string.match(ply:Name(), "cholar")
 		&& !string.match(ply:Name(), "High") && !string.match(ply:Name(), "Master") && !string.match(ply:Name(), "General") && !string.match(ply:Name(), "Commander")) then

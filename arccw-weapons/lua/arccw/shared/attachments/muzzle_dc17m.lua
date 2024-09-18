@@ -1,4 +1,6 @@
 att.PrintName = "DC-17m Muzzle Mod"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Bulky and heavy, but provides better ballistic performance.\n\n\"By the time you figured it out, it would be too late.\""
 
 att.AutoStats = true

@@ -1,4 +1,6 @@
 att.PrintName = "Bacta Launcher"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Fires a bacta healing cloud"
 att.Icon = Material("interfaz/iconos/jedi/2345167222_2915837677.png")
 

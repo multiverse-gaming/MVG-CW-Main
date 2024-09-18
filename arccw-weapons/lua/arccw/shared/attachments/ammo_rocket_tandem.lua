@@ -1,4 +1,6 @@
 att.PrintName = "Tandem Warhead"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_ammo_rpg7_he.png")
 att.Description = "Load tandem shaped charge warheads that have excellent direct hit damage but very poor splash damage."
 att.Desc_Pros = {

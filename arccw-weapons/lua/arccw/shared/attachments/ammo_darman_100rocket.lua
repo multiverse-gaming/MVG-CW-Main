@@ -1,4 +1,6 @@
 att.PrintName = "Smaller Projectiles"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = ""
 att.Icon = Material("interfaz/iconos/jedi/2721145501_3098306349.png")
 

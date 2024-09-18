@@ -1,4 +1,6 @@
 att.PrintName = "Gunslinger"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi guns dirty fighting/3726085931_3536543931.png")
 att.Description = "You're a Gunslinger, an ace when it comes to Blaster Pistols. Your reload speed and accuracy will increase when using an pistol along other benefits."
 att.Desc_Pros = {

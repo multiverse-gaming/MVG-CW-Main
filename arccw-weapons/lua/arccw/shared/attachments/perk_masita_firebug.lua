@@ -1,4 +1,6 @@
 att.PrintName = "Firebug"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("interfaz/iconos/kraken/jedi juns sharpshooter/1833947853_761929952.png")
 att.Description = "You're a Firebug, fire is everything to you."
 att.Desc_Pros = {

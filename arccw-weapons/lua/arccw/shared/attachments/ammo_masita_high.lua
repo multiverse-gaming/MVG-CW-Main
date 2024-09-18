@@ -1,4 +1,6 @@
 att.PrintName = "Increased Load"
+att.Free = true
+att.HideIfUnavailable = true
 
 att.SortOrder = 19
 att.Icon = Material("interfaz/armas/sw_powercell1.png", "smooth mips")

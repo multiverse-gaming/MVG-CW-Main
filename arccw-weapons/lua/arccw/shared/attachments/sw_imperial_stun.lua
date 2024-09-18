@@ -1,4 +1,6 @@
 att.PrintName = "[ Starwars ] Stun Rounds"
+att.Free = true
+att.HideIfUnavailable = true
 att.AbbrevName = "Stun round (5 seconds)"
 att.SortOrder = -2
 att.Icon = Material("")

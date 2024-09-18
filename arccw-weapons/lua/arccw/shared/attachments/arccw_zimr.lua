@@ -1,4 +1,6 @@
 att.PrintName = "ZI MR-6"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/arccw_titholo.png", "mips smooth")
 att.Description = "The ZI Medium Quarters scope offers 2 magnifying lenses. It is perfect for Close-to-Medium range combat."
 

@@ -146,9 +146,9 @@ SWEP.Attachments = {
         },
     },
     [2] = {
-        PrintName = "Energization",
-        DefaultAttName = "Standard Energization",
-        Slot = "riggsbacta",
+        PrintName = "Underbarrel",
+        DefaultAttName = "Empty",
+        Slot = "RiggsBactaAlt",
     },
 }
 SWEP.Animations = {

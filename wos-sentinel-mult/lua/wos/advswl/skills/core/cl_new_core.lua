@@ -526,11 +526,56 @@ function wOS:HasSkillPoints( tree, tier, skill )
 	
 end
 
+local wiltOSTeams = {}
+timer.Simple(20, function()
+	wiltOSTeams = {
+		[TEAM_JEDICOUNCIL] = true,
+		[TEAM_JEDIKNIGHT] = true,
+		[TEAM_JEDIPADAWAN] = true,
+		[TEAM_JEDIGENERALKIT] = true,
+		[TEAM_RCGENERALKIT] = true,
+		[TEAM_JEDIGRANDMASTER] = true,
+		[TEAM_GCGRANDMASTER] = true,
+		[TEAM_JEDIGUARDIAN] = true,
+		[TEAM_JEDICONSULAR] = true,
+		[TEAM_JEDISENTINEL] = true,
+		[TEAM_JEDIGENERALTANO] = true,
+		[TEAM_501STGENERALTANO] = true,
+		[TEAM_JEDIGENERALSKYWALKER] = true,
+		[TEAM_501STGENERALSKYWALKER] = true,
+		[TEAM_JEDIGENERALOBI] = true,
+		[TEAM_212THGENERALOBI] = true,
+		[TEAM_JEDIGENERALVOS] = true,
+		[TEAM_SHADOWGENERALVOS] = true,
+		[TEAM_JEDIGENERALWINDU] = true,
+		[TEAM_JEDIGENERALADI] = true,
+		[TEAM_GMGENERALADI] = true,
+		[TEAM_JEDIGENERALSHAAK] = true,
+		[TEAM_CGGENERALSHAAK] = true,
+		[TEAM_JEDIGENERALAAYLA] = true,
+		[TEAM_327THGENERALAAYLA] = true,
+		[TEAM_JEDIGENERALLUMINARA] = true,
+		[TEAM_GCGENERALLUMINARA] = true,
+		[TEAM_JEDIGENERALPLO] = true,
+		[TEAM_WPGENERALPLO] = true,
+		[TEAM_JEDITOURNAMENT] = true,
+		[TEAM_501STJEDI] = true,
+		[TEAM_327THJEDI] = true,
+		[TEAM_212THJEDI] = true,
+		[TEAM_GMJEDI] = true,
+		[TEAM_WPJEDI] = true,
+		[TEAM_TGJEDI] = true,
+		[TEAM_CGJEDI] = true,
+		[TEAM_JEDITGCHIEF] = true,
+		[TEAM_CGJEDICHIEF] = true,
+		[TEAM_JEDIGENCINDRALLIG] = true,
+	}
+end)
+
 if wOS.ALCS.Config.Skills.MountLevelToHUD then
 
 	hook.Add( "HUDPaint", "wOS.SkillTrees.MountHUD", function()
-		local team = LocalPlayer():Team()
-		if not (team == TEAM_JEDICOUNCIL or team == TEAM_JEDIKNIGHT or team == TEAM_JEDIPADAWAN or team == TEAM_JEDIGENERALKIT or team == TEAM_RCGENERALKIT or team == TEAM_JEDIGRANDMASTER or team == TEAM_GCGRANDMASTER or team == TEAM_JEDIGUARDIAN or team == TEAM_JEDICONSULAR or team == TEAM_JEDISENTINEL or team == TEAM_JEDIGENERALTANO or team == TEAM_501STGENERALTANO or team == TEAM_JEDIGENERALSKYWALKER or team == TEAM_501STGENERALSKYWALKER or team == TEAM_JEDIGENERALOBI or team == TEAM_212THGENERALOBI or team == TEAM_JEDIGENERALVOS or team == TEAM_SHADOWGENERALVOS or team == TEAM_JEDIGENERALWINDU or team == TEAM_JEDIGENERALADI or team == TEAM_GMGENERALADI or team == TEAM_JEDIGENERALSHAAK or team == TEAM_CGGENERALSHAAK or team == TEAM_JEDIGENERALAAYLA or team == TEAM_327THGENERALAAYLA or team == TEAM_JEDIGENERALLUMINARA or team == TEAM_GCGENERALLUMINARA or team == TEAM_JEDIGENERALPLO or team == TEAM_WPGENERALPLO or team == TEAM_JEDITOURNAMENT or team == TEAM_501STJEDI or team == TEAM_327THJEDI or team == TEAM_212THJEDI or team == TEAM_GMJEDI or team == TEAM_WPJEDI) then return end
+		if not ( wiltOSTeams[LocalPlayer():Team()]  ) then return end
 		local level = LocalPlayer():GetNW2Int( "wOS.SkillLevel", 0 )
 		local xp = LocalPlayer():GetNW2Int( "wOS.SkillExperience", 0 )
 		local reqxp = wOS.ALCS.Config.Skills.XPScaleFormula( level )
@@ -550,5 +595,4 @@ if wOS.ALCS.Config.Skills.MountLevelToHUD then
 		draw.SimpleText( ( level == wOS.ALCS.Config.Skills.SkillMaxLevel and "LEVEL" ) or reqxp, "wOS.DescriptionFont", ( w + w*0.33 )/2 + w*0.005, h*0.015, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER )		
 		draw.SimpleText( "Level " .. level, "wOS.DescriptionFont", w*0.5, h*0.015, Color( 0, 128, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )		
 	end )
-	
 end

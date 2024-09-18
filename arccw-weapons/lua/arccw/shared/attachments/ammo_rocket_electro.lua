@@ -1,4 +1,6 @@
 att.PrintName = "Electromagnetic Ball"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "A giant plasma ball capable of causing great damage to enemy infantry."
 att.Icon = Material("interfaz/iconos/kraken/sith power shield tech/309911060_2246076134.png")
 

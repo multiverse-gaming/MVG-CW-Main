@@ -1,4 +1,6 @@
 att.PrintName = "High Tibanna Density"
+att.Free = true
+att.HideIfUnavailable = true
 att.Icon = Material("entities/acwatt_go_ammo_blanks.png", "mips smooth")
 att.Description = "Cycle the potency of the platform to allow for its chambering in High Density Tibanna."
 att.Desc_Pros = {

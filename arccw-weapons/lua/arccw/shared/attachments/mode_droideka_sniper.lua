@@ -1,4 +1,6 @@
 att.PrintName = "Droideka Sniper"
+att.Free = true
+att.HideIfUnavailable = true
 
 att.SortOrder = 20
 att.Icon = Material("interfaz/armas/sw_powercore.png", "smooth mips")

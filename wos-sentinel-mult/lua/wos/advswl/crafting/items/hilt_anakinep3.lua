@@ -19,9 +19,19 @@ ITEM.Model = "models/sgg/starwars/weapons/w_anakin_ep3_saber_hilt.mdl"
 ITEM.Rarity = 15
 
 ITEM.OnEquip = function( wep )
-	wep.UseHilt = "models/sgg/starwars/weapons/w_anakin_ep3_saber_hilt.mdl"
-	wep.UseLength = 46
-	wep.SaberDamage = wep.SaberDamage + 100
+	if (IsValid(wep) && wep.Owner) then
+		local team_name = team.GetName(wep.Owner:Team())
+		if (string.match(team_name, "General")) then
+			wep.UseHilt = "models/sgg/starwars/weapons/w_anakin_ep3_saber_hilt.mdl"
+			wep.UseLength = 46
+			wep.SaberDamage = wep.SaberDamage + 100
+		end
+		return
+	else
+		wep.UseHilt = "models/sgg/starwars/weapons/w_anakin_ep3_saber_hilt.mdl"
+		wep.UseLength = 46
+		wep.SaberDamage = wep.SaberDamage + 100
+	end
 end
 
 wOS:RegisterItem( ITEM )

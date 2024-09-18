@@ -8,20 +8,20 @@ function ENT:Initialize()
 	self.Entity:SetMoveType( MOVETYPE_VPHYSICS )
 	self.Entity:SetSolid( SOLID_VPHYSICS )
 	self.Entity:SetUseType( SIMPLE_USE )
-	self:SetCollisionGroup( COLLISION_GROUP_NONE )	
+	self:SetCollisionGroup( COLLISION_GROUP_NONE )
 end
 
 function ENT:Use( ply )
-    local item1 = wOS:GetItemData( "Temple Guard Twin Hilt" )
-    local item2 = wOS:GetItemData( "Crystal ( Yellow )" )
+    local item1 = wOS:GetItemData( "Cin Drallig's Hilt" )
+    local item2 = wOS:GetItemData( "Corrupted Crystal ( Green )" )
     wOS:HandleItemPickup( ply, item1.Name )
     wOS:HandleItemPickup( ply, item2.Name )
-	hook.Call("WILTOS.ItemUsed", nil, ply, "Temple Guard Prep (Twin)", "Hilt And Crystal")
+	hook.Call("WILTOS.ItemUsed", nil, ply, "Cin Drallig Prep", "Hilt And Crystal")
     self:Remove()
 end
 
 function ENT:UpdateTransmitState()
-	return TRANSMIT_ALWAYS 
+	return TRANSMIT_ALWAYS
 end
 
 function ENT:SpawnFunction( ply, tr, ClassName )

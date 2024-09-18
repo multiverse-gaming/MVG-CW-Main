@@ -161,7 +161,7 @@ teams = {
         "Wolfpack Executive Officer",
         "Wolfpack Major",
         "Wolfpack Lieutenant",
-        "Wolfpack Pathfinder",
+        "Wolfpack Direwolf",
         "Wolfpack Alpha ARC",
         "Wolfpack ARC",
         "Wolfpack Medic Officer",
@@ -353,14 +353,18 @@ teams = {
         "Shadow General Quinlan Vos",
         "Jedi General Luminara Unduli",
         "GC General Luminara Unduli",
-        "Jedi Council Member"
+        "Jedi Council Member",
+        "CG Temple Guard Chief",
+        "Jedi General Cin Drallig",
+        "Temple Guard Chief"
     },
 
     JediTemple = {
-        "Jedi Chief of Security Cin Drallig",
-        "Jedi Consular Temple Guard",
-        "Jedi Sentinel Temple Guard",
-        "Jedi Guardian Temple Guard",
+        "CG Temple Guard Chief",
+        "Jedi General Cin Drallig",
+        "Coruscant Guard Temple Guard",
+        "Jedi Temple Guard",
+        "Temple Guard Chief"
     },
 
     JediSpec = {
@@ -370,6 +374,8 @@ teams = {
         "Combat Engineer Jedi",
         "501st Jedi",
         "212th Jedi",
+        "Coruscant Guard Temple Guard",
+        "Jedi Temple Guard",
         "Galactic Marines Jedi",
         "Wolfpack Jedi",
     },

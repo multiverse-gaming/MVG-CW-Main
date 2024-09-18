@@ -1,4 +1,6 @@
 att.PrintName = "Tactical Grip"
+att.Free = true
+att.HideIfUnavailable = true
 att.Description = "Improves recoil at the cost of aim time."
 att.Desc_Pros = {
 }
