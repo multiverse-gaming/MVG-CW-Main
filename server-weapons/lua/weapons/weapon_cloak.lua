@@ -26,6 +26,56 @@ SWEP.Secondary.Automatic = false
 
 local cloakcooldownwhenhit = 15
 
+local enemy_teams = {
+    [TEAM_BATTLEDROID] = true,
+    [TEAM_CQBATTLEDROID] = true,
+    [TEAM_ROCKETDROID] = true,
+    [TEAM_HEAVYBATTLEDROID] = true,
+    [TEAM_RECONBATTLEDROID] = true,
+    [TEAM_ENGINEERDROID] = true,
+    [TEAM_MEDICALDROID] = true,
+    [TEAM_COMMANDERDROID] = true,
+    [TEAM_SITH] = true,
+
+    [TEAM_SUPERBATTLEDROID] = true,
+    [TEAM_SUPERJUMPDROID] = true,
+    [TEAM_DROIDEKA] = true,
+    [TEAM_MAGNAGUARD] = true,
+    [TEAM_TACTICALDROID] = true,
+    [TEAM_TANKERDROID] = true,
+    [TEAM_SNIPERDROID] = true,
+    [TEAM_TECHNICALDROID] = true,
+    [TEAM_BOUNTYHUNTERREINFORCE] = true,
+
+    [TEAM_BXCOMMANDODROID] = true,
+    [TEAM_BXASSASSINDROID] = true,
+    [TEAM_BXSLUGDROID] = true,
+    [TEAM_BXSPLICERDROID] = true,
+    [TEAM_BXRECONDROID] = true,
+    [TEAM_BXHEAVYDROID] = true,
+    [TEAM_BXCOMMANDERDROID] = true,
+
+    [TEAM_UMBARANTROOPER] = true,
+    [TEAM_UMBARANHEAVYTROOPER] = true,
+    [TEAM_UMBARANSNIPER] = true,
+    [TEAM_UMBARANENGINEER] = true,
+    [TEAM_UMBARANOFFICER] = true,
+
+    [TEAM_PRISONER] = true,
+    [TEAM_UNDEAD] = true,
+    [TEAM_CUSTOMENEMY] = true,
+    [TEAM_COUNTDOOKU] = true,
+    [TEAM_ASAJJVENTRESS] = true,
+    [TEAM_DARTHMAUL] = true,
+    [TEAM_GENERALGRIEVOUS] = true,
+    [TEAM_SAVAGEOPRESS] = true,
+    [TEAM_PREVISZLA] = true,
+    [TEAM_CADBANE] = true,
+    [TEAM_HONDO] = true,
+    [TEAM_BOSK] = true,
+    [TEAM_DURGE] = true
+}
+
 function SWEP:Initialize()
 end
 
@@ -92,7 +142,7 @@ function DecloakPlayer(ply, bad)
 
     ply:SetNoDraw(false)
 
-    if not ply:GetNWBool("AlreadyNotarget", false) then
+    if (not ply:GetNWBool("AlreadyNotarget", false)) && not (enemy_teams[ply:Team()]) then
 
         ply:SetNoTarget(false)
 

@@ -8127,8 +8127,6 @@ TEAM_COMMANDERDROID = DarkRP.createJob("Commander Droid", {
     sortOrder = 7
 })
 
--- CIS Reinforcements
-
 TEAM_SITH = DarkRP.createJob("Sith", {
     color = Color(204, 0, 0, 255),
     model = {"models/player/sith/twilek.mdl","models/player/sith/gotal.mdl", "models/player/sith/gungan.mdl",
@@ -8146,6 +8144,8 @@ TEAM_SITH = DarkRP.createJob("Sith", {
     PlayerSpawn = function(ply) ply:SetMaxHealth(3000) ply:SetHealth(3000) ply:SetRunSpeed (280) ply:SetGravity(1)  end,
     sortOrder = 0
 })
+
+-- CIS Reinforcements
 
 TEAM_SUPERBATTLEDROID = DarkRP.createJob("Super Battle Droid", {
     color = Color(204, 0, 0, 255),
