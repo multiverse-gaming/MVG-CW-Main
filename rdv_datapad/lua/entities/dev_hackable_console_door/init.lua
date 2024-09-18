@@ -207,6 +207,8 @@ if SERVER then
                     if entityClass == "func_door" or entityClass == "func_door_rotating" or entityClass == "prop_door_rotating" then
                         entity:Fire("Toggle")
                         entity:EmitSound("buttons/combine_button2.wav")
+					elseif (entityClass == "func_button") then
+						tr.Entity:Fire("press", "", 0)
                     else
                         entity:SetCollisionGroup(COLLISION_GROUP_WORLD)
                         entity:SetRenderMode(RENDERMODE_TRANSCOLOR)
