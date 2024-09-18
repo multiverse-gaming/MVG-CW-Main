@@ -161,7 +161,7 @@ hook.Add( "RenderScreenspaceEffects", "wOS.DisorientForEmerald2", function()
 	DrawColorModify( ColorModify )
 	
 end )
-
+]]--
 hook.Add( "RenderScreenspaceEffects", "wOS.BlindScreenFuck", function()
 	if LocalPlayer():GetNW2Float( "wOS.BlindTime", 0 ) < CurTime() then return end
 	local compare = ( LocalPlayer():GetNW2Float( "wOS.BlindTime", 0 ) - CurTime() )/15
@@ -179,4 +179,4 @@ hook.Add( "RenderScreenspaceEffects", "wOS.BlindScreenFuck", function()
 	
 	DrawColorModify( ColorModify )
 	
-end )]]--
+end )
