@@ -70,4 +70,16 @@ TREE.Tier[1][1] = {
 	OnSaberDeploy = function( wep ) wep:AddForcePower( "Stasis" ) end,
 }
 
+TREE.Tier[1][2] = {
+	Name = "Temple Guard equipment",
+	Description = "Needed equipment to help with arrests.",
+	Icon = "wos/skilltrees/forms/defensive.png",
+	PointsRequired = 0,
+	Requirements = {},
+	OnPlayerSpawn = function( ply )
+		ply:Give("datapad_player")
+	end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) end,
+}
 wOS:RegisterSkillTree( TREE )
