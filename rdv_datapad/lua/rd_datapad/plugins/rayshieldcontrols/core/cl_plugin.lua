@@ -7,7 +7,6 @@ function OBJ:DoClick(ply, MENU, PAGE)
 
     local w, h = PAGE:GetSize()
 
-    -- Create the scroll panel for displaying hackable consoles
     local SCROLL = vgui.Create("DPanel", PAGE)
     SCROLL:Dock(FILL)
     SCROLL.Paint = function(self, w, h)
@@ -15,15 +14,14 @@ function OBJ:DoClick(ply, MENU, PAGE)
     end
     SCROLL:DockMargin(0, h * 0.05, w * 0.02, h * 0.02)
 
-    -- Create a scrollable panel for the list of consoles
     local consoleList = vgui.Create("DScrollPanel", SCROLL)
     consoleList:Dock(FILL)
     consoleList:SetSize(w, h * 0.85)
 
     local function UpdateConsoleList()
-        consoleList:Clear()  -- Clear previous console list
+        consoleList:Clear()
 
-        local consoles = ents.FindByClass("dev_hackable_console_door")  -- Find all hackable console entities
+        local consoles = ents.FindByClass("dev_hackable_console_door")
         if #consoles == 0 then
             local noConsolesLabel = vgui.Create("DLabel", consoleList)
             noConsolesLabel:SetText("No hackable consoles found.")
@@ -45,7 +43,6 @@ function OBJ:DoClick(ply, MENU, PAGE)
                 status = "Not hacked"
             end
 
-            -- Create a panel for each console
             local panel = vgui.Create("DPanel", consoleList)
             panel:SetTall(40)
             panel:Dock(TOP)
@@ -55,7 +52,6 @@ function OBJ:DoClick(ply, MENU, PAGE)
                 draw.SimpleText("Console " .. console:EntIndex() .. ": " .. status, "NCS_DEFCON_TextLabel", 10, h / 2, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER)
             end
 
-            -- Add the Drop Rayshield button if the console is hacked
             if status == "Hacked" then
                 local dropButton = vgui.Create("DButton", panel)
                 dropButton:SetText("Drop Rayshield")
@@ -63,20 +59,17 @@ function OBJ:DoClick(ply, MENU, PAGE)
                 dropButton:Dock(RIGHT)
                 dropButton:DockMargin(10, 5, 10, 5)
                 dropButton.DoClick = function()
-                    -- Send a request to the server to drop the rayshield for this console
                     net.Start("DropRayshield")
-                    net.WriteEntity(console)  -- Send the console entity to the server
+                    net.WriteEntity(console) 
                     net.SendToServer()
                 end
             end
         end
     end
 
-    -- Update the console list immediately and periodically
     UpdateConsoleList()
     timer.Create("ConsoleListUpdate", 5, 0, UpdateConsoleList)
 
-    -- Clean up the timer when the panel is removed
     function SCROLL:OnRemove()
         timer.Remove("ConsoleListUpdate")
     end
