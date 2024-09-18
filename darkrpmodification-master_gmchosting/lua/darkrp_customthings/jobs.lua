@@ -5928,7 +5928,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     description = [[Congratulations, you are a member of the RSB!]],
 
-    weapons = {"datapad_player", "lord_chrome_medkit", "weapon_remotedrone", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic", "carkeys", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "lord_chrome_medkit", "weapon_remotedrone", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic_officer", "carkeys", "kaito_satellite_tablet"},
 
     command = "rsb",
 
@@ -5957,7 +5957,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
-    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
     max = 4,
     salary = 200,
