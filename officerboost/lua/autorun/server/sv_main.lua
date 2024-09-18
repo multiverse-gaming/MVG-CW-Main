@@ -163,6 +163,7 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_MEDICALDROID] = true,
         [TEAM_COMMANDERDROID] = true,
         [TEAM_SITH] = true,
+    
         [TEAM_SUPERBATTLEDROID] = true,
         [TEAM_SUPERJUMPDROID] = true,
         [TEAM_DROIDEKA] = true,
@@ -172,19 +173,33 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_SNIPERDROID] = true,
         [TEAM_TECHNICALDROID] = true,
         [TEAM_BOUNTYHUNTERREINFORCE] = true,
+    
         [TEAM_BXCOMMANDODROID] = true,
-        [TEAM_BXASSASSINDROID] =     true,
+        [TEAM_BXASSASSINDROID] = true,
         [TEAM_BXSLUGDROID] = true,
         [TEAM_BXSPLICERDROID] = true,
         [TEAM_BXRECONDROID] = true,
         [TEAM_BXHEAVYDROID] = true,
         [TEAM_BXCOMMANDERDROID] = true,
-        [TEAM_UNDEAD] = true,
+    
         [TEAM_UMBARANTROOPER] = true,
         [TEAM_UMBARANHEAVYTROOPER] = true,
         [TEAM_UMBARANSNIPER] = true,
         [TEAM_UMBARANENGINEER] = true,
         [TEAM_UMBARANOFFICER] = true,
+    
+        [TEAM_PRISONER] = true,
+        [TEAM_UNDEAD] = true,
+        [TEAM_CUSTOMENEMY] = true,
+        [TEAM_COUNTDOOKU] = true,
+        [TEAM_ASAJJVENTRESS] = true,
+        [TEAM_DARTHMAUL] = true,
+        [TEAM_GENERALGRIEVOUS] = true,
+        [TEAM_SAVAGEOPRESS] = true,
+        [TEAM_PREVISZLA] = true,
+        [TEAM_CADBANE] = true,
+        [TEAM_HONDO] = true,
+        [TEAM_BOSK] = true,
         [TEAM_DURGE] = true
     }
 
