@@ -209,6 +209,8 @@ if SERVER then
                         entity:EmitSound("buttons/combine_button2.wav")
 					elseif (entityClass == "func_button") then
 						tr.Entity:Fire("press", "", 0)
+					elseif entityClass == "func_movelinear" then
+                        entity:Fire("open","",0)
                     else
                         entity:SetCollisionGroup(COLLISION_GROUP_WORLD)
                         entity:SetRenderMode(RENDERMODE_TRANSCOLOR)
