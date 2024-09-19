@@ -143,11 +143,9 @@ function ENT:Use(P)
 					local save = v.Ent:GetSaveTable()
 
 					if save and save.m_bLocked then
-						v.Ent:Fire("unlock")
-						v.Ent:Fire("open")
+						v.Ent:Fire("Toggle")
 					else
-						v.Ent:Fire("close")
-						v.Ent:Fire("lock")
+						v.Ent:Fire("Toggle")
 					end
 				end
 			end
@@ -179,3 +177,53 @@ function ENT:Think()
     self:NextThink( CurTime() + 1 )
     return true
 end
+
+if SERVER then
+    util.AddNetworkString("DropRayshield")
+
+    net.Receive("DropRayshield", function(len, ply)
+        local console = net.ReadEntity()
+
+        if IsValid(console) and console:GetClass() == "dev_hackable_console_door" then
+            if console:GetIsHacking() and console:GetHackTimeRemaining() <= 0 then
+                DropRayshield(console, ply)
+            else
+                SendNotification(ply, "This console is not ready to drop the rayshield.")
+            end
+        else
+            SendNotification(ply, "Invalid console entity.")
+        end
+    end)
+
+    function DropRayshield(console, hacker)
+        local linkedEntities = NCS_DATAPAD.E_LINKED[console]
+        
+        if linkedEntities and #linkedEntities > 0 then
+            for _, linked in ipairs(linkedEntities) do
+                if IsValid(linked.Ent) then
+                    local entity = linked.Ent
+                    local entityClass = entity:GetClass()
+
+                    if entityClass == "func_door" or entityClass == "func_door_rotating" or entityClass == "prop_door_rotating" then
+                        entity:Fire("Toggle")
+                        entity:EmitSound("buttons/combine_button2.wav")
+					elseif (entityClass == "func_button") then
+						tr.Entity:Fire("press", "", 0)
+					elseif entityClass == "func_movelinear" then
+                        entity:Fire("open","",0)
+                    else
+                        entity:SetCollisionGroup(COLLISION_GROUP_WORLD)
+                        entity:SetRenderMode(RENDERMODE_TRANSCOLOR)
+                        entity:SetColor(Color(255, 255, 255, 0))
+                        entity:EmitSound("buttons/combine_button2.wav")
+                    end
+                end
+            end
+
+            SendNotification(hacker, "Rayshield has been dropped!")
+        else
+            SendNotification(hacker, "No rayshields or doors are linked to this console.")
+        end
+    end
+end
+
