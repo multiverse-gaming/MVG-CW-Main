@@ -369,7 +369,7 @@ COMMS:RegisterChannel("Engineers Primary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
-        "327th General Aayla Secura",
+        "Combat Engineer General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),
@@ -394,7 +394,7 @@ COMMS:RegisterChannel("Engineers Secondary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
-        "327th General Aayla Secura",
+        "Combat Engineer General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),

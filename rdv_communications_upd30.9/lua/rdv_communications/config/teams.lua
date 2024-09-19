@@ -161,7 +161,7 @@ teams = {
         "Wolfpack Executive Officer",
         "Wolfpack Major",
         "Wolfpack Lieutenant",
-        "Wolfpack Pathfinder",
+        "Wolfpack Direwolf",
         "Wolfpack Alpha ARC",
         "Wolfpack ARC",
         "Wolfpack Medic Officer",
