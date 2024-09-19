@@ -71,7 +71,7 @@ TREE.Tier[1][1] = {
 }
 
 TREE.Tier[1][2] = {
-	Name = "Temple Guard equipment",
+	Name = "Temple Guard Equipment",
 	Description = "Needed equipment to help with arrests.",
 	Icon = "wos/skilltrees/forms/defensive.png",
 	PointsRequired = 0,
@@ -82,4 +82,5 @@ TREE.Tier[1][2] = {
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep ) end,
 }
+
 wOS:RegisterSkillTree( TREE )
