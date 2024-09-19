@@ -1139,7 +1139,8 @@ function ENT:OnTakeDamage(dmginfo)
 
 	local healthChanged = false
 	if self:GetShield() > 0 then
-		local shieldHealth = self:GetShield() - dmginfo:GetDamage() - dmginfo:GetDamageBonus()
+		//local shieldHealth = self:GetShield() - dmginfo:GetDamage() - dmginfo:GetDamageBonus()
+		local shieldHealth = self:GetShield()
 		self:SetShield(math.max(shieldHealth, 0))
 
 		if shieldHealth <= 0 then
@@ -1150,7 +1151,8 @@ function ENT:OnTakeDamage(dmginfo)
 			healthChanged = true
 		end
 	else
-		self:SetHealth(math.max(self:Health() - dmginfo:GetDamage() - dmginfo:GetDamageBonus(), 0))
+		//self:SetHealth(math.max(self:Health() - dmginfo:GetDamage() - dmginfo:GetDamageBonus(), 0))
+		self:SetHealth(math.max(self:Health()))
 		healthChanged = true
 	end
 	
