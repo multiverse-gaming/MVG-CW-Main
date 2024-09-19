@@ -1029,7 +1029,7 @@ TEAM_ARCALPHA212th = DarkRP.createJob("212th Alpha ARC", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl","models/zeus/212th_blackout.mdl","models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/212th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl", "models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl", "models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl", "models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl", "models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
     description = [[Congratulations, you are 212th ARC Alpha!]],
 
     weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_thermal_grenade", "carkeys"},
@@ -1062,7 +1062,7 @@ TEAM_212THARC = DarkRP.createJob("212th ARC", {
 
     color = Color(255, 157, 0, 255),
 
-    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl", "models/zeus/212th_blackout.mdl"},
+    model = {"models/aussiwozzi/cgi/base/212th_arc.mdl"},
 
     description = [[Congratulations, you are a 212th ARC Trooper!]],
 
@@ -2009,7 +2009,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
+    weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "datapad_player"},
 
     command = "cgrt",
 
@@ -2044,7 +2044,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23_v2","datapad_player"},
+    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_dc15a_v2_stun","weaponchecker", "weapon_cuff_elastic", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_dp23_v2","datapad_player"},
 
     command = "cgso",
 
@@ -2114,7 +2114,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
+    weapons = {"arccw_dc17_stun_v2" ,"arccw_westarm5_v2", "arccw_dp23_v2","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
 
     command = "arcacg",
 
@@ -2146,7 +2146,7 @@ TEAM_CGARC = DarkRP.createJob("Coruscant Guard ARC", {
 
     description = [[Congratulations, you are a Coruscant Guard ARC Trooper!]],
 
-    weapons = {"arccw_dc17_stun_v2", "arccw_westarm5_v2","arccw_dp23_v2", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","datapad_player"},
+    weapons = {"arccw_dc17_stun_v2", "arccw_westarm5_v2","arccw_dp23_v2", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic", "stunstick", "weapon_policeshield","datapad_player"},
 
     command = "cgarc",
 
@@ -2214,7 +2214,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "arccw_dc15a_v2_stun","stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield","weaponchecker","datapad_player"},
+    weapons = {"arccw_dp23_v2", "arccw_dc17_stun_v2", "arccw_dc15a_v2_stun","stunstick", "weapon_cuff_elastic", "weapon_policeshield","weaponchecker","datapad_player"},
 
     command = "cgsgt",
 
@@ -2248,7 +2248,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Coruscant Guard!]],
 
-    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
+    weapons = {"arccw_dp23_v2","arccw_dc17_stun_v2", "arccw_dc15a_v2_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
 
     command = "cgmt",
 
@@ -2308,45 +2308,11 @@ end,
 
 })
 
-TEAM_CGJEDI = DarkRP.createJob("Coruscant Guard Temple Guard", {
-    color = Color(255, 77, 77, 255),
-    model = { "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
-    description = [[Congratulations, you are a CG Temple Guard!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "cgtg",
-    max = 0,
-    salary = 150,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Coruscant Guard",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 15,
-})
-
-TEAM_CGJEDICHIEF = DarkRP.createJob("CG Temple Guard Chief", {
-    color = Color(255, 77, 77, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
-    description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "cgchief",
-    max = 1,
-    salary = 225,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Coruscant Guard",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 16,
-})
-
 TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
     color = Color(255, 77, 77, 255),
     model = {"models/tfa/comm/gg/pm_sw_shaakti.mdl"},
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic_officer", "stunstick", "carkeys"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
     command = "cgshaak",
     max = 1,
     salary = 275,
@@ -2356,7 +2322,7 @@ TEAM_CGGENERALSHAAK = DarkRP.createJob("CG General Shaak Ti", {
     hasLicense = false,
     category = "Coruscant Guard",
     PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 17,
+    sortOrder = 15,
 })
 
 
@@ -2909,7 +2875,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2c", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
 
     command = "wpgen",
 
@@ -2942,7 +2908,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmco",
 
@@ -2974,7 +2940,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpco",
 
@@ -3008,7 +2974,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpxo",
 
@@ -3042,7 +3008,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2c", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmjr",
 
@@ -3076,7 +3042,7 @@ TEAM_ARCLIEUTENANT = DarkRP.createJob("Wolfpack Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_dc17_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook"},
+    weapons = {"arccw_cr2", "arccw_dc17_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wplt",
 
@@ -3102,17 +3068,17 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunS
 
 
 
-TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Direwolf", {
+TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Pathfinder", {
 
     color = Color(153, 144, 144, 255),
 
     model = {"models/aussiwozzi/cgi/base/104th_barc.mdl", "models/aussiwozzi/cgi/base/104th_evo_officer.mdl","models/aussiwozzi/cgi/base/104th_guardian.mdl","models/aussiwozzi/cgi/base/104th_mortar.mdl","models/aussiwozzi/cgi/base/104th_quantum.mdl","models/aussiwozzi/cgi/base/104th_arf.mdl","models/aussiwozzi/cgi/base/104th_evo.mdl","models/aussiwozzi/cgi/base/104th_jet_officer.mdl","models/aussiwozzi/cgi/base/104th_boost.mdl"},
 
-    description = [[Congratulations, you are part of the Direwolves in the Wolfpack Battalion!]],
+    description = [[Congratulations, you are part of the Pathfinders in the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_hunter_shotgun", "arccw_cr2", "weapon_jetpack"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2c", "weapon_jetpack", "follower_controller"},
 
-    command = "wpdw",
+    command = "wppf",
 
     max = 3,
 
@@ -3142,7 +3108,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys", "follower_controller"},
 
     command = "arcawp",
 
@@ -3176,7 +3142,7 @@ TEAM_WPARC = DarkRP.createJob("Wolfpack ARC", {
 
     description = [[Congratulations, you are a Wolfpack ARC Trooper!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster", "follower_controller"},
 
     command = "wparc",
 
@@ -3210,7 +3176,7 @@ TEAM_ARCMEDOFFICER = DarkRP.createJob("Wolfpack Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade","tf_weapon_medigun", "carkeys"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade","tf_weapon_medigun", "carkeys", "follower_controller"},
 
     command = "wpmo",
 
@@ -3244,7 +3210,7 @@ TEAM_ARCSERGEANT = DarkRP.createJob("Wolfpack Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "follower_controller"},
 
     command = "wpsgt",
 
@@ -3277,7 +3243,7 @@ TEAM_ARCMEDTROOPER = DarkRP.createJob("Wolfpack Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "arccw_hunter_shotgun", "weapon_thruster", "realistic_hook", "weapon_bactainjector", "lord_chrome_medkit", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys", "follower_controller"},
 
     command = "wpmt",
 
@@ -3313,7 +3279,7 @@ TEAM_ARCTROOPER = DarkRP.createJob("Wolfpack Trooper", {
 
     description = [[Congratulations, you are a trooper of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_dc17_v2", "arccw_cr2", "weapon_thruster", "realistic_hook"},
+    weapons = {"arccw_dc17_v2", "arccw_cr2", "weapon_thruster", "realistic_hook", "follower_controller"},
 
     command = "wptrp",
 
@@ -3442,7 +3408,7 @@ TEAM_CEGENERAL = DarkRP.createJob("Combat Engineer General", {
 
     color = Color(198, 155, 61),
 
-    model = { "models/zeus/ce_senior.mdl","models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_bly.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the Combat Engineers!]],
 
@@ -3474,7 +3440,7 @@ TEAM_CEMCOMMANDER = DarkRP.createJob("Combat Engineer Marshal Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_senior.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the Combat Engineers!]],
 
@@ -3506,7 +3472,7 @@ TEAM_CECOMMANDER = DarkRP.createJob("Combat Engineer Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_senior.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_bly.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_barc.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
     description = [[Congratulations, you are the Commander of the Combat Engineers!]],
 
@@ -3540,7 +3506,7 @@ TEAM_CEEXECUTIVEOFFICER = DarkRP.createJob("Combat Engineer Assistant Chief", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_senior.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
     description = [[Congratulations, you are now an Executive Officer of the Combat Engineers!]],
 
@@ -3574,7 +3540,7 @@ TEAM_CECHIEF = DarkRP.createJob("Combat Engineer Chief Technician", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_senior.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_barc.mdl","models/aussiwozzi/cgi/base/212th_pilot_huey.mdl","models/aussiwozzi/cgi/base/327th_dusty.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl", "models/aussiwozzi/cgi/base/327th_bly.mdl", "models/aussiwozzi/cgi/base/13th_toast.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
     description = [[Congratulations, you are now a Major of the Combat Engineers!]],
 
@@ -3608,7 +3574,7 @@ TEAM_CELIEUTENANT = DarkRP.createJob("Combat Engineer Technician", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com_tesla.mdl","models/aussiwozzi/cgi/base/unassigned_beatus.mdl","models/aussiwozzi/cgi/base/327th_officer.mdl","models/aussiwozzi/cgi/base/13th_toast.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl","models/aussiwozzi/cgi/base/327th_arf.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/327th_pilot.mdl","models/herm/cgi_new/327th/327th_trooper1.mdl","models/herm/cgi_new/327th/327th_trooper2.mdl"},
 
     description = [[Congratulations, you are now a Lieutenant of the Combat Engineers!]],
 
@@ -3642,7 +3608,7 @@ TEAM_CEMECHANIC = DarkRP.createJob("Combat Engineer Razor Squadron", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_razor.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl", "models/aussiwozzi/cgi/base/212th_pilot_huey.mdl", "models/aussiwozzi/cgi/base/unassigned_pilot.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl"},
 
     description = [[Congratulations, you are now a member of Talon Squadron in the Combat Engineers!]],
 
@@ -3676,7 +3642,7 @@ TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_eod.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_deviss.mdl","models/aussiwozzi/cgi/base/327th_raffle.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/327th_kcompany_officer.mdl"},
 
     description = [[Congratulations, you are now a member of K Company in the Combat Engineers!]],
 
@@ -3708,7 +3674,7 @@ TEAM_ARCALPHACE = DarkRP.createJob("Combat Engineer Alpha ARC", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
+    model = {"models/aussiwozzi/cgi/base/arc_cpt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_sgt_grenadier.mdl","models/aussiwozzi/cgi/base/arc_lt_grenadier.mdl","models/aussiwozzi/cgi/base/327th_arc.mdl","models/aussiwozzi/cgi/base/arc_cpt.mdl","models/aussiwozzi/cgi/base/arc_cpt_marksman.mdl","models/aussiwozzi/cgi/base/arc_cpt_heavy.mdl","models/aussiwozzi/cgi/base/arc_cpt_rat.mdl","models/aussiwozzi/cgi/base/arc_cpt_medic.mdl","models/aussiwozzi/cgi/base/arc_cpt_pab.mdl","models/aussiwozzi/cgi/base/arc_lt.mdl","models/aussiwozzi/cgi/base/arc_lt_marksman.mdl","models/aussiwozzi/cgi/base/arc_lt_heavy.mdl","models/aussiwozzi/cgi/base/arc_lt_medic.mdl","models/aussiwozzi/cgi/base/arc_lt_chunky.mdl","models/aussiwozzi/cgi/base/arc_raffle.mdl","models/aussiwozzi/cgi/base/arc_cpt_jarr.mdl","models/aussiwozzi/cgi/base/arc_sgt.mdl","models/aussiwozzi/cgi/base/arc_sgt_marksman.mdl","models/aussiwozzi/cgi/base/arc_sgt_heavy.mdl","models/aussiwozzi/cgi/base/arc_sgt_medic.mdl","models/aussiwozzi/cgi/base/arc_sgt_spida.mdl","models/aussiwozzi/cgi/base/arc_lt_macka.mdl","models/aussiwozzi/cgi/base/arc_cpt_shadowz.mdl"},
 
     description = [[Congratulations, you are now an Alpha ARC of the Combat Engineers!]],
 
@@ -3741,7 +3707,7 @@ TEAM_CEARC = DarkRP.createJob("Combat Engineer ARC", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_arc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_arc.mdl"},
 
     description = [[Congratulations, you are now an ARC Trooper of the Combat Engineers!]],
 
@@ -3775,7 +3741,7 @@ TEAM_CEMEDOFFICER = DarkRP.createJob("Combat Engineer Medic Officer", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_medic.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_medic_officer.mdl","models/aussiwozzi/cgi/base/917th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta_officer.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
 
     description = [[Congratulations, you are now a Medical Officer of the Combat Engineers!]],
 
@@ -3809,7 +3775,7 @@ TEAM_CESPECIALIST = DarkRP.createJob("Combat Engineer Specialist", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
+    model = {"models/aussiwozzi/cgi/base/unassigned_com.mdl","models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_kcompany.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl", "models/aussiwozzi/cgi/base/pilot_sgt.mdl", "models/aussiwozzi/cgi/base/327th_arf.mdl"},
 
     description = [[Congratulations, you are now a Specialist of the Combat Engineers!]],
 
@@ -3843,7 +3809,7 @@ TEAM_CEMEDTROOPER = DarkRP.createJob("Combat Engineer Medic Trooper", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_medic.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_medic.mdl","models/aussiwozzi/cgi/base/327th_pilot.mdl","models/aussiwozzi/cgi/base/327th_bacta.mdl","models/aussiwozzi/cgi/base/327th_tyto.mdl","models/aussiwozzi/cgi/base/unassigned_engineer.mdl"},
 
     description = [[Congratulations, you are now a Medical Trooper of the Combat Engineers!]],
 
@@ -3877,7 +3843,7 @@ TEAM_CETROOPER = DarkRP.createJob("Combat Engineer Trooper", {
 
     color = Color(198, 155, 61),
 
-    model = {"models/zeus/ce_trooper.mdl", "models/zeus/ce_pilot.mdl", "models/zeus/ce_arf.mdl", "models/zeus/ce_engineer.mdl"},
+    model = {"models/aussiwozzi/cgi/base/327th_trooper.mdl","models/aussiwozzi/cgi/base/unassigned_pilot.mdl"},
 
     description = [[Congratulations, you are now a Trooper of the Combat Engineers!]],
 
@@ -5346,8 +5312,8 @@ TEAM_SDWGENERAL = DarkRP.createJob("Shadow General", {
     category = "Shadow",
 PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
 PlayerLoadout = function( ply )
-    ply:SetJumpPower(240)
-    ply:SetGravity(1)
+    ply:SetJumpPower(300)
+    ply:SetGravity(1.4)
 end,
     sortOrder = 0
 })
@@ -5367,8 +5333,8 @@ TEAM_SDWMCO = DarkRP.createJob("Shadow Marshal Commander", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 1
 })
@@ -5389,8 +5355,8 @@ TEAM_SDWCO = DarkRP.createJob("Shadow Commander", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 2
 })
@@ -5410,8 +5376,8 @@ TEAM_SDWXO = DarkRP.createJob("Shadow Executive Officer", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (270)  end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 3
 })
@@ -5431,8 +5397,8 @@ TEAM_SDWMJR = DarkRP.createJob("Shadow Major", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270)  end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 4
 })
@@ -5452,8 +5418,8 @@ TEAM_SDWOFF = DarkRP.createJob("Shadow Officer", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 5
 })
@@ -5473,8 +5439,8 @@ TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 6
 })
@@ -5494,8 +5460,8 @@ TEAM_SDWTRP = DarkRP.createJob("Shadow Trooper", {
     category = "Shadow",
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 7
 })
@@ -5514,9 +5480,9 @@ TEAM_CVLD = DarkRP.createJob("Covert Lead", {
     hasLicense = false,
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (270) end,
-    PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        PlayerLoadout = function( ply )
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 8
 })
@@ -5536,8 +5502,8 @@ TEAM_CVSPC = DarkRP.createJob("Covert Specialists", {
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 9
 })
@@ -5557,8 +5523,8 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
     category = "Covert",
     PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (270) end,
     PlayerLoadout = function( ply )
-        ply:SetJumpPower(240)
-        ply:SetGravity(1)
+        ply:SetJumpPower(300)
+        ply:SetGravity(1.4)
     end,
     sortOrder = 10
 })
@@ -5624,7 +5590,7 @@ TEAM_MEDICALMCO = DarkRP.createJob("Senior Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "smd",
+    command = "medsdir",
 
     max = 1,
 
@@ -5657,7 +5623,7 @@ TEAM_MEDICALDIRECTOR = DarkRP.createJob("Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "mdr",
+    command = "meddir",
 
     max = 1,
 
@@ -5691,7 +5657,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     weapons = {"weapon_bactainjector", "arccw_dc15le_v2", "arccw_duals_dc17ext_v2", "lord_chrome_medkit", "weapon_jew_stimkit", "realistic_hook", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "carkeys"},
 
-    command = "amd",
+    command = "astmeddir",
 
     max = 1,
 
@@ -5928,7 +5894,7 @@ TEAM_RSBMEMBER = DarkRP.createJob("RSB Member", {
 
     description = [[Congratulations, you are a member of the RSB!]],
 
-    weapons = {"datapad_player", "lord_chrome_medkit", "weapon_remotedrone", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic_officer", "carkeys", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "lord_chrome_medkit", "weapon_remotedrone", "masita_sops_rep_rx21", "voice_amplifier", "arccw_ga_pistol", "masita_sops_rep_zx6", "masita_sops_rep_hh12", "masita_sops_md12x", "weapon_cuff_elastic", "carkeys", "kaito_satellite_tablet"},
 
     command = "rsb",
 
@@ -5957,7 +5923,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
-    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
     max = 4,
     salary = 200,
@@ -6353,7 +6319,7 @@ TEAM_JEDIGENERALSHAAK = DarkRP.createJob("Jedi General Shaak Ti", {
 
     description = [[You are Jedi General Shaak Ti. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
-    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic_officer", "stunstick", "carkeys"},
+    weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "weapon_cuff_elastic", "stunstick", "carkeys"},
 
     command = "shaak",
 
@@ -6479,44 +6445,9 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
 })
 
-TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
-    color = Color(242, 0, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl" },
-    description = [[You are Jedi General Cin Drallig. It is your role to help lower ranking Jedi get an understanding of the Order!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "cin",
-    max = 1,
-    salary = 275,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Jedi Generals",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 13,
-})
-
 
 
 --
-
-TEAM_JEDITGCHIEF = DarkRP.createJob("Temple Guard Chief", {
-    color = Color(0, 166, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
-    description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
-    command = "tgchief",
-    max = 1,
-    salary = 225,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Jedi",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 1,
-})
-
 
 
 
@@ -6589,7 +6520,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
 
     },
 
-    description = [[You are a part of the Jedi council, a leading member of the Jedi Order!]],
+    description = [[You are apart of the Jedi council, a leading member of the Jedi Order!]],
 
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
 
@@ -6613,23 +6544,6 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
     sortOrder = 2,
 
-})
-
-TEAM_TGJEDI = DarkRP.createJob("Jedi Temple Guard", {
-    color = Color(0, 166, 255, 255),
-    model = { "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
-    description = [[Congratulations, you are a Jedi Temple Guard!]],
-    weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer" },
-    command = "tg",
-    max = 0,
-    salary = 150,
-    admin = 0,
-    vote = false,
-    candemote = false,
-    hasLicense = false,
-    category = "Jedi",
-    PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
-    sortOrder = 3,
 })
 
 
@@ -6880,7 +6794,7 @@ TEAM_JEDITOURNAMENT = DarkRP.createJob("Jedi Tournament", {
 
     description = [[Jedi Tournament Role]],
 
-    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "weapon_lightsaber_tournament_pike", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "wos_inventory", "arccw_ll30"},
 
     command = "jeditourn",
 
@@ -8127,6 +8041,8 @@ TEAM_COMMANDERDROID = DarkRP.createJob("Commander Droid", {
     sortOrder = 7
 })
 
+-- CIS Reinforcements
+
 TEAM_SITH = DarkRP.createJob("Sith", {
     color = Color(204, 0, 0, 255),
     model = {"models/player/sith/twilek.mdl","models/player/sith/gotal.mdl", "models/player/sith/gungan.mdl",
@@ -8144,8 +8060,6 @@ TEAM_SITH = DarkRP.createJob("Sith", {
     PlayerSpawn = function(ply) ply:SetMaxHealth(3000) ply:SetHealth(3000) ply:SetRunSpeed (280) ply:SetGravity(1)  end,
     sortOrder = 0
 })
-
--- CIS Reinforcements
 
 TEAM_SUPERBATTLEDROID = DarkRP.createJob("Super Battle Droid", {
     color = Color(204, 0, 0, 255),

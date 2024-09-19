@@ -369,7 +369,7 @@ COMMS:RegisterChannel("Engineers Primary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
-        "Combat Engineer General Aayla Secura",
+        "327th General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),
@@ -394,7 +394,7 @@ COMMS:RegisterChannel("Engineers Secondary", {
         teams.JediSpec,
         teams.Jedi,
         "Jedi General Aayla Secura",
-        "Combat Engineer General Aayla Secura",
+        "327th General Aayla Secura",
         "CF99 Tech",
         "CF99 Echo"
     ),
@@ -804,6 +804,105 @@ COMMS:RegisterChannel("Training Comms 2", {
 })
 
 COMMS:RegisterChannel("Training Comms 3", {
+
+    Color = Color(100,100,255,255),
+
+    Factions = mergeTables(
+        teams.Fleet,
+        teams.Generals,
+        teams.Marshal,
+        teams.TeamMed,
+        teams.TeamNSO,
+        teams.JediSpec,
+        teams.Jedi,
+        teams.TeamCT,
+        teams.TeamCTtrp,
+        teams.Team501,
+        teams.Team501trp,
+        teams.Team212,
+        teams.Team212Trp,
+        teams.TeamGreen,
+        teams.TeamGreenTrp,
+        teams.TeamCG,
+        teams.TeamCGTrp,
+        teams.TeamGM,
+        teams.TeamGMTrp,
+        teams.TeamWP,
+        teams.TeamWPTrp,
+        teams.TeamCE,
+        teams.TeamCETrp,
+        teams.TeamARC,
+        teams.TeamARCTrp,
+        teams.TeamRC,
+        teams.TeamRCTrp,
+        teams.TeamShadow,
+        teams.TeamMedTrp,
+        teams.JediCouncil,
+        teams.JediTemple,
+        teams.JediOther,
+        teams.TeamLegacy,
+        teams.TeamReinforce,
+        teams.TeamStaff,
+        teams.TeamSim,
+        teams.TeamEE
+    ),
+
+    CustomCheck = function(ply)
+    end,
+
+})
+
+COMMS:RegisterChannel("Secure Comms 1", {
+
+    Color = Color(100,100,255,255),
+
+    Factions = mergeTables(
+        teams.Fleet,
+        teams.Generals,
+        teams.Marshal,
+        teams.TeamMed,
+        teams.TeamNSO,
+        teams.JediSpec,
+        teams.Jedi,
+        teams.TeamCT,
+        teams.TeamCTtrp,
+        teams.Team501,
+        teams.Team501trp,
+        teams.Team212,
+        teams.Team212Trp,
+        teams.TeamGreen,
+        teams.TeamGreenTrp,
+        teams.TeamCG,
+        teams.TeamCGTrp,
+        teams.TeamGM,
+        teams.TeamGMTrp,
+        teams.TeamWP,
+        teams.TeamWPTrp,
+        teams.TeamCE,
+        teams.TeamCETrp,
+        teams.TeamARC,
+        teams.TeamARCTrp,
+        teams.TeamRC,
+        teams.TeamRCTrp,
+        teams.TeamShadow,
+        teams.TeamMarauder,
+        teams.TeamMedTrp,
+        teams.JediCouncil,
+        teams.JediTemple,
+        teams.JediOther,
+        teams.TeamLegacy,
+        teams.TeamReinforce,
+        teams.TeamStaff,
+        teams.TeamSim,
+        teams.TeamEE
+    ),
+
+    CustomCheck = function(ply)
+    end,
+
+})
+
+COMMS:RegisterChannel("Secure Comms 2", {
 
     Color = Color(100,100,255,255),
 
