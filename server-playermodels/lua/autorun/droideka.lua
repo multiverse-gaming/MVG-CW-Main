@@ -163,6 +163,66 @@ local settings8 = {
 	["horizontalHullScale"] = nil,
 }
 
+local settings9 = {
+	["name"] = "Ahsoka1",
+	["model"] = "models/plo/ahsoka/ahsoka_s7.mdl",
+	["scale"] = 0.95,
+	["developermode"] = false,
+	["viewoffset"] = 61,
+	["duckviewoffset"] = 27,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
+local settings10 = {
+	["name"] = "Ahsoka2",
+	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl",
+	["scale"] = 0.9,
+	["developermode"] = false,
+	["viewoffset"] = 58,
+	["duckviewoffset"] = 25,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
+local settings11 = {
+	["name"] = "Ahsoka3",
+	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl",
+	["scale"] = 0.95,
+	["developermode"] = false,
+	["viewoffset"] = 61,
+	["duckviewoffset"] = 27,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = true,
+	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
 local mEnt = FindMetaTable("Entity")
 
 mEnt.NewSetModel = mEnt.NewSetModel || mEnt.SetModel
@@ -295,7 +355,8 @@ hook.Add("PostPlayerDeath", "CustomRemoveScaleDeathRagdoll", function(ply)
 
 end)
 
-hook.Add("EntityTakeDamage", "ReducePlayerKnockbackPerModel", function(target, dmginfo)
+-- This IS a real nice hook to reduce knockback. Just want to remove it for now though.
+--[[hook.Add("EntityTakeDamage", "ReducePlayerKnockbackPerModel", function(target, dmginfo)
     -- Check if the entity taking damage is a player
     if target:IsPlayer() then
 		local tab = SPM_Pool[target:GetModel()]
@@ -318,7 +379,7 @@ hook.Add("EntityTakeDamage", "ReducePlayerKnockbackPerModel", function(target, d
 			end
 		end
     end
-end)
+end)]]--
 
 hook.Add("PostDrawTranslucentRenderables", settings["name"].."DeveloperMode", function()
 
@@ -350,5 +411,8 @@ hook.Add("Initialize", "CustomSetPool", function()
 		SPM_Pool[settings6["model"]] = settings6
 		SPM_Pool[settings7["model"]] = settings7
 		SPM_Pool[settings8["model"]] = settings8
+		SPM_Pool[settings9["model"]] = settings9
+		SPM_Pool[settings10["model"]] = settings10
+		SPM_Pool[settings11["model"]] = settings11
 	end)
 end)

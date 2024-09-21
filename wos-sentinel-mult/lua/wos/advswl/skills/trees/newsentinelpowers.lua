@@ -104,7 +104,7 @@ TREE.Tier[1][3] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingSentinel(ply) ply:SetRunSpeed( ply:GetRunSpeed() + 10) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep.SentinelLeap = true end,
+	OnSaberDeploy = function( wep ) wep.SentinelLeapUpgrade = true end,
 }
 
 TREE.Tier[1][4] = {
