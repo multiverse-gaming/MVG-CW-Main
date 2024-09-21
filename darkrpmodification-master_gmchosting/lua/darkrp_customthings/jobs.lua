@@ -2909,7 +2909,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player","follower_controller"},
 
     command = "wpgen",
 
@@ -2942,8 +2942,6 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
-
     command = "wpmco",
 
     max = 1,
@@ -2974,7 +2972,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook","follower_controller"},
 
     command = "wpco",
 
@@ -3008,7 +3006,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook","follower_controller"},
 
     command = "wpxo",
 
@@ -3042,7 +3040,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook","follower_controller"},
 
     command = "wpmjr",
 
@@ -7981,7 +7979,7 @@ TEAM_BATTLEDROID = DarkRP.createJob("Battle Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_pm.mdl",
     },
     description = [[You are a Battle Droid!]],
-    weapons = { "arccw_e5",  "arccw_cis_se14", "arccw_thermal_grenade" },
+    weapons = { "arccw_e5",  "arccw_cis_se14", "arccw_thermal_grenade", "keypad_cracker" },
     command = "b1",
     max = 0,
     salary = 200,
@@ -8000,7 +7998,7 @@ TEAM_CQBATTLEDROID = DarkRP.createJob("CQ Battle Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_marine_pm.mdl",
     },
     description = [[You are a CQ Battle Droid!]],
-    weapons = { "arccw_e5_smg",  "arccw_sg6", "shock" },
+    weapons = { "arccw_e5_smg",  "arccw_sg6", "shock", "keypad_cracker" },
     command = "b1cqb",
     max = 0,
     salary = 200,
@@ -8019,7 +8017,7 @@ TEAM_ROCKETDROID = DarkRP.createJob("Rocket Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_rocket_pm.mdl",
     },
     description = [[You are a Rocket Droid!]],
-    weapons = { "arccw_e5",  "arccw_cis_se14", "arccw_sw_rocket_smartlauncher", "realistic_hook" },
+    weapons = { "arccw_e5",  "arccw_cis_se14", "arccw_sw_rocket_smartlauncher", "realistic_hook", "keypad_cracker" },
     command = "b1rocket",
     max = 0,
     salary = 200,
@@ -8038,7 +8036,7 @@ TEAM_HEAVYBATTLEDROID = DarkRP.createJob("Heavy Battle Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_heavy_pm.mdl",
     },
     description = [[You are a Heavy Battle Droid!]],
-    weapons = { "arccw_e5c",  "arccw_cis_se14", "arccw_thermal_grenade", "personal_shield_activator" },
+    weapons = { "arccw_e5c",  "arccw_cis_se14", "arccw_thermal_grenade", "personal_shield_activator", "keypad_cracker" },
     command = "b1heavy",
     max = 0,
     salary = 200,
@@ -8057,7 +8055,7 @@ TEAM_RECONBATTLEDROID = DarkRP.createJob("Recon Battle Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_aat_pm.mdl",
     },
     description = [[You are a Recon Battle Droid!]],
-    weapons = { "arccw_e5s_dmr",  "arccw_cis_se14", "realistic_hook", "cloaking-infinite" },
+    weapons = { "arccw_e5s_dmr",  "arccw_cis_se14", "realistic_hook", "cloaking-infinite", "keypad_cracker" },
     command = "b1recon",
     max = 0,
     salary = 200,
@@ -8076,7 +8074,7 @@ TEAM_ENGINEERDROID = DarkRP.createJob("Engineer Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_pilot_pm.mdl",
     },
     description = [[You are a Engineer Droid!]],
-    weapons = { "arccw_e5_smg",  "arccw_cis_se14", "alydus_fortificationbuildertablet", "weapon_squadshield", "weapon_slam" },
+    weapons = { "arccw_e5_smg",  "arccw_cis_se14", "alydus_fortificationbuildertablet", "weapon_squadshield", "weapon_slam", "keypad_cracker" },
     command = "b1engineer",
     max = 0,
     salary = 200,
@@ -8095,7 +8093,7 @@ TEAM_MEDICALDROID = DarkRP.createJob("Medical Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_snow_pm.mdl",
     },
     description = [[You are a Medical Droid!]],
-    weapons = { "arccw_e5",  "arccw_cis_se14", "lord_chrome_medkit", "weapon_bactainjector", "weapon_defibrillator" },
+    weapons = { "arccw_e5",  "arccw_cis_se14", "lord_chrome_medkit", "weapon_bactainjector", "weapon_defibrillator", "keypad_cracker" },
     command = "b1medic",
     max = 0,
     salary = 200,
@@ -8114,7 +8112,7 @@ TEAM_COMMANDERDROID = DarkRP.createJob("Commander Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_commander_pm.mdl",
     },
     description = [[You are a Commander Droid!]],
-    weapons = { "arccw_e5c",  "arccw_cis_se14", "realistic_hook", "lord_chrome_medkit", "personal_shield_activator", "weapon_officerboost_laststand" },
+    weapons = { "arccw_e5c",  "arccw_cis_se14", "realistic_hook", "lord_chrome_medkit", "personal_shield_activator", "weapon_officerboost_laststand", "keypad_cracker" },
     command = "b1cmdr",
     max = 0,
     salary = 200,
@@ -8130,7 +8128,7 @@ TEAM_COMMANDERDROID = DarkRP.createJob("Commander Droid", {
 TEAM_SITH = DarkRP.createJob("Sith", {
     color = Color(204, 0, 0, 255),
     model = {"models/player/sith/twilek.mdl","models/player/sith/gotal.mdl", "models/player/sith/gungan.mdl",
-    "models/player/sith/human.mdl", "models/player/sith/twilek2.mdl", "models/player/sith/umbaran.mdl", "models/player/sith/zabrak.mdl", "models/player/sith/togruta.mdl", "models/player/sith/trandoshan.mdl"},
+    "models/player/sith/human.mdl", "models/player/sith/twilek2.mdl", "models/player/sith/umbaran.mdl", "models/player/sith/zabrak.mdl", "models/player/sith/togruta.mdl", "models/player/sith/trandoshan.mdl", "keypad_cracker"},
     description = [[You are a Sith!]],
     weapons = {"weapon_lightsaber_sith_single", "weapon_lightsaber_sith_dual", "weapon_lightsaber_sith_twin", "gmod_tool"},
     command = "sith",
@@ -8153,7 +8151,7 @@ TEAM_SUPERBATTLEDROID = DarkRP.createJob("Super Battle Droid", {
         "models/aussiwozzi/cgi/b1droids/b2_battledroid_cannon_pm.mdl",
     },
     description = [[You are a Super Battle Droid!]],
-    weapons = { "arccw_b2_blaster" },
+    weapons = { "arccw_b2_blaster" , "keypad_cracker"},
     command = "b2heavy",
     max = 0,
     salary = 200,
@@ -8172,7 +8170,7 @@ TEAM_SUPERJUMPDROID = DarkRP.createJob("Super Jump Droid", {
         "models/aussiwozzi/cgi/b1droids/b2_battledroid_rocket_pm.mdl",
     },
     description = [[You are a Super Jump Droid!]],
-    weapons = { "arccw_b2_blaster", "weapon_thruster" },
+    weapons = { "arccw_b2_blaster", "weapon_thruster", "keypad_cracker" },
     command = "b2jump",
     max = 0,
     salary = 200,
@@ -8191,7 +8189,7 @@ TEAM_DROIDEKA = DarkRP.createJob("Droideka", {
         "models/starwars/stan/droidekas/droideka.mdl",
     },
     description = [[You are a Droideka!]],
-    weapons = { "arccw_droideka_twin", "personal_shield_activator_droideka" },
+    weapons = { "arccw_droideka_twin", "personal_shield_activator_droideka", "keypad_cracker" },
     command = "droideka",
     max = 0,
     salary = 200,
@@ -8210,7 +8208,7 @@ TEAM_MAGNAGUARD = DarkRP.createJob("Magna Guard", {
         "models/tfa/comm/gg/pm_sw_magna_guard_combined.mdl",
     },
     description = [[You are a Magna Guard!]],
-    weapons = { "arccw_e5", "sfw_magnastaff", "weapon_thruster", "shock" },
+    weapons = { "arccw_e5", "sfw_magnastaff", "weapon_thruster", "shock", "keypad_cracker" },
     command = "magna",
     max = 0,
     salary = 200,
@@ -8229,7 +8227,7 @@ TEAM_TACTICALDROID = DarkRP.createJob("Tactical Droid", {
         "models/tactical_black/pm_droid_tactical_black.mdl","models/tactical_blue/pm_droid_tactical_blue.mdl","models/tactical_gold/pm_droid_tactical_gold.mdl","models/tactical_purple/pm_droid_tactical_purple.mdl","models/tactical_red/pm_droid_tactical_red.mdl"
     },
     description = [[You are a Tactical Droid!]],
-    weapons = { "arccw_e5", "arccw_z4", "weapon_officerboost_laststand", "tf_weapon_medigun" },
+    weapons = { "arccw_e5", "arccw_z4", "weapon_officerboost_laststand", "tf_weapon_medigun", "keypad_cracker" },
     command = "tacdroid",
     max = 0,
     salary = 200,
@@ -8248,7 +8246,7 @@ TEAM_TANKERDROID = DarkRP.createJob("Tanker Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_pointrain_pm.mdl",
     },
     description = [[You are a Tactical Droid!]],
-    weapons = { "arccw_e5" },
+    weapons = { "arccw_e5" , "keypad_cracker"},
     command = "b1tank",
     max = 0,
     salary = 200,
@@ -8267,7 +8265,7 @@ TEAM_SNIPERDROID = DarkRP.createJob("Sniper Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_aat_pm.mdl",
     },
     description = [[You are a Sniper Droid!]],
-    weapons = { "arccw_e5_smg", "arccw_e5s_sniper", "realistic_hook", "cloaking-infinite" },
+    weapons = { "arccw_e5_smg", "arccw_e5s_sniper", "realistic_hook", "cloaking-infinite" , "keypad_cracker"},
     command = "b1mm",
     max = 0,
     salary = 200,
@@ -8286,7 +8284,7 @@ TEAM_TECHNICALDROID = DarkRP.createJob("Technical Droid", {
         "models/aussiwozzi/cgi/b1droids/b1_battledroid_pilot_pm.mdl",
     },
     description = [[You are a Technical Droid!]],
-    weapons = { "arccw_e5","arccw_e5_smg", "weapon_medkit", "weapon_bactainjector", "weapon_defibrillator", "realistic_hook" },
+    weapons = { "arccw_e5","arccw_e5_smg", "weapon_medkit", "weapon_bactainjector", "weapon_defibrillator", "realistic_hook" , "keypad_cracker"},
     command = "b1tech",
     max = 0,
     salary = 200,
@@ -8305,7 +8303,7 @@ TEAM_BOUNTYHUNTERREINFORCE = DarkRP.createJob("Enemy Bounty Hunter", {
         "models/assassin/pm_civ_assassin_human_female.mdl","models/assassin/pm_civ_assassin_human_male.mdl","models/bandit/pm_civ_bandit_human_female.mdl","models/bandit/pm_civ_bandit_human_male.mdl"
     },
     description = [[You are a Bounty Hunter!]],
-    weapons = { "arccw_ee3_ee", "weapon_jetpack", "arccw_cis_se14" },
+    weapons = { "arccw_ee3_ee", "weapon_jetpack", "arccw_cis_se14" , "keypad_cracker"},
     command = "eebh",
     max = 0,
     salary = 200,
@@ -8326,7 +8324,7 @@ TEAM_BXCOMMANDODROID = DarkRP.createJob("BX Commando Droid", {
         "models/bx/pm_droid_cis_bx.mdl",
     },
     description = [[You are a Commando Droid!]],
-    weapons = { "arccw_e5bx", "realistic_hook", "weapon_cloak" },
+    weapons = { "arccw_e5bx", "realistic_hook", "weapon_cloak" , "keypad_cracker"},
     command = "bxco",
     max = 0,
     salary = 200,
@@ -8345,7 +8343,7 @@ TEAM_BXASSASSINDROID = DarkRP.createJob("BX Assassin Droid", {
         "models/bx_senate/pm_droid_cis_bx_senate.mdl",
     },
     description = [[You are an assassin Droid!]],
-    weapons = { "arccw_e5bx", "covert", "weapon_thruster", "realistic_hook", "weapon_cloak" },
+    weapons = { "arccw_e5bx", "covert", "weapon_thruster", "realistic_hook", "weapon_cloak" , "keypad_cracker"},
     command = "bxknife",
     max = 0,
     salary = 200,
@@ -8364,7 +8362,7 @@ TEAM_BXSLUGDROID = DarkRP.createJob("BX Slugthrower Droid", {
         "models/bx_citadel/pm_droid_cis_bx_citadel.mdl",
     },
     description = [[You are an flamer Droid!]],
-    weapons = { "arccw_e5", "arccw_slugthrower", "realistic_hook" },
+    weapons = { "arccw_e5", "arccw_slugthrower", "realistic_hook" , "keypad_cracker"},
     command = "bxslug",
     max = 0,
     salary = 200,
@@ -8383,7 +8381,7 @@ TEAM_BXSPLICERDROID = DarkRP.createJob("BX Splicer Droid", {
         "models/bx_senate/pm_droid_cis_bx_senate.mdl",
     },
     description = [[You are an splicer Droid!]],
-    weapons = { "arccw_e5bx_smg", "alydus_fortificationbuildertablet", "weapon_cloak", "weapon_slam", "realistic_hook" },
+    weapons = { "arccw_e5bx_smg", "alydus_fortificationbuildertablet", "weapon_cloak", "weapon_slam", "realistic_hook" , "keypad_cracker"},
     command = "bxsmg",
     max = 0,
     salary = 200,
@@ -8402,7 +8400,7 @@ TEAM_BXRECONDROID = DarkRP.createJob("BX Recon Droid", {
         "models/bx/pm_droid_cis_bx.mdl",
     },
     description = [[You are an recon Droid!]],
-    weapons = { "arccw_e5bx_sniper", "shock", "weapon_cloak", "realistic_hook", "cloaking-infinite" },
+    weapons = { "arccw_e5bx_sniper", "shock", "weapon_cloak", "realistic_hook", "cloaking-infinite", "keypad_cracker" },
     command = "bxmm",
     max = 0,
     salary = 200,
@@ -8421,7 +8419,7 @@ TEAM_BXHEAVYDROID = DarkRP.createJob("BX Heavy Droid", {
         "models/bx_citadel/pm_droid_cis_bx_citadel.mdl",
     },
     description = [[You are an heavy Droid!]],
-    weapons = { "arccw_e5bx", "masita_sops_quadblaster", "arccw_sw_rocket_smartlauncher", "weapon_cloak", "realistic_hook" },
+    weapons = { "arccw_e5bx", "masita_sops_quadblaster", "arccw_sw_rocket_smartlauncher", "weapon_cloak", "realistic_hook" , "keypad_cracker"},
     command = "bxheavy",
     max = 0,
     salary = 200,
@@ -8440,7 +8438,7 @@ TEAM_BXCOMMANDERDROID = DarkRP.createJob("BX Commander Droid", {
         "models/bx_captain/pm_droid_cis_bx_captain.mdl",
     },
     description = [[You are a BX Commander Droid!]],
-    weapons = { "arccw_dual_e5",  "weapon_defibrillator", "realistic_hook", "tf_weapon_medigun", "weapon_cloak", "weapon_officerboost_laststand" },
+    weapons = { "arccw_dual_e5",  "weapon_defibrillator", "realistic_hook", "tf_weapon_medigun", "weapon_cloak", "weapon_officerboost_laststand" , "keypad_cracker"},
     command = "bxcmdr",
     max = 0,
     salary = 200,
@@ -8468,7 +8466,7 @@ TEAM_UMBARANTROOPER = DarkRP.createJob("Umbaran Trooper", {
 
     description = [[You are an Umbaran Trooper!]],
 
-    weapons = {"arccw_umb1", "arccw_thermal_grenade","keypad_cracker"},
+    weapons = {"arccw_umb1", "arccw_thermal_grenade","keypad_cracker", "keypad_cracker"},
 
     command = "umbtrp",
 
@@ -8502,7 +8500,7 @@ TEAM_UMBARANHEAVYTROOPER = DarkRP.createJob("Umbaran Heavy Trooper", {
 
     description = [[You are an Umbaran Heavy Trooper!]],
 
-    weapons = {"arccw_umb1", "realistic_hook", "arccw_sw_rocket_smartlauncher","keypad_cracker"},
+    weapons = {"arccw_umb1", "realistic_hook", "arccw_sw_rocket_smartlauncher","keypad_cracker", "keypad_cracker"},
 
     command = "umbhvy",
 
@@ -8778,7 +8776,7 @@ TEAM_CUSTOMENEMY = DarkRP.createJob("Event Character", {
 
     description = [[You are an Event Character!]],
 
-    weapons = {"arccw_cis_se14"},
+    weapons = {"arccw_cis_se14", "keypad_cracker"},
 
     command = "enemy",
 
@@ -8845,7 +8843,7 @@ TEAM_COUNTDOOKU = DarkRP.createJob("Count Dooku", {
 
     description = [[You are Count Dooku! Leader of the CIS.]],
 
-    weapons = { "weapon_lightsaber_dooku"},
+    weapons = { "weapon_lightsaber_dooku", "keypad_cracker"},
 
     command = "dooku",
 
@@ -8879,7 +8877,7 @@ TEAM_ASAJJVENTRESS = DarkRP.createJob("Asajj Ventress", {
 
     description = [[You are Asajj Ventress! Assassin working for Count Dooku.]],
 
-    weapons = { "weapon_lightsaber_ventress"},
+    weapons = { "weapon_lightsaber_ventress", "keypad_cracker"},
 
     command = "asajj",
 
@@ -8917,7 +8915,7 @@ TEAM_DARTHMAUL = DarkRP.createJob("Darth Maul", {
 
     description = [[You are Darth Maul.]],
 
-    weapons = { "weapon_lightsaber_maul"},
+    weapons = { "weapon_lightsaber_maul", "keypad_cracker"},
 
     command = "maul",
 
@@ -8951,7 +8949,7 @@ TEAM_GENERALGRIEVOUS = DarkRP.createJob("General Grievous", {
 
     description = [[You are General Grievous! General of the CIS Droid Army]],
 
-    weapons = { "weapon_lightsaber_grievous"},
+    weapons = { "weapon_lightsaber_grievous", "keypad_cracker"},
 
     command = "grievous",
 
@@ -8985,7 +8983,7 @@ TEAM_SAVAGEOPRESS = DarkRP.createJob("Savage Opress", {
 
     description = [[You are Savage Opress!]],
 
-    weapons = { "weapon_lightsaber_opress"},
+    weapons = { "weapon_lightsaber_opress", "keypad_cracker"},
 
     command = "savage",
 
@@ -9019,7 +9017,7 @@ TEAM_PREVISZLA = DarkRP.createJob("Pre Viszla", {
 
     description = [[You are Pre Viszla! Leader of the Death Watch]],
 
-    weapons = { "weapon_lightsaber_viszla", "arccw_westar11", "weapon_jetpack", "arccw_dual_westar35"},
+    weapons = { "weapon_lightsaber_viszla", "arccw_westar11", "weapon_jetpack", "arccw_dual_westar35", "keypad_cracker"},
 
     command = "previszla",
 
@@ -9053,7 +9051,7 @@ TEAM_CADBANE = DarkRP.createJob("Cad Bane", {
 
     description = [[You are Cad Bane! Bounty Hunter working against the Republic]],
 
-    weapons = { "arccw_dual_westar34", "weapon_jetpack"},
+    weapons = { "arccw_dual_westar34", "weapon_jetpack", "keypad_cracker"},
 
     command = "cadbane",
 
@@ -9087,7 +9085,7 @@ TEAM_HONDO = DarkRP.createJob("Hondo Ohnaka", {
 
     description = [[You are Hondo Ohnaka! Leader of the pirates]],
 
-    weapons = { "arccw_dl18", "sfw_magnastaff"},
+    weapons = { "arccw_dl18", "sfw_magnastaff", "keypad_cracker"},
 
     command = "hondo",
 
@@ -9121,7 +9119,7 @@ TEAM_BOSK = DarkRP.createJob("Bossk", {
 
     description = [[You are Bossk! Bounty Hunter]],
 
-    weapons = { "arccw_relbyv10", "arccw_hunter_shotgun", "my_interceptor", "seal6-c4", "realistic_hook", "arccw_poison_grenade"},
+    weapons = { "arccw_relbyv10", "arccw_hunter_shotgun", "my_interceptor", "seal6-c4", "realistic_hook", "arccw_poison_grenade", "keypad_cracker"},
 
     command = "bossk",
 
@@ -9150,7 +9148,7 @@ TEAM_DURGE = DarkRP.createJob("Durge", {
     color = Color(204, 0, 0, 255),
     model = {"models/player/garith/golden/durge.mdl"},
     description = [[You are Durge!]],
-    weapons = {"masita_sops_quadblaster", "arccw_ee3", "arccw_dual_westar34", "weapon_cuff_elastic", "durge_knife"},
+    weapons = {"masita_sops_quadblaster", "arccw_ee3", "arccw_dual_westar34", "weapon_cuff_elastic", "durge_knife", "keypad_cracker"},
     command = "durge",
     max = 1,
     salary = 200,
