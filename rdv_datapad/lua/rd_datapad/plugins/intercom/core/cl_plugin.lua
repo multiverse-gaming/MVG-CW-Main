@@ -29,7 +29,7 @@ function OBJ:DoClick(player, frame, PAGE)
         if IntercomStatus then
             BUT:SetText("Disable")
             BUT.DoClick = function()
-                net.Start("NCS_DATAPAD.Hypex.Intercom", true)
+                net.Start("NCS_DATAPAD.Hypex.Intercom")
                 net.WriteBool(false)
                 net.SendToServer()
                 IntercomStatus = false
@@ -53,7 +53,7 @@ function OBJ:DoClick(player, frame, PAGE)
                     end
                     return
                 end
-                net.Start("NCS_DATAPAD.Hypex.Intercom", true)
+                net.Start("NCS_DATAPAD.Hypex.Intercom")
                 net.WriteBool(true)
                 net.SendToServer()
                 IntercomStatus = true

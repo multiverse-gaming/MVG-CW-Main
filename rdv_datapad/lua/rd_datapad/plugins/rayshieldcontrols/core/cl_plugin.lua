@@ -59,7 +59,7 @@ function OBJ:DoClick(ply, MENU, PAGE)
                 dropButton:Dock(RIGHT)
                 dropButton:DockMargin(10, 5, 10, 5)
                 dropButton.DoClick = function()
-                    net.Start("DropRayshield", true)
+                    net.Start("DropRayshield")
                     net.WriteEntity(console) 
                     net.SendToServer()
                 end
