@@ -19,10 +19,10 @@ local MUTED = false
 local COMPLETE = false
 local WAITING = false
 
-local COL_1 = Color(50,50,50,180)
+local COL_1 = Color(0, 0, 0, 100)
 local COL_3 = Color(41, 128, 185)
 local COL_RED = Color(255,0,0)
-local COL_OUTLINE = Color(255,255,255,100)
+local COL_OUTLINE = Color(122,132,137, 180)
 
 --[[
 --  Local Materials
@@ -95,7 +95,7 @@ function RDV.COMMUNICATIONS.Open(context)
 
         draw.RoundedBox(0, 0, 0, w, h, COL_1)
 
-        draw.SimpleText(commsLabel, "NCS_DEFCON_DescText", w * 0.5, h * 0.035, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(commsLabel, "RDV_LIB_FRAME_TITLE", w * 0.5, h * 0.035, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 
     RDV.COMMUNICATIONS.PANEL = PANEL
