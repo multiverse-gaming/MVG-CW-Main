@@ -84,7 +84,7 @@ TREE.Tier[1][2] = {
 		CheckIfPlayerIsCheatingConsular(ply)
 	end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeap = true end,
+	OnSaberDeploy = function( wep ) wep:SetMaxForce(wep:GetMaxForce() + 30) wep.ConsularLeapUpgrade = true end,
 }
 
 TREE.Tier[1][3] = {
@@ -143,7 +143,7 @@ TREE.Tier[2][2] = {
 
 TREE.Tier[2][3] = {
 	Name = "Force Heal",
-	Description = "Stay ready whilst getting ready to get back in the fight.",
+	Description = "Standard heals self. Alt heals others. Crouch Group Heal. Shift protects.",
 	Icon = "wos/forceicons/meditate.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -156,7 +156,7 @@ TREE.Tier[2][3] = {
 
 TREE.Tier[2][4] = {
 	Name = "Force Shield",
-	Description = "Shield yourself from oncoming fire.",
+	Description = "Shield yourself. Alt to Group Shield.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -164,16 +164,29 @@ TREE.Tier[2][4] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Shield" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Shield" ) wep.ForceShield = true end,
 }
 
 TREE.Tier[2][5] = {
 	Name = "Force Protect",
-	Description = "Give another a chance to live.",
+	Description = "Give another a chance to live. Upgrades Force Heal.",
 	Icon = "wos/forceicons/throw.png",
 	PointsRequired = 2,
 	Requirements = {
 	[1] = { 2 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.ForceProtect = true end,
+}
+
+TREE.Tier[2][6] = {
+	Name = "Force Protect Skill",
+	Description = "Give another a chance to live. Seperate Skill.",
+	Icon = "wos/forceicons/throw.png",
+	PointsRequired = 0,
+	Requirements = {
+	[2] = { 5 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
@@ -214,7 +227,7 @@ TREE.Tier[3][2] = {
 
 TREE.Tier[3][3] = {
 	Name = "Force Group Shield",
-	Description = "Shield yourself, and those around you.",
+	Description = "Shield yourself, and those around you. Hold Alt to use.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -222,33 +235,46 @@ TREE.Tier[3][3] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Group Shield" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Force Shield" ) wep.GroupShield = true end,
 }
 
 TREE.Tier[3][4] = {
 	Name = "Force Group Push",
-	Description = "Push everyone around you.",
+	Description = "Push everyone around you. Hold Shift on Shared Skill",
 	Icon = "wos/forceicons/icefuse/group_push.png",
 	PointsRequired = 2,
 	Requirements = {
-	[2] = { 3 },
+		[3] = { 5 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Group Push" ) end,
+	OnSaberDeploy = function( wep ) wep.GroupPush = true end,
 }
 
 TREE.Tier[3][5] = {
-	Name = "Force Group Pull",
-	Description = "Pull everyone around you.",
+	Name = "Group Push/Pull",
+	Description = "Shared Skill. Use to Pull, hold Shift to push.",
 	Icon = "wos/forceicons/icefuse/group_pull.png",
-	PointsRequired = 2,
+	PointsRequired = 0,
 	Requirements = {
-	[2] = { 3 },
+		[2] = { 3 },
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Group Pull" ) end,
+	OnSaberDeploy = function( wep ) wep:AddForcePower( "Group Push Pull" ) end,
+}
+
+TREE.Tier[3][6] = {
+	Name = "Force Group Pull",
+	Description = "Pull everyone around you. Use Shared Skill.",
+	Icon = "wos/forceicons/icefuse/group_pull.png",
+	PointsRequired = 2,
+	Requirements = {
+		[3] = { 5 },
+	},
+	OnPlayerSpawn = function( ply ) end,
+	OnPlayerDeath = function( ply ) end,
+	OnSaberDeploy = function( wep ) wep.GroupPull = true end,
 }
 
 TREE.Tier[4] = {}
