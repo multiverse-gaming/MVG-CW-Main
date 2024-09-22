@@ -20,7 +20,7 @@ net.Receive("RequestHackableConsoleStatus", function(len, ply)
         table.insert(consoleStatus, data)
     end
 
-    net.Start("SendHackableConsoleStatus")
+    net.Start("SendHackableConsoleStatus", true)
     net.WriteTable(consoleStatus)
     net.Send(ply)
 end)
