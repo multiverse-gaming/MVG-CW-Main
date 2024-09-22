@@ -179,14 +179,14 @@ end
 
 function ENT:Think()
 
-if false then -- There was a convar for "Can use vehicles" - disabled for now
+if GetConVarNumber("fmod_followers_enter_vehicles") > 0 then
 for _,npc in pairs(ents.GetAll()) do
 if npc and npc:IsNPC() then
 local bonecheck = npc:LookupBone("ValveBiped.Bip01_Spine")
 if bonecheck then
 if (!IsValid(self:GetNWEntity("FMOD_MyUser"))) and (!npc:GetNWBool("FMOD_InVehicle")) and (!npc:GetNWBool("FMOD_SpecialDown")) and IsValid(npc:GetNWEntity("FMOD_MyTarget")) and npc:Visible(npc:GetNWEntity("FMOD_MyTarget")) and npc:GetNWEntity("FMOD_MyTarget"):InVehicle() then
 print("luklllaldaldas")
-if (!IsValid(npc:GetNWEntity("FMOD_MyVehicle"))) and (!self:GetNWBool("FMOD_VehicleUsed")) and npc:GetPos():Distance(self:GetPos()) <= 120 then
+if (!IsValid(npc:GetNWEntity("FMOD_MyVehicle"))) and (!self:GetNWBool("FMOD_VehicleUsed")) and npc:GetPos():Distance(self:GetPos()) <= GetConVarNumber("fmod_vehicle_max_dist") then
 local spawnanim = self:LookupSequence(table.Random(self.AnimList))
 self:SetSequence(spawnanim)
 self:SetPlaybackRate(0)
