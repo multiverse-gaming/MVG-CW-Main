@@ -31,7 +31,7 @@ if(SERVER)then
 			ent:Fire("stoppatrolling","",0.5)
 			ply:SetNWEntity("FMOD_MyFollower", ent)
 			util.AddNetworkString("FMOD.Message")
-			net.Start("FMOD.Message")
+			net.Start("FMOD.Message", true)
 				net.WriteFloat(100)
 				net.WriteFloat(255)
 				net.WriteFloat(0)
@@ -63,7 +63,7 @@ if(SERVER)then
 		if ply then
 			ply:SetNWEntity("FMOD_MyFollower", nil)
 			util.AddNetworkString("FMOD.Message")
-			net.Start("FMOD.Message")
+			net.Start("FMOD.Message", true)
 				net.WriteFloat(255)
 				net.WriteFloat(100)
 				net.WriteFloat(0)
