@@ -1,57 +1,20 @@
-if !ConVarExists("fmod_enable") then
-   CreateConVar("fmod_enable", '1', (FCVAR_ARCHIVE), "Enable or Disable followers mod.", 0, 1)
-end
-if !ConVarExists("fmod_min_call_dist") then
-   CreateConVar("fmod_min_call_dist", '80', (FCVAR_ARCHIVE), "Minimal distance to call for follower.", 0, 9999)
-end
-if !ConVarExists("fmod_min_spot_dist") then
-   CreateConVar("fmod_min_spot_dist", '2000', (FCVAR_ARCHIVE), "Minimal distance to spot enemies for your followers.", 0, -1)
-end
---
-if !ConVarExists("fmod_allow_collisions") then
-   CreateConVar("fmod_allow_collisions", '1', (FCVAR_ARCHIVE), "If 0, following you NPCs will not collide with you.", 0, 1)
-end
---
-if !ConVarExists("fmod_allow_ff") then
-   CreateConVar("fmod_allow_ff", '1', (FCVAR_ARCHIVE), "If 1, it will prevent the friendly fire.", 0, 1)
-end
-if !ConVarExists("fmod_buff_damage") then
-   CreateConVar("fmod_buff_damage", '0', (FCVAR_ARCHIVE), "Set damage of your followers.", 0, 1)
-end
-if !ConVarExists("fmod_buff_resistance") then
-   CreateConVar("fmod_buff_resistance", '0', (FCVAR_ARCHIVE), "Set resistance of your followers.", 0, -1)
-end
-if !ConVarExists("fmod_buff_proficiency") then
-   CreateConVar("fmod_buff_proficiency", '2', (FCVAR_ARCHIVE), "Set weapon proficiency of your followers.", 0, 10)
-end
-if !ConVarExists("fmod_auto_teleport") then
-   CreateConVar("fmod_auto_teleport", '0', (FCVAR_ARCHIVE), "If your followers can't reach you, they will teleport at your position (behind you).", 0, 1)
-end
-if !ConVarExists("fmod_followers_enter_vehicles") then
-   CreateConVar("fmod_followers_enter_vehicles", '1', (FCVAR_ARCHIVE), "Allow Your followers to enter vehicles.", 0, 1)
-end
-if !ConVarExists("fmod_vehicle_max_dist") then
-   CreateConVar("fmod_vehicle_max_dist", '120', (FCVAR_ARCHIVE), "How close Your followers has to be to enter a vehicle/seat.", 0, -1)
-end
-
 hook.Add("OnEntityCreated", "FMOD_GiveWeapons", function(ent)
 ent:SetNWString("FiLzO_WeaponType", GetConVarString("gmod_npcweapon"))
 end)
 
 if(CLIENT)then
-	if !ConVarExists("fmod_chat_support") then	
+--[[if !ConVarExists("fmod_chat_support") then	
 	   CreateClientConVar("fmod_chat_support", '1', (FCVAR_ARCHIVE), "Enable additional informations in chat.", 0, 1)
-	end
+	end]]--
 
 	-- This is what's outputting the various messages into your chat.
 	net.Receive("FMOD.Message", function()
-		if GetConVarNumber("fmod_chat_support") > 0 then
-			local ColorR = net.ReadFloat()
-			local ColorG = net.ReadFloat()
-			local ColorB = net.ReadFloat()
-			local Text = net.ReadString()
-			chat.AddText(Color(ColorR, ColorG, ColorB), Text)
-		end
+		--if GetConVarNumber("fmod_chat_support") > 0 then
+		local ColorR = net.ReadFloat()
+		local ColorG = net.ReadFloat()
+		local ColorB = net.ReadFloat()
+		local Text = net.ReadString()
+		chat.AddText(Color(ColorR, ColorG, ColorB), Text)
 	end)
 end
  
