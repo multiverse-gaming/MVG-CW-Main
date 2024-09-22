@@ -61,7 +61,7 @@ TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
 	Name = "Master Force Leap Upgrade",
-	Description = "Upgrades leap - replaces Additional Jump.",
+	Description = "Jump in the air - upgrades Leap.",
 	Icon = "wos/forceicons/leap.png",
 	PointsRequired = 3,
 	Requirements = {},

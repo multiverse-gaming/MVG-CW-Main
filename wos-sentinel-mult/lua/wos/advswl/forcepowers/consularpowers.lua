@@ -35,14 +35,13 @@ wOS.ForcePowers:RegisterNewPower({
 	manualaim = true,
 	description = "Hover over a friend, and protect them from harm",
 	action = function( self )
-		if (self.ProtectCD ~= nil && self.ProtectCD > CurTime()) then return end
 		if (self:GetForce() < 90) then return end
 		local ent = self:SelectTargets( 1 )[ 1 ]
 		if not IsValid( ent ) || !ent:IsPlayer() then return end
 		self:SetForce( self:GetForce() - 90 )
 		self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 		
-		timer.Create( "ProtectTimer", 1, 9, function()
+		timer.Create( "ProtectTimer", 1, 9, function() 
 			local ed = EffectData()
 			ed:SetOrigin( ent:GetPos() + Vector( 0, 0, 0 ) )
 			ed:SetRadius( 50 )
@@ -54,9 +53,7 @@ wOS.ForcePowers:RegisterNewPower({
 		timer.Simple(20, function()
 			ent:SetArmor(math.min(ent:Armor(), math.max(originalArmor, ent:GetMaxArmor())))
 		end)
-
-		-- Global CD for shared ability.
-		self.ProtectCD = CurTime() + 20
+		
 		return true
 	end
 })
@@ -85,69 +82,9 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "FS",
 	image = "wos/forceicons/reflect.png",
 	cooldown = 120,
-	description = "Default - Shield, Walk - Group Shield",
-	action = function( self )
-		if ((!self:GetOwner():KeyDown( IN_WALK ))) then
-			if ( self:GetForce() < 100 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
-			if ( !(self.ForceShield) ) then return end
-			if (self.ShieldCD ~= nil && self.ShieldCD > CurTime()) then return end
-			self:SetForce(self:GetForce() - 100)
-			local shield = ents.Create("prop_dynamic")
-			shield:SetModel("models/hunter/plates/plate2x2.mdl")
-			shield:SetMaterial("models/props_combine/stasisfield_beam")
-			shield:SetColor(Color(0, 161, 255, 140))
-			shield:SetPos(self:GetOwner():GetPos() + self:GetOwner():EyeAngles():Up() * 50 + self:GetOwner():EyeAngles():Forward() * 40)
-			shield:SetAngles(self:GetOwner():EyeAngles() + Angle(90, 0, 0))
-			shield:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
-			shield:SetSolid(SOLID_BSP)
-			shield:AddEffects(EF_NOSHADOW)
-			shield:Spawn()
-			shield:Activate()
-
-			timer.Simple(15, function()
-				if shield:IsValid() then
-					shield:Remove()
-				end
-			end)
-
-			-- Global CD for shared ability.
-			self.ShieldCD = CurTime() + 120
-		elseif self.GroupShield then
-			if ( self:GetForce() < 150 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
-			if (self.GroupShieldCD ~= nil && self.GroupShieldCD > CurTime()) then return end
-			self:SetForce(self:GetForce() - 150)
-			local shield = ents.Create("prop_dynamic")
-			shield:SetModel("models/hunter/tubes/tube4x4x2to2x2.mdl")
-			shield:SetMaterial("models/props_combine/stasisfield_beam")
-			shield:SetColor(Color(0, 161, 255, 140))
-			shield:SetPos(self:GetOwner():GetPos() + self:GetOwner():EyeAngles():Up() * 45)
-			shield:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
-			shield:SetSolid(SOLID_VPHYSICS)
-			shield:AddEffects(EF_NOSHADOW)
-			shield:Spawn()
-			shield:Activate()
-
-			timer.Simple(15, function()
-				if shield:IsValid() then
-					shield:Remove()
-				end
-			end)
-
-			-- Global CD for shared ability.
-			self.GroupShieldCD = CurTime() + 150
-		end
-	end
-})
-
-wOS.ForcePowers:RegisterNewPower({
-	name = "Force Shield Old",
-	icon = "FS",
-	image = "wos/forceicons/reflect.png",
-	cooldown = 120,
 	description = "Protect yourself and those behind you.",
 	action = function( self )
 		if ( self:GetForce() < 100 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
-		if (self.ShieldCD ~= nil && self.ShieldCD > CurTime()) then return end
 			self:SetForce(self:GetForce() - 100)
 			local shield = ents.Create("prop_dynamic")
 			shield:SetModel("models/hunter/plates/plate2x2.mdl")
@@ -167,8 +104,6 @@ wOS.ForcePowers:RegisterNewPower({
 				end
 			end)
 
-			-- Global CD for shared ability.
-			self.ShieldCD = CurTime() + 120
 			return true
 		end
 })
@@ -181,7 +116,6 @@ wOS.ForcePowers:RegisterNewPower({
 	description = "Protect yourself and those around you.",
 	action = function( self )
 		if ( self:GetForce() < 150 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
-		if (self.GroupShieldCD ~= nil && self.GroupShieldCD > CurTime()) then return end
 			self:SetForce(self:GetForce() - 150)
 			local shield = ents.Create("prop_dynamic")
 			shield:SetModel("models/hunter/tubes/tube4x4x2to2x2.mdl")
@@ -200,8 +134,6 @@ wOS.ForcePowers:RegisterNewPower({
 				end
 			end)
 
-			-- Global CD for shared ability.
-			self.GroupShieldCD = CurTime() + 150
 			return true
 		end
 })
@@ -253,7 +185,7 @@ wOS.ForcePowers:RegisterNewPower({
 		cooldown = 60,
 		target = 1,
 		manualaim = true,
-		description = "Default - Heal Self, Sprint - Protect, Crouch - Group Heal, Walk - Heal Others",
+		description = "Heal yourself.",
 		action = function( self )
 			if ( self:GetForce() < 6 or CLIENT ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
@@ -268,7 +200,6 @@ wOS.ForcePowers:RegisterNewPower({
 				--self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
 				self:GetOwner():AddSkillXP( 1 )
-
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
 				-- Check Global CD for shared skill.
 				if (self.GroupHealCD ~= nil && self.GroupHealCD > CurTime()) then return end
@@ -296,31 +227,7 @@ wOS.ForcePowers:RegisterNewPower({
 
 				-- Global CD for shared ability.
 				self.GroupHealCD = CurTime() + 60
-
-			elseif (self:GetOwner():KeyDown( IN_SPEED )) then
-				if (self.ProtectCD ~= nil && self.ProtectCD > CurTime()) then return end
-				if (self:GetForce() < 90) then return end
-				local ent = self:SelectTargets( 1 )[ 1 ]
-				if not IsValid( ent ) || !ent:IsPlayer() then return end
-				self:SetForce( self:GetForce() - 90 )
-				self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-
-				timer.Create( "ProtectTimer", 1, 9, function()
-					local ed = EffectData()
-					ed:SetOrigin( ent:GetPos() + Vector( 0, 0, 0 ) )
-					ed:SetRadius( 50 )
-					util.Effect( "rb655_force_repulse_out", ed, true, true )
-				end )
-
-				local originalArmor = ent:Armor()
-				ent:SetArmor(originalArmor + 150)
-				timer.Simple(20, function()
-					ent:SetArmor(math.min(ent:Armor(), math.max(originalArmor, ent:GetMaxArmor())))
-				end)
-
-				-- Global CD for shared ability.
-				self.ProtectCD = CurTime() + 20
-
+				-- return true -- Not needed anymore, now that Global CD applies.
 			elseif (!self:GetOwner():KeyDown( IN_WALK )) then
 				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
 				local ed = EffectData()
@@ -330,61 +237,8 @@ wOS.ForcePowers:RegisterNewPower({
 				self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
 				self:SetNextAttack( 0.2 )
-		end
-	end
-})
-
-wOS.ForcePowers:RegisterNewPower({
-		name = "Group Push Pull",
-		icon = "GPP",
-		target = 50,
-		distance = 650,
-		description = "Default - Pull All, Sprint - Push All",
-		image = "wos/forceicons/icefuse/group_push.png",
-		manualaim = false,
-		action = function( self )
-		if (self:GetOwner():KeyDown( IN_SPEED )) then
-			if (!(self.GroupPush)) then return end
-			if (self.GroupPushCD ~= nil && self.GroupPushCD > CurTime()) then return end
-			if ( self:GetForce() < 20 ) then return end
-			local foundents = self:SelectTargets( 50 )
-			if #foundents < 1 then return end
-			for id, ent in pairs( foundents ) do
-				local newpos = ( self.Owner:GetPos() - ent:GetPos() )
-				newpos = newpos / newpos:Length()
-				ent:SetVelocity( newpos*-850 + Vector( 0, 0, 300 ) )
-				if ent:IsPlayer() then
-					local time = ent:SetSequenceOverride( "h_reaction_upper", 2 )
-				end
 			end
-			self:SetForce( self:GetForce() - 20 )
-			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
-			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
-			
-			self.GroupPushCD = CurTime() + 8
-
-		elseif self.GroupPull then
-			if ( self:GetForce() < 20 ) then return end
-			if (self.GroupPullCD ~= nil && self.GroupPullCD > CurTime()) then return end
-			local foundents = self:SelectTargets( 15 )
-
-			if #foundents < 1 then return end
-			for id, ent in pairs( foundents ) do
-				local newpos = ( self.Owner:GetPos() - ent:GetPos() )
-				newpos = newpos / newpos:Length()
-				ent:SetVelocity( newpos*300 + Vector( 0, 0, 300 ) ) --ent:SetVelocity( newpos*100 + Vector( 0, 0, 300 ) )
-				if ent:IsPlayer() then
-					local time = ent:SetSequenceOverride( "wos_bs_shared_recover_forward", 2)
-				end
-			end
-
-			self:PlayWeaponSound( "lightsaber/force_repulse.wav" )
-			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
-			self:SetForce( self:GetForce() - 20 )
-			
-			self.GroupPullCD = CurTime() + 8
 		end
-		end,
 })
 
 wOS.ForcePowers:RegisterNewPower({

@@ -97,7 +97,7 @@ TREE.Tier[1][3] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) CheckIfPlayerIsCheatingGuardian(ply) ply:SetMaxHealth( ply:GetMaxHealth() + 50 ) ply:SetHealth( ply:Health() + 50 ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) end,
+	OnSaberDeploy = function( wep ) wep.GuardianLeap = true end,
 }
 
 TREE.Tier[1][4] = {
