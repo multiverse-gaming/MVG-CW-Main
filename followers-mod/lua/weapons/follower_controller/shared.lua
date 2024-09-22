@@ -94,7 +94,7 @@ function SWEP:SecondaryAttack()
 
 		if (npcFound) then
 			util.AddNetworkString("FMOD.Message")
-			net.Start("FMOD.Message", true)
+			net.Start("FMOD.Message")
 				net.WriteFloat(255)
 				net.WriteFloat(255)
 				net.WriteFloat(0)
@@ -121,7 +121,7 @@ function SWEP:SecondaryAttack()
 
 		if (npcFound) then
 			util.AddNetworkString("FMOD.Message")
-			net.Start("FMOD.Message", true)
+			net.Start("FMOD.Message")
 				net.WriteFloat(255)
 				net.WriteFloat(255)
 				net.WriteFloat(0)
