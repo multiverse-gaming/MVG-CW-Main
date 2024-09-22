@@ -50,7 +50,7 @@ function SWEP:PrimaryAttack()
 	if (CLIENT) then return end
 
 	local ent = self.Owner:GetEyeTrace().Entity
-	if IsValid(ent) and ent:IsNPC() and (self.Owner:GetPos():Distance(ent:GetPos()) <= GetConVarNumber("fmod_min_call_dist")) then
+	if IsValid(ent) and ent:IsNPC() and (self.Owner:GetPos():Distance(ent:GetPos()) <= 2000) then
 		if !ent:GetNWBool("FMOD_ImAfterSomeone") and (ent:Disposition(self.Owner) != D_HT and ent:Disposition(self.Owner) != D_FR) then
 			-- Add Follower.
 			AddFoll(ent, self.Owner)
