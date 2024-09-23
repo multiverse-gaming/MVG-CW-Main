@@ -32,9 +32,9 @@ SWEP.IconOverride = "materials/entities/rw_sw_e5s.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 
-SWEP.Damage = 550
+SWEP.Damage = 300
 SWEP.RangeMin = 400
-SWEP.DamageMin = 550
+SWEP.DamageMin = 300
 SWEP.Range = 800
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_DISSOLVE
@@ -50,7 +50,7 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 1
+SWEP.Primary.ClipSize = 2
 
 SWEP.Recoil = 0.29
 SWEP.RecoilSide = 0.11
