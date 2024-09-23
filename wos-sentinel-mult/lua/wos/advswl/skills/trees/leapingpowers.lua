@@ -110,7 +110,7 @@ TREE.Tier[2][1] = {
 	Name = "Leaping Cost 2",
 	Description = "Reduce the leaping FP cost by 5.",
 	Icon = "wos/forceicons/lightstream.png",
-	PointsRequired = 2,
+	PointsRequired = 1,
 	Requirements = {
 		[1] = { 1 },
 	},
@@ -127,7 +127,7 @@ TREE.Tier[2][2] = {
 	Name = "Reduce Leap Cooldown 2",
 	Description = "Reduces Leap CD by 1 second.",
 	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 2,
+	PointsRequired = 1,
 	Requirements = {
 		[1] = { 2 },
 	},
@@ -144,7 +144,7 @@ TREE.Tier[2][3] = {
 	Name = "Leap Distance Upgrade 2",
 	Description = "Increase the power of your leap.",
 	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 2,
+	PointsRequired = 1,
 	Requirements = {
 		[1] = { 3 },
 	},
@@ -163,7 +163,7 @@ TREE.Tier[3][1] = {
 	Name = "Additional Leap",
 	Description = "Gain another, smaller leap mid air.",
 	Icon = "wos/forceicons/cloak.png",
-	PointsRequired = 2,
+	PointsRequired = 3,
 	Requirements = {
 		[2] = { 1 },
 	},
@@ -176,7 +176,7 @@ TREE.Tier[3][2] = {
 	Name = "Group Leap",
 	Description = "Holding leap whilst crouching will launch those around you with you.",
 	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 2,
+	PointsRequired = 3,
 	Requirements = {
 		[2] = { 1, 2 },
 	},
@@ -189,7 +189,7 @@ TREE.Tier[3][3] = {
 	Name = "Slow Falling",
 	Description = "Holding Leap whilst falling slightly slows your fall.",
 	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 2,
+	PointsRequired = 3,
 	Requirements = {
 		[2] = { 2, 3 },
 	},
@@ -202,7 +202,7 @@ TREE.Tier[3][4] = {
 	Name = "Crouching Leap",
 	Description = "Increase the power of your first leap whilst crouching",
 	Icon = "wos/forceicons/leap.png",
-	PointsRequired = 2,
+	PointsRequired = 3,
 	Requirements = {
 		[2] = { 3 },
 	},
