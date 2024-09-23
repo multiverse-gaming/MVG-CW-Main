@@ -91,9 +91,9 @@ SWEP.MuzzleFlashColor = Color(250, 0, 0)
 SWEP.IronSightStruct = {
     Pos = Vector(-1.558, -9, 0.95),
     Ang = Angle(0, 0, 0),
-     Magnification = 1,
-     SwitchToSound = "",
-     ViewModelFOV = 55,
+    Magnification = 1,
+    SwitchToSound = "",
+    ViewModelFOV = 55,
 }
 SWEP.HoldtypeHolstered = "passive"
 SWEP.HoldtypeActive = "ar2"
