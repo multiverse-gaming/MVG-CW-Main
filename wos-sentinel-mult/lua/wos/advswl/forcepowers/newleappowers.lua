@@ -242,7 +242,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if ( self.LeapCD ~= nil && self.LeapCD > CurTime() ) then return end
 
 			if (not self.LeapComputed) then
-				self.LeapCost = 35
+				self.LeapCost = 30
 				self.LeapCDValue = 4.5
 				self.LeapStrength = 448
 
@@ -292,19 +292,19 @@ wOS.ForcePowers:RegisterNewPower({
 			self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 128 + Vector( 0, 0, 256 ) )
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
 			self:CallOnClient( "ForceJumpAnim", "" )
-			self.AdditionalLeapCooldown = CurTime() + 60
+			self.AdditionalLeapCooldown = CurTime() + 3
 		end
 	end,
 	think = function ( self )
 		if ( self.SlowFall && !self.Owner:IsOnGround() && self.Owner:KeyDown( IN_ATTACK2 ) ) then
 			local vel = self.Owner:GetVelocity()
 			if (vel.z > 50) then return end
-			self.Owner:SetVelocity(Vector(0, 0, 13))
+			self.Owner:SetVelocity(Vector(0, 0, 17))
 			self:SetForce( self:GetForce() - 0.01 )
 		elseif ( self.GroupLeap && self.Owner:IsOnGround()) then
 			if (not self.LeapComputed) then
-				self.LeapCost = 35
-				self.LeapCDValue = 5
+				self.LeapCost = 30
+				self.LeapCDValue = 4.5
 				self.LeapStrength = 448
 
 				if (self.LeapCostUpgrade ~= nil) then self.LeapCost = self.LeapCost - (self.LeapCostUpgrade*5) end
