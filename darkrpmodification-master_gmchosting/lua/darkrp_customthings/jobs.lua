@@ -5955,7 +5955,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(1200) ply:SetHealth(1200) ply:SetRu
 ---- FLEET SPECIALISTS----
 TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/army_03.mdl","models/jajoff/sps/republic/tc13j/army03_female.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
     weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
