@@ -2040,7 +2040,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     color = Color(255, 77, 77, 255),
 
-    model = {"models/aussiwozzi/cgi/base/cg_hound.mdl", "models/aussiwozzi/cgi/base/CG_tracker.mdl"},
+    model = {"models/aussiwozzi/cgi/base/cg_hound.mdl", "models/aussiwozzi/cgi/base/CG_tracker.mdl", "models/zeus/cg_pointer.mdl"},
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
@@ -5955,7 +5955,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(1200) ply:SetHealth(1200) ply:SetRu
 ---- FLEET SPECIALISTS----
 TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/zeus/security_officer_male.mdl", "models/zeus/security_officer_female.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
     weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
