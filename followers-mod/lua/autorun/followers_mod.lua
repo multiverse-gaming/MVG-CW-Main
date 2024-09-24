@@ -1,9 +1,4 @@
-
-hook.Add("OnEntityCreated", "FMOD_GiveWeapons", function(ent)
-    ent:SetNWString("FiLzO_WeaponType", GetConVarString("gmod_npcweapon"))
-end)
- 
-if(SERVER)then
+if (SERVER) then
     -- Adds a follower. Were they extremely busy and couldn't just write "AddFollower"?
     -- In both of these, we might want to get rid of the Custom/Special stuff. Additonally, the logging
     -- to could be changed to "This person is now following you!" if we wanted. Useful for testing though.
@@ -50,7 +45,7 @@ if(SERVER)then
         ent:SetCollisionBounds(ent.CollisionBounds,Vector(ent.CollisionBounds.x *-1,ent.CollisionBounds.y *-1,0))
         ent:DropToFloor()
     end
-    
+
     -- Removes npc's following you when you die.
     hook.Add("PlayerDeath", "FMOD_PlayerDeath", function(ply, weapon, killer)
         if IsValid(ply.gfoll) then SafeRemoveEntity(ply.gfoll) end

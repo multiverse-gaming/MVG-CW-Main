@@ -6,11 +6,7 @@ if CLIENT then
 	SWEP.Description = "This tool allows your to assign followers to yourself, and have them protect and move with you."
 	SWEP.Contact = ""
 	SWEP.Purpose = "Assign and control followers"
-	SWEP.Instructions = "Left Click: Add/Remove followers. Right Click: Order Followers"
-end
-
-if SERVER then
-	AddCSLuaFile("shared.lua")
+	SWEP.Instructions = "Left Click: Add/Remove followers. Right Click: Hold Position / Recall"
 end
 
 SWEP.Spawnable = true
@@ -32,7 +28,10 @@ SWEP.Secondary.Ammo = "none"
 
 -- Adds and removes followers
 function SWEP:PrimaryAttack()
-	if (!IsValid(self.Owner.gfoll)) and self.Owner:Alive() && SERVER then
+    self:SetNextPrimaryFire(CurTime() + 0.1)
+	if (CLIENT) then return end
+	
+	if (!IsValid(self.Owner.gfoll)) and self.Owner:Alive() then
 		self.Owner:SetName(self.Owner:Nick())
 		self.Owner.gfoll = ents.Create("ai_goal_follow")
 		self.Owner.gfoll:SetPos(self.Owner:GetPos())
@@ -45,9 +44,6 @@ function SWEP:PrimaryAttack()
 		self.Owner.gfoll:Spawn()
 		self.Owner.gfoll:Activate()
 	end
-
-    self:SetNextPrimaryFire(CurTime() + 0.1)
-	if (CLIENT) then return end
 
 	local ent = self.Owner:GetEyeTrace().Entity
 	if IsValid(ent) and ent:IsNPC() and (self.Owner:GetPos():Distance(ent:GetPos()) <= 80) then
@@ -113,7 +109,7 @@ function SWEP:SecondaryAttack()
 end
 
 function SWEP:Reload()
-	-- Does this need to be here?
+	return false
 end
 
 function SWEP:Initialize()
@@ -121,7 +117,6 @@ function SWEP:Initialize()
 end
 
 function SWEP:Holster()
-	self:SetWeaponHoldType( self.HoldType )
 	return true
 end
 
