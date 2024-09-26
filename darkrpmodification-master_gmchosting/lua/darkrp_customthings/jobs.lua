@@ -1360,7 +1360,7 @@ TEAM_GREENMCOMMANDER = DarkRP.createJob("Green Company Marshal Commander", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/41st_gree.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
+    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl","models/zeus/41st_barrage.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/41st_gree.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the Green Company!]],
 
@@ -1392,7 +1392,7 @@ TEAM_GREENCOMMANDER = DarkRP.createJob("Green Company Commander", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_gree.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_officer.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_gree.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/zeus/41st_barrage.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_officer.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are the Commander of the Green Company!]],
 
@@ -1426,7 +1426,7 @@ TEAM_GREENEXECUTIVEOFFICER = DarkRP.createJob("Green Company Executive Officer",
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/zeus/41st_barrage.mdl","models/aussiwozzi/cgi/base/41st_havoc_officer.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the Green Company!]],
 
@@ -1460,7 +1460,7 @@ TEAM_GREENMAJOR = DarkRP.createJob("Green Company Major", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/41st_havoc.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_officer.mdl","models/aussiwozzi/cgi/base/41st_havoc.mdl","models/zeus/41st_barrage.mdl","models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are the Major of the Green Company!]],
 
@@ -1530,7 +1530,7 @@ TEAM_GREENMARKSMAN = DarkRP.createJob("Green Company Marksman", {
 
     color = Color(0, 255, 64, 255),
 
-    model = {"models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/442nd_barrage.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_draa.mdl","models/aussiwozzi/cgi/base/41st_cooker.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
+    model = {"models/aussiwozzi/cgi/base/41st_ranger.mdl","models/aussiwozzi/cgi/base/41st_arf.mdl","models/aussiwozzi/cgi/base/41st_draa.mdl","models/aussiwozzi/cgi/base/41st_cooker.mdl","models/herm/cgi_new/41st/41st_trooper2.mdl","models/herm/cgi_new/41st/41st_trooper1.mdl","models/zeus/41st_trooper_snow.mdl","models/zeus/41st_ranger_snow.mdl"},
 
     description = [[Congratulations, you are a Marksman for the Green Company! Can Spawn: Barc Speeder]],
 
@@ -2007,7 +2007,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     model = {"models/aussiwozzi/cgi/base/cg_stone.mdl", "models/aussiwozzi/cgi/base/cg_riot_officer.mdl", "models/aussiwozzi/cgi/base/cg_riot.mdl"},
 
-    description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
+    description = [[Congratulations, you are a Riot Trooper of the Coruscant Guard!]],
 
     weapons = {"arccw_dc15_v2_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
 
