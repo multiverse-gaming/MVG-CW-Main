@@ -10,6 +10,12 @@ list.Set( "PlayerOptionsModel", "41st Barrage", "models/zeus/41st_barrage.mdl" )
 player_manager.AddValidModel( "41st Barrage", "models/zeus/41st_barrage.mdl" )
 player_manager.AddValidHands( "41st Barrage", "models/aussiwozzi/cgi/base/41st_trooper_arms.mdl",0,"10000000" )
 
-list.Set( "PlayerOptionsModel", "Phase 2 CG Pointer (CGI)", "mmodels/zeus/cg_pointer.mdl" )
-player_manager.AddValidModel( "Phase 2 CG Pointer (CGI)", "models/zeus/cg_pointer.mdl" )
-player_manager.AddValidHands( "Phase 2 CG Pointer (CGI)", "models/aussiwozzi/cgi/base/CG_trooper_arms.mdl",0,"10000000" )
+list.Set( "PlayerOptionsModel", "CG Pointer", "models/zeus/cg_pointer.mdl" )
+player_manager.AddValidModel( "CG Pointer", "models/zeus/cg_pointer.mdl" )
+player_manager.AddValidHands( "CG Pointer", "models/aussiwozzi/cgi/base/CG_trooper_arms.mdl",0,"10000000" )
+
+list.Set( "PlayerOptionsModel", "212th Blackout", "models/zeus/212th_blackout.mdl" )
+player_manager.AddValidModel( "212th Blackout", "models/zeus/212th_blackout.mdl" )
+player_manager.AddValidHands( "212th Blackout", "models/zeus/212th_blackout_arms.mdl",0,"10000000" )
+
+--arms for: 212th Blackout, GC snow camos and Barrage, CG Pointer
