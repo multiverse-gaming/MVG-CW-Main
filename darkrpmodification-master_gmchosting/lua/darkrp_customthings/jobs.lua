@@ -4169,7 +4169,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 0
 
@@ -4202,7 +4202,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(700) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(700) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
@@ -4234,7 +4234,7 @@ TEAM_RCBOSS = DarkRP.createJob("RC Boss", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1) ply:SetArmor(1) ply:SetMaxArmor(150)   end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (240) ply:SetGravity(1) ply:SetArmor(1) ply:SetMaxArmor(150)   end,
 
     SortOrder = 2
 
@@ -4268,7 +4268,7 @@ TEAM_RCFIXER = DarkRP.createJob("RC Fixer", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 3
 
@@ -4302,7 +4302,7 @@ TEAM_RCSEV = DarkRP.createJob("RC Sev", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 4
 
@@ -4336,7 +4336,7 @@ TEAM_RCSCORCH = DarkRP.createJob("RC Scorch", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:GiveAmmo(10,"rpg_round") ply:SetRunSpeed (260) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:GiveAmmo(10,"rpg_round") ply:SetRunSpeed (240) ply:SetGravity(1) end,
 
     SortOrder = 5
 
@@ -4374,7 +4374,7 @@ TEAM_RCHUNTER = DarkRP.createJob("CF99 Hunter", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
@@ -4408,7 +4408,7 @@ TEAM_RCCROSSHAIR = DarkRP.createJob("CF99 Crosshair", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 2
 
@@ -4442,7 +4442,7 @@ TEAM_RCWRECKER = DarkRP.createJob("CF99 Wrecker", {
 
     category = "Bad Batch Squad",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 3
 
@@ -4476,7 +4476,7 @@ TEAM_RCTECH = DarkRP.createJob("CF99 Tech", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 4
 
@@ -4510,7 +4510,7 @@ TEAM_RCECHO = DarkRP.createJob("CF99 Echo", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 4
 
@@ -4568,7 +4568,7 @@ TEAM_RCNINER = DarkRP.createJob("RC Niner", {
 
         ply:SetMaxHealth(450)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4624,7 +4624,7 @@ TEAM_RCFI = DarkRP.createJob("RC Fi", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4679,7 +4679,7 @@ TEAM_RCDARMAN = DarkRP.createJob("RC Darman", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:GiveAmmo(10,"rpg_round")
 
@@ -4745,7 +4745,7 @@ TEAM_RCATIN = DarkRP.createJob("RC Atin", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4781,7 +4781,7 @@ TEAM_RCCORR = DarkRP.createJob("RC Corr", {
 
     category = "Omega Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 5
 
@@ -4841,7 +4841,7 @@ TEAM_RCVALE = DarkRP.createJob("RC Vale", {
 
         ply:SetMaxHealth(450)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4893,7 +4893,7 @@ TEAM_RCPLANK = DarkRP.createJob("RC Plank", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4947,7 +4947,7 @@ TEAM_RCRIGGS = DarkRP.createJob("RC Riggs", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -5006,7 +5006,7 @@ TEAM_RCWITT = DarkRP.createJob("RC Witt", {
 
         ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -5049,7 +5049,7 @@ TEAM_RCHOPE = DarkRP.createJob("RC HOPE Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 9
 
@@ -5083,7 +5083,7 @@ TEAM_RCAIWHA = DarkRP.createJob("RC Aiwha Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 8
 
@@ -5117,7 +5117,7 @@ TEAM_RCAQUILA = DarkRP.createJob("RC Aquila Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 7
 
@@ -5151,7 +5151,7 @@ TEAM_RCION = DarkRP.createJob("RC Ion Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 6
 
@@ -5185,7 +5185,7 @@ TEAM_RCYAYAX = DarkRP.createJob("RC Yayax Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 5
 
@@ -5270,7 +5270,7 @@ TEAM_REPUBLICCOMMANDOSGT = DarkRP.createJob("RC Sergeant", {
 
         ply:SetHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetMaxHealth(400)
 
@@ -5304,7 +5304,7 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
     canDemote = false,
     PlayerSpawn = function(ply)
         ply:SetHealth(350)
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
         ply:SetMaxHealth(350)
         ply:SetGravity(1)
     end,
