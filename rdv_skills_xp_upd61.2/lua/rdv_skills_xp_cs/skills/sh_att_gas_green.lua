@@ -4,7 +4,7 @@ OBJ:SetMaxTiers(1)
 
 OBJ:SetCategory("Energisation")
 
-OBJ:SetDescription("Change the energisation of your weapon.")
+OBJ:SetDescription("Quicker, less damage.")
 
 --OBJ:SetNoEffectTeams({
 --    TEAM_CITIZEN,

@@ -210,7 +210,7 @@ hook.Add("HUDPaint", "RDV.SAL.HUDPaint", function()
     local teams = RDV.LIBRARY.GetConfigOption("SAL_expTEAMS")
     local clientTeam = team.GetName(LocalPlayer():Team())
 
-    if teams[clientTeam] == nil or teams[clientTeam] == false then return end
+    if not istable(teams) or teams[clientTeam] == nil then return end
 
     local AD = {
         W = RDV.LIBRARY.GetConfigOption("SAL_Adjustw"),
@@ -581,10 +581,20 @@ function RDV.SAL.OpenMenu()
                     continue
                 end
 
-                if #v:GetNoEffectTeams() > 0 && !v:GetNoEffectTeams()[LocalPlayer():Team()] then
-                    -- Like in the skill - GetNoEffect actually means CanGetEffect. You know. The opposite.
-                    continue
+                -- Normally this would be done in a table-indexy way, but that doesn't instantiate the table? I think?
+                -- No, I don't know why. These are always small numbers anyway, and it's only run once on the client side, so its fine.
+                local skip = true
+                local doesTheTableActuallyExist = false
+                for noEffectTeams, exists in pairs(v:GetNoEffectTeams()) do
+                    doesTheTableActuallyExist = true
+                    print(noEffectTeams)
+                    print(LocalPlayer():Team())
+                    if (noEffectTeams == LocalPlayer():Team()) then
+                        skip = false
+                        continue
+                    end
                 end
+                if doesTheTableActuallyExist && skip then continue end
 
                 v.CATEGORY = v.CATEGORY or RDV.LIBRARY.GetLang(nil, "SAL_uncategorizedLabel")
                 v.COLOR = v.COLOR or COL_1

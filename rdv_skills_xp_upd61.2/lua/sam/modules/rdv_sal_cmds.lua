@@ -1,7 +1,7 @@
 sam.command.set_category("[NS] Addons")
 
 sam.command.new("setlevel")
-    :SetPermission("setlevel") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
+    :SetPermission("superadmin") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
    
     :Help("(SAL) Set the Level of a player.")
    
@@ -25,7 +25,7 @@ sam.command.new("setlevel")
 :End()
 
 sam.command.new("givexp")
-    :SetPermission("givexp") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
+    :SetPermission("superadmin") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
    
     :Help("(SAL) Give XP to a player.")
    
@@ -49,7 +49,7 @@ sam.command.new("givexp")
 :End()
 
 sam.command.new("giveskillpoints")
-    :SetPermission("giveskillpoints") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
+    :SetPermission("superadmin") -- OR "superadmin" OR "user" OR remove the second argument for no default access OR just remove that line to make it for everyone!
    
     :Help("(SAL) Give skillpoints to a player.")
    

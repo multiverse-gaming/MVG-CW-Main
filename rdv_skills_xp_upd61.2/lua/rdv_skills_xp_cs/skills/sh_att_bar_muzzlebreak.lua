@@ -2,7 +2,7 @@ local OBJ = RDV.SAL.AddSkill("Muzzle Break")
 
 OBJ:SetMaxTiers(3)
 
-OBJ:SetCategory("Barrel Attachments")
+OBJ:SetCategory("Barrel")
 
 OBJ:SetDescription("Tighter shooting.")
 

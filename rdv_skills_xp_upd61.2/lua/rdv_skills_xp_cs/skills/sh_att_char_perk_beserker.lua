@@ -4,7 +4,7 @@ OBJ:SetMaxTiers(1)
 
 OBJ:SetCategory("Character")
 
-OBJ:SetDescription("Be better at, and deal much more damage with melee.")
+OBJ:SetDescription("Be better at melee with your gun.")
 
 -- This is actually a team whitelist for this skill. You know how it is.
 -- Also the cadet has to stay. Still, don't know why. Don't fucking ask me man.

@@ -4,7 +4,7 @@ OBJ:SetMaxTiers(3)
 
 OBJ:SetCategory("Magazine")
 
-OBJ:SetDescription("Much slower reload, many more bullets, much slower movement.")
+OBJ:SetDescription("Much slower reload, more ammo, slower movement.")
 
 --OBJ:SetNoEffectTeams({
 --    TEAM_CITIZEN,
