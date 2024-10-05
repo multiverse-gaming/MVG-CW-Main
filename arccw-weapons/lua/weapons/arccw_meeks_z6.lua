@@ -157,6 +157,14 @@ SWEP.AttachmentElements = {
     }
 }
 
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Repeater", -- print name
+        DefaultAttName = "Reciprocating Repeater", -- used to display the "no attachment" text
+        Slot = "z6_internal",
+    },
+}
+
 WMOverride = "models/starwars/grady/props/weapons/z6-rotatory-blaster.mdl"
 
 
