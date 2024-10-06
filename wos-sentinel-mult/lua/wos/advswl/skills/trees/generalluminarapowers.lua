@@ -61,13 +61,23 @@ TREE.Tier[1] = {}
 
 TREE.Tier[1][1] = {
 	Name = "Master Force Leap Upgrade",
-	Description = "Upgrades leap - replaces Additional Jump.",
+	Description = "Upgrades leap to max and more.",
 	Icon = "wos/forceicons/leap.png",
 	PointsRequired = 3,
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep.MasterLeap = true end,
+	OnSaberDeploy = function( wep )
+		wep.MasterLeap = true
+
+		wep.GroupLeap = true
+		wep.CrouchingLeap = true
+		wep.SlowFall = true
+
+		wep.LeapCostUpgrade = 2
+		wep.LeapCDUpgrade = 2
+		wep.LeapDistanceUpgrade = 2
+		end,
 }
 
 TREE.Tier[1][2] = {

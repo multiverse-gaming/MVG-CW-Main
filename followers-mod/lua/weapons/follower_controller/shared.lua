@@ -16,7 +16,7 @@ SWEP.Category = "MVG"
 SWEP.HoldType = "normal"
 SWEP.ViewModelFOV = 70
 SWEP.ViewModelFlip = false
-SWEP.UseHands = true
+SWEP.UseHands = false
 SWEP.ViewModel = "models/weapons/c_crowbar_frame.mdl"
 SWEP.WorldModel = ""
 SWEP.ShowViewModel = false
@@ -71,7 +71,6 @@ function SWEP:SecondaryAttack()
 	if (CLIENT) then return end
 
 	local tr = self.Owner:GetEyeTrace()
-	local ent = self.Owner:GetEyeTrace().Entity
 
 	-- This code sends someone somewhere.
 	if !(self.SendNPCs) then
@@ -86,6 +85,15 @@ function SWEP:SecondaryAttack()
 				if IsValid(self.Owner.gfoll) then self.Owner.gfoll:Fire("Deactivate", "", 0) end
 				my_npc:SetSchedule(SCHED_FORCED_GO_RUN)
 			end
+		end
+		if (npcFound) then
+			util.AddNetworkString("FMOD.Message")
+			net.Start("FMOD.Message")
+				net.WriteFloat(255)
+				net.WriteFloat(255)
+				net.WriteFloat(0)
+				net.WriteString("Squad, take this position!")
+			net.Send(self.Owner)
 		end
 		self.SendNPCs = true
 
@@ -103,6 +111,15 @@ function SWEP:SecondaryAttack()
 					self.Owner.gfoll:Fire("Activate", "", 0.1)
 				end
 			end
+		end
+		if (npcFound) then
+			util.AddNetworkString("FMOD.Message")
+			net.Start("FMOD.Message")
+				net.WriteFloat(255)
+				net.WriteFloat(255)
+				net.WriteFloat(0)
+				net.WriteString("Squad, follow me!")
+			net.Send(self.Owner)
 		end
 		self.SendNPCs = false
 	end
