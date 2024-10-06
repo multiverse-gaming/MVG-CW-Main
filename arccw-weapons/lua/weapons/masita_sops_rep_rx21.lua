@@ -172,7 +172,7 @@ SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "None", 
-        Slot = {"rifleoptic","extraoptic"}, 
+        Slot = {"rifleoptic","extraoptic","thermaloptic"}, 
         WMScale = Vector(111, 111, 111),
         Bone = "dlt19_sight",
         Offset = {
@@ -183,16 +183,17 @@ SWEP.Attachments = {
         },
         CorrectiveAng = Angle(0, -0.3, 0),
         CorrectivePos = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "Magazines", 
+        DefaultAttName = "None",
+        Slot = {"dc17m_magazine"},
+        Bone = "dlt19_sight"
     },  
---[[    {
-        PrintName = "Grip",
-        Slot = "No Attachment",
-        DefaultAttName = "Standard Grip"
-    },       
     {
         PrintName = "Muzzle", 
         DefaultAttName = "None",
-        Slot = {"No Attachment"},
+        Slot = {"dc17m_muzzle"},
         VMScale = Vector(2,2,2),
         WMScale = Vector(140, 140, 140),
         Bone = "dlt19_sight",
@@ -202,63 +203,17 @@ SWEP.Attachments = {
             wpos = Vector(2450, 130, -945),
             wang = Angle(-15, -1, 180)
         },
-    },   
-    {
-        PrintName = "Tactical", 
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-        WMScale = Vector(111, 111, 111),
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(1.1, 3, 14),
-            vang = Angle(90, 0, 0),
-            wpos = Vector(2250, 275, -650),
-            wang = Angle(-10, -1, -90)
-        },
-    },  
-    {
-        PrintName = "Underbarrel",
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-        WMScale = Vector(111, 111, 111),
-        VMScale = Vector(1.2,1.2,1.2),
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(-0.5, 6, 9),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(1550, 145, -320),
-            wang = Angle(-15, -1, -180)
-
-        },
-    },                
+    },             
     {
         PrintName = "Energization", 
         DefaultAttName = "Standard",
-        Slot = {"No Attachment"},
+        Slot = {"dc17m_energization"},
     },
     {
         PrintName = "Perk",
         DefaultAttName = "None",
-        Slot = {"No Attachment"},
+        Slot = {"dc17m_perk"},
     },
-    {
-        PrintName = "Internal Modifications",
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-    },
-    {
-        PrintName = "Charms/Killcounter",
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-        WMScale = Vector(90, 90, 90),
-        Bone = "dlt19_sight",
-        Offset = {
-            vpos = Vector(1.3, -1, -4),
-            vang = Angle(90, 0, -90),
-            wpos = Vector(670, 250, -620),
-            wang = Angle(0, 0, 180)
-        },
-    },      --]]   
 }
 
 -- Don't touch this unless you know what you're doing

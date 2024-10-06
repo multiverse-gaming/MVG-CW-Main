@@ -146,6 +146,40 @@ SWEP.Attachments = {
         },
     },
     [2] = {
+        PrintName = "Magazine",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_magazine",
+        Bone = "optic", -- relevant bone any attachments will be mostly referring to
+        Offset = {
+            vpos = Vector(0.3, 2.3, -3),
+            vang = Angle(0, 0, 0),
+            wpos = Vector(0, 0, -0),
+            wang = Angle(-15, 90, -90)
+        },
+    },
+    [3] = {
+        PrintName = "Muzzle",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_muzzle",
+        Bone = "optic", -- relevant bone any attachments will be mostly referring to
+        Offset = {
+            vpos = Vector(0.05, 1.15, 19.45),
+            vang = Angle(90, 0, -90),
+            wpos = Vector(22.1, 1.51, -8.7),
+            wang = Angle(-10, 0, -90)
+        },
+    },
+    [4] = {
+        PrintName = "Energization",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_energization",
+    },
+    [5] = {
+        PrintName = "Perks",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_perk",
+    },
+    [6] = {
         PrintName = "Underbarrel",
         DefaultAttName = "Empty",
         Slot = "RiggsBactaAlt",

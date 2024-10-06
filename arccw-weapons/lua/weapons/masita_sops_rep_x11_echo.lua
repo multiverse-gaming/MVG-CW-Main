@@ -169,6 +169,20 @@ SWEP.AttachmentElements = {
         }, 
     }
 }
+
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Energization",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_energization",
+    },
+    [2] = {
+        PrintName = "Perks",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_perk",
+    },
+}
+
 WMOverride = "models/holo/x11/holo_x11.mdl"
 
 --[[SWEP.Attachments = {

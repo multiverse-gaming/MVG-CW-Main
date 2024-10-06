@@ -177,28 +177,18 @@ SWEP.AttachmentElements = {
 }
 WMOverride = "models/holo/x11/holo_x11.mdl"
 
---[[SWEP.Attachments = {    
-    {
-        PrintName = "Energization", 
-        DefaultAttName = "Standard",
-        Slot = {"No Attachment"},
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Energization",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_energization",
     },
-    {
-        PrintName = "Grip",
-        Slot = "No Attachment",
-        DefaultAttName = "Standard Grip"
+    [2] = {
+        PrintName = "Perks",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_perk",
     },
-    {
-        PrintName = "Perk",
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-    },
-    {
-        PrintName = "Internal Modifications",
-        DefaultAttName = "None",
-        Slot = {"No Attachment"},
-    },       
-}--]]
+}
 
 
 SWEP.Animations = {

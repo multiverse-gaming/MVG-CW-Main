@@ -148,7 +148,7 @@ SWEP.Attachments = {
     [2] = {
         PrintName = "Magazine",
         DefaultAttName = "No Attachment",
-        Slot = "dc17m_64",
+        Slot = "dc17m_magazine",
         Bone = "optic", -- relevant bone any attachments will be mostly referring to
         Offset = {
             vpos = Vector(0.3, 2.3, -3),
@@ -160,7 +160,7 @@ SWEP.Attachments = {
     [3] = {
         PrintName = "Muzzle",
         DefaultAttName = "No Attachment",
-        Slot = "DC17m_muzzle",
+        Slot = "dc17m_muzzle",
         Bone = "optic", -- relevant bone any attachments will be mostly referring to
         Offset = {
             vpos = Vector(0.05, 1.15, 19.45),
@@ -168,6 +168,16 @@ SWEP.Attachments = {
             wpos = Vector(22.1, 1.51, -8.7),
             wang = Angle(-10, 0, -90)
         },
+    },
+    [4] = {
+        PrintName = "Energization",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_energization",
+    },
+    [5] = {
+        PrintName = "Perks",
+        DefaultAttName = "No Attachment",
+        Slot = "dc17m_perk",
     },
 }
 
