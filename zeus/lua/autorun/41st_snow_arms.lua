@@ -18,4 +18,12 @@ list.Set( "PlayerOptionsModel", "212th Blackout", "models/zeus/212th_blackout.md
 player_manager.AddValidModel( "212th Blackout", "models/zeus/212th_blackout.mdl" )
 player_manager.AddValidHands( "212th Blackout", "models/zeus/212th_blackout_arms.mdl",0,"10000000" )
 
---arms for: 212th Blackout, GC snow camos and Barrage, CG Pointer
+list.Set( "PlayerOptionsModel", "501st TC 1", "models/zeus/501st_tc_trooper1.mdl" )
+player_manager.AddValidModel( "501st TC 1", "models/zeus/501st_tc_trooper1.mdl" )
+player_manager.AddValidHands( "501st TC 1", "models/aussiwozzi/cgi/base/501st_trooper_arms.mdl",0,"10000000" )
+
+list.Set( "PlayerOptionsModel", "501st TC 2", "models/zeus/501st_tc_trooper2.mdl" )
+player_manager.AddValidModel( "501st TC 2", "models/zeus/501st_tc_trooper2.mdl" )
+player_manager.AddValidHands( "501st TC 2", "models/aussiwozzi/cgi/base/501st_trooper_arms.mdl",0,"10000000" )
+
+--arms for: 212th Blackout, GC snow camos, Barrage, CG Pointer, 501st TC
