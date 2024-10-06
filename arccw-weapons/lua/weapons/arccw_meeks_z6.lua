@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "[ ArcCW ] Meek's Misc Weapons"
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.Credits = { Author1 = "cat"}
 SWEP.PrintName = "Z-6"
 SWEP.Trivia_Class = "Rotary Blaster Cannon"
@@ -155,6 +155,14 @@ SWEP.AttachmentElements = {
             },            
         }, -- change the world model to something else. Please make sure it's compatible with the last one.
     }
+}
+
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Repeater", -- print name
+        DefaultAttName = "Reciprocating Repeater", -- used to display the "no attachment" text
+        Slot = {"z6_internal","dc15le_z6_energization"}
+    },
 }
 
 WMOverride = "models/starwars/grady/props/weapons/z6-rotatory-blaster.mdl"
