@@ -161,7 +161,7 @@ SWEP.Attachments = {
     [1] = {
         PrintName = "Repeater", -- print name
         DefaultAttName = "Reciprocating Repeater", -- used to display the "no attachment" text
-        Slot = "z6_internal",
+        Slot = {"z6_internal","dc15le_z6_energization"}
     },
 }
 

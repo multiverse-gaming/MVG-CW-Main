@@ -4,6 +4,10 @@
 
 -- Load the job and category mappings-- Job mappings. Try and keep these in a rough order.
 local jobs = {
+    -- Generals
+    ["Supreme General"] = {"arccw_zittracker"},
+    ["Battalion General"] = {"arccw_zittracker"},
+    ["Assistant General"] = {"arccw_zittracker"},
     -- WP
     ["Wolfpack General"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
     ["Wolfpack Marshal Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
@@ -11,6 +15,17 @@ local jobs = {
     ["Wolfpack Executive Officer"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
     ["Wolfpack Major"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
     ["Wolfpack Direwolf"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
+    -- 501st
+    ["501st General"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "dc15-le-z6_explosivetib"},
+    ["501st Marshal Commander"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "dc15-le-z6_explosivetib"},
+    ["501st Commander"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "dc15-le-z6_explosivetib"},
+    ["501st Executive Officer"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "dc15-le-z6_explosivetib"},
+    ["501st Major"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "dc15-le-z6_explosivetib"},
+    ["501st Lieutenant"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag"},
+    ["501st Heavy Trooper"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag"},
+    ["501st Medic Officer"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag"},
+    ["501st Sergeant"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_extmag"},
+    ["501st Medic Trooper"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_extmag"},
 }
 
 -- Category mappings
