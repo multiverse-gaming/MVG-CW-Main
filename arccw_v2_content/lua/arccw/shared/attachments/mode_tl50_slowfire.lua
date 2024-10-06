@@ -17,8 +17,8 @@ att.AutoStats = true
 
 att.Silencer = false
 
-att.Mult_Damage = 25 / 35 -- 25 Damage
-att.Mult_DamageMin = 15 / 35
+att.Mult_Damage = 35 / 25 -- 25 Damage
+att.Mult_DamageMin = 35 / 15
 att.Mult_RPM = 450 / 850
 att.Add_ClipSize = -20
 
