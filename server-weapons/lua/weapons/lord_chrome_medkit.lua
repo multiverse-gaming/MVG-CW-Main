@@ -13,7 +13,7 @@ SWEP.Instructions = "Left click to heal someone\nRight click to heal yourself"
 
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
-SWEP.Category = "MVG - Medical Gear"
+SWEP.Category = "[MVG] Medical Equipment"
 
 SWEP.ViewModel = "models/weapons/c_medkit.mdl"
 SWEP.WorldModel = "models/weapons/w_medkit.mdl"

@@ -4,7 +4,7 @@ AddCSLuaFile()
 
 SWEP.PrintName = "Thruster"
 
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 
 SWEP.Author = "Stein"
 

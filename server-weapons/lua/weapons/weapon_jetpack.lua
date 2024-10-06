@@ -1,6 +1,6 @@
 AddCSLuaFile()
 SWEP.PrintName = "Jetpack"
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Author = "Stein"
 SWEP.Instructions = [[
     Press left click to equip the jetpack

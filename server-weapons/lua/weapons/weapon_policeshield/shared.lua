@@ -44,7 +44,7 @@ SWEP.AnimPrefix = "physgun"
 SWEP.HoldType ="physgun"
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 
 SWEP.ViewModel = Model("models/drover/shield.mdl");
 SWEP.WorldModel = Model("models/drover/w_shield.mdl");

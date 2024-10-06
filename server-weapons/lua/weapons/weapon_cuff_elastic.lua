@@ -22,7 +22,7 @@ AddCSLuaFile()
 
 SWEP.Base = "weapon_cuff_base"
 
-SWEP.Category = "Handcuffs"
+SWEP.Category = "[MVG] Handcuffs"
 SWEP.Author = "Jaul_is_a_simp"
 SWEP.Instructions = "Stretchable restraint."
 
@@ -42,7 +42,7 @@ SWEP.CuffMaterial = "models/props_pipes/GutterMetal01a"
 SWEP.CuffRope = "cable/red"
 SWEP.CuffStrength = 1.4
 SWEP.CuffRegen = 1.4
-SWEP.RopeLength = 100 //100
+SWEP.RopeLength = 32//100
 SWEP.CuffReusable = true
 SWEP.CuffRecharge = 1 // Time before re-use
 

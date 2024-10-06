@@ -6,7 +6,7 @@ killicon.Add( "tf_weapon_bonesaw", "hud/dneg_image_bonesaw", Color( 255, 255, 25
 end
 
 SWEP.PrintName = "Bonesaw"
-SWEP.Category = "Team Fortress 2"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true
 SWEP.AdminOnly = false
