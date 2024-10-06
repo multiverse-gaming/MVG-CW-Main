@@ -234,7 +234,7 @@ function SWEP:Initialize()
 	MAS.Ability.VetSt.Duration		=	4
 	MAS.Ability.VetSt.Heal			=	75
 	MAS.Ability.VetSt.LSMul			=	0.3	-- HP LS
-	MAS.Ability.VetSt.ALS			=	2	-- armor LS
+	MAS.Ability.VetSt.ALS			=	10	-- armor LS
 	MAS.Ability.VetSt.Sound1		=	Sound( "npc/combine_gunship/ping_search.wav" ) -- Activate Sound
 	MAS.Ability.VetSt.SoundHit		=	Sound( "npc/strider/strider_step5.wav" ) -- Currently not in use
 	

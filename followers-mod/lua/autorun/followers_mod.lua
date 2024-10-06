@@ -1,3 +1,14 @@
+if (CLIENT) then
+	-- This is what's outputting the various messages into your chat.
+	net.Receive("FMOD.Message", function()
+		local ColorR = net.ReadFloat()
+		local ColorG = net.ReadFloat()
+		local ColorB = net.ReadFloat()
+		local Text = net.ReadString()
+		chat.AddText(Color(ColorR, ColorG, ColorB), Text)
+	end)
+end
+
 if (SERVER) then
     -- Adds a follower. Were they extremely busy and couldn't just write "AddFollower"?
     -- In both of these, we might want to get rid of the Custom/Special stuff. Additonally, the logging
@@ -11,17 +22,25 @@ if (SERVER) then
             ent:Fire("stoppatrolling","",0.5)
             ply:SetNWEntity("FMOD_MyFollower", ent)
         end
-        ent.FMODanimsTable = table.ToString(ent:GetSequenceList())
-        ent:SetCustomCollisionCheck(true)
-        -- Jump, Climb, Use things, open doors, open other doors, and can form squads.
-        ent:CapabilitiesAdd(2)
+        -- Jump, Climb, Use things, open doors, open other doors, and can form squads.#
         ent:CapabilitiesAdd(8)
         ent:CapabilitiesAdd(256)
         ent:CapabilitiesAdd(1024)
         ent:CapabilitiesAdd(2048)
         ent:CapabilitiesAdd(67108864)
         ent:Fire("setsquad","playersquad_"..ply:Nick()..ply:EntIndex(),0)
-        ent:Fire("EnableArmorRecharge","",0)
+        
+		util.AddNetworkString("FMOD.Message")
+		net.Start("FMOD.Message")
+			net.WriteFloat(100)
+			net.WriteFloat(255)
+			net.WriteFloat(0)
+			if ent:GetNWString("CustomName")!="" then
+				net.WriteString(ent:GetNWString("CustomName").." has joined to Your squad.")
+			else
+				net.WriteString("Friendly has joined your squad.")
+			end
+		net.Send(ply)
     end
 
     -- Removes a Foll.
@@ -33,17 +52,19 @@ if (SERVER) then
             ply:SetNWEntity("FMOD_MyFollower", nil)
         end
         ent:SetNWEntity("FMOD_MyTarget", nil)
-        ent:SetCustomCollisionCheck(false)
         ent:Fire("setsquad","",0)
-        ent:Fire("DisableArmorRecharge","",0)
-        ent.CollisionBounds = Vector(13,13,72)
-        local hull = ent:GetHullType()
-        ent:SetSolid(SOLID_BBOX)
-        ent:SetPos(ent:GetPos()+ent:GetUp()*6)
-        ent:SetHullType(hull)
-        ent:SetHullSizeNormal()
-        ent:SetCollisionBounds(ent.CollisionBounds,Vector(ent.CollisionBounds.x *-1,ent.CollisionBounds.y *-1,0))
-        ent:DropToFloor()
+        
+		util.AddNetworkString("FMOD.Message")
+		net.Start("FMOD.Message")
+			net.WriteFloat(100)
+			net.WriteFloat(255)
+			net.WriteFloat(0)
+			if ent:GetNWString("CustomName")!="" then
+				net.WriteString(ent:GetNWString("CustomName").." has joined to Your squad.")
+			else
+				net.WriteString("Friendly has left your squad.")
+			end
+		net.Send(ply)
     end
 
     -- Removes npc's following you when you die.
