@@ -1,15 +1,15 @@
-local OBJ = RDV.SAL.AddSkill("Wrecker's Berserk")
+local OBJ = RDV.SAL.AddSkill("Scorch's Armor")
 
-OBJ:SetMaxTiers(3)
+OBJ:SetMaxTiers(1)
 
 OBJ:SetCategory("Character")
 
-OBJ:SetDescription("Be better at melee with your gun.")
+OBJ:SetDescription("Armor.")
 
 -- This is actually a team whitelist for this skill. You know how it is.
 -- Also the cadet has to stay. Still, don't know why. Don't fucking ask me man.
 OBJ:SetNoEffectTeams({
-    TEAM_RCWRECKER
+    TEAM_RCSCORCH
 })
 
 OBJ:SetColor(Color(138, 43, 226))
@@ -30,16 +30,10 @@ OBJ:AddHook("PlayerLoadout", function(ply)
         -- Get the attachment. Replacing upgraded version.
         local attachment
         if (TIER == 1) then
-            attachment = "rc_perk_wreckerberserker_1"
-        elseif (TIER == 2) then
-            attachment = "rc_perk_wreckerberserker_1"
-        else
-            attachment = "rc_perk_wreckerberserker_1"
+            timer.Simple(1, function()
+                ply:SetArmor(ply:Armor() + (TIER * 25))
+                ply:SetMaxArmor(ply:GetMaxArmor() + (TIER * 25))
+            end)
         end
-        
-        timer.Simple(1, function()
-            ArcCW:PlayerGiveAtt(ply, attachment, 1)
-            ArcCW:PlayerSendAttInv(ply)
-        end)
     end
 end, 1)
