@@ -1,4 +1,4 @@
-att.PrintName = "DC15-LE Purple Tibanna Module"
+att.PrintName = "Purple Tibanna Module"
 
 att.Icon = Material("interfaz/armas/sw_crystal_purple.png")
 

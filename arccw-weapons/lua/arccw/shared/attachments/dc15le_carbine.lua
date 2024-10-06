@@ -1,4 +1,4 @@
-att.PrintName = "DC15-LE Carbine Kit"
+att.PrintName = "Carbine Kit"
 
 att.Icon = Material("entities/kraken/empire-v2/attachments/powerpack.png", "mips smooth")
 

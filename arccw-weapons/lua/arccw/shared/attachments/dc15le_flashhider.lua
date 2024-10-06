@@ -1,7 +1,7 @@
-att.PrintName = "DC15-LE Flash Hider"
+att.PrintName = "Flash Hider"
 att.Free = true
 att.HideIfUnavailable = true
-att.Description = "Placement Text\n\n\"Placement Text\""
+att.Description = " "
 
 att.AutoStats = true
 att.Slot = {"dc15le_muzzle"}

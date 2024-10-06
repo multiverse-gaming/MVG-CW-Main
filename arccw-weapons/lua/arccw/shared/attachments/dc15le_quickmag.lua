@@ -1,4 +1,4 @@
-att.PrintName = "DC15-LE Quick Mag"
+att.PrintName = "Quick Mag"
 
 att.Icon = Material("interfaz/armas/sw_powerpack3.png", "smooth mips")
 

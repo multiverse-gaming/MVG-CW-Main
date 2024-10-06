@@ -1,4 +1,4 @@
-att.PrintName = "DC15-LE Drum Magazine"
+att.PrintName = "Drum Magazine"
 att.Free = false
 att.HideIfUnavailable = false
 att.SortOrder = 100
