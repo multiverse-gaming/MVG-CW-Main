@@ -1,6 +1,6 @@
 att.PrintName = "Z-6 Sentry Mode"
-att.Free = true
-att.HideIfUnavailable = true
+att.Free = false
+att.HideIfUnavailable = false
 
 att.SortOrder = 20
 att.Icon = Material("interfaz/armas/sw_powercore.png", "smooth mips")
