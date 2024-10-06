@@ -189,7 +189,7 @@ SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "None", 
-        Slot = {"optic","extraoptic"}, 
+        Slot = {"rifleoptic","extraoptic"}, 
         WMScale = Vector(111, 111, 111),
         Bone = "v_t21_reference001",
         Offset = {
@@ -201,53 +201,21 @@ SWEP.Attachments = {
         CorrectiveAng = Angle(0, 180, 0),
         CorrectivePos = Vector(0, 0, 0),
     },  
---[[    {
+    {
+        PrintName = "Muzzle", 
+        DefaultAttName = "None",
+        Slot = {"dc17m_muzzle"},
+    },  
+    {
         PrintName = "Energization", 
         DefaultAttName = "Standard",
-        Slot = {"ammo", "ammo_masita"},
-    },
-    {
-        PrintName = "Grip",
-        Slot = "grip",
-        DefaultAttName = "Standard Grip"
+        Slot = {"dc17m_energization"},
     },
     {
         PrintName = "Perk",
         DefaultAttName = "None",
-        Slot = {"perk", "mw3_pro"},
+        Slot = {"dc17m_perk"},
     },
-    {
-        PrintName = "Internal Modifications",
-        DefaultAttName = "None",
-        Slot = {"uc_fg"},
-    },   
-    {
-        PrintName = "Charm",
-        DefaultAttName = "None",
-        Slot = {"charm"},
-        Bone = "v_t21_reference001",
-        WMScale = Vector(111, 111, 111),
-        Offset = {
-        
-            vpos = Vector(2.1, 2, 6),
-            vang = Angle(90, -90, -90),
-            wpos = Vector(850, 210, -480),
-            wang = Angle(-20, 0, 180)
-        },
-    },    
-    {
-        PrintName = "Kill-Counter",
-        DefaultAttName = "None",
-        Slot = {"killcounter"},
-        Bone = "v_t21_reference001",
-        WMScale = Vector(111, 111, 111),
-        Offset = {
-            vpos = Vector(1.9, -3, 8),
-            vang = Angle(90, -90, -90),
-            wpos = Vector(420, 210, -320),
-            wang = Angle(-20, 0, 180)
-        },
-    },    --]]
 }
 
 -- Don't touch this unless you know what you're doing
