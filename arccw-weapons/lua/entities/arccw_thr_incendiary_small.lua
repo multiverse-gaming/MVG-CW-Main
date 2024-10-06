@@ -31,8 +31,9 @@ local function makeFire(self)
             end
         end )
         
-        local molotovfire = ents.Create( "tfa_csgo_fire_1" )
+        local molotovfire = ents.Create( "tfa_csgo_fire_small" )
         local pos = self:GetPos()
+		molotovfire:SetModelScale( 2 / 3, 0 )
         molotovfire:SetPos( self:GetPos() )
         molotovfire:SetOwner( self.Owner )
         molotovfire:SetCreator( self )
