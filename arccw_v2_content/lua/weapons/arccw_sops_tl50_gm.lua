@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.Slot = 3
 
 -- Trivia
-SWEP.Category = "[MVG] Galactic Marines Weapons"
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.Credits = "Kraken"
 SWEP.PrintName = "TL-50 Mod 1"
 SWEP.Trivia_Class = "Blaster Heavy Repeater"
@@ -40,7 +40,7 @@ SWEP.ReducedClipSize = 30
 
 SWEP.MuzzleVelocity = 800
 SWEP.TraceNum = 1
-SWEP.Tracer = "tracer_purple"
+SWEP.Tracer = "tfa_tracer_purple"
 SWEP.TracerCol = Color(0, 0, 250)
 SWEP.HullSize = 0.5
 
@@ -81,7 +81,7 @@ SWEP.ShootSound = "sops-v2/weapons/tl50.wav"
 SWEP.ShootSoundSilenced = "sops-v2/weapons/silenced.mp3"
 
 SWEP.NoFlash = nil
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17_red"
+SWEP.MuzzleEffect = nil
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false
 SWEP.MuzzleFlashColor = Color(250, 0, 0)
