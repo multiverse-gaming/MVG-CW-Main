@@ -30,6 +30,7 @@ att.Hook_ShouldNotSight = function(wep)
 end
 
 att.Hook_OnSelectUBGL = function(wep)
+    wep:SetClip2(1)
     wep:SetNextSecondaryFire(CurTime() + 0.2)
 end
 
