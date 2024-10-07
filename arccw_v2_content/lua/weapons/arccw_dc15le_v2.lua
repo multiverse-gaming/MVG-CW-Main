@@ -61,6 +61,12 @@ SWEP.Firemodes = {
 	{
 		Mode = 2
 	},
+	{
+        Mode = -3,
+        RunawayBurst = true,
+        AutoBurst = false,
+        PostBurstDelay = 0.2,
+    },
     {
         Mode = 1
     },
@@ -137,6 +143,45 @@ SWEP.Attachments = {
             wang = Angle(-22, 2, 180)
         },
     },
+    [2] = {
+        PrintName = "Muzzle", -- print name
+        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
+        Slot = {"dc15le_muzzle"},
+        Bone = "sight", -- relevant bone any attachments will be mostly referring to
+        Offset = {
+            vpos = Vector(-0.03, -0.6, 15),
+            vang = Angle(90, 1, -90),
+            wpos = Vector(20, 0.69, -10.85),
+            wang = Angle(-22, 2, 180)
+        },
+    },    
+    [3] = {
+        PrintName = "Magazine", -- print name
+        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
+        Slot = "dc15le_mag",
+        Bone = "sight", -- relevant bone any attachments will be mostly referring to
+        Offset = {
+            vpos = Vector(-0.03, -0.6, 15),
+            vang = Angle(90, 1, -90),
+            wpos = Vector(20, 0.69, -10.85),
+            wang = Angle(-22, 2, 180)
+        },
+    },         
+    [4] = {
+        PrintName = "Energization", -- print name
+        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
+        Slot = {"dc15le_energization","dc15le_z6_energization"}
+    },
+    [5] = {
+        PrintName = "   Perk", -- print name
+        DefaultAttName = "None", -- used to display the "no attachment" text
+        Slot = "dc15le_perk",
+    },
+    [6] = {
+        PrintName = "Internal Modifications", -- print name
+        DefaultAttName = "None", -- used to display the "no attachment" text
+        Slot = "dc15le_mode",
+    },   
 }
 
 SWEP.Animations = {

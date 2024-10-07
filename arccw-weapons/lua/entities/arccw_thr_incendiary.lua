@@ -74,6 +74,7 @@ function ENT:Initialize()
 		self.ParticleCount = 0
 		self.First = true
 		self.IsDetonated = false
+		self.HasBounced = false
 
         self.SpawnTime = CurTime()
         self.Trail = util.SpriteTrail(self, 0, self.TrailColor, false, 4, 0, 0.5, 4, self.TrailTexture or "sprites/bluelaser1")
@@ -91,28 +92,21 @@ end
 
 function ENT:PhysicsCollide(data, physobj)
 	if SERVER then
-		self.HitP = data.HitPos
-		self.HitN = data.HitNormal
-
-		if self:GetVelocity():Length() > 60 then
-			self:EmitSound(Sound("weapons/grenades/wpn_fraggrenade_1p_hardsurface_bounce_01_lr_v" .. math.random(1,2) .. ".wav"))
-		end
-		
-		if self:GetVelocity():Length() < 5 then
-			self:SetMoveType(MOVETYPE_NONE)
-            
-        end
-
-
-		
+		self.HasBounced = true
 	end
 end
 
 function ENT:Think()
-    if SERVER then    
-        if CurTime() > self.Delay then
+    if SERVER then
+		if self.HasBounced == true then
             if self.IsDetonated == false then
-                self:Detonate(self, self:GetPos())
+				self:Detonate(self:GetPos())
+				self.IsDetonated = true
+				makeFire(self)
+			end
+		elseif CurTime() > self.Delay then
+            if self.IsDetonated == false then
+                self:Detonate(self:GetPos())
                 self.IsDetonated = true
 
                 makeFire(self)
@@ -121,7 +115,7 @@ function ENT:Think()
     end
 end
 
-function ENT:Detonate(self,pos)
+function ENT:Detonate(pos)
 	self.ParticleCreated = false
 	self.ExtinguishParticleCreated = false
 	if SERVER then
@@ -139,7 +133,6 @@ function ENT:Detonate(self,pos)
 	if SERVER then
 		SafeRemoveEntityDelayed(self,0.5)
 	end
-	
 end
 
 function ENT:DrawTranslucent()

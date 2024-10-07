@@ -176,7 +176,7 @@ SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "None", 
-        Slot = "optic", 
+        Slot = {"optic","rccrosshairscope"},
         WMScale = Vector(111, 111, 111),
         Bone = "dlt19_sight",
         Offset = {

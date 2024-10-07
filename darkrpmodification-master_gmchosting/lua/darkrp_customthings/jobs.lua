@@ -245,7 +245,7 @@ TEAM_501STGENERAL = DarkRP.createJob("501st General", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/aussiwozzi/cgi/base/501st_rex.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/aussiwozzi/cgi/base/501st_rex.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are the Deployed General of the 501st Legion!]],
 
@@ -278,7 +278,7 @@ TEAM_501STMCOMMANDER = DarkRP.createJob("501st Marshal Commander", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/zeus/22nd_dempsey_rh.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/zeus/22nd_dempsey_rh.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl","models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl", "models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are the Marshal Commander of the 501st Legion!]],
 
@@ -310,7 +310,7 @@ TEAM_501STCOMMANDER = DarkRP.createJob("501st Commander", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl", "models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are the Commander of the 501st Legion!]],
 
@@ -344,7 +344,7 @@ TEAM_501STEXECUTIVEOFFICER = DarkRP.createJob("501st Executive Officer", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl", "models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are the Executive Officer of the 501st Legion!]],
 
@@ -378,7 +378,7 @@ TEAM_501STMAJOR = DarkRP.createJob("501st Major", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl"},
+    model = {"models/aussiwozzi/cgi/base/501st_appo.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_vaughn.mdl", "models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are the Major of the 501st Legion!]],
 
@@ -446,7 +446,7 @@ TEAM_501STJUGGERNAUT = DarkRP.createJob("501st Heavy Trooper", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/aussiwozzi/cgi/base/501st_trooper.mdl","models/aussiwozzi/cgi/base/501st_sarge.mdl","models/aussiwozzi/cgi/base/501st_rex.mdl","models/aussiwozzi/cgi/base/501st_raffle.mdl","models/aussiwozzi/cgi/base/501st_atoa.mdl","models/aussiwozzi/cgi/base/501st_brighton.mdl","models/aussiwozzi/cgi/base/501st_pork.mdl","models/aussiwozzi/cgi/base/501st_scar.mdl","models/aussiwozzi/cgi/base/501st_boomer.mdl","models/aussiwozzi/cgi/base/501st_atoa2.mdl","models/aussiwozzi/cgi/base/501st_jet_trooper.mdl","models/aussiwozzi/cgi/base/501st_dogma.mdl","models/aussiwozzi/cgi/base/501st_arf.mdl","models/aussiwozzi/cgi/base/501st_barc.mdl","models/aussiwozzi/cgi/base/501st_tup.mdl","models/aussiwozzi/cgi/base/501st_hardcase.mdl","models/aussiwozzi/cgi/base/501st_appo.mdl", "models/aussiwozzi/cgi/base/501st_knotts.mdl","models/aussiwozzi/cgi/base/501st_torrent_officer.mdl", "models/aussiwozzi/cgi/base/501st_torrent.mdl","models/herm/cgi_new/501st/501st_trooper2.mdl","models/aussiwozzi/cgi/base/501st_atoa3.mdl"},
+    model = {"models/zeus/501st_tc_trooper1.mdl", "models/zeus/501st_tc_trooper2.mdl"},
 
     description = [[Congratulations, you are a Heavy Trooper of the 501st Legion!]],
 
@@ -2370,7 +2370,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
 
     command = "gmgen",
 
@@ -2400,7 +2400,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
-    weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
     max = 1,
     salary = 275,
@@ -2417,7 +2417,7 @@ TEAM_GMCOMMANDER = DarkRP.createJob("Galactic Marines Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
     description = [[Congratulations, you are the Commander of the Galactic Marines!]],
-    weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmco",
     max = 1,
     salary = 275,
@@ -2438,7 +2438,7 @@ TEAM_GMEXECUTIVEOFFICER = DarkRP.createJob("Galactic Marines Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmxo",
 
@@ -2472,7 +2472,7 @@ TEAM_GMMAJOR = DarkRP.createJob("Galactic Marines Major", {
 
     description = [[Congratulations, you are the Major of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmmjr",
 
@@ -2506,7 +2506,7 @@ TEAM_GMLIEUTENANT = DarkRP.createJob("Galactic Marines Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "seal6-c4", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "seal6-c4", "realistic_hook", "arccw_incendiary", "arccw_flash_grenade"},
 
     command = "gmlt",
 
@@ -2538,7 +2538,7 @@ TEAM_GMFLAMETROOPER = DarkRP.createJob("Galactic Marines Flame Trooper", {
 
     description = [[Congratulations, you are a Flame Trooper of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "weapons_flamethrower", "realistic_hook", "seal6-c4"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "weapons_flamethrower", "realistic_hook", "seal6-c4"},
 
     command = "gmft",
 
@@ -2572,7 +2572,7 @@ TEAM_GMKUTROOPER = DarkRP.createJob("Galactic Marines Kellers Unit", {
 
     description = [[Congratulations, you are a Flame Trooper of the Galactic Marines!]]--,
 
---[[    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "rw_sw_dp23du", "realistic_hook", "t3m4_empgrenade"},
+--[[    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "rw_sw_dp23du", "realistic_hook", "t3m4_empgrenade"},
 
     command = "gmku",
 
@@ -2604,7 +2604,7 @@ TEAM_ARCALPHAGM = DarkRP.createJob("Galactic Marines Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Galactic Marines!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "seal6-c4", "carkeys"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "realistic_hook", "seal6-c4", "carkeys", "arccw_incendiary", "arccw_flash_grenade"},
 
     command = "arcagm",
 
@@ -2636,7 +2636,7 @@ TEAM_GMARC = DarkRP.createJob("Galactic Marines ARC", {
 
     description = [[Congratulations, you are a Galactic Marines ARC Trooper!]],
 
-    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "seal6-c4", "realistic_hook"},
+    weapons = {"arccw_westarm5_v2", "arccw_dual_dc17s", "seal6-c4", "realistic_hook", "arccw_incendiary", "arccw_flash_grenade"},
 
     command = "gmarc",
 
@@ -2670,7 +2670,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
 
     command = "gmmo",
 
@@ -2704,7 +2704,7 @@ TEAM_GMSERGEANT = DarkRP.createJob("Galactic Marines Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "realistic_hook"},
 
     command = "gmsgt",
 
@@ -2740,7 +2740,7 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "arccw_shock_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
 
     command = "gmmt",
 
@@ -2776,7 +2776,7 @@ TEAM_GMTROOPER = DarkRP.createJob("Galactic Marines Trooper", {
 
     description = [[Congratulations, you are a member of the Galactic Marines!]],
 
-    weapons = {"arccw_dc15a_v2_gm", "arccw_dc17_v2", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm", "arccw_dc17_v2", "realistic_hook"},
 
     command = "gmtrp",
 
@@ -4169,7 +4169,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(625) ply:SetHealth(625) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 0
 
@@ -4202,7 +4202,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(700) ply:SetHealth(700) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(625) ply:SetHealth(625) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
@@ -4234,7 +4234,7 @@ TEAM_RCBOSS = DarkRP.createJob("RC Boss", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1) ply:SetArmor(1) ply:SetMaxArmor(150)   end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (240) ply:SetGravity(1)   end,
 
     SortOrder = 2
 
@@ -4268,7 +4268,7 @@ TEAM_RCFIXER = DarkRP.createJob("RC Fixer", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 3
 
@@ -4302,7 +4302,7 @@ TEAM_RCSEV = DarkRP.createJob("RC Sev", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 4
 
@@ -4336,7 +4336,7 @@ TEAM_RCSCORCH = DarkRP.createJob("RC Scorch", {
 
     category = "Delta Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:GiveAmmo(10,"rpg_round") ply:SetRunSpeed (260) ply:SetGravity(1) end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:GiveAmmo(10,"rpg_round") ply:SetRunSpeed (240) ply:SetGravity(1) end,
 
     SortOrder = 5
 
@@ -4374,7 +4374,7 @@ TEAM_RCHUNTER = DarkRP.createJob("CF99 Hunter", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
@@ -4408,7 +4408,7 @@ TEAM_RCCROSSHAIR = DarkRP.createJob("CF99 Crosshair", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 2
 
@@ -4442,7 +4442,7 @@ TEAM_RCWRECKER = DarkRP.createJob("CF99 Wrecker", {
 
     category = "Bad Batch Squad",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (240) ply:SetGravity(1) end,
 
     SortOrder = 3
 
@@ -4476,7 +4476,7 @@ TEAM_RCTECH = DarkRP.createJob("CF99 Tech", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 4
 
@@ -4564,11 +4564,11 @@ TEAM_RCNINER = DarkRP.createJob("RC Niner", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(450)
+        ply:SetHealth(400)
 
-        ply:SetMaxHealth(450)
+        ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4620,11 +4620,11 @@ TEAM_RCFI = DarkRP.createJob("RC Fi", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4675,11 +4675,11 @@ TEAM_RCDARMAN = DarkRP.createJob("RC Darman", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:GiveAmmo(10,"rpg_round")
 
@@ -4741,11 +4741,11 @@ TEAM_RCATIN = DarkRP.createJob("RC Atin", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4781,7 +4781,7 @@ TEAM_RCCORR = DarkRP.createJob("RC Corr", {
 
     category = "Omega Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 5
 
@@ -4837,11 +4837,11 @@ TEAM_RCVALE = DarkRP.createJob("RC Vale", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(450)
+        ply:SetHealth(400)
 
-        ply:SetMaxHealth(450)
+        ply:SetMaxHealth(400)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -4943,11 +4943,11 @@ TEAM_RCRIGGS = DarkRP.createJob("RC Riggs", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
         ply:SetGravity(1)
 
@@ -5002,9 +5002,9 @@ TEAM_RCWITT = DarkRP.createJob("RC Witt", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
         ply:SetRunSpeed (260)
 
@@ -5049,7 +5049,7 @@ TEAM_RCHOPE = DarkRP.createJob("RC HOPE Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 9
 
@@ -5083,7 +5083,7 @@ TEAM_RCAIWHA = DarkRP.createJob("RC Aiwha Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 8
 
@@ -5117,7 +5117,7 @@ TEAM_RCAQUILA = DarkRP.createJob("RC Aquila Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 7
 
@@ -5151,7 +5151,7 @@ TEAM_RCION = DarkRP.createJob("RC Ion Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 6
 
@@ -5185,7 +5185,7 @@ TEAM_RCYAYAX = DarkRP.createJob("RC Yayax Squad", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 5
 
@@ -5268,11 +5268,11 @@ TEAM_REPUBLICCOMMANDOSGT = DarkRP.createJob("RC Sergeant", {
 
     PlayerSpawn = function(ply)
 
-        ply:SetHealth(400)
+        ply:SetHealth(350)
 
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
 
-        ply:SetMaxHealth(400)
+        ply:SetMaxHealth(350)
 
         ply:SetGravity(1)
 
@@ -5304,7 +5304,7 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
     canDemote = false,
     PlayerSpawn = function(ply)
         ply:SetHealth(350)
-        ply:SetRunSpeed (260)
+        ply:SetRunSpeed (240)
         ply:SetMaxHealth(350)
         ply:SetGravity(1)
     end,

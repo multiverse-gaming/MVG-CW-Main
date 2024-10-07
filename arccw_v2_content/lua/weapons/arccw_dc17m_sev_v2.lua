@@ -141,6 +141,11 @@ SWEP.Attachments = {
             wang = Angle(-10, 0, 180)
         },
     },
+    [2] = {
+        PrintName = "Energization",
+        DefaultAttName = "No Attachment",
+        Slot = "rc_sev_shot",
+    },
 }  
 
 SWEP.Animations = {
