@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "[ ArcCW ] CIS TFA Weapons"
+SWEP.Category = "[ ArcCW ] CIS Weapons"
 SWEP.Credits = { Author1 = "cat"}
 SWEP.PrintName = "SE-14"
 SWEP.Trivia_Class = "CIS Blaster Pistol"
@@ -28,7 +28,7 @@ SWEP.WorldModelOffset = {
     scale = 0.09
 }
 
-SWEP.IconOverride = "materials/entities/rw_sw_se14r.png"
+SWEP.IconOverride = "materials/entities/rw_sw_se14.png"
 
 SWEP.DefaultBodygroups = "000000000000"
 

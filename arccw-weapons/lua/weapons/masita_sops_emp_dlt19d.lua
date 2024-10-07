@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.Slot = 3 -- Change this if you want to select the weapon with other number
 
 -- Trivia
-SWEP.Category = "[ ArcCW ] Republic TFA Weapons"
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.Credits = "Kraken/Masita"
 SWEP.PrintName = "DLT-19d"
 SWEP.Trivia_Class = "Blaster Sniper Rifle"
@@ -176,7 +176,7 @@ SWEP.Attachments = {
     {
         PrintName = "Sight",
         DefaultAttName = "None", 
-        Slot = "extraoptic", 
+        Slot = {"extraoptic"}, 
         Bone = "dlt19_sight",
         WMScale = Vector(111, 111, 111),
         Offset = {

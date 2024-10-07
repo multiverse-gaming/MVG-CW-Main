@@ -2,9 +2,9 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "[ ArcCW ] CIS TFA Weapons"
+SWEP.Category = "[ ArcCW ] CIS Weapons"
 SWEP.Credits = { Author1 = "cat"}
-SWEP.PrintName = "E-5"
+SWEP.PrintName = "E-5 (SMG)"
 SWEP.Trivia_Class = "CIS Blaster Carbine"
 SWEP.Trivia_Desc = "High tech compact CIS E-5 Blaster Carbine."
 SWEP.Trivia_Manufacturer = "Baktoid Combat Automata"

@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "[ ArcCW ] Galactic TFA Weapons"
+SWEP.Category = "[ ArcCW ] Galactic Weapons"
 SWEP.Credits = { Author1 = "cat"}
 SWEP.PrintName = "Cycler Rifle"
 SWEP.Trivia_Class = "Tusken Raider Cycler Rifle"

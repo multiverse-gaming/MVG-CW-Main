@@ -2,7 +2,7 @@
 SWEP.Base = "arccw_base_nade"
 --SWEP.Base = "arccw_grenade_base"
 SWEP.Spawnable = true -- this obviously has to be set to true
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = "Ammo Crate"

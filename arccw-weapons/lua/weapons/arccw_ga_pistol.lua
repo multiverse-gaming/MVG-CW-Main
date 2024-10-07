@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Credits = { Author1 = "Dandy"}
 SWEP.PrintName = "Old Righteous"
 SWEP.Trivia_Class = "Heavy Blaster Pistol"

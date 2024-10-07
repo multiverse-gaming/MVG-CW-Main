@@ -1,7 +1,7 @@
 AddCSLuaFile()
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true -- this obviously has to be set to true
-SWEP.Category = "[ ArcCW ] Star Wars Weapons" -- edit this if you like
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = "LRB-11"
