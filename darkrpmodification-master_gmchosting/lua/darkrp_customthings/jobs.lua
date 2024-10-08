@@ -1767,7 +1767,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 
 TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
     color = Color(0, 255, 64, 255),
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gclum",
@@ -5685,7 +5685,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Assistant Medical Director. You will assist with leading all medics.]],
 
@@ -6451,7 +6451,7 @@ TEAM_JEDIGENERALLUMINARA = DarkRP.createJob("Jedi General Luminara Unduli", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
 
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
