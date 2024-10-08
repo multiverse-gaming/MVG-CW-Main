@@ -1767,7 +1767,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 
 TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
     color = Color(0, 255, 64, 255),
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gclum",
@@ -6451,7 +6451,7 @@ TEAM_JEDIGENERALLUMINARA = DarkRP.createJob("Jedi General Luminara Unduli", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
 
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
