@@ -5685,7 +5685,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Assistant Medical Director. You will assist with leading all medics.]],
 
