@@ -68,18 +68,18 @@ FORM.Stances[2] = {
 	[ "run" ] = "ryoku_b_run",
 	[ "idle" ] = "vanguard_f_idle",
 	[ "light_left" ] = {
-		Sequence = "vanguard_b_s4_t3",
-		Time = nil,
+		Sequence = "judge_b_s2_t2",
+		Time = 0.8,
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "phalanx_h_right_t2",
-		Time = nil,
-		Rate = nil,
+		Sequence = "judge_r_s3_t2",
+		Time = 0.85,
+		Rate = 1.5,
 	},
 	[ "light_forward" ] = {
-		Sequence = "h_c2_t2",
-		Time = nil,
+		Sequence = "pure_b_left_t3",
+		Time = 1,
 		Rate = nil,
 	},
 	[ "air_left" ] = {
@@ -98,11 +98,11 @@ FORM.Stances[2] = {
 		Rate = 1.2,
 	},
 	[ "heavy" ] = {
-		Sequence = "r_c4_t3",
-		Time = nil,
-		Rate = nil,
+		Sequence = "judge_b_left_t3",
+		Time = 1.5,
+		Rate = 0.7,
 	},
-	[ "heavy_charge" ] = "r_c4_charge",
+	[ "heavy_charge" ] = "judge_b_s1_charge",
 }
 
 FORM.Stances[3] = {

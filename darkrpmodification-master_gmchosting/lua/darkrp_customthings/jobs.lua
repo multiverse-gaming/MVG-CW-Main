@@ -6585,8 +6585,9 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
     "models/player/jedi/pantoran_male_sentinel.mdl",
     "models/player/jedi/rodian_male_sentinel.mdl",
     "models/player/jedi/twilek_female_sentinel.mdl",
-    "models/player/jedi/twilek_sentinel_male.mdl"
-
+    "models/player/jedi/twilek_sentinel_male.mdl",
+    "models/player/imagundi/cinndrallig.mdl",
+    "models/player/imagundi/rcinndrallig.mdl"
     },
 
     description = [[You are a part of the Jedi council, a leading member of the Jedi Order!]],
