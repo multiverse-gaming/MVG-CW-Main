@@ -5586,7 +5586,7 @@ TEAM_MEDICALGENERAL = DarkRP.createJob("Medical General", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl", "models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl","models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the General of the Regimetntal Medics!]],
 
@@ -5618,7 +5618,7 @@ TEAM_MEDICALMCO = DarkRP.createJob("Senior Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/917th_commander.mdl","models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/aussiwozzi/cgi/base/917th_eduardo.mdl","models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = { "models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl","models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, You are now the Senior Medical Director. You will lead all medics.]],
 
@@ -5651,7 +5651,7 @@ TEAM_MEDICALDIRECTOR = DarkRP.createJob("Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl","models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_eduardo.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Medical Director. You will lead all medics.]],
 
@@ -5685,7 +5685,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Assistant Medical Director. You will assist with leading all medics.]],
 
@@ -5972,7 +5972,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
 
 TEAM_FLEET_RDM = DarkRP.createJob("Fleet Medical Officer", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/aussiwozzi/cgi/base/917th_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/speedy/md/md_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
     description = [[Congratulations You are now a Fleet Medical Officer!]],
     weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone", "kaito_satellite_tablet"},
     command = "fleetmo",
