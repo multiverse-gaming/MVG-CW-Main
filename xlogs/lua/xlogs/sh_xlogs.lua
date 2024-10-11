@@ -138,7 +138,7 @@ function xLogs.RunLog(typ, str, ...)
 	end)
 	
 	if not success then
-		print("Caught error:", result)
+		print("[XLogs] Caught error:", result)
 	end
 end
 

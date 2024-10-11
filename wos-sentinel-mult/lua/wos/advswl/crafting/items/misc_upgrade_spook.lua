@@ -31,7 +31,6 @@ ITEM.OnEquip = function( wep )
     -- 10 days in seconds (10 days * 24 hours * 60 minutes * 60 seconds)
     local tenDaysInSeconds = 10 * 24 * 60 * 60
 
-    print(math.abs(currentDate - halloweenDate))
     -- Check if we're within 10 days before or after Halloween
     if math.abs(currentDate - halloweenDate) <= tenDaysInSeconds then
         wep:AddForcePower( "Spook" )
