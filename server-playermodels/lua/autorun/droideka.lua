@@ -223,6 +223,26 @@ local settings11 = {
 	["horizontalHullScale"] = nil,
 }
 
+local settings12 = {
+	["name"] = "Rakghoul",
+	["model"] = "models/grealms/characters/rakghoul/rakghoul.mdl",
+	["scale"] = false,
+	["developermode"] = false,
+	["viewoffset"] = 64,
+	["duckviewoffset"] = 32,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = false,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
 local mEnt = FindMetaTable("Entity")
 
 mEnt.NewSetModel = mEnt.NewSetModel || mEnt.SetModel
@@ -413,5 +433,6 @@ hook.Add("Initialize", "CustomSetPool", function()
 		SPM_Pool[settings9["model"]] = settings9
 		SPM_Pool[settings10["model"]] = settings10
 		SPM_Pool[settings11["model"]] = settings11
+		SPM_Pool[settings12["model"]] = settings12
 	end)
 end)

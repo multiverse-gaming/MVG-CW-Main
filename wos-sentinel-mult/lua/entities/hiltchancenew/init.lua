@@ -78,7 +78,7 @@ function ENT:Use(ply)
 				items = { "Dauntless Hilt", "Outlander Hilt", "Rishi's Mk1 Hilt", "Tythonian Force Master's Hilt", "Vengeance's Sunsealed Hilt", "Hiridu Hilt",
 					"Katooni Hilt", "Kashyyyk Hilt", "Spiralling Hilt", "Sparkling Hilt", "Coruscal Hilt", "Coruscal Shoto" }
 			else
-				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt", "Seny Atirall's Hilt",
+				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt",
 					"Royal 2 Hilt", "Unknown Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
 					"Dragonpearl Shoto", "Claw's Hilt" }
 			end

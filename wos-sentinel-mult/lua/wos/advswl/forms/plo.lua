@@ -27,13 +27,13 @@ FORM.Stances[1] = {
 	[ "run" ] = "vanguard_h_run",
 	[ "idle" ] = "vanguard_h_idle",
 	[ "light_left" ] = {
-		Sequence = "ryoku_r_left_t1",
-		Time = 0.7,
-		Rate = nil,
+		Sequence = "pure_r_s2_t3",
+		Time = 0.9,
+		Rate = 1.4,
 	},
 	[ "light_right" ] = {
-		Sequence = "h_c2_t2",
-		Time = 0.9,
+		Sequence = "ryoku_b_left_t1",
+		Time = nil,
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
