@@ -262,7 +262,7 @@ function SWEP:MorphToHuman()
 	self.ToggleVFX = false
 	
 	local vm = self.Owner:GetViewModel()
-	if CLIENT then vm:ResetSequence( vm:LookupSequence( "fists_idle_0" .. math.random( 1, 2 ) ) ) end
+	--if CLIENT then vm:ResetSequence( vm:LookupSequence( "fists_idle_01" ) ) end
 	vm:ResetSequence( vm:LookupSequence( "fists_holster" ) )
 end
 
