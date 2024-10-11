@@ -126,6 +126,8 @@ teams = {
         "Coruscant Guard Medic Officer",
         "Coruscant Guard Sergeant",
         "Coruscant Guard Medic Trooper",
+        "Coruscant Guard Temple Guard",
+        "CG Temple Guard Chief"
     },
 
     TeamCGTrp = {
