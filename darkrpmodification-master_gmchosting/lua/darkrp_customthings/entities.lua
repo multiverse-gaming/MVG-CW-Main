@@ -342,7 +342,7 @@ DarkRP.createEntity("Minigun Drone", {
 
 
 DarkRP.createEntity("LAAT Transport", {
-    ent = "lfs_fb_laatitransport",
+    ent = "lvs_repulsorlift_transport",
     model = "models/fisher/laat/laatspace.mdl",
     price = 0,
     max = 1,
@@ -352,7 +352,7 @@ DarkRP.createEntity("LAAT Transport", {
 })
 
 DarkRP.createEntity("Muunilinst LAAT", {
-    ent = "lfs_fb_laatigunship_muunilinst",
+    ent = "lvs_repulsorlift_gunship_spec",
     model = "models/fisher/laat/laatspace.mdl",
     price = 0,
     max = 1,
