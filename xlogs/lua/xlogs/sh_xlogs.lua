@@ -139,6 +139,7 @@ function xLogs.RunLog(typ, str, ...)
 	
 	if not success then
 		print("[XLogs] Caught error:", result)
+		print(debug.traceback("Stack trace:"))
 	end
 end
 
