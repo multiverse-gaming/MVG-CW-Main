@@ -2370,7 +2370,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
 
     command = "gmgen",
 
@@ -2400,7 +2400,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
     max = 1,
     salary = 275,
@@ -2417,7 +2417,7 @@ TEAM_GMCOMMANDER = DarkRP.createJob("Galactic Marines Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
     description = [[Congratulations, you are the Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmco",
     max = 1,
     salary = 275,
@@ -2438,7 +2438,7 @@ TEAM_GMEXECUTIVEOFFICER = DarkRP.createJob("Galactic Marines Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmxo",
 
@@ -2472,7 +2472,7 @@ TEAM_GMMAJOR = DarkRP.createJob("Galactic Marines Major", {
 
     description = [[Congratulations, you are the Major of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmmjr",
 
@@ -2670,7 +2670,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
 
     command = "gmmo",
 
@@ -2704,7 +2704,7 @@ TEAM_GMSERGEANT = DarkRP.createJob("Galactic Marines Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "realistic_hook"},
 
     command = "gmsgt",
 
@@ -2740,7 +2740,7 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
 
     command = "gmmt",
 
@@ -2909,7 +2909,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
 
     command = "wpgen",
 
@@ -2942,7 +2942,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmco",
 
@@ -2974,7 +2974,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpco",
 
@@ -3008,7 +3008,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpxo",
 
@@ -3042,7 +3042,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmjr",
 
