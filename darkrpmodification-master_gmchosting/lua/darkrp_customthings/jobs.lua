@@ -679,7 +679,7 @@ TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
     color = Color(0, 51, 255, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -756,7 +756,7 @@ TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
 
 TEAM_501STGENERALTANO = DarkRP.createJob("501st Commander Ahsoka Tano", {
     color = Color(0, 51, 255, 255),
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl", "models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
     command = "501sttano",
@@ -1230,7 +1230,7 @@ TEAM_212THJEDI = DarkRP.createJob("212th Jedi", {
     color = Color(255, 157, 0, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -2327,7 +2327,7 @@ TEAM_CGJEDI = DarkRP.createJob("Coruscant Guard Temple Guard", {
 
 TEAM_CGJEDICHIEF = DarkRP.createJob("CG Temple Guard Chief", {
     color = Color(255, 77, 77, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/zeus/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "cgchief",
@@ -2806,7 +2806,7 @@ TEAM_GMJEDI = DarkRP.createJob("Galactic Marines Jedi", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -3343,7 +3343,7 @@ TEAM_WPJEDI = DarkRP.createJob("Wolfpack Jedi", {
     color = Color(153, 144, 144, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -3909,7 +3909,7 @@ TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
     color = Color(198, 155, 61),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -3986,7 +3986,7 @@ TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
 
 TEAM_327THGENERALAAYLA = DarkRP.createJob("Combat Engineer General Aayla Secura", {
     color = Color(198, 155, 61),
-    model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
+    model = {"models/zeus/aayla.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "ceaayla",
@@ -6211,7 +6211,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl", "models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6315,7 +6315,7 @@ TEAM_JEDIGENERALAAYLA = DarkRP.createJob("Jedi General Aayla Secura", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
+    model = {"models/zeus/aayla.mdl"},
 
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6481,7 +6481,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
 TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
     color = Color(242, 0, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl" },
+    model = {"models/zeus/cinndrallig.mdl" },
     description = [[You are Jedi General Cin Drallig. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "cin",
@@ -6502,7 +6502,7 @@ TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
 
 TEAM_JEDITGCHIEF = DarkRP.createJob("Temple Guard Chief", {
     color = Color(0, 166, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/zeus/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "tgchief",
@@ -6526,7 +6526,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
 
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -6586,8 +6586,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
     "models/player/jedi/rodian_male_sentinel.mdl",
     "models/player/jedi/twilek_female_sentinel.mdl",
     "models/player/jedi/twilek_sentinel_male.mdl",
-    "models/player/imagundi/cinndrallig.mdl",
-    "models/player/imagundi/rcinndrallig.mdl"
+    "models/zeus/cinndrallig.mdl",
     },
 
     description = [[You are a part of the Jedi council, a leading member of the Jedi Order!]],
