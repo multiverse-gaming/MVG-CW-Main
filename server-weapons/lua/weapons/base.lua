@@ -25,7 +25,7 @@ end
 
 SWEP.Base = "baseknife"
 
-SWEP.Category			= "Vibro Knives"
+SWEP.Category			= "[MVG] Vibro Knives"
 
 SWEP.Spawnable				= true
 SWEP.AdminSpawnable			= true

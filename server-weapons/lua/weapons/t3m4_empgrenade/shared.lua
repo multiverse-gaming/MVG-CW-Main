@@ -510,7 +510,7 @@ if (CLIENT) then
 	SWEP.ViewModelFOV			= 72
 	SWEP.ViewModelFlip		= false
 	SWEP.CSMuzzleFlashes		= false
-	SWEP.Category			= "Star Wars Grenades"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 	
 	SWEP.IconLetter 			= "O"
 	killicon.AddFont("ptp_weapon_grenade", "CSKillIcons", SWEP.IconLetter, Color( 255, 80, 0, 255 ))

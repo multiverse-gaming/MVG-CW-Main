@@ -3,7 +3,7 @@ if (GetConVar(SWEP.Gun.."_allowed")) != nil then
 	if not (GetConVar(SWEP.Gun.."_allowed"):GetBool()) then SWEP.Base = "tfa_blacklisted" SWEP.PrintName = SWEP.Gun return end
 end
 SWEP.Base							= "tfa_gun_base"
-SWEP.Category						= "Other"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Manufacturer 					= ""
 SWEP.Author							= "Tiny Tom"
 SWEP.Contact						= ""

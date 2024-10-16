@@ -4,7 +4,7 @@ SWEP.PrintName = "Extinguisher (Infinite)"
 
 SWEP.Author = "Robotboy655"
 
-SWEP.Category = "MVG - Engineering Gear"
+SWEP.Category = "[MVG] Engineering Equipment"
 
 SWEP.Contact = "http://steamcommunity.com/profiles/76561197996891752"
 

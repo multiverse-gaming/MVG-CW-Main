@@ -7,7 +7,7 @@ SWEP.Instructions = [[
     R - Reload
     ]]
 
-SWEP.Category						= "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Base = "weapon_base"
 SWEP.Spawnable = true
 SWEP.AdminOnly = false

@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 SWEP.PrintName = "Squad Shield"
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Author = "Stein"
 SWEP.Instructions = [[
     Press left click to deploy the shield.

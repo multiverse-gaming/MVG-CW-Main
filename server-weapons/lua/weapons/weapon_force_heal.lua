@@ -65,7 +65,7 @@ SWEP.ViewModelBoneMods = {
 
 
 SWEP.PrintName				= "MVG Force Heal"
-SWEP.Category 				= "MVG - Medical Gear"
+SWEP.Category = "[MVG] Medical Equipment"
 
 SWEP.Author					= "robotboy655 & Riddick | Modified for MVG"
 
@@ -231,7 +231,6 @@ function SWEP:PrimaryAttack()
 		self:SetNextPrimaryFire( CurTime() + 3 )
 
 		self.Owner:SetAnimation( PLAYER_ATTACK1 )
-		self.Owner:AddSkillXP( 5 )
 
 
 
