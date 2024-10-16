@@ -32,14 +32,14 @@ FORM.Stances[1] = {
 		Rate = nil,
 	},
 	[ "light_right" ] = {
-		Sequence = "ryoku_r_right_t1",
-		Time = 0.9,
-		Rate = nil,
-	},
-	[ "light_forward" ] = {
 		Sequence = "judge_r_s3_t2",
 		Time = 0.85,
 		Rate = 1.5,
+	},
+	[ "light_forward" ] = {
+		Sequence = "ryoku_r_right_t1",
+		Time = 0.9,
+		Rate = nil,
 	},
 	[ "air_left" ] = {
 		Sequence = "ryoku_a_left_t1",

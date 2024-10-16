@@ -29,6 +29,3 @@ OBJ.JobPermissions = {
     ["Combat Engineer General"] = true,
 }
 
-OBJ.GroupPermissions = {
-    ["superadmin"] = true,
-}

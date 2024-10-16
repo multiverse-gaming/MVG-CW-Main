@@ -222,6 +222,7 @@ COMMS:RegisterChannel("Coruscant Guard Primary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        teams.JediTemple,
         "Jedi General Shaak Ti",
         "CG General Shaak Ti"
     ),
@@ -246,6 +247,7 @@ COMMS:RegisterChannel("Coruscant Guard Secondary", {
         teams.TeamNSO,
         teams.JediSpec,
         teams.Jedi,
+        teams.JediTemple,
         "Jedi General Shaak Ti",
         "CG General Shaak Ti"
     ),

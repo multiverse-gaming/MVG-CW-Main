@@ -679,7 +679,7 @@ TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
     color = Color(0, 51, 255, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -756,7 +756,7 @@ TEAM_501STJEDI = DarkRP.createJob("501st Jedi", {
 
 TEAM_501STGENERALTANO = DarkRP.createJob("501st Commander Ahsoka Tano", {
     color = Color(0, 51, 255, 255),
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl", "models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30"},
     command = "501sttano",
@@ -1230,7 +1230,7 @@ TEAM_212THJEDI = DarkRP.createJob("212th Jedi", {
     color = Color(255, 157, 0, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -1767,7 +1767,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunS
 
 TEAM_GCGENERALLUMINARA = DarkRP.createJob("GC General Luminara Unduli", {
     color = Color(0, 255, 64, 255),
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gclum",
@@ -2327,7 +2327,7 @@ TEAM_CGJEDI = DarkRP.createJob("Coruscant Guard Temple Guard", {
 
 TEAM_CGJEDICHIEF = DarkRP.createJob("CG Temple Guard Chief", {
     color = Color(255, 77, 77, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/zeus/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "cgchief",
@@ -2370,7 +2370,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
 
     command = "gmgen",
 
@@ -2400,7 +2400,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
     max = 1,
     salary = 275,
@@ -2417,7 +2417,8 @@ TEAM_GMCOMMANDER = DarkRP.createJob("Galactic Marines Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
     description = [[Congratulations, you are the Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+
     command = "gmco",
     max = 1,
     salary = 275,
@@ -2438,7 +2439,7 @@ TEAM_GMEXECUTIVEOFFICER = DarkRP.createJob("Galactic Marines Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmxo",
 
@@ -2472,7 +2473,7 @@ TEAM_GMMAJOR = DarkRP.createJob("Galactic Marines Major", {
 
     description = [[Congratulations, you are the Major of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_duals_dc17ext_v2", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmmjr",
 
@@ -2670,7 +2671,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
 
     command = "gmmo",
 
@@ -2704,7 +2705,7 @@ TEAM_GMSERGEANT = DarkRP.createJob("Galactic Marines Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "realistic_hook"},
 
     command = "gmsgt",
 
@@ -2740,8 +2741,8 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "arccw_flash_grenade", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
-
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_dc17_v2", "arccw_incendiary", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
+    
     command = "gmmt",
 
     max = 3,
@@ -2806,7 +2807,7 @@ TEAM_GMJEDI = DarkRP.createJob("Galactic Marines Jedi", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -2909,7 +2910,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
+    weapons = {"arccw_duals_dc17ext_v2", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
 
     command = "wpgen",
 
@@ -2942,7 +2943,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmco",
 
@@ -2974,7 +2975,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpco",
 
@@ -3008,7 +3009,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpxo",
 
@@ -3042,7 +3043,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "arccw_valken38x_v2", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_duals_dc17ext_v2", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
 
     command = "wpmjr",
 
@@ -3343,7 +3344,7 @@ TEAM_WPJEDI = DarkRP.createJob("Wolfpack Jedi", {
     color = Color(153, 144, 144, 255),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -3909,7 +3910,7 @@ TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
     color = Color(198, 155, 61),
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -3986,7 +3987,7 @@ TEAM_327THJEDI = DarkRP.createJob("Combat Engineer Jedi", {
 
 TEAM_327THGENERALAAYLA = DarkRP.createJob("Combat Engineer General Aayla Secura", {
     color = Color(198, 155, 61),
-    model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
+    model = {"models/zeus/aayla.mdl"},
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "ceaayla",
@@ -5586,7 +5587,7 @@ TEAM_MEDICALGENERAL = DarkRP.createJob("Medical General", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl", "models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl","models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/naval_offduty/pm_naval_cas.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl"},
 
     description = [[Congratulations, you are the General of the Regimetntal Medics!]],
 
@@ -5618,7 +5619,7 @@ TEAM_MEDICALMCO = DarkRP.createJob("Senior Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/917th_commander.mdl","models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/aussiwozzi/cgi/base/917th_eduardo.mdl","models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
+    model = { "models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl","models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
 
     description = [[Congratulations, You are now the Senior Medical Director. You will lead all medics.]],
 
@@ -5651,7 +5652,7 @@ TEAM_MEDICALDIRECTOR = DarkRP.createJob("Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_commander.mdl","models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_eduardo.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Medical Director. You will lead all medics.]],
 
@@ -5685,7 +5686,7 @@ TEAM_ASSISTANTMEDICALDIRECTOR = DarkRP.createJob("Assistant Medical Director", {
 
     color = Color(245, 56, 81, 255),
 
-    model = {"models/aussiwozzi/cgi/base/917th_cpd_officer.mdl","models/aussiwozzi/cgi/base/917th_evo_hudson.mdl","models/aussiwozzi/cgi/base/917th_lucky.mdl","models/aussiwozzi/cgi/base/917th_evo_osman.mdl", "models/aussiwozzi/cgi/base/917th_evo_leanin.mdl", "models/aussiwozzi/cgi/base/917th_evo_hudson.mdl", "models/aussiwozzi/cgi/base/917th_scarlet.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
+    model = {"models/speedy/md/md_cpd.mdl", "models/speedy/md/md_scarlett.mdl", "models/speedy/md/md_commander.mdl", "models/speedy/md/md_evo.mdl", "models/speedy/md/md_evo_osman.mdl", "models/speedy/md/md_evo_leanin.mdl", "models/naval_medic/pm_naval_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/jajoff/sps/republic/tc13j/navy_medic.mdl"},
 
     description = [[Congratulations, You are now the Assistant Medical Director. You will assist with leading all medics.]],
 
@@ -5972,7 +5973,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
 
 TEAM_FLEET_RDM = DarkRP.createJob("Fleet Medical Officer", {
     color = Color(122, 122, 122, 255),
-    model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/aussiwozzi/cgi/base/917th_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
+    model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/speedy/md/md_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
     description = [[Congratulations You are now a Fleet Medical Officer!]],
     weapons = {"datapad_player", "arccw_defender_sporting", "arccw_dc15s_v2", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone", "kaito_satellite_tablet"},
     command = "fleetmo",
@@ -6211,7 +6212,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl", "models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6315,7 +6316,7 @@ TEAM_JEDIGENERALAAYLA = DarkRP.createJob("Jedi General Aayla Secura", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_aayala.mdl"},
+    model = {"models/zeus/aayla.mdl"},
 
     description = [[You are Jedi General Aayla Secura. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6451,7 +6452,7 @@ TEAM_JEDIGENERALLUMINARA = DarkRP.createJob("Jedi General Luminara Unduli", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_luminara.mdl"},
+    model = {"models/zeus/luminara.mdl"},
 
     description = [[You are Jedi General Luminara Unduli. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6481,7 +6482,7 @@ PlayerSpawn = function(ply) ply:SetMaxHealth(550) ply:SetHealth(550) ply:SetRunS
 
 TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
     color = Color(242, 0, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl" },
+    model = {"models/zeus/cinndrallig.mdl" },
     description = [[You are Jedi General Cin Drallig. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "cin",
@@ -6502,7 +6503,7 @@ TEAM_JEDIGENCINDRALLIG = DarkRP.createJob("Jedi General Cin Drallig", {
 
 TEAM_JEDITGCHIEF = DarkRP.createJob("Temple Guard Chief", {
     color = Color(0, 166, 255, 255),
-    model = { "models/player/imagundi/cinndrallig.mdl", "models/player/imagundi/rcinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
+    model = { "models/zeus/cinndrallig.mdl", "models/epangelmatikes/templeguard/peacemakerUNI.mdl" },
     description = [[You are a part of the Jedi council, and leader of the Temple Guard!]],
     weapons = { "weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys", "weapon_cuff_elastic_officer"},
     command = "tgchief",
@@ -6526,7 +6527,7 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
 
     model = {"models/aussiwozzi/cgi/base/jedi_rahm_kota.mdl",
     "models/aussiwozzi/cgi/base/jedi_bultar_swan.mdl",
-    "models/tfa/comm/gg/pm_sw_adigallia.mdl",
+    "models/zeus/adigallia.mdl",
     "models/tfa/comm/gg/pm_sw_barriss.mdl",
     "models/tfa/comm/gg/pm_sw_eeth_koth.mdl",
     "models/tfa/comm/gg/pm_sw_imagundi.mdl",
@@ -6585,8 +6586,8 @@ TEAM_JEDICOUNCIL = DarkRP.createJob("Jedi Council Member", {
     "models/player/jedi/pantoran_male_sentinel.mdl",
     "models/player/jedi/rodian_male_sentinel.mdl",
     "models/player/jedi/twilek_female_sentinel.mdl",
-    "models/player/jedi/twilek_sentinel_male.mdl"
-
+    "models/player/jedi/twilek_sentinel_male.mdl",
+    "models/zeus/cinndrallig.mdl",
     },
 
     description = [[You are a part of the Jedi council, a leading member of the Jedi Order!]],

@@ -123,6 +123,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Coruscant Guard Security Officer"] = true,
             ["Coruscant Guard Medic Officer"] = true,
             ["Coruscant Guard Medic Trooper"] = true,
+            ["Coruscant Guard Temple Guard"] = true,
+            ["CG Temple Guard Chief"] = true,
         },
     },
 

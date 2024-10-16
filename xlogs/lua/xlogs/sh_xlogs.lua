@@ -110,28 +110,35 @@ end
 
 -- Display, save and send logs
 function xLogs.RunLog(typ, str, ...)
-	if not (typ and isstring(typ) and xLogs.LoggingTypes[typ]) then return end
-	local tim = os.time()
-	local content = string.format(str, unpack({...}))
-
-	local cat = xLogs.LoggingTypes[typ].Cat
-	if not xLogs.LoggingCats[cat].Enabled then return end
-
-	xLogs.Logs[cat] = xLogs.Logs[cat] or {}
-
-	table.insert(xLogs.Logs[cat], {Type = typ, Content = content, Time = tim})
+	local varargs = ...
+	local success, result = pcall(function()
+		if not (typ and isstring(typ) and xLogs.LoggingTypes[typ]) then return end
+		local tim = os.time()
+		local content = string.format(str, unpack({varargs}))
 	
-	-- We don't want to do anything else if, for some reason, this is running clientside
-	if not SERVER then return end
-
-	xLogs.DB:insertQuery(string.format("%s%s", xLogs.Config.LogsTableNamePrefix, string.lower(cat)), {"Type", "Content", "Time"}, {typ, content, tim})
-
-	//MsgN(string.format("[%s : %s] <%s> %s", cat, typ, os.date("%H:%M:%S - %d/%m/%Y", tim), content))
-
-	xLogs.NetworkLog(typ, content, tim)
-
-	if xLogs.Config.DoDiscordRelay then
-		xLogs.RunDiscordRelay({Type = typ, Content = content, Time = tim})
+		local cat = xLogs.LoggingTypes[typ].Cat
+		if not xLogs.LoggingCats[cat].Enabled then return end
+	
+		xLogs.Logs[cat] = xLogs.Logs[cat] or {}
+	
+		table.insert(xLogs.Logs[cat], {Type = typ, Content = content, Time = tim})
+		
+		-- We don't want to do anything else if, for some reason, this is running clientside
+		if not SERVER then return end
+	
+		xLogs.DB:insertQuery(string.format("%s%s", xLogs.Config.LogsTableNamePrefix, string.lower(cat)), {"Type", "Content", "Time"}, {typ, content, tim})
+	
+		//MsgN(string.format("[%s : %s] <%s> %s", cat, typ, os.date("%H:%M:%S - %d/%m/%Y", tim), content))
+	
+		xLogs.NetworkLog(typ, content, tim)
+	
+		if xLogs.Config.DoDiscordRelay then
+			xLogs.RunDiscordRelay({Type = typ, Content = content, Time = tim})
+		end
+	end)
+	
+	if not success then
+		print("[XLogs] Caught error:", result)
 	end
 end
 

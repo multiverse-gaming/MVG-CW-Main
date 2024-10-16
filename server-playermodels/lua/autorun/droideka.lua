@@ -185,7 +185,7 @@ local settings9 = {
 
 local settings10 = {
 	["name"] = "Ahsoka2",
-	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl",
+	["model"] = "models/zeus/ahsoka_v1.mdl",
 	["scale"] = 0.9,
 	["developermode"] = false,
 	["viewoffset"] = 58,
@@ -205,7 +205,7 @@ local settings10 = {
 
 local settings11 = {
 	["name"] = "Ahsoka3",
-	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl",
+	["model"] = "models/zeus/ahsoka_v2.mdl",
 	["scale"] = 0.95,
 	["developermode"] = false,
 	["viewoffset"] = 61,
@@ -218,6 +218,27 @@ local settings11 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = true,
+	["ambientsound"] = nil,
+	["hullScale"] = nil,
+	["horizontalHullScale"] = nil,
+}
+
+local settings12 = {
+	["name"] = "Rakghoul",
+	["model"] = "models/grealms/characters/rakghoul/rakghoul.mdl",
+	["scale"] = false,
+	["developermode"] = false,
+	["viewoffset"] = 64,
+	["duckviewoffset"] = 32,
+	["seatoffset"] = 4,
+	["talkingspeed"] = 0,
+	["mouthbodygroup"] = 0,
+	["mouthframes"] = 0,
+	["mouthstandingframe"] = 0,
+	["mouthstartingframe"] = 0,
+	["removeRagdoll"] = false,
+	["scaleRagdoll"] = false,
+
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
 	["horizontalHullScale"] = nil,
@@ -413,5 +434,6 @@ hook.Add("Initialize", "CustomSetPool", function()
 		SPM_Pool[settings9["model"]] = settings9
 		SPM_Pool[settings10["model"]] = settings10
 		SPM_Pool[settings11["model"]] = settings11
+		SPM_Pool[settings12["model"]] = settings12
 	end)
 end)
