@@ -185,7 +185,7 @@ local settings9 = {
 
 local settings10 = {
 	["name"] = "Ahsoka2",
-	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl",
+	["model"] = "models/zeus/ahsoka_v1.mdl",
 	["scale"] = 0.9,
 	["developermode"] = false,
 	["viewoffset"] = 58,
@@ -205,7 +205,7 @@ local settings10 = {
 
 local settings11 = {
 	["name"] = "Ahsoka3",
-	["model"] = "models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl",
+	["model"] = "models/zeus/ahsoka_v2.mdl",
 	["scale"] = 0.95,
 	["developermode"] = false,
 	["viewoffset"] = 61,
