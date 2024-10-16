@@ -4,7 +4,7 @@ ENT.Base = "lvs_base_starfighter"
 
 
 
-ENT.PrintName = "Droid Tri-Fighter"
+ENT.PrintName = "Droid Tri-Fighter (EE)"
 
 ENT.Author = "Luna"
 
