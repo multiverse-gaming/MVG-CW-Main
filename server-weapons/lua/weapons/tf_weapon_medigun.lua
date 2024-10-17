@@ -1,5 +1,5 @@
 SWEP.PrintName = "Medi-Gun"
-SWEP.Category = "MVG - Medical Gear"
+SWEP.Category = "[MVG] Medical Equipment"
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true
 SWEP.AdminOnly = false
@@ -28,6 +28,9 @@ SWEP.DrawCrosshair = false
 SWEP.DrawAmmo = true
 SWEP.CSMuzzleFlashes = 1
 SWEP.Base = "weapon_base"
+
+SWEP.WalkSpeed = 160
+SWEP.RunSpeed = 240
 
 SWEP.Attack = 0
 SWEP.AttackTimer = CurTime()
@@ -148,6 +151,10 @@ function SWEP:Deploy()
     self.AttackTimer = CurTime()
     self.Idle = 0
     self.IdleTimer = CurTime() + self.Owner:GetViewModel():SequenceDuration()
+    self.Owner.mediWalkSpeed = self.Owner:GetWalkSpeed()
+    self.Owner.mediRunSpeed = self.Owner:GetRunSpeed()
+    self.Owner:SetWalkSpeed( self.WalkSpeed )
+    self.Owner:SetRunSpeed( self.RunSpeed )
     return true
 end
 
@@ -160,6 +167,8 @@ self.Attack = 0
 self.AttackTimer = CurTime()
 self.Idle = 0
 self.IdleTimer = CurTime()
+self.Owner:SetWalkSpeed( self.Owner.mediWalkSpeed )
+self.Owner:SetRunSpeed( self.Owner.mediRunSpeed )
 return true
 end
 

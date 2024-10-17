@@ -1,6 +1,6 @@
 AddCSLuaFile()
 
-SWEP.Category				= "[LVS]"
+SWEP.Category 			= "[MVG] Engineering Equipment"
 SWEP.Spawnable			= true
 SWEP.AdminSpawnable		= false
 SWEP.ViewModel			= "models/weapons/c_repairlvs.mdl"

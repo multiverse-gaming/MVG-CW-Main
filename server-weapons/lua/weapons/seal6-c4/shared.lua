@@ -3,7 +3,7 @@ AddCSLuaFile( "shared.lua" )
 SWEP.Author			= ""
 SWEP.Instructions	= "Right click to throw, Left click to explode"
 
-SWEP.Category = "Star Wars Grenades"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Spawnable			= true
 SWEP.AdminSpawnable		= true
 

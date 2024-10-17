@@ -9,7 +9,7 @@ SWEP.Slot 					= 0
 SWEP.SlotPos 				= 99
 
 SWEP.Spawnable 				= true
-SWEP.Category 				= "MVG"
+SWEP.Category 				= "[MVG] Miscellaneous Equipment"
 SWEP.DrawCrosshair 			= true
 SWEP.Crosshair 				= false
 
