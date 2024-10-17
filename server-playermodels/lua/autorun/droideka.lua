@@ -238,7 +238,6 @@ local settings12 = {
 	["mouthstartingframe"] = 0,
 	["removeRagdoll"] = false,
 	["scaleRagdoll"] = false,
-
 	["ambientsound"] = nil,
 	["hullScale"] = nil,
 	["horizontalHullScale"] = nil,

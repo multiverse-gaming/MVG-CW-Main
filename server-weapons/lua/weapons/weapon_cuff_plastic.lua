@@ -13,7 +13,7 @@ AddCSLuaFile()
 
 SWEP.Base = "weapon_cuff_base"
 
-SWEP.Category = "[MVG] Handcuffs"
+SWEP.Category = "Handcuffs"
 SWEP.Author = "my_hat_stinks"
 SWEP.Instructions = "Toy handcuffs."
 

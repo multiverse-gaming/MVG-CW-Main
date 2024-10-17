@@ -1,4 +1,4 @@
-SWEP.Category				= "[MVG] Melee Equipment"
+SWEP.Category                 = "Mexicans Stuff"
 SWEP.PrintName                = "Electrostaff"            
 SWEP.Author                    = "Mexican"
 SWEP.Instructions            = ""

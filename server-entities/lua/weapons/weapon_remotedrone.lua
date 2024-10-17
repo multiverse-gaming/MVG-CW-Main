@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 SWEP.PrintName	= "Drone Remote"
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "Drone Tools"
 
 SWEP.Spawnable	= true
 SWEP.UseHands	= true

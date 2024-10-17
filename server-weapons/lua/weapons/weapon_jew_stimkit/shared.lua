@@ -19,7 +19,7 @@ end
 
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
-SWEP.Category = "[MVG] Medical Equipment"
+SWEP.Category = "MVG - Medical Gear"
 
 SWEP.HoldType = "pistol"
 SWEP.ViewModelFOV = 70

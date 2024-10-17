@@ -4,7 +4,7 @@ AddCSLuaFile( "shared.lua" )
 SWEP.Author			= "Hoff"
 SWEP.Instructions	= ""
 
-SWEP.Category = "[MVG] Miscellaneous Equipment"
+SWEP.Category = "MVG"
 SWEP.Spawnable			= true
 SWEP.AdminSpawnable		= true
 

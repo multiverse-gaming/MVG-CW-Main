@@ -30,7 +30,7 @@ SWEP.Base = "weapon_base"
 
 
 
-SWEP.Category = "[MVG] Handcuffs"
+SWEP.Category = "Handcuffs"
 
 SWEP.Author = "my_hat_stinks"
 

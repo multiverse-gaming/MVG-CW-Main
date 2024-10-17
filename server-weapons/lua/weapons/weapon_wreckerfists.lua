@@ -19,7 +19,7 @@ SWEP.Primary.DefaultClip = -1
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "none"
 
-SWEP.Category = "[MVG] Miscellaneous Equipment"
+SWEP.Category			= "MVG"
 
 SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = -1

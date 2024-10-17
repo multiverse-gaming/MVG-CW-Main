@@ -39,7 +39,7 @@ if (CLIENT) then
 
 	SWEP.PrintName			= "MAS: Fists of Reprisal"
 	SWEP.Author				= "Maranzo"
-SWEP.Category				= "[MVG] Melee Equipment"
+	SWEP.Category 			= "MVG - Melee Equipment"
 	SWEP.Instructions		= [[
 	LMB: Attack
 	RMB: Ability 1

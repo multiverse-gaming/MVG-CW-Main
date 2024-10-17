@@ -13,7 +13,7 @@ SWEP.SlotPos = 5
 SWEP.DrawAmmo = false					 
 
 
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "MVG - Engineering Gear"
 
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true

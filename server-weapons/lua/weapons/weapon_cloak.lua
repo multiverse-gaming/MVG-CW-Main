@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 SWEP.PrintName = "Cloaking Device"
-SWEP.Category				= "[MVG] Melee Equipment"
+SWEP.Category = "MVG"
 SWEP.Instructions = [[
     Fire to cloak or uncloak.
     Flashlight to immediately uncloak.

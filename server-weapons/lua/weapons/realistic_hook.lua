@@ -8,7 +8,7 @@ end
 SWEP.Base = "weapon_base"
 
 SWEP.PrintName = "Grappling Hook"
-SWEP.Category = "[MVG] Miscellaneous Equipment"
+SWEP.Category = "_Hat's Weapons"
 SWEP.Author = "my_hat_stinks"
 SWEP.Instructions = "Fire to launch the hook"
 

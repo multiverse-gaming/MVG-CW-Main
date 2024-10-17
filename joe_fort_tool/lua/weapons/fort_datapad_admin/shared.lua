@@ -3,7 +3,7 @@ SWEP.Author =	"Joe"
 
 SWEP.Spawnable =	true
 SWEP.Adminspawnable =	true
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "MVG - Engineering Gear"
 SWEP.ShowWorldModel = false
 
 SWEP.Primary.Clipsize =	-1

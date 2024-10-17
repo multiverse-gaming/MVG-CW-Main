@@ -11,7 +11,7 @@ end
 
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
-SWEP.Category = "[MVG] Miscellaneous Equipment"
+SWEP.Category = "MVG"
 
 SWEP.HoldType = "normal"
 SWEP.ViewModelFOV = 70

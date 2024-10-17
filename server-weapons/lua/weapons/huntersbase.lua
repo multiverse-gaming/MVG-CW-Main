@@ -19,7 +19,7 @@ if ( CLIENT ) then
 	SWEP.UseHands           = true
 end
 
-SWEP.Category			= "[MVG] Vibro Knives"
+SWEP.Category			= "Custom Knives"
 SWEP.Spawnable				= false
 SWEP.AdminSpawnable			= false
 

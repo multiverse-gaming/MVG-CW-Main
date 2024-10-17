@@ -1,7 +1,7 @@
 SWEP.PrintName = "Fortification Datapad"
 SWEP.Author =	"Joe"
 SWEP.Contact = "Workshop"
-SWEP.Slot = 2
+SWEP.Slot = 5
 SWEP.SlotPos = -1
 SWEP.Instructions = [[
 R - Opens up the Menu
@@ -11,7 +11,7 @@ RMB - rotates through structures in selected category
 ]]
 SWEP.Spawnable =	true
 SWEP.Adminspawnable =	false
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "MVG - Engineering Gear"
 SWEP.ShowWorldModel = false
 
 SWEP.Primary.Clipsize =	-1

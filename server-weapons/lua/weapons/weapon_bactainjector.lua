@@ -33,7 +33,7 @@ SWEP.ViewModelBoneMods = {
 SWEP.PrintName				= "Bacta Injector"
 SWEP.Author					= "robotboy655 & Riddick"
 SWEP.Purpose			= "Heal people with your primary attack, or yourself with the secondary. Provide ammo with Reload"
-SWEP.Category = "[MVG] Medical Equipment"
+SWEP.Category = "MVG - Medical Gear"
 
 SWEP.Slot					= 5
 SWEP.SlotPos				= 4

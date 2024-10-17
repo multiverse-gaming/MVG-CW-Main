@@ -18,7 +18,7 @@ if CLIENT then
 end
 
 SWEP.Author = "Willox"
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "MVG - Engineering Gear"
 SWEP.Instructions = "Left click to crack keypad"
 SWEP.Contact = ""
 SWEP.Purpose = ""

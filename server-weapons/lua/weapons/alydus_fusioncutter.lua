@@ -26,7 +26,7 @@ SWEP.Purpose = ""
 SWEP.WorldModel = ""
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
-SWEP.Category = "[MVG] Engineering Equipment"
+SWEP.Category = "MVG - Engineering Gear"
 
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1
