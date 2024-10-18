@@ -15,7 +15,7 @@ SWEP.Secondary.Ammo			= "none"
 
 SWEP.PrintName	= "Personal Shield Activator"
 SWEP.Author = "Fox (Modified)"
-SWEP.Category	= "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 
 SWEP.Slot		= 4
 SWEP.SlotPos	= 1

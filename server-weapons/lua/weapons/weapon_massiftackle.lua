@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 SWEP.PrintName = "Massif Tackle"
-SWEP.Category  = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Author = "Kilburn, robotboy655, MaxOfS2D & Tenrys | Modified by Dandy"
 SWEP.Purpose = "You better pounce on those naughty criminals. There's a good boy."
 

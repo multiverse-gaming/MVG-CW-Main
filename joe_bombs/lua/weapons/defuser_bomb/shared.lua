@@ -3,7 +3,7 @@ SWEP.Author =	"Joe"
 
 SWEP.Spawnable =	true
 SWEP.Adminspawnable =	false
-SWEP.Category = "MVG - Engineering Gear"
+SWEP.Category = "[MVG] Engineering Equipment"
 SWEP.ShowWorldModel = false
 
 
@@ -72,7 +72,7 @@ function SWEP:Deploy()
 end
 
 function SWEP:Holster()
-	
+
 	return true
 end
 

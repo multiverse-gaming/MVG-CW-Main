@@ -7,7 +7,7 @@ include("weapons/ce_bcr_config.lua")
 // SWEP Info
 //----------------------------------
 SWEP.Author                 =   "Temporary Solutions"
-SWEP.Category				= 	"MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.PrintName              =   "Electroplating Cloak"
 SWEP.Base                   =   "weapon_base"
 SWEP.Instructions           =   [[Left-Click: Toggle Cloak

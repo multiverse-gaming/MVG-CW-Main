@@ -49,7 +49,7 @@ SWEP.Contact = ""
 SWEP.Purpose = ""
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
-SWEP.Category = "MVG - Engineering Gear"
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = -1

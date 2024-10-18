@@ -38,7 +38,7 @@ function OBJ:DoClick(player, frame, PAGE)
         else
             BUT:SetText("Enable")
             BUT.DoClick = function()
-                if not OBJ.JobPermissions[team.GetName(player:Team())] or not OBJ.GroupPermissions[player:GetUserGroup()] then
+                if not OBJ.JobPermissions[team.GetName(player:Team())] then
                     local LABEL = self:Add("DButton")
                     LABEL:Dock(TOP)
                     LABEL:SetText("")

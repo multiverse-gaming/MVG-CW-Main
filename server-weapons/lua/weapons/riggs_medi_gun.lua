@@ -1,6 +1,6 @@
 
 SWEP.PrintName = "Armour Gun"
-SWEP.Category						= "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 SWEP.Author = "? | Modified by Fox"
 SWEP.Spawnable= true
 SWEP.AdminSpawnable= true
