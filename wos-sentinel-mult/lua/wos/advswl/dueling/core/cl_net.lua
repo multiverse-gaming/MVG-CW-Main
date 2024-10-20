@@ -221,6 +221,10 @@ net.Receive( "wOS.ALCS.Dueling.StartDuelCam", function( len )
 	
 end )
 
+net.Receive("SetReviveOnWeapon", function()
+	LocalPlayer():GetActiveWeapon().Revive = true
+end)
+
 properties.Add( "Challenge to Duel", {
 	MenuLabel = "#Challenge to Duel", -- Name to display on the context menu
 	Order = 1, -- The order to display this property relative to other properties

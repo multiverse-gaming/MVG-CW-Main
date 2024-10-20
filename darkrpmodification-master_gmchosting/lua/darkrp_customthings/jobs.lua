@@ -6880,7 +6880,7 @@ TEAM_JEDITOURNAMENT = DarkRP.createJob("Jedi Tournament", {
 
     description = [[Jedi Tournament Role]],
 
-    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "weapon_lightsaber_tournament_pike", "wos_inventory", "arccw_ll30"},
+    weapons = {"weapon_lightsaber_tournament", "weapon_lightsaber_tournament_twin", "weapon_lightsaber_tournament_staff", "weapon_lightsaber_tournament_pike", "wos_inventory" },
 
     command = "jeditourn",
 
