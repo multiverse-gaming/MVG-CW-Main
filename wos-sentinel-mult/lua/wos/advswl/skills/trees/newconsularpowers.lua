@@ -208,6 +208,8 @@ TREE.Tier[3][1] = {
 	OnPlayerDeath = function( ply ) end,
 	OnSaberDeploy = function( wep )
 		wep.Revive = true
+		net.Start("SetReviveOnWeapon")
+		net.Send(wep.Owner)
 		wep:AddForcePower( "Revive" )
 	end,
 }
