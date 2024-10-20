@@ -798,7 +798,7 @@ hook.Add("PlayerButtonDown", "RDV.SKILLS.COMMAND", function(ply, button)
 
         local teams = RDV.LIBRARY.GetConfigOption("SAL_expTEAMS")
         local clientTeam = team.GetName(LocalPlayer():Team())
-        if teams[clientTeam] == nil or teams[clientTeam] == false then return end
+        if teams == nil or teams == false or teams[clientTeam] == nil or teams[clientTeam] == false then return end
         
         if BIND and IsFirstTimePredicted() then
             if button == BIND then

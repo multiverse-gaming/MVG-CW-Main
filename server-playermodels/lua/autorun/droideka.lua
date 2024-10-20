@@ -280,6 +280,8 @@ else
 			local model = net.ReadString()
 			local tab = SPM_Pool[model]
 
+			if (tab == nil) then return end
+
 			if (tab["scale"] ~= nil) then
 				ply:SetModelScale(tab["scale"])
 			end
@@ -382,7 +384,7 @@ end)
 		local tab = SPM_Pool[target:GetModel()]
 		if(SPM_Pool[target:GetModel()] ~= nil) then
 			local scale = tab["scale"]
-			if scale ~= nil && scale < 1 then
+			if scale ~= nil && scale < 1 then	
 				if (!target._TakingReducedKnockbackDamage) then
 					target._TakingReducedKnockbackDamage = true
 					local mulitplier = scale * scale * scale

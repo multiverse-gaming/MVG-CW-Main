@@ -108,13 +108,13 @@ function xLogs.RegisterPermission(name, node)
 	func(name, node)
 end
 
--- Display, save and send logs
+-- Display, save and send logsfunction xLogs.RunLog(typ, str, ...)
 function xLogs.RunLog(typ, str, ...)
-	local varargs = ...
+	local varargs = {...}
 	local success, result = pcall(function()
 		if not (typ and isstring(typ) and xLogs.LoggingTypes[typ]) then return end
 		local tim = os.time()
-		local content = string.format(str, unpack({varargs}))
+		local content = string.format(str, unpack(varargs))
 	
 		local cat = xLogs.LoggingTypes[typ].Cat
 		if not xLogs.LoggingCats[cat].Enabled then return end
@@ -127,7 +127,7 @@ function xLogs.RunLog(typ, str, ...)
 		if not SERVER then return end
 	
 		xLogs.DB:insertQuery(string.format("%s%s", xLogs.Config.LogsTableNamePrefix, string.lower(cat)), {"Type", "Content", "Time"}, {typ, content, tim})
-	
+
 		//MsgN(string.format("[%s : %s] <%s> %s", cat, typ, os.date("%H:%M:%S - %d/%m/%Y", tim), content))
 	
 		xLogs.NetworkLog(typ, content, tim)

@@ -258,7 +258,7 @@ wOS.ForcePowers:RegisterNewPower({
 			if ( self:GetForce() < 6 or CLIENT ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
 
-			if (self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
+			if (!self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
 				if (ent:Health() >= ent:GetMaxHealth()) then return end
 				self:SetNextAttack( 0.2 )
 				local ed = EffectData()
@@ -321,7 +321,7 @@ wOS.ForcePowers:RegisterNewPower({
 				-- Global CD for shared ability.
 				self.ProtectCD = CurTime() + 20
 
-			elseif (!self:GetOwner():KeyDown( IN_WALK )) then
+			elseif (self:GetOwner():KeyDown( IN_WALK )) then
 				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
 				local ed = EffectData()
 				ed:SetOrigin( self:GetOwner():GetPos() )
@@ -499,4 +499,25 @@ wOS.ForcePowers:RegisterNewPower({ -- As is, does not yet work.
 		self:SetForce(self:GetForce() - 100)
 		return true
 	end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+		name = "Revive",
+		icon = "R",
+		description = "Sacrifice your own health for an ally.",
+		image = "wos/forceicons/icefuse/group_push.png",
+		cooldown = 180,
+		manualaim = false,
+		action = function( self )
+			if ( self:GetForce() < 150 ) then return end
+			if ( self:Health() < 200 ) then return end
+			
+			self.HPAfterRespawn = self:Health() / 2
+			net.Start("defibgetents")
+			net.Send(self.Owner)
+			
+			self:SetForce(self:GetForce() - 150)
+			self:SetHealth(self:Health() / 2)
+			return true
+		end,
 })

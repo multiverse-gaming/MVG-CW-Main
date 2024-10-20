@@ -39,9 +39,9 @@ hook.Add("DoPlayerDeath", "defibhandledeath", PlayerDied)
 hook.Add("PlayerSpawn", "defibhandlespawn", PlayerSpawned)
 hook.Add("PlayerDeathSound", "defibmakedeath", function() return !weapons.Get("weapon_defibrillator").DeathBeepEnabled end)
 net.Receive("defibgiveents", function(len, ply)
+	local globalwep = weapons.GetStored("weapon_defibrillator")
 	local weapon = ply:GetActiveWeapon()
 	local isRevive, otherPly, pos = net.ReadBool(), net.ReadEntity(), net.ReadVector()
-	local plyPos = ply:GetPos()
 	local eyetrace = ply:GetEyeTraceNoCursor()
 	if !otherPly:IsPlayer() then otherPly = otherPly.Owner end
 	if (!IsValid(ply) or !IsValid(otherPly) or !IsValid(weapon)) then return end
@@ -53,20 +53,23 @@ net.Receive("defibgiveents", function(len, ply)
 			end
 		end
 	end --]]
-	if !ply:VisibleVec(pos) or weapon:GetClass() != "weapon_defibrillator" or (!isRevive and !weapon.AllowDamage) then return end
+	if !ply:VisibleVec(pos) or (weapon:GetClass() != "weapon_defibrillator" and weapon:GetClass() != "weapon_lightsaber_personal") or (!isRevive and !weapon.AllowDamage) then return end
 	weapon:EmitSound("weapons/physcannon/superphys_small_zap"..math.random(1,4)..".wav")
-	weapon.CanUse = 0
-	weapon:SendWeaponAnim(ACT_VM_PRIMARYATTACK)
-	weapon:SetNextSecondaryFire(CurTime() + 2)
+	if (weapon:GetClass() != "weapon_defibrillator") then
+		weapon.CanUse = 0
+		weapon:SendWeaponAnim(ACT_VM_PRIMARYATTACK)
+		weapon:SetNextSecondaryFire(CurTime() + 2)
+		ply:SetAnimation(PLAYER_ATTACK1)
+	end
 	makefx(ply, Vector(0, 0, 0), "decharge", ply, false)
 	hook.Call("customhq.defib.onPlayerInteraction", nil, ply, otherPlayer, isRevive, pos)
 	if isRevive then
-		if (otherPly.TimeDied+weapon.TimeToRevive)-CurTime() < 0 then
+		if (otherPly.TimeDied+globalwep.TimeToRevive)-CurTime() < 0 then
 			makefx(ply, Vector(1, 1, 1), "toolongdead", ply, false)
 			makefx(ply, Vector(0, 0, 0), "toolongdead", otherPly, false)
 			return
 		end
-		if weapon.GiveMedicRPCash != 0 and DarkRP != nil then
+		if globalwep.GiveMedicRPCash != 0 and DarkRP != nil then
 			local isGood = true
 			local steamID = otherPly:SteamID64()
 			if ply.recentlyRevivedPeople != nil then
@@ -80,10 +83,10 @@ net.Receive("defibgiveents", function(len, ply)
 				ply.recentlyRevivedPeople = {}
 			end
 			if isGood then
-				ply:addMoney(weapon.GiveMedicRPCash)
-				DarkRP.notify(ply, 3, 6, "You've received $"..weapon.GiveMedicRPCash)
+				ply:addMoney(globalwep.GiveMedicRPCash)
+				DarkRP.notify(ply, 3, 6, "You've received $"..globalwep.GiveMedicRPCash)
 				table.insert(ply.recentlyRevivedPeople, otherPly:SteamID64())
-				timer.Simple(math.max(0.5, weapon.reviveCashTimeout), function()
+				timer.Simple(math.max(0.5, globalwep.reviveCashTimeout), function()
 					if IsValid(ply) and ply.recentlyRevivedPeople != nil then
 						table.RemoveByValue(ply.recentlyRevivedPeople, steamID)
 						if table.Count(ply.recentlyRevivedPeople) == 0 then
@@ -102,20 +105,19 @@ net.Receive("defibgiveents", function(len, ply)
 			otherPly:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 			otherPly:SetPos(eyetrace.HitPos + eyetrace.HitNormal*16)
 			otherPly:SetHealth(weapon.HPAfterRespawn)
-			if weapon.GiveWeaponsBack then
+			if globalwep.GiveWeaponsBack then
 				for k,v in pairs(otherPly.DefibWeps) do otherPly:Give(v) end
 			end
 			otherPly:SetRenderMode(RENDERMODE_TRANSALPHA)
 			otherPly:SetColor(Color(255, 255, 255, 125))
 		end)
-		timer.Simple(weapon.GhostTime, function()
+		timer.Simple(globalwep.GhostTime, function()
 			if (!IsValid(otherPly)) then return end
 			otherPly:SetCollisionGroup(COLLISION_GROUP_PLAYER)
 			otherPly:SetColor(Color(255, 255, 255, 255))
 		end)
 	else
 		makefx(ply, ply:GetEyeTrace().HitPos, "spark", ply, true)
-		otherPly:TakeDamage(weapon.Damage)
+		otherPly:TakeDamage(globalwep.Damage)
 	end
-	ply:SetAnimation(PLAYER_ATTACK1)
 end)

@@ -75,6 +75,7 @@ net.Receive("defibgetents", function(len)
 			isRevive = true
 			otherPly = v:GetRagdollOwner()
 			pos = v:GetPos()
+			break
 		end
 	end
 	if !isRevive then 
@@ -96,7 +97,7 @@ hook.Add("HUDPaint", "DrawDefibGUI", function()
 	local globalwep = weapons.GetStored("weapon_defibrillator")
 	local isDefib = LocalPlayer():GetActiveWeapon().PrintName == "Defibrillator"
 	local medicsOnly = globalwep.ReviveHeartMedicsOnly
-	if isDefib and medicsOnly or !medicsOnly then
+	if isDefib and medicsOnly or !medicsOnly or LocalPlayer():GetActiveWeapon().Revive then
 		for k,v in pairs(ents.GetAll()) do
 			local otherply = v:GetRagdollOwner()
 			if v:GetClass() == "class C_HL2MPRagdoll" and otherply.TimeDied != nil and (otherply.TimeDied+globalwep.TimeToRevive)-CurTime() > 0 then
