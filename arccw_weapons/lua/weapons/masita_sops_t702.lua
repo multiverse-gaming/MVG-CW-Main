@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.Slot = 3 -- Change this if you want to select the weapon with other number
 
 -- Trivia
-SWEP.Category = "[ArcCW] Special Forces Weapons"
+SWEP.Category = "[ ArcCW ] Special Forces Weapons"
 SWEP.Credits = "Kraken/Masita"
 SWEP.PrintName = "T-702 Sniper Rifle"
 SWEP.Trivia_Class = "Blaster-Experimental Sniper Rifle"
