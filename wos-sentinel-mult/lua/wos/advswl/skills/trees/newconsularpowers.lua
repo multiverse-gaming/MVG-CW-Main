@@ -197,8 +197,8 @@ TREE.Tier[2][6] = {
 TREE.Tier[3] = {}
 
 TREE.Tier[3][1] = {
-	Name = "Sense Weakness",
-	Description = "Sense when allies or enemies are nearing the end.",
+	Name = "Revive",
+	Description = "Resurrect your allies, at a big cost to yourself.",
 	Icon = "wos/forceicons/shadow_strike.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -206,7 +206,10 @@ TREE.Tier[3][1] = {
 	},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForcePower( "Sense Weakness" ) end,
+	OnSaberDeploy = function( wep )
+		wep.Revive = true
+		wep:AddForcePower( "Revive" )
+	end,
 }
 
 TREE.Tier[3][2] = {

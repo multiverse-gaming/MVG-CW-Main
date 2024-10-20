@@ -66,7 +66,7 @@ TREE.Tier[1][2] = {
 	Requirements = {},
 	OnPlayerSpawn = function( ply ) end,
 	OnPlayerDeath = function( ply ) end,
-	OnSaberDeploy = function( wep ) wep:AddForm( "Cin", 1 ) end,
+	OnSaberDeploy = function( wep ) wep:AddForm( "Cin", 1 ) wep:AddForm( "Cin", 2 ) end,
 }
 
 TREE.Tier[1][3] = {

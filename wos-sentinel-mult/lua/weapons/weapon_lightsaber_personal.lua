@@ -96,6 +96,8 @@ SWEP.UseSecWidth = false
 SWEP.UseSecColor = false
 SWEP.UseSecDarkInner = false
 
+SWEP.HPAfterRespawn = 70 -- This is to replicate what happens on the Defibs, if the versatile code fails.
+
 -----------------------------------------------------------END OF EDIT----------------------------------------------------------------
 
 
