@@ -501,23 +501,23 @@ wOS.ForcePowers:RegisterNewPower({ -- As is, does not yet work.
 	end
 })
 
+util.AddNetworkString( "SetReviveOnWeapon" )
 wOS.ForcePowers:RegisterNewPower({
 		name = "Revive",
 		icon = "R",
 		description = "Sacrifice your own health for an ally.",
-		image = "wos/forceicons/icefuse/group_push.png",
+		image = "wos/forceicons/advanced_cloak.png",
 		cooldown = 180,
-		manualaim = false,
 		action = function( self )
 			if ( self:GetForce() < 150 ) then return end
-			if ( self:Health() < 200 ) then return end
+			if ( self:GetOwner():Health() < 200 ) then return end
 			
-			self.HPAfterRespawn = self:Health() / 2
+			self.HPAfterRespawn = self:GetOwner():Health() / 2
 			net.Start("defibgetents")
 			net.Send(self.Owner)
 			
 			self:SetForce(self:GetForce() - 150)
-			self:SetHealth(self:Health() / 2)
+			self:SetHealth(self:GetOwner():Health() / 2)
 			return true
 		end,
 })
