@@ -1976,7 +1976,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     description = [[Congratulations, you are an Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dp23",  "arccw_dc17_stun_v2", "stunstick", "arccw_v2_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield","datapad_player"},
+    weapons = {"arccw_v2_dp23",  "arccw_v2_dc17_stun", "stunstick", "arccw_v2_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield","datapad_player"},
 
     command = "cglt",
 
@@ -2009,7 +2009,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     description = [[Congratulations, you are a Riot Trooper of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_dc17_stun_v2", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
+    weapons = {"arccw_v2_dc15_riot", "arccw_v2_dc17_stun", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
 
     command = "cgrt",
 
@@ -2044,7 +2044,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
     description = [[Congratulations, you are a Security Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_vanguard_shotgun", "arccw_dc17_stun_v2", "stunstick", "arccw_v2_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_v2_dp23","datapad_player"},
+    weapons = {"arccw_vanguard_shotgun", "arccw_v2_dc17_stun", "stunstick", "arccw_v2_dc15a_stun","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_v2_dp23","datapad_player"},
 
     command = "cgso",
 
@@ -2114,7 +2114,7 @@ TEAM_ARCALPHACG = DarkRP.createJob("Coruscant Guard Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun_v2" ,"arccw_v2_westarm5", "arccw_v2_dp23","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
+    weapons = {"arccw_v2_dc17_stun" ,"arccw_v2_westarm5", "arccw_v2_dp23","arccw_dual_dc17s", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","weaponchecker","datapad_player", "carkeys"},
 
     command = "arcacg",
 
@@ -2146,7 +2146,7 @@ TEAM_CGARC = DarkRP.createJob("Coruscant Guard ARC", {
 
     description = [[Congratulations, you are a Coruscant Guard ARC Trooper!]],
 
-    weapons = {"arccw_dc17_stun_v2", "arccw_v2_westarm5","arccw_v2_dp23", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","datapad_player"},
+    weapons = {"arccw_v2_dc17_stun", "arccw_v2_westarm5","arccw_v2_dp23", "arccw_dual_dc17s","weaponchecker", "realistic_hook", "weapon_cuff_elastic_officer", "stunstick", "weapon_policeshield","datapad_player"},
 
     command = "cgarc",
 
@@ -2180,7 +2180,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dp23", "arccw_dc17_stun_v2", "stunstick", "arccw_v2_dc15a_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player", "carkeys"},
+    weapons = {"arccw_v2_dp23", "arccw_v2_dc17_stun", "stunstick", "arccw_v2_dc15a_stun", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun","datapad_player", "carkeys"},
 
     command = "cgmo",
 
@@ -2214,7 +2214,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dp23", "arccw_dc17_stun_v2", "arccw_v2_dc15a_stun","stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield","weaponchecker","datapad_player"},
+    weapons = {"arccw_v2_dp23", "arccw_v2_dc17_stun", "arccw_v2_dc15a_stun","stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield","weaponchecker","datapad_player"},
 
     command = "cgsgt",
 
@@ -2248,7 +2248,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dp23","arccw_dc17_stun_v2", "arccw_v2_dc15a_stun", "stunstick", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
+    weapons = {"arccw_v2_dp23","arccw_v2_dc17_stun", "arccw_v2_dc15a_stun", "stunstick", "weapon_cuff_elastic_officer","weaponchecker", "weapon_policeshield", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator","datapad_player", "carkeys"},
 
     command = "cgmt",
 
@@ -2282,7 +2282,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     description = [[Congratulations, you are a trooper of the Coruscant Guard!]],
 
-    weapons = {"arccw_dc17_stun_v2", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield","arccw_v2_dc15a_stun","datapad_player"},
+    weapons = {"arccw_v2_dc17_stun", "stunstick", "weapon_cuff_elastic","weaponchecker", "weapon_policeshield","arccw_v2_dc15a_stun","datapad_player"},
 
     command = "cgtrp",
 
@@ -5957,7 +5957,7 @@ TEAM_FLEET_IO = DarkRP.createJob("Fleet Security Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/zeus/security_officer_male.mdl", "models/zeus/security_officer_female.mdl"},
     description = [[Congratulations You are now a Fleet Security Officer!]],
-    weapons = {"datapad_player", "arccw_dc17_stun_v2", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "arccw_v2_dc17_stun", "arccw_defender_sporting", "weapon_remotedrone", "weapon_cuff_elastic_officer", "voice_amplifier", "carkeys", "kaito_satellite_tablet"},
     command = "fleetso",
     max = 4,
     salary = 200,
