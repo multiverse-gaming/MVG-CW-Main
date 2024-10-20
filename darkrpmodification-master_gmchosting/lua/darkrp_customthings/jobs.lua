@@ -774,7 +774,7 @@ TEAM_501STGENERALTANO = DarkRP.createJob("501st Commander Ahsoka Tano", {
 
 TEAM_501STGENERALSKYWALKER = DarkRP.createJob("501st General Anakin Skywalker", {
     color = Color(0, 51, 255, 255),
-    model = {"models/player/sample/anakin/anakins7.mdl","models/tfa/comm/gg/pm_sw_anakin_v2.mdl"},
+    model = {"models/player/sample/anakin/anakins7.mdl","models/zeus/anakin.mdl"},
     description = [[You are Jedi General Anakin Skywalker. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "501stsky",
@@ -2883,7 +2883,7 @@ TEAM_GMJEDI = DarkRP.createJob("Galactic Marines Jedi", {
 
 TEAM_GMGENERALADI = DarkRP.createJob("GM General Ki-Adi-Mundi", {
     color = Color(119, 63, 202),
-    model = {"models/tfa/comm/gg/pm_sw_mundi.mdl"},
+    model = {"models/zeus/kiadimundi.mdl"},
     description = [[You are Jedi General Ki-Adi-Mundi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "gmadi",
@@ -5313,7 +5313,7 @@ TEAM_REPUBLICCOMMANDO = DarkRP.createJob("Republic Commando", {
 
 TEAM_RCGENERALKIT = DarkRP.createJob("RC General Kit Fisto", {
     color = Color(255, 157, 0),
-    model = {"models/tfa/comm/gg/pm_sw_fisto.mdl"},
+    model = {"models/zeus/fisto.mdl"},
     description = [[You are Jedi General Kit Fisto. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "rcfisto",
@@ -5565,7 +5565,7 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
 
 TEAM_SHADOWGENERALVOS = DarkRP.createJob("Shadow General Quinlan Vos", {
 	color = Color(130,16,8),
-    model = {"models/tfa/comm/gg/pm_sw_quinlanvos.mdl"},
+    model = {"models/zeus/quinlanvos.mdl"},
     description = [[You are Jedi General Quinlan Vos. It is your role to help lower ranking Jedi get an understanding of the Order!]],
     weapons = {"weapon_lightsaber_personal", "wos_inventory", "arccw_ll30", "carkeys"},
     command = "shadowvos",
@@ -6143,7 +6143,7 @@ TEAM_JEDIGENERALSKYWALKER = DarkRP.createJob("Jedi General Anakin Skywalker", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/player/sample/anakin/anakins7.mdl","models/tfa/comm/gg/pm_sw_anakin_v2.mdl"},
+    model = {"models/player/sample/anakin/anakins7.mdl","models/zeus/anakin.mdl"},
 
     description = [[You are Jedi General Anakin Skywalker. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6281,7 +6281,7 @@ TEAM_JEDIGENERALKIT = DarkRP.createJob("Jedi General Kit Fisto", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_fisto.mdl"},
+    model = {"models/zeus/fisto.mdl"},
 
     description = [[You are Jedi General Kit Fisto. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6383,7 +6383,7 @@ TEAM_JEDIGENERALADI = DarkRP.createJob("Jedi General Ki-Adi-Mundi", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_mundi.mdl"},
+    model = {"models/zeus/kiadimundi.mdl"},
 
     description = [[You are Jedi General Ki-Adi-Mundi. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6417,7 +6417,7 @@ TEAM_JEDIGENERALVOS = DarkRP.createJob("Jedi General Quinlan Vos", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/tfa/comm/gg/pm_sw_quinlanvos.mdl"},
+    model = {"models/zeus/quinlanvos.mdl"},
 
     description = [[You are Jedi General Quinlan Vos. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -8807,7 +8807,7 @@ TEAM_REPUBLICCHARACTER = DarkRP.createJob("Republic Character", {
 
     color = Color(0, 51, 255, 255),
 
-    model = {"models/riddick/sr/palpatine/palpatine.mdl","models/jajoff/sps/republic/tc13j/tarkin.mdl","models/player/wullf/wullf.mdl","models/tfa/comm/gg/pm_sw_padme.mdl","models/player/mandalorian/dutchess_satine.mdl"},
+    model = {"models/riddick/sr/palpatine/palpatine.mdl","models/jajoff/sps/republic/tc13j/tarkin.mdl","models/player/wullf/wullf.mdl","models/zeus/padme.mdl","models/player/mandalorian/dutchess_satine.mdl"},
 
     description = [[You are an Republic Event Character!]],
 
