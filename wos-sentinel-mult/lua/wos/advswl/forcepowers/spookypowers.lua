@@ -56,3 +56,27 @@ wOS.ForcePowers:RegisterNewPower({
 			return true
 		end,
 })
+
+util.AddNetworkString( "wiltOS-JumpscarePlayer" )
+wOS.ForcePowers:RegisterNewPower({
+		name = "Jumpscare",
+		icon = "J",
+		image = "wos/forceicons/icefuse/blind.png",
+		cooldown = 60,
+		target = 1,
+		distance = 1200,
+		manualaim = true,
+		description = "Scare someone with a horrifying visage",
+		action = function( self )
+			if ( self:GetForce() < 25 ) then return end
+			local target = self:SelectTargets( 1 )[ 1 ]
+			if not IsValid( target ) or not target:IsPlayer() or not target:Alive() then return end
+	
+			-- Send a network message to the specific player
+			net.Start("wiltOS-JumpscarePlayer")
+			net.Send(target)
+	
+			self:SetForce( self:GetForce() - 25 )
+			return true
+		end
+})

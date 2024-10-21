@@ -258,17 +258,15 @@ wOS.ForcePowers:RegisterNewPower({
 			if ( self:GetForce() < 6 or CLIENT ) then return end
 			local ent = self:SelectTargets( 1 )[ 1 ]
 
-			if (!self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
-				if (ent:Health() >= ent:GetMaxHealth()) then return end
-				self:SetNextAttack( 0.2 )
+			if (self:GetOwner():KeyDown( IN_WALK )) then
+				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
 				local ed = EffectData()
-				ed:SetOrigin( ent:GetPos() )
-				ent:SetHealth( math.min(ent:Health() + 20, ent:GetMaxHealth()))
-				ent:Extinguish()
-				--self:SetForce( self:GetForce() - 6 )
+				ed:SetOrigin( self:GetOwner():GetPos() )
+				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 10, self:GetOwner():GetMaxHealth()) )
+				self:GetOwner():Extinguish()
+				self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
-				self:GetOwner():AddSkillXP( 1 )
-
+				self:SetNextAttack( 0.2 )
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
 				-- Check Global CD for shared skill.
 				if (self.GroupHealCD ~= nil && self.GroupHealCD > CurTime()) then return end
@@ -321,15 +319,16 @@ wOS.ForcePowers:RegisterNewPower({
 				-- Global CD for shared ability.
 				self.ProtectCD = CurTime() + 20
 
-			elseif (self:GetOwner():KeyDown( IN_WALK )) then
-				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
-				local ed = EffectData()
-				ed:SetOrigin( self:GetOwner():GetPos() )
-				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 10, self:GetOwner():GetMaxHealth()) )
-				self:GetOwner():Extinguish()
-				self:SetForce( self:GetForce() - 6 )
-				util.Effect( "rb655_force_heal", ed, true, true )
+			elseif (!self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
+				if (ent:Health() >= ent:GetMaxHealth()) then return end
 				self:SetNextAttack( 0.2 )
+				local ed = EffectData()
+				ed:SetOrigin( ent:GetPos() )
+				ent:SetHealth( math.min(ent:Health() + 20, ent:GetMaxHealth()))
+				ent:Extinguish()
+				--self:SetForce( self:GetForce() - 6 )
+				util.Effect( "rb655_force_heal", ed, true, true )
+				self:GetOwner():AddSkillXP( 1 )
 		end
 	end
 })

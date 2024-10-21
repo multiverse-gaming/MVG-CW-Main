@@ -1,9 +1,9 @@
 local ITEM = {} 
 ITEM.Rarity = 100
 
-ITEM.Name = "Spook"
+ITEM.Name = "Jumpscare"
 
-ITEM.Description = "Spook people. Only works near halloween."
+ITEM.Description = "Jumpscare people. Only works near halloween."
 
 ITEM.Type = WOSTYPE.MISC2
 
@@ -33,7 +33,7 @@ ITEM.OnEquip = function( wep )
 
     -- Check if we're within 10 days before or after Halloween
     if math.abs(currentDate - halloweenDate) <= tenDaysInSeconds then
-        wep:AddForcePower( "Spook" )
+        wep:AddForcePower( "Jumpscare" )
     end
 end
 

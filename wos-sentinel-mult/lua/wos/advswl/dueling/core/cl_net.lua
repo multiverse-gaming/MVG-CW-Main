@@ -225,6 +225,46 @@ net.Receive("SetReviveOnWeapon", function()
 	LocalPlayer():GetActiveWeapon().Revive = true
 end)
 
+net.Receive("wiltOS-JumpscarePlayer", function()
+	-- Player validation
+    if not IsValid(LocalPlayer()) then return end
+    local ply = LocalPlayer()
+    local pos = ply:GetPos() + ply:GetForward() * 100
+    local ang = ply:GetAngles()
+
+	-- Setup and deploy zombie
+    local zombie = ClientsideModel("models/zombie/fast.mdl")
+    if not IsValid(zombie) then return end
+    zombie:SetPos(pos)
+    local angle = (ply:GetPos() - pos):GetNormalized():Angle()
+    zombie:SetAngles(angle)
+    local sequence = zombie:LookupSequence("run") -- Get the "run" sequence
+    if sequence >= 0 then
+        zombie:ResetSequence(sequence) -- Reset to the "run" animation
+        zombie:SetCycle(0) -- Ensure it starts from the beginning
+        zombie:SetPlaybackRate(1) -- Play at normal speed
+    else
+        print("Failed to find run sequence for zombie.")
+    end
+    zombie:EmitSound("npc/fast_zombie/fz_scream1.wav", 75, 100, 1.3)
+
+	local zombieHookName = "ClientsideZombieThink" .. zombie:EntIndex()
+	hook.Add("Think", zombieHookName, function()
+		if not IsValid(zombie) then
+			hook.Remove("Think", zombieHookName)
+			return
+		end
+		zombie:FrameAdvance(FrameTime())
+	end)
+
+    timer.Simple(1, function()
+        if IsValid(zombie) then
+            zombie:Remove()
+        end
+		hook.Remove("Think", zombieHookName)
+    end)
+end)
+
 properties.Add( "Challenge to Duel", {
 	MenuLabel = "#Challenge to Duel", -- Name to display on the context menu
 	Order = 1, -- The order to display this property relative to other properties
