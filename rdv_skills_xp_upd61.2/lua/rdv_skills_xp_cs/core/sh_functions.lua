@@ -17,7 +17,7 @@ function RDV.SAL.GetRequiredXP(LEVEL)
 
     if !LEVEL or !SCALE or !START then return false end
 
-    local REQ = START * (LEVEL * SCALE)
+    local REQ = START + ((LEVEL-1) * SCALE * 1000)
 
     return math.Round(REQ)
 end

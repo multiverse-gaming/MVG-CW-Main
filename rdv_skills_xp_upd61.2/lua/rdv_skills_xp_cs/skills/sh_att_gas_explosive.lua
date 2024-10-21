@@ -1,10 +1,10 @@
 local OBJ = RDV.SAL.AddSkill("Explosive Tibanna")
 
-OBJ:SetMaxTiers(1)
+OBJ:SetMaxTiers(3)
 
 OBJ:SetCategory("Energisation")
 
-OBJ:SetDescription("Explosive shot.")
+OBJ:SetDescription("Explosive shot. Must fully upgrade")
 
 --OBJ:SetNoEffectTeams({
 --    TEAM_CITIZEN,
@@ -20,10 +20,10 @@ OBJ:AddHook("PlayerLoadout", function(ply)
 
     -- Apply the skill.
     local TIER = OBJ:GetSkillTier(ply)
-    if TIER > 0 then
+    if TIER > 2 then
         -- Get the attachment. Replacing upgraded version.
         local attachment
-        if (TIER == 1) then
+        if (TIER == 3) then
             attachment = "dc17m_explosivetib"
         end
         

@@ -587,8 +587,6 @@ function RDV.SAL.OpenMenu()
                 local doesTheTableActuallyExist = false
                 for noEffectTeams, exists in pairs(v:GetNoEffectTeams()) do
                     doesTheTableActuallyExist = true
-                    print(noEffectTeams)
-                    print(LocalPlayer():Team())
                     if (noEffectTeams == LocalPlayer():Team()) then
                         skip = false
                         continue
