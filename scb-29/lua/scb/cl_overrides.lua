@@ -270,11 +270,13 @@ do
 				line:NewLabel(TEAM, Color(76, 175, 80))
 			end
 
-			local tag = ply:SCB_GetTag()
-			if tag then
-				line.emoji_size = 18
-				line:Parse(tag .. " ")
-				line.emoji_size = 24
+			if string.sub(name_replacement, 1, 5) == "(OOC)" then
+				local tag = ply:SCB_GetTag()
+				if tag then
+					line.emoji_size = 18
+					line:Parse(tag .. " ")
+					line.emoji_size = 24
+				end
 			end
 
 			if name_replacement then
