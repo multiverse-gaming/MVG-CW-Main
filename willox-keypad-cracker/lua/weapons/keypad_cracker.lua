@@ -2,7 +2,7 @@
 
 AddCSLuaFile()
 
-local keypad_crack_time = CreateConVar("keypad_crack_time", "15", {FCVAR_ARCHIVE}, "Seconds for keypad cracker to crack keypad") 
+local keypad_crack_time = CreateConVar("keypad_crack_time", "15", {FCVAR_REPLICATED}, "Seconds for keypad cracker to crack keypad") 
 
 if SERVER then
 	util.AddNetworkString("KeypadCracker_Hold")
