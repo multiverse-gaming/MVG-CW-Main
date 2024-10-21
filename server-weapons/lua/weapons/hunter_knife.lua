@@ -27,7 +27,10 @@ end
 
 SWEP.Base = "huntersbase"
 
-SWEP.Category            = "Vibro Knives"
+SWEP.IconOverride = "materials/entities/base.png"
+
+
+SWEP.Category			= "[MVG] Vibro Knives"
 
 SWEP.Spawnable                = true
 SWEP.AdminSpawnable            = true

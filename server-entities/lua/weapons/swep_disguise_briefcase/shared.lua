@@ -5,7 +5,7 @@ SWEP.Author = "tenrys"
 SWEP.Contact = "https://tenrys.pw"
 SWEP.ClassName = "swep_disguise_briefcase"
 SWEP.PrintName = "Disguise Device"
-SWEP.Category = "MVG"
+SWEP.Category = "[MVG] Miscellaneous Equipment"
 
 SWEP.DrawAmmo = false
 SWEP.DrawCrosshair = false

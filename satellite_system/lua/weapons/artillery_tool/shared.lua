@@ -3,7 +3,7 @@ AddCSLuaFile()
 SWEP.PrintName = "Artillery Tool"
 SWEP.Base = "weapon_base"
 
-SWEP.Category = "Kaito"
+SWEP.Category = "[Kaito] Artillery System"
 SWEP.Spawnable = true
 SWEP.ViewModel = "models/weapons/c_pistol.mdl"
 SWEP.WorldModel = "models/kaito/sw/w_macrobinoculars.mdl"

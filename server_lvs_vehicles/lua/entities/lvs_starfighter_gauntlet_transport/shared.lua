@@ -5,6 +5,8 @@ ENT.PrintName = "Gauntlet Heavy Transport"
 ENT.Author = "Nashatok"
 ENT.Information = "Modified Aggressor-class Assault Fighter, used by bounty hunter and assassin IG-88B"
 ENT.Category = "[LVS] - Miscellaneous Vehicles"
+ENT.IconOverride = "materials/entities/lvs_starfighter_gauntlet.png"
+
 
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false

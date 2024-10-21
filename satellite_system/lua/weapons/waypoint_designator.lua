@@ -1,6 +1,6 @@
 AddCSLuaFile()
 SWEP.Base = "weapon_base"
-SWEP.Category = "Waypoint System"
+SWEP.Category = "[Kaito] Artillery System"
 
 SWEP.PrintName = "Waypoint Designator"
 SWEP.Author = "Ace"

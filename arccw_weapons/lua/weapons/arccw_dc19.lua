@@ -28,7 +28,7 @@ SWEP.WorldModelOffset = {
     scale = 0.009
 }
 
-SWEP.IconOverride = "materials/entities/rw_sw_dc15s.png"
+SWEP.IconOverride = "materials/entities/rw_sw_dc19.png"
 
 SWEP.DefaultBodygroups = "01000"
 

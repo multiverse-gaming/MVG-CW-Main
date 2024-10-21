@@ -2,7 +2,7 @@ AddCSLuaFile()
 
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
-SWEP.Category = "[ ArcCW ] Republic TFA Weapons"
+SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.Credits = { Author1 = "cat"}
 SWEP.PrintName = "DC-19LE"
 SWEP.Trivia_Class = "Stealth Blaster Carbine"
@@ -28,7 +28,7 @@ SWEP.WorldModelOffset = {
     scale = 0.009
 }
 
-SWEP.IconOverride = "materials/entities/rw_sw_dc15s.png"
+SWEP.IconOverride = "materials/entities/rw_sw_dc19le.png"
 
 SWEP.DefaultBodygroups = "01000"
 

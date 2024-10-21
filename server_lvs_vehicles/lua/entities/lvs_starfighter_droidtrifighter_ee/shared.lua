@@ -10,8 +10,9 @@ ENT.Author = "Luna"
 
 ENT.Information = "Droid Starfighter of the Separatists"
 
-ENT.Category = "[LVS] - Republic Era Vehicles"
+ENT.Category = "[LVS] - CIS Vehicles"
 
+ENT.IconOverride = "materials/entities/lvs_starfighter_droidtrifighter.png"
 
 
 ENT.VehicleCategory = "Star Wars"

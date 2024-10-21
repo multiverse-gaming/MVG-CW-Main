@@ -5,7 +5,7 @@ SWEP.Base = "weapon_base"
 
 SWEP.Author = "DolUnity"
 SWEP.Purpose = "Récupérer la distance"
-SWEP.Category = "Kaito"
+SWEP.Category = "[Kaito] Artillery System"
 SWEP.Spawnable = true
 SWEP.ViewModel = "models/weapons/c_pistol.mdl"
 SWEP.WorldModel = "models/kaito/sw/w_macrobinoculars.mdl"

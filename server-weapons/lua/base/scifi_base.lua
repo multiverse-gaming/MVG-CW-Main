@@ -23,7 +23,7 @@ include( "base/scifi_elementals.lua" )
 SWEP.Base 					= "weapon_base"
 
 SWEP.Author					= "Drugz"
-SWEP.Category				= "MVG - Melee Equipment"
+SWEP.Category				= "[MVG] Melee Equipment"
 
 SWEP.Spawnable				= true
 SWEP.AdminSpawnable			= true

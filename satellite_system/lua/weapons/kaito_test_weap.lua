@@ -13,7 +13,7 @@ AddCSLuaFile()
 
 
 SWEP.PrintName          = "Satellite Test Tablet"
-SWEP.Category           = "Kaito | KSS"
+SWEP.Category = "[Kaito] Artillery System"
 SWEP.Author             = "Kaito"
 
 SWEP.Spawnable          = false
