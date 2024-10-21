@@ -516,7 +516,7 @@ wOS.ForcePowers:RegisterNewPower({
 			net.Send(self.Owner)
 			
 			self:SetForce(self:GetForce() - 150)
-			self:SetHealth(self:GetOwner():Health() / 2)
+			self:GetOwner():SetHealth(self:GetOwner():Health() / 2)
 			return true
 		end,
 })
