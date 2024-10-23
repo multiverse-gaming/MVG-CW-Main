@@ -86,7 +86,7 @@ end
 
 
 -- Hook to give attachments to players when they spawn
-hook.Add("PlayerSpawn", "GiveAttachments", function(ply)
+hook.Add("PlayerSpawn", "GiveAttachment", function(ply)
     timer.Simple(1, function()
         giveAttachments(ply)
     end)
