@@ -11,7 +11,7 @@ ENT.Information 	= ""
 ENT.Spawnable		= true
 ENT.AdminSpawnable	= true
 
-ENT.WorldModel	 	= "models/eoti/wolfsbane/woods_bush.mdl"
+ENT.WorldModel	 	= "models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/plants/moss_flower.mdl"
 
 function ENT:SetupDataTables()
 	self:NetworkVar("Entity", 0, "owning_ent")
