@@ -8863,7 +8863,10 @@ TEAM_COUNTDOOKU = DarkRP.createJob("Count Dooku", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(6000) ply:SetHealth(6000) ply:SetRunSpeed (280) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Count Dooku") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(6000) ply:SetHealth(6000) ply:SetRunSpeed (280) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Count Dooku")
+        ply:setDarkRPVar("rpname", "Count Dooku")
+    end,
 
     sortOrder = 1
 
@@ -8935,7 +8938,10 @@ TEAM_DARTHMAUL = DarkRP.createJob("Darth Maul", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (280) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Darth Maul") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (280) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Darth Maul")
+        ply:setDarkRPVar("rpname", "Darth Maul")
+    end,
 
     sortOrder = 3
 
@@ -8969,7 +8975,10 @@ TEAM_GENERALGRIEVOUS = DarkRP.createJob("General Grievous", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (320) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "General Grievous") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (320) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "General Grievous")
+        ply:setDarkRPVar("rpname", "General Grievous")
+    end,
 
     sortOrder = 4
 
@@ -9003,7 +9012,10 @@ TEAM_SAVAGEOPRESS = DarkRP.createJob("Savage Opress", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(7000) ply:SetHealth(7000) ply:SetRunSpeed (300) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Savage Opress") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(7000) ply:SetHealth(7000) ply:SetRunSpeed (300) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Savage Opress")
+        ply:setDarkRPVar("rpname", "Savage Opress")
+    end,
 
     sortOrder = 5
 
@@ -9037,7 +9049,10 @@ TEAM_PREVISZLA = DarkRP.createJob("Pre Viszla", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Pre Viszla") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Pre Viszla")
+        ply:setDarkRPVar("rpname", "Pre Viszla")
+    end,
 
     sortOrder = 6
 
@@ -9071,7 +9086,10 @@ TEAM_CADBANE = DarkRP.createJob("Cad Bane", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Cad Bane") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Cad Bane")
+        ply:setDarkRPVar("rpname", "Cad Bane")
+    end,
 
     sortOrder = 7
 
@@ -9105,7 +9123,10 @@ TEAM_HONDO = DarkRP.createJob("Hondo Ohnaka", {
 
     category = "Event Characters",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Hondo Ohnaka") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed (240) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Hondo Ohnaka")
+        ply:setDarkRPVar("rpname", "Hondo Ohnaka")
+    end,
 
     sortOrder = 8
 
@@ -9139,7 +9160,10 @@ TEAM_BOSK = DarkRP.createJob("Bossk", {
 
     category = "Event Characters",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed(300) ply:SetJumpPower(420) ply:SetGravity(1)  ply:setDarkRPVar("rpname", "Bossk") end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(5000) ply:SetHealth(5000) ply:SetRunSpeed(300) ply:SetJumpPower(420) ply:SetGravity(1)
+        DarkRP.storeRPName(ply, "Bossk")
+        ply:setDarkRPVar("rpname", "Bossk")
+    end,
 
     sortOrder = 9
 

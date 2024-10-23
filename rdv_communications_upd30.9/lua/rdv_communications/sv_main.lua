@@ -76,7 +76,7 @@ hook.Add("PlayerSay", "RDV_COMMS_Blacklist", function(P, T, TCHAT)
 
     local ENABLED = RDV.COMMUNICATIONS.GetCommsEnabled(P)
 
-    if ( TCHAT and CFG.disableTeamChat ) and !ENABLED then
+    if ( (TCHAT or string.sub(T, 1, 2) == "/g") and CFG.disableTeamChat ) and !ENABLED then
         SendNotification(P, RDV.LIBRARY.GetLang(nil, "COMMS_relayDownError"))
 
         return ""
