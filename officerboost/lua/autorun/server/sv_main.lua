@@ -364,10 +364,8 @@ end )
 hook.Add("EntityTakeDamage", "EntityTookDamage", function(target, dmgInfo)
     local attacker = dmgInfo:GetAttacker()
 
-    if IsValid(attacker) and (attacker:IsPlayer() or attacker:IsNPC()) then
+    if IsValid(attacker) and attacker:IsPlayer() then
         if attacker:GetNWBool("OfficerBoost.Boosted", false) then
-            local targetClass = target:GetClass()
-
             if target:IsPlayer() or target:IsNPC() then
                 local boostType = attacker:GetNWString("OfficerBoost.Type", "")
                 if boostType == "BattleFocus" then
