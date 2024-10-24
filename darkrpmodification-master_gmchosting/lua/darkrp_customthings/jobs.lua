@@ -6109,7 +6109,7 @@ TEAM_JEDIGENERALWINDU = DarkRP.createJob("Jedi Master Mace Windu", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/player/mace/mace.mdl"},
+    model = {"models/zeus/mace.mdl"},
 
     description = [[You are Jedi General Mace Windu. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
