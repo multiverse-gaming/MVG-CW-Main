@@ -249,8 +249,8 @@ function SWEP:MorphToHuman()
 	if self.PlayerScale > 1 then owner:SetCollisionGroup( COLLISION_GROUP_PASSABLE_DOOR ) 
 	else owner:SetCollisionGroup( COLLISION_GROUP_NONE ) end
 
-	owner:SetRunSpeed(self.WalkSpeed)
-	owner:SetWalkSpeed(self.RunSpeed)
+	owner:SetRunSpeed(self.RunSpeed)
+	owner:SetWalkSpeed(self.WalkSpeed)
 
 	if !owner:IsValid() then return end
 	if !owner:Alive() then return end
