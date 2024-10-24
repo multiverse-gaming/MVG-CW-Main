@@ -114,9 +114,9 @@ list.Set( "PlayerOptionsModel", "Phase 2 21st Nova Corps Tre (CGI)", "models/aus
 player_manager.AddValidModel( "Phase 2 21st Nova Corps Tre (CGI)", "models/aussiwozzi/cgi/base/gm_elite.mdl" )
 player_manager.AddValidHands( "Phase 2 21st Nova Corps Tre (CGI)", "models/aussiwozzi/cgi/base/gm_arms.mdl",0,"10000000" )
 
-list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit ARC 2 (CGI)", "models/aussiwozzi/cgi/base/gm_tre.mdl" )
-player_manager.AddValidModel( "Phase 2 Doom's Unit ARC 2 (CGI)", "models/aussiwozzi/cgi/base/gm_tre.mdl" )
-player_manager.AddValidHands( "Phase 2 Doom's Unit ARC 2 (CGI)", "models/aussiwozzi/cgi/base/doom_arc_arms.mdl",0,"10000000" )
+list.Set( "PlayerOptionsModel", "GM MO Tre", "models/aussiwozzi/cgi/base/gm_tre.mdl" )
+player_manager.AddValidModel( "GM MO Tre", "models/aussiwozzi/cgi/base/gm_tre.mdl" )
+player_manager.AddValidHands( "GM MO Tre", "models/aussiwozzi/cgi/base/gm_arms.mdl",0,"10000000" )
 
 list.Set( "PlayerOptionsModel", "Phase 2 Doom's Unit ARC 3 (CGI)", "models/aussiwozzi/cgi/base/doom_arc_3.mdl" )
 player_manager.AddValidModel( "Phase 2 Doom's Unit ARC 3 (CGI)", "models/aussiwozzi/cgi/base/doom_arc_3.mdl" )
