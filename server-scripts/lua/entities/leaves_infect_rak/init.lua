@@ -36,7 +36,7 @@ function ENT:PhysicsCollide(data, collider)
 		if !hitEntity:Alive() then return end
 		if hitEntity:HasWeapon("weapon_infect_rak") then return end
 		if CLIENT then
-			chat.AddText(Color( 0, 200, 0 ), "By consuming the infected leaves, you have contracted Rakghoul curse!")
+			chat.AddText(Color( 0, 200, 0 ), "By touching the infected leaves, you have contracted Rakghoul curse!")
 		end
 		hitEntity:Give("weapon_infect_rak")
 		hitEntity:SetActiveWeapon(hitEntity:GetWeapon("weapon_infect_rak"))
