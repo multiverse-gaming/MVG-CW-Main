@@ -75,7 +75,7 @@ wOS.ALCS.Config.Skills.ExperienceTable[ "Default" ] = {
 -- Something to show every hook that exists
 -- if (hookName != "hookNameHere") then return end
 -- Put the above in the for loop if you want something specific.
-timer.Simple(65, function()
+--[[timer.Simple(65, function()
 	print("=====================================")
 	for hookName, hooks in pairs(hook.GetTable()) do
 		print("====================")
@@ -87,7 +87,7 @@ timer.Simple(65, function()
 		print("====================")
 	end
 	print("=====================================")
-end)
+end)]]--
 
 local badHooks = {
 	["wOS.ALCS.DA.EnergyShell"] = "EntityTakeDamage", -- Unused and unwanted.

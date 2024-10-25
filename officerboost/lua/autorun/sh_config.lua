@@ -56,13 +56,3 @@ OfficerBoost.Config["BattleFocus"].Radius = 15
 OfficerBoost.Config["BattleFocus"].Duration = 15
 OfficerBoost.Config["BattleFocus"].Sounds = {"summe/officer_boost/laststand1.mp3", "summe/officer_boost/laststand2.mp3", "summe/officer_boost/laststand3.mp3"}
 OfficerBoost.Config["BattleFocus"].GiveBack = 30
-
-OfficerBoost.Config["LastWill"] = {}
-OfficerBoost.Config["LastWill"].Color = Color(255,196,1) -- Ring and HUD color
-OfficerBoost.Config["LastWill"].SpeedBoost = 1.3 -- The speed boost: current speed * boost
-OfficerBoost.Config["LastWill"].JumpBoost = 1 -- The jump boost: current jump boost * boost
-OfficerBoost.Config["LastWill"].AdditionalHealth = 100  -- The additional health: current health + health
-OfficerBoost.Config["LastWill"].Radius = 256 -- The radius of the sphere
-OfficerBoost.Config["LastWill"].Duration = 15 -- The duration of the effect
-OfficerBoost.Config["LastWill"].Sounds = {"summe/officer_boost/baseboost1.mp3", "summe/officer_boost/baseboost2.mp3", "summe/officer_boost/baseboost3.mp3", "summe/officer_boost/will1.mp3", "summe/officer_boost/will2.mp3", "summe/officer_boost/will3.mp3"}
-OfficerBoost.Config["LastWill"].GiveBack = 30 -- The cool down when you get the swep back -- false to disable

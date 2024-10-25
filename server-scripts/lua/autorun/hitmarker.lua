@@ -9,7 +9,7 @@ if SERVER then
     util.AddNetworkString("ShowHitmarker")
     hook.Add("EntityTakeDamage", "markPlayerForHitmarker", function(target, dmg)
         local ply = dmg:GetAttacker()
-        if ply:IsPlayer() and ply:IsValid() and (target:IsNPC() or target:IsPlayer()) and (!(ply.DoHitMarker) or CurTime() > ply.DoHitMarker) then
+        if ply:IsPlayer() and IsValid(ply) and (target:IsNPC() or target:IsPlayer()) and (!(ply.DoHitMarker) or CurTime() > ply.DoHitMarker) then
             ply.DoHitMarker = CurTime() + 0.5
             net.Start("ShowHitmarker")
             net.Send(ply)
