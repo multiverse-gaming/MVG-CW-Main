@@ -2506,7 +2506,7 @@ TEAM_GMLIEUTENANT = DarkRP.createJob("Galactic Marines Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "seal6-c4", "realistic_hook", "arccw_incendiary", "arccw_flash_grenade"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "seal6-c4", "realistic_hook", "arccw_incendiary" },
 
     command = "gmlt",
 
@@ -2604,7 +2604,7 @@ TEAM_ARCALPHAGM = DarkRP.createJob("Galactic Marines Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Galactic Marines!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "seal6-c4", "carkeys", "arccw_incendiary", "arccw_flash_grenade"},
+    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "seal6-c4", "carkeys", "arccw_incendiary" },
 
     command = "arcagm",
 
@@ -2636,7 +2636,7 @@ TEAM_GMARC = DarkRP.createJob("Galactic Marines ARC", {
 
     description = [[Congratulations, you are a Galactic Marines ARC Trooper!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "seal6-c4", "realistic_hook", "arccw_incendiary", "arccw_flash_grenade"},
+    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "seal6-c4", "realistic_hook", "arccw_incendiary" },
 
     command = "gmarc",
 
