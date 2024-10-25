@@ -360,24 +360,3 @@ hook.Add( "OfficerBoost.OnBoost", "BattleFocusBoost", function(ply, type, creato
         ply:SetJumpPower(ply.OBJumpPower)
     end)
 end )
-
-hook.Add("EntityTakeDamage", "EntityTookDamage", function(target, dmgInfo)
-    local attacker = dmgInfo:GetAttacker()
-
-    if IsValid(attacker) and (attacker:IsPlayer() or attacker:IsNPC()) then
-        if attacker:GetNWBool("OfficerBoost.Boosted", false) then
-            local targetClass = target:GetClass()
-
-            if target:IsPlayer() or target:IsNPC() then
-                local boostType = attacker:GetNWString("OfficerBoost.Type", "")
-                if boostType == "BattleFocus" then
-                    attacker:SetHealth(attacker:Health() + 10)
-                    if attacker:Health() > 1000 then
-                        attacker:SetHealth(995)
-                    end
-                    return
-                end
-            end
-        end
-    end
-end)

@@ -104,10 +104,22 @@ function ENT:Use(ply)
 		else
 			local color = { "Orange", "Yellow", "Green", "Light Green", "Cyan", "Blue", "Purple", "White", "Pink" }
 			-- Unique items
-			if chance <= 50 then
-				items = {"Heavish Hum Blueprint", "Heavy Hum Blueprint", "Medium Hum Blueprint", "Heavy Igniter Blueprint", 
-					"Heavy Fast Igniter Blueprint", "Jedi Fast Igniter Blueprint", "Jedi Original Igniter Blueprint", 
-					"Jedi Original Fast Igniter Blueprint"}
+			if chance <= 40 then
+				local extraChance = math.random(1,100)
+				if extraChance <= 25 then
+					items = {"Heavish Hum Blueprint", "Heavy Hum Blueprint", "Medium Hum Blueprint", "Heavy Igniter Blueprint",
+						"Heavy Fast Igniter Blueprint", "Jedi Fast Igniter Blueprint", "Jedi Original Igniter Blueprint",
+						"Jedi Original Fast Igniter Blueprint"}
+				elseif extraChance <= 60 then
+					items = {"Regular Leap Igniter", "Regular Armor Igniter", "Regular Speed Igniter", "Regular Shield Idler", "Regular Relfect Idler", "Regular Valor Idler", "Regular Heal Idler",
+						"Regular EMP Idler", "Regular Blind Idler", "Sound Regulator", "Jump Regulator", "Lift Regulator" }
+				elseif extraChance <= 85 then
+					items = {"Rare Leap Igniter", "Rare Armor Igniter", "Rare Speed Igniter", "Rare Shield Idler", "Rare Reflect Idler", "Rare Valor Idler", "Rare Heal Idler",
+         				"Rare EMP Idler", "Rare Blind Idler", "Light Regulator", "Small Shield Regulator" }
+				else
+					items = {"Mythic Leap Igniter", "Mythic Armor Igniter", "Mythic Speed Igniter", "Mythic Shield Idler", "Mythic Reflect Idler", "Mythic Valor Idler", "Mythic Heal Idler",
+         				"Mythic EMP Idler", "Mythic Blind Idler", "Breach Regulator", "Saber Throw Regulator" }
+				end
 			elseif chance <= 70 then
 				items = {"Unstable Crystal ( " .. table.Random( color ) .. " )"}
 			elseif chance <= 85 then

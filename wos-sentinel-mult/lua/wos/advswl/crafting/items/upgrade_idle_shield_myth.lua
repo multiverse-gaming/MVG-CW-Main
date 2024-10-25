@@ -1,9 +1,10 @@
 local ITEM = {} 
 ITEM.Rarity = 100
 
-ITEM.Name = "Sith Assassin Hum"
+-- The idle type items are used for spec abilities - Consular Healing, Guardian reflecting, Sentinel blinding.
+ITEM.Name = "Mythic Shield Idler"
 
-ITEM.Description = "Sith Assassin Regulator"
+ITEM.Description = "Allows you to shield cheaper, quicker, longer."
 
 ITEM.Type = WOSTYPE.IDLE
 
@@ -14,10 +15,14 @@ ITEM.UserGroups = false
 ITEM.BurnOnUse = false
 
 ITEM.Model = "models/wos/lct/crafting/idle_generator.mdl"
-ITEM.Rarity = 60
+ITEM.Rarity = 50
 
 ITEM.OnEquip = function( wep )
-	wep.UseLoopSound = "lightsaber/saber_loop5.wav"
+	if (IsValid(wep.Owner)) then
+		wep.ShieldIdleCost = true
+		wep.ShieldIdleCD = true
+		wep.ShieldIdleDuration = true
+	end
 end
 
 wOS:RegisterItem( ITEM )

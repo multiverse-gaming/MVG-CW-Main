@@ -47,13 +47,6 @@ if SERVER then
 		end
 	end)
 
-	hook.Add('EntityFireBullets','PShield_PreventRevive',function(ent,data)
-        local shield = ent:GetNWEntity('PShield')
-        if IsValid(shield) and shield:GetActive() and ent == "weapon_defibrillator" then
-            return false
-        end
-    end)
-
 	hook.Add('PhysgunPickup','PShield',function(ply,ent)
 		if ent:GetClass() == 'personal_shield' || ent:GetClass() == 'personal_shield_droideka' then return false end
 	end)

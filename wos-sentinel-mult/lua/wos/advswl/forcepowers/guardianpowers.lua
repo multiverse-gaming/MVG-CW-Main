@@ -22,13 +22,19 @@ wOS.ForcePowers:RegisterNewPower({
 
 		elseif ( self:GetOwner():KeyDown( IN_SPEED ) && self.ForceValor ) then
 			-- Force Valor
-			if ( self:GetForce() < 60 || !self:GetOwner():IsOnGround() ) then return end
+			local valorCost = 60
+			if (self.RageIdleCost != nil) then valorCost = 45 end
+			if ( self:GetForce() < valorCost || !self:GetOwner():IsOnGround() ) then return end
 			if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
 			if (self.ForceValorCD != nil && self.ForceValorCD > CurTime()) then return end
-			self:SetForce( self:GetForce() - 60 )
+			self:SetForce( self:GetForce() - valorCost )
+		
+			local valorTime = 15
+			if (self.RageIdleDoubleEffect != nil) then valorTime = 25
+			elseif (self.RageIdleEffect != nil) then valorTime = 20 end
 
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 20 )
+			self:GetOwner():SetNW2Float( "RageTime", CurTime() + valorTime )
 			self.ForceValorCD = CurTime() + 60
 
 		elseif ( self.ForceReflect ) then
@@ -293,16 +299,24 @@ image = "wos/forceicons/reflect.png",
 cooldown = 20,
 description = "An eye for an eye",
 action = function(self)
-    if (self:GetForce() < 100 || !self:GetOwner():IsOnGround() ) then return end
+
+	local reflectCost = 100
+	if (self.ReflectIdleCost != nil) then reflectCost = 75 end
+    if (self:GetForce() < reflectCost || !self:GetOwner():IsOnGround() ) then return end
 	if (self.ForceReflectCD != nil && self.ForceReflectCD > CurTime()) then return end
     if self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == 0 or self:GetOwner():GetNWFloat("ReflectTimeHalf", 0) == nil then 
         self:GetOwner():SetNWFloat("ReflectTimeHalf", CurTime()) 
     end
     if self:GetOwner():GetNWFloat( "ReflectTimeHalf", 5 ) >= CurTime() then return end
-    self:SetForce( self:GetForce() - 100 )
+    self:SetForce( self:GetForce() - reflectCost )
     self:SetNextAttack( 0.7 )
     self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-    self:GetOwner():SetNWFloat( "ReflectTimeHalf", CurTime() + 5 )
+
+	local reflectTime = 4
+	if (self.ReflectIdleDoubleEffect != nil) then reflectTime = 8
+	elseif (self.ReflectIdleEffect != nil) then reflectTime = 6 end
+
+    self:GetOwner():SetNWFloat( "ReflectTimeHalf", CurTime() + reflectTime )
 	self.ForceReflectCD = CurTime() + 20
     return true
 end
@@ -379,13 +393,21 @@ wOS.ForcePowers:RegisterNewPower({
 		cooldown = 60,
 		description = "Unleash your focused mind",
 		action = function( self )
-		if ( self:GetForce() < 60 || !self:GetOwner():IsOnGround() ) then return end
+		local valorCost = 60
+		if (self.RageIdleCost != nil) then valorCost = 45 end
+
+		if ( self:GetForce() < valorCost || !self:GetOwner():IsOnGround() ) then return end
 		if (self.ForceValorCD != nil && self.ForceValorCD > CurTime()) then return end
 		if self:GetOwner():GetNW2Float( "RageTime", 10 ) >= CurTime() then return end
-			self:SetForce( self:GetForce() - 60 )
+		
+		local valorTime = 15
+		if (self.RageIdleDoubleEffect != nil) then valorTime = 25
+		elseif (self.RageIdleEffect != nil) then valorTime = 20 end
+
+			self:SetForce( self:GetForce() - valorCost )
 
 			self:PlayWeaponSound( "lightsaber/force_leap.wav" )
-			self:GetOwner():SetNW2Float( "RageTime", CurTime() + 20 )
+			self:GetOwner():SetNW2Float( "RageTime", CurTime() + valorTime )
 			self.ForceValorCD = CurTime() + 60
 			return true
 		end

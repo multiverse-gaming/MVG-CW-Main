@@ -1,83 +1,88 @@
-local WhitelistJobsNames = { --jobs to not take fall damage
-		"Shadow General",
-		"Shadow Marshal Commander",
-        "Shadow Commander",
-        "Shadow Executive Officer",
-		"Shadow Major",
-		"Shadow Officer",
-		"Shadow Sergeant",
-		"Shadow Trooper",
-        "Covert Lead",
-        "Covert Specialists",
-        "Covert Trooper",
-		"Bossk",
-		"CIS Elite Melee",
-		"Magna Guard",
-		"Shadow General Quinlan Vos",
-        "Jedi General Quinlan Vos",
+local noFallDamageTeams = { --jobs to not take fall damage
+        [TEAM_SDWGENERAL] = true,
+        [TEAM_SDWMCO] = true,
+        [TEAM_SDWCO] = true,
+        [TEAM_SDWXO] = true,
+        [TEAM_SDWMJR] = true,
+        [TEAM_SDWOFF] = true,
+        [TEAM_SDWSGT] = true,
+        [TEAM_SDWTRP] = true,
+        [TEAM_CVLD] = true,
+        [TEAM_CVSPC] = true,
+        [TEAM_CVTRP] = true,
+        [TEAM_BOSK] = true,
+        [TEAM_MAGNAGUARD] = true,
+        [TEAM_JEDIPADAWAN] = true,
+        [TEAM_WPJEDI] = true,
+        [TEAM_GMJEDI] = true,
+        [TEAM_327THJEDI] = true,
+        [TEAM_501STJEDI] = true,
+        [TEAM_212THJEDI] = true,
+        [TEAM_JEDIKNIGHT] = true,
+        [TEAM_JEDISENTINEL] = true,
+        [TEAM_JEDIGUARDIAN] = true,
+        [TEAM_JEDICONSULAR] = true,
+        [TEAM_JEDICOUNCIL] = true,
+        [TEAM_JEDIGENERALADI] = true,
+        [TEAM_GMGENERALADI] = true,
+        [TEAM_JEDIGENERALSHAAK] = true,
+        [TEAM_CGGENERALSHAAK] = true,
+        [TEAM_JEDIGENERALKIT] = true,
+        [TEAM_RCGENERALKIT] = true,
+        [TEAM_JEDIGENERALPLO] = true,
+        [TEAM_WPGENERALPLO] = true,
+        [TEAM_JEDIGENERALTANO] = true,
+        [TEAM_501STGENERALTANO] = true,
+        [TEAM_JEDIGENERALWINDU] = true,
+        [TEAM_JEDIGENERALOBI] = true,
+        [TEAM_212THGENERALOBI] = true,
+        [TEAM_JEDIGENERALSKYWALKER] = true,
+        [TEAM_501STGENERALSKYWALKER] = true,
+        [TEAM_JEDIGRANDMASTER] = true,
+        [TEAM_GCGRANDMASTER] = true,
+        [TEAM_JEDIGENERALAAYLA] = true,
+        [TEAM_327THGENERALAAYLA] = true,
+        [TEAM_JEDIGENERALLUMINARA] = true,
+        [TEAM_CGJEDI] = true,
+        [TEAM_CGJEDICHIEF] = true,
+        [TEAM_JEDIGENCINDRALLIG] = true,
+        [TEAM_JEDITGCHIEF] = true,
+        [TEAM_TGJEDI] = true,
+        [TEAM_GCGENERALLUMINARA] = true,
+        [TEAM_JEDIGENERALVOS] = true,
+        [TEAM_SHADOWGENERALVOS] = true,
+        [TEAM_JEDITOURNAMENT] = true,
 }
 
-local function JobCheck(ply)
-
-    if not teamCache then
-        teamCache = {}
-
-        for k, v in ipairs( WhitelistJobsNames ) do
-            teamCache[ v ] = true
-        end
-    end
-    local pms = team.GetName(ply:Team())
-
-    return teamCache[ pms ]
-end
-
 hook.Add("GetFallDamage", "PowerArmor:FallDamage", function(ply, dmgInfo)
-
-	local team = ply:Team() //local team = team.GetName(ply:Team())
-
-	if JobCheck(ply) then
-
+	if noFallDamageTeams[ply:Team()] then
 		return 0
-
 	end
-
 end)
 
-
+local fireDamageTeams = {
+    [TEAM_GMFLAMETROOPER] = true,
+    [TEAM_GMMAJOR] = true,
+    [TEAM_GMEXECUTIVEOFFICER] = true,
+    [TEAM_GMCOMMANDER] = true,
+    [TEAM_GMGENERAL] = true,
+}
 
 hook.Add( "EntityTakeDamage", "PowerArmor:EntityTakeDamage", function( ply, dmgInfo )
-
 	if !ply:IsPlayer() then return end
-
     if ( not ply.m_bApplyingDamage ) then
-
 		ply.m_bApplyingDamage = true
 
         if ply:HasPowerArmor() then
-
             dmgInfo:ScaleDamage(0.3) -- Powerarmor damage reduction.
-            ply.m_bApplyingDamage = false
-            
+
+        elseif fireDamageTeams[ply:Team()] && dmgInfo:GetDamageType() == DMG_BURN then
+            dmgInfo:ScaleDamage(0.3) -- GM Flametrooper damage
+
         elseif ply:Team() == TEAM_RCWRECKER then
+            dmgInfo:ScaleDamage(0.75) -- Wrecker damage reduction.
 
-            dmgInfo:ScaleDamage(0.75)
-
-            ply.m_bApplyingDamage = false
-
-
-        elseif dmgInfo:GetDamageType() == DMG_BURN then
-
-            if ply:Team() == TEAM_GMFLAMETROOPER or ply:Team() == TEAM_GMMAJOR or ply:Team() == TEAM_GMEXECUTIVEOFFICER or ply:Team() == TEAM_GMCOMMANDER or ply:Team() == TEAM_GMGENERAL then
-
-                dmgInfo:ScaleDamage(0.3) -- GM Flametrooper damage
-
-                ply.m_bApplyingDamage = false
-
-            end
-        else
-            ply.m_bApplyingDamage = false
         end
-
+        ply.m_bApplyingDamage = false
     end
-
 end )

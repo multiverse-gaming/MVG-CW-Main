@@ -4151,7 +4151,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     description = [[You are the general of the Republic Commandos!]],
 
-    weapons = {"arccw_v2_dc17m_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal", "datapad_player"},
+    weapons = {"arccw_v2_dc17m_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal", "datapad_player", "base"},
 
     command = "rcgen",
 
@@ -4169,7 +4169,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     category = "Republic Commandos",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(625) ply:SetHealth(625) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(675) ply:SetHealth(675) ply:SetRunSpeed(250) ply:SetArmor(50) ply:SetMaxArmor(50) ply:SetJumpPower(ply:GetJumpPower() + 20) ply:SetGravity(1)  end,
 
     SortOrder = 0
 

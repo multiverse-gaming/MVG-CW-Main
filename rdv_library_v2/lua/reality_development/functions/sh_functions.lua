@@ -48,25 +48,17 @@ function RD_Cooldown_Add(ID, TIME)
     return true
 end
 
-local last_think = 0
-
-hook.Add("Think", "ST_UPDATE_COOLDOWNS", function()
-    if last_think < CurTime() then
-    	RD_CoolDowns = RD_CoolDowns or {}
-    	
-        for k, v in pairs(RD_CoolDowns) do
-            if v - 1 < 0 then
-                RD_CoolDowns[k] = nil
-                goto skip 
-            end
-
-            RD_CoolDowns[k] = RD_CoolDowns[k] - 1
-
-            ::skip::
+local RD_CoolDowns = RD_CoolDowns or {}
+local function UpdateCoolDowns()
+    for k = #RD_CoolDowns, 1, -1 do
+        RD_CoolDowns[k] = RD_CoolDowns[k] - 5
+        
+        if RD_CoolDowns[k] <= 0 then
+            table.remove(RD_CoolDowns, k)
         end
-        last_think = CurTime() + 1
     end
-end)
+end
+timer.Create("RD_CoolDownTimer", 5, 0, UpdateCoolDowns)
 
 --[[
 
