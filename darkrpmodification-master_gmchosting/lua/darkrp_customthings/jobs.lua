@@ -6211,7 +6211,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
