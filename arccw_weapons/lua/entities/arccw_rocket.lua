@@ -17,3 +17,4 @@ ENT.Radius = 250
 ENT.ImpactDamage = 0
 ENT.Boost = 200
 ENT.DragCoefficient = 0
+ENT.FuseTime = 0

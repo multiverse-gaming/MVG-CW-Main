@@ -21,7 +21,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/sgg/starwars/weapons/w_saber_dual_5_hilt.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 42
 	wep.SaberDamage = wep.SaberDamage + 80
 end
 

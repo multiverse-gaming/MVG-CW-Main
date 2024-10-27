@@ -225,6 +225,12 @@ function ENT:InitWeapons()
 		bomb:Spawn()
 		bomb:Activate()
 		bomb:SetAttacker( IsValid( Driver ) and Driver or self )
+
+		local shipVelocity = ent:GetVelocity()
+		local localVelocity = shipVelocity.x * ent:GetForward() +
+							  shipVelocity.y * ent:GetRight() +
+							  shipVelocity.z * ent:GetUp()
+		bomb:SetVelocity(localVelocity)
 		bomb:SetSpeed( ent:GetVelocity() )
 
 		ent._ProtonBomb = bomb

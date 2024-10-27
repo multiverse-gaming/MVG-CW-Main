@@ -14,16 +14,8 @@ do
 		self:SetJumpPower(140)
 		self:SetCrouchedWalkSpeed(0.3)
 
-		print(owner)
-
-		local getTeam = owner:Team()
-
-		if getTeam == TEAM_RCGRIP then
-			self:SetModel("models/moxfort/501st-juggernaut.mdl")
-		else
-			self:SetModel("models/moxfort/501st-juggernaut.mdl")
-		end
-
+		self._originalModel = self:GetModel()
+		self:SetModel("models/moxfort/501st-juggernaut.mdl")
 	end
 
 	function PLY:RemovePowerArmor()
@@ -37,7 +29,7 @@ do
 		self:SetWalkSpeed(GAMEMODE.Config.walkspeed)
 		self:SetJumpPower(200)
 		self:SetCrouchedWalkSpeed(0.4)
-		self:SetModel(RPExtraTeams[self:Team()].model[1])
+		self:SetModel(self._originalModel or RPExtraTeams[self:Team()].model[1])
 	end
 
 	function PLY:HasPowerArmor()

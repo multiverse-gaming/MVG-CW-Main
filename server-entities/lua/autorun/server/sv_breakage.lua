@@ -24,7 +24,6 @@ local engineerTeams = {
 }
 
 local terminalCooldown = {}
-local lastBreakTime = CurTime()
 
 local function RegisterTerminals()
     terminals = ents.FindByClass("task_terminal")
@@ -89,26 +88,23 @@ local function ShouldBreakTerminal(engineerCount)
     return math.random(0, 100) < breakChance
 end
 
-hook.Add("Think", "RandomTerminalBreakage", function()
-    if CurTime() - lastBreakTime >= 30 then -- Check every 30 seconds
-        lastBreakTime = CurTime()
-
-        local engineerCount = GetEngineerCount()
-        if engineerCount > 0 and #terminals > 0 then
-            if ShouldBreakTerminal(engineerCount) then
-                local terminal = table.Random(terminals)
-                if CanBreakTerminal(terminal) then
-                    if terminal.Break then
-                        terminal:Break()
-                        terminal.lastRepairTime = CurTime()
-                    else
-                        print("[TerminalSystem] Error: Terminal does not have a Break method.")
-                    end
+timer.Create("RandomTerminalBreakageTimer", 30, 0, function()
+    local engineerCount = GetEngineerCount()
+    
+    if engineerCount > 0 and #terminals > 0 then
+        if ShouldBreakTerminal(engineerCount) then
+            local terminal = table.Random(terminals)
+            if CanBreakTerminal(terminal) then
+                if terminal.Break then
+                    terminal:Break()
+                    terminal.lastRepairTime = CurTime()
+                else
+                    print("[TerminalSystem] Error: Terminal does not have a Break method.")
                 end
             end
-        else
-            -- print("[TerminalSystem] No terminals registered or no engineers online.")
         end
+    else
+        -- print("[TerminalSystem] No terminals registered or no engineers online.")
     end
 end)
 

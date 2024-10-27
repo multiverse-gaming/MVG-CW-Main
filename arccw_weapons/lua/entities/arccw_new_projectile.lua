@@ -19,12 +19,12 @@ ENT.Gravity = true
 ENT.DragCoefficient = 0.25
 ENT.Boost = 0
 ENT.Lift = 0
-ENT.GunshipWorkaround = true
+ENT.GunshipWorkaround = false
 ENT.HelicopterWorkaround = true
 
 ENT.Damage = 100
 ENT.Radius = 300
-ENT.ImpactDamage = 400
+ENT.ImpactDamage = 0
 
 if SERVER then
     local gunship = {["npc_combinegunship"] = true, ["npc_combinedropship"] = true}
@@ -164,14 +164,6 @@ if SERVER then
         self.HitVelocity = colData.OurOldVelocity
         self:Detonate()
     end
-
-    -- Combine Helicopters are hard-coded to only take DMG_AIRBOAT damage
-    hook.Add("EntityTakeDamage", "ArcCW_HelicopterWorkaround", function(ent, dmginfo)
-        if IsValid(ent:GetOwner()) and ent:GetOwner():GetClass() == "npc_helicopter" then ent = ent:GetOwner() end
-        if ent:GetClass() == "npc_helicopter" and dmginfo:GetInflictor().HelicopterWorkaround then
-            dmginfo:SetDamageType(bit.bor(dmginfo:GetDamageType(), DMG_AIRBOAT))
-        end
-    end)
 end
 
 function ENT:Defuse()

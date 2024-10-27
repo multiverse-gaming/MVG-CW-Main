@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/swtor/arsenic/lightsabers/strongholddefender'ssaberstaff.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 42
 	
 end
 

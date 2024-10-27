@@ -85,13 +85,20 @@ wOS.ForcePowers:RegisterNewPower({
 	icon = "FS",
 	image = "wos/forceicons/reflect.png",
 	cooldown = 120,
-	description = "Default - Shield, Walk - Group Shield",
+	description = "Default - Shield, Run - Group Shield",
 	action = function( self )
-		if ((!self:GetOwner():KeyDown( IN_WALK ))) then
-			if ( self:GetForce() < 100 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
+		local shieldDuration = 15
+		if (self.ShieldIdleDuration != nil) then shieldDuration = 25 end
+		local shieldCD = 120
+		if (self.ShieldIdleCD != nil) then shieldCD = 90 end
+		local shieldCost = 100
+		if (self.ShieldIdleCost != nil) then shieldCost = 80 end
+		
+		if ((!self:GetOwner():KeyDown( IN_SPEED ))) then
+			if ( self:GetForce() < shieldCost || CLIENT || !self:GetOwner():IsOnGround() ) then return end
 			if ( !(self.ForceShield) ) then return end
 			if (self.ShieldCD ~= nil && self.ShieldCD > CurTime()) then return end
-			self:SetForce(self:GetForce() - 100)
+			self:SetForce(self:GetForce() - shieldCost)
 			local shield = ents.Create("prop_dynamic")
 			shield:SetModel("models/hunter/plates/plate2x2.mdl")
 			shield:SetMaterial("models/props_combine/stasisfield_beam")
@@ -104,18 +111,18 @@ wOS.ForcePowers:RegisterNewPower({
 			shield:Spawn()
 			shield:Activate()
 
-			timer.Simple(15, function()
+			timer.Simple(shieldDuration, function()
 				if shield:IsValid() then
 					shield:Remove()
 				end
 			end)
 
 			-- Global CD for shared ability.
-			self.ShieldCD = CurTime() + 120
+			self.ShieldCD = CurTime() + shieldCD
 		elseif self.GroupShield then
-			if ( self:GetForce() < 150 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
+			if ( self:GetForce() < shieldCost + 50 || CLIENT || !self:GetOwner():IsOnGround() ) then return end
 			if (self.GroupShieldCD ~= nil && self.GroupShieldCD > CurTime()) then return end
-			self:SetForce(self:GetForce() - 150)
+			self:SetForce(self:GetForce() - shieldCost + 50)
 			local shield = ents.Create("prop_dynamic")
 			shield:SetModel("models/hunter/tubes/tube4x4x2to2x2.mdl")
 			shield:SetMaterial("models/props_combine/stasisfield_beam")
@@ -127,16 +134,50 @@ wOS.ForcePowers:RegisterNewPower({
 			shield:Spawn()
 			shield:Activate()
 
-			timer.Simple(15, function()
+			timer.Simple(shieldDuration, function()
 				if shield:IsValid() then
 					shield:Remove()
 				end
 			end)
 
 			-- Global CD for shared ability.
-			self.GroupShieldCD = CurTime() + 150
+			self.GroupShieldCD = CurTime() + shieldCD + 30
 		end
 	end
+})
+
+wOS.ForcePowers:RegisterNewPower({
+	name = "Small Shield",
+	icon = "S",
+	image = "wos/forceicons/reflect.png",
+	cooldown = 120,
+	description = "A smaller version of the main shield",
+	action = function( self )
+			local shieldDuration = 15
+			if (self.ShieldIdleDuration != nil) then shieldDuration = 25 end
+			local shieldCost = 100
+			if (self.ShieldIdleCost != nil) then shieldCost = 80 end
+		
+			if ( self:GetForce() < shieldCost || CLIENT || !self:GetOwner():IsOnGround() ) then return end
+			self:SetForce(self:GetForce() - shieldCost)
+			local shield = ents.Create("prop_dynamic")
+			shield:SetModel("models/props_phx/construct/glass/glass_curve180x1.mdl")
+			shield:SetMaterial("models/props_combine/stasisfield_beam")
+			shield:SetColor(Color(0, 161, 255, 140))
+			shield:SetPos(self:GetOwner():GetPos() + self:GetOwner():EyeAngles():Up() * 45)
+			shield:SetCollisionGroup(COLLISION_GROUP_DEBRIS_TRIGGER)
+			shield:SetSolid(SOLID_VPHYSICS)
+			shield:AddEffects(EF_NOSHADOW)
+			shield:Spawn()
+			shield:Activate()
+
+			timer.Simple(shieldDuration, function()
+				if shield:IsValid() then
+					shield:Remove()
+				end
+			end)
+			return true
+		end
 })
 
 wOS.ForcePowers:RegisterNewPower({
@@ -216,6 +257,8 @@ wOS.ForcePowers:RegisterNewPower({
 		action = function( self )
 			-- Check Global CD for shared skill.
 			if (self.GroupHealCD != nil && self.GroupHealCD > CurTime()) then return end
+			local groupHealAmount = 200
+			if (self.HealIdleAmount != nil) then groupHealAmount = 250 end
 
 			-- Do the regular ability.
 			if ( self:GetForce() < 80 ) then return end
@@ -225,7 +268,7 @@ wOS.ForcePowers:RegisterNewPower({
 				if not ply:IsPlayer() then continue end
 				if not ply:Alive() then continue end
 				if players >= 8 then break end
-				ply:SetHealth( math.Clamp( ply:Health() + 200, 0, ply:GetMaxHealth() ) )
+				ply:SetHealth( math.Clamp( ply:Health() + groupHealAmount, 0, ply:GetMaxHealth() ) )
 				local ed = EffectData()
 				ed:SetOrigin( self:GetSaberPosAng() )
 				ed:SetEntity( ply )
@@ -260,16 +303,27 @@ wOS.ForcePowers:RegisterNewPower({
 
 			if (self:GetOwner():KeyDown( IN_WALK )) then
 				if (self:GetOwner():Health() >= self:GetOwner():GetMaxHealth()) then return end
+				local healSelfAmount = 10
+				if (self.HealIdleAmount != nil) then healSelfAmount = 12 end
+				
 				local ed = EffectData()
 				ed:SetOrigin( self:GetOwner():GetPos() )
-				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + 10, self:GetOwner():GetMaxHealth()) )
-				self:GetOwner():Extinguish()
-				self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )
-				self:SetNextAttack( 0.2 )
+				self:GetOwner():SetHealth( math.min(self:GetOwner():Health() + healSelfAmount, self:GetOwner():GetMaxHealth()) )
+				self:GetOwner():Extinguish()
+
+				local forceCost = 6
+				if (self.HealIdleCost != nil) then forceCost = 5 end
+				self:SetForce( self:GetForce() - forceCost )
+
+				local healCD = 0.3
+				if (self.HealIdleCD != nil) then healCD = 0.2 end
+				self:SetNextAttack( healCD )
 			elseif (self:GetOwner():KeyDown( IN_DUCK ) && self.GroupHeal ) then
 				-- Check Global CD for shared skill.
 				if (self.GroupHealCD ~= nil && self.GroupHealCD > CurTime()) then return end
+				local groupHealAmount = 200
+				if (self.HealIdleAmount != nil) then groupHealAmount = 250 end
 	
 				-- Do the regular ability.
 				if ( self:GetForce() < 80 ) then return end
@@ -279,7 +333,7 @@ wOS.ForcePowers:RegisterNewPower({
 					if not ply:IsPlayer() then continue end
 					if not ply:Alive() then continue end
 					if players >= 8 then break end
-					ply:SetHealth( math.Clamp( ply:Health() + 200, 0, ply:GetMaxHealth() ) )
+					ply:SetHealth( math.Clamp( ply:Health() + groupHealAmount, 0, ply:GetMaxHealth() ) )
 					players = players + 1
 				end
 				if (players > 2) then
@@ -290,12 +344,15 @@ wOS.ForcePowers:RegisterNewPower({
 				ed:SetEntity( ply )
 				util.Effect( "rb655_force_heal", ed, true, true )
 				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.6 )
-				self:SetForce( self:GetForce() - 80 )
+
+				local forceCost = 80
+				if (self.HealIdleCost != nil) then forceCost = 60 end
+				self:SetForce( self:GetForce() - forceCost )
 
 				-- Global CD for shared ability.
 				self.GroupHealCD = CurTime() + 60
 
-			elseif (self:GetOwner():KeyDown( IN_SPEED )) then
+			elseif (self:GetOwner():KeyDown( IN_SPEED ) && self.ForceProtect ) then
 				if (self.ProtectCD ~= nil && self.ProtectCD > CurTime()) then return end
 				if (self:GetForce() < 90) then return end
 				local ent = self:SelectTargets( 1 )[ 1 ]
@@ -321,10 +378,16 @@ wOS.ForcePowers:RegisterNewPower({
 
 			elseif (!self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
 				if (ent:Health() >= ent:GetMaxHealth()) then return end
-				self:SetNextAttack( 0.2 )
+				local healCD = 0.3
+				if (self.HealIdleCD != nil) then healCD = 0.2 end
+				self:SetNextAttack( healCD )
+
+				local healOtherAmount = 20
+				if (self.HealIdleAmount != nil) then healOtherAmount = 25 end
+
 				local ed = EffectData()
 				ed:SetOrigin( ent:GetPos() )
-				ent:SetHealth( math.min(ent:Health() + 20, ent:GetMaxHealth()))
+				ent:SetHealth( math.min(ent:Health() + healOtherAmount, ent:GetMaxHealth()))
 				ent:Extinguish()
 				--self:SetForce( self:GetForce() - 6 )
 				util.Effect( "rb655_force_heal", ed, true, true )

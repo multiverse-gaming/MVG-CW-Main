@@ -248,11 +248,14 @@ wOS.ForcePowers:RegisterNewPower({
 
 				if (self.LeapCostUpgrade ~= nil) then self.LeapCost = self.LeapCost - (self.LeapCostUpgrade*5) end
 				if (self.ConsularLeapUpgrade ~= nil) then self.LeapCost = self.LeapCost - 5 end
+				if (self.LeapIgniterCost ~= nil) then self.LeapCost = self.LeapCost - 5 end
 
 				if (self.LeapCDUpgrade ~= nil) then self.LeapCDValue = self.LeapCDValue - self.LeapCDUpgrade end
 				if (self.SentinelLeapUpgrade ~= nil) then self.LeapCDValue = self.LeapCDValue - 1 end
+				if (self.LeapIgniterCD ~= nil) then self.LeapCDValue = self.LeapCDValue - 0.5 end
 
 				if (self.LeapDistanceUpgrade ~= nil) then self.LeapStrength = self.LeapStrength + (self.LeapDistanceUpgrade*64) end
+				if (self.LeapIgniterDistance ~= nil) then self.LeapStrength = self.LeapStrength + 64 end
 
 				self.LeapComputed = true
 			end

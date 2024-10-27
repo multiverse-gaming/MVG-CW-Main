@@ -23,13 +23,13 @@ ITEM.OnEquip = function( wep )
 		local team_name = team.GetName(wep.Owner:Team())
 		if (team_name == "Coruscant Guard Temple Guard" || team_name == "CG Temple Guard Chief" || team_name == "Temple Guard Chief" || team_name == "Jedi Temple Guard") then
 			wep.UseHilt = "models/twinsaber/twinsaber.mdl"
-			wep.UseLength = 46
+			wep.UseLength = 42
 			wep.SaberDamage = wep.SaberDamage + 80
 		end
 		return
 	else
 		wep.UseHilt = "models/twinsaber/twinsaber.mdl"
-		wep.UseLength = 46
+		wep.UseLength = 42
 		wep.SaberDamage = wep.SaberDamage + 80
 	end
 end

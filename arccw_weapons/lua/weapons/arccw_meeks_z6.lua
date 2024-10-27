@@ -63,7 +63,7 @@ SWEP.Num = 1
 
 SWEP.BobMult = 1
 
-SWEP.TriggerDelay = true
+SWEP.TriggerDelay = false
 
 SWEP.Firemodes = {
     {

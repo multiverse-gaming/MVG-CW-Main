@@ -6,28 +6,24 @@ CreateClientConVar("weapon_hitmarker_triangle_enable", 0, true, false, "Switch t
 -- CreateClientConVar("weapon_hitmarker_scale", 1, true, false, "Choose scale for hitmarker.")
 
 if SERVER then
-
+    util.AddNetworkString("ShowHitmarker")
     hook.Add("EntityTakeDamage", "markPlayerForHitmarker", function(target, dmg)
-
         local ply = dmg:GetAttacker()
-
-        if (target:IsNPC() or target:IsPlayer()) and ply:IsValid() and ply:IsPlayer() and not ply:GetNWBool("DoHitmarkerForPlayer", false) then
-
-            ply:SetNWBool("DoHitmarkerForPlayer", true)
-
-            timer.Simple(0.2, function()
-
-                ply:SetNWBool("DoHitmarkerForPlayer", false)
-
-            end)
-
+        if ply:IsPlayer() and IsValid(ply) and (target:IsNPC() or target:IsPlayer()) and (!(ply.DoHitMarker) or CurTime() > ply.DoHitMarker) then
+            ply.DoHitMarker = CurTime() + 0.5
+            net.Start("ShowHitmarker")
+            net.Send(ply)
         end
-
     end)
-
 end
 
 if CLIENT then
+    net.Receive("ShowHitmarker", function()
+        LocalPlayer().DoHitMarkerClient = true
+        timer.Simple(0.2, function()
+            LocalPlayer().DoHitMarkerClient = false
+        end)
+    end)
 
     local mat_regular = Material("vgui/tfa_hitmarker.png", "smooth mips")
     local mat_triang = Material("vgui/tfa_hitmarker_triang.png", "smooth mips")
@@ -36,7 +32,7 @@ if CLIENT then
 
     hook.Add("HUDPaint", "drawDamageHitMarkerForWeapons", function()
 
-        if GetConVar("weapon_hitmarker_enable"):GetInt() == 1 and LocalPlayer():GetNWBool("DoHitmarkerForPlayer", false) then
+        if GetConVar("weapon_hitmarker_enable"):GetInt() == 1 and LocalPlayer().DoHitMarkerClient then
 
             local width, height = ScrW(), ScrH()
             local sprh = math.floor((height / 1080) * 64 * 1)

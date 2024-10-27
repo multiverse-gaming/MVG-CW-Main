@@ -156,7 +156,7 @@ TREE.Tier[2][3] = {
 
 TREE.Tier[2][4] = {
 	Name = "Force Shield",
-	Description = "Shield yourself. Alt to Group Shield.",
+	Description = "Shield yourself. Sprint to Group Shield.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {
@@ -232,7 +232,7 @@ TREE.Tier[3][2] = {
 
 TREE.Tier[3][3] = {
 	Name = "Force Group Shield",
-	Description = "Shield yourself, and those around you. Hold Alt to use.",
+	Description = "Shield yourself, and those around you. Hold Run to use.",
 	Icon = "wos/forceicons/reflect.png",
 	PointsRequired = 2,
 	Requirements = {

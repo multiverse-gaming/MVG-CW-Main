@@ -37,9 +37,7 @@ OfficerBoost.Config["LastStand"].GiveBack = 30
 
 OfficerBoost.Config["501st"] = {}
 OfficerBoost.Config["501st"].Color = Color(132,1,255)
-OfficerBoost.Config["501st"].SpeedBoost = 0.4
-OfficerBoost.Config["501st"].JumpBoost = 0.3
-OfficerBoost.Config["501st"].AdditionalHealth = 100
+OfficerBoost.Config["501st"].SpeedBoost = 1.15
 OfficerBoost.Config["501st"].AdditionalArmor = 150
 OfficerBoost.Config["501st"].Radius = 256
 OfficerBoost.Config["501st"].Duration = 15

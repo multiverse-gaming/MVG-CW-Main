@@ -1,159 +1,7 @@
 util.AddNetworkString("OfficerBoost.DrawHUD")
-
-hook.Add("PlayerSpawn", "OfficerBoost.ResetValues", function(ply)
-    if ply:GetNWBool("OfficerBoost.Boosted", false) then
-        ply:SetWalkSpeed(ply.OBWalkSpeed)
-        ply:SetRunSpeed(ply.OBRunSpeed)
-        ply:SetJumpPower(ply.OBJumpPower)
-
-        ply:SetNWBool("OfficerBoost.Boosted", false)
-    end
-end)
-
-hook.Add("OfficerBoost.OnBoost", "NormalBoost", function(ply, type, creator)
-
-    if type != "Normal" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
-
-    ply.OBWalkSpeed = ply:GetWalkSpeed()
-    ply.OBRunSpeed = ply:GetRunSpeed()
-    ply.OBJumpPower = ply:GetJumpPower()
-    ply.OBLSHealth = ply:Health()
-
-    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
-
-    ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost * 1.5)
-    ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
-
-    ply:SetHealth(ply:Health() + data.AdditionalHealth)
-
-
-    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
-        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
-
-        ply:SetNWBool("OfficerBoost.Boosted", false)
-
-        ply:SetWalkSpeed(ply.OBWalkSpeed)
-        ply:SetRunSpeed(ply.OBRunSpeed)
-        ply:SetJumpPower(ply.OBJumpPower)
-
-        if ply:Health() > ply.OBLSHealth then
-            ply:SetHealth(ply.OBLSHealth)
-        end
-
-        --[[
-        if IsValid(wep) then
-            wep.Primary_TFA.RPM = wep.Defaults.RPM
-            wep:ClearStatCache("Primary.RPM")
-        end
-        ]]
-
-
-    end)
-end)
-
-hook.Add("OfficerBoost.OnBoost", "LastStandBoost", function(ply, type, creator)
-
-    if type != "LastStand" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
-
-    ply.OBWalkSpeed = ply:GetWalkSpeed()
-    ply.OBRunSpeed = ply:GetRunSpeed()
-    ply.OBJumpPower = ply:GetJumpPower()
-    ply.OBLSArmor = ply:Armor()
-    ply.OBLSHealth = ply:Health()
-
-    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
-
-    ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost * 1.5)
-    ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
-
-    ply:SetHealth(ply:Health() + data.AdditionalHealth)
-    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
-
-    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
-        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
-
-        ply:SetNWBool("OfficerBoost.Boosted", false)
-
-        ply:SetWalkSpeed(ply.OBWalkSpeed)
-        ply:SetRunSpeed(ply.OBRunSpeed)
-        ply:SetJumpPower(ply.OBJumpPower)
-
-        if ply:Armor() > ply.OBLSArmor then
-            ply:SetArmor(ply.OBLSArmor)
-        end
-
-        if ply:Health() > ply.OBLSHealth then
-            ply:SetHealth(ply.OBLSHealth)
-        end
-    end)
-end)
-
-hook.Add("OfficerBoost.OnBoost", "LastStandBoost501st", function(ply, type, creator)
-
-    if type != "501st" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
-
-    ply.OBWalkSpeed = ply:GetWalkSpeed()
-    ply.OBRunSpeed = ply:GetRunSpeed()
-    ply.OBJumpPower = ply:GetJumpPower()
-    ply.OBLSArmor = ply:Armor()
-    ply.OBLSHealth = ply:Health()
-
-    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
-
-    ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost * 1.5)
-    ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
-
-    ply:SetHealth(ply:Health() + data.AdditionalHealth)
-    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
-
-    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
-        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
-
-        ply:SetNWBool("OfficerBoost.Boosted", false)
-
-        if ply:HasPowerArmor() then
-            ply:SetRunSpeed(GAMEMODE.Config.walkspeed * 0.35)
-            ply:SetWalkSpeed(GAMEMODE.Config.walkspeed * 0.35)
-            ply:SetJumpPower(140)
-        else
-            ply:SetWalkSpeed(ply.OBWalkSpeed)
-            ply:SetRunSpeed(ply.OBRunSpeed)
-            ply:SetJumpPower(ply.OBJumpPower)
-            ply.OBWalkSpeed = nil
-            ply.OBRunSpeed = nil
-            ply.OBJumpPower = nil
-        end
-
-        if ply:Armor() > ply.OBLSArmor then
-            ply:SetArmor(ply.OBLSArmor)
-        end
-
-        if ply:Health() > ply.OBLSHealth then
-            ply:SetHealth(ply.OBLSHealth)
-        end
-    end)
-end)
-
-util.AddNetworkString("OfficerBoost.DrawHUD")
-
-function OfficerBoost:CreateBoost(ply, type)
-    local data = OfficerBoost.Config[type]
-
-    local entities = player.FindInSphere(ply:GetPos(), data.Radius)
-
-    local enemy_teams = {
+local enemy_teams = {}
+timer.Simple(120, function() -- We wait 2 minutes to let darkRP create it's jobs. 
+    enemy_teams = {
         [TEAM_BATTLEDROID] = true,
         [TEAM_CQBATTLEDROID] = true,
         [TEAM_ROCKETDROID] = true,
@@ -163,7 +11,7 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_MEDICALDROID] = true,
         [TEAM_COMMANDERDROID] = true,
         [TEAM_SITH] = true,
-    
+
         [TEAM_SUPERBATTLEDROID] = true,
         [TEAM_SUPERJUMPDROID] = true,
         [TEAM_DROIDEKA] = true,
@@ -173,7 +21,7 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_SNIPERDROID] = true,
         [TEAM_TECHNICALDROID] = true,
         [TEAM_BOUNTYHUNTERREINFORCE] = true,
-    
+
         [TEAM_BXCOMMANDODROID] = true,
         [TEAM_BXASSASSINDROID] = true,
         [TEAM_BXSLUGDROID] = true,
@@ -181,13 +29,13 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_BXRECONDROID] = true,
         [TEAM_BXHEAVYDROID] = true,
         [TEAM_BXCOMMANDERDROID] = true,
-    
+
         [TEAM_UMBARANTROOPER] = true,
         [TEAM_UMBARANHEAVYTROOPER] = true,
         [TEAM_UMBARANSNIPER] = true,
         [TEAM_UMBARANENGINEER] = true,
         [TEAM_UMBARANOFFICER] = true,
-    
+
         [TEAM_PRISONER] = true,
         [TEAM_UNDEAD] = true,
         [TEAM_CUSTOMENEMY] = true,
@@ -202,6 +50,10 @@ function OfficerBoost:CreateBoost(ply, type)
         [TEAM_BOSK] = true,
         [TEAM_DURGE] = true
     }
+end)
+
+function OfficerBoost:CreateBoost(ply, type)
+    local entities = player.FindInSphere(ply:GetPos(), OfficerBoost.Config[type].Radius)
 
     for key, ent in pairs(entities) do
         if not IsValid(ent) then continue end
@@ -217,7 +69,7 @@ function OfficerBoost:CreateBoost(ply, type)
 
         ent:SetNWBool("OfficerBoost.Boosted", true)
 
-        hook.Run("OfficerBoost.OnBoost", ent, type, ply)
+        hook.Run("OfficerBoost.OnBoost."..type, ent, ply)
 
         net.Start("OfficerBoost.DrawHUD")
         net.WriteString(ply:SteamID64())
@@ -228,20 +80,20 @@ end
 
 hook.Add("PlayerSpawn", "OfficerBoost.ResetValues", function(ply)
     if ply:GetNWBool("OfficerBoost.Boosted", false) then
-        ply:SetWalkSpeed(ply.OBWalkSpeed)
-        ply:SetRunSpeed(ply.OBRunSpeed)
-        ply:SetJumpPower(ply.OBJumpPower)
+        if (ply.OBWalkSpeed) then ply:SetWalkSpeed(ply.OBWalkSpeed) end
+        if (ply.OBRunSpeed) then ply:SetWalkSpeed(ply.OBRunSpeed) end
+        if (ply.OBJumpPower) then ply:SetWalkSpeed(ply.OBJumpPower) end
 
         ply:SetNWBool("OfficerBoost.Boosted", false)
+        --[[if (ply:GetNWString("OfficerBoost.Type", nil)) then
+            ply:SetNWString("OfficerBoost.Type", nil)
+        end]]-- This is being preserved in the hope that we find a Vampiric Ammo type of attachment
     end
 end)
 
-hook.Add("OfficerBoost.OnBoost", "NormalBoost", function(ply, type, creator)
-
-    if type != "Normal" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
+hook.Add("OfficerBoost.OnBoost.Normal", "NormalBoost", function(ply, creator)
+    local data = OfficerBoost.Config["Normal"]
+    --ply:SetNWString("OfficerBoost.Type", "Normal") -- Only used by BattleFocus
 
     ply.OBWalkSpeed = ply:GetWalkSpeed()
     ply.OBRunSpeed = ply:GetRunSpeed()
@@ -256,18 +108,6 @@ hook.Add("OfficerBoost.OnBoost", "NormalBoost", function(ply, type, creator)
 
     ply:SetHealth(ply:Health() + data.AdditionalHealth)
 
-    local wep = ply:GetActiveWeapon()
-    timer.Simple(0.5, function()
-        if wep.Primary_TFA then
-            wep.Defaults = {}
-            wep.Defaults.RPM = wep.Primary_TFA.RPM
-            wep.Primary_TFA.RPM = wep.Primary_TFA.RPM * data.RPMBoost
-            wep:ClearStatCache("Primary.RPM")
-        else
-            wep = nil
-        end
-    end)
-
     timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
         if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
 
@@ -280,60 +120,12 @@ hook.Add("OfficerBoost.OnBoost", "NormalBoost", function(ply, type, creator)
         if ply:Health() > ply.OBLSHealth then
             ply:SetHealth(ply.OBLSHealth)
         end
-
-        if IsValid(wep) then
-            wep.Primary_TFA.RPM = wep.Defaults.RPM
-            wep:ClearStatCache("Primary.RPM")
-        end
     end)
 end)
 
-hook.Add("OfficerBoost.OnBoost", "LastStandBoost", function(ply, type, creator)
-
-    if type != "LastStand" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
-
-    ply.OBWalkSpeed = ply:GetWalkSpeed()
-    ply.OBRunSpeed = ply:GetRunSpeed()
-    ply.OBJumpPower = ply:GetJumpPower()
-    ply.OBLSArmor = ply:Armor()
-    ply.OBLSHealth = ply:Health()
-
-    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
-
-    ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost * 1.5)
-    ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
-
-    ply:SetHealth(ply:Health() + data.AdditionalHealth)
-    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
-
-    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
-        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
-
-        ply:SetNWBool("OfficerBoost.Boosted", false)
-
-        ply:SetWalkSpeed(ply.OBWalkSpeed)
-        ply:SetRunSpeed(ply.OBRunSpeed)
-        ply:SetJumpPower(ply.OBJumpPower)
-
-        if ply:Armor() > ply.OBLSArmor then
-            ply:SetArmor(ply.OBLSArmor)
-        end
-
-        if ply:Health() > ply.OBLSHealth then
-            ply:SetHealth(ply.OBLSHealth)
-        end
-    end)
-end)
-
-hook.Add( "OfficerBoost.OnBoost", "BattleFocusBoost", function(ply, type, creator)
-	if type ~= "BattleFocus" then return end
-
-    local data = OfficerBoost.Config[type]
-    ply:SetNWString("OfficerBoost.Type", type)
+hook.Add( "OfficerBoost.OnBoost.BattleFocus", "BattleFocusBoost", function(ply, creator)
+    local data = OfficerBoost.Config["BattleFocus"]
+    --ply:SetNWString("OfficerBoost.Type", "BattleFocus") -- Preserved as above.
 
     ply.OBWalkSpeed = ply:GetWalkSpeed()
     ply.OBRunSpeed = ply:GetRunSpeed()
@@ -352,30 +144,86 @@ hook.Add( "OfficerBoost.OnBoost", "BattleFocusBoost", function(ply, type, creato
 
     timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
         if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
-
+        --ply:SetNWString("OfficerBoost.Type", nil)
         ply:SetNWBool("OfficerBoost.Boosted", false)
 
         ply:SetWalkSpeed(ply.OBWalkSpeed)
         ply:SetRunSpeed(ply.OBRunSpeed)
         ply:SetJumpPower(ply.OBJumpPower)
     end)
-end )
+end)
 
-hook.Add("EntityTakeDamage", "EntityTookDamage", function(target, dmgInfo)
-    local attacker = dmgInfo:GetAttacker()
+hook.Add("OfficerBoost.OnBoost.LastStand", "LastStandBoost", function(ply, creator)
+    local data = OfficerBoost.Config["LastStand"]
+    --ply:SetNWString("OfficerBoost.Type", "LastStand")
 
-    if IsValid(attacker) and attacker:IsPlayer() then
-        if attacker:GetNWBool("OfficerBoost.Boosted", false) then
-            if target:IsPlayer() or target:IsNPC() then
-                local boostType = attacker:GetNWString("OfficerBoost.Type", "")
-                if boostType == "BattleFocus" then
-                    attacker:SetHealth(attacker:Health() + 10)
-                    if attacker:Health() > 1000 then
-                        attacker:SetHealth(995)
-                    end
-                    return
-                end
-            end
+    ply.OBWalkSpeed = ply:GetWalkSpeed()
+    ply.OBRunSpeed = ply:GetRunSpeed()
+    ply.OBJumpPower = ply:GetJumpPower()
+    ply.OBLSArmor = ply:Armor()
+    ply.OBLSHealth = ply:Health()
+
+    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
+
+    ply:SetWalkSpeed(speedBoost)
+    ply:SetRunSpeed(speedBoost * 1.5)
+    ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
+
+    ply:SetHealth(ply:Health() + data.AdditionalHealth)
+    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
+
+    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
+        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
+
+        ply:SetNWBool("OfficerBoost.Boosted", false)
+
+        ply:SetWalkSpeed(ply.OBWalkSpeed)
+        ply:SetRunSpeed(ply.OBRunSpeed)
+        ply:SetJumpPower(ply.OBJumpPower)
+
+        if ply:Armor() > ply.OBLSArmor then
+            ply:SetArmor(ply.OBLSArmor)
         end
-    end
+
+        if ply:Health() > ply.OBLSHealth then
+            ply:SetHealth(ply.OBLSHealth)
+        end
+    end)
+end)
+
+hook.Add("OfficerBoost.OnBoost.501st", "LastStandBoost501st", function(ply, creator)
+    if (!IsValid(ply) || ply:getJobTable().category != "501st Legion") then return end
+
+    local data = OfficerBoost.Config["501st"]
+    --ply:SetNWString("OfficerBoost.Type", "501st") -- Only used by BattleFocus
+
+    ply.OBWalkSpeed = ply:GetWalkSpeed()
+    ply.OBRunSpeed = ply:GetRunSpeed()
+    ply.OBLSArmor = ply:Armor()
+
+    local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
+
+    ply:SetWalkSpeed(speedBoost)
+    ply:SetRunSpeed(speedBoost * 1.5)
+    ply:SetArmor(ply:Armor() + data.AdditionalArmor)
+
+    timer.Create("OfficerBoost"..ply:SteamID64(), data.Duration, 1, function()
+        if not ply:GetNWBool("OfficerBoost.Boosted", false) then return end
+
+        ply:SetNWBool("OfficerBoost.Boosted", false)
+
+        if ply:HasPowerArmor() then
+            ply:SetRunSpeed(GAMEMODE.Config.walkspeed * 0.35)
+            ply:SetWalkSpeed(GAMEMODE.Config.walkspeed * 0.35)
+        else
+            ply:SetWalkSpeed(ply.OBWalkSpeed)
+            ply:SetRunSpeed(ply.OBRunSpeed)
+            ply.OBWalkSpeed = nil
+            ply.OBRunSpeed = nil
+        end
+
+        if ply:Armor() > ply.OBLSArmor then
+            ply:SetArmor(ply.OBLSArmor)
+        end
+    end)
 end)

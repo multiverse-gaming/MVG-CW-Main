@@ -19,7 +19,7 @@ ENT.Gravity = true
 ENT.DragCoefficient = 0.25
 ENT.Boost = 0
 ENT.Lift = 0
-ENT.GunshipWorkaround = true
+ENT.GunshipWorkaround = false
 ENT.HelicopterWorkaround = true
 
 ENT.Damage = 150
@@ -44,8 +44,6 @@ if SERVER then
             phys:SetMass(5)
             phys:SetBuoyancyRatio(0.4)
         end
-
-        self.SpawnTime = CurTime()
 
         if self.SmokeTrail then
             util.SpriteTrail(self, 0, Color( 255 , 255 , 255 ), false, 6, 6, 0.5, 1 / (6 + 6) * 0.5, "particle/particle_smokegrenade")
@@ -102,29 +100,13 @@ if SERVER then
                 end
             })
         end
+
         self.Defused = true
         self:Remove()
     end
 
     function ENT:PhysicsCollide(colData, physobj)
         if !self:IsValid() then return end
-
-        if CurTime() - self.SpawnTime < self.FuseTime then
-            if IsValid(colData.HitEntity) then
-                local v = colData.OurOldVelocity:Length() ^ 0.5
-                local dmg = DamageInfo()
-                dmg:SetAttacker(IsValid(self:GetOwner()) and self:GetOwner() or self)
-                dmg:SetInflictor(self)
-                dmg:SetDamageType(DMG_CRUSH)
-                dmg:SetDamage(v)
-                dmg:SetDamagePosition(colData.HitPos)
-                dmg:SetDamageForce(colData.OurOldVelocity)
-                colData.HitEntity:TakeDamageInfo(dmg)
-                self:EmitSound("weapons/rpg/shotdown.wav", 80, math.random(90, 110))
-            end
-            self:Defuse()
-            return
-        end
 
         local effectdata = EffectData()
             effectdata:SetOrigin( self:GetPos() )
@@ -164,17 +146,10 @@ if SERVER then
         self.HitVelocity = colData.OurOldVelocity
         self:Detonate()
     end
-
-    -- Combine Helicopters are hard-coded to only take DMG_AIRBOAT damage
-    hook.Add("EntityTakeDamage", "ArcCW_HelicopterWorkaround", function(ent, dmginfo)
-        if IsValid(ent:GetOwner()) and ent:GetOwner():GetClass() == "npc_helicopter" then ent = ent:GetOwner() end
-        if ent:GetClass() == "npc_helicopter" and dmginfo:GetInflictor().HelicopterWorkaround then
-            dmginfo:SetDamageType(bit.bor(dmginfo:GetDamageType(), DMG_AIRBOAT))
-        end
-    end)
 end
 
 function ENT:Defuse()
+    print ("defusing self")
     self.Defused = true
     SafeRemoveEntityDelayed(self, 5)
 end

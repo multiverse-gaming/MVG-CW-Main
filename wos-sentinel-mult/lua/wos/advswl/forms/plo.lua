@@ -8,22 +8,63 @@ FORM.Type = FORM_BOTH
 
 --What user groups are able to use this form? And which stances?
 FORM.UserGroups = { 
-    ["superadmin"] = { 1 },
-    ["headadmin"] = { 1 },
-    ["admin"] = { 1 },
-    ["mod"] = { 1 },
-    ["trialmod"] = { 1 },
-    ["advisor"] = { 1 },
-    ["veteran"] = { 1 },
-    ["pacvip"] = { 1 },
-	["user"] = { 1 },
-    ["noaccess"] = { 1 },
-    ["pac3"] = { 1 },
+    ["superadmin"] = { 1, 2 },
+    ["headadmin"] = { 1, 2 },
+    ["admin"] = { 1, 2 },
+    ["mod"] = { 1, 2 },
+    ["trialmod"] = { 1, 2 },
+    ["advisor"] = { 1, 2 },
+    ["veteran"] = { 1, 2 },
+    ["pacvip"] = { 1, 2 },
+	["user"] = { 1, 2 },
+    ["noaccess"] = { 1, 2 },
+    ["pac3"] = { 1, 2 },
 }
 
 FORM.Stances = {}
 
 FORM.Stances[1] = {
+	[ "run" ] = "vanguard_h_run",
+	[ "idle" ] = "vanguard_h_idle",
+	[ "light_left" ] = {
+		Sequence = "pure_r_s2_t3",
+		Time = 0.9,
+		Rate = 1.4,
+	},
+	[ "light_right" ] = {
+		Sequence = "judge_b_s2_t2",
+		Time = 0.8,
+		Rate = nil,
+	},
+	[ "light_forward" ] = {
+		Sequence = "judge_r_s3_t2",
+		Time = 0.85,
+		Rate = 1.5,
+	},
+	[ "air_left" ] = {
+		Sequence =  "h_c1_t2",
+		Time = 1,
+		Rate = 2,
+	},
+	[ "air_right" ] = {
+		Sequence = "h_c2_t2",
+		Time = 1,
+		Rate = 1.7,
+	},
+	[ "air_forward" ] = {
+		Sequence = "h_c3_t3",
+		Time = 2,
+		Rate = 1,
+	},
+	[ "heavy" ] = {
+		Sequence = "judge_h_s3_t3",
+		Time = 1.2,
+		Rate = 1.8,
+	},
+	[ "heavy_charge" ] = "judge_r_s3_charge",
+}
+
+FORM.Stances[2] = {
 	[ "run" ] = "vanguard_h_run",
 	[ "idle" ] = "vanguard_h_idle",
 	[ "light_left" ] = {

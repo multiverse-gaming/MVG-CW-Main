@@ -62,10 +62,17 @@ wOS.ForcePowers:RegisterNewPower({
 			
 		elseif ( self:GetOwner():KeyDown( IN_SPEED ) && self.ForceEMP ) then
 			-- Force EMP
+			local empCost = 100
+			if (self.EMPIdleCost != nil) then empCost = 80 end
+
 			if (self.ForceEMPCD != nil && self.ForceEMPCD > CurTime()) then return end
-        	if ( self:GetForce() < 100 ) then return end
+        	if ( self:GetForce() < empCost ) then return end
         	local entpos = self.Owner:GetPos() + Vector(0, 0, 60)
         	local entindex = self.Owner:EntIndex()
+			local empDistance = 300
+			if (self.EMPIdleDistance != nil) then empDistance = 400 end
+			local empDamage = 400
+			if (self.EMPIdleDamage != nil) then empDamage = 475 end
 
         	timer.Create("tesla_zap" .. entindex,math.Rand(0.03,0.1), math.random(5, 10), function()
     	        local lightning = ents.Create( "point_tesla" )
@@ -94,7 +101,7 @@ wOS.ForcePowers:RegisterNewPower({
 	            sound.Play( "k_lab.teleport_spark" , entpos, 310)
     	    end)
 
-    	    for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), 300 ) ) do
+    	    for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), empDistance ) ) do
 	            if v:IsValid() && v:IsNPC() then
     	            local npc = v:GetClass()
 	                if npc == "npc_antlionguard" || npc == "npc_antlion" || npc == "npc_zombie"
@@ -103,12 +110,12 @@ wOS.ForcePowers:RegisterNewPower({
         	        || npc == "npc_headcrab" || npc == "npc_headcrab_black" then
     	                -- Intenionally left empty.
 	                else
-                    	v:TakeDamage( 450, self.Owner, self )
+                    	v:TakeDamage( empDamage, self.Owner, self )
                 	end
             	end
         	end
 
-        	self:SetForce( self:GetForce() - 100 )
+        	self:SetForce( self:GetForce() - empCost )
 			
 			-- Global CD for shared ability.
 			self.ForceEMPCD = CurTime() + 35
@@ -212,7 +219,9 @@ wOS.ForcePowers:RegisterNewPower({
     description = "Electromagnetic Pulse that hurts only droids",
     action = function( self )
 		if (self.ForceEMPCD != nil && self.ForceEMPCD > CurTime()) then return end
-        if ( self:GetForce() < 100 ) then return end
+		local empCost = 100
+		if (self.EMPIdleCost != nil) then empCost = 80 end
+        if ( self:GetForce() < empCost ) then return end
         local entpos = self.Owner:GetPos() + Vector(0, 0, 60)
         local entindex = self.Owner:EntIndex()
 
@@ -243,7 +252,12 @@ wOS.ForcePowers:RegisterNewPower({
             sound.Play( "k_lab.teleport_spark" , entpos, 310)
         end)
 
-        for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), 300 ) ) do
+		local empDistance = 300
+		if (self.EMPIdleDistance != nil) then empDistance = 400 end
+		local empDamage = 400
+		if (self.EMPIdleDamage != nil) then empDamage = 475 end
+
+        for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), empDistance ) ) do
             if v:IsValid() && v:IsNPC() then
                 local npc = v:GetClass()
                 if npc == "npc_antlionguard" || npc == "npc_antlion" || npc == "npc_zombie"
@@ -252,12 +266,12 @@ wOS.ForcePowers:RegisterNewPower({
                 || npc == "npc_headcrab" || npc == "npc_headcrab_black" then
                     -- Intenionally left empty.
                 else
-                    v:TakeDamage( 450, self.Owner, self )
+                    v:TakeDamage( empDamage, self.Owner, self )
                 end
             end
         end
 
-        self:SetForce( self:GetForce() - 100 )
+        self:SetForce( self:GetForce() - empCost )
 			
 		-- Global CD for shared ability.
 		self.ForceEMPCD = CurTime() + 35
@@ -458,16 +472,23 @@ wOS.ForcePowers:RegisterNewPower({
 		manualaim = true,
 		description = "Make your escape or final blow",
 		action = function( self )
-			if ( self:GetForce() < 75 ) then return end
 			local ply = self:SelectTargets( 1 )[ 1 ]
 			if not IsValid( ply ) then return end
 			if not ply:IsPlayer() then return end
 			if not ply:Alive() then return end
 			if ply == self.Owner then return end
-			ply:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
+
+			local blindCost = 75
+			if (self.BlindIdleCost != nil) then blindCost = 50 end
+			if ( self:GetForce() < blindCost ) then return end
+
+			local blindTime = 10
+			if (self.BlindIdleDoubleEffect != nil) then blindTime = 14
+			elseif (self.BlindIdleEffect != nil) then blindTime = 12 end
+			ply:SetNW2Float( "wOS.BlindTime", CurTime() + blindTime )
 
 			self.Owner:SetNW2Float( "wOS.ForceAnim", CurTime() + 0.5 )
-			self:SetForce( self:GetForce() - 75 )
+			self:SetForce( self:GetForce() - blindCost )
 			return true
 		end
 })
