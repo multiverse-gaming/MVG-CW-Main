@@ -62,6 +62,11 @@ function SWEP:Initialize()
 	if ( CLIENT ) then surface.SetMaterial(Material( self.Skin or "models/csgo_knife/cssource" )) end --Ugly hack. Used to "precache" skin's material
     self:SetClassname(self:GetClass())
 	self:SetHoldType( self.AreDaggers and "fist" or "knife" ) -- Avoid using SetWeaponHoldType! Otherwise the players could hold it wrong!
+    timer.Simple(1.5, function()
+        -- Capture default speeds and save them to the knife.
+        self.Owner.DefaultRunSpeed = self.Owner:GetRunSpeed()
+        self.Owner.DefaultWalkSpeed = self.Owner:GetWalkSpeed()
+    end)
 end
 
 
@@ -114,13 +119,13 @@ end
 function SWEP:NormalSpeed() -- Resets the speed
     if self.Owner:IsValid() then
         if (self.Owner.OBRunSpeed != nil) then
-            self.Owner.OBRunSpeed = 260
-            self.Owner.OBWalkSpeed = 210
+            self.Owner.OBRunSpeed = self.Owner.DefaultRunSpeed
+            self.Owner.OBWalkSpeed = self.Owner.DefaultWalkSpeed
             self.Owner:SetRunSpeed(self.Owner:GetRunSpeed() - 20)
-            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() - 20, 210))
+            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() - 20, self.Owner.DefaultWalkSpeed))
         else
-            self.Owner:SetRunSpeed(260)
-            self.Owner:SetWalkSpeed(210)
+            self.Owner:SetRunSpeed(self.Owner.DefaultRunSpeed)
+            self.Owner:SetWalkSpeed(self.Owner.DefaultWalkSpeed)
         end
     end
 end
@@ -128,13 +133,13 @@ end
 function SWEP:CustomSpeed() -- New speed
     if self.Owner:IsValid() then
         if (self.Owner.OBRunSpeed != nil) then
-            self.Owner.OBRunSpeed = 280
-            self.Owner.OBWalkSpeed = 230
+            self.Owner.OBRunSpeed = self.Owner.DefaultRunSpeed + 20
+            self.Owner.OBWalkSpeed = self.Owner.DefaultWalkSpeed + 20
             self.Owner:SetRunSpeed(self.Owner:GetRunSpeed() + 20)
-            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() + 20, 230))
+            self.Owner:SetWalkSpeed(math.max(self.Owner:GetWalkSpeed() + 20, self.Owner.DefaultWalkSpeed + 20))
         else
-            self.Owner:SetRunSpeed(280)
-            self.Owner:SetWalkSpeed(230)
+            self.Owner:SetRunSpeed(self.Owner.DefaultRunSpeed + 20)
+            self.Owner:SetWalkSpeed(self.Owner.DefaultWalkSpeed + 20)
         end
     end
 end
@@ -148,7 +153,7 @@ function SWEP:Deploy()
 	self:SetNextSecondaryFire( CurTime() + NextAttack )
 	self:EmitSound( "weapons/knife/ghost/knife_deploy1.wav" )
 	if self.Owner:IsValid() then
-    self:CustomSpeed() -- call the custom speed funciton above
+        self:CustomSpeed() -- call the custom speed funciton above
     end
 	return true
 end
@@ -295,7 +300,14 @@ function SWEP:Reload() -- Анимация осмотра оружия
 	return true
 end
 
+SWEP.FirstTime = true
 function SWEP:Equip()
+    if (self.FirstTime) then
+        -- Capture default speeds and save them to the knife.
+        self.Owner.DefaultRunSpeed = self.Owner:GetRunSpeed()
+        self.Owner.DefaultWalkSpeed = self.Owner:GetWalkSpeed()
+        self.FirstTime = false
+    end
     self:SetThrown(false)
     if self.Owner:IsValid() then
     self:CustomSpeed() -- call the custom speed funciton above
@@ -317,9 +329,9 @@ function SWEP:OnDrop()
 end
 
 function SWEP:Holster()
-    self:ClearMaterial()
-    if self.Owner:IsValid() then
-    self:NormalSpeed() -- call the normal speed function above
-    end
-    return true
+        self:ClearMaterial()
+        if self.Owner:IsValid() then
+        self:NormalSpeed() -- call the normal speed function above
+        end
+        return true
 end

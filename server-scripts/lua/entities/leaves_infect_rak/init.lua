@@ -15,11 +15,11 @@ end
 
 function ENT:Initialize()
 	self:SetModel( self.WorldModel )
-	self:SetModelScale( 0.25 )
+	self:SetModelScale( 0.5 )
 	self:PhysicsInit( SOLID_VPHYSICS )
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:SetSolid( SOLID_VPHYSICS )
-	self:SetCollisionGroup( COLLISION_GROUP_WEAPON )
+	--self:SetCollisionGroup( COLLISION_GROUP_WEAPON )
 	self:SetUseType( SIMPLE_USE )
 	
 	local phys = self:GetPhysicsObject()
@@ -29,11 +29,17 @@ function ENT:Initialize()
 	phys:Wake()
 end
 
-function ENT:Remove()
-end
-
-function ENT:Think()
-	if self:WaterLevel() > 0 then
+function ENT:PhysicsCollide(data, collider)
+	local hitEntity = data.HitEntity
+	if !IsValid(hitEntity) then return end
+	if hitEntity:IsPlayer() then
+		if !hitEntity:Alive() then return end
+		if hitEntity:HasWeapon("weapon_infect_rak") then return end
+		if CLIENT then
+			chat.AddText(Color( 0, 200, 0 ), "By touching the infected leaves, you have contracted Rakghoul curse!")
+		end
+		hitEntity:Give("weapon_infect_rak")
+		hitEntity:SetActiveWeapon(hitEntity:GetWeapon("weapon_infect_rak"))
 		self:Remove()
 	end
 end
@@ -44,10 +50,8 @@ function ENT:Use( activator )
 	if !activator:Alive() then return end
 	if activator:HasWeapon("weapon_infect_rak") then return end
 	if CLIENT then
-		chat.AddText(
-		Color( 0, 200, 0 ), "By consuming the infected leaves, you have contracted Rakghoul curse!"
-		) end
-		
+		chat.AddText(Color( 0, 200, 0 ), "By consuming the infected leaves, you have contracted Rakghoul curse!")
+	end
 	activator:Give("weapon_infect_rak")
 	activator:SetActiveWeapon(activator:GetWeapon("weapon_infect_rak"))
 	self:Remove()

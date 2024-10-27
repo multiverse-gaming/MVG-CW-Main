@@ -1,5 +1,5 @@
 att.PrintName = "Incendiary Grenade Launcher"
-att.Free = true
+att.Free = false
 att.HideIfUnavailable = true
 att.AbbrevName = "Incendiary Launcher"
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
@@ -8,7 +8,7 @@ att.Description = "Fire incendiary grenades out of the underbarrel"
 att.AutoStats = true
 att.Desc_Pros = {
 }
-att.Slot = "tl50_ubgl_sgt"
+att.Slot = "tl50_ubgl"
 
 att.UBGL = true
 att.UBGL_PrintName = "Incendiaries"
@@ -30,7 +30,7 @@ att.Hook_ShouldNotSight = function(wep)
 end
 
 att.Hook_OnSelectUBGL = function(wep)
-    wep:SetClip2(1)
+    wep:SetClip2(math.max(math.min(wep:Clip2(), 1), 0))
     wep:SetNextSecondaryFire(CurTime() + 0.2)
 end
 

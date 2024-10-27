@@ -65,20 +65,25 @@ function ENT:Initialize()
         self.SoundLoop:SetSoundLevel(80)
 
         self:ActivateShield()
-
     end
-
 end
 
 if SERVER then
 
     function ENT:ActivateShield()
-
         self.SoundLoop:PlayEx(0.32, 64)
         self:EmitSound("ambient/machines/thumper_hit.wav", 80, 64, 0.64)
         self:EmitSound("npc/scanner/scanner_siren1.wav", 80, 88, 0.64)
         self:EmitSound("ambient/levels/citadel/pod_open1.wav", 80, 100, 0.64)
 
+        timer.Simple(30, function()
+            if !IsValid(self) then return end
+            self:DeactivateShield()
+            constraint.RemoveConstraints(self, "Weld")
+            constraint.RemoveConstraints(self.BulletShield, "Weld")
+            constraint.RemoveConstraints(self.BulletShieldSecond, "Weld")
+            self:Remove()
+        end)
     end
 
     function ENT:DeactivateShield()
@@ -86,22 +91,6 @@ if SERVER then
         self.SoundLoop:Stop()
         self:EmitSound("ambient/levels/canals/headcrab_canister_open1.wav", 80, 120, 0.64)
         self:EmitSound("ambient/levels/citadel/pod_close1.wav", 80, 100, 0.64)
-
-    end
-
-    function ENT:Think()
-
-        if CurTime() >= (self:GetTimeCreated() + 30) then
-
-            self:DeactivateShield()
-
-            constraint.RemoveConstraints(self, "Weld")
-            constraint.RemoveConstraints(self.BulletShield, "Weld")
-            constraint.RemoveConstraints(self.BulletShieldSecond, "Weld")
-
-            self:Remove()
-
-        end
 
     end
     

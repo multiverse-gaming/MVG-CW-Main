@@ -4374,7 +4374,7 @@ TEAM_RCHUNTER = DarkRP.createJob("CF99 Hunter", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1) ply:SetWalkSpeed(210)  end,
 
     SortOrder = 1
 
