@@ -50,7 +50,7 @@ function ENT:CheckMotion( OnMoveableFloor )
 		return
 	end
 
-	local TargetSpeed = self:GetTargetSpeed()
+	local TargetSpeed = 2000-- = self:GetTargetSpeed()
 
 	if not self:HitGround() or self:GetIsCarried() then
 		self:SetIsMoving( false )
@@ -61,7 +61,7 @@ function ENT:CheckMotion( OnMoveableFloor )
 	local IsHeld = self:IsPlayerHolding() or self:GetRearEntity():IsPlayerHolding() 
 
 	if IsHeld then
-		self:SetTargetSpeed( 200 )
+		self:SetTargetSpeed( 800 )
 	end
 
 	if self:HitGround() and not OnMoveableFloor then

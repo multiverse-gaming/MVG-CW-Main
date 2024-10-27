@@ -123,7 +123,7 @@ hook.Add("OfficerBoost.OnBoost.Normal", "NormalBoost", function(ply, creator)
     end)
 end)
 
-hook.Add( "OfficerBoost.OnBoos.BattleFocus", "BattleFocusBoost", function(ply, creator)
+hook.Add( "OfficerBoost.OnBoost.BattleFocus", "BattleFocusBoost", function(ply, creator)
     local data = OfficerBoost.Config["BattleFocus"]
     --ply:SetNWString("OfficerBoost.Type", "BattleFocus") -- Preserved as above.
 

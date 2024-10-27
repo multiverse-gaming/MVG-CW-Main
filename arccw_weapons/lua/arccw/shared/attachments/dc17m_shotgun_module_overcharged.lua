@@ -9,5 +9,5 @@ att.NotForNPC = true
 att.Free = true
 att.HideIfUnavailable = true
 
-att.Mult_RPM = 1.25
-att.Mult_AccuracyMOA = 1.5
+att.Mult_RPM = 1.2
+att.Mult_AccuracyMOA = 1.75

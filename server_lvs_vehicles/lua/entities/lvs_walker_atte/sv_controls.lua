@@ -26,7 +26,7 @@ end
 function ENT:ApproachTargetSpeed( MoveX )
 	local Cur = self:GetTargetSpeed()
 	local New = Cur + (MoveX - Cur) * FrameTime() * 3.5
-	self:SetTargetSpeed( New )
+	self:SetTargetSpeed( New * 1.08 )
 end
 
 function ENT:CalcThrottle( ply, cmd )
