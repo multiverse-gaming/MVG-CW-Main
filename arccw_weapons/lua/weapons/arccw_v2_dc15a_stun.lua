@@ -124,6 +124,18 @@ SWEP.DefaultElements = {"", ""}
 --SWEP.Attachments 
 SWEP.Attachments = {
     [1] = {
+        PrintName = "Optic",
+        DefaultAttName = "Iron Sights",
+        Slot = "extraoptic",
+        Bone = "optic",
+        Offset = {
+            vpos = Vector(0, -0, -0.15),
+            vang = Angle(90, 0, -90),
+            wpos = Vector(5, 0.35, -4.5),
+            wang = Angle(-15, 0, 180)
+        },
+    },
+    [2] = {
         PrintName = "Energization", -- print name
         DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
         Slot = "sw_ammo",

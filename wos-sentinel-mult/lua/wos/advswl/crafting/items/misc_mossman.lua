@@ -1,4 +1,4 @@
-local ITEM = {} 
+--[[local ITEM = {} 
 ITEM.Rarity = 100
 
 ITEM.Name = "Mossman's Head"
@@ -18,4 +18,4 @@ ITEM.Model = "models/maxofs2d/balloon_mossman.mdl"
 ITEM.OnEquip = function( wep )
 end
 
-wOS:RegisterItem( ITEM )
+wOS:RegisterItem( ITEM )]]--

@@ -249,21 +249,20 @@ function SWEP:MorphToHuman()
 	if self.PlayerScale > 1 then owner:SetCollisionGroup( COLLISION_GROUP_PASSABLE_DOOR ) 
 	else owner:SetCollisionGroup( COLLISION_GROUP_NONE ) end
 
-	owner:SetRunSpeed(self.WalkSpeed)
-	owner:SetWalkSpeed(self.RunSpeed)
+	owner:SetRunSpeed(self.RunSpeed)
+	owner:SetWalkSpeed(self.WalkSpeed)
 
 	if !owner:IsValid() then return end
 	if !owner:Alive() then return end
 	self:SetHoldType( "normal" )
 	self:SendWeaponAnim(ACT_HL2MP_IDLE_KNIFE)
-	
 	owner:StopSound("eoti_idlegrowlloop")
-	
 	self.ToggleVFX = false
-	
-	local vm = self.Owner:GetViewModel()
-	if CLIENT then vm:ResetSequence( vm:LookupSequence( "fists_idle_0" .. math.random( 1, 2 ) ) ) end
-	vm:ResetSequence( vm:LookupSequence( "fists_holster" ) )
+
+	if IsValid(vm) and LocalPlayer() == owner then
+		local vm = owner:GetViewModel()
+		vm:ResetSequence( vm:LookupSequence( "fists_holster" ) )
+    end
 end
 
 function SWEP:Roar(owner)

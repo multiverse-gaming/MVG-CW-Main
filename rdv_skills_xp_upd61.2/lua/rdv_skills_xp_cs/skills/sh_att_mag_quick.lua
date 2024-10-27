@@ -24,11 +24,11 @@ OBJ:AddHook("PlayerLoadout", function(ply)
         -- Get the attachment. Replacing upgraded version.
         local attachment
         if (TIER == 1) then
-            attachment = "sw_dc17m_quickmag_1"
+            attachment = "dc17m_quickmag_1"
         elseif (TIER == 2) then
-            attachment = "sw_dc17m_quickmag_2"
+            attachment = "dc17m_quickmag_2"
         else
-            attachment = "sw_dc17m_quickmag_3"
+            attachment = "dc17m_quickmag_3"
         end
         
         timer.Simple(1, function()
