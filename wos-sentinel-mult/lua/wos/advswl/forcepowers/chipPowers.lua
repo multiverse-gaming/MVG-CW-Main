@@ -5,7 +5,7 @@ wOS.ForcePowers:RegisterNewPower({
 		name = "Sound",
 		icon = "S",
 		description = "Conjure a distracting sound where you look",
-		image = "wos/forceicons/icefuse/teleport.png", -- !!! 
+		image = "wos/forceicons/icefuse/teleport.png",
 		cooldown = 15,
 		manualaim = false,
 		action = function( self )
@@ -60,7 +60,7 @@ wOS.ForcePowers:RegisterNewPower({
 wOS.ForcePowers:RegisterNewPower({
     name = "Distract",
     icon = "D",
-    image = "wos/forceicons/charge.png", -- !!!
+    image = "wos/forceicons/charge.png",
     cooldown = 15,
     target = 1,
     manualaim = true,
@@ -80,17 +80,17 @@ wOS.ForcePowers:RegisterNewPower({
 wOS.ForcePowers:RegisterNewPower({
     name = "Jump",
     icon = "J",
-    image = "wos/forceicons/charge.png", -- !!!
-    cooldown = 20,
+	image = "wos/forceicons/leap.png",
+    cooldown = 10,
     description = "Naturally jump higher for a while",
     action = function( self )
-		if self:GetForce() < 40 then return end
-		self:SetForce( self:GetForce() - 40 )
+		if self:GetForce() < 30 then return end
+		self:SetForce( self:GetForce() - 30 )
 
 		local jedi = self:GetOwner()
-		jedi:SetJumpPower(jedi:GetJumpPower() + 150)
+		jedi:SetJumpPower(jedi:GetJumpPower() + 200)
 		timer.Simple(10, function ()
-			jedi:SetJumpPower(jedi:GetJumpPower() - 150)
+			jedi:SetJumpPower(jedi:GetJumpPower() - 200)
 		end)
 		
         return true
@@ -100,7 +100,7 @@ wOS.ForcePowers:RegisterNewPower({
 wOS.ForcePowers:RegisterNewPower({
     name = "Lift",
     icon = "L",
-    image = "wos/forceicons/charge.png", -- !!!
+    image = "wos/forceicons/charge.png",
     target = 1,
     manualaim = true,
     cooldown = 40,
@@ -120,7 +120,7 @@ wOS.ForcePowers:RegisterNewPower({
 wOS.ForcePowers:RegisterNewPower({
     name = "Direct Dash",
     icon = "DH",
-    image = "wos/forceicons/charge.png", -- !!!
+    image = "wos/forceicons/charge.png",
     cooldown = 30,
     description = "Dash straight ahead",
     action = function( self )

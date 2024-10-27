@@ -4151,7 +4151,7 @@ TEAM_RCGENERAL = DarkRP.createJob("RC General", {
 
     description = [[You are the general of the Republic Commandos!]],
 
-    weapons = {"arccw_v2_dc17m_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_dc17m_shotgun", "weapon_officerboost_normal", "datapad_player", "base"},
+    weapons = {"arccw_v2_dc17m_delta", "arccw_dc17sa_duals","realistic_hook","weapon_remotedrone", "arccw_v2_dc17m_delta_shotgun", "weapon_officerboost_normal", "datapad_player", "base", "arccw_v2_dc17m_delta_sniper"},
 
     command = "rcgen",
 
@@ -4184,7 +4184,7 @@ TEAM_RCMCO = DarkRP.createJob("RC Marshal Commander", {
 
     description = [[You are the Marshal Commander of the Republic Commandos!]],
 
-    weapons = {"weapon_battlefocus_normal", "arccw_dc17sa_duals", "arccw_v2_dc17m_delta", "realistic_hook", "arccw_dc17m_shotgun"},
+    weapons = {"weapon_battlefocus_normal", "arccw_dc17sa_duals", "arccw_v2_dc17m_delta", "realistic_hook", "arccw_v2_dc17m_delta_shotgun", "arccw_v2_dc17m_delta_sniper"},
 
     command = "rcmco",
 
@@ -4216,7 +4216,7 @@ TEAM_RCBOSS = DarkRP.createJob("RC Boss", {
 
     description = [[You are RC Boss, Commander of the Republic Commandos!]],
 
-    weapons = {"weapon_battlefocus_normal", "arccw_dc17sa_duals", "arccw_v2_dc17m_delta", "arccw_dc17m_shotgun", "realistic_hook"}, 
+    weapons = {"weapon_battlefocus_normal", "arccw_dc17sa_duals", "arccw_v2_dc17m_delta", "arccw_v2_dc17m_delta_shotgun", "realistic_hook", "arccw_v2_dc17m_delta_sniper"}, 
 
     command = "rcboss",
 

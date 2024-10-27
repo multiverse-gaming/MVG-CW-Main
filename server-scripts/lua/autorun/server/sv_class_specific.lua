@@ -1,4 +1,8 @@
-local noFallDamageTeams = { --jobs to not take fall damage
+local noFallDamageTeams = {}
+local fireDamageTeams = {}
+
+timer.Simple(120, function() -- We wait 2 minutes to let darkRP create it's jobs. 
+    noFallDamageTeams = {
         [TEAM_SDWGENERAL] = true,
         [TEAM_SDWMCO] = true,
         [TEAM_SDWCO] = true,
@@ -52,21 +56,22 @@ local noFallDamageTeams = { --jobs to not take fall damage
         [TEAM_JEDIGENERALVOS] = true,
         [TEAM_SHADOWGENERALVOS] = true,
         [TEAM_JEDITOURNAMENT] = true,
-}
+    }
+
+    fireDamageTeams = {
+        [TEAM_GMFLAMETROOPER] = true,
+        [TEAM_GMMAJOR] = true,
+        [TEAM_GMEXECUTIVEOFFICER] = true,
+        [TEAM_GMCOMMANDER] = true,
+        [TEAM_GMGENERAL] = true,
+    }
+end)
 
 hook.Add("GetFallDamage", "PowerArmor:FallDamage", function(ply, dmgInfo)
 	if noFallDamageTeams[ply:Team()] then
 		return 0
 	end
 end)
-
-local fireDamageTeams = {
-    [TEAM_GMFLAMETROOPER] = true,
-    [TEAM_GMMAJOR] = true,
-    [TEAM_GMEXECUTIVEOFFICER] = true,
-    [TEAM_GMCOMMANDER] = true,
-    [TEAM_GMGENERAL] = true,
-}
 
 hook.Add( "EntityTakeDamage", "PowerArmor:EntityTakeDamage", function( ply, dmgInfo )
 	if !ply:IsPlayer() then return end

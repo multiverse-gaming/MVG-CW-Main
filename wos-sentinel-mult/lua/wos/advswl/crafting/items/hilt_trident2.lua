@@ -20,7 +20,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/trident/trident.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 42
 	wep.SaberDamage = wep.SaberDamage + 60
 end
 

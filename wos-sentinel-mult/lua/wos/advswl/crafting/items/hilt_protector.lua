@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/donation1/donation1.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 42
 	
 end
 

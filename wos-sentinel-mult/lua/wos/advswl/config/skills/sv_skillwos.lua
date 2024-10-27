@@ -99,7 +99,8 @@ local badHooks = {
 	["ArcCW_HelicopterWorkaround"] = "EntityTakeDamage", -- Let's just not kill any helicopters.
 	["SciFiDamageEffectivity"] = "EntityTakeDamage", -- SciFi Shit. This exists in around 6 different areas. Let's just delete the hook instead.
 	["SciFiDmgBuff"] = "EntityTakeDamage", -- SciFi Shit. Same as above.
-	["SaphLifeSteal"] = "OnPlayerHitGround", -- SciFi Shit. Same as above.
+	["SaphLifeSteal"] = "EntityTakeDamage", -- SciFi Shit. Same as above.
+	["SciFiDamageElementalEffects"] = "EntityTakeDamage", -- SciFi Shit. Same as above.
 	["wOS.RestartAnimationOnLand"] = "OnPlayerHitGround", -- Honestly removing this makes the aerial attacks cooler.
 	["wOS.ALCS.SaberBarrierBlockage"] = "ScalePlayerDamage", -- SaberBarrier? huh?
 	["rmt_nofall_trump"] = "GetFallDamage", -- RMT hook, named after a player, referencing a weapon that doesn't exist. Classic MVG.
@@ -114,10 +115,7 @@ timer.Simple(60, function()
 	-- This will have to do.
     for identifier, hookName in pairs(badHooks) do
         if identifier ~= "" and hookName ~= "" then
-            local removed = hook.Remove(hookName, identifier)
-            if !removed then
-                print("Failed to remove hook: " .. identifier .. " from " .. hookName .. " (may not exist)")
-            end
+            hook.Remove(hookName, identifier)
         end
     end
 end)

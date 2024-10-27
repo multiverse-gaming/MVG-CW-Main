@@ -14,7 +14,7 @@ ENT.BoxSize = Vector(8, 4, 1)
 
 ENT.Damage = 300
 ENT.Radius = 300
-ENT.ImpactDamage = 3000
+ENT.ImpactDamage = 0
 
 ENT.FuseTime = 0
 ENT.Boost = 1500

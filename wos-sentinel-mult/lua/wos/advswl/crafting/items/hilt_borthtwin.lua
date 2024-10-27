@@ -19,7 +19,7 @@ ITEM.Rarity = 0
 
 ITEM.OnEquip = function( wep )
 	wep.UseHilt = "models/borth-twin/borth-twin.mdl"
-	wep.UseLength = 46
+	wep.UseLength = 42
 	wep.SaberDamage = wep.SaberDamage + 100
 end
 

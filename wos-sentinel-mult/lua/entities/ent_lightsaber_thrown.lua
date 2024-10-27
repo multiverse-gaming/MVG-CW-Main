@@ -302,84 +302,43 @@ function ENT:DrawHitEffects( trace, traceBack )
 	end
 end
 
-function ENT:BladeThink( startpos, dir )
-	--[[local trace = util.TraceHull( {
-		start = startpos,
-		endpos = startpos + dir * self:GetBladeLength(),
-		filter = self,
-		/*mins = Vector( -1, -1, -1 ) * self:GetBladeWidth() / 2,
-		maxs = Vector( 1, 1, 1 ) * self:GetBladeWidth() / 2*/
-	} )
-
-	if ( trace.Hit ) and not (IsValid(trace.Entity) and trace.Entity == self:GetOwner()) then
-		rb655_DrawHit_wos( trace.HitPos, trace.HitNormal )
-		rb655_LS_DoDamage_wos( trace, self )
-	end
-
-	return trace.Hit]]
-
-	-- Up
+function ENT:BladeThink(startpos, dir)
 	local pos, ang = startpos, dir
-	local trace = util.TraceHull( {
+	local trace = util.TraceHull({
 		start = pos,
 		endpos = pos + ang * self:GetBladeLength(),
 		filter = { self, self.Owner },
-		mins = Vector( -2, -2, -2 ),
-		maxs = Vector( 2, 2, 2 )
-	} )
-	local traceBack = util.TraceHull( {
+		mins = Vector(-2, -2, -2),
+		maxs = Vector(2, 2, 2)
+	})
+	local traceBack = util.TraceHull({
 		start = pos + ang * self:GetBladeLength(),
 		endpos = pos,
 		filter = { self, self.Owner },
-		mins = Vector( -2, -2, -2 ),
-		maxs = Vector( 2, 2, 2 )
-	} )
+		mins = Vector(-2, -2, -2),
+		maxs = Vector(2, 2, 2)
+	})
+	self:DrawHitEffects(trace, traceBack)
 
-	self.LastEndPos = trace.endpos
-	if ( SERVER ) then debugoverlay.Line( trace.StartPos, trace.HitPos, .1, Color( 255, 0, 0 ), false ) end
+	-- Don't deal the damage twice to the same entity
+	if traceBack.Entity == trace.Entity and IsValid(trace.Entity) then traceBack.Hit = false end
 
-	if ( trace.HitSky || trace.StartSolid ) then trace.Hit = false end
-	if ( traceBack.HitSky || traceBack.StartSolid ) then traceBack.Hit = false end
-
-	self:DrawHitEffects( trace, traceBack )
-	isTrace1Hit = trace.Hit || traceBack.Hit
-
-	// Don't deal the damage twice to the same entity
-	if ( traceBack.Entity == trace.Entity && IsValid( trace.Entity ) ) then traceBack.Hit = false end
-
-	local ent = trace.Hit and IsValid(trace.Entity) and trace.Entity
-	if not IsValid(ent) and traceBack.Hit then
-		ent = IsValid(traceBack.Entity) and traceBack.Entity
-	end
-	
-	if ( trace.Hit ) then rb655_LS_DoDamage_wos( trace, self ) end
-	if ( traceBack.Hit ) then rb655_LS_DoDamage_wos( traceBack, self ) end
+	if trace.Hit then rb655_LS_DoDamage_wos(trace, self) end
+	if traceBack.Hit then rb655_LS_DoDamage_wos(traceBack, self) end
 
 	if self.LastEndPos then
 		local traceTo = util.TraceHull({
 			start = pos + ang * self:GetBladeLength(),
 			endpos = self.LastEndPos,
 			filter = { self, self.Owner },
-			mins = Vector( -2, -2, -2 ),
-			maxs = Vector( 2, 2, 2 )
+			mins = Vector(-2, -2, -2),
+			maxs = Vector(2, 2, 2)
 		})
-
-		if ( traceTo.Hit ) and (IsValid(traceTo.Entity) and (not IsValid(ent) or traceTo.Entity != ent)) then 
-			rb655_LS_DoDamage_wos( traceTo, self ) 
-			ent = traceTo.Entity 
+		if traceTo.Hit and (IsValid(traceTo.Entity) and (not IsValid(trace.Entity) or traceTo.Entity != trace.Entity)) then
+			rb655_LS_DoDamage_wos(traceTo, self)
 		end
-
-		util.TraceHull({
-			start = pos,
-			endpos = self.LastEndPos,
-			filter = { self, self.Owner },
-			mins = Vector( -2, -2, -2 ),
-			maxs = Vector( 2, 2, 2 ),
-			output = traceTo
-		})
-
-		if ( traceTo.Hit ) and (IsValid(traceTo.Entity) and (not IsValid(ent) or traceTo.Entity != ent)) then rb655_LS_DoDamage_wos( traceTo, self ) return true end
 	end
+
 	return trace.Hit or traceBack.Hit
 end
 
