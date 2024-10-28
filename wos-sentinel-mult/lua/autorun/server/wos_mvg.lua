@@ -83,15 +83,15 @@ local PlayerKillXP = 200
 
 hook.Add("PlayerDeath", "WOS.Custom.XP.PlayerKilled", function(ply, inflictor, attacker) 
     if not IsValid(attacker) or not attacker:IsPlayer() or ply == attacker then return end
-    if jedi[ply:Team()] then
-		ply:AddSkillXP(PlayerKillXP)
+    if jedi[attacker:Team()] then
+		attacker:AddSkillXP(PlayerKillXP)
 	end
 end)
 
 hook.Add("OnNPCKilled", "WOS.Custom.XP.NPCKilled", function(npc, attacker, inflictor)
-    if not IsValid(attacker) or not attacker:IsPlayer() or ply == attacker then return end
-	if jedi[ply:Team()] then
-		ply:AddSkillXP(NPCKillXP)
+    if not IsValid(attacker) or not attacker:IsPlayer() then return end
+	if jedi[attacker:Team()] then
+		attacker:AddSkillXP(NPCKillXP)
 	end
 end)
 

@@ -56,6 +56,12 @@ timer.Simple(120, function() -- We wait 2 minutes to let darkRP create it's jobs
         [TEAM_JEDIGENERALVOS] = true,
         [TEAM_SHADOWGENERALVOS] = true,
         [TEAM_JEDITOURNAMENT] = true,
+        [TEAM_COUNTDOOKU] = true,
+        [TEAM_ASAJJVENTRESS] = true,
+        [TEAM_DARTHMAUL] = true,
+        [TEAM_GENERALGRIEVOUS] = true,
+        [TEAM_SAVAGEOPRESS] = true,
+        [TEAM_PREVISZLA] = true,
     }
 
     fireDamageTeams = {
