@@ -28,8 +28,8 @@ ITEM.OnEquip = function( wep )
     local currentDate = os.time({year = currentYear, month = currentMonth, day = currentDay})
     local halloweenDate = os.time({year = currentYear, month = halloweenMonth, day = halloweenDay})
 
-    -- 10 days in seconds (10 days * 24 hours * 60 minutes * 60 seconds)
-    local tenDaysInSeconds = 10 * 24 * 60 * 60
+    -- 5 days in seconds (5 days * 24 hours * 60 minutes * 60 seconds)
+    local tenDaysInSeconds = 5 * 24 * 60 * 60
 
     -- Check if we're within 10 days before or after Halloween
     if math.abs(currentDate - halloweenDate) <= tenDaysInSeconds then
