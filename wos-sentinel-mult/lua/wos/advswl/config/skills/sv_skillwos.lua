@@ -125,3 +125,22 @@ hook.Add("EntityTakeDamage", "temp_godmodetoggle", function(ent, dmginfo)
 		return true
 	end
 end)
+
+hook.Add("OnEntityCreated", "updateNPCActions", function(npc)
+    if IsValid(npc) and npc:IsNPC() then
+		npc:SetSaveValue("m_flFieldOfView", 0.2)
+		npc:SetSaveValue("m_flReactionTime", 0.5)
+        if string.match(npc:GetClass(), "^npc_combine") or string.match(npc:GetClass(), "^rd_swnpc") then
+            npc:SetSaveValue("m_bNoPathfind", true)
+        end
+		npc:SetSchedule(SCHED_IDLE_STAND)
+    end
+end)
+
+timer.Create("stopPatrollingPathfinding", 20, 0, function()
+	for _, npc in ipairs(ents.GetAll()) do
+		if string.match(npc:GetClass(), "^npc_combine") or string.match(npc:GetClass(), "^rd_swnpc") then
+			npc:SetSchedule(SCHED_IDLE_STAND)
+		end
+	end
+end)

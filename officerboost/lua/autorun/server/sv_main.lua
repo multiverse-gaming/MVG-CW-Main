@@ -103,9 +103,10 @@ hook.Add("OfficerBoost.OnBoost.Normal", "NormalBoost", function(ply, creator)
     ply.OBLSHealth = ply:Health()
 
     local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
+    local runSpeedBoost = ply:GetRunSpeed() * data.SpeedBoost
 
     ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost * 1.5)
+    ply:SetRunSpeed(runSpeedBoost)
     ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
 
     ply:SetHealth(ply:Health() + data.AdditionalHealth)
@@ -136,9 +137,10 @@ hook.Add( "OfficerBoost.OnBoost.BattleFocus", "BattleFocusBoost", function(ply, 
     ply.OBLSHealth = ply:Health()
 
     local speedBoost = ply:GetWalkSpeed() * data.SpeedBoost
+    local runSpeedBoost = ply:GetRunSpeed() * data.SpeedBoost
 
     ply:SetWalkSpeed(speedBoost)
-    ply:SetRunSpeed(speedBoost)
+    ply:SetRunSpeed(runSpeedBoost)
     ply:SetJumpPower(ply:GetJumpPower() * data.JumpBoost)
 
     ply:SetHealth(ply:Health() + data.AdditionalHealth)

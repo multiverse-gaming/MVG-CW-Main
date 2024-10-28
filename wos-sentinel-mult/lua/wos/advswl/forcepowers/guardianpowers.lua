@@ -102,12 +102,13 @@ wOS.ForcePowers:RegisterNewPower({
 		description = "Taunt your enemies",
 		action = function( self )
 			if ( self:GetForce() < 50 ) then self:SetNextAttack( 0.2 ) return end
-			self:SetForce( self:GetForce() - 50 )
 
 			-- Set NPC's target to be the user.
 			for i, e in pairs( ents.FindInSphere( self:GetOwner():GetPos(), 900 ) ) do
-				if (e:IsNpc()) then
+				if (e:IsNPC()) then
 					e:SetTarget(self.Owner)
+					e:SetEnemy(self.Owner)
+					e:UpdateEnemyMemory(self.Owner, self.Owner:GetPos()) -- Update enemy memory
 				end
 			end
 
@@ -117,6 +118,7 @@ wOS.ForcePowers:RegisterNewPower({
 			ed:SetOrigin( self.Owner:GetPos() + Vector( 0, 0, 0 ) )
 			ed:SetRadius( 30 )
 			util.Effect( "rb655_force_repulse_out", ed, true, true )
+			self:SetForce( self:GetForce() - 50 )
 			return true
 		end
 })
