@@ -119,3 +119,9 @@ timer.Simple(60, function()
         end
     end
 end)
+
+hook.Add("EntityTakeDamage", "temp_godmodetoggle", function(ent, dmginfo)
+	if ent.sam_has_god_mode then
+		return true
+	end
+end)

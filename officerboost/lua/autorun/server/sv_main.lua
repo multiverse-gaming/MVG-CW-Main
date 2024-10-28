@@ -71,10 +71,12 @@ function OfficerBoost:CreateBoost(ply, type)
 
         hook.Run("OfficerBoost.OnBoost."..type, ent, ply)
 
-        net.Start("OfficerBoost.DrawHUD")
-        net.WriteString(ply:SteamID64())
-        net.WriteString(type)
-        net.Send(ent)
+        if (type != "501st") then
+            net.Start("OfficerBoost.DrawHUD")
+                net.WriteString(ply:SteamID64())
+                net.WriteString(type)
+            net.Send(ent)
+        end
     end
 end
 

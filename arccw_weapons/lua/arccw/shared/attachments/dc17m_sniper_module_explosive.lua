@@ -37,7 +37,7 @@ att.Hook_FireBullets = function(wep, bullettable)
 						if v:GetPos():Distance( tr.HitPos ) < 60 then
 							local distance = math.Clamp( (60 - v:GetPos():Distance(tr.HitPos)) / 60, 0.2, 1 )
 							local damage = DamageInfo()
-							damage:SetDamage( 150 * distance )
+							damage:SetDamage( math.min(150 * distance, 150) )
 							damage:SetAttacker( wep.Owner )
 							damage:SetDamageType( DMG_BLAST )
 							v:TakeDamageInfo( damage )

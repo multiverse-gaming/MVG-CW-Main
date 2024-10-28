@@ -445,6 +445,7 @@ command.new("admin")
 		ply:sam_cloak()
 		ply:GodEnable()
 		ply:SetMoveType(MOVETYPE_NOCLIP)
+		ply.sam_has_god_mode = true
 
 		for i, v in ipairs( player.GetAll() ) do
 			if v:HasPermission("see_admin_chat") then
@@ -464,6 +465,7 @@ command.new("unadmin")
 		ply:sam_uncloak()
 		ply:GodDisable()
 		ply:SetMoveType(MOVETYPE_WALK)
+		ply.sam_has_god_mode = false
 
 		for i, v in ipairs( player.GetAll() ) do
 			if v:HasPermission("see_admin_chat") then
