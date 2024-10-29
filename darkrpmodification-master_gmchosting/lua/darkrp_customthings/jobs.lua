@@ -5460,7 +5460,7 @@ TEAM_SDWOFF = DarkRP.createJob("Shadow Officer", {
 
 TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/nso_trp.mdl","models/aussiwozzi/cgi/base/nso_blackout.mdl"},
     description = [[Congratulations You are now a SDW Sergeant!]],
     weapons = {"arccw_dc19","arccw_v2_dc17_suppressed","weapon_cloak","sfw_magnastaff"},
     command = "sdwsgt",
@@ -5481,7 +5481,7 @@ TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
 
 TEAM_SDWTRP = DarkRP.createJob("Shadow Trooper", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/nso_spark.mdl","models/aussiwozzi/cgi/base/nso_blackout.mdl"},
     description = [[Congratulations You are now a member of SDW!]],
     weapons = {"arccw_dc19","arccw_v2_dc17_suppressed","weapon_cloak","sfw_magnastaff"},
     command = "sdwtrp",
