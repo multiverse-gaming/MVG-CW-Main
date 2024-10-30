@@ -1332,7 +1332,7 @@ TEAM_GREENGENERAL = DarkRP.createJob("Green Company General", {
 
     description = [[Congratulations, you are the Deployed General of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "weapon_remotedrone", "datapad_player", "carkeys"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "weapon_remotedrone", "datapad_player", "carkeys", "mortar_range_finder"},
 
     command = "gcgen",
 
@@ -1364,7 +1364,7 @@ TEAM_GREENMCOMMANDER = DarkRP.createJob("Green Company Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcmco",
 
@@ -1396,7 +1396,7 @@ TEAM_GREENCOMMANDER = DarkRP.createJob("Green Company Commander", {
 
     description = [[Congratulations, you are the Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcco",
 
@@ -1430,7 +1430,7 @@ TEAM_GREENEXECUTIVEOFFICER = DarkRP.createJob("Green Company Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcxo",
 
@@ -1464,7 +1464,7 @@ TEAM_GREENMAJOR = DarkRP.createJob("Green Company Major", {
 
     description = [[Congratulations, you are the Major of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcmjr",
 
@@ -1500,7 +1500,7 @@ TEAM_GREENLIEUTENANT = DarkRP.createJob("Green Company Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Green Company! Can Spawn: Barc Speeder]],
 
-    weapons = {"arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "arccw_v2_dc17", "carkeys"},
+    weapons = {"arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "arccw_v2_dc17", "carkeys","mortar_range_finder"},
 
     command = "gclt",
 
@@ -1534,7 +1534,7 @@ TEAM_GREENMARKSMAN = DarkRP.createJob("Green Company Marksman", {
 
     description = [[Congratulations, you are a Marksman for the Green Company! Can Spawn: Barc Speeder]],
 
-    weapons = {"arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "realistic_hook", "arccw_v2_dc17", "carkeys"},
+    weapons = {"arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "realistic_hook", "arccw_v2_dc17", "carkeys","mortar_range_finder"},
 
     command = "gcmm",
 
@@ -1567,7 +1567,7 @@ TEAM_ARCALPHAGC = DarkRP.createJob("Green Company Alpha ARC", {
 
     description = [[Congratulations, you are ARC Alpha Green Company!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys"},
+    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys","mortar_range_finder"},
 
     command = "arcagc",
 
@@ -1599,7 +1599,7 @@ TEAM_GCARC = DarkRP.createJob("Green Company ARC", {
 
     description = [[Congratulations, you are a GC ARC Trooper!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys"},
+    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_iqa11", "carkeys","mortar_range_finder"},
 
     command = "gcarc",
 
@@ -1633,7 +1633,7 @@ TEAM_GREENMEDOFFICER = DarkRP.createJob("Green Company Medic Officer", {
 
     description = [[Congratulations, you are the Medical Officer of the Green Company!]],
 
-    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "carkeys"},
+    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "carkeys","mortar_range_finder"},
 
     command = "gcmo",
 
@@ -1667,7 +1667,7 @@ TEAM_GREENSERGEANT = DarkRP.createJob("Green Company Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Green Company!]],
 
-    weapons = {"arccw_v2_dc17", "arccw_iqa11","realistic_hook", "arccw_v2_dc15s_gc", "carkeys"},
+    weapons = {"arccw_v2_dc17", "arccw_iqa11","realistic_hook", "arccw_v2_dc15s_gc", "carkeys","mortar_range_finder"},
 
     command = "gcsgt",
 
@@ -1703,7 +1703,7 @@ TEAM_GREENMEDTROOPER = DarkRP.createJob("Green Company Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Green Company!]],
 
-    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys"},
+    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook", "arccw_v2_dc15s_gc", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "carkeys","mortar_range_finder"},
 
     command = "gcmt",
 
@@ -1739,7 +1739,7 @@ TEAM_GREENTROOPER = DarkRP.createJob("Green Company Trooper", {
 
     description = [[Congratulations, you are a trooper of the Green Company!]],
 
-    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook"},
+    weapons = {"arccw_v2_dc17", "arccw_iqa11", "realistic_hook","mortar_range_finder"},
 
     command = "gctrp",
 
