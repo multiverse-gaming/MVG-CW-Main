@@ -5460,7 +5460,7 @@ TEAM_SDWOFF = DarkRP.createJob("Shadow Officer", {
 
 TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/shadow_barc.mdl","models/aussiwozzi/cgi/base/nso_trp.mdl","models/aussiwozzi/cgi/base/nso_blackout.mdl"},
     description = [[Congratulations You are now a SDW Sergeant!]],
     weapons = {"arccw_dc19","arccw_v2_dc17_suppressed","weapon_cloak","sfw_magnastaff"},
     command = "sdwsgt",
@@ -5481,7 +5481,7 @@ TEAM_SDWSGT = DarkRP.createJob("Shadow Sergeant", {
 
 TEAM_SDWTRP = DarkRP.createJob("Shadow Trooper", {
 	color = Color(130,16,8),
-    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl"},
+    model = {"models/aussiwozzi/cgi/base/shadow_trooper.mdl","models/aussiwozzi/cgi/base/nso_spark.mdl","models/aussiwozzi/cgi/base/nso_blackout.mdl"},
     description = [[Congratulations You are now a member of SDW!]],
     weapons = {"arccw_dc19","arccw_v2_dc17_suppressed","weapon_cloak","sfw_magnastaff"},
     command = "sdwtrp",
@@ -5974,7 +5974,7 @@ TEAM_FLEET_RDM = DarkRP.createJob("Fleet Medical Officer", {
     color = Color(122, 122, 122, 255),
     model = {"models/jajoff/sps/republic/tc13j/navy_medic.mdl","models/jajoff/sps/republic/tc13j/navy_medic_female.mdl","models/speedy/md/md_evo.mdl","models/aussiwozzi/cgi/base/pilot_cpt.mdl","models/aussiwozzi/cgi/base/pilot_lt.mdl","models/aussiwozzi/cgi/base/pilot_sgt.mdl","models/aussiwozzi/cgi/base/pilot_com.mdl"},
     description = [[Congratulations You are now a Fleet Medical Officer!]],
-    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_v2_dc15s", "weapon_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone", "kaito_satellite_tablet"},
+    weapons = {"datapad_player", "arccw_defender_sporting", "arccw_v2_dc15s", "lord_chrome_medkit", "weapon_defibrillator", "arccw_impact_bacta", "tf_weapon_medigun", "voice_amplifier", "weapon_remotedrone", "kaito_satellite_tablet"},
     command = "fleetmo",
     max = 4,
     salary = 200,
@@ -6211,7 +6211,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
