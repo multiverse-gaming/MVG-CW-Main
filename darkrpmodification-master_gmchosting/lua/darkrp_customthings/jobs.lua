@@ -3142,7 +3142,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys", "follower_controller"},
+    weapons = {"arccw_v2_westarm5_wp", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys", "follower_controller"},
 
     command = "arcawp",
 
@@ -3176,7 +3176,7 @@ TEAM_WPARC = DarkRP.createJob("Wolfpack ARC", {
 
     description = [[Congratulations, you are a Wolfpack ARC Trooper!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster", "follower_controller"},
+    weapons = {"arccw_v2_westarm5_wp", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster", "follower_controller"},
 
     command = "wparc",
 
