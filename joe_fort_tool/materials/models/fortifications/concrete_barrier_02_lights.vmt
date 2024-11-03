@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "models/fortifications/concrete_barrier_02_lights"
+	"$surfaceprop" "Glass"
+}

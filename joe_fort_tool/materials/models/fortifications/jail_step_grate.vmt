@@ -1,0 +1,9 @@
+"vertexlitgeneric"
+{
+	"$basetexture" "rp_vardos/jail_step_grate"
+	"$surfaceprop" "metalgrate"
+	"$translucent" 1
+	"$bumpmap" "rp_vardos/jail_step_grate_normal"
+	"$envmap" env_cubemap
+	"$envmapmask" "jail_step_grate_mask"
+}

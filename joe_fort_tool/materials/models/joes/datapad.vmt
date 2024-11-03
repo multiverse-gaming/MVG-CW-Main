@@ -1,0 +1,21 @@
+
+"VertexlitGeneric"
+{
+	"$basetexture" "models/joes/datapad"
+	"$bumpmap" "models/joes/datapad_n"
+	"$halflambert" "1"
+	"$phong" "1"
+	"$phongboost" "1"
+	"$phongexponent" "20"
+	"$phongfresnelranges" "[.5 2 5]"
+
+
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[.005 .005 .005]"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "10"
+	"$rimlightboost" "1"	
+
+}
