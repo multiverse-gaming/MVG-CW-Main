@@ -218,19 +218,13 @@ function ENT:InitWeapons()
 	weapon.StartAttack = function( ent )
 		local Driver = ent:GetDriver()
 
-		local bomb = ents.Create( "lvs_protonbomb" )
+		local bomb = ents.Create( "lvs_protonbomb_ywing" )
 		bomb:SetPos( ent:LocalToWorld( Vector( -135, 0, -10) ) )
-		bomb:SetAngles( Angle(90, by, bz) )
+		bomb:SetAngles( ent:GetAngles() )
 		bomb:SetParent( ent )
 		bomb:Spawn()
 		bomb:Activate()
 		bomb:SetAttacker( IsValid( Driver ) and Driver or self )
-
-		local shipVelocity = ent:GetVelocity()
-		local localVelocity = shipVelocity.x * ent:GetForward() +
-							  shipVelocity.y * ent:GetRight() +
-							  shipVelocity.z * ent:GetUp()
-		bomb:SetVelocity(localVelocity)
 		bomb:SetSpeed( ent:GetVelocity() )
 
 		ent._ProtonBomb = bomb
