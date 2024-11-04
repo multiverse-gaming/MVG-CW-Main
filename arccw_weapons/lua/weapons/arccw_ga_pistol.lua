@@ -3,8 +3,8 @@ AddCSLuaFile()
 SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
 SWEP.Category = "[MVG] Miscellaneous Equipment"
-SWEP.Credits = { Author1 = "Dandy"}
-SWEP.PrintName = "Old Righteous"
+SWEP.Credits = { Author1 = "Monty"}
+SWEP.PrintName = "The Last Word"
 SWEP.Trivia_Class = "Heavy Blaster Pistol"
 SWEP.Trivia_Desc = "Heavy blaster pistol for CQB enviroments"
 SWEP.Trivia_Manufacturer = "BlasTech Industries"
@@ -18,8 +18,8 @@ SWEP.SlotPos			= 3
 
 SWEP.UseHands = true
 
-SWEP.ViewModel = "models/weapons/v_357.mdl"
-SWEP.WorldModel = "models/weapons/w_357.mdl"
+SWEP.ViewModel = "models/arccw/kraken/sops-v2/c_the_last_word.mdl"
+SWEP.WorldModel = "models/arccw/bf2017/w_e11.mdl"
 SWEP.ViewModelFOV = 70
 SWEP.HideViewmodel = false
 
@@ -41,7 +41,8 @@ SWEP.TraceNum = 1
 SWEP.PhysTracerProfile = 1
 
 SWEP.TracerNum = 1
-SWEP.Tracer = "tfa_tracer_red"
+SWEP.PhysTracerProfile = "apex_bullet_energy"
+SWEP.Tracer = "arccw_apex_tracer_energy_sniper"
 SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
@@ -53,7 +54,7 @@ SWEP.RecoilPunch = 0.4
 SWEP.RecoilSide = 0.2
 SWEP.RecoilRise = 0.17
 
-SWEP.Delay = 60 / 200
+SWEP.Delay = 60 / 150
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
@@ -150,4 +151,11 @@ SWEP.Animations = {
     },
 
 
+}
+SWEP.Attachments = {
+    [1] = {
+        PrintName = "Energization", -- print name
+        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
+        Slot = "gaexecute",
+    },
 }

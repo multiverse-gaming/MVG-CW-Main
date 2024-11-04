@@ -5,7 +5,7 @@
 -- Load the job and category mappings-- Job mappings. Try and keep these in a rough order.
 local jobs = {
     -- Generals
-    ["Supreme General"] = {"arccw_zitracker"},
+    ["Supreme General"] = {"arccw_zitracker","sw_stun_ga"},
     ["Battalion General"] = {"arccw_zitracker"},
     ["Assistant General"] = {"arccw_zitracker"},
 
