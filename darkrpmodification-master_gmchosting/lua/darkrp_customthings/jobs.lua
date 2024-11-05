@@ -1810,7 +1810,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
 
     command = "cggen",
 
@@ -1828,7 +1828,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     category = "Coruscant Guard",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 0
 
@@ -1842,7 +1842,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun",  "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgmco",
 
@@ -1860,7 +1860,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 1
 
@@ -1874,7 +1874,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgco",
 
@@ -1892,7 +1892,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 2
 
@@ -1908,7 +1908,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot","arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgxo",
 
@@ -1926,7 +1926,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 3
 
@@ -1942,7 +1942,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot","weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
 
     command = "cgmjr",
 
@@ -1960,7 +1960,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 4
 
@@ -1994,7 +1994,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 5
 
@@ -2009,7 +2009,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     description = [[Congratulations, you are a Riot Trooper of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_dc17_stun", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_dc17_stun", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player", "masita_cgshield"},
 
     command = "cgrt",
 
@@ -2064,7 +2064,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1) end,
 
-OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (260) end,
+OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (250) end,
 
     sortOrder = 7
 
@@ -2198,7 +2198,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 11
 
@@ -2232,7 +2232,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 12
 
@@ -2266,7 +2266,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 13
 
@@ -2300,7 +2300,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (260) ply:SetGravity(1)
+PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (250) ply:SetGravity(1)
 
 end,
 

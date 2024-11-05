@@ -4,7 +4,7 @@ SWEP.Base = "arccw_meeks_sw_base"
 SWEP.Spawnable = true
 SWEP.Category = "[ ArcCW ] Republic Weapons"
 SWEP.Credits = { Author1 = "cat"}
-SWEP.PrintName = "DC-15 (Riot)"
+SWEP.PrintName = "DC-15 (Riot Shotgun)"
 SWEP.Trivia_Class = "Blaster Rifle"
 SWEP.Trivia_Desc = "High tech DC-15A Blaster Rifle, preffered for long-range combat and general allround usage."
 SWEP.Trivia_Manufacturer = "BlasTech Industries"
@@ -36,7 +36,7 @@ SWEP.RangeMin = 1
 SWEP.DamageMin = 35
 SWEP.Range = 550000
 SWEP.Penetration = 1
-SWEP.DamageType = DMG_BULLET
+SWEP.DamageType = DMG_BUCKSHOT
 SWEP.MuzzleVelocity = 400
 
 
@@ -49,14 +49,15 @@ SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 1.5
 
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 45
+SWEP.Primary.ClipSize = 10
 
-SWEP.Recoil = 0.29
-SWEP.RecoilSide = 0.11
-SWEP.RecoilRise = 0.22
+SWEP.Recoil = 1.5
+SWEP.RecoilSide = 0.6
+SWEP.RecoilPunch = 0.8
+SWEP.RecoilRise = 1
 
-SWEP.Delay = 60 / 450
-SWEP.Num = 1
+SWEP.Delay = 60 / 100
+SWEP.Num = 6
 SWEP.Firemodes = {
 	{
 		Mode = 2
@@ -70,10 +71,12 @@ SWEP.Firemodes = {
 }
 
 
-SWEP.AccuracyMOA = 5.7 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
-SWEP.MoveDispersion = 200
+SWEP.AccuracyMOA = 110 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 250 -- inaccuracy added by hip firing.
+SWEP.MoveDispersion = 0
 SWEP.SightsDispersion = 0
+
+SWEP.SpeedMult = 0.8
 
 ----AMMO / stuff----
 
@@ -84,7 +87,7 @@ SWEP.ShootPitch = 100
 
 
 SWEP.DistantShootSound = "dc15a/SW02_Weapons_Blasters_Shared_Corebass_Tight_Close_VAR_02 0 0 0.mp3"
-SWEP.ShootSound = "dc15a/SW02_Weapons_Blasters_DC15_Laser_Close_VAR_03 4 1 0.mp3"
+SWEP.ShootSound = "dp23/dp23.wav"
 SWEP.ShootSoundSilenced = "w/dc19.wav"
 
 SWEP.NoFlash = nil -- disable light flash
@@ -144,12 +147,7 @@ SWEP.Attachments = {
             wang = Angle(-16, 0, 180)
         },
         --CorrectiveAng = Angle(-2.2, -0, 0)
-    },
-    [2] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = {"ultimateshotgun","sw_ammo"}, --NSO shotgun and stunrounds
-    }, 
+    }
 }
 SWEP.Animations = {
     ["idle"] = {
