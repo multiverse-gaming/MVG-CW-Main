@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture"					"models\kraken\e11/weapon_sterling_dm"
+	"$bumpmap"						"models\kraken\e11/weapon_sterling_nm"
+
+	"$color2"	"[0.6 0.6 0.6]"
+	"$blendTintByBaseAlpha"	"1"
+
+	"$phongexponenttexture"	"models\kraken\shared\albedo_tintdefine"
+	"$phongalbedotint" 1
+	"$phong" "1"
+	"$phongboost"	"1.75"
+	"$phongfresnelranges"	"[1 1.5 1.25]"
+	
+
+}

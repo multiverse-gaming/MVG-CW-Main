@@ -1,0 +1,21 @@
+"UnlitGeneric"
+{
+	"$basetexture" "models\rising\shared/current"
+	"$nocull"      "1"
+	"$additive"    "1"
+
+        "$selfillum"	       "1"
+        "$selfillumtint"       "[2 2 2]"
+        "$selfIllumFresnel"    "1"
+	"$translucent"         "1"
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$basetexturetransform"
+			"texturescrollrate" 13
+			"texturescrollangle" 360
+		}
+       }
+}
+}
