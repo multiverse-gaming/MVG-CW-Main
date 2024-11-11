@@ -72,7 +72,7 @@ SWEP.SpeedMult = 1
 -- Ammo, Sounds & MuzzleEffect
 SWEP.Primary.Ammo = "ar2"
 
-SWEP.ShootVol = 125
+SWEP.ShootVol = 80
 SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0.05
 

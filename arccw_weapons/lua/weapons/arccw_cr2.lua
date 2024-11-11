@@ -160,6 +160,16 @@ SWEP.Attachments = {
         },
     },
     [2] = {
+        PrintName = "Barrel",
+        DefaultAttName = "Standard",
+        Slot = {"WPCR2Barrel"},
+    },
+    [3] = {
+        PrintName = "Stock",
+        DefaultAttName = "Standard",
+        Slot = {"WPCR2Stock"},
+    },
+    [4] = {
         PrintName = "Underbarrel",
         DefaultAttName = "Empty",
         Slot = {"WPShot"},

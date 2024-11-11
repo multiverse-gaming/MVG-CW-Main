@@ -24,12 +24,12 @@ local jobs = {
     ["Galactic Marines Medic Trooper"] = { "ubgl_incendiary" },
 
     -- WP
-    ["Wolfpack General"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
-    ["Wolfpack Marshal Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
-    ["Wolfpack Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
-    ["Wolfpack Executive Officer"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
-    ["Wolfpack Major"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
-    ["Wolfpack Direwolf"] = {"underbarrel_scandart", "underbarrel_scandart_local"},
+    ["Wolfpack General"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
+    ["Wolfpack Marshal Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
+    ["Wolfpack Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
+    ["Wolfpack Executive Officer"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation" },
+    ["Wolfpack Major"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation" },
+    ["Wolfpack Direwolf"] = {"underbarrel_scandart", "underbarrel_scandart_local" },
 
     -- 501st
     ["501st General"] = {"perk_trp_run_gun", "dc15le_carbine", "dc15le_heavy", "dc15le_greentibanna", "dc15le_purpletibanna", "dc15le_extmag", "mode_z6_sentry", "dc15-le-z6_explosivetib"},
