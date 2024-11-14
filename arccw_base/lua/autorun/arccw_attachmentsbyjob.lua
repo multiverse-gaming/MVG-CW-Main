@@ -24,11 +24,11 @@ local jobs = {
     ["Galactic Marines Medic Trooper"] = { "ubgl_incendiary" },
 
     -- WP
-    ["Wolfpack General"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
-    ["Wolfpack Marshal Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
-    ["Wolfpack Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip" },
-    ["Wolfpack Executive Officer"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation" },
-    ["Wolfpack Major"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation" },
+    ["Wolfpack General"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip", "wprev_chargedshot" },
+    ["Wolfpack Marshal Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip", "wprev_chargedshot" },
+    ["Wolfpack Commander"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_pistolwhip", "wprev_chargedshot" },
+    ["Wolfpack Executive Officer"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_chargedshot" },
+    ["Wolfpack Major"] = {"underbarrel_scandart", "underbarrel_scandart_local", "wprev_energisation", "wprev_chargedshot" },
     ["Wolfpack Direwolf"] = {"underbarrel_scandart", "underbarrel_scandart_local" },
 
     -- 501st

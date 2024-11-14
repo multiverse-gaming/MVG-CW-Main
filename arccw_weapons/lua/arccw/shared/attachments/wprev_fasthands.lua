@@ -1,5 +1,5 @@
 att.PrintName = "Fast Hands"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[You can loose shoots quickly, if inaccurately]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

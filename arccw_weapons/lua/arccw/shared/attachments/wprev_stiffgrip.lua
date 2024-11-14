@@ -1,5 +1,5 @@
 att.PrintName = "Stiff Grip"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Improved movement accuracy, reduced general precision]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

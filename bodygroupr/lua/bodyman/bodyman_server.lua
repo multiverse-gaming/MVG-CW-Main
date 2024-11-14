@@ -143,11 +143,11 @@ net.Receive("skins_change", function(len, ply)
 
 		if allowed then
 			ply:SetSkin(wants)
-			BodygroupManagerLog( ply:Nick().." changed their skin: ("..tostring(wants)..")" )
+			--BodygroupManagerLog( ply:Nick().." changed their skin: ("..tostring(wants)..")" )
 		end
 	else
 		ply:SetSkin( wants )
-		BodygroupManagerLog( ply:Nick().." changed their skin: ("..tostring(wants)..")" )
+		--BodygroupManagerLog( ply:Nick().." changed their skin: ("..tostring(wants)..")" )
 	end
 
 	ply.LastJob_bodygroupr = job.command or "none"

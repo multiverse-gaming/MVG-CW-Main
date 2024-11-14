@@ -1,5 +1,5 @@
 att.PrintName = "Superheated Plasma"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Improved damage, reduced RPM to deal with the heat, so hot it burns the air as it travels]]
 att.Desc_Pros = {}
 att.Desc_Cons = {"Longer Reload"}

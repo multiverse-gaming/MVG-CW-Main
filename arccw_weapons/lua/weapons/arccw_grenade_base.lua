@@ -32,7 +32,7 @@ SWEP.MeleeMissSound = ""
 SWEP.MeleeHitSound = ""
 SWEP.MeleeHitNPCSound = ""
 
-SWEP.MeleeDamage = 50
+SWEP.MeleeDamage = 25
 SWEP.MeleeRange = 48
 SWEP.MeleeDamageType = DMG_CLUB
 SWEP.MeleeTime = 1

@@ -1,5 +1,5 @@
 att.PrintName = "Pistol Whip"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = "Whip those MF'ers."
 att.Desc_Pros = {}
 att.Desc_Cons = {}

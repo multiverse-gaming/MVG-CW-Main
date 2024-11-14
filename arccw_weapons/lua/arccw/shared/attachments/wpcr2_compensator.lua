@@ -1,5 +1,5 @@
 att.PrintName = "Compensator"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Improves recoil, but decreases mobility]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

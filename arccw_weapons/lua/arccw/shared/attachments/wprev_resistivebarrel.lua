@@ -1,5 +1,5 @@
 att.PrintName = "Resistive Barrel"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Improved damage, but much lower RPM]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

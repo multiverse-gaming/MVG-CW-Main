@@ -1,5 +1,5 @@
 att.PrintName = "Steady Shots"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Nigh-perfect accuracy, and the ability to place headshots]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

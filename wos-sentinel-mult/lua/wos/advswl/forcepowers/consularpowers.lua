@@ -378,6 +378,8 @@ wOS.ForcePowers:RegisterNewPower({
 
 			elseif (!self:GetOwner():KeyDown( IN_WALK ) && IsValid( ent ) && ent:IsPlayer()) then
 				if (ent:Health() >= ent:GetMaxHealth()) then return end
+				self:GetOwner():SetSequenceOverride("idle_magic", 1)
+				self:GetOwner():SetNW2Float( "wOS.ForceAnim", CurTime() + 0.3 )
 				local healCD = 0.3
 				if (self.HealIdleCD != nil) then healCD = 0.2 end
 				self:SetNextAttack( healCD )

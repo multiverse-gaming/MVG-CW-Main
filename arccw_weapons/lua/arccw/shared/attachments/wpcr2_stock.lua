@@ -1,5 +1,5 @@
 att.PrintName = "Heavy Stock"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Decreases moa, but decreases mobility too]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

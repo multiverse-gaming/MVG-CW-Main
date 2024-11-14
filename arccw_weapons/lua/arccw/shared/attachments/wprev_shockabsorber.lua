@@ -1,5 +1,5 @@
 att.PrintName = "Shock Absorber"
-att.Icon = Material("entities/perks/stormtrooper.png")
+att.Icon = nil
 att.Description = [[Reduces recoil]]
 att.Desc_Pros = {}
 att.Desc_Cons = {}

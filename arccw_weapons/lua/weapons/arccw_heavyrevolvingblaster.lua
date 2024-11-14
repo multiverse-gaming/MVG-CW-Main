@@ -26,9 +26,9 @@ SWEP.WorldModelOffset = {
     ang = Angle(-10, 0, 180)
 }
 
-SWEP.Damage = 75
+SWEP.Damage = 90
 SWEP.RangeMin = 150
-SWEP.DamageMin = 75
+SWEP.DamageMin = 90
 SWEP.Range = 300
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
@@ -41,7 +41,7 @@ SWEP.Tracer = "tfa_tracer_yellow"
 SWEP.TracerCol = Color(255, 255, 0)
 SWEP.HullSize = 0.5
 SWEP.ChamberSize = 0
-SWEP.Primary.ClipSize = 6
+SWEP.Primary.ClipSize = 8
 SWEP.AmmoPerShot = 1
 
 SWEP.Recoil = 1.63

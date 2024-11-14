@@ -175,6 +175,9 @@ SWEP.Attachments = {
         Slot = {"WPShot"},
     },
 }
+SWEP.RejectAttachments = {
+    ["wprev_chargedshot"] = true
+}
 --[[    [2] = {
         PrintName = "Foregrip", -- print name
         DefaultAttName = "No Attachment", -- used to display the "no attachment" text
