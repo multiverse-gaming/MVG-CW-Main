@@ -9,14 +9,14 @@ SWEP.Slot = 2
 -- Trivia
 SWEP.Category = "[ArcCW] Kraken's Special Forces Pack"
 SWEP.Credits = "Kraken"
-SWEP.PrintName = "Thex Mechanica"
+SWEP.PrintName = "The Last Word"
 SWEP.Trivia_Class = "Blaster Revolver"
 SWEP.Trivia_Desc = "Yours, until the last flame dies and all words have been spoken."
-SWEP.IconOverride = "entities/sopsmisc/thexmechanica.png"
+SWEP.IconOverride = "entities/sopsmisc/thelastword.png"
 
 SWEP.HideViewmodel = false
 SWEP.UseHands = true
-SWEP.ViewModel = "models/arccw/kraken/sops-v2/c_the_last_word_ex.mdl"
+SWEP.ViewModel = "models/arccw/kraken/sops-v2/c_the_last_word.mdl"
 SWEP.WorldModel = "models/arccw/bf2017/w_e11.mdl"
 SWEP.ViewModelFOV = 58
 SWEP.MirrorVMWM = true
@@ -81,9 +81,9 @@ SWEP.ShootVol = 150
 SWEP.ShootPitch = 100
 SWEP.ShootPitchVariation = 0.2
 
-SWEP.FirstShootSound = "weapons/duality/dualityfire2.wav"
-SWEP.ShootSound = "weapons/duality/dualityfire2.wav"
-SWEP.ShootSoundSilenced = "weapon/venator/dc17_badbatch.wav"
+SWEP.FirstShootSound = "sops-v2/weapons/revolvers.wav"
+SWEP.ShootSound = "sops-v2/weapons/revolvers.wav"
+SWEP.ShootSoundSilenced = "sops-v2/weapons/silenced.mp3"
 
 SWEP.IronSightStruct = {
 	Pos = Vector(-5.373, -11.532, 1.552),
@@ -116,7 +116,7 @@ SWEP.Attachments = {
 	[1] = {
 		PrintName = "Energization", -- print name
 		DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-		Slot = {"gaexecute"},
+		Slot = {"sw_stun","gaexecute"},
 	},
 }
 
