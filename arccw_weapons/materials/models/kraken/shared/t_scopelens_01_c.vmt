@@ -1,0 +1,14 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models\rising\shared/t_scopelens_01_c"
+	"$bumpmap" "models\rising\shared/t_scopelens_01_n"
+	"$color2"	"[0.49 0.49 0.49]"
+	
+	$phongexponenttexture    "models\rising\shared\albedo_tintdefine"
+	$phongalbedotint 1
+	$phongexponent 5
+	$phongboost    30
+	$lightwarptexture "zerohour\officer\shared/lightwarp_metallic"
+	$phongfresnelranges    "[0.5 1.5 8.0]"
+	$allowdiffusemodulation 0
+}

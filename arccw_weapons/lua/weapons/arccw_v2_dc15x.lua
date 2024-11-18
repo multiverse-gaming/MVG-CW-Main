@@ -59,6 +59,9 @@ SWEP.Delay = 60 / 50
 SWEP.Num = 1
 SWEP.Firemodes = {
 	{
+		Mode = 2
+	},
+	{
 		Mode = 1
 	},
     {
@@ -79,9 +82,9 @@ SWEP.ShootVol = 100
 SWEP.ShootPitch = 100
 
 
-SWEP.DistantShootSound = "shared/snipers/Shared_Corebass_Close_Sniper_VAR_03 0 4 0.ogg"
-SWEP.ShootSound = "dc15x/SW02_Weapons_Blaster_DLT19X_Laser_Close_VAR_01 3 0 0.mp3"
-SWEP.ShootSoundSilenced = "w/dc19.wav"
+-- SWEP.DistantShootSound = "shared/snipers/Shared_Corebass_Close_Sniper_VAR_03 0 4 0.ogg"
+-- SWEP.ShootSound = "dc15x/SW02_Weapons_Blaster_DLT19X_Laser_Close_VAR_01 3 0 0.mp3"
+SWEP.ShootSound = "w/dc19.wav"
 
 SWEP.NoFlash = nil -- disable light flash
 SWEP.MuzzleEffect = nil
@@ -124,7 +127,7 @@ SWEP.Attachments = {
     [1] = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "optic",
+        Slot = {"optic","thermaloptic"},
         --WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
