@@ -2909,7 +2909,7 @@ TEAM_WPGENERAL = DarkRP.createJob("Wolfpack General", {
 
     description = [[Congratulations, you are the Deployed General of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_v2_duals_dc17ext", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller"},
+    weapons = {"arccw_v2_duals_dc17ext", "arccw_cr2", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster","weapon_remotedrone","datapad_player", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpgen",
 
@@ -2942,7 +2942,7 @@ TEAM_ARCMCOMMANDER = DarkRP.createJob("Wolfpack Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpmco",
 
@@ -2974,7 +2974,7 @@ TEAM_ARCCOMMANDER = DarkRP.createJob("Wolfpack Commander", {
 
     description = [[Congratulations, you are the Commander of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpco",
 
@@ -3008,7 +3008,7 @@ TEAM_ARCEXECUTIVEOFFICER = DarkRP.createJob("Wolfpack Executive Officer", {
 
     description = [[Congratulations, you are the Executive Officer of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpxo",
 
@@ -3042,7 +3042,7 @@ TEAM_ARCMAJOR = DarkRP.createJob("Wolfpack Major", {
 
     description = [[Congratulations, you are the Major of the Wolfpack Battalion!]],
 
-    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller"},
+    weapons = {"arccw_cr2", "arccw_v2_duals_dc17ext", "arccw_hunter_shotgun", "weapon_thruster","realistic_hook", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpmjr",
 
@@ -3110,7 +3110,7 @@ TEAM_ARCPATHFINDER = DarkRP.createJob("Wolfpack Direwolf", {
 
     description = [[Congratulations, you are part of the Direwolves in the Wolfpack Battalion!]],
 
-    weapons = {"arccw_v2_dc17", "arccw_hunter_shotgun", "arccw_cr2", "weapon_jetpack", "follower_controller"},
+    weapons = {"arccw_v2_dc17", "arccw_hunter_shotgun", "arccw_cr2", "weapon_jetpack", "follower_controller", "arccw_heavyrevolvingblaster"},
 
     command = "wpdw",
 
