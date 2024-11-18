@@ -1,0 +1,16 @@
+
+"VertexlitGeneric"
+{
+	"$basetexture" "models/joes/screen_righty_rest"
+
+"$surfaceprop" "Default"
+"Proxies" 
+{ 
+"AnimatedTexture" 
+{ 
+"animatedTextureVar" "$basetexture" 
+"animatedTextureFrameNumVar" "$frame" 
+"animatedTextureFrameRate" "3" 
+}
+} 
+}

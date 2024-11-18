@@ -1,0 +1,13 @@
+"VertexlitGeneric"
+{
+"$basetexture" "models/swvp/rep_walk_atot"
+"$bumpmap" "models/swvp/bumpmap_alt"
+"$surfaceprop" "Glass"
+"$nocull" 1
+"$halflambert" 1
+"$translucent" 1
+"$phong" "1"
+"$phongexponent" "20"
+"$phongboost" "1"
+"$phongfresnelranges" "[.3 1 7]"
+}

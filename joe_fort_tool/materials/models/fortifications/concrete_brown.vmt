@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/fortifications/concrete_brown"
+	"$surfaceprop" "Concrete"
+}

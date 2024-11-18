@@ -1810,7 +1810,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
 
     command = "cggen",
 
@@ -1828,7 +1828,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     category = "Coruscant Guard",
 
-    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+    PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 0
 
@@ -1842,7 +1842,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun",  "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgmco",
 
@@ -1860,7 +1860,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(650) ply:SetHealth(650) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 1
 
@@ -1874,7 +1874,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgco",
 
@@ -1892,7 +1892,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(600) ply:SetHealth(600) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 2
 
@@ -1908,7 +1908,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot","arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
 
     command = "cgxo",
 
@@ -1926,7 +1926,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(500) ply:SetHealth(500) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 3
 
@@ -1942,7 +1942,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot","weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
 
     command = "cgmjr",
 
@@ -1960,7 +1960,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(450) ply:SetHealth(450) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
 
     sortOrder = 4
 
@@ -1994,7 +1994,7 @@ TEAM_CGLIEUTENANT = DarkRP.createJob("Coruscant Guard Lieutenant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 5
 
@@ -2009,7 +2009,7 @@ TEAM_CGRIOT = DarkRP.createJob("Coruscant Guard Riot Trooper", {
 
     description = [[Congratulations, you are a Riot Trooper of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot", "arccw_v2_dc17_stun", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_dc17_stun", "stunstick","weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "datapad_player", "masita_cgshield"},
 
     command = "cgrt",
 
@@ -2064,7 +2064,7 @@ TEAM_CGHANDLER = DarkRP.createJob("Coruscant Guard Security Officer", {
 
 PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetMaxArmor(100) ply:SetArmor(100) ply:SetRunSpeed (260) ply:SetGravity(1) end,
 
-OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (260) end,
+OnPlayerChangedTeam = function(ply) ply:SetHealth(400) ply:SetRunSpeed (250) end,
 
     sortOrder = 7
 
@@ -2198,7 +2198,7 @@ TEAM_CGMEDOFFICER = DarkRP.createJob("Coruscant Guard Medic Officer", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(400) ply:SetHealth(400) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 11
 
@@ -2232,7 +2232,7 @@ TEAM_CGSERGEANT = DarkRP.createJob("Coruscant Guard Sergeant", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 12
 
@@ -2266,7 +2266,7 @@ TEAM_CGMEDTROOPER = DarkRP.createJob("Coruscant Guard Medic Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (260) ply:SetGravity(1)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (250) ply:SetGravity(1)  end,
 
     sortOrder = 13
 
@@ -2300,7 +2300,7 @@ TEAM_CGTROOPER = DarkRP.createJob("Coruscant Guard Trooper", {
 
     category = "Coruscant Guard",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (260) ply:SetGravity(1)
+PlayerSpawn = function(ply) ply:SetMaxHealth(300) ply:SetHealth(300) ply:SetRunSpeed (250) ply:SetGravity(1)
 
 end,
 
@@ -2370,7 +2370,7 @@ TEAM_GMGENERAL = DarkRP.createJob("Galactic Marines General", {
 
     description = [[Congratulations, you are the General of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook", "seal6-c4","weapon_remotedrone","datapad_player"},
 
     command = "gmgen",
 
@@ -2400,7 +2400,7 @@ TEAM_GMMCOMMANDER = DarkRP.createJob("Galactic Marines Marshal Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/advisor_red.mdl", "models/aussiwozzi/cgi/base/advisor_grey.mdl", "models/aussiwozzi/cgi/base/advisor_green.mdl", "models/aussiwozzi/cgi/base/advisor_blue.mdl", "models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/224th_toast.mdl","models/aussiwozzi/cgi/base/22nd_dempsey.mdl","models/jajoff/sps/republic/tc13j/rsb02.mdl"},
     description = [[Congratulations, you are the Marshal Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmmco",
     max = 1,
     salary = 275,
@@ -2417,7 +2417,7 @@ TEAM_GMCOMMANDER = DarkRP.createJob("Galactic Marines Commander", {
     color = Color(119, 63, 202),
     model = {"models/aussiwozzi/cgi/base/gm_bacara.mdl", "models/aussiwozzi/cgi/base/gm_elite.mdl", "models/aussiwozzi/cgi/base/gm_officer.mdl", "models/aussiwozzi/cgi/base/gm_trooper.mdl", "models/aussiwozzi/cgi/base/gm_keller_unit.mdl"},
     description = [[Congratulations, you are the Commander of the Galactic Marines!]],
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
     command = "gmco",
     max = 1,
     salary = 275,
@@ -2438,7 +2438,7 @@ TEAM_GMEXECUTIVEOFFICER = DarkRP.createJob("Galactic Marines Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmxo",
 
@@ -2472,7 +2472,7 @@ TEAM_GMMAJOR = DarkRP.createJob("Galactic Marines Major", {
 
     description = [[Congratulations, you are the Major of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_duals_dc17ext", "arccw_incendiary", "seal6-c4", "weapons_flamethrower", "realistic_hook"},
 
     command = "gmmjr",
 
@@ -2506,7 +2506,7 @@ TEAM_GMLIEUTENANT = DarkRP.createJob("Galactic Marines Lieutenant", {
 
     description = [[Congratulations, you are a Lieutenant of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "seal6-c4", "realistic_hook", "arccw_incendiary"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "seal6-c4", "realistic_hook", "arccw_incendiary" },
 
     command = "gmlt",
 
@@ -2538,7 +2538,7 @@ TEAM_GMFLAMETROOPER = DarkRP.createJob("Galactic Marines Flame Trooper", {
 
     description = [[Congratulations, you are a Flame Trooper of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "weapons_flamethrower", "realistic_hook", "seal6-c4"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "weapons_flamethrower", "realistic_hook", "seal6-c4"},
 
     command = "gmft",
 
@@ -2572,7 +2572,7 @@ TEAM_GMKUTROOPER = DarkRP.createJob("Galactic Marines Kellers Unit", {
 
     description = [[Congratulations, you are a Flame Trooper of the Galactic Marines!]]--,
 
---[[    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "rw_sw_dp23du", "realistic_hook", "t3m4_empgrenade"},
+--[[    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "rw_sw_dp23du", "realistic_hook", "t3m4_empgrenade"},
 
     command = "gmku",
 
@@ -2670,7 +2670,7 @@ TEAM_GMMEDOFFICER = DarkRP.createJob("Galactic Marines Medic Officer", {
 
     description = [[Congratulations, you are a Medical Officer of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "arccw_incendiary", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "arccw_incendiary", "seal6-c4", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "arccw_bacta_grenade", "tf_weapon_medigun", "realistic_hook","lord_chrome_medkit", "carkeys"},
 
     command = "gmmo",
 
@@ -2704,7 +2704,7 @@ TEAM_GMSERGEANT = DarkRP.createJob("Galactic Marines Sergeant", {
 
     description = [[Congratulations, you are a Sergeant of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "arccw_incendiary", "realistic_hook"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "arccw_incendiary", "realistic_hook"},
 
     command = "gmsgt",
 
@@ -2740,7 +2740,7 @@ TEAM_GMMEDTROOPER = DarkRP.createJob("Galactic Marines Medic Trooper", {
 
     description = [[Congratulations, you are a Medic of the Galactic Marines!]],
 
-    weapons = {"arccw_sops_tl50_gm", "arccw_v2_dc17", "arccw_incendiary", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
+    weapons = {"arccw_sops_tl50_gm_sgt", "arccw_v2_dc17", "arccw_incendiary", "lord_chrome_medkit", "weapon_bactainjector", "weapon_jew_stimkit", "weapon_defibrillator", "realistic_hook", "carkeys"},
 
     command = "gmmt",
 
@@ -3680,7 +3680,7 @@ TEAM_CEFAB = DarkRP.createJob("Combat Engineer EOD", {
 
     description = [[Congratulations, you are now a member of K Company in the Combat Engineers!]],
 
-    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "turret_placer", "fort_datapad", "arccw_v2_dc15s_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_v2_dc17", "carkeys"},
+    weapons = {"turret_placerfriendly","datapad_player", "weapon_squadshield", "turret_placer", "fort_datapad", "arccw_v2_dc15s_327th", "arccw_v2_dp23_327th", "alydus_fusioncutter", "weapon_physcannon", "defuser_bomb","defuse_kit", "weapon_extinguisher_infinite", "weapon_remotedrone", "weapon_dronerepair", "arccw_v2_dc17", "carkeys"},
 
     command = "cece",
 
@@ -4374,7 +4374,7 @@ TEAM_RCHUNTER = DarkRP.createJob("CF99 Hunter", {
 
     category = "Bad Batch Squad",
 
-PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1) ply:SetWalkSpeed(210)  end,
+PlayerSpawn = function(ply) ply:SetMaxHealth(350) ply:SetHealth(350) ply:SetRunSpeed (240) ply:SetGravity(1)  end,
 
     SortOrder = 1
 
@@ -5504,7 +5504,7 @@ TEAM_CVLD = DarkRP.createJob("Covert Lead", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/nso_deyash.mdl","models/aussiwozzi/cgi/base/nso_roach.mdl"},
     description = [[Congratulations You are now leader of Covert!]],
-    weapons = {"covert","arccw_dc19le","arccw_v2_dc17_suppressed","arccw_blaster_lrb11","arccw_btrs_41","weapon_cloak","sfw_staffv2"},
+    weapons = {"covert","arccw_dc19","arccw_v2_dc17_suppressed","arccw_blaster_lrb11","arccw_sops_mandorifle","weapon_cloak","sfw_staffv2"},
     command = "covlead",
     max = 0,
     salary = 200,
@@ -5525,7 +5525,7 @@ TEAM_CVSPC = DarkRP.createJob("Covert Specialists", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/nso_crusader.mdl"},
     description = [[Congratulations You are now a member of Covert!]],
-    weapons = {"covert","arccw_dc19le","arccw_v2_dc17_suppressed","arccw_blaster_lrb11","weapon_cloak","sfw_staffv2"},
+    weapons = {"covert","arccw_dc19","arccw_v2_dc17_suppressed","arccw_blaster_lrb11","weapon_cloak","sfw_staffv2"},
     command = "covspec",
     max = 0,
     salary = 200,
@@ -5546,7 +5546,7 @@ TEAM_CVTRP = DarkRP.createJob("Covert Trooper", {
 	color = Color(130,16,8),
     model = {"models/aussiwozzi/cgi/base/nso_nari.mdl"},
     description = [[Congratulations You are now a member of Covert!]],
-    weapons = {"covert","arccw_dc19le","arccw_v2_dc17_suppressed","weapon_cloak","sfw_staffv2"},
+    weapons = {"covert","arccw_dc19","arccw_v2_dc17_suppressed","weapon_cloak","sfw_staffv2"},
     command = "covtrp",
     max = 0,
     salary = 200,
@@ -6109,7 +6109,7 @@ TEAM_JEDIGENERALWINDU = DarkRP.createJob("Jedi Master Mace Windu", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/zeus/mace.mdl"},
+    model = {"models/player/mace/mace.mdl"},
 
     description = [[You are Jedi General Mace Windu. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 
@@ -6211,7 +6211,7 @@ TEAM_JEDIGENERALTANO = DarkRP.createJob("Jedi Commander Ahsoka Tano", {
 
     color = Color(242, 0, 255, 255),
 
-    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/zeus/ahsoka_v1.mdl", "models/zeus/ahsoka_v2.mdl"},
+    model = {"models/plo/ahsoka/ahsoka_s7.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v1.mdl","models/tfa/comm/gg/pm_sw_ahsoka_v2.mdl"},
 
     description = [[You are Jedi Commander Ahsoka Tano. It is your role to help lower ranking Jedi get an understanding of the Order!]],
 

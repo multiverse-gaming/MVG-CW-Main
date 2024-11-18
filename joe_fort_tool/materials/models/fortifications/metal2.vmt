@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/fortifications/metal2"
+	"$surfaceprop" "metalgrate"
+}

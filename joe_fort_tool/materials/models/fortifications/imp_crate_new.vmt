@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/fortifications/imp_crate_new"
+	"$surfaceprop" "Metal"
+}

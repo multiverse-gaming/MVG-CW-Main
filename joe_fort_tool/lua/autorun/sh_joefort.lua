@@ -125,14 +125,6 @@ neededresources = multiplier * 60,
  
 
 -- Concrete Barricades
-JoeFort:AddEnt("Concrete Barrier","Concrete Barricade",{
-classname = "",
-model = "models/fortifications/concrete_barrier_01.mdl",
-health = 150,
-buildtime = 8,
-neededresources = multiplier * 15,
-})
- 
 JoeFort:AddEnt("Small Concrete Barrier","Concrete Barricade",{
 classname = "",
 model = "models/fortifications/concrete_barrier_02.mdl",
@@ -157,20 +149,26 @@ buildtime = 18,
 neededresources = multiplier * 45,
 })
  
-
--- Metal Barricades
-JoeFort:AddEnt("Metal Cover","Metal Barricade",{
+JoeFort:AddEnt("Short Wall","Concrete Barricade",{
 classname = "",
-model = "models/props_debris/metal_panel02a.mdl",
-health = 150,
-buildtime = 5,
-neededresources = multiplier * 15,
+model = "models/elitelukas/imp/128x_wall.mdl",
+health = 500,
+buildtime = 20,
+neededresources = multiplier * 50,
 })
- 
+     
+JoeFort:AddEnt("Large Wall","Concrete Barricade",{
+classname = "",
+model = "models/elitelukas/imp/256x_wall.mdl",
+health = 750,
+buildtime = 30,
+neededresources = multiplier * 75,
+})
+-- Metal Barricades
 JoeFort:AddEnt("Small Shooting Barrier","Metal Barricade",{
 classname = "",
 model = "models/fortifications/metal_barrier_02.mdl",
-health = 350,
+health = 500,
 buildtime = 15,
 neededresources = multiplier * 35,
 })
@@ -178,7 +176,7 @@ neededresources = multiplier * 35,
 JoeFort:AddEnt("Big Shooting Barrier","Metal Barricade",{
 classname = "",
 model = "models/fortifications/metal_barrier_04.mdl",
-health = 500,
+health = 1000,
 buildtime = 20,
 neededresources = multiplier * 50,
 })
@@ -186,7 +184,7 @@ neededresources = multiplier * 50,
 JoeFort:AddEnt("Shooting Barricade","Metal Barricade",{
 classname = "",
 model = "models/elitelukas/imp/barricade.mdl",
-health = 450,
+health = 750,
 buildtime = 18,
 neededresources = multiplier * 45,
  
@@ -195,51 +193,65 @@ neededresources = multiplier * 45,
 JoeFort:AddEnt("Reinforced Fence","Metal Barricade",{
 classname = "",
 model = "models/fortifications/metal_barrier.mdl",
-health = 1250,
-buildtime = 60,
+health = 1500,
+buildtime = 30,
 neededresources = multiplier * 100,
 })
  
--- FOB
-JoeFort:AddEnt("FOB","FOB",{
+-- Buildings
+JoeFort:AddEnt("FOB","Buildings",{
 classname = "",
 model = "models/elitelukas/imp/shocktrooper_base.mdl",
 health = 8000,
-buildtime = 180,
+buildtime = 60,
 neededresources = multiplier * 1000,
 })
-JoeFort:AddEnt("Bunker","FOB",{
+JoeFort:AddEnt("Bunker","Buildings",{
 classname = "", 
 model = "models/starwars/syphadias/props/sw_tor/bioware_ea/props/neutral/neu_bunker.mdl", 
 health = 4000, 
-buildtime = 90, 
+buildtime = 30, 
 neededresources = 750, 
 })
-JoeFort:AddEnt("Small Tent","FOB",{
+JoeFort:AddEnt("Small Tent","Buildings",{
 classname = "", 
 model = "models/starwars/syphadias/props/sw_tor/bioware_ea/props/republic/rep_tent_leanto.mdl", 
 health = 500, 
-buildtime = 60, 
+buildtime = 20, 
 neededresources = 600, 
 })
      
-JoeFort:AddEnt("Tent","FOB",{
+JoeFort:AddEnt("Tent","Buildings",{
 classname = "", 
 model = "models/starwars/syphadias/props/sw_tor/bioware_ea/props/neutral/neu_tent_large.mdl", 
 health = 1000, 
-buildtime = 120, 
+buildtime = 40, 
 neededresources = 1200, 
 })
      
-JoeFort:AddEnt("Large Tent","FOB",{
+JoeFort:AddEnt("Large Tent","Buildings",{
 classname = "", 
 model = "models/starwars/syphadias/props/sw_tor/bioware_ea/props/republic/rep_tent_opensided.mdl", 
 health = 8000, 
-buildtime = 180, 
+buildtime = 60, 
 neededresources = 1500, 
 })
+     
+JoeFort:AddEnt("Big Platform","Buildings",{
+classname = "", 
+model = "models/elitelukas/imp/platform_big.mdl", 
+health = 2000, 
+buildtime = 20, 
+neededresources = 500, 
+})
 
-
+JoeFort:AddEnt("Large Fob","Buildings",{
+classname = "", 
+model = "models/lordtrilobite/starwars/props/imp_prefabbase_stairs04.mdl", 
+health = 12000, 
+buildtime = 90, 
+neededresources = 2000, 
+})
 -- Sandbags
 JoeFort:AddEnt("Sandbag","Sandbag",{
 classname = "",
@@ -273,14 +285,6 @@ buildtime = 12,
 neededresources = multiplier * 30,
 })
  
-JoeFort:AddEnt("Sandbag Line Large","Sandbag",{
-classname = "",
-model = "models/props_fortifications/sandbags_line2.mdl",
-health = 350,
-buildtime = 15,
-neededresources = multiplier * 35,
-})
- 
 JoeFort:AddEnt("Sand Block","Sandbag",{
 classname = "",
 model = "models/iraq/ir_hesco_basket_01.mdl",
@@ -298,23 +302,30 @@ neededresources = multiplier * 30,
 })
  
  
--- Walls
-JoeFort:AddEnt("Short Wall","Walls",{
+-- Field Check Ups
+JoeFort:AddEnt("Table","Field Check Ups",{
 classname = "",
-model = "models/elitelukas/imp/128x_wall.mdl",
-health = 500,
-buildtime = 20,
-neededresources = multiplier * 50,
-})
- 
-JoeFort:AddEnt("Large Wall","Walls",{
-classname = "",
-model = "models/elitelukas/imp/256x_wall.mdl",
-health = 750,
-buildtime = 30,
-neededresources = multiplier * 75,
+model = "models/haxxer/normandy/kitchentable.mdl",
+health = 100,
+buildtime = 1,
+neededresources = multiplier * 25,
 })
 
+JoeFort:AddEnt("Check in Desk","Field Check Ups",{
+classname = "",
+model = "models/lt_c/sci_fi/desk_reception.mdl",
+health = 100,
+buildtime = 1,
+neededresources = multiplier * 25,
+})
+
+JoeFort:AddEnt("Scanner","Field Check Ups",{
+classname = "",
+model = "models/lt_c/holo_wall_unit.mdl",
+health = 100,
+buildtime = 1,
+neededresources = multiplier * 25,
+})
 
 -- RP
 JoeFort:AddEnt("Cone","RP",{
@@ -349,10 +360,58 @@ buildtime = 10,
 neededresources = multiplier * 25,
 })
  
-JoeFort:AddEnt("Table","RP",{
+JoeFort:AddEnt("Droid Station","RP",{
 classname = "",
-model = "models/haxxer/normandy/kitchentable.mdl",
+model = "models/epsilon/cwa_furniture/workshop/eps_workshop_droid1.mdll",
+health = 50,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+
+JoeFort:AddEnt("Sensor Node","RP",{
+classname = "",
+model = "models/starwars/syphadias/props/sw_tor/bioware_ea/items/harvesting/slicing/electronic_brain.mdl",
+health = 50,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+
+JoeFort:AddEnt("Sensor Relay","RP",{
+classname = "",
+model = "models/starwars/syphadias/props/sw_tor/bioware_ea/props/neutral/neu_industrial_tower.mdl",
+health = 50,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+    
+JoeFort:AddEnt("Computer","RP",{
+classname = "",
+model = "models/props/starwars/tech/hoth_console2.mdl",
+health = 250,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+        
+JoeFort:AddEnt("Small Computer","RP",{
+classname = "",
+model = "models/kingpommes/starwars/misc/palp_panel1.mdl",
 health = 100,
-buildtime = 1,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+        
+JoeFort:AddEnt("Bacta Tank","RP",{
+classname = "",
+model = "models/props/starwars/medical/bacta_tank.mdl",
+health = 100,
+buildtime = 2,
+neededresources = multiplier * 25,
+})
+        
+JoeFort:AddEnt("Medical Bed","RP",{
+classname = "",
+model = "models/props/starwars/medical/medical_bed.mdl",
+health = 250,
+buildtime = 2,
 neededresources = multiplier * 25,
 })

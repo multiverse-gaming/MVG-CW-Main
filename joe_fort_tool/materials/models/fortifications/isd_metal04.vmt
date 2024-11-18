@@ -1,0 +1,13 @@
+"vertexlitgeneric"
+{
+	"$basetexture"		"lordtrilobite/isd_metal04"
+	"$bumpmap"		"lordtrilobite/isd_metal04_nrm"
+	"$surfaceprop"		"metal"
+
+	"$detail"		"detail\metal_detail_01"
+	"$detailscale"		"2.532"
+	"$detailblendfactor"	"0.40"
+	"$detailblendmode"	"0"
+
+
+}

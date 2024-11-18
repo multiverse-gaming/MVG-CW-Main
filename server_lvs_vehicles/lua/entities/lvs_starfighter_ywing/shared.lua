@@ -212,7 +212,8 @@ function ENT:InitWeapons()
 
 	local weapon = {}
 	weapon.Icon = Material( "lvs/weapons/bomb.png" )
-	weapon.Ammo = 10
+	weapon.Ammo = 75
+    weapon.Delay = 1
 	weapon.HeatRateUp = -0.5
 	weapon.HeatRateDown = 0.1
 	weapon.StartAttack = function( ent )
