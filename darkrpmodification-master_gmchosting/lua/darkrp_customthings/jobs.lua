@@ -1332,7 +1332,7 @@ TEAM_GREENGENERAL = DarkRP.createJob("Green Company General", {
 
     description = [[Congratulations, you are the Deployed General of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "weapon_remotedrone", "datapad_player", "carkeys", "mortar_range_finder"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "arccw_v2_duals_dc17ext", "weapon_remotedrone", "datapad_player", "carkeys", "mortar_range_finder"},
 
     command = "gcgen",
 
@@ -1364,7 +1364,7 @@ TEAM_GREENMCOMMANDER = DarkRP.createJob("Green Company Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcmco",
 
@@ -1396,7 +1396,7 @@ TEAM_GREENCOMMANDER = DarkRP.createJob("Green Company Commander", {
 
     description = [[Congratulations, you are the Commander of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcco",
 
@@ -1430,7 +1430,7 @@ TEAM_GREENEXECUTIVEOFFICER = DarkRP.createJob("Green Company Executive Officer",
 
     description = [[Congratulations, you are the Executive Officer of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcxo",
 
@@ -1464,7 +1464,7 @@ TEAM_GREENMAJOR = DarkRP.createJob("Green Company Major", {
 
     description = [[Congratulations, you are the Major of the Green Company!]],
 
-    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
+    weapons = {"realistic_hook", "arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "arccw_v2_duals_dc17ext", "carkeys","mortar_range_finder"},
 
     command = "gcmjr",
 
@@ -1534,7 +1534,7 @@ TEAM_GREENMARKSMAN = DarkRP.createJob("Green Company Marksman", {
 
     description = [[Congratulations, you are a Marksman for the Green Company! Can Spawn: Barc Speeder]],
 
-    weapons = {"arccw_v2_dc15s_gc", "arccw_iqa11", "masita_sops_t702", "realistic_hook", "arccw_v2_dc17", "carkeys","mortar_range_finder"},
+    weapons = {"arccw_v2_dc15s_gc", "arccw_iqa11", "arccw_sops_iondisruptor_gc", "realistic_hook", "arccw_v2_dc17", "carkeys","mortar_range_finder"},
 
     command = "gcmm",
 
@@ -3142,7 +3142,7 @@ TEAM_ARCALPHAWP = DarkRP.createJob("Wolfpack Alpha ARC", {
 
     description = [[Congratulations, you are a Wolfpack Alpha ARC!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys", "follower_controller"},
+    weapons = {"arccw_v2_westarm5_wp", "arccw_dual_dc17s", "realistic_hook", "arccw_hunter_shotgun", "weapon_thruster", "carkeys", "follower_controller"},
 
     command = "arcawp",
 
@@ -3176,7 +3176,7 @@ TEAM_WPARC = DarkRP.createJob("Wolfpack ARC", {
 
     description = [[Congratulations, you are a Wolfpack ARC Trooper!]],
 
-    weapons = {"arccw_v2_westarm5", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster", "follower_controller"},
+    weapons = {"arccw_v2_westarm5_wp", "arccw_dual_dc17s", "arccw_hunter_shotgun", "realistic_hook", "weapon_thruster", "follower_controller"},
 
     command = "wparc",
 
@@ -6010,7 +6010,7 @@ TEAM_SUPREMEGENERAL = DarkRP.createJob("Supreme General", {
     color = Color(122, 122, 122, 255),
     model = {"models/toe/cgi/gens/gen_acolyte.mdl", "models/toe/cgi/gens/gen_archer.mdl", "models/toe/cgi/gens/gen_id.mdl", "models/toe/cgi/gens/gen_foxjack.mdl", "models/toe/cgi/gens/gen_matrix.mdl", "models/toe/cgi/gens/gen_nomad.mdl", "models/jajoff/sps/republic/tc13j/rsb01.mdl", "models/naval_offduty/pm_naval_cas.mdl"},
     description = [[Congratulations you are the Supreme General of the Titan's Battalion!]],
-    weapons = {"arccw_v2_dc15_ultimate", "arccw_v2_duals_dc17ext_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player", "carkeys"},
+    weapons = {"arccw_v2_dc15_ultimate", "arccw_v2_duals_dc17ext_stun", "arccw_sw_rocket_rps6", "realistic_hook", "weapon_jew_stimkit", "weapon_remotedrone","datapad_player", "carkeys", "arccw_ga_pistol"},
     command = "sg",
     max = 1,
     salary = 300,

@@ -59,6 +59,9 @@ EPS_ClaimBoard_Config.Battalions = {
             ["501st Medic Officer"] = true,
             ["501st Medic Trooper"] = true,
             ["501st Heavy Ordnance Officer"] = true,
+            ["501st Commander Ahsoka Tano"] = true,
+            ["501st General Anakin Skywalker"] = true,
+            ["501st Jedi"] = true,
 
         },
     },
@@ -75,6 +78,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["212th Ghost Company"] = true,
             ["212th Medic Officer"] = true,
             ["212th Medic Trooper"] = true,
+            ["212th General Obi-Wan Kenobi"] = true,
+            ["212th Jedi"] = true,
 
         },
     },
@@ -92,6 +97,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Green Company Ranger"] = true,
             ["Green Company Medic Officer"] = true,
             ["Green Company Medic Trooper"] = true,
+            ["GC Grand Master"] = true,
+            ["GC General Luminara Unduli"] = true,
 
         },
     },
@@ -125,6 +132,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Coruscant Guard Medic Trooper"] = true,
             ["Coruscant Guard Temple Guard"] = true,
             ["CG Temple Guard Chief"] = true,
+            ["Coruscant Guard Temple Guard"] = true,
+            ["CG General Shaak Ti"] = true,
         },
     },
 
@@ -161,6 +170,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Galactic Marines Medic Trooper"] = true,
             ["Galactic Marines Flame Trooper"] = true,
             ["Galactic Marines Kellers Unit"] = true,
+            ["GM General Ki-Adi-Mundi"] = true,
+            ["Galactic Marines Jedi"] = true,
 
         },
     },
@@ -177,6 +188,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Wolfpack Direwolf"] = true,
             ["Wolfpack Medic Officer"] = true,
             ["Wolfpack Medic Trooper"] = true,
+            ["WP General Plo Koon"] = true,
+            ["Wolfpack Jedi"] = true,
 
         },
     },
@@ -196,6 +209,8 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Engineering Officer"] = true,
             ["Combat Engineer Medic Officer"] = true,
             ["Combat Engineer Medic Trooper"] = true,
+            ["Combat Engineer General Aayla Secura"] = true,
+            ["Combat Engineer Jedi"] = true,
         },
     },
 
@@ -249,6 +264,7 @@ EPS_ClaimBoard_Config.Battalions = {
             ["Covert Lead"] = true,
             ["Covert Specialists"] = true,
             ["Covert Trooper"] = true,
+            ["Shadow General Quinlan Vos"] = true,
         },
     },
 

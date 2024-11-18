@@ -128,7 +128,7 @@ wOS.ForcePowers:RegisterNewPower({
 		self:SetForce( self:GetForce() - 50 )
 		
 		-- Leap Code here. 
-		self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 256 + Vector( 0, 0, 256 ) )
+		self:GetOwner():SetVelocity( self:GetOwner():GetAimVector() * 712 )
 		
         return true
     end

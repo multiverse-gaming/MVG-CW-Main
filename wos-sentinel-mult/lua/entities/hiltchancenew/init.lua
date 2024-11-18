@@ -80,7 +80,7 @@ function ENT:Use(ply)
 			else
 				items = { "Crossguard Hilt", "Dragonpearl Hilt", "Eternal Commander's Mk 4 Hilt", "Executioner's Hilt", "Rishi's Mk2 Hilt",
 					"Royal 2 Hilt", "Unknown Hilt", "Blade Pommel Hilt", "Kyle Katarn's Hilt", "Tythian Hilt",
-					"Dragonpearl Shoto", "Claw's Hilt" }
+					"Dragonpearl Shoto", "Claw's Hilt", "Dagger-Blade" }
 			end
 		elseif type <= 90 then
 			-- Double Hilts

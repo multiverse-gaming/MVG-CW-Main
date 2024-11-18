@@ -34,7 +34,7 @@ att.Mult_ReloadTime = 1.25
 
 att.Mult_SightedSpeedMult = 0.90
 
-att.Override_DamageType = DMG_BUCKSHOT
+att.Override_DamageType = DMG_DISSOLVE
 
 --att.Add_ClipSize = -240
 

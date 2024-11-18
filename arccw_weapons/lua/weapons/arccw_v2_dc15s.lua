@@ -280,3 +280,21 @@ SWEP.Animations = {
         }
     },
 }
+
+
+SWEP.Attachments = {
+	[1] = {
+		PrintName = "Optic", -- print name
+		DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
+		Slot = "extraoptic",
+        DefaultEles = {"ironsight"},
+		Bone = "DC15", -- relevant bone any attachments will be mostly referring to
+		Offset = {
+            vpos = Vector(0.02, -1.5, 0),
+            vang = Angle(90, 0, -88),
+            wpos = Vector(6, 1.5, -5),
+            wang = Angle(-10, 2, 180)
+        },
+        NoWM = false
+	},
+}
