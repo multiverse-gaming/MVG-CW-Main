@@ -32,9 +32,9 @@ OBJ:AddHook("PlayerLoadout", function(ply)
         if (TIER == 1) then
             attachment = "rc_perk_wreckerberserker_1"
         elseif (TIER == 2) then
-            attachment = "rc_perk_wreckerberserker_1"
+            attachment = "rc_perk_wreckerberserker_2"
         else
-            attachment = "rc_perk_wreckerberserker_1"
+            attachment = "rc_perk_wreckerberserker_3"
         end
         
         timer.Simple(1, function()

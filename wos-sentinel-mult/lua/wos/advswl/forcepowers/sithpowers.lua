@@ -25,7 +25,7 @@ wOS.ForcePowers:RegisterNewPower({ -- This is like a backstab, and only works in
 		ent:SetNW2Float( "wOS.BlindTime", CurTime() + 6 )
 		ent:SetNW2Float( "wOS.DisorientTime", CurTime() + 1 )
 		ent:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 1 )
-		ent.WOS_CripplingSlow = CurTime() + 2
+		ent:SetNW2Float( "WOS_CripplingSlow", CurTime() + 2 )
 		
         self.CloakTime = CurTime() + 0.2
         return true
@@ -197,13 +197,13 @@ wOS.ForcePowers:RegisterNewPower({
 		icon = "STR",
 		image = "wos/forceicons/storm.png",
 		cooldown = 0,
-		description = "Charge for 2 seconds, unleash a storm on your enemies",
+		description = "Charge for 1 second, and unleash a storm on your enemies",
 		action = function( self )
 			if ( self:GetForce() < 100 ) then self:SetNextAttack( 0.2 ) return end
 			if self:GetAttackDelay() >= CurTime() then return end
 			self:SetForce( self:GetForce() - 100 )
 			self:GetOwner():EmitSound( Sound( "npc/strider/charging.wav" ) )
-			self:SetAttackDelay( CurTime() + 1 )
+			self:SetAttackDelay( CurTime() + 0.5 )
 			local tr = util.TraceLine( util.GetPlayerTrace( self:GetOwner() ) )
 			local pos = tr.HitPos + Vector( 0, 0, 600 )
 			local pi = math.pi

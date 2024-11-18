@@ -504,7 +504,7 @@ wOS.ForcePowers:RegisterNewPower({
 		ent:SetNW2Float( "wOS.BlindTime", CurTime() + 11 )
 		ent:SetNW2Float( "wOS.DisorientTime", CurTime() + 1 )
 		ent:SetNW2Float( "wOS.SaberAttackDelay", CurTime() + 1 )
-		ent.WOS_CripplingSlow = CurTime() + 4
+		ent:SetNW2Float( "WOS_CripplingSlow", CurTime() + 4 )
 		
         self.CloakTime = CurTime() + 0.2
         return true

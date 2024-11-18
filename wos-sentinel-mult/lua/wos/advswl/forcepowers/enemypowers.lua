@@ -142,7 +142,7 @@ wOS.ForcePowers:RegisterNewPower({
         for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), 350 ) ) do
             if v:IsValid() && v:IsPlayer() then
 				if v == self.Owner then continue end
-				v.WOS_CripplingSlow = CurTime() + 1
+				v:SetNW2Float( "WOS_CripplingSlow", CurTime() + 2 )
 				v:SetNW2Float( "wOS.BlindTime", CurTime() + 6 )
             end
         end

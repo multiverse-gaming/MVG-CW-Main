@@ -176,7 +176,7 @@ wOS.ForcePowers:RegisterNewPower({
 					ed2:SetRadius( 2 )
 					util.Effect( "wos_alcs_electrictouch", ed2, true, true )
 					ent:EmitSound( "weapons/stunstick/stunstick_fleshhit2.wav", nil, 75 )
-					ent.WOS_CripplingSlow = CurTime() + 3.50
+					ent:SetNW2Float( "WOS_CripplingSlow", CurTime() + 3.5 )
 				end
 
 			end )
@@ -374,22 +374,6 @@ hook.Add( "EntityTakeDamage", "wOS.ALCS.DA.EnergyShell", function( ply, dmg )
 	return
 end )]]--
 
-hook.Add( "Move", "wOS.ALCS.DA.SlowingEffect", function( ply, mv )
-
-	if (not ply.WOS_CripplingSlow) then return end
-	local mod = 1
-
-	if ply.WOS_CripplingSlow >= CurTime() then
-		mod = mod*0.3 -- 30%
-	end
-	
-	if mod != 1 then
-		mv:SetMaxSpeed( ply:GetWalkSpeed()*mod )
-		mv:SetMaxClientSpeed( ply:GetWalkSpeed()*mod )
-	end
-	
-end )
-
 hook.Add( "PlayerDeath", "wOS.ALCS.DA.RemoveModifiers", function( ply )
-	ply.WOS_CripplingSlow = nil
+	ply:SetNW2Float( "WOS_CripplingSlow", nil )
 end )

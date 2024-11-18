@@ -40,3 +40,16 @@ wOS.ALCS.Config.Skills.MountLevelToHUD = true
 
 --Should we be able to see the combat level of other players above their head?
 wOS.ALCS.Config.Skills.MountLevelToPlayer = false
+
+hook.Add( "Move", "wOS.ALCS.DA.SlowingEffect", function( ply, mv )
+	if (not ply:GetNW2Float("WOS_CripplingSlow")) then return end
+	local mod = 1
+	if ply:GetNW2Float("WOS_CripplingSlow") >= CurTime() then
+		mod = mod*0.3 -- 30%
+	end
+
+	if mod != 1 then
+		mv:SetMaxSpeed( ply:GetWalkSpeed()*mod )
+		mv:SetMaxClientSpeed( ply:GetWalkSpeed()*mod )
+	end
+end )

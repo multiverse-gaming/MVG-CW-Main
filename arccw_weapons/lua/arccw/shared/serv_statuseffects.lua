@@ -93,6 +93,21 @@ GMSERV.StatusEffects = {
 				end
 			end
 		},
+	["slow"] = {
+		["string"] = "Slow",
+		["function"] =
+			function(target, dealer, effect, duration)
+				if ((target:IsPlayer() and target ~= dealer)) then
+					if effect then
+						local ED_Stun = EffectData()
+						ED_Stun:SetOrigin( target:GetPos() )
+						ED_Stun:SetEntity( target )
+						ED_Stun:SetScale( duration )
+						util.Effect("SERV_passive_stun", ED_Stun, true, true)
+					end
+				end
+			end
+		},
 	["poison"] = {
 		["string"] = "Poison",
 		["function"] =

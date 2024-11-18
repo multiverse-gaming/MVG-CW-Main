@@ -37,47 +37,6 @@ FORM.Stances[1] = {
 		Rate = nil,
 	},
 	[ "light_forward" ] = {
-		Sequence = "vanguard_h_right_t3",
-		Time = 0.8,
-		Rate = nil,
-	},
-	[ "air_left" ] = {
-		Sequence = "ryoku_a_left_t1",
-		Time = 1,
-		Rate = 1.5,
-	},
-	[ "air_right" ] = {
-		Sequence = "ryoku_a_right_t1",
-		Time = 1,
-		Rate = 1.5,
-	},
-	[ "air_forward" ] = {
-		Sequence = "vanguard_a_s1_t1",
-		Time = 0.6,
-		Rate = 1.2,
-	},
-	[ "heavy" ] = {
-		Sequence = "vanguard_r_s1_t3",
-		Time = 0.9,
-		Rate = 0.7,
-	},
-	[ "heavy_charge" ] = "vanguard_taunt_reverse",
-}
-
-FORM.Stances[2] = {
-	[ "run" ] = "ryoku_r_run",
-	[ "idle" ] = "ryoku_r_idle",
-	[ "light_left" ] = {
-		Sequence = "ryoku_r_left_t1",
-		Time = 0.7,
-		Rate = nil,
-	},
-	[ "light_right" ] = {
-		Sequence = "ryoku_r_right_t1",
-		Time = 0.9,
-		Rate = nil,
-	},
-	[ "light_forward" ] = {
 		Sequence = "ryoku_a_right_t1",
 		Time = nil,
 		Rate = nil,

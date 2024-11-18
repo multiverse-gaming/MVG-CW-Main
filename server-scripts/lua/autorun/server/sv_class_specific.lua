@@ -62,6 +62,7 @@ timer.Simple(120, function() -- We wait 2 minutes to let darkRP create it's jobs
         [TEAM_GENERALGRIEVOUS] = true,
         [TEAM_SAVAGEOPRESS] = true,
         [TEAM_PREVISZLA] = true,
+        [TEAM_SITH] = true
     }
 
     fireDamageTeams = {

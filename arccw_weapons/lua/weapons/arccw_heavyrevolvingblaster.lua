@@ -16,13 +16,13 @@ SWEP.IconOverride = "entities/sopsmisc/thelastword.png"
 
 SWEP.HideViewmodel = false
 SWEP.UseHands = true
-SWEP.ViewModel = "models/arccw/kraken/sops-v2/c_the_last_word_laconic.mdl"
-SWEP.WorldModel = "models/arccw/bf2017/w_e11.mdl"
+SWEP.ViewModel = "models/zeus/zih3.mdl"
+SWEP.WorldModel = "models/zeus/zih3.mdl"
 SWEP.ViewModelFOV = 58
 SWEP.MirrorVMWM = true
 SWEP.NoHideLeftHandInCustomization = true
 SWEP.WorldModelOffset = {
-    pos = Vector(-19, 6, -5),
+    pos = Vector(-19.5, 6, -4.5),
     ang = Angle(-10, 0, 180)
 }
 
@@ -37,8 +37,8 @@ SWEP.PhysTracerProfile = 1
 SWEP.SpeedMult = 1
 
 SWEP.TracerNum = 1
-SWEP.Tracer = "tfa_tracer_yellow"
-SWEP.TracerCol = Color(255, 255, 0)
+SWEP.Tracer = "tfa_tracer_blue"
+SWEP.TracerCol = Color(0, 0, 255)
 SWEP.HullSize = 0.5
 SWEP.ChamberSize = 0
 SWEP.Primary.ClipSize = 8
@@ -141,6 +141,12 @@ SWEP.Attachments = {
     },
 }
 
+function SWEP:OnRemove()
+    StopChargeShotSound(self)
+    if (self.Sound) then
+        self.Sound:Stop()
+    end
+end
 
 SWEP.Animations = {
     ["idle"] = {

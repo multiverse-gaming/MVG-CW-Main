@@ -11,5 +11,5 @@ att.HideIfUnavailable = true
 att.AutoStats = true
 att.NotForNPC = true
 
-att.Mult_MeleeDamage = 2
+att.Mult_MeleeDamage = 3
 att.Mult_MeleeRange = 1.5

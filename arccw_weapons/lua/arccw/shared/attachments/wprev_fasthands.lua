@@ -2,7 +2,7 @@ att.PrintName = "Fast Hands"
 att.Icon = nil
 att.Description = [[You can loose shoots quickly, if inaccurately]]
 att.Desc_Pros = {}
-att.Desc_Cons = {}
+att.Desc_Cons = {"Can't aim down sights"}
 att.Desc_Neutrals = {}
 
 att.Slot = {"WPRevPerk"}

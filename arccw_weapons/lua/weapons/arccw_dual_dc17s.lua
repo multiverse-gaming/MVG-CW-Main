@@ -181,35 +181,20 @@ SWEP.AttachmentElements = {
 }
 WMOverride = "models/arccw/fisher/dc17s/dc17s.mdl"
 
---SWEP.Attachments 
---[[SWEP.Attachments = {
+SWEP.Attachments = {
     [1] = {
-        PrintName = "Tactical", -- print name
-        DefaultAttName = "No Attachment", -- used to display the "no attachment" text
-        Slot = {"tactical","tac_pistol"},
-        Bone = "RightHand_1stP", -- relevant bone any attachments will be mostly referring to
-        Offset = {
-            vpos = Vector(-9.5, -2.3, 2),
-            vang = Angle(168, 4, -90),
-        },
-    },    
-    [2] = {
-        PrintName = "Energization", -- print name
-        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-        Slot = "ammo",
+        PrintName = "Alternative Shot",
+        DefaultAttName = "None",
+        Slot = { "ARCShot" },
     },
-    [3] = {
-        PrintName = "Grip", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "grip",
-    },    
-    [4] = {
-        PrintName = "Internal Modifications", -- print name
-        DefaultAttName = "None", -- used to display the "no attachment" text
-        Slot = "uc_fg",
-    },   
-}   --]]
+}
 
+function SWEP:OnRemove()
+    StopChargeShotSound(self)
+    if (self.Sound) then
+        self.Sound:Stop()
+    end
+end
 
 SWEP.Animations = {
     ["idle"] = {

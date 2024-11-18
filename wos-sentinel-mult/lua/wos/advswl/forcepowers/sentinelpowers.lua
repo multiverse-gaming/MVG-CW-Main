@@ -103,15 +103,9 @@ wOS.ForcePowers:RegisterNewPower({
 
     	    for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), empDistance ) ) do
 	            if v:IsValid() && v:IsNPC() then
-    	            local npc = v:GetClass()
-	                if npc == "npc_antlionguard" || npc == "npc_antlion" || npc == "npc_zombie"
-                	|| npc == "npc_rebel" || npc == "npc_zombie"
-            	    || npc == "npc_poisonzombie" || npc == "npc_fastzombie_torso" || npc == "npc_fastzombie"
-        	        || npc == "npc_headcrab" || npc == "npc_headcrab_black" then
-    	                -- Intenionally left empty.
-	                else
+					if (IsModelADroid(v:GetModel())) then
                     	v:TakeDamage( empDamage, self.Owner, self )
-                	end
+					end
             	end
         	end
 
@@ -259,15 +253,9 @@ wOS.ForcePowers:RegisterNewPower({
 
         for k, v in pairs ( ents.FindInSphere( self.Owner:GetPos(), empDistance ) ) do
             if v:IsValid() && v:IsNPC() then
-                local npc = v:GetClass()
-                if npc == "npc_antlionguard" || npc == "npc_antlion" || npc == "npc_zombie"
-                || npc == "npc_rebel" || npc == "npc_zombie"
-                || npc == "npc_poisonzombie" || npc == "npc_fastzombie_torso" || npc == "npc_fastzombie"
-                || npc == "npc_headcrab" || npc == "npc_headcrab_black" then
-                    -- Intenionally left empty.
-                else
-                    v:TakeDamage( empDamage, self.Owner, self )
-                end
+				if (IsModelADroid(v:GetModel())) then
+					v:TakeDamage( empDamage, self.Owner, self )
+				end
             end
         end
 

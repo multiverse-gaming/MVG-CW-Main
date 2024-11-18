@@ -118,6 +118,11 @@ SWEP.Attachments = {
 		DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
 		Slot = {"sw_stun","gaexecute"},
 	},
+    [2] = {
+        PrintName = "Perk",
+        DefaultAttName = "None",
+        Slot = { "WPRevPerk", "PistolWhip" },
+    },
 }
 
 SWEP.Animations = {

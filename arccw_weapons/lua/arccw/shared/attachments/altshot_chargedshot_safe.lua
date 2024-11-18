@@ -1,12 +1,12 @@
-att.PrintName = "Beam Cycler"
+att.PrintName = "Beam Recycler"
 att.Icon = Material("interfaz/iconos/kraken/jedi guns saboteur/940267439_136247775.png")
 att.Description = [[Changes alternative shot to a charged pistol. Hold fire to charge up a more powerful shot.]]
 att.Desc_Pros = {"Enables charge shots"}
-att.Desc_Cons = {"Consumes more ammo for charged shots", "Don't let it hit 0!"}
+att.Desc_Cons = {"Consumes more ammo for charged shots"}
 att.Desc_Neutrals = {}
 
-att.Slot = {"WPShot"}
-att.Free = false
+att.Slot = {"ARCShot"}
+att.Free = true
 att.HideIfUnavailable = true
 att.AutoStats = true
 att.NotForNPC = true
@@ -14,42 +14,36 @@ att.NotForNPC = true
 att.UBGL = true
 att.UBGL_PrintName = "Charged Shot"
 att.UBGL_Automatic = true
-att.UBGL_ClipSize = 15
+att.UBGL_ClipSize = 20
 att.UBGL_Ammo = "ar2"
 att.UBGL_RPM = 300
 att.UBGL_Recoil = 0.1
-att.UBGL_Capacity = 15
+att.UBGL_Capacity = 20
 
--- Handle releasing the UBGL charge
-function WPFire(wep)
-    -- Invalid, return
-    if (!IsValid(wep)) then return end
-
-    -- If ammo is completely drained, either stop, or blow yourself up, depending on ammo drained.
-    if (wep:Clip2() <= 0) then
-        if (wep.AmmoDrained > 10) then
-            wep.ChargingUnderbarrel = false
-            if (wep.Sound) then
-                StopChargeShotSound(wep)
-                wep.Sound = false
-                wep.AmmoDrained = 0
-            end
-            local explosion = EffectData()
-            explosion:SetOrigin(wep.Owner:GetPos())
-            explosion:SetScale(0.5)
-            explosion:SetRadius(64)
-            explosion:SetMagnitude(1)
-            util.Effect("Explosion", explosion)
-            util.BlastDamage(wep, wep.Owner, wep.Owner:GetPos(), 100, 300)
-        end
-
-        -- Stop any firing stuff.
-        wep.ChargingUnderbarrel = false
+if (SERVER) then
+    util.AddNetworkString("StopChargeShotSoundServer")
+    net.Receive("StopChargeShotSoundServer", function()
+        local wep = net.ReadEntity()
         if (wep.Sound) then
-            StopChargeShotSound(wep)
-            wep.Sound = false
+            wep.Sound:Stop()
+        end
+    end)
+end
+function StopChargeShotSound(wep)
+    if (CLIENT) then
+        if (wep.Sound) then
+            net.Start("StopChargeShotSoundServer")
+                net.WriteEntity(wep)
+            net.SendToServer()
+            wep.Sound:Stop()
         end
     end
+end
+
+-- Handle releasing the UBGL charge
+local function ARCFire(wep)
+    -- Invalid, return
+    if (!IsValid(wep)) then return end
 
     -- Shoot if they let go.
     if (wep:GetOwner():KeyDown(IN_SPEED) && !wep:GetBuff_Override("Override_ShootWhileSprint", wep.ShootWhileSprint)) then
@@ -63,7 +57,7 @@ function WPFire(wep)
         return
     end
     local fired = false
-    if wep.HasntFiredRecently and not wep:GetOwner():KeyDown(IN_ATTACK) and wep.ChargingUnderbarrel then
+    if wep.HasntFiredRecently and ((not wep:GetOwner():KeyDown(IN_ATTACK)) || wep:Clip2() == 0) and wep.ChargingUnderbarrel then
         if (wep.AmmoDrained < 4) then
             -- If not enough ammo to shoot, stop.
             wep.ChargingUnderbarrel = false
@@ -87,7 +81,7 @@ function WPFire(wep)
 
         if (!CLIENT) then
             -- Calculate the damage for the charged shot
-            local adjustedDamage = wep.Damage + (ammoShot * 15)
+            local adjustedDamage = wep.Damage + (ammoShot * 20)
     
             -- Fire the charged shot
             local bullet = {}
@@ -127,15 +121,15 @@ function WPFire(wep)
     end
     if (fired && CLIENT) then
         -- Do a reload animation
-        if (LocalPlayer() != wep:GetOwner()) then return end
-        local a = wep:SelectAnimation("fire")
-        wep:PlayAnimation(a, 1, true, 0, nil, nil, true)
-        wep:SetPriorityAnim(CurTime() + wep:GetAnimKeyTime(a, true) * 1)
         if (wep.Sound) then
             StopChargeShotSound(wep)
             wep.Sound = false
             wep.AmmoDrained = 0
         end
+        if (LocalPlayer() != wep:GetOwner()) then return end
+        local a = wep:SelectAnimation("fire")
+        wep:PlayAnimation(a, 1, true, 0, nil, nil, true)
+        wep:SetPriorityAnim(CurTime() + wep:GetAnimKeyTime(a, true) * 1)
     end
 end
 
@@ -168,7 +162,7 @@ att.UBGL_Fire = function(wep, ubgl)
     end
 
     -- Check in 0.3 seconds if they've lifted mouse button.
-    timer.Simple(0.3, WPFire, wep)
+    timer.Simple(0.3, ARCFire, wep)
     wep:SetNextPrimaryFire(CurTime() + 0.2)
 end
 
@@ -181,7 +175,7 @@ att.UBGL_Reload = function(wep, ubgl)
     end
 
     -- Check reload stats.
-    if wep:Clip2() >= 15 then return end
+    if wep:Clip2() >= 20 then return end
     local ammoLeft = wep:GetOwner():GetAmmoCount("ar2")
     if ammoLeft <= 0 then return end
 
@@ -192,7 +186,7 @@ att.UBGL_Reload = function(wep, ubgl)
 
     -- Set correct ammo.
     ammoLeft = ammoLeft + wep:Clip2()
-    local clip = 15
+    local clip = 20
     local load = math.Clamp(clip, 0, ammoLeft)
     wep:GetOwner():RemoveAmmo(load - wep:Clip2(), "ar2")
     wep:SetClip2(load)

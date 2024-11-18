@@ -18,6 +18,7 @@ SWEP.HoldType 				= "wos-test1"
 SWEP.DeploySpeed 			= 2.5
 SWEP.ViewModelFOV			= 64
 SWEP.Weight					= 1
+SWEP.Purpose				= "Knockback and damage hostiles"
 
 SWEP.bashReloadTime = 2;
 SWEP.stunTime = 1;
@@ -35,10 +36,6 @@ SWEP.ViewModelBoneMods = {
 
 SWEP.SciFiSkin				= "nil"
 SWEP.SciFiWorld 			= "nil"
-
-if ( CLIENT ) then
-SWEP.WepSelectIcon 			= surface.GetTextureID( "/vgui/electro.png" )
-end
 
 SWEP.Primary.ClipSize		= 100
 SWEP.Primary.DefaultClip	= 100
@@ -452,7 +449,7 @@ function SWEP:DealDamage()
 	if ( SERVER && IsValid( tr.Entity ) && ( tr.Entity:IsNPC() || tr.Entity:IsPlayer() || tr.Entity:Health() > 0 ) ) then
 
 		local dmginfo = DamageInfo()
-		local dmgforce = self.Owner:GetRight() * 100 + self.Owner:GetForward() * 1000 + playervelo * 10
+		local dmgforce = self.Owner:GetRight() * 500 + self.Owner:GetForward() * 2000 + playervelo * 15
 	
 		local attacker = self.Owner
 		if ( !IsValid( attacker ) ) then attacker = self end
