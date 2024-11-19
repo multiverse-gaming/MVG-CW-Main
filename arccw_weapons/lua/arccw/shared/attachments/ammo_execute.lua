@@ -14,4 +14,4 @@ att.Slot = "gaexecute"
 
 att.Mult_DamageMin = 2001
 att.Mult_Damage = 2001
-att.OverrideClipSize = 1
+att.Override_ClipSize = 1

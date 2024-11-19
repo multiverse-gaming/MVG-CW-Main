@@ -23,7 +23,7 @@ att.Hook_BulletHit = function(wep, data)
     -- Return if invalid.
     if !data.tr.Entity then return end
     if data.tr.HitWorld then return end
-    if !data.tr.Entity:IsPlayer() then return end
+    if !data.tr.Entity:IsPlayer() && !data.tr.Entity:IsNPC() then return end
 
     -- Do knockback here.
     local target = data.tr.Entity

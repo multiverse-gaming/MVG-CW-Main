@@ -75,7 +75,9 @@ GMSERV.StatusEffects = {
 							target:ScreenFade( SCREENFADE.OUT, Color( 0, 200, 255, 0 ), 0.2, 2.5 )
 							target:Freeze( true ) 
 						elseif target:IsNPC() then
-							target:SetSchedule( SCHED_NPC_FREEZE )
+							if (!CLIENT) then
+								target:SetSchedule( SCHED_NPC_FREEZE )
+							end
 							target:StopMoving()
 						end
 
