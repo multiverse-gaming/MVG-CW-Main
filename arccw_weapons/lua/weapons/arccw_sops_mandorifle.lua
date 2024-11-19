@@ -60,9 +60,6 @@ SWEP.Firemodes = {
         Mode = 1
     },
     {
-        Mode = 2
-    },
-    {
         Mode = 0
     },         
 }
@@ -187,85 +184,7 @@ SWEP.Attachments = {
         },
         CorrectiveAng = Angle(0, 180, 0),
         CorrectivePos = Vector(0, 0, -0.07)
-    },    
-    {
-        PrintName = "Tactical",
-        DefaultAttName = "None",
-        Slot = {"tactical", "tac_pistol", "tac"},
-        VMScale = Vector(1, 1, 1),
-        WMScale = Vector(11, 11, 11),
-        Bone = "E11S_CONTR", 
-        Offset = {
-            vpos = Vector(0.5, 12, -0.3),
-            vang = Angle(0, -90, 90),
-            wpos = Vector(220, 15, -89),
-            wang = Angle(-15, 0, -90)
-        },
-    },
-    {
-        PrintName = "Foregrip",
-        DefaultAttName = "None",
-        Slot = "foregrip",
-        WMScale = Vector(11, 11, 11),
-        Bone = "E11S_CONTR",
-        Offset = {
-            vpos = Vector(0, 2, -2),
-            vang = Angle(0, -90, 0),
-            wpos = Vector(110, 9, -33),
-            wang = Angle(-15, 0, 180)
-        },          
-    },
-    {
-        PrintName = "Muzzle",
-        DefaultAttName = "None",
-        Slot = {"muzzle", "cr2_muzzle", "cr2c_muzzle", "stealth_muzzle", "b1120_muzzle"},
-        WMScale = Vector(11, 11, 11),
-        Bone = "E11S_CONTR",
-        Offset = {
-            vpos = Vector(0.1, 26, -0.25),
-            vang = Angle(0, -90, 0),
-            wpos = Vector(400, 8, -138),
-            wang = Angle(-15, 0, 180)
-        },     
-    },    
-    {
-        PrintName = "Ammunition",
-        DefaultAttName = "Standard",
-        Slot = {"ammo"},
-    },
-    {
-        PrintName = "Internal Modifications",
-        DefaultAttName = "None",
-        Slot = "uc_fg",
-    },
-    {
-        PrintName = "Charm",
-        DefaultAttName = "None",
-        Slot = {"charm"},
-        Bone = "E11S_CONTR",
-        VMScale = Vector(0.7, 0.7, 0.7),
-        WMScale = Vector(9, 9, 9),
-        Offset = {
-            vpos = Vector(0.5, -3, -0.45),
-            vang = Angle(0, -90, 0),
-            wpos = Vector(55, 15, -40),
-            wang = Angle(-15, 0, 180)
-        },
-    },     
-    {
-        PrintName = "Killcounter",
-        DefaultAttName = "None",
-        Slot = {"killcounter"},
-        WMScale = Vector(11, 11, 11),
-        VMScale = Vector(1, 1, 1),
-        Bone = "E11S_CONTR",
-        Offset = {
-            vpos = Vector(0.7, 2.5, -0.6),
-            vang = Angle(0, -90, 0),
-            wpos = Vector(120, 18, -60),
-            wang = Angle(-15, 0, 180)
-        },
-    },      
+    }
 }
 
 -- Don't touch this unless you know what you're doing

@@ -17,13 +17,13 @@ SWEP.Slot = 3
 
 SWEP.UseHands = true
 
-SWEP.ViewModel = "models/meeks/v_dp23_v2.mdl"
-SWEP.WorldModel = "models/meeks/worldmodels/w_dp23_v2.mdl"
+SWEP.ViewModel = "models/servius/weapons/viewmodels/c_sb-2.mdl"
+SWEP.WorldModel = "models/servius/weapons/worldmodels/w_sb-2.mdl"
 SWEP.ViewModelFOV = 70
-SWEP.HideViewmodel = false
+SWEP.MirrorVMWM = true
 SWEP.WorldModelOffset = {
-    pos = Vector(10, 0, -4),
-    ang = Angle(165, 180, 0),
+    pos = Vector(-5, 5, -6),
+    ang = Angle(-10, 0, 180),
     bone = "ValveBiped.Bip01_R_Hand",
 }
 

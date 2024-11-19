@@ -8,7 +8,7 @@ local jobs = {
     ["Grand Admiral"] = {"wprev_pistolwhip"},
 
     -- Generals
-    ["Supreme General"] = {"arccw_zitracker","sw_stun_ga", "wprev_pistolwhip"},
+    ["Supreme General"] = {"arccw_zitracker", "wprev_pistolwhip"},
     ["Battalion General"] = {"arccw_zitracker"},
     ["Assistant General"] = {"arccw_zitracker"},
 

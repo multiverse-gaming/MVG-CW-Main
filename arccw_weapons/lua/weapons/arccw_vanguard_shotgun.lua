@@ -58,11 +58,11 @@ SWEP.RecoilSide = 0.6
 SWEP.RecoilPunch = 0.8
 SWEP.RecoilRise = 1
 
-SWEP.Delay = 60 / 175 -- 60 / 175
+SWEP.Delay = 60 / 150
 SWEP.Num = 7
 SWEP.Firemodes = {
 	{
-		Mode = 1 -- 1
+		Mode = 2
 	},
     {
         Mode = 0
@@ -87,8 +87,8 @@ SWEP.MuzzleFlashColor = Color(255, 165, 18)
 
 SWEP.Primary.Ammo = "ar2"
 
-SWEP.ShootVol = 100 -- 100
-SWEP.ShootPitch = 100 -- 100
+SWEP.ShootVol = 70 -- 100
+SWEP.ShootPitch = 70 -- 100
 
 SWEP.ShootSound = "w/hunter.wav"
 

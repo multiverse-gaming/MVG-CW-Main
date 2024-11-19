@@ -141,6 +141,15 @@ SWEP.AttachmentElements = {
     },
 }
 
+-- Attachments 
+SWEP.Attachments = {
+    {
+        PrintName = "Rounds",
+        DefaultAttName = "Regular",
+        Slot = { "ShotgunBeanbag" },
+    }
+}
+
 --SWEP.Attachments
 --[[SWEP.Attachments = {
     [1] = {

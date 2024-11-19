@@ -1810,7 +1810,7 @@ TEAM_CGGENERAL = DarkRP.createJob("Coruscant Guard General", {
 
     description = [[Congratulations, you are the Deployed General of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "realistic_hook", "weapon_leash_rope","weapon_remotedrone","weaponchecker","datapad_player", "masita_cgshield"},
 
     command = "cggen",
 
@@ -1842,7 +1842,7 @@ TEAM_CGMCOMMANDER = DarkRP.createJob("Coruscant Guard Marshal Commander", {
 
     description = [[Congratulations, you are the Marshal Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun",  "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun",  "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player", "masita_cgshield"},
 
     command = "cgmco",
 
@@ -1874,7 +1874,7 @@ TEAM_CGCOMMANDER = DarkRP.createJob("Coruscant Guard Commander", {
 
     description = [[Congratulations, you are the Commander of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player", "masita_cgshield"},
 
     command = "cgco",
 
@@ -1908,7 +1908,7 @@ TEAM_CGEXECUTIVEOFFICER = DarkRP.createJob("Coruscant Guard Executive Officer", 
 
     description = [[Congratulations, you are the Executive Officer of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "arccw_v2_duals_dc17ext_stun", "stunstick", "weaponchecker", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff", "weapon_leash_rope","arccw_vanguard_shotgun","datapad_player", "masita_cgshield"},
 
     command = "cgxo",
 
@@ -1942,7 +1942,7 @@ TEAM_CGMJR = DarkRP.createJob("Coruscant Guard Major", {
 
     description = [[Congratulations, you are the Major of the Coruscant Guard!]],
 
-    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player"},
+    weapons = {"arccw_v2_dc15_riot_rifle", "arccw_v2_dc15_riot_shotgun", "weapon_leash_rope" ,"arccw_vanguard_shotgun", "arccw_v2_duals_dc17ext_stun", "weaponchecker", "stunstick", "weapon_cuff_elastic_officer", "weapon_policeshield", "sfw_cgelectrostaff","datapad_player", "masita_cgshield"},
 
     command = "cgmjr",
 

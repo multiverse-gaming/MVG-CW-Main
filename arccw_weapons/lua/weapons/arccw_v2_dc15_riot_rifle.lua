@@ -134,7 +134,7 @@ SWEP.Attachments = {
     [1] = {
         PrintName = "Optic", -- print name
         DefaultAttName = "Iron Sights", -- used to display the "no attachment" text
-        Slot = "extraoptic",
+        Slot = {"extraoptic", "optic"},
         -- WMScale = Vector(111, 111, 111),
         Bone = "sights", -- relevant bone any attachments wwill be mostly referring to
         Offset = {
@@ -144,7 +144,12 @@ SWEP.Attachments = {
             wang = Angle(-16, 0, 180)
         },
         --CorrectiveAng = Angle(-2.2, -0, 0)
-    }
+    },
+    [2] = {
+        PrintName = "Energization", -- print name
+        DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
+        Slot = "sw_ammo",
+    },
 }
 SWEP.Animations = {
     ["idle"] = {

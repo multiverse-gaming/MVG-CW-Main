@@ -120,7 +120,7 @@ local function ARCFire(wep)
         end
     end
     if (fired && CLIENT) then
-        -- Do a reload animation
+        -- Do a fire animation
         if (wep.Sound) then
             StopChargeShotSound(wep)
             wep.Sound = false
@@ -142,6 +142,7 @@ att.UBGL_Fire = function(wep, ubgl)
         wep.ChargingUnderbarrel = true
         wep.ChargeStartTime = CurTime()
         wep.AmmoDrained = 0
+        wep.Sound = false
     end
 
     -- Start the sound loop.
@@ -161,8 +162,8 @@ att.UBGL_Fire = function(wep, ubgl)
         wep:SetClip2(math.max(wep:Clip2() - 1, 0))
     end
 
-    -- Check in 0.3 seconds if they've lifted mouse button.
-    timer.Simple(0.3, ARCFire, wep)
+    -- Check in x seconds if they've lifted mouse button.
+    timer.Simple(0.2, ARCFire, wep)
     wep:SetNextPrimaryFire(CurTime() + 0.2)
 end
 

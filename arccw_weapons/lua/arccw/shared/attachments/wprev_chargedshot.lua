@@ -126,7 +126,7 @@ function WPFire(wep)
         end
     end
     if (fired && CLIENT) then
-        -- Do a reload animation
+        -- Fire animation
         if (LocalPlayer() != wep:GetOwner()) then return end
         local a = wep:SelectAnimation("fire")
         wep:PlayAnimation(a, 1, true, 0, nil, nil, true)
@@ -148,6 +148,7 @@ att.UBGL_Fire = function(wep, ubgl)
         wep.ChargingUnderbarrel = true
         wep.ChargeStartTime = CurTime()
         wep.AmmoDrained = 0
+        wep.Sound = false
     end
 
     -- Start the sound loop.
@@ -167,8 +168,8 @@ att.UBGL_Fire = function(wep, ubgl)
         wep:SetClip2(math.max(wep:Clip2() - 1, 0))
     end
 
-    -- Check in 0.3 seconds if they've lifted mouse button.
-    timer.Simple(0.3, WPFire, wep)
+    -- Check in x seconds if they've lifted mouse button.
+    timer.Simple(0.2, WPFire, wep)
     wep:SetNextPrimaryFire(CurTime() + 0.2)
 end
 

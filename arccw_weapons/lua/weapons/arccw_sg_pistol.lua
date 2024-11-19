@@ -116,7 +116,7 @@ SWEP.Attachments = {
 	[1] = {
 		PrintName = "Energization", -- print name
 		DefaultAttName = "Standard Energization", -- used to display the "no attachment" text
-		Slot = {"sw_stun","gaexecute"},
+		Slot = {"sw_ammo","gaexecute"},
 	},
     [2] = {
         PrintName = "Perk",

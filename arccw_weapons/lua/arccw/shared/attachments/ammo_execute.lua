@@ -12,6 +12,6 @@ att.NotForNPCs = true
 att.AutoStats = true
 att.Slot = "gaexecute"
 
-att.Mult_DamageMin = 2000
-att.Mult_Damage = 2000
+att.Mult_DamageMin = 2001
+att.Mult_Damage = 2001
 att.OverrideClipSize = 1

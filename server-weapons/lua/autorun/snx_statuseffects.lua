@@ -63,6 +63,7 @@ GMSNX.StatusEffects = {
 				end
 
 				if ((target:IsPlayer() and target ~= dealer) or target:IsNPC()) then
+					if (IsModelADroid(target:GetModel())) then return end
 					if target.SNXStatFrozen then
 						if target:Health() < 1 then
 							RemoveFrozen(target)
