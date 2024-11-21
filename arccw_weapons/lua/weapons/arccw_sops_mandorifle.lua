@@ -80,7 +80,7 @@ SWEP.ShootSound = "sops-v2/weapons/mandorifle.wav"
 SWEP.ShootSoundSilenced = "sops-v2/weapons/silenced.mp3"
 
 SWEP.NoFlash = nil
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17_red"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17_red"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false
 SWEP.MuzzleFlashColor = Color(250, 0, 0)

@@ -67,7 +67,7 @@ SWEP.HipDispersion = 200
 SWEP.MoveDispersion = 50
 
 SWEP.NoFlash = nil
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false 
 

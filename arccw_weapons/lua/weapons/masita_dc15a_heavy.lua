@@ -88,7 +88,7 @@ SWEP.ShootSound = "armas/disparos/dc15le.wav"
 SWEP.ShootSoundSilenced = "armas/disparos/dc19.wav"
 
 SWEP.NoFlash = nil
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false
 SWEP.MuzzleFlashColor = Color(0, 0, 255)

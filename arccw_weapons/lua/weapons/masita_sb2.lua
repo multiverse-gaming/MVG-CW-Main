@@ -80,7 +80,7 @@ SWEP.HipDispersion = 450 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 100
 
 SWEP.NoFlash = nil -- disable light flash
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false
 SWEP.MuzzleFlashColor = Color(0, 0, 255)

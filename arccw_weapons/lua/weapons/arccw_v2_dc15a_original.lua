@@ -86,7 +86,7 @@ SWEP.ShootSound = "dc15a/SW02_Weapons_Blasters_DC15_Laser_Close_VAR_03 4 1 0.mp3
 SWEP.ShootSoundSilenced = "w/dc19.wav"
 
 SWEP.NoFlash = nil -- disable light flash
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false -- Use Gmod muzzle effects rather than particle effects
 

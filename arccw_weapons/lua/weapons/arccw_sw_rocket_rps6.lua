@@ -69,7 +69,7 @@ SWEP.ShootPitch = 100 -- pitch of shoot sound
 SWEP.ShootSound = "weapons/rocket launcher/explosive_rocketlauncher_corebass_close_var_03.mp3"
 SWEP.DistantShootSound = "weapons/arccw/rpg7/rpg7_dist.wav"
 
-SWEP.MuzzleEffect = "muzzleflash_m79"
+--SWEP.MuzzleEffect = "muzzleflash_m79"
 
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 

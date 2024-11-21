@@ -105,7 +105,7 @@ SWEP.MeleeHitNPCSound = "weapons/arccw/melee_hitbody.wav"
 
 
 SWEP.NoFlash = nil -- disable light flash
-SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
+--SWEP.MuzzleEffect = "wpn_muzzleflash_dc17"
 SWEP.FastMuzzleEffect = nil
 SWEP.GMMuzzleEffect = false -- Use Gmod muzzle effects rather than particle effects
 
