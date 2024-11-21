@@ -6,5 +6,5 @@ att.Icon = Material("interfaz/iconos/kraken/jedi comm gunnery/292808524_42352413
 
 att.Slot = "ammo_rocket"
 att.AutoStats = true
-att.Override_MuzzleEffect = "wpn_muzzleflash_dc17"
+--att.Override_MuzzleEffect = "wpn_muzzleflash_dc17"
 att.Override_ShootEntity = "rocket_emp"

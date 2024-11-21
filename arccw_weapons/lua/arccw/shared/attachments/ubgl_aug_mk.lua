@@ -23,7 +23,7 @@ att.UBGL_BaseAnims = true
 
 att.UBGL_PrintName = "UB (BUCK)"
 att.UBGL_Automatic = true
-att.UBGL_MuzzleEffect = "wpn_muzzleflash_dc17_red"
+--att.UBGL_MuzzleEffect = "wpn_muzzleflash_dc17_red"
 att.UBGL_ClipSize = 6
 att.UBGL_Ammo = "ar2"
 att.UBGL_RPM = 150

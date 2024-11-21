@@ -14,7 +14,7 @@ att.Desc_Cons = {
 
 }
 
-att.Override_MuzzleEffect = "wpn_muzzleflash_dc17_orange"
+--att.Override_MuzzleEffect = "wpn_muzzleflash_dc17_orange"
 att.Override_Tracer = "tfa_tracer_orange"
 
 att.AutoStats = true
