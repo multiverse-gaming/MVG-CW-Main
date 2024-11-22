@@ -43,7 +43,7 @@ SWEP.Primary.ClipSize = 1
 
 SWEP.MuzzleVelocity = 1300
 SWEP.MuzzleVelocityAlt = 500
-SWEP.ShootEntity = "arccw_thr_frag"
+SWEP.ShootEntity = "thr_frag_nade_fix"
 
 SWEP.PullPinTime = 0.5
 

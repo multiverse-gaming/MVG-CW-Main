@@ -36,7 +36,7 @@ function ENT:FireTurret( weapon )
 	weapon:EmitSound("lvs/vehicles/iftx/fire_turret.mp3", 85, 100 + math.cos( CurTime() * 0.5 + self:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1, CHAN_WEAPON )
 
 	local effectdata = EffectData()
-	effectdata:SetStart( Vector(50,50,255) )
+	effectdata:SetStart( Vector(60,60,255) )
 	effectdata:SetOrigin( bullet.Src )
 	effectdata:SetNormal( dir )
 	effectdata:SetEntity( weapon )
@@ -122,6 +122,87 @@ function ENT:InitTurret()
 		if base:GetIsCarried() then return end
 
 		if not base:CanUseBTL() then return end
+
+		base:SetBTLFire( true )
+
+		if not IsValid( self.sndBTL ) then return end
+
+		self.sndBTL:Play()
+		self.sndBTL:EmitSound( "lvs/vehicles/laat/ballturret_fire.mp3", 110 )
+	end
+	weapon.FinishAttack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		base:SetBTLFire( false )
+
+		if not IsValid( self.sndBTL ) then return end
+
+		self.sndBTL:Stop()
+	end
+	weapon.OnThink = function( ent, active )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		base:SetPoseParameterBTL( ent )
+	end
+	weapon.HudPaint = function( ent, X, Y, ply )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		if base:GetIsCarried() then return end
+
+		if not base:CanUseBTL() and not base:CanUseTurret() then return end
+
+		local Pos2D = base:TraceBTL().HitPos:ToScreen()
+
+		base:PaintCrosshairCenter( Pos2D, color_white )
+		base:PaintCrosshairOuter( Pos2D, color_white )
+		base:LVSPaintHitMarker( Pos2D )
+	end
+	self:AddWeapon( weapon, 2 )
+	
+	
+	
+	local weapon = {}
+	weapon.Icon = Material("lvs/weapons/hmg.png")
+	weapon.Ammo = -1
+	weapon.Delay = 0
+	weapon.HeatRateUp = 0.25
+	weapon.HeatRateDown = 0.3
+	weapon.OnOverheat = function( ent )
+		ent:EmitSound("lvs/overheat.wav")
+	end
+	weapon.Attack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		if base:GetIsCarried() then return true end
+
+		if not base:CanUseTurret() then
+			if not base:CanUseBTL() then return true end
+
+			base:FireTurret( ent )
+
+			return
+		end
+
+		local trace = base:TraceBTL()
+
+		base:BallturretDamage( trace.Entity, ent:GetDriver(), trace.HitPos, (trace.HitPos - ent:GetPos()):GetNormalized() )
+	end
+	weapon.StartAttack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		if base:GetIsCarried() then return end
+
+		if not base:CanUseTurret() then return end
 
 		base:SetBTLFire( true )
 
