@@ -31,6 +31,8 @@ function ENT:OnToggleAI( name, old, new )
 		return
 	end
 
+	self:SetAIGunners( new )
+
 	if new == true then
 		local Driver = self:GetDriver()
 		
@@ -40,6 +42,8 @@ function ENT:OnToggleAI( name, old, new )
 
 		self:SetActive( true )
 		self:OnCreateAI()
+
+		hook.Run( "LVS.UpdateRelationship", self )
 	else
 		self:SetActive( false )
 		self:OnRemoveAI()
@@ -51,6 +55,7 @@ end
 
 function ENT:AITargetInFront( ent, range )
 	if not IsValid( ent ) then return false end
+
 	if not range then range = 45 end
 
 	if range >= 180 then return true end
@@ -64,6 +69,18 @@ end
 
 function ENT:AICanSee( otherEnt )
 	if not IsValid( otherEnt ) then return false end
+
+	local PhysObj = otherEnt:GetPhysicsObject()
+
+	if IsValid( PhysObj ) then
+		local trace = {
+			start = self:LocalToWorld( self:OBBCenter() ),
+			endpos = otherEnt:LocalToWorld( PhysObj:GetMassCenter() ),
+			filter = self:GetCrosshairFilterEnts(),
+		}
+
+		return util.TraceLine( trace ).Entity == otherEnt
+	end
 
 	local trace = {
 		start = self:LocalToWorld( self:OBBCenter() ),

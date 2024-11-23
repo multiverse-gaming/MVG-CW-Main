@@ -20,14 +20,13 @@ OBJ:SetClass("lvs_walker_atot")
 --[[---------------------------------]]--
 
 OBJ:AddRequestTeams({ -- Optional, falls back to customcheck
-  "Combat Engineer General",
   "Combat Engineer Marshal Chief",
   "Combat Engineer Chief",
   "Combat Engineer Assistant Chief",
   "Combat Engineer Chief Technician",
   "Combat Engineer Technician",
-  "Combat Engineer EOD",
-  "Combat Razor Squadron"
+  "Combat Engineer Razor Squadron",
+  "Combat Engineer EOD"
 })
 
 -- Nicolas's Rank System Support

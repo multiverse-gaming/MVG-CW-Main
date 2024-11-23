@@ -7,6 +7,7 @@ ENT.DSArmorDamageReductionType = DMG_BULLET + DMG_CLUB
 
 ENT.DSArmorIgnoreDamageType = DMG_SONIC
 ENT.DSArmorIgnoreForce = 0
+
 ENT.DSArmorBulletPenetrationAdd = 250
 
 function ENT:AddDS( data )
@@ -205,12 +206,12 @@ function ENT:CalcDamage( dmginfo )
 	end
 
 	if NewHealth <= 0 then
+		self.FinalAttacker = dmginfo:GetAttacker() 
+		self.FinalInflictor = dmginfo:GetInflictor()
+
 		self:SetDestroyed( IsCollisionDamage )
 
 		self:ClearPDS()
-
-		self.FinalAttacker = dmginfo:GetAttacker() 
-		self.FinalInflictor = dmginfo:GetInflictor()
 
 		local Attacker = self.FinalAttacker
 		if IsValid( Attacker ) and Attacker:IsPlayer() then
@@ -386,6 +387,10 @@ function ENT:SetDestroyed( SuppressOnDestroy )
 
 	self.Destroyed = true
 
+	hook.Run( "LVS.OnVehicleDestroyed", self, self.FinalAttacker, self.FinalInflictor )
+
+	hook.Run( "LVS.UpdateRelationship", self )
+
 	if SuppressOnDestroy then return end
 
 	self:OnDestroyed()
@@ -394,3 +399,5 @@ function ENT:SetDestroyed( SuppressOnDestroy )
 		net.WriteEntity( self )
 	net.SendPAS( self:GetPos() )
 end
+
+include("sv_damagesystem_armor.lua")

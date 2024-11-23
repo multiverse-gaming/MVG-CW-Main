@@ -230,6 +230,7 @@ end
 local function PaintIdentifier( ent )
 	if not LVS.ShowIdent or LVS:IsIndicatorForced() then return end
 
+	local VehicleIdentifierRange = ent.VehicleIdentifierRange
 	local MyPos = ent:GetPos()
 	local MyTeam = ent:GetAITEAM()
 
@@ -241,9 +242,9 @@ local function PaintIdentifier( ent )
 		local Pos = rPos:ToScreen()
 		local Dist = (MyPos - rPos):Length()
 
-		if Dist > 10000 or util.TraceLine( {start = ent:LocalToWorld( ent:OBBCenter() ),endpos = rPos,mask = MASK_NPCWORLDSTATIC,} ).Hit then continue end
+		if Dist > VehicleIdentifierRange or util.TraceLine( {start = ent:LocalToWorld( ent:OBBCenter() ),endpos = rPos,mask = MASK_NPCWORLDSTATIC,} ).Hit then continue end
 
-		local Alpha = 255 * (1 - (Dist / 10000) ^ 2)
+		local Alpha = 255 * (1 - (Dist / VehicleIdentifierRange) ^ 2)
 		local Team = v:GetAITEAM()
 		local IndicatorColor = Color( 255, 0, 0, Alpha )
 
@@ -260,6 +261,8 @@ local function PaintIdentifier( ent )
 				end
 			end
 		end
+
+		if Team > 3 then continue end
 
 		v:LVSHudPaintVehicleIdentifier( Pos.x, Pos.y, IndicatorColor, v )
 	end
@@ -313,11 +316,15 @@ hook.Add( "HUDPaint", "!!!!!LVS_hud", function()
 		local ScrW = X / ScaleX
 		local ScrH = Y / ScaleY
 
-		local m = Matrix()
-		m:Scale( Vector( ScaleX, ScaleY, 1 ) )
-
-		cam.PushModelMatrix( m )
+		if ScaleX == 1 and ScaleY == 1 then
 			editor:func( Parent, PosX, PosY, Width, Height, ScrW, ScrH, ply )
-		cam.PopModelMatrix()
+		else
+			local m = Matrix()
+			m:Scale( Vector( ScaleX, ScaleY, 1 ) )
+
+			cam.PushModelMatrix( m )
+				editor:func( Parent, PosX, PosY, Width, Height, ScrW, ScrH, ply )
+			cam.PopModelMatrix()
+		end
 	end
 end )

@@ -54,6 +54,9 @@ local function HandleBullets()
 		local start = bullet.Src
 		local dir = bullet.Dir
 		local TimeAlive = bullet:GetTimeAlive()
+
+		if TimeAlive < 0 then continue end
+
 		local pos = dir * TimeAlive * bullet.Velocity
 		local mul = bullet:GetLength()
 		local Is2ndTickAlive = TimeAlive > FT * 2 -- this system is slow. Takes atleast 2 ticks before it spawns. We need to trace from startpos until lua catches up
@@ -63,7 +66,7 @@ local function HandleBullets()
 		if SERVER then
 			bullet:SetPos( start + pos )
 		else
-			if IsValid( bullet.Entity ) then -- if the vehicle entity is valid...
+			if IsValid( bullet.Entity ) and bullet.SrcEntity then -- if the vehicle entity is valid...
 				local inv = 1 - mul
 
 				-- ..."parent" the bullet to the vehicle for a very short time. This will give the illusion of the bullet not lagging behind even tho it is fired later on client
@@ -73,6 +76,7 @@ local function HandleBullets()
 			end
 		end
 
+		local TraceMask = bullet.HullSize <= 1 and MASK_SHOT_PORTAL or MASK_SHOT_HULL
 		local Filter = bullet.Filter
 
 		local trace = util.TraceHull( {
@@ -81,7 +85,7 @@ local function HandleBullets()
 			filter = Filter,
 			mins = bullet.Mins,
 			maxs = bullet.Maxs,
-			mask = MASK_SHOT_HULL
+			mask = TraceMask
 		} )
 
 		--debugoverlay.Line( Is2ndTickAlive and start + pos - dir or start, start + pos + dir * bullet.Velocity * FT, Color( 255, 255, 255 ), true )
@@ -115,6 +119,13 @@ local function HandleBullets()
 			end
 		end
 
+		-- !!workaround!! todo: implement proper breaking
+		if IsValid( trace.Entity ) and trace.Entity:GetClass() == "func_breakable_surf" then
+			if SERVER then trace.Entity:Fire("break") end
+
+			trace.Hit = false -- goes right through...
+		end
+
 		if trace.Hit then
 			-- hulltrace doesnt hit the wall due to its hullsize...
 			-- so this needs an extra trace line
@@ -122,7 +133,7 @@ local function HandleBullets()
 				start = Is2ndTickAlive and start + pos - dir or start,
 				endpos = start + pos + dir * 250,
 				filter = Filter,
-				mask = MASK_SHOT_HULL
+				mask = TraceMask
 			} )
 
 			if SERVER then
@@ -134,10 +145,17 @@ local function HandleBullets()
 				dmginfo:SetDamageType( DMG_AIRBOAT )
 				dmginfo:SetInflictor( (IsValid( bullet.Entity ) and bullet.Entity) or (IsValid( bullet.Attacker ) and bullet.Attacker) or game.GetWorld() )
 				dmginfo:SetDamagePosition( EndPos )
-				dmginfo:SetDamageForce( bullet.Dir * bullet.Force ) 
+
+				if bullet.Force1km then
+					local Mul = math.min( (start - EndPos):Length() / 39370, 1 )
+					local invMul = math.max( 1 - Mul, 0 )
+					dmginfo:SetDamageForce( bullet.Dir * (bullet.Force * invMul + bullet.Force1km * Mul) )
+				else
+					dmginfo:SetDamageForce( bullet.Dir * bullet.Force )
+				end
 
 				if bullet.Callback then
-					bullet.Callback( bullet.Attacker, traceImpact, dmginfo )
+					bullet.Callback( bullet.Attacker, trace, dmginfo )
 				end
 
 				trace.Entity:TakeDamageInfo( dmginfo )
@@ -163,7 +181,21 @@ local function HandleBullets()
 					dmginfo:SetDamageType( bullet.SplashDamageType )
 					dmginfo:SetDamage( bullet.SplashDamage )
 
-					util.BlastDamageInfo( dmginfo, EndPos, bullet.SplashDamageRadius )
+					local BlastPos = EndPos
+		
+					if bullet.SplashDamageType == DMG_BLAST and IsValid( trace.Entity ) then
+						BlastPos = trace.Entity:GetPos()
+
+						if isfunction( trace.Entity.GetBase ) then
+							local Base = trace.Entity:GetBase()
+		
+							if IsValid( Base ) and isentity( Base ) then
+								BlastPos = Base:GetPos()
+							end
+						end
+					end
+
+					util.BlastDamageInfo( dmginfo, BlastPos, bullet.SplashDamageRadius )
 				end
 			else
 				if not traceImpact.HitSky then
@@ -200,6 +232,11 @@ if SERVER then
 		bullet.Src = data.Src or vector_origin
 		bullet.Dir = (data.Dir + VectorRand() * (data.Spread or vector_origin) * 0.5):GetNormalized()
 		bullet.Force = data.Force or 10
+
+		if data.Force1km then
+			bullet.Force1km = data.Force1km
+		end
+
 		bullet.HullSize = data.HullSize or 5
 		bullet.Mins = -vector_one * bullet.HullSize
 		bullet.Maxs = vector_one * bullet.HullSize
@@ -283,6 +320,11 @@ else
 			bullet.Filter = bullet.Entity
 		end
 		bullet.SrcEntity = Vector(net.ReadFloat(),net.ReadFloat(),net.ReadFloat())
+
+		if bullet.SrcEntity == vector_origin then
+			bullet.SrcEntity = nil
+		end
+
 		bullet.Velocity = net.ReadFloat()
 
 		if net.ReadBool() then
@@ -294,7 +336,10 @@ else
 		bullet.StartTimeCL = CurTime() + RealFrameTime()
 
 		local ply = LocalPlayer()
-		bullet.Muted = IsValid( ply ) and bullet.Entity == ply:lvsGetVehicle()
+
+		if IsValid( ply ) then
+			bullet.Muted = bullet.Entity == ply:lvsGetVehicle() or bullet.Entity:GetOwner() == ply
+		end
 
 		Index = Index + 1
 		if Index > MaxIndex then

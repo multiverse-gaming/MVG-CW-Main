@@ -22,6 +22,8 @@ function ENT:SetupDataTables()
 
 	self:NetworkVar( "Float", 0, "NWHeat" )
 
+	self:NetworkVar( "Bool", 0, "NWOverheated" )
+
 	self:NetworkVar( "Vector", 0, "NWAimVector" )
 
 	if SERVER then
@@ -29,6 +31,13 @@ function ENT:SetupDataTables()
 	end
 end
 
+function ENT:UnlockAimVector()
+	self._AimVectorUnlocked = true
+end
+
+function ENT:LockAimVector()
+	self._AimVectorUnlocked = nil
+end
 
 function ENT:GetEyeTrace()
 	local startpos = self:GetPos()
@@ -42,7 +51,6 @@ function ENT:GetEyeTrace()
 	return trace
 end
 
-
 function ENT:GetAI()
 	if IsValid( self:GetDriver() ) then return false end
 
@@ -50,7 +58,7 @@ function ENT:GetAI()
 
 	if not IsValid( veh ) then return false end
 
-	return veh:GetAI()
+	return veh:GetAIGunners()
 end
 
 function ENT:GetAITEAM()

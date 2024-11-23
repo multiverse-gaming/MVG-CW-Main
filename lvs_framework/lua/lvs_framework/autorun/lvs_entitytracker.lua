@@ -36,6 +36,7 @@ local Teams = {
 	["npc_stalker"] = 1,
 	["npc_strider"] = 1,
 	["npc_hunter"] = 1,
+
 	["monster_human_grunt"] = 1,
 	["monster_human_assassin"] = 1,
 	["monster_sentry"] = 1,
@@ -52,6 +53,7 @@ local Teams = {
 	["monster_scientist"] = 2,
 	["monster_barney"] = 2,
 
+	["npc_zombine"] = 3,
 	["npc_fastzombie"] = 3,
 	["npc_headcrab"] = 3,
 	["npc_headcrab_black"] = 3,
@@ -83,6 +85,10 @@ hook.Add( "OnEntityCreated", "!!!!lvsEntitySorter", function( ent )
 
 		if isfunction( ent.IsNPC ) and ent:IsNPC() then
 			table.insert( LVS.NPCsStored, ent )
+
+			if SERVER then
+				hook.Run( "LVS.UpdateRelationship", ent )
+			end
 		end
 
 		if ent.LVS then 
@@ -91,14 +97,12 @@ hook.Add( "OnEntityCreated", "!!!!lvsEntitySorter", function( ent )
 			end
 
 			table.insert( LVS.VehiclesStored, ent )
-		end
 
-		if ent.LFS then 
-			table.insert( LVS.VehiclesStored, ent )
-		end
+			if SERVER then
+				LVS:FixVelocity()
 
-		if SERVER then
-			LVS:FixVelocity()
+				hook.Run( "LVS.UpdateRelationship", ent )
+			end
 		end
 	end )
 end )
