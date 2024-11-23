@@ -20,6 +20,8 @@ function ENT:LVSHudPaintVehicleHealth( X, Y, W, H, ScrX, ScrY, ply )
 	draw.DrawText( math.Round( self:GetHP(), 0 ), "LVS_FONT_HUD_LARGE", X + 102, Y + 20, color_white, TEXT_ALIGN_LEFT )
 end
 
+ENT.VehicleIdentifierRange = 10000
+
 function ENT:LVSHudPaintVehicleIdentifier( X, Y, In_Col, target_ent )
 	if not IsValid( target_ent ) then return end
 
@@ -46,6 +48,20 @@ function ENT:KillMarker()
 	self.LastKillMarker = CurTime() + 0.5
 
 	LocalPlayer():EmitSound( "lvs/hit_kill.wav", 85, 100, 0.4, CHAN_VOICE )
+end
+
+local LastMarker = 0
+function ENT:ArmorMarker( IsDamage )
+	local T = CurTime()
+
+	local DontHurtEars = math.Clamp( T - LastMarker, 0, 1 ) ^ 2
+
+	LastMarker = T
+
+	local ArmorFailed = IsDamage and "takedamage" or "pen"
+	local Volume = IsDamage and (0.3 * DontHurtEars) or 1
+
+	LocalPlayer():EmitSound( "lvs/armor_"..ArmorFailed.."_"..math.random(1,3)..".wav", 85, math.random(95,105), Volume, CHAN_ITEM2 )
 end
 
 function ENT:HitMarker()

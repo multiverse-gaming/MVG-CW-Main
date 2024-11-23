@@ -6,7 +6,7 @@ ENT.Type            = "anim"
 
 ENT.PrintName = "Proton Torpedo"
 ENT.Author = "Luna"
-ENT.Information = "geht ab wie'n zï¿½pfchen"
+ENT.Information = "geht ab wie'n zäpfchen"
 ENT.Category = "[LVS]"
 
 ENT.Spawnable		= true
@@ -21,7 +21,7 @@ if SERVER then
 	end
 
 	function ENT:GetRadius() 
-		return (self._radius or 300)
+		return (self._radius or 150)
 	end
 
 	return

@@ -1,7 +1,7 @@
 local meta = FindMetaTable( "Player" )
 
 function meta:lvsGetAITeam()
-	return self:GetNWInt( "lvsAITeam", LVS.PlayerDefaultTeam:GetInt() )
+	return self:GetNWInt( "lvsAITeam", LVS.PlayerDefaultTeam )
 end
 
 function meta:lvsGetVehicle()
@@ -160,9 +160,9 @@ local function GetInput( ply, name )
 			ply._lvsKeyDown = {}
 		end
 
-		return ply._lvsKeyDown[ name ]
+		return ply._lvsKeyDown[ name ] == true
 	else
-		local Key = ply:lvsGetControls()[ name ]
+		local Key = ply:lvsGetControls()[ name ] or 0
 
 		if IS_MOUSE_ENUM[ Key ] then
 			return input.IsMouseDown( Key ) 
@@ -211,7 +211,7 @@ if CLIENT then
 	end )
 
 	local OldVisible = false
-	hook.Add("PostDrawHUD", "!!!lvs_keyblocker", function()
+	local function KeyBlocker()
 		local Visible = gui.IsGameUIVisible() or vgui.CursorVisible()
 
 		if Visible ~= OldVisible then
@@ -227,6 +227,14 @@ if CLIENT then
 				ply:lvsSetInputDisabled( false )
 			end
 		end
+	end
+
+	hook.Add( "LVS.PlayerEnteredVehicle", "!!!!!lvs_keyblocker_enable", function( ply, veh )
+		hook.Add("PostDrawHUD", "!!!lvs_keyblocker", KeyBlocker )
+	end )
+
+	hook.Add( "LVS.PlayerLeaveVehicle", "!!!!!lvs_keyblocker_disable", function( ply, veh )
+		hook.Remove("PostDrawHUD", "!!!lvs_keyblocker" )
 	end )
 
 	return
@@ -248,18 +256,18 @@ function meta:lvsSetInput( name, value )
 	self._lvsKeyDown[ name ] = value
 end
 
-function meta:lvsSetAITeam( nTeam )
-	nTeam = nTeam or LVS.PlayerDefaultTeam:GetInt()
+LVS.TEAMS = {
+	[0] = "FRIENDLY TO EVERYONE",
+	[1] = "Team 1",
+	[2] = "Team 2",
+	[3] = "HOSTILE TO EVERYONE",
+}
 
-	local TeamText = {
-		[0] = "FRIENDLY TO EVERYONE",
-		[1] = "Team 1",
-		[2] = "Team 2",
-		[3] = "HOSTILE TO EVERYONE",
-	}
+function meta:lvsSetAITeam( nTeam )
+	nTeam = nTeam or LVS.PlayerDefaultTeam
 
 	if self:lvsGetAITeam() ~= nTeam then
-		self:PrintMessage( HUD_PRINTTALK, "[LVS] Your AI-Team has been updated to: "..TeamText[ nTeam ] )
+		self:PrintMessage( HUD_PRINTTALK, "[LVS] Your AI-Team has been updated to: "..(LVS.TEAMS[ nTeam ] or "") )
 	end
 
 	self:SetNWInt( "lvsAITeam", nTeam )
@@ -303,6 +311,10 @@ hook.Add( "PlayerButtonDown", "!!!lvsButtonDown", function( ply, button )
 			end
 
 			if KeyName == "EXIT" then
+				if vehicle:GetDriver() == ply and vehicle:GetlvsLockedStatus() then vehicle:UnLock() end
+
+				if vehicle:GetlvsLockedStatus() then continue end
+
 				ply:ExitVehicle()
 			end
 		end

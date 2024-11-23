@@ -5,15 +5,15 @@ hook.Add( "LVS:Initialize", "!!11lvs_default_keys", function()
 			name = "ATTACK",
 			category = "Armament",
 			name_menu = "Attack",
-			default = "+attack",
-			cmd = "lvs_attack"
+			default = MOUSE_LEFT,
+			cmd = "lvs_lmb"
 		},
 		{
 			name = "ZOOM",
 			category = "Armament",
 			name_menu = "Zoom",
-			default = "+attack2",
-			cmd = "lvs_zoom"
+			default = MOUSE_RIGHT,
+			cmd = "lvs_rmb"
 		},
 		{
 			name = "~SELECT~WEAPON#1",

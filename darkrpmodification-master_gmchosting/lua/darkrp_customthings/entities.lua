@@ -97,6 +97,16 @@ DarkRP.createEntity("Hacking Tools", {
     category = "Entities",
 })
 
+DarkRP.createEntity("LVS Vehicle Ammo", {
+    ent = "lvs_item_ammocrate",
+    model = "models/items/item_item_crate_dynamic.mdl",
+    price = 0,
+    max = 1,
+    cmd = "lvsammocrate",
+    allowed = {TEAM_CECHIEF, TEAM_CEMCOMMANDER, TEAM_CECOMMANDER, TEAM_CEMECHANIC, TEAM_CELIEUTENANT, TEAM_CESPECIALIST, TEAM_CEEXECUTIVEOFFICER, TEAM_CEFAB, TEAM_CEARC, TEAM_ARCALPHACE, TEAM_CEMEDOFFICER, TEAM_CEMEDTROOPER},
+    category = "Entities",
+})
+
 DarkRP.createEntity("Moondust Crate", {
     ent = "moondust_crate",
     model = "models/kingpommes/starwars/misc/imp_crate_single_closed.mdl",

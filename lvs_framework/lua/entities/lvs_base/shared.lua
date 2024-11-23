@@ -52,8 +52,28 @@ function ENT:CreateBaseDT()
 	self:AddDT( "Bool", "Active" )
 	self:AddDT( "Bool", "EngineActive" )
 	self:AddDT( "Bool", "AI",	{ KeyName = "aicontrolled",	Edit = { type = "Boolean",	order = 1,	category = "AI"} } )
+
+	local ShowAIGunnerInMenu = false
+
+	if istable( self.WEAPONS ) then
+		for id, _ in pairs( self.WEAPONS ) do
+			if id == 1 then continue end
+
+			ShowAIGunnerInMenu = true
+
+			break
+		end
+	end
+
+	if ShowAIGunnerInMenu then
+		self:AddDT( "Bool", "AIGunners",	{ KeyName = "aigunners",	Edit = { type = "Boolean",	order = 2,	category = "AI"} } )
+	else
+		self:AddDT( "Bool", "AIGunners" )
+	end
+
 	self:AddDT( "Bool", "lvsLockedStatus" )
 	self:AddDT( "Bool", "lvsReady" )
+	self:AddDT( "Bool", "NWOverheated" )
 
 	self:AddDT( "Int", "AITEAM", { KeyName = "aiteam", Edit = { type = "Int", order = 2,min = 0, max = 3, category = "AI"} } )
 	self:AddDT( "Int", "SelectedWeapon" )
@@ -229,7 +249,13 @@ function ENT:GetPassenger( num )
 		return self:GetDriver()
 	else
 		for _, Pod in pairs( self:GetPassengerSeats() ) do
+
+			if not IsValid( Pod ) then
+				return NULL
+			end
+
 			local id = Pod:GetNWInt( "pPodIndex", -1 )
+
 			if id == -1 then continue end
 
 			if id == num then

@@ -6,26 +6,39 @@ include( "cl_seatswitcher.lua" )
 include( "cl_trailsystem.lua" )
 include( "cl_boneposeparemeter.lua" )
 
+local Zoom = 0
+
+function ENT:LVSCalcFov( fov, ply )
+
+	local TargetZoom = ply:lvsKeyDown( "ZOOM" ) and 0 or 1
+
+	Zoom = Zoom + (TargetZoom - Zoom) * RealFrameTime() * 10
+
+	local newfov = fov * Zoom + (self.ZoomFov or 40) * (1 - Zoom)
+
+	return newfov
+end
+
 function ENT:LVSCalcView( ply, pos, angles, fov, pod )
 	return LVS:CalcView( self, ply, pos, angles, fov, pod )
 end
 
-function ENT:PreDraw()
+function ENT:PreDraw( flags )
 	return true
 end
 
-function ENT:PreDrawTranslucent()
+function ENT:PreDrawTranslucent( flags )
 	return true
 end
 
-function ENT:PostDraw()
+function ENT:PostDraw( flags )
 end
 
-function ENT:PostDrawTranslucent()
+function ENT:PostDrawTranslucent( flags )
 end
 
 function ENT:Draw( flags )
-	if self:PreDraw() then
+	if self:PreDraw( flags ) then
 		if self.lvsLegacyDraw then
 			self:DrawModel() -- ugly, but required in order to fix old addons. Refract wont work on these.
 		else
@@ -33,19 +46,19 @@ function ENT:Draw( flags )
 		end
 	end
 
-	self:PostDraw()
+	self:PostDraw( flags )
 end
 
 function ENT:DrawTranslucent( flags )
 	self:DrawTrail()
 
-	if self:PreDrawTranslucent() then
+	if self:PreDrawTranslucent( flags ) then
 		self:DrawModel( flags )
 	else
 		self.lvsLegacyDraw = true -- insert puke simley
 	end
 
-	self:PostDrawTranslucent()
+	self:PostDrawTranslucent( flags )
 end
 
 function ENT:Initialize()
@@ -77,18 +90,20 @@ ENT._oldActive = false
 ENT._oldEnActive = false
 
 function ENT:HandleActive()
+	local EntTable = self:GetTable()
+
 	local Active = self:GetActive()
 	local EngineActive = self:GetEngineActive()
 	local ActiveChanged = false
 
-	if self._oldActive ~= Active then
-		self._oldActive = Active
-		self:OnActiveChanged( Active )
+	if EntTable._oldActive ~= Active then
+		EntTable._oldActive = Active
+		EntTable:OnActiveChanged( Active )
 		ActiveChanged = true
 	end
 
-	if self._oldEnActive ~= EngineActive then
-		self._oldEnActive = EngineActive
+	if EntTable._oldEnActive ~= EngineActive then
+		EntTable._oldEnActive = EngineActive
 		self:OnEngineActiveChanged( EngineActive )
 		ActiveChanged = true
 	end
