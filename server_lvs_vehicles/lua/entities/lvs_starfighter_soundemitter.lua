@@ -20,8 +20,35 @@ if SERVER then
 		debugoverlay.Cross( self:GetPos(), 40, 5, Color( 255, 255, 255 ) )
 	end
 
+	function ENT:CheckWater( Base )
+		if bit.band( util.PointContents( self:GetPos() ), CONTENTS_WATER ) ~= CONTENTS_WATER then
+			if self.CountWater then
+				self.CountWater = nil
+			end
+
+			return
+		end
+
+		if Base.WaterLevelAutoStop > 3 then return end
+
+		self.CountWater = (self.CountWater or 0) + 1
+
+		if self.CountWater < 4 then return end
+
+		Base:StopEngine()
+	end
+
 	function ENT:Think()
-		return false
+
+		local Base = self:GetBase()
+
+		if IsValid( Base ) and Base:GetEngineActive() then
+			self:CheckWater( Base )
+		end
+
+		self:NextThink( CurTime() + 1 )
+
+		return true
 	end
 
 	function ENT:OnTakeDamage( dmginfo )
@@ -116,6 +143,12 @@ function ENT:HandleEngineSounds( vehicle )
 
 			if FirstPerson then
 				sound.ext:ChangeVolume( 0, 0 )
+
+				if vehicle:HasActiveSoundEmitters() then
+					Volume = Volume * 0.25
+					fadespeed = fadespeed * 0.5
+				end
+
 				if sound.int then sound.int:ChangeVolume( Volume, fadespeed ) end
 			else
 				sound.ext:ChangeVolume( Volume, fadespeed )
@@ -129,10 +162,10 @@ function ENT:HandleEngineSounds( vehicle )
 end
 
 function ENT:OnEngineActiveChanged( Active )
-	if not Active then self:StopSounds() end
+	if not Active then self:StopSounds() return end
 
 	local ply = LocalPlayer()
-	local DrivingMe = ply:lvsGetVehicle() == self:GetBase() or table.Count( LVS:GetVehicles() ) <= 1
+	local DrivingMe = ply:lvsGetVehicle() == self:GetBase()
 
 	for id, data in pairs( self.EngineSounds ) do
 		if not isstring( data.sound ) then continue end
@@ -168,13 +201,11 @@ function ENT:OnEngineActiveChanged( Active )
 				}
 			end
 		else
-			if DrivingMe or data.SoundLevel >= 90 then
-				local sound = CreateSound( self, data.sound )
-				sound:SetSoundLevel( data.SoundLevel )
-				sound:PlayEx(0,100)
+			local sound = CreateSound( self, data.sound )
+			sound:SetSoundLevel( data.SoundLevel )
+			sound:PlayEx(0,100)
 
-				self._ActiveSounds[ id ] = sound
-			end
+			self._ActiveSounds[ id ] = sound
 		end
 	end
 end

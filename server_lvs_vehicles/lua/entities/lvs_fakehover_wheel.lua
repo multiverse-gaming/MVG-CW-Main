@@ -5,7 +5,6 @@ ENT.Type            = "anim"
 ENT.Spawnable       = false
 ENT.AdminSpawnable  = false
 ENT.DoNotDuplicate = true
-ENT.lvsDoNotGrab = true
 
 function ENT:SetupDataTables()
 	self:NetworkVar( "Entity",0, "Base" )
@@ -18,6 +17,10 @@ if SERVER then
 		self:SetMoveType( MOVETYPE_VPHYSICS )
 		self:SetSolid( SOLID_VPHYSICS )
 		self:DrawShadow( false )
+
+		self:AddEFlags( EFL_NO_PHYSCANNON_INTERACTION )
+
+		self:SetCollisionGroup( COLLISION_GROUP_PASSABLE_DOOR )
 	end
 
 	function ENT:Define( data )
@@ -81,6 +84,8 @@ if SERVER then
 	end
 
 	function ENT:OnTakeDamage( dmginfo )
+		if dmginfo:IsDamageType( DMG_BLAST ) then return end
+
 		local base = self:GetBase()
 
 		if not IsValid( base ) then return end
